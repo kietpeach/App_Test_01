@@ -159,12 +159,12 @@ class GlobalWidget {
                     fontSize: 15, color: BLACK77, letterSpacing: 0.5)),
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(top: 24, bottom: 8),
-          child: Text('Example',
-              style: TextStyle(
-                  fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500)),
-        ),
+        // Container(
+        //   margin: EdgeInsets.only(top: 24, bottom: 8),
+        //   child: Text('Example',
+        //       style: TextStyle(
+        //           fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500)),
+        // ),
       ],
     );
   }

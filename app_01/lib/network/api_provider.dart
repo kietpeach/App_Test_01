@@ -6,11 +6,11 @@ This page is used to get data from API
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Inventory.pbgrpc.dart';
-import 'package:app_01/ui/models/inventory/student_model.dart';
+//import 'package:app_01/ui/models/inventory/Inventory_model.dart';
 // import 'package:app_01/model/integration/login_model.dart';
 // import 'package:app_01/model/integration/product_grid_model.dart';
 // import 'package:app_01/model/integration/product_listview_model.dart';
-// import 'package:app_01/model/integration/student_model.dart';
+// import 'package:app_01/model/integration/Inventory_model.dart';
 import 'package:dio/dio.dart';
 import 'package:grpc/grpc.dart';
 
@@ -113,7 +113,7 @@ class ApiProvider {
     return res.returnCode.toString();
   }
 
-  Future<List<grpcStockSumModel>> getStudent(
+  Future<List<grpcStockSumModel>> getInventoryStockSum(
       String invCode, String productCode) async {
     GetStockSum_Response res = new GetStockSum_Response();
     final channel = ClientChannel(
@@ -133,15 +133,15 @@ class ApiProvider {
     return res.records;
   }
 
-  // Future<List<dynamic>> addStudent(String sessionId, String studentName, String studentPhoneNumber, String studentGender, String studentAddress, apiToken) async {
+  // Future<List<dynamic>> addInventory(String sessionId, String InventoryName, String InventoryPhoneNumber, String InventoryGender, String InventoryAddress, apiToken) async {
   //   var postData = {
   //     'session_id': sessionId,
-  //     'student_name': studentName,
-  //     'student_phone_number': studentPhoneNumber,
-  //     'student_gender': studentGender,
-  //     'student_address': studentAddress,
+  //     'Inventory_name': InventoryName,
+  //     'Inventory_phone_number': InventoryPhoneNumber,
+  //     'Inventory_gender': InventoryGender,
+  //     'Inventory_address': InventoryAddress,
   //   };
-  //   response = await postConnect(SERVER_URL+'/student/addStudent', postData, apiToken);
+  //   response = await postConnect(SERVER_URL+'/Inventory/addInventory', postData, apiToken);
   //   if(response.data['status'] == STATUS_OK){
   //     List<dynamic> respList = [];
   //     respList.add(response.data['msg']);
@@ -152,16 +152,16 @@ class ApiProvider {
   //   }
   // }
 
-  // Future<String> editStudent(String sessionId, int studentId, String studentName, String studentPhoneNumber, String studentGender, String studentAddress, apiToken) async {
+  // Future<String> editInventory(String sessionId, int InventoryId, String InventoryName, String InventoryPhoneNumber, String InventoryGender, String InventoryAddress, apiToken) async {
   //   var postData = {
   //     'session_id': sessionId,
-  //     'student_id': studentId,
-  //     'student_name': studentName,
-  //     'student_phone_number': studentPhoneNumber,
-  //     'student_gender': studentGender,
-  //     'student_address': studentAddress,
+  //     'Inventory_id': InventoryId,
+  //     'Inventory_name': InventoryName,
+  //     'Inventory_phone_number': InventoryPhoneNumber,
+  //     'Inventory_gender': InventoryGender,
+  //     'Inventory_address': InventoryAddress,
   //   };
-  //   response = await postConnect(SERVER_URL+'/student/editStudent', postData, apiToken);
+  //   response = await postConnect(SERVER_URL+'/Inventory/editInventory', postData, apiToken);
   //   if(response.data['status'] == STATUS_OK){
   //     return response.data['msg'];
   //   } else {
@@ -169,12 +169,12 @@ class ApiProvider {
   //   }
   // }
 
-  // Future<String> deleteStudent(String sessionId, int studentId, apiToken) async {
+  // Future<String> deleteInventory(String sessionId, int InventoryId, apiToken) async {
   //   var postData = {
   //     'session_id': sessionId,
-  //     'student_id': studentId,
+  //     'Inventory_id': InventoryId,
   //   };
-  //   response = await postConnect(SERVER_URL+'/student/deleteStudent', postData, apiToken);
+  //   response = await postConnect(SERVER_URL+'/Inventory/deleteInventory', postData, apiToken);
   //   if(response.data['status'] == STATUS_OK){
   //     return response.data['msg'];
   //   } else {

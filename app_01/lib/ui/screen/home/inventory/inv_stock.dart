@@ -1,9 +1,14 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/student/bloc.dart';
+import 'package:app_01/bloc/inventory/bloc.dart';
+import 'package:app_01/bloc/master/master_bloc.dart';
+import 'package:app_01/bloc/master/master_event.dart';
+import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
+import 'package:app_01/service/Master.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
-// import 'package:app_01/model/integration/student_model.dart';
+import 'package:app_01/src/generated/Master.pb.dart';
+// import 'package:app_01/model/integration/Inventory_model.dart';
 // import 'package:app_01/ui/integration/api/crud/add_data.dart';
 // import 'package:app_01/ui/integration/api/crud/edit_data.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
@@ -23,16 +28,24 @@ class _InvStockPageState extends State<InvStockPage> {
   final _globalWidget = GlobalWidget();
   final _globalFunction = GlobalFunction();
 
-  late StudentBloc _studentBloc;
+  late InventoryBloc _InventoryBloc;
+  late MasterBloc _MasterBloc;
   CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
-  List<grpcStockSumModel> _studentData = [];
+  List<grpcStockSumModel> _InventoryData = [];
+  List<grpcInventoryModel> _InventorySlistData = [];
+  List<grpcSelectProductModel> _ProductSlistData = [];
+  String _valScroll1 = "";
+  String _valScroll2 = "";
 
   @override
   void initState() {
-    _studentBloc = BlocProvider.of<StudentBloc>(context);
-    _studentBloc.add(
-        GetStudent(sessionId: '5f0e6bfbafe255.00218389', apiToken: apiToken));
+    _InventoryBloc = BlocProvider.of<InventoryBloc>(context);
+    _InventoryBloc.add(GetInventory(invCode: "", productCode: ""));
+    _MasterBloc = BlocProvider.of<MasterBloc>(context);
+    _MasterBloc.add(GetMaster());
+    _MasterBloc = BlocProvider.of<MasterBloc>(context);
+    _MasterBloc.add(GetProductMaster());
     super.initState();
   }
 
@@ -54,21 +67,96 @@ class _InvStockPageState extends State<InvStockPage> {
           children: [
             Container(
               child: _globalWidget.createDetailWidget(
-                  title: 'Xem tồn kho',
-                  desc:
-                      'This is the example of Inventory Data\n- Cannot modify or delete)'),
+                  title: 'Xem tồn kho', desc: ''),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 8),
+              child: BlocListener<MasterBloc, MasterState>(
+                  listener: (context, state) {
+                if (state is GetMasterError) {
+                  Fluttertoast.showToast(
+                      msg: state.errorMessage,
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 13);
+                }
+                if (state is GetMasterSuccess) {
+                  _InventorySlistData.addAll(state.MasterData);
+                }
+              }, child: BlocBuilder<MasterBloc, MasterState>(
+                      builder: (context, state) {
+                return DropdownButton(
+                  hint: Text("Kho"),
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  underline: Container(
+                    height: 4,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                  value: _valScroll1 == "" ? null : _valScroll1,
+                  items: List.generate(_InventorySlistData.length, (index) {
+                    return DropdownMenuItem(
+                      child: Text(_InventorySlistData[index].invName),
+                      value: _InventorySlistData[index].invCode,
+                    );
+                  }),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _valScroll1 = value!;
+                    });
+                  },
+                );
+              })),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 8),
+              child: BlocListener<MasterBloc, MasterState>(
+                  listener: (context, state) {
+                if (state is GetMasterError) {
+                  Fluttertoast.showToast(
+                      msg: state.errorMessage,
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 13);
+                }
+                if (state is GetProductMasterSuccess) {
+                  _ProductSlistData.addAll(state.ProductMasterData);
+                }
+              }, child: BlocBuilder<MasterBloc, MasterState>(
+                      builder: (context, state) {
+                return DropdownButton(
+                  hint: Text("Sản phẩm"),
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  underline: Container(
+                    height: 4,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                  value: _valScroll2 == "" ? null : _valScroll2,
+                  items: List.generate(_ProductSlistData.length, (index) {
+                    return DropdownMenuItem(
+                      child: Text(_ProductSlistData[index].productName),
+                      value: _ProductSlistData[index].productCode,
+                    );
+                  }),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _valScroll2 = value!;
+                    });
+                  },
+                );
+              })),
             ),
             Container(
                 child: Wrap(
               spacing: 16,
               children: [
                 _globalWidget.createButton(
-                    buttonName: 'Refresh',
+                    buttonName: 'Tìm kiếm',
                     onPressed: () {
-                      _studentData.clear();
-                      _studentBloc.add(GetStudent(
-                          sessionId: '5f0e6bfbafe255.00218389',
-                          apiToken: apiToken));
+                      _InventoryData.clear();
+                      _InventoryBloc.add(GetInventory(
+                          invCode: _valScroll1, productCode: _valScroll2));
                     }),
                 // _globalWidget.createButton(
                 //     buttonName: 'Add Data',
@@ -90,9 +178,9 @@ class _InvStockPageState extends State<InvStockPage> {
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 8),
-              child: BlocListener<StudentBloc, StudentState>(
+              child: BlocListener<InventoryBloc, InventoryState>(
                 listener: (context, state) {
-                  if (state is GetStudentError) {
+                  if (state is GetInventoryError) {
                     Fluttertoast.showToast(
                         msg: state.errorMessage,
                         toastLength: Toast.LENGTH_SHORT,
@@ -100,71 +188,71 @@ class _InvStockPageState extends State<InvStockPage> {
                         textColor: Colors.white,
                         fontSize: 13);
                   }
-                  if (state is DeleteStudentWaiting) {
-                    Navigator.pop(context);
-                    _globalFunction.showProgressDialog(context);
-                  }
-                  if (state is DeleteStudentError) {
-                    Navigator.pop(context);
-                    Fluttertoast.showToast(
-                        msg: state.errorMessage,
-                        toastLength: Toast.LENGTH_SHORT,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 13);
-                  }
-                  if (state is GetStudentSuccess) {
-                    _studentData.addAll(state.studentData);
-                  }
-                  if (state is DeleteStudentSuccess) {
-                    Navigator.pop(context);
-                    _studentData.removeAt(state.index);
-                    Fluttertoast.showToast(
-                        msg: state.msg, toastLength: Toast.LENGTH_SHORT);
-                  }
-                  // if (state is AddStudentSuccess) {
+                  // if (state is DeleteInventoryWaiting) {
                   //   Navigator.pop(context);
+                  //   _globalFunction.showProgressDialog(context);
+                  // }
+                  // if (state is DeleteInventoryError) {
                   //   Navigator.pop(context);
-                  //   _studentData.insert(
-                  //       0,
-                  //       StudentModel(
-                  //           studentId: state.studentId,
-                  //           studentName: state.studentName,
-                  //           studentPhoneNumber: state.studentPhoneNumber,
-                  //           studentGender: state.studentGender,
-                  //           studentAddress: state.studentAddress));
+                  //   Fluttertoast.showToast(
+                  //       msg: state.errorMessage,
+                  //       toastLength: Toast.LENGTH_SHORT,
+                  //       backgroundColor: Colors.red,
+                  //       textColor: Colors.white,
+                  //       fontSize: 13);
+                  // }
+                  if (state is GetInventorySuccess) {
+                    _InventoryData.addAll(state.InventoryData);
+                  }
+                  // if (state is DeleteInventorySuccess) {
+                  //   Navigator.pop(context);
+                  //   _InventoryData.removeAt(state.index);
                   //   Fluttertoast.showToast(
                   //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
                   // }
-                  // if (state is EditStudentSuccess) {
+                  // if (state is AddInventorySuccess) {
                   //   Navigator.pop(context);
                   //   Navigator.pop(context);
-                  //   _studentData[state.index] = StudentModel(
-                  //       studentId: state.studentId,
-                  //       studentName: state.studentName,
-                  //       studentPhoneNumber: state.studentPhoneNumber,
-                  //       studentGender: state.studentGender,
-                  //       studentAddress: state.studentAddress);
+                  //   _InventoryData.insert(
+                  //       0,
+                  //       InventoryModel(
+                  //           InventoryId: state.InventoryId,
+                  //           InventoryName: state.InventoryName,
+                  //           InventoryPhoneNumber: state.InventoryPhoneNumber,
+                  //           InventoryGender: state.InventoryGender,
+                  //           InventoryAddress: state.InventoryAddress));
+                  //   Fluttertoast.showToast(
+                  //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
+                  // }
+                  // if (state is EditInventorySuccess) {
+                  //   Navigator.pop(context);
+                  //   Navigator.pop(context);
+                  //   _InventoryData[state.index] = InventoryModel(
+                  //       InventoryId: state.InventoryId,
+                  //       InventoryName: state.InventoryName,
+                  //       InventoryPhoneNumber: state.InventoryPhoneNumber,
+                  //       InventoryGender: state.InventoryGender,
+                  //       InventoryAddress: state.InventoryAddress);
                   //   Fluttertoast.showToast(
                   //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
                   // }
                 },
-                child: BlocBuilder<StudentBloc, StudentState>(
+                child: BlocBuilder<InventoryBloc, InventoryState>(
                   builder: (context, state) {
-                    if (state is GetStudentError) {
+                    if (state is GetInventoryError) {
                       return Text('error occured');
                     } else {
-                      if (_studentData.length == 0) {
+                      if (_InventoryData.length == 0) {
                         return Center(child: CircularProgressIndicator());
                       } else {
                         return ListView.builder(
-                          itemCount: _studentData.length,
+                          itemCount: _InventoryData.length,
                           shrinkWrap: true,
                           primary: false,
                           // Add one more item for progress indicator
                           padding: EdgeInsets.symmetric(vertical: 0),
                           itemBuilder: (BuildContext context, int index) {
-                            return _buildStudentCard(index);
+                            return _buildInventoryCard(index);
                           },
                         );
                       }
@@ -179,7 +267,7 @@ class _InvStockPageState extends State<InvStockPage> {
     );
   }
 
-  Widget _buildStudentCard(index) {
+  Widget _buildInventoryCard(index) {
     return Card(
       elevation: 0.5,
       child: Container(
@@ -188,7 +276,7 @@ class _InvStockPageState extends State<InvStockPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: _studentData[index].stockQty != 0
+                color: _InventoryData[index].stockQty != 0
                     ? Colors.blue
                     : Colors.pink,
                 borderRadius: BorderRadius.all(Radius.circular(18)),
@@ -198,7 +286,7 @@ class _InvStockPageState extends State<InvStockPage> {
               height: 26,
               child: Center(
                   child: Text(
-                      //_studentData[index].studentGender == 'male' ? 'M' : 'F',
+                      //_InventoryData[index].InventoryGender == 'male' ? 'M' : 'F',
                       'M',
                       style: TextStyle(color: Colors.white, fontSize: 12))),
             ),
@@ -207,12 +295,12 @@ class _InvStockPageState extends State<InvStockPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(_studentData[index].productCode,
+                  Text(_InventoryData[index].productCode,
                       style: TextStyle(
                           fontSize: 18,
                           color: BLACK55,
                           fontWeight: FontWeight.w500)),
-                  Text(_studentData[index].stockQty.units.toString(),
+                  Text(_InventoryData[index].stockQty.units.toString(),
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],
@@ -228,7 +316,7 @@ class _InvStockPageState extends State<InvStockPage> {
                   //     MaterialPageRoute(
                   //         builder: (context) => EditDataPage(
                   //             index: index,
-                  //             studentData: _studentData[index])));
+                  //             InventoryData: _InventoryData[index])));
                 },
                 child:
                     Icon(Icons.inventory, size: 24, color: Colors.grey[700])),
@@ -253,10 +341,10 @@ class _InvStockPageState extends State<InvStockPage> {
   //       child: Text('No', style: TextStyle(color: SOFT_BLUE)));
   //   Widget continueButton = TextButton(
   //       onPressed: () {
-  //         _studentBloc.add(DeleteStudent(
+  //         _InventoryBloc.add(DeleteInventory(
   //             sessionId: '5f0e6bfbafe255.00218389',
-  //             //studentId: _studentData[index].studentId,
-  //             studentId: 1,
+  //             //InventoryId: _InventoryData[index].InventoryId,
+  //             InventoryId: 1,
   //             index: index,
   //             apiToken: apiToken));
   //       },
@@ -268,11 +356,11 @@ class _InvStockPageState extends State<InvStockPage> {
   //       borderRadius: BorderRadius.circular(10),
   //     ),
   //     title: Text(
-  //       'Delete ' + _studentData[index].studentName,
+  //       'Delete ' + _InventoryData[index].InventoryName,
   //       style: TextStyle(fontSize: 18),
   //     ),
   //     content: Text(
-  //         'Are you sure to delete ' + _studentData[index].studentName + ' ?',
+  //         'Are you sure to delete ' + _InventoryData[index].InventoryName + ' ?',
   //         style: TextStyle(fontSize: 13)),
   //     actions: [
   //       cancelButton,

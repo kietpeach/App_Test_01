@@ -1,5 +1,6 @@
 import 'package:app_01/bloc/example/example_bloc.dart';
-import 'package:app_01/bloc/student/student_bloc.dart';
+import 'package:app_01/bloc/inventory/inventory_bloc.dart';
+import 'package:app_01/bloc/master/master_bloc.dart';
 import 'package:app_01/ui/screen/signin/signin4.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,8 +21,11 @@ class MyApp extends StatelessWidget {
           BlocProvider<ExampleBloc>(
             create: (BuildContext context) => ExampleBloc(),
           ),
-          BlocProvider<StudentBloc>(
-            create: (BuildContext context) => StudentBloc(),
+          BlocProvider<InventoryBloc>(
+            create: (BuildContext context) => InventoryBloc(),
+          ),
+          BlocProvider<MasterBloc>(
+            create: (BuildContext context) => MasterBloc(),
           ),
         ],
         // if you want to change default language, go to lib/ui/feature/multi_language/initial_language.dart and change en US to your default language
