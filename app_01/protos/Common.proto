@@ -1,0 +1,97 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Common.Messages";
+import "timestamp.proto";
+package grpcCommonMessages;
+
+//======================================================
+// Common Messages
+//======================================================
+message UserCredential {
+    string Username = 1;
+    string StaffID = 2;
+    string RoleID = 3;
+    string AccessToken = 4;
+    string ApiKey = 5;
+}
+//Common request
+message SubcribeEvents_Request {
+    UserCredential Credential = 1;
+    //
+    string EventName = 2;
+    string JsonStringData = 3;
+}
+message Empty_Request {
+    UserCredential Credential = 1;
+}
+message String_Request
+{
+    UserCredential Credential = 1;
+    //
+     string StringValue = 2;
+}
+message Int_Request
+{
+    UserCredential Credential = 1;
+    //
+    int32 IntValue = 2;
+}
+message Double_Request
+{
+    UserCredential Credential = 1;
+    //
+    double DoubleValue = 2;
+}
+message Bool_Request
+{
+    UserCredential Credential = 1;
+    //
+    bool BoolValue = 2;
+}
+message Date_Request
+{
+    UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp DateValue = 2;
+}
+
+//Common Response
+message Empty_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+}
+message String_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+     string StringValue = 3;
+}
+message Int_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+     int32 IntValue = 3;
+}
+message Double_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    double DoubleValue = 3;
+}
+message Bool_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    bool BoolValue = 3;
+}
+message Date_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    google.protobuf.Timestamp DateValue = 3;
+}
+

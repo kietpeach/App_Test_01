@@ -1,0 +1,1644 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Inventory.Services";
+import "timestamp.proto";
+import "Common.proto";
+import "CustomDatatype.proto";
+package grpcInventoryService;
+//Services
+service grpcInventoryService {
+    /////Commmon Core system
+    //For refresh: config, caching,..
+    rpc SubcribeEvents (grpcCommonMessages.SubcribeEvents_Request) returns (grpcCommonMessages.Empty_Response); 
+    //>>> Start new generated rpc position
+    //>>> Start generated InvTransHeader rpc
+    rpc SaveVoucherInvTrans (SaveVoucherInvTrans_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvTrans (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvTrans (GetVoucherInvTrans_Request) returns (GetVoucherInvTrans_Response);
+    rpc GetHeaderInvTrans (GetHeaderInvTrans_Request) returns (GetHeaderInvTrans_Response);
+    rpc GetDetailInvTrans (GetDetailInvTrans_Request) returns (GetDetailInvTrans_Response);
+    rpc GetSlistInvTrans (grpcCommonMessages.Empty_Request) returns (GetSlistInvTrans_Response);
+    //>>> End generated InvTransHeader rpc
+    //>>> Start generated InvSumTurnRate rpc
+    rpc UpdateInvSumTurnRate (UpdateInvSumTurnRate_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated InvSumTurnRate rpc
+    //>>> Start generated StockCheckControl rpc
+    rpc GetStockCheckControl (grpcCommonMessages.Empty_Request) returns (GetStockCheckControl_Response);
+    //>>> End generated StockCheckControl rpc
+    rpc UpdateStockCheckEnding (UpdateStockCheckEnding_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> Start generated InvTransDetail rpc
+    rpc SaveInvTransDetail (SaveInvTransDetail_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetInvTransDetailRecord (grpcCommonMessages.String_Request) returns (GetInvTransDetailRecord_Response);
+    //>>> End generated InvTransDetail rpc
+    //>>> Start generated StockCheckDetail rpc
+    rpc SaveStockCheckDetail (SaveStockCheckDetail_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetStockCheckDetailRecord (grpcCommonMessages.String_Request) returns (GetStockCheckDetailRecord_Response);
+    rpc GetStockCheckDetail (GetStockCheckDetail_Request) returns (GetStockCheckDetail_Response);
+    rpc GetStockCheckDetailPrint (GetStockCheckDetailPrint_Request) returns (GetStockCheckDetail_Response);
+    //>>> End generated StockCheckDetail rpc
+    //>>> Start generated StockCheckScope rpc
+    //>>> End generated StockCheckScope rpc
+    //>>> Start generated StockCheckHeader rpc
+    rpc SaveStockCheckHeader (SaveStockCheckHeader_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetStockCheckHeaderRecord (GetStockCheckHeaderRecord_Request) returns (GetStockCheckHeaderRecord_Response);
+    //>>> End generated StockCheckHeader rpc
+    //>>> Start generated InvMachiningCompCheck rpc
+    rpc GetInvMachiningCompCheck (GetInvMachiningCompCheck_Request) returns (GetInvMachiningCompCheck_Response);
+    //>>> End generated InvMachiningCompCheck rpc
+    //>>> Start generated InvTransHistory rpc
+    rpc GetInvTransHistory (GetInvTransHistory_Request) returns (GetInvTransHistory_Response);
+    //>>> End generated InvTransHistory rpc
+    //>>> Start generated InvOutDetail rpc
+    rpc GetInvOutDetailRecord (grpcCommonMessages.String_Request) returns (GetInvOutDetailRecord_Response);
+    //>>> End generated InvOutDetail rpc
+    //>>> Start generated InvSumMonth rpc
+    rpc UpdateInvSumMonth (UpdateInvSumMonth_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated InvSumMonth rpc
+    //>>> Start generated InvMonthyStock rpc
+    rpc GetInvMonthyStock (GetInvMonthyStock_Request) returns (GetInvMonthyStock_Response);
+    //>>> End generated InvMonthyStock rpc
+    //>>> Start generated LotDetail rpc
+    //>>> End generated LotDetail rpc
+    //>>> Start generated InvAdjHeader rpc
+    rpc SaveVoucherInvAdj (SaveVoucherInvAdj_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvAdj (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvAdj (grpcCommonMessages.String_Request) returns (GetVoucherInvAdj_Response);
+    rpc GetHeaderInvAdj (grpcCommonMessages.String_Request) returns (GetHeaderInvAdj_Response);
+    rpc GetDetailInvAdj (grpcCommonMessages.String_Request) returns (GetDetailInvAdj_Response);
+    rpc GetSlistInvAdj (grpcCommonMessages.Empty_Request) returns (GetSlistInvAdj_Response);
+    //>>> End generated InvAdjHeader rpc
+    //>>> Start generated InvMacHeader rpc
+    rpc SaveVoucherInvMac (SaveVoucherInvMac_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvMac (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvMac (grpcCommonMessages.String_Request) returns (GetVoucherInvMac_Response);
+    rpc GetHeaderInvMac (grpcCommonMessages.String_Request) returns (GetHeaderInvMac_Response);
+    rpc GetDetailInvMac (grpcCommonMessages.String_Request) returns (GetDetailInvMac_Response);
+    rpc GetSlistInvMac (grpcCommonMessages.Empty_Request) returns (GetSlistInvMac_Response);
+    //>>> End generated InvMacHeader rpc
+    //>>> Start generated InvMoveHeader rpc
+    rpc SaveVoucherInvMove (SaveVoucherInvMove_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvMove (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvMove (grpcCommonMessages.String_Request) returns (GetVoucherInvMove_Response);
+    rpc GetHeaderInvMove (grpcCommonMessages.String_Request) returns (GetHeaderInvMove_Response);
+    rpc GetDetailInvMove (grpcCommonMessages.String_Request) returns (GetDetailInvMove_Response);
+    rpc GetSlistInvMove (grpcCommonMessages.Empty_Request) returns (GetSlistInvMove_Response);
+    //>>> End generated InvMoveHeader rpc
+    //>>> Start generated StockLOT rpc
+    rpc UpdateStockLOT (UpdateStockLOT_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetStockLOT (GetStockLOT_Request) returns (GetStockLOT_Response);
+    rpc GetStockLOTRecord (GetStockLOTRecord_Request) returns (GetStockLOTRecord_Response);
+    //>>> End generated StockLOT rpc
+    //>>> Start generated StockSum rpc
+    rpc UpdateStockSum (UpdateStockSum_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetStockSum (GetStockSum_Request) returns (GetStockSum_Response);
+    rpc GetStockSumRecord (GetStockSumRecord_Request) returns (GetStockSumRecord_Response);
+    //>>> End generated StockSum rpc
+    //>>> Start generated InvMoveReqHeader rpc
+    rpc SaveVoucherInvMoveReq (SaveVoucherInvMoveReq_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvMoveReq (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvMoveReq (grpcCommonMessages.String_Request) returns (GetVoucherInvMoveReq_Response);
+    rpc GetHeaderInvMoveReq (grpcCommonMessages.String_Request) returns (GetHeaderInvMoveReq_Response);
+    rpc GetDetailInvMoveReq (grpcCommonMessages.String_Request) returns (GetDetailInvMoveReq_Response);
+    rpc GetSlistInvMoveReq (grpcCommonMessages.String_Request) returns (GetSlistInvMoveReq_Response);
+    //>>> End generated InvMoveReqHeader rpc
+    //>>> Start generated InvOutHeader rpc
+    rpc SaveVoucherInvOut (SaveVoucherInvOut_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvOut (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvOut (grpcCommonMessages.String_Request) returns (GetVoucherInvOut_Response);
+    rpc GetHeaderInvOut (grpcCommonMessages.String_Request) returns (GetHeaderInvOut_Response);
+    rpc GetDetailInvOut (grpcCommonMessages.String_Request) returns (GetDetailInvOut_Response);
+    rpc GetSlistInvOut (grpcCommonMessages.Empty_Request) returns (GetSlistInvOut_Response);
+    //>>> End generated InvOutHeader rpc
+    //>>> Start generated InvOutReqHeader rpc
+    rpc SaveVoucherInvOutReq (SaveVoucherInvOutReq_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvOutReq (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvOutReq (grpcCommonMessages.String_Request) returns (GetVoucherInvOutReq_Response);
+    rpc GetHeaderInvOutReq (grpcCommonMessages.String_Request) returns (GetHeaderInvOutReq_Response);
+    rpc GetDetailInvOutReq (grpcCommonMessages.String_Request) returns (GetDetailInvOutReq_Response);
+    rpc GetSlistInvOutReq (grpcCommonMessages.String_Request) returns (GetSlistInvOutReq_Response);
+    //>>> End generated InvOutReqHeader rpc
+    //>>> Start generated InvInHeader rpc
+    rpc SaveVoucherInvIn (SaveVoucherInvIn_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvIn (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvIn (grpcCommonMessages.String_Request) returns (GetVoucherInvIn_Response);
+    rpc GetHeaderInvIn (grpcCommonMessages.String_Request) returns (GetHeaderInvIn_Response);
+    rpc GetDetailInvIn (grpcCommonMessages.String_Request) returns (GetDetailInvIn_Response);
+    rpc GetSlistInvIn (grpcCommonMessages.Empty_Request) returns (GetSlistInvIn_Response);
+    //>>> End generated InvInHeader rpc
+    //>>> Start generated InvInReqHeader rpc
+    rpc SaveVoucherInvInReq (SaveVoucherInvInReq_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteVoucherInvInReq (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetVoucherInvInReq (grpcCommonMessages.String_Request) returns (GetVoucherInvInReq_Response);
+    rpc GetHeaderInvInReq (grpcCommonMessages.String_Request) returns (GetHeaderInvInReq_Response);
+    rpc GetDetailInvInReq (grpcCommonMessages.String_Request) returns (GetDetailInvInReq_Response);
+    rpc GetSlistInvInReq (grpcCommonMessages.String_Request) returns (GetSlistInvInReq_Response);
+    //>>> End generated InvInReqHeader rpc
+   
+    
+}
+//>>> Start new generated message position
+message GetVoucherInvTrans_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvVoucherNo = 2;
+}
+message GetHeaderInvTrans_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvVoucherNo = 2;
+}
+message GetDetailInvTrans_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvVoucherNo = 2;
+}
+//>>> Start generated InvTransHeader message
+message SaveVoucherInvTrans_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvTransHeaderModel Header = 2;
+    repeated grpcInvTransDetailModel Details = 3;
+}
+message GetVoucherInvTrans_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvTransHeaderModel Header = 3;
+    repeated grpcInvTransDetailModel Details = 4;
+}
+message GetHeaderInvTrans_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvTransHeaderModel Header = 3;
+}
+message GetDetailInvTrans_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvTransDetailModel Details = 3;
+}
+message GetSlistInvTrans_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvTransSlistModel Records = 3;
+}
+message grpcInvTransHeaderModel
+{
+    string ID = 1;
+    int32 AccountingLikedFlag = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string DeptCode = 4;
+    string InvDeptCode = 5;
+    string StaffID = 6;
+    string PartnerID = 7;
+    string FactoryCode = 8;
+    string LineCode = 9;
+    string VoucherCode = 10;
+    int32 InvType = 11;
+    string InvVoucherNo = 12;
+    google.protobuf.Timestamp InvDate = 13;
+    string InvCode = 14;
+    string Notes = 15;
+    string AccStaffID = 16;
+    string AccNotes = 17;
+    bool AccUpdateDone = 18;
+    int32 UpdMode = 19;
+    int32 UpdCount = 20;
+    string UpdTransactionID = 21;
+    string UpdAccountID = 22;
+    google.protobuf.Timestamp UpdDateTime = 23;
+    google.protobuf.Timestamp CrtDateTime = 24;
+}
+message grpcInvTransDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string StaffID = 5;
+    string PartnerID = 6;
+    string FactoryCode = 7;
+    string LineCode = 8;
+    string VoucherCode = 9;
+    int32 InvType = 10;
+    string InvVoucherNo = 11;
+    google.protobuf.Timestamp InvDate = 12;
+    string InvCode = 13;
+    int32 LineNo = 14;
+    string ProductCode = 15;
+    string ProductName = 16;
+    string Specification = 17;
+    string UnitCode = 18;
+    string UnitName = 19;
+    CustomTypes.Decimal PackingQty = 20;
+    CustomTypes.Decimal CaseQty = 21;
+    CustomTypes.Decimal InOutQty = 22;
+    CustomTypes.Decimal CostUnitPrice = 23;
+    CustomTypes.Decimal CostAmount = 24;
+    string CreAccID = 25;
+    string DebAccID = 26;
+    bool IsLOT = 27;
+    string LotID = 28;
+    string DateType = 29;
+    google.protobuf.Timestamp LotDate = 30;
+    string LotNotes = 31;
+    string Notes = 32;
+    string RecordNo = 33;
+    string LotRecordNo = 34;
+    int32 LotLineNo = 35;
+    google.protobuf.Timestamp UpdDateTime = 36;
+    int32 UpdMode = 37;
+}
+message grpcInvTransSlistModel
+{
+    string StaffID = 1;
+    string PartnerID = 2;
+    string FactoryCode = 3;
+    string LineCode = 4;
+    int32 InvType = 5;
+    string InvVoucherNo = 6;
+    google.protobuf.Timestamp InvDate = 7;
+    string InvCode = 8;
+}
+//>>> End generated InvTransHeader message
+//>>> Start generated InvSumTurnRate message
+message UpdateInvSumTurnRate_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcInvSumTurnRateModel Record = 3;
+}
+message grpcInvSumTurnRateModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string InvCode = 3;
+    string ProductCode = 4;
+    CustomTypes.Decimal AccumRevenue = 5;
+    CustomTypes.Decimal AccumStockCost = 6;
+    CustomTypes.Decimal MonthCount = 7;
+    CustomTypes.Decimal StockTurnRate = 8;
+    int32 UpdMode = 9;
+}
+//>>> End generated InvSumTurnRate message
+//>>> Start generated StockCheckControl message
+message GetStockCheckControl_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcStockCheckControlModel Records = 3;
+}
+message grpcStockCheckControlModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp StockCheckDate = 2;
+    int32 StockCheckType = 3;
+    bool IsTmpCheck = 4;
+    bool EndStatus = 5;
+    bool IsChecking = 6;
+    string InvCode = 7;
+    bool IsAutoAdjStock = 8;
+    int32 UpdMode = 9;
+    int32 UpdCount = 10;
+    string UpdTransactionID = 11;
+    string UpdAccountID = 12;
+    google.protobuf.Timestamp UpdDateTime = 13;
+    google.protobuf.Timestamp CrtDateTime = 14;
+}
+//>>> End generated StockCheckControl message
+message UpdateStockCheckEnding_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcStockCheckControlModel Records = 3;
+}
+//>>> Start generated InvTransDetail message
+message SaveInvTransDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvTransDetailModel Record = 2;
+}
+message GetInvTransDetailRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvTransDetailModel Record = 3;
+}
+//>>> End generated InvTransDetail message
+//>>> Start generated StockCheckDetail message
+message SaveStockCheckDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcStockCheckDetailModel Record = 2;
+}
+message GetStockCheckDetailRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcStockCheckDetailModel Record = 3;
+}
+message GetStockCheckDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp StockCheckDate = 2;
+    string InvCode = 3;
+    string ShelfNo = 4;
+    string ProductCode = 5;
+}
+message GetStockCheckDetail_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcStockCheckDetailModel Records = 3;
+}
+message GetStockCheckDetailPrint_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp StockCheckDate = 2;
+    string InvCode = 3;
+    string FromShelfNo = 4;
+    string ToShelfNo = 5;
+    string FromProductCode = 6;
+    string ToProductCode = 7;
+}
+message grpcStockCheckDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp StockCheckDate = 2;
+    int32 StockCheckType = 3;
+    bool EndStatus = 4;
+    string InvCode = 5;
+    string CheckNo = 6;
+    string ShelfNo = 7;
+    string ProductCode = 8;
+    string ProductName = 9;
+    string Specification = 10;
+    string UnitCode1 = 11;
+    string UnitName1 = 12;
+    CustomTypes.Decimal PackingQty1 = 13;
+    CustomTypes.Decimal CaseQty1 = 14;
+    string UnitCode2 = 15;
+    string UnitName2 = 16;
+    CustomTypes.Decimal PackingQty2 = 17;
+    CustomTypes.Decimal CaseQty2 = 18;
+    string UnitCode3 = 19;
+    string UnitName3 = 20;
+    CustomTypes.Decimal PackingQty3 = 21;
+    CustomTypes.Decimal CaseQty3 = 22;
+    bool IsLOT = 23;
+    string LotID = 24;
+    string DateType = 25;
+    google.protobuf.Timestamp LotDate = 26;
+    CustomTypes.Decimal RealQty = 27;
+    CustomTypes.Decimal StockQty = 28;
+    int32 UpdMode = 29;
+    int32 UpdCount = 30;
+    google.protobuf.Timestamp UpdDateTime = 31;
+}
+//>>> End generated StockCheckDetail message
+//>>> Start generated StockCheckScope message
+message grpcStockCheckScopeModel
+{
+    string ID = 1;
+    int32 LineNo = 2;
+    string InvCode = 3;
+    string FromShelfNo = 4;
+    string ToShelfNo = 5;
+    string FromProductCode = 6;
+    string ToProductCode = 7;
+    bool HasTransOnly = 8;
+    bool PrintFlag = 9;
+    int32 UpdMode = 10;
+}
+//>>> End generated StockCheckScope message
+//>>> Start generated StockCheckHeader message
+message SaveStockCheckHeader_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcStockCheckHeaderModel Record = 2;
+}
+message GetStockCheckHeaderRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp StockCheckDate = 2;
+    string InvCode = 3;
+}
+message GetStockCheckHeaderRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcStockCheckHeaderModel Record = 3;
+}
+message grpcStockCheckHeaderModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp StockCheckDate = 2;
+    int32 StockCheckType = 3;
+    bool IsTmpCheck = 4;
+    bool EndStatus = 5;
+    bool IsFullScope = 6;
+    string InvCode = 7;
+    repeated grpcStockCheckScopeModel CheckScopes = 8;
+    bool IsChecking = 9;
+    int32 UpdMode = 10;
+    int32 UpdCount = 11;
+    string UpdTransactionID = 12;
+    string UpdAccountID = 13;
+    google.protobuf.Timestamp UpdDateTime = 14;
+    google.protobuf.Timestamp CrtDateTime = 15;
+}
+//>>> End generated StockCheckHeader message
+//>>> Start generated InvMachiningCompCheck message
+message GetInvMachiningCompCheck_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+}
+message GetInvMachiningCompCheck_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMachiningCompCheckModel Records = 3;
+}
+message grpcInvMachiningCompCheckModel
+{
+    string ID = 1;
+    string InvMacNo = 2;
+    google.protobuf.Timestamp InvMacDate = 3;
+    string InInvCode = 4;
+    string InInvName = 5;
+    string SetProductCode = 6;
+    string SetProductName = 7;
+    string Specification = 8;
+    string UnitCode = 9;
+    string UnitName = 10;
+    CustomTypes.Decimal SetQty = 11;
+    CustomTypes.Decimal StockQty = 12;
+    CustomTypes.Decimal OutRemainQty = 13;
+    string StockType = 14;
+}
+//>>> End generated InvMachiningCompCheck message
+//>>> Start generated InvTransHistory message
+message GetInvTransHistory_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    int32 InvType = 3;
+    string ProductCode = 4;
+    google.protobuf.Timestamp FromDate = 5;
+    google.protobuf.Timestamp ToDate = 6;
+}
+message GetInvTransHistory_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvTransHistoryModel Records = 3;
+}
+message grpcInvTransHistoryModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string DeptCode = 3;
+    string StaffID = 4;
+    string PartnerID = 5;
+    int32 InvType = 6;
+    string InvVoucherNo = 7;
+    google.protobuf.Timestamp InvDate = 8;
+    string InvCode = 9;
+    int32 LineNo = 10;
+    string ProductCode = 11;
+    string ProductName = 12;
+    string Specification = 13;
+    string UnitCode = 14;
+    string UnitName = 15;
+    CustomTypes.Decimal PackingQty = 16;
+    CustomTypes.Decimal CaseQty = 17;
+    CustomTypes.Decimal InQty = 18;
+    CustomTypes.Decimal OutQty = 19;
+    bool IsLOT = 20;
+    string LotID = 21;
+    string DateType = 22;
+    google.protobuf.Timestamp LotDate = 23;
+    string LotNotes = 24;
+    string Notes = 25;
+    bool IsMultiLOT = 26;
+    string RecordNo = 27;
+    string LotRecordNo = 28;
+    google.protobuf.Timestamp UpdDateTime = 29;
+    int32 UpdMode = 30;
+}
+//>>> End generated InvTransHistory message
+//>>> Start generated InvOutDetail message
+message GetInvOutDetailRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvOutDetailModel Record = 3;
+}
+//>>> End generated InvOutDetail message
+//>>> Start generated InvSumMonth message
+message UpdateInvSumMonth_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcInvSumMonthModel Record = 3;
+}
+message grpcInvSumMonthModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string InvCode = 3;
+    string ProductCode = 4;
+    string InvDeptCode = 5;
+    CustomTypes.Decimal SOQty = 6;
+    CustomTypes.Decimal POQty = 7;
+    CustomTypes.Decimal InvoiceQty = 8;
+    CustomTypes.Decimal ReceiptQty = 9;
+    CustomTypes.Decimal ShipQty = 10;
+    CustomTypes.Decimal ReceiveQty = 11;
+    CustomTypes.Decimal InvOutQty = 12;
+    CustomTypes.Decimal InvInQty = 13;
+    CustomTypes.Decimal InvAdjQty = 14;
+    CustomTypes.Decimal InvoiceAmt = 15;
+    CustomTypes.Decimal CostAmt = 16;
+    CustomTypes.Decimal ReceiptAmt = 17;
+    CustomTypes.Decimal InvOutAmt = 18;
+    CustomTypes.Decimal InvInAmt = 19;
+    CustomTypes.Decimal InvAdjAmt = 20;
+    CustomTypes.Decimal ProduceQty = 21;
+    CustomTypes.Decimal CompletedQty = 22;
+    google.protobuf.Timestamp InvCheckingDate = 23;
+    CustomTypes.Decimal LastReceiptPrice = 24;
+    int32 UpdMode = 25;
+}
+//>>> End generated InvSumMonth message
+//>>> Start generated InvMonthyStock message
+message GetInvMonthyStock_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp FromMonth = 2;
+    google.protobuf.Timestamp ToMonth = 3;
+    string InvCode = 4;
+    int32 ProductKind = 5;
+    int32 StockFlag = 6;
+    bool HasTransaction = 7;
+}
+message GetInvMonthyStock_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMonthyStockModel Records = 3;
+}
+message grpcInvMonthyStockModel
+{
+    string ID = 1;
+    string ProductCode = 2;
+    string ProductName = 3;
+    string Specification = 4;
+    string UnitName = 5;
+    CustomTypes.Decimal BeginStockQty = 6;
+    CustomTypes.Decimal SumReceiveQty = 7;
+    CustomTypes.Decimal SumInvInQty = 8;
+    CustomTypes.Decimal SumShipQty = 9;
+    CustomTypes.Decimal SumInvOutQty = 10;
+    CustomTypes.Decimal SumAdjQty = 11;
+    CustomTypes.Decimal EndStockQty = 12;
+    CustomTypes.Decimal StockTurnRate = 13;
+}
+//>>> End generated InvMonthyStock message
+//>>> Start generated LotDetail message
+message grpcLotDetailModel
+{
+    string ID = 1;
+    int32 LotLineNo = 2;
+    string LotRecordNo = 3;
+    string UnitCode = 4;
+    string LotID = 5;
+    string UnitName = 6;
+    CustomTypes.Decimal PackingQty = 7;
+    CustomTypes.Decimal CaseQty = 8;
+    CustomTypes.Decimal InOutQty = 9;
+    string DateType = 10;
+    google.protobuf.Timestamp LotDate = 11;
+    string LotNotes = 12;
+    int32 WarPeriod = 13;
+    int32 PeriodFlag = 14;
+    CustomTypes.Decimal AvaiStockQty = 15;
+    int32 UpdMode = 16;
+}
+//>>> End generated LotDetail message
+//>>> Start generated InvAdjHeader message
+message SaveVoucherInvAdj_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvAdjHeaderModel Header = 2;
+    repeated grpcInvAdjDetailModel Details = 3;
+}
+message GetVoucherInvAdj_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvAdjHeaderModel Header = 3;
+    repeated grpcInvAdjDetailModel Details = 4;
+}
+message GetHeaderInvAdj_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvAdjHeaderModel Header = 3;
+}
+message GetDetailInvAdj_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvAdjDetailModel Details = 3;
+}
+message GetSlistInvAdj_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvAdjSlistModel Records = 3;
+}
+message grpcInvAdjHeaderModel
+{
+    string ID = 1;
+    int32 AccLinkedStatus = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string DeptCode = 4;
+    string InvDeptCode = 5;
+    string StaffID = 6;
+    string VoucherCode = 7;
+    string InvAdjNo = 8;
+    google.protobuf.Timestamp InvAdjDate = 9;
+    string InvCode = 10;
+    string InvName = 11;
+    string Reason = 12;
+    string Notes = 13;
+    int32 UpdMode = 14;
+    int32 UpdCount = 15;
+    string UpdTransactionID = 16;
+    string UpdAccountID = 17;
+    google.protobuf.Timestamp UpdDateTime = 18;
+    google.protobuf.Timestamp CrtDateTime = 19;
+}
+message grpcInvAdjDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string StaffID = 3;
+    string DeptCode = 4;
+    string InvDeptCode = 5;
+    string VoucherCode = 6;
+    string InvAdjNo = 7;
+    google.protobuf.Timestamp InvAdjDate = 8;
+    string InvCode = 9;
+    int32 LineNo = 10;
+    string ProductCode = 11;
+    string ProductName = 12;
+    string Specification = 13;
+    string UnitCode = 14;
+    string UnitName = 15;
+    CustomTypes.Decimal PackingQty = 16;
+    CustomTypes.Decimal CaseQty = 17;
+    CustomTypes.Decimal InOutQty = 18;
+    bool IsLOT = 19;
+    string LotID = 20;
+    string DateType = 21;
+    google.protobuf.Timestamp LotDate = 22;
+    string LotNotes = 23;
+    int32 WarPeriod = 24;
+    int32 PeriodFlag = 25;
+    bool IsMultiLOT = 26;
+    repeated grpcLotDetailModel LotDetails = 27;
+    string Notes = 28;
+    string RecordNo = 29;
+    int32 UpdMode = 30;
+}
+message grpcInvAdjSlistModel
+{
+    string InvAdjNo = 1;
+    google.protobuf.Timestamp InvAdjDate = 2;
+    string InvName = 3;
+    string Reason = 4;
+}
+
+//>>> End generated InvAdjHeader message
+//>>> Start generated InvMacHeader message
+message SaveVoucherInvMac_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvMacHeaderModel Header = 2;
+    repeated grpcInvMacDetailModel Details = 3;
+}
+message GetVoucherInvMac_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMacHeaderModel Header = 3;
+    repeated grpcInvMacDetailModel Details = 4;
+}
+message GetHeaderInvMac_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMacHeaderModel Header = 3;
+}
+message GetDetailInvMac_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMacDetailModel Details = 3;
+}
+message GetSlistInvMac_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMacSlistModel Records = 3;
+}
+message grpcInvMacHeaderModel
+{
+    string ID = 1;
+    int32 AccLinkedStatus = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string DeptCode = 4;
+    string InInvDeptCode = 5;
+    string OutInvDeptCode = 6;
+    string StaffID = 7;
+    string VoucherCode = 8;
+    string InvMacNo = 9;
+    google.protobuf.Timestamp InvMacDate = 10;
+    int32 MacType = 11;
+    string InInvCode = 12;
+    string InInvName = 13;
+    string OutInvCode = 14;
+    string OutInvName = 15;
+    string SetProductCode = 16;
+    string SetProductName = 17;
+    string Specification = 18;
+    string UnitCode = 19;
+    string UnitName = 20;
+    CustomTypes.Decimal SetQty = 21;
+    string LotID = 22;
+    bool IsLOT = 23;
+    string DateType = 24;
+    google.protobuf.Timestamp LotDate = 25;
+    string LotNotes = 26;
+    string Notes = 27;
+    int32 UpdMode = 28;
+    int32 UpdCount = 29;
+    string UpdTransactionID = 30;
+    string UpdAccountID = 31;
+    google.protobuf.Timestamp UpdDateTime = 32;
+    google.protobuf.Timestamp CrtDateTime = 33;
+}
+message grpcInvMacDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string DeptCode = 3;
+    string InInvDeptCode = 4;
+    string OutInvDeptCode = 5;
+    string StaffID = 6;
+    string VoucherCode = 7;
+    string InvMacNo = 8;
+    google.protobuf.Timestamp InvMacDate = 9;
+    int32 MacType = 10;
+    string InInvCode = 11;
+    string OutInvCode = 12;
+    string SetProductCode = 13;
+    int32 LineNo = 14;
+    string ProductCode = 15;
+    string ProductName = 16;
+    string Specification = 17;
+    string UnitCode = 18;
+    string UnitName = 19;
+    CustomTypes.Decimal PackingQty = 20;
+    CustomTypes.Decimal CaseQty = 21;
+    CustomTypes.Decimal InOutQty = 22;
+    bool IsLOT = 23;
+    string LotID = 24;
+    string DateType = 25;
+    google.protobuf.Timestamp LotDate = 26;
+    string LotNotes = 27;
+    int32 WarPeriod = 28;
+    int32 PeriodFlag = 29;
+    bool IsMultiLOT = 30;
+    repeated grpcLotDetailModel LotDetails = 31;
+    string Notes = 32;
+    string RecordNo = 33;
+    int32 UpdMode = 34;
+}
+message grpcInvMacSlistModel
+{
+    string InvMacNo = 1;
+    google.protobuf.Timestamp InvMacDate = 2;
+    int32 MacType = 3;
+    string InInvName = 4;
+    string SetProductName = 5;
+}
+//>>> End generated InvMacHeader message
+//>>> Start generated InvMoveHeader message
+message SaveVoucherInvMove_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvMoveHeaderModel Header = 2;
+    repeated grpcInvMoveDetailModel Details = 3;
+}
+message GetVoucherInvMove_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMoveHeaderModel Header = 3;
+    repeated grpcInvMoveDetailModel Details = 4;
+}
+message GetHeaderInvMove_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMoveHeaderModel Header = 3;
+}
+message GetDetailInvMove_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMoveDetailModel Details = 3;
+}
+message GetSlistInvMove_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMoveSlistModel Records = 3;
+}
+message grpcInvMoveHeaderModel
+{
+    string ID = 1;
+    int32 AccLinkedStatus = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string StaffID = 4;
+    string DeptCode = 5;
+    string OutInvDeptCode = 6;
+    string InInvDeptCode = 7;
+    string VoucherCode = 8;
+    string InvMoveNo = 9;
+    google.protobuf.Timestamp InvMoveDate = 10;
+    google.protobuf.Timestamp InvMoveProcDate = 11;
+    string InvMoveReqNo = 12;
+    string OutInvCode = 13;
+    string OutInvName = 14;
+    string InInvCode = 15;
+    string InInvName = 16;
+    string Reason = 17;
+    string ReqStaffID = 18;
+    string ReqNotes = 19;
+    string Notes = 20;
+    int32 UpdMode = 21;
+    int32 UpdCount = 22;
+    string UpdTransactionID = 23;
+    string UpdAccountID = 24;
+    google.protobuf.Timestamp UpdDateTime = 25;
+    google.protobuf.Timestamp CrtDateTime = 26;
+    int32 RefUpdCount = 27;
+}
+message grpcInvMoveDetailModel
+{
+    string ID = 1;
+    string StaffID = 2;
+    string DeptCode = 3;
+    string OutInvDeptCode = 4;
+    string InInvDeptCode = 5;
+    string VoucherCode = 6;
+    string InvMoveNo = 7;
+    google.protobuf.Timestamp InvMoveDate = 8;
+    string OutInvCode = 9;
+    string InInvCode = 10;
+    int32 LineNo = 11;
+    string ProductCode = 12;
+    string ProductName = 13;
+    string Specification = 14;
+    string UnitCode = 15;
+    string UnitName = 16;
+    CustomTypes.Decimal PackingQty = 17;
+    CustomTypes.Decimal CaseQty = 18;
+    CustomTypes.Decimal ReqQty = 19;
+    CustomTypes.Decimal InOutQty = 20;
+    bool IsLOT = 21;
+    string LotID = 22;
+    string DateType = 23;
+    google.protobuf.Timestamp LotDate = 24;
+    string LotNotes = 25;
+    int32 WarPeriod = 26;
+    int32 PeriodFlag = 27;
+    bool IsMultiLOT = 28;
+    repeated grpcLotDetailModel LotDetails = 29;
+    string ReqNotes = 30;
+    string Notes = 31;
+    string RecordNo = 32;
+    int32 UpdMode = 33;
+}
+message grpcInvMoveSlistModel
+{
+    string InvMoveNo = 1;
+    google.protobuf.Timestamp InvMoveDate = 2;
+    string InvMoveReqNo = 3;
+    string OutInvCode = 4;
+    string OutInvName = 5;
+    string InInvCode = 6;
+    string InInvName = 7;
+    string Reason = 8;
+}
+//>>> End generated InvMoveHeader message
+//>>> Start generated StockLOT message
+message UpdateStockLOT_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcStockLOTModel Record = 3;
+}
+message GetStockLOT_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+}
+message GetStockLOT_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcStockLOTModel Records = 3;
+}
+message GetStockLOTRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+    string LotID = 4;
+    google.protobuf.Timestamp LotDate = 5;
+}
+message GetStockLOTRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcStockLOTModel Record = 3;
+}
+message grpcStockLOTModel
+{
+    string ID = 1;
+    string InvDeptCode = 2;
+    string InvCode = 3;
+    string ProductCode = 4;
+    string LotID = 5;
+    string DateType = 6;
+    google.protobuf.Timestamp LotDate = 7;
+    string LotNotes = 8;
+    CustomTypes.Decimal StockQty = 9;
+    CustomTypes.Decimal KeepStockQty = 10;
+    string UnitCode = 11;
+    string UnitName = 12;
+    int32 WarPeriod = 13;
+    int32 PeriodFlag = 14;
+    google.protobuf.Timestamp FirstInDate = 15;
+    google.protobuf.Timestamp LastInDate = 16;
+    google.protobuf.Timestamp FirstOutDate = 17;
+    google.protobuf.Timestamp LastOutDate = 18;
+    int32 UpdMode = 19;
+}
+//>>> End generated StockLOT message
+//>>> Start generated StockSum message
+message UpdateStockSum_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcStockSumModel Record = 3;
+}
+message GetStockSum_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+}
+message GetStockSum_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcStockSumModel Records = 3;
+}
+message GetStockSumRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+}
+message GetStockSumRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcStockSumModel Record = 3;
+}
+message grpcStockSumModel
+{
+    string ID = 1;
+    string InvDeptCode = 2;
+    string InvCode = 3;
+    string ProductCode = 4;
+    int32 ProductKind = 5;
+    string ClassCode1 = 6;
+    string ClassCode2 = 7;
+    string ClassCode3 = 8;
+    CustomTypes.Decimal StockQty = 9;
+    CustomTypes.Decimal KeepStockQty = 10;
+    CustomTypes.Decimal SORemQty = 11;
+    CustomTypes.Decimal ShipRemQty = 12;
+    CustomTypes.Decimal PORemQty = 13;
+    CustomTypes.Decimal ReceiveRemQty = 14;
+    CustomTypes.Decimal ProduceRemQty = 15;
+    CustomTypes.Decimal DepositQty = 16;
+    google.protobuf.Timestamp LastPODate = 17;
+    google.protobuf.Timestamp LastSODate = 18;
+    google.protobuf.Timestamp LastInDate = 19;
+    google.protobuf.Timestamp LastOutDate = 20;
+    string UnitCode = 21;
+    string UnitName = 22;
+    google.protobuf.Timestamp CloseDate = 23;
+    CustomTypes.Decimal CloseStockQty = 24;
+    CustomTypes.Decimal CloseStockPrice = 25;
+    CustomTypes.Decimal CloseStockAmt = 26;
+    CustomTypes.Decimal CloseAccStockQty = 27;
+    int32 UpdMode = 28;
+}
+//>>> End generated StockSum message
+//>>> Start generated InvMoveReqHeader message
+message SaveVoucherInvMoveReq_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvMoveReqHeaderModel Header = 2;
+    repeated grpcInvMoveReqDetailModel Details = 3;
+}
+message GetVoucherInvMoveReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMoveReqHeaderModel Header = 3;
+    repeated grpcInvMoveReqDetailModel Details = 4;
+}
+message GetHeaderInvMoveReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvMoveReqHeaderModel Header = 3;
+}
+message GetDetailInvMoveReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMoveReqDetailModel Details = 3;
+}
+message GetSlistInvMoveReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvMoveReqSlistModel Records = 3;
+}
+message grpcInvMoveReqHeaderModel
+{
+    string ID = 1;
+    string VoucherCode = 2;
+    string InvMoveReqNo = 3;
+    google.protobuf.Timestamp InvMoveReqDate = 4;
+    google.protobuf.Timestamp InvMoveProcDate = 5;
+    string OutInvCode = 6;
+    string OutInvName = 7;
+    string InInvCode = 8;
+    string InInvName = 9;
+    string Reason = 10;
+    string ReqNotes = 11;
+    string ReqStaffID = 12;
+    string DeptCode = 13;
+    string InvDeptCode = 14;
+    string AprStaffID = 15;
+    google.protobuf.Timestamp AprDateTime = 16;
+    string AprNotes = 17;
+    bool AprDone = 18;
+    int32 DoneStatus = 19;
+    int32 UpdMode = 20;
+    int32 UpdCount = 21;
+    string UpdTransactionID = 22;
+    string UpdAccountID = 23;
+    google.protobuf.Timestamp UpdDateTime = 24;
+    google.protobuf.Timestamp CrtDateTime = 25;
+}
+message grpcInvMoveReqDetailModel
+{
+    string ID = 1;
+    string ReqStaffID = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string VoucherCode = 5;
+    string InvMoveReqNo = 6;
+    google.protobuf.Timestamp InvMoveReqDate = 7;
+    string OutInvCode = 8;
+    string InInvCode = 9;
+    int32 LineNo = 10;
+    string ProductCode = 11;
+    string ProductName = 12;
+    string Specification = 13;
+    string UnitCode = 14;
+    string UnitName = 15;
+    CustomTypes.Decimal CaseQty = 16;
+    CustomTypes.Decimal PackingQty = 17;
+    CustomTypes.Decimal ReqQty = 18;
+    string ReqNotes = 19;
+    string AprNotes = 20;
+    int32 DoneStatus = 21;
+    CustomTypes.Decimal DoneQty = 22;
+    string RecordNo = 23;
+    int32 UpdMode = 24;
+}
+message grpcInvMoveReqSlistModel
+{
+    string InvMoveReqNo = 1;
+    google.protobuf.Timestamp InvMoveReqDate = 2;
+    string OutInvName = 3;
+    string InInvName = 4;
+    string Reason = 5;
+    bool AprDone = 6;
+    int32 DoneStatus = 7;
+}
+//>>> End generated InvMoveReqHeader message
+//>>> Start generated InvOutHeader message
+message SaveVoucherInvOut_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvOutHeaderModel Header = 2;
+    repeated grpcInvOutDetailModel Details = 3;
+}
+message GetVoucherInvOut_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvOutHeaderModel Header = 3;
+    repeated grpcInvOutDetailModel Details = 4;
+}
+message GetHeaderInvOut_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvOutHeaderModel Header = 3;
+}
+message GetDetailInvOut_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvOutDetailModel Details = 3;
+}
+message GetSlistInvOut_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvOutSlistModel Records = 3;
+}
+message grpcInvOutHeaderModel
+{
+    string ID = 1;
+    int32 AccLinkedStatus = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string DeptCode = 4;
+    string InvDeptCode = 5;
+    string StaffID = 6;
+    string VoucherCode = 7;
+    string InvOutNo = 8;
+    google.protobuf.Timestamp InvOutDate = 9;
+    google.protobuf.Timestamp InvOutProcDate = 10;
+    string InvOutReqNo = 11;
+    string OutInvCode = 12;
+    string OutInvName = 13;
+    string Reason = 14;
+    string ReqStaffID = 15;
+    string ReqNotes = 16;
+    string Notes = 17;
+    int32 UpdMode = 18;
+    int32 UpdCount = 19;
+    string UpdTransactionID = 20;
+    string UpdAccountID = 21;
+    google.protobuf.Timestamp UpdDateTime = 22;
+    google.protobuf.Timestamp CrtDateTime = 23;
+    int32 RefUpdCount = 24;
+}
+message grpcInvOutDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string StaffID = 5;
+    string VoucherCode = 6;
+    string InvOutNo = 7;
+    google.protobuf.Timestamp InvOutDate = 8;
+    string OutInvCode = 9;
+    int32 LineNo = 10;
+    string ProductCode = 11;
+    string ProductName = 12;
+    string Specification = 13;
+    string UnitCode = 14;
+    string UnitName = 15;
+    CustomTypes.Decimal PackingQty = 16;
+    CustomTypes.Decimal CaseQty = 17;
+    CustomTypes.Decimal ReqQty = 18;
+    CustomTypes.Decimal InOutQty = 19;
+    bool IsLOT = 20;
+    string LotID = 21;
+    string DateType = 22;
+    google.protobuf.Timestamp LotDate = 23;
+    string LotNotes = 24;
+    int32 WarPeriod = 25;
+    int32 PeriodFlag = 26;
+    bool IsMultiLOT = 27;
+    repeated grpcLotDetailModel LotDetails = 28;
+    string ReqNotes = 29;
+    string Notes = 30;
+    string RecordNo = 31;
+    int32 UpdMode = 32;
+}
+message grpcInvOutSlistModel
+{
+    string InvOutNo = 1;
+    google.protobuf.Timestamp InvOutDate = 2;
+    string InvOutReqNo = 3;
+    string OutInvCode = 4;
+    string OutInvName = 5;
+    string Reason = 6;
+}
+//>>> End generated InvOutHeader message
+//>>> Start generated InvOutReqHeader message
+message SaveVoucherInvOutReq_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvOutReqHeaderModel Header = 2;
+    repeated grpcInvOutReqDetailModel Details = 3;
+}
+message GetVoucherInvOutReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvOutReqHeaderModel Header = 3;
+    repeated grpcInvOutReqDetailModel Details = 4;
+}
+message GetHeaderInvOutReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvOutReqHeaderModel Header = 3;
+}
+message GetDetailInvOutReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvOutReqDetailModel Details = 3;
+}
+message GetSlistInvOutReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvOutReqSlistModel Records = 3;
+}
+message grpcInvOutReqHeaderModel
+{
+    string ID = 1;
+    string VoucherCode = 2;
+    string InvOutReqNo = 3;
+    google.protobuf.Timestamp InvOutReqDate = 4;
+    google.protobuf.Timestamp InvOutProcDate = 5;
+    string OutInvCode = 6;
+    string OutInvName = 7;
+    string Reason = 8;
+    string ReqNotes = 9;
+    string ReqStaffID = 10;
+    string DeptCode = 11;
+    string InvDeptCode = 12;
+    string AprStaffID = 13;
+    google.protobuf.Timestamp AprDateTime = 14;
+    string AprNotes = 15;
+    bool AprDone = 16;
+    int32 DoneStatus = 17;
+    int32 UpdMode = 18;
+    int32 UpdCount = 19;
+    string UpdTransactionID = 20;
+    string UpdAccountID = 21;
+    google.protobuf.Timestamp UpdDateTime = 22;
+    google.protobuf.Timestamp CrtDateTime = 23;
+}
+message grpcInvOutReqDetailModel
+{
+    string ID = 1;
+    string ReqStaffID = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string VoucherCode = 5;
+    string InvOutReqNo = 6;
+    google.protobuf.Timestamp InvOutReqDate = 7;
+    string OutInvCode = 8;
+    int32 LineNo = 9;
+    string ProductCode = 10;
+    string ProductName = 11;
+    string Specification = 12;
+    string UnitCode = 13;
+    string UnitName = 14;
+    CustomTypes.Decimal PackingQty = 15;
+    CustomTypes.Decimal CaseQty = 16;
+    CustomTypes.Decimal ReqQty = 17;
+    CustomTypes.Decimal StockQty = 18;
+    CustomTypes.Decimal KeepStockQty = 19;
+    CustomTypes.Decimal AvaiStockQty = 20;
+    string ReqNotes = 21;
+    string AprNotes = 22;
+    int32 DoneStatus = 23;
+    CustomTypes.Decimal DoneQty = 24;
+    string RecordNo = 25;
+    int32 UpdMode = 26;
+}
+message grpcInvOutReqSlistModel
+{
+    string InvOutReqNo = 1;
+    google.protobuf.Timestamp InvOutReqDate = 2;
+    string OutInvName = 3;
+    string Reason = 4;
+    bool AprDone = 5;
+    int32 DoneStatus = 6;
+}
+//>>> End generated InvOutReqHeader message
+//>>> Start generated InvInHeader message
+message SaveVoucherInvIn_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvInHeaderModel Header = 2;
+    repeated grpcInvInDetailModel Details = 3;
+}
+message GetVoucherInvIn_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvInHeaderModel Header = 3;
+    repeated grpcInvInDetailModel Details = 4;
+}
+message GetHeaderInvIn_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvInHeaderModel Header = 3;
+}
+message GetDetailInvIn_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvInDetailModel Details = 3;
+}
+message GetSlistInvIn_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvInSlistModel Records = 3;
+}
+message grpcInvInHeaderModel
+{
+    string ID = 1;
+    int32 AccLinkedStatus = 2;
+    google.protobuf.Timestamp CloseDate = 3;
+    string DeptCode = 4;
+    string InvDeptCode = 5;
+    string StaffID = 6;
+    string VoucherCode = 7;
+    string InvInNo = 8;
+    google.protobuf.Timestamp InvInDate = 9;
+    google.protobuf.Timestamp InvInProcDate = 10;
+    string InvInReqNo = 11;
+    string InInvCode = 12;
+    string InInvName = 13;
+    string Reason = 14;
+    string ReqStaffID = 15;
+    string ReqNotes = 16;
+    string Notes = 17;
+    int32 UpdMode = 18;
+    int32 UpdCount = 19;
+    string UpdTransactionID = 20;
+    string UpdAccountID = 21;
+    google.protobuf.Timestamp UpdDateTime = 22;
+    google.protobuf.Timestamp CrtDateTime = 23;
+    int32 RefUpdCount = 24;
+}
+message grpcInvInDetailModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string StaffID = 5;
+    string VoucherCode = 6;
+    string InvInNo = 7;
+    google.protobuf.Timestamp InvInDate = 8;
+    string InInvCode = 9;
+    int32 LineNo = 10;
+    string ProductCode = 11;
+    string ProductName = 12;
+    string Specification = 13;
+    string UnitCode = 14;
+    string UnitName = 15;
+    CustomTypes.Decimal PackingQty = 16;
+    CustomTypes.Decimal CaseQty = 17;
+    CustomTypes.Decimal InOutQty = 18;
+    CustomTypes.Decimal ReqQty = 19;
+    bool IsLOT = 20;
+    string LotID = 21;
+    string DateType = 22;
+    google.protobuf.Timestamp LotDate = 23;
+    string LotNotes = 24;
+    int32 WarPeriod = 25;
+    int32 PeriodFlag = 26;
+    bool IsMultiLOT = 27;
+    repeated grpcLotDetailModel LotDetails = 28;
+    string ReqNotes = 29;
+    string Notes = 30;
+    string RecordNo = 31;
+    int32 UpdMode = 32;
+}
+message grpcInvInSlistModel
+{
+    string InvInNo = 1;
+    google.protobuf.Timestamp InvInDate = 2;
+    string InvInReqNo = 3;
+    string InInvName = 4;
+    string Reason = 5;
+}
+//>>> End generated InvInHeader message
+//>>> Start generated InvInReqHeader message
+message SaveVoucherInvInReq_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvInReqHeaderModel Header = 2;
+    repeated grpcInvInReqDetailModel Details = 3;
+}
+message GetVoucherInvInReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvInReqHeaderModel Header = 3;
+    repeated grpcInvInReqDetailModel Details = 4;
+}
+message GetHeaderInvInReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInvInReqHeaderModel Header = 3;
+}
+message GetDetailInvInReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvInReqDetailModel Details = 3;
+}
+message GetSlistInvInReq_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvInReqSlistModel Records = 3;
+}
+message grpcInvInReqHeaderModel
+{
+    string ID = 1;
+    string InvInReqNo = 2;
+    google.protobuf.Timestamp InvInReqDate = 3;
+    google.protobuf.Timestamp InvInProcDate = 4;
+    string VoucherCode = 5;
+    string InInvCode = 6;
+    string InInvName = 7;
+    string Reason = 8;
+    string ReqNotes = 9;
+    string ReqStaffID = 10;
+    string DeptCode = 11;
+    string InvDeptCode = 12;
+    string AprStaffID = 13;
+    google.protobuf.Timestamp AprDateTime = 14;
+    string AprNotes = 15;
+    bool AprDone = 16;
+    int32 DoneStatus = 17;
+    int32 UpdMode = 18;
+    int32 UpdCount = 19;
+    string UpdTransactionID = 20;
+    string UpdAccountID = 21;
+    google.protobuf.Timestamp UpdDateTime = 22;
+    google.protobuf.Timestamp CrtDateTime = 23;
+}
+message grpcInvInReqDetailModel
+{
+    string ID = 1;
+    string ReqStaffID = 2;
+    string DeptCode = 3;
+    string InvDeptCode = 4;
+    string VoucherCode = 5;
+    string InvInReqNo = 6;
+    google.protobuf.Timestamp InvInReqDate = 7;
+    string InInvCode = 8;
+    int32 LineNo = 9;
+    string ProductCode = 10;
+    string ProductName = 11;
+    string Specification = 12;
+    string UnitCode = 13;
+    string UnitName = 14;
+    CustomTypes.Decimal PackingQty = 15;
+    CustomTypes.Decimal CaseQty = 16;
+    CustomTypes.Decimal ReqQty = 17;
+    string Notes = 18;
+    string AprNotes = 19;
+    int32 UpdMode = 20;
+    int32 DoneStatus = 21;
+    CustomTypes.Decimal DoneQty = 22;
+    string RecordNo = 23;
+}
+message grpcInvInReqSlistModel
+{
+    string InvInReqNo = 1;
+    google.protobuf.Timestamp InvInReqDate = 2;
+    string InInvName = 3;
+    string Reason = 4;
+    bool AprDone = 5;
+    int32 DoneStatus = 6;
+}
+//>>> End generated InvInReqHeader message

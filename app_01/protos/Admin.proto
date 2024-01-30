@@ -1,0 +1,1162 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Admin.Services";
+import "timestamp.proto";
+import "Common.proto";
+import "CustomDatatype.proto";
+package grpcAdminService;
+//Services
+service grpcAdminService {
+    //For refresh: config, caching,..
+    rpc SubcribeEvents (grpcCommonMessages.SubcribeEvents_Request) returns (grpcCommonMessages.Empty_Response); 
+    //Test decimal
+    rpc TestDecimal (TestDecimal_Request) returns (TestDecimal_Response);
+    //Events
+    rpc PublicEvents (PublicEvents_Request) returns (grpcCommonMessages.Empty_Response);
+    //GetServiceList 
+    rpc GetServiceList (grpcCommonMessages.String_Request) returns (GetServiceList_Response);
+    //Login
+    rpc GrpcLogin (GrpcLogin_Request) returns (GrpcLogin_Response);
+    //WebPushNotification
+    rpc SubscribeToNotifications (SubscribeToNotifications_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc WebPushNotification (WebPushNotification_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetNotificationSubscribe (grpcCommonMessages.String_Request) returns (GetNotificationSubscribe_Response);
+    //TableList
+    rpc GetTable (grpcCommonMessages.String_Request) returns (GetTable_Response);
+    rpc GetTableList (grpcCommonMessages.String_Request) returns (GetTableList_Response);
+    rpc SaveTableList (SaveTableList_Request) returns (grpcCommonMessages.String_Response);
+    rpc ImportTableList (ImportTableList_Request) returns (grpcCommonMessages.Empty_Response);
+    //FieldList
+    rpc GetField (grpcCommonMessages.String_Request) returns (GetField_Response);
+    rpc GetFieldList (grpcCommonMessages.Empty_Request) returns (GetFieldList_Response);
+    rpc SaveFieldList (SaveFieldList_Request) returns (grpcCommonMessages.String_Response);
+    //TableDefinition
+    rpc GetTableDefinition (grpcCommonMessages.String_Request) returns (GetTableDefinition_Response);
+    rpc GetTableDefinitionRecord (GetTableDefinitionRecord_Request) returns (GetTableDefinitionRecord_Response);
+    rpc SaveTableDefinition (SaveTableDefinition_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc ImportTableDefinition (ImportTableDefinition_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc CopyTableDefinition (CopyTableDefinition_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetCodingNotes (grpcCommonMessages.Empty_Request) returns (GetCodingNotes_Response);
+    //ApiList
+    rpc GetApiList (grpcCommonMessages.String_Request) returns (GetApiList_Response);
+    rpc SaveApiList (SaveApiList_Request) returns (grpcCommonMessages.String_Response);
+    //ScreenImage
+    rpc GetScreenImage (grpcCommonMessages.String_Request) returns (GetScreenImage_Response);
+    rpc GetScreenImageCount (grpcCommonMessages.String_Request) returns (grpcCommonMessages.Int_Response);
+    rpc SaveScreenImage (SaveScreenImage_Request) returns (grpcCommonMessages.String_Response);
+    //ScreenFunction
+    rpc GetScreenFunction (grpcCommonMessages.String_Request) returns (GetScreenFunction_Response);
+    rpc SaveScreenFunction (SaveScreenFunction_Request) returns (grpcCommonMessages.String_Response);
+    //ScreenItem
+    rpc GetScreenItem (grpcCommonMessages.String_Request) returns (GetScreenItem_Response);
+    rpc SaveScreenItem (SaveScreenItem_Request) returns (grpcCommonMessages.String_Response);
+    //CRUDTable
+    rpc GetCRUDTable (grpcCommonMessages.String_Request) returns (GetCRUDTable_Response);
+    rpc SaveCRUDTable (SaveCRUDTable_Request) returns (grpcCommonMessages.String_Response);
+    //CRUDDetail
+    rpc GetCRUDDetail (grpcCommonMessages.String_Request) returns (GetCRUDDetail_Response);
+    rpc SaveCRUDDetail (SaveCRUDDetail_Request) returns (grpcCommonMessages.String_Response);
+    rpc CopyCRUDDetail (CopyCRUDDetail_Request) returns (grpcCommonMessages.Empty_Response);
+    //IC
+    rpc GetIC (grpcCommonMessages.Empty_Request) returns (GetIC_Response);
+    rpc SaveIC (SaveIC_Request) returns (grpcCommonMessages.String_Response);
+    //MRUEdit
+    rpc GetMRUList (grpcCommonMessages.String_Request) returns (GetMRUList_Response);
+    //
+    //ClassificationMaster
+    rpc ImportClassificationMaster (ImportClassificationMaster_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> Start new generated rpc position
+    //>>> Start generated DeductPeople rpc
+    //>>> End generated DeductPeople rpc
+    //>>> Start generated ScreenDeployment rpc
+    rpc SaveScreenDeployment (SaveScreenDeployment_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetScreenDeploymentRecord (GetScreenDeploymentRecord_Request) returns (GetScreenDeploymentRecord_Response);
+    rpc GetScreenDeployment (grpcCommonMessages.String_Request) returns (GetScreenDeployment_Response);
+    rpc UpdateScreenDeployment (UpdateScreenDeployment_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated ScreenDeployment rpc
+    rpc DownloadScreenFile (DownloadScreenFile_Request) returns (DownloadScreenFile_Response);
+    //>>> Start generated RoleDetail rpc
+    rpc SaveRoleDetail (SaveRoleDetail_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetRoleDetailRecord (GetRoleDetailRecord_Request) returns (GetRoleDetailRecord_Response);
+    rpc GetRoleDetail (grpcCommonMessages.String_Request) returns (GetRoleDetail_Response);
+    //>>> End generated RoleDetail rpc
+    //>>> Start generated Role rpc
+    rpc SaveRole (SaveRole_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetRoleRecord (grpcCommonMessages.String_Request) returns (GetRoleRecord_Response);
+    rpc GetRole (grpcCommonMessages.Empty_Request) returns (GetRole_Response);
+    //>>> End generated Role rpc
+    //>>> Start generated Screen rpc
+    rpc SaveScreen (SaveScreen_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetScreenRecord (grpcCommonMessages.String_Request) returns (GetScreenRecord_Response);
+    rpc GetScreen (grpcCommonMessages.Empty_Request) returns (GetScreen_Response);
+    //>>> End generated Screen rpc
+    rpc ImportScreen (ImportScreen_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> Start generated UserAccount rpc
+    rpc SaveUserAccount (SaveUserAccount_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetUserAccountRecord (grpcCommonMessages.String_Request) returns (GetUserAccountRecord_Response);
+    rpc GetUserAccount (grpcCommonMessages.Empty_Request) returns (GetUserAccount_Response);
+    rpc GetUserByUserName (grpcCommonMessages.String_Request) returns (GetUserAccountRecord_Response);
+    rpc AccountLogin (AccountLogin_Request) returns (GetUserAccountRecord_Response);
+    //>>> End generated UserAccount rpc
+    rpc UserChangePassword (UserChangePassword_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc UserResetPassword (UserResetPassword_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> Start generated Staff rpc
+    rpc SaveStaff (SaveStaff_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetStaffRecord (grpcCommonMessages.String_Request) returns (GetStaffRecord_Response);
+    rpc GetStaff (GetStaff_Request) returns (GetStaff_Response);
+    rpc GetSlistStaff (grpcCommonMessages.Empty_Request) returns (GetStaff_Response);
+    //>>> End generated Staff rpc
+    //>>> Start generated Department rpc
+    rpc SaveDepartment (SaveDepartment_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetDepartmentRecord (grpcCommonMessages.String_Request) returns (GetDepartmentRecord_Response);
+    rpc GetDepartment (grpcCommonMessages.Empty_Request) returns (GetDepartment_Response);
+    //>>> End generated Department rpc
+    //Classification: Manual
+    rpc SaveClassification (SaveClassification_Request) returns (grpcCommonMessages.String_Response);
+    //>>> Start generated Classification rpc
+    rpc GetClassificationRecord (GetClassificationRecord_Request) returns (GetClassificationRecord_Response);
+    rpc GetClassification (GetClassification_Request) returns (GetClassification_Response);
+    //>>> End generated Classification rpc
+    //>>> Start generated ClassificationSetting rpc
+    rpc SaveClassificationSetting (SaveClassificationSetting_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetClassificationSettingRecord (grpcCommonMessages.String_Request) returns (GetClassificationSettingRecord_Response);
+    rpc GetClassificationSetting (grpcCommonMessages.Empty_Request) returns (GetClassificationSetting_Response);
+    //>>> End generated ClassificationSetting rpc
+}
+//
+//======================================================
+// Messages
+//======================================================
+//IC
+message GetIC_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcICModel Records = 3;
+}
+message SaveIC_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcICModel Record = 2;
+}
+message grpcICModel
+{
+    string ID = 1;
+    string ICID = 2;
+    string ICName = 3;
+    string ICType = 4;
+    int32 Version = 5;
+    string Notes = 6;
+    int32 UpdMode = 99;
+}
+//ScreenImage
+message GetScreenImage_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcScreenImageModel Records = 3;
+}
+message SaveScreenImage_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcScreenImageModel Record = 2;
+}
+message grpcScreenImageModel
+{
+    string ID = 1;
+    int32 SeqNo = 2;
+    string ScreenID = 3;
+    string ImageResID = 4;
+    string ImageName = 5;
+    bytes ImageContent = 6;
+    int32 UpdMode = 99;
+}
+//ScreenFunction
+message GetScreenFunction_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcScreenFunctionModel Records = 3;
+}
+message SaveScreenFunction_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcScreenFunctionModel Record = 2;
+}
+message grpcScreenFunctionModel
+{
+    string ID = 1;
+    int32 SeqNo = 2;
+    string ScreenID = 3;
+    string Functions = 4;
+    string FunctionsExt = 5;
+    int32 Status = 6;
+    repeated grpcScreenFunctionHistoryModel Histories = 7;
+    int32 UpdMode = 99;
+}
+message grpcScreenFunctionHistoryModel
+{
+    int32 Version = 1;
+    string Functions = 2;
+    string FunctionsExt = 3;
+    google.protobuf.Timestamp ModifiedOn = 98;
+    int32 UpdMode = 99;
+}
+//MRUList
+message GetMRUList_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated string Records = 3;
+}
+//ScreenItem
+message GetScreenItem_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcScreenItemModel Records = 3;
+}
+message SaveScreenItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcScreenItemModel Record = 2;
+}
+message grpcScreenItemModel
+{
+    string ID = 1;
+    string ScreenID = 2;
+    int32 SeqNo = 3;
+    string Region = 4;
+    string ItemID = 5;
+    string ItemName = 6;
+    string DataType = 7;
+    int32 Version = 8;
+    string InOutMode = 9;
+    bool SkipTab = 10;
+    string Init = 11;
+    string InitExt = 12;
+    string Slist = 13;
+    string SlistExt = 14;
+    string Check = 15;
+    string CheckExt = 16;
+    string Derived = 17;
+    string DerivedExt = 18;
+    string Notes = 19;
+    string NotesExt = 20;
+    string ICName = 21;
+    int32 Status = 22;
+    repeated grpcScreenItemHistoryModel Histories = 23;
+    int32 UpdMode = 99;
+}
+message grpcScreenItemHistoryModel
+{
+     int32 Version = 1;
+    string InOutMode = 2;
+    bool SkipTab = 3;
+    string Init = 4;
+    string InitExt = 5;
+    string Slist = 6;
+    string SlistExt = 7;
+    string Check = 8;
+    string CheckExt = 9;
+    string Derived = 10;
+    string DerivedExt = 11;
+    string Notes = 12;
+    string NotesExt = 13;
+    string ICName = 14;
+    google.protobuf.Timestamp ModifiedOn = 98;
+    int32 UpdMode = 99;
+}
+//CRUDTable
+message GetCRUDTable_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcCRUDTableModel Records = 3;
+}
+message SaveCRUDTable_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcCRUDTableModel Record = 2;
+}
+message grpcCRUDTableModel
+{
+    string ID = 1;
+    int32 SeqNo = 2;
+    string ScreenID = 3;
+    string TableID = 4;
+    string TableName = 5;
+    string ApiID = 6;
+    string RecordNo = 7;
+    string Notes = 8;
+    string NotesExt = 9;
+    int32 Status = 10;
+    int32 UpdMode = 99;
+}
+//CRUDDetail
+message CopyCRUDDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ScreenID = 2;
+    string TableID = 3;
+    string FromRecordNo = 4;
+    string ToRecordNo = 5;
+}
+message GetCRUDDetail_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcCRUDDetailModel Records = 3;
+}
+message SaveCRUDDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcCRUDDetailModel Record = 2;
+}
+message grpcCRUDDetailModel
+{
+    string ID = 1;
+    string ScreenID = 2;
+    string TableID = 3;
+    string RecordNo = 4;
+    //
+    string FieldSeq = 5;
+    string FieldID = 6;
+    string FieldName = 7;
+    string DataType = 8;
+    int32 Version = 9;
+    bool IsBackendUpdate = 10;
+    string UpdateType = 11;
+    string CodingContent = 12;
+    string CodingContentExt = 13;
+    int32 Status = 14;
+    repeated grpcCRUDDetailHistoryModel Histories = 15;
+    int32 UpdMode = 99;
+}
+message grpcCRUDDetailHistoryModel
+{
+    int32 Version = 1;
+    bool IsBackendUpdate = 2;
+    string UpdateType = 3;
+    string CodingContent = 4;
+    string CodingContentExt = 5;
+    google.protobuf.Timestamp ModifiedOn = 98;
+    int32 UpdMode = 99;
+}
+//TestDecimal
+message TestDecimal_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    TestDecimalModel Record = 2;
+}
+message TestDecimalModel
+{
+    CustomTypes.Decimal DecValue1 = 2;
+    CustomTypes.Decimal DecValue2 = 3;
+    CustomTypes.Decimal StringValue = 4;
+}
+message TestDecimal_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    TestDecimalModel Record = 3;
+}
+message DownloadScreenFile_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string FileName = 2;
+    string ServerFolder = 3;
+}
+message DownloadScreenFile_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    string FileName = 3;
+    bytes FileContent = 4;
+}
+message GetTableDefinitionRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string TableID = 2;
+    string FieldID = 3;
+}
+message GetTableDefinitionRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcTableDefinitionModel Record = 3;
+}
+message PublicEvents_Request 
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string Publicer = 2;
+    string Subcriber = 3;
+    string EventName = 4;
+    string JsonStringData = 5;
+    int32 CallType = 6;
+    int32 MaxRetryCount = 7;
+    bool NeedAlarm = 8;
+}
+message GetServiceList_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcServiceListModel Records = 3;
+}
+message grpcServiceListModel
+{
+    string ID = 1;
+    string Environment = 2;
+    string ServiceName = 3;
+    string Descriptions = 4;
+    string Host = 5;
+    int32 Port = 6;
+    string Url = 7;
+}
+message GetNotificationSubscribe_Response 
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcNotificationSubcribeModel Records = 3;
+}
+message grpcNotificationSubcribeModel {
+    string ID = 1;
+    int32 NotificationSubscriptionId = 2;
+    string UserId = 3;
+    string Url = 4;
+    string P256dh = 5;
+    string Auth = 6;
+}
+message SubscribeToNotifications_Request 
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    int32 NotificationSubscriptionId = 2;
+    string UserId = 3;
+    string Url = 4;
+    string P256dh = 5;
+    string Auth = 6;
+}
+message WebPushNotification_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string UserName = 2;
+    string Messages = 3;
+    string Url = 4;
+}
+//GrpcLogin
+message GrpcLogin_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string UserName = 2;
+    string Password = 3;
+}
+message GrpcLogin_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    string UserName = 3;
+    string Fullname = 4;
+    string RoleID = 5;
+    string MerchantID = 6;
+    string AccessToken = 7;
+}
+//TableList
+message GetTable_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcTableListModel Record = 3;
+}
+message GetTableList_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcTableListModel Records = 3;
+}
+message SaveTableList_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcTableListModel Record = 2;
+}
+message grpcTableListModel {
+    string ID = 1;
+    string SeqNo = 2;
+    string TableID = 3;
+    string TableName = 4;
+    bool IsUsing = 5;
+    string Notes = 6;
+    string ApiService = 7;
+    string RecordNo = 8;
+    bool IsVoucherTable = 9;
+    bool IsSubModel = 10;
+    bool HasApprove = 11;
+    int32 UpdMode = 100;
+}
+//FieldList
+message GetFieldList_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcFieldListModel Records = 3;
+}
+message GetField_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcFieldListModel Record = 3;
+}
+message SaveFieldList_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcFieldListModel Record = 2;
+}
+message grpcFieldListModel {
+    string ID = 1;
+    string FieldID = 3;
+    string JpFieldID = 4;
+    string FieldName = 5;
+    string FieldType = 6;
+    string Notes = 7;
+    string DataType = 8;
+    string Format = 9;
+    int32 UpdMode = 100;
+}
+//TableDefinition
+message GetTableDefinition_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcTableDefinitionModel Records = 3;
+}
+message SaveTableDefinition_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string TableID = 2;
+    repeated grpcTableDefinitionModel Records = 3;
+}
+message grpcTableDefinitionModel {
+    string ID = 1;
+    string TableID = 2;
+    string RecordNo = 3;
+    string JpTableID = 4;
+    int32 FieldSeq = 5;
+    string JpFieldID = 6;
+    string FieldID = 7;
+    string FieldName = 8;
+    string Notes = 9;
+    string FieldType = 10;
+    string DataType = 11;
+    string Format = 12;
+    bool IsSlistField = 13;
+    bool IsSumField = 14;
+    bool IsUpdateIfNotNull = 15;
+    string InOutMode = 16;
+    string CodingNotes = 17;
+    string CodingExtNotes = 18;
+    google.protobuf.Timestamp ModifiedOn = 99;
+    int32 UpdMode = 100;
+}
+message ImportTableList_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcTableListModel Records = 2;
+}
+message ImportTableDefinition_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcTableDefinitionModel Records = 2;
+}
+message CopyTableDefinition_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SrcTableID = 2;
+    string DestRecordNo = 3;
+    string DestTableID = 4;
+}
+message GetCodingNotes_Response 
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated string CodingMRUs = 3;
+}
+message ImportClassificationMaster_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcClassificationMasterModel Records = 2;
+}
+message grpcClassificationMasterModel {
+    string ID = 1;
+    string MasterFlag = 2;
+    int32 Level = 3;
+    string ClassID = 4;
+    string ClassName = 5;
+    string ParentClassID = 6;
+    //
+    string UpdaterID = 97;
+    string ClientID = 98;
+    google.protobuf.Timestamp UpdateDate = 99;
+    int32 UpdMode = 100;
+}
+//ApiList
+message SaveApiList_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcApiListModel Record = 2;
+}
+message GetApiList_Response {
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcApiListModel Records = 3;
+}
+message grpcApiListModel {
+    string ID = 1;
+    string TableID = 2;
+    string ApiID = 3;
+    string ApiName = 4;
+    string ApiService = 5;
+    string ApiKind = 6;
+    string MatchingField = 7;
+    string UpdateField = 8;
+    string FilterKind = 9;
+    string CustomFilter = 10;
+    string ApiRequestName = 11;
+    string ApiResponseName = 12;
+    bool IsOverWrite = 13;
+    string RecordNo = 14;
+    int32 UpdMode = 99;
+}
+//>>> Start new generated message position
+//>>> Start generated DeductPeople message
+message grpcDeductPeopleModel
+{
+    string ID = 1;
+    string Fullname = 2;
+    string Relation = 3;
+    google.protobuf.Timestamp BirthDay = 4;
+    string TaxCode = 5;
+    string National = 6;
+    string CitizenID = 7;
+    google.protobuf.Timestamp FromMonth = 8;
+    google.protobuf.Timestamp ToMonth = 9;
+    int32 UpdMode = 10;
+}
+//>>> End generated DeductPeople message
+//>>> Start generated BankAccount message
+message grpcBankAccountModel
+{
+    string ID = 1;
+    string BankAccountNo = 2;
+    string BankAccountOwner = 3;
+    string BankFullName = 4;
+    string BankName = 5;
+    string BankBranch = 6;
+    string CityID = 7;
+    int32 UpdMode = 8;
+}
+//>>> End generated BankAccount message
+//>>> Start generated ScreenDeployment message
+message SaveScreenDeployment_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcScreenDeploymentModel Record = 2;
+}
+message GetScreenDeploymentRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ScreenID = 2;
+    string FileName = 3;
+}
+message GetScreenDeploymentRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcScreenDeploymentModel Record = 3;
+}
+message GetScreenDeployment_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcScreenDeploymentModel Records = 3;
+}
+message UpdateScreenDeployment_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ScreenID = 2;
+    string FileName = 3;
+    int32 Version = 4;
+    google.protobuf.Timestamp UpdDateTime = 5;
+}
+message grpcScreenDeploymentModel
+{
+    string ID = 1;
+    string ScreenID = 2;
+    string ScreenName = 3;
+    string ServerFolder = 4;
+    string ClientFolder = 5;
+    string FileName = 6;
+    int32 Version = 7;
+    string Notes = 8;
+    google.protobuf.Timestamp UpdDateTime = 9;
+    int32 UpdMode = 10;
+    int32 UpdCount = 11;
+}
+//>>> End generated ScreenDeployment message
+//>>> Start generated RoleDetail message
+message SaveRoleDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcRoleDetailModel Record = 2;
+}
+message GetRoleDetailRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string RoleID = 2;
+    string ScreenID = 3;
+}
+message GetRoleDetailRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcRoleDetailModel Record = 3;
+}
+message GetRoleDetail_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcRoleDetailModel Records = 3;
+}
+message grpcRoleDetailModel {
+    string ID = 1;
+    string RoleID = 2;
+    string ScreenID = 3;
+    string ScreenName = 4;
+    string F1 = 5;
+    string F2 = 6;
+    string F3 = 7;
+    string F4 = 8;
+    string F5 = 9;
+    string F6 = 10;
+    string F7 = 11;
+    string F8 = 12;
+    string F9 = 13;
+    string F10 = 14;
+    string F11 = 15;
+    string F12 = 16;
+    bool AuthF1 = 17;
+    bool AuthF2 = 18;
+    bool AuthF3 = 19;
+    bool AuthF4 = 20;
+    bool AuthF5 = 21;
+    bool AuthF6 = 22;
+    bool AuthF7 = 23;
+    bool AuthF8 = 24;
+    bool AuthF9 = 25;
+    bool AuthF10 = 26;
+    bool AuthF11 = 27;
+    bool AuthF12 = 28;
+    int32 UpdMode = 29;
+}
+//>>> End generated RoleDetail message
+//>>> Start generated Role message
+message SaveRole_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcRoleModel Record = 2;
+}
+message GetRoleRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcRoleModel Record = 3;
+}
+message GetRole_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcRoleModel Records = 3;
+}
+message grpcRoleModel
+{
+    string ID = 1;
+    string RoleID = 2;
+    string RoleName = 3;
+    string DefaultSreenID = 4;
+    string Notes = 5;
+    int32 UpdMode = 6;
+}
+//>>> End generated Role message
+//>>> Start generated Screen message
+message SaveScreen_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcScreenModel Record = 2;
+}
+message GetScreenRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcScreenModel Record = 3;
+}
+message GetScreen_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcScreenModel Records = 3;
+}
+message grpcScreenModel
+{
+    string ID = 1;
+    int32 SeqNo = 2;
+    string Menu = 3;
+    string SubMenu = 4;
+    string ScreenID = 5;
+    string ScreenName = 6;
+    string MenuName = 7;
+    bool IsShowPopup = 8;
+    string F1 = 9;
+    string F2 = 10;
+    string F3 = 11;
+    string F4 = 12;
+    string F5 = 13;
+    string F6 = 14;
+    string F7 = 15;
+    string F8 = 16;
+    string F9 = 17;
+    string F10 = 18;
+    string F11 = 19;
+    string F12 = 20;
+    string ShortCutKeyF1 = 21;
+    string ShortCutKeyF2 = 22;
+    string ShortCutKeyF3 = 23;
+    string ShortCutKeyF4 = 24;
+    string ShortCutKeyF5 = 25;
+    string ShortCutKeyF6 = 26;
+    string ShortCutKeyF7 = 27;
+    string ShortCutKeyF8 = 28;
+    string ShortCutKeyF9 = 29;
+    string ShortCutKeyF10 = 30;
+    string ShortCutKeyF11 = 31;
+    string ShortCutKeyF12 = 32;
+    bytes IconF1 = 33;
+    bytes IconF2 = 34;
+    bytes IconF3 = 35;
+    bytes IconF4 = 36;
+    bytes IconF5 = 37;
+    bytes IconF6 = 38;
+    bytes IconF7 = 39;
+    bytes IconF8 = 40;
+    bytes IconF9 = 41;
+    bytes IconF10 = 42;
+    bytes IconF11 = 43;
+    bytes IconF12 = 44;
+    int32 UpdMode = 45;
+    int32 UpdCount = 46;
+    string UpdTransactionID = 47;
+    string UpdAccountID = 48;
+    google.protobuf.Timestamp UpdDateTime = 49;
+}
+//>>> End generated Screen message
+message ImportScreen_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcScreenModel Records = 2;
+}
+//>>> Start generated UserAccount message
+message SaveUserAccount_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcUserAccountModel Record = 2;
+}
+message GetUserAccountRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcUserAccountModel Record = 3;
+}
+message GetUserAccount_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcUserAccountModel Records = 3;
+}
+message AccountLogin_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string UserName = 2;
+    string Password = 3;
+}
+message grpcUserAccountModel
+{
+    string ID = 1;
+    string MerchantID = 2;
+    string RoleID = 3;
+    string UserID = 4;
+    string UserName = 5;
+    string Fullname = 6;
+    string StaffID = 7;
+    string Phone = 8;
+    string Email = 9;
+    string Password = 10;
+    bool Enabled = 11;
+    int32 UpdMode = 12;
+    int32 UpdCount = 13;
+    string UpdTransactionID = 14;
+    string UpdAccountID = 15;
+    google.protobuf.Timestamp UpdDateTime = 16;
+}
+//>>> End generated UserAccount message
+message UserResetPassword_Request {
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string UserID = 2;
+    string NewPassword = 3;
+}
+message UserChangePassword_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string UserName = 2;
+    string CurrentPassword = 3;
+    string NewPassword = 4;
+}
+//>>> Start generated Staff message
+message SaveStaff_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcStaffModel Record = 2;
+}
+message GetStaffRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcStaffModel Record = 3;
+}
+message GetStaff_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ClassCode1 = 2;
+    string ClassCode2 = 3;
+    string ClassCode3 = 4;
+}
+message GetStaff_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcStaffModel Records = 3;
+}
+message grpcStaffModel
+{
+    string ID = 1;
+    string DeptCode = 2;
+    string StaffID = 3;
+    string StaffName = 4;
+    int32 Sex = 5;
+    string Position = 6;
+    string AprStaffID = 7;
+    google.protobuf.Timestamp BirthDay = 8;
+    string CitizenID = 9;
+    google.protobuf.Timestamp IssueDate = 10;
+    string IssuePlace = 11;
+    CustomTypes.Decimal Wage = 12;
+    CustomTypes.Decimal InsWage = 13;
+    CustomTypes.Decimal WageRate = 14;
+    int32 DeductPeopleCount = 15;
+    int32 LaborContractType = 16;
+    string Phone = 17;
+    string Email = 18;
+    string TaxCode = 19;
+    string PermanentAddress = 20;
+    string TempAddress = 21;
+    repeated grpcDeductPeopleModel DeductPeoples = 22;
+    repeated grpcBankAccountModel BankAccounts = 23;
+    int32 UpdMode = 24;
+    int32 UpdCount = 25;
+    string UpdTransactionID = 26;
+    string UpdAccountID = 27;
+    google.protobuf.Timestamp UpdDateTime = 28;
+}
+//>>> End generated Staff message
+//>>> Start generated Department message
+message SaveDepartment_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcDepartmentModel Record = 2;
+}
+message GetDepartmentRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcDepartmentModel Record = 3;
+}
+message GetDepartment_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcDepartmentModel Records = 3;
+}
+message grpcDepartmentModel
+{
+    string ID = 1;
+    string ClassCode1 = 2;
+    string ClassCode2 = 3;
+    string ClassCode3 = 4;
+    string DeptCode = 5;
+    string DeptName = 6;
+    string Phone = 7;
+    string Email = 8;
+    string Address = 9;
+    string RecordNo = 10;
+    int32 UpdMode = 11;
+}
+//>>> End generated Department message
+//Manual: SaveClassification_Request
+message SaveClassification_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcClassificationModel Record = 2;
+}
+//>>> Start generated Classification message
+message GetClassificationRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ClassGroupCode = 2;
+    int32 ClassLevel = 3;
+    string ClassCode = 4;
+}
+message GetClassificationRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcClassificationModel Record = 3;
+}
+message GetClassification_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ClassGroupCode = 2;
+    int32 ClassLevel = 3;
+    string ParentClassCode = 4;
+}
+message GetClassification_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcClassificationModel Records = 3;
+}
+message grpcClassificationModel
+{
+    string ID = 1;
+    string ClassGroupCode = 2;
+    int32 ClassLevel = 3;
+    int32 SeqNo = 4;
+    string ClassCode = 5;
+    string ClassName = 6;
+    string ParentClassCode = 7;
+    string DeptCode = 8;
+    string ClassCode1 = 9;
+    string ClassCode2 = 10;
+    int32 UpdMode = 11;
+    string ParentRecordNo = 12;
+    string RecordNo = 13;
+    int32 UpdCount = 14;
+    string UpdTransactionID = 15;
+    string UpdAccountID = 16;
+    google.protobuf.Timestamp UpdDateTime = 17;
+}
+//>>> End generated Classification message
+//>>> Start generated ClassificationSetting message
+message SaveClassificationSetting_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcClassificationSettingModel Record = 2;
+}
+message GetClassificationSettingRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcClassificationSettingModel Record = 3;
+}
+message GetClassificationSetting_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcClassificationSettingModel Records = 3;
+}
+message grpcClassificationSettingModel
+{
+    string ID = 1;
+    int32 SeqNo = 2;
+    string ClassGroupCode = 3;
+    string ClassGroupName = 4;
+    string ClassLevelName1 = 5;
+    string ClassLevelName2 = 6;
+    string ClassLevelName3 = 7;
+    bool IsUsingLevel1 = 8;
+    bool IsUsingLevel2 = 9;
+    bool IsUsingLevel3 = 10;
+    bool IsParentChild1To2 = 11;
+    bool IsParentChild2To3 = 12;
+    int32 UpdMode = 13;
+}
+//>>> End generated ClassificationSetting message
