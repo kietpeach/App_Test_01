@@ -1,18 +1,14 @@
 // Don't forget to initialize all bloc provider at main.dart
 
 import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/bloc/master/master_bloc.dart';
-import 'package:app_01/bloc/master/master_event.dart';
-import 'package:app_01/bloc/master/master_state.dart';
+import 'package:app_01/bloc/master/bloc.dart';
 import 'package:app_01/config/constant.dart';
-import 'package:app_01/service/Master.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
-// import 'package:app_01/model/integration/Inventory_model.dart';
-// import 'package:app_01/ui/integration/api/crud/add_data.dart';
-// import 'package:app_01/ui/integration/api/crud/edit_data.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
+import 'package:app_01/ui/common/common.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_stocklot.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,18 +29,19 @@ class _InvStockPageState extends State<InvStockPage> {
   CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
   List<grpcStockSumModel> _InventoryData = [];
-  List<grpcInventoryModel> _InventorySlistData = [];
-  List<grpcSelectProductModel> _ProductSlistData = [];
+  List<grpcInventoryModel> _InventorySlistData = [new grpcInventoryModel()];
+  List<grpcSelectProductModel> _ProductSlistData = [
+    new grpcSelectProductModel()
+  ];
   String _valScroll1 = "";
   String _valScroll2 = "";
+  //Function(String) _onChanged = (p0) {};
 
   @override
   void initState() {
     _InventoryBloc = BlocProvider.of<InventoryBloc>(context);
-    _InventoryBloc.add(GetInventory(invCode: "", productCode: ""));
     _MasterBloc = BlocProvider.of<MasterBloc>(context);
     _MasterBloc.add(GetMaster());
-    _MasterBloc = BlocProvider.of<MasterBloc>(context);
     _MasterBloc.add(GetProductMaster());
     super.initState();
   }
@@ -69,83 +66,23 @@ class _InvStockPageState extends State<InvStockPage> {
               child: _globalWidget.createDetailWidget(
                   title: 'Xem tồn kho', desc: ''),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 8),
-              child: BlocListener<MasterBloc, MasterState>(
-                  listener: (context, state) {
-                if (state is GetMasterError) {
-                  Fluttertoast.showToast(
-                      msg: state.errorMessage,
-                      toastLength: Toast.LENGTH_SHORT,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.white,
-                      fontSize: 13);
-                }
-                if (state is GetMasterSuccess) {
-                  _InventorySlistData.addAll(state.MasterData);
-                }
-              }, child: BlocBuilder<MasterBloc, MasterState>(
-                      builder: (context, state) {
-                return DropdownButton(
-                  hint: Text("Kho"),
-                  icon: Icon(Icons.keyboard_arrow_down),
-                  underline: Container(
-                    height: 4,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  value: _valScroll1 == "" ? null : _valScroll1,
-                  items: List.generate(_InventorySlistData.length, (index) {
-                    return DropdownMenuItem(
-                      child: Text(_InventorySlistData[index].invName),
-                      value: _InventorySlistData[index].invCode,
-                    );
-                  }),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _valScroll1 = value!;
-                    });
-                  },
-                );
-              })),
+            IC_Inventory(
+              InventorySlistData: _InventorySlistData,
+              valScroll1: _valScroll1,
+              onChanged: (String? value) {
+                setState(() {
+                  _valScroll1 = value!;
+                });
+              },
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 8),
-              child: BlocListener<MasterBloc, MasterState>(
-                  listener: (context, state) {
-                if (state is GetMasterError) {
-                  Fluttertoast.showToast(
-                      msg: state.errorMessage,
-                      toastLength: Toast.LENGTH_SHORT,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.white,
-                      fontSize: 13);
-                }
-                if (state is GetProductMasterSuccess) {
-                  _ProductSlistData.addAll(state.ProductMasterData);
-                }
-              }, child: BlocBuilder<MasterBloc, MasterState>(
-                      builder: (context, state) {
-                return DropdownButton(
-                  hint: Text("Sản phẩm"),
-                  icon: Icon(Icons.keyboard_arrow_down),
-                  underline: Container(
-                    height: 4,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  value: _valScroll2 == "" ? null : _valScroll2,
-                  items: List.generate(_ProductSlistData.length, (index) {
-                    return DropdownMenuItem(
-                      child: Text(_ProductSlistData[index].productName),
-                      value: _ProductSlistData[index].productCode,
-                    );
-                  }),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _valScroll2 = value!;
-                    });
-                  },
-                );
-              })),
+            IC_Product_V2(
+              ProductSlistData: _ProductSlistData,
+              valScroll2: _valScroll2,
+              onChanged: (String? value) {
+                setState(() {
+                  _valScroll2 = value!;
+                });
+              },
             ),
             Container(
                 child: Wrap(
@@ -243,7 +180,10 @@ class _InvStockPageState extends State<InvStockPage> {
                       return Text('error occured');
                     } else {
                       if (_InventoryData.length == 0) {
-                        return Center(child: CircularProgressIndicator());
+                        //return Center(child: CircularProgressIndicator());
+                        return Center(
+                            child: Icon(Icons.search_off,
+                                size: 32, color: Colors.grey[700]));
                       } else {
                         return ListView.builder(
                           itemCount: _InventoryData.length,
@@ -277,7 +217,7 @@ class _InvStockPageState extends State<InvStockPage> {
             Container(
               decoration: BoxDecoration(
                 color: _InventoryData[index].stockQty != 0
-                    ? Colors.blue
+                    ? PRIMARY_COLOR
                     : Colors.pink,
                 borderRadius: BorderRadius.all(Radius.circular(18)),
               ),
@@ -295,12 +235,14 @@ class _InvStockPageState extends State<InvStockPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(_InventoryData[index].productCode,
+                  Text(
+                      _globalFunction.GetProductName(
+                          _ProductSlistData, _InventoryData[index].productCode),
                       style: TextStyle(
                           fontSize: 18,
                           color: BLACK55,
                           fontWeight: FontWeight.w500)),
-                  Text(_InventoryData[index].stockQty.units.toString(),
+                  Text("SL: " + _InventoryData[index].stockQty.units.toString(),
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],
@@ -311,12 +253,16 @@ class _InvStockPageState extends State<InvStockPage> {
             SizedBox(width: 12),
             GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => EditDataPage(
-                  //             index: index,
-                  //             InventoryData: _InventoryData[index])));
+                  _valScroll1 = "";
+                  _valScroll2 = "";
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => StockLOTPage(
+                              index: index,
+                              inventoryData: _InventoryData[index],
+                              productSlistData: _ProductSlistData,
+                              inventorySlistData: _InventorySlistData)));
                 },
                 child:
                     Icon(Icons.inventory, size: 24, color: Colors.grey[700])),

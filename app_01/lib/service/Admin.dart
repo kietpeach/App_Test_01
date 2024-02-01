@@ -9,7 +9,7 @@ class AdminService {
   static Future<int> login(String userName, String passWord) async {
     GetUserAccountRecord_Response res = new GetUserAccountRecord_Response();
     final channel = ClientChannel(
-      '192.168.1.100',
+      '115.79.6.95',
       port: 5099,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 const String APP_NAME = 'DevKit';
 
 // color for apps
-const Color PRIMARY_COLOR = Color(0xFF0181cc);
+const Color PRIMARY_COLOR = Color(0xFF07ac12);
 const Color ASSENT_COLOR = Color(0xFFe75f3f);
 
 const Color BLACK21 = Color(0xFF212121);

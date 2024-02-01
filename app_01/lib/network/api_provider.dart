@@ -97,7 +97,7 @@ class ApiProvider {
   Future<String> getStockSum(String invCode, String productCode) async {
     GetStockSum_Response res = new GetStockSum_Response();
     final channel = ClientChannel(
-      '192.168.1.100',
+      '115.79.6.95',
       port: 5004,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
@@ -117,7 +117,7 @@ class ApiProvider {
       String invCode, String productCode) async {
     GetStockSum_Response res = new GetStockSum_Response();
     final channel = ClientChannel(
-      '192.168.1.100',
+      '115.79.6.95',
       port: 5004,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
@@ -133,6 +133,25 @@ class ApiProvider {
     return res.records;
   }
 
+  Future<List<grpcStockLOTModel>> getInventoryStockLOT(
+      String invCode, String productCode) async {
+    GetStockLOT_Response res = new GetStockLOT_Response();
+    final channel = ClientChannel(
+      '115.79.6.95',
+      port: 5004,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    );
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.getStockLOT(
+          GetStockLOT_Request(invCode: invCode, productCode: productCode));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.records;
+  }
   // Future<List<dynamic>> addInventory(String sessionId, String InventoryName, String InventoryPhoneNumber, String InventoryGender, String InventoryAddress, apiToken) async {
   //   var postData = {
   //     'session_id': sessionId,

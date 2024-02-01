@@ -6,7 +6,7 @@ class MasterService {
   static Future<List<grpcInventoryModel>> getInventoryList() async {
     GetInventory_Response res = new GetInventory_Response();
     final channel = ClientChannel(
-      '192.168.1.100',
+      '115.79.6.95',
       port: 5001,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
@@ -24,13 +24,14 @@ class MasterService {
   static Future<List<grpcSelectProductModel>> getProductList() async {
     GetSelectProduct_Response res = new GetSelectProduct_Response();
     final channel = ClientChannel(
-      '192.168.1.100',
+      '115.79.6.95',
       port: 5001,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
     final stub = grpcMasterServiceClient(channel);
     try {
-      res = await stub.getSelectProduct(GetSelectProduct_Request());
+      res =
+          await stub.getSelectProduct(GetSelectProduct_Request(isStock: true));
     } catch (e) {
       print('Caught error: $e');
     } finally {

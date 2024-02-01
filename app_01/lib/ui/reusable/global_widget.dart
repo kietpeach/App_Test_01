@@ -210,7 +210,7 @@ class GlobalWidget {
   }
 
   Widget createButton({
-    Color backgroundColor = Colors.blue,
+    Color backgroundColor = PRIMARY_COLOR,
     Color textColor = Colors.white,
     required String buttonName,
     required Function onPressed,

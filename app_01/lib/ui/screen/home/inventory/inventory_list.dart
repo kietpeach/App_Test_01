@@ -32,7 +32,7 @@ class _InventoryListPageState extends State<InventoryListPage> {
           padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
           children: [
             Container(
-              child: Text('Inventory List Screen',
+              child: Text('Danh sách màn hình kho',
                   style: TextStyle(
                       fontSize: 18,
                       color: BLACK21,
@@ -45,8 +45,7 @@ class _InventoryListPageState extends State<InventoryListPage> {
                   Flexible(
                       flex: 5,
                       child: Container(
-                        child: Text(
-                            'Product list used to listing product data.',
+                        child: Text('Các màn hình quản lý nghiệp vụ kho',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: BLACK77,
@@ -56,14 +55,14 @@ class _InventoryListPageState extends State<InventoryListPage> {
                       flex: 2,
                       child: Container(
                           alignment: Alignment.center,
-                          child:
-                              Icon(Icons.list_alt, size: 50, color: SOFT_BLUE)))
+                          child: Icon(Icons.list_alt,
+                              size: 50, color: PRIMARY_COLOR)))
                 ],
               ),
             ),
             Container(
               margin: EdgeInsets.only(top: 48),
-              child: Text('Inventory List',
+              child: Text('Danh sách',
                   style: TextStyle(
                       fontSize: 18,
                       color: BLACK21,

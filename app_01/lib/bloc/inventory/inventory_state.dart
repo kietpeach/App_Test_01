@@ -22,6 +22,11 @@ class GetInventorySuccess extends InventoryState {
   GetInventorySuccess({required this.InventoryData});
 }
 
+class GetStockLOTSuccess extends InventoryState {
+  final List<grpcStockLOTModel> StockLOTData;
+  GetStockLOTSuccess({required this.StockLOTData});
+}
+
 // general
 class InventoryErrorValidation extends InventoryState {
   final String errorMessage;

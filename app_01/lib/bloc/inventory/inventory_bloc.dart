@@ -7,6 +7,7 @@ import './bloc.dart';
 class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
   InventoryBloc() : super(InitialInventoryState()) {
     on<GetInventory>(_getInventory);
+    on<GetStockLOT>(_getStockLOT);
     // on<AddInventory>(_addInventory);
     // on<EditInventory>(_editInventory);
     // on<DeleteInventory>(_deleteInventory);
@@ -28,6 +29,20 @@ void _getInventory(GetInventory event, Emitter<InventoryState> emit) async {
   }
 }
 
+void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
+  ApiProvider _apiProvider = ApiProvider();
+
+  emit(GetInventoryWaiting());
+  try {
+    List<grpcStockLOTModel> data = await _apiProvider.getInventoryStockLOT(
+        event.invCode, event.productCode);
+    emit(GetStockLOTSuccess(StockLOTData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
 // void _addInventory(AddInventory event, Emitter<InventoryState> emit) async {
 //   ApiProvider _apiProvider = ApiProvider();
 

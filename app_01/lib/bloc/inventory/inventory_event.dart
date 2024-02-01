@@ -9,6 +9,11 @@ class GetInventory extends InventoryEvent {
   GetInventory({required this.invCode, required this.productCode});
 }
 
+class GetStockLOT extends InventoryEvent {
+  final String invCode;
+  final String productCode;
+  GetStockLOT({required this.invCode, required this.productCode});
+}
 // class AddInventory extends InventoryEvent {
 //   final String sessionId;
 //   final String InventoryName,

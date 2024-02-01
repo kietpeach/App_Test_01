@@ -271,9 +271,12 @@ class _Home1PageState extends State<Home1Page> {
                   toastLength: Toast.LENGTH_SHORT);
               // Navigator.pushReplacement(context,
               //     MaterialPageRoute(builder: (context) => InventoryListPage()));
-
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InventoryListPage()));
+              if (index == 4) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => InventoryListPage()));
+              }
             },
             child: Container(
               decoration: BoxDecoration(
