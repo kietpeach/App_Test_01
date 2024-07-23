@@ -1,13 +1,15 @@
+import 'package:app_01/service/Inventory.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 //import 'package:app_01/ui/models/inventory/Inventory_model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:app_01/network/api_provider.dart';
 import './bloc.dart';
 
 class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
   InventoryBloc() : super(InitialInventoryState()) {
     on<GetInventory>(_getInventory);
     on<GetStockLOT>(_getStockLOT);
+    on<GetSlistInvOutReq>(_getSlistInvOutReq);
+    on<GetVoucherInvOutReq>(_getVoucherInvOutReq);
     // on<AddInventory>(_addInventory);
     // on<EditInventory>(_editInventory);
     // on<DeleteInventory>(_deleteInventory);
@@ -15,12 +17,12 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
 }
 
 void _getInventory(GetInventory event, Emitter<InventoryState> emit) async {
-  ApiProvider _apiProvider = ApiProvider();
+  InventoryService _inventory = InventoryService();
 
   emit(GetInventoryWaiting());
   try {
-    List<grpcStockSumModel> data = await _apiProvider.getInventoryStockSum(
-        event.invCode, event.productCode);
+    List<grpcStockSumModel> data =
+        await _inventory.getInventoryStockSum(event.invCode, event.productCode);
     emit(GetInventorySuccess(InventoryData: data));
   } catch (ex) {
     if (ex != 'cancel') {
@@ -30,12 +32,12 @@ void _getInventory(GetInventory event, Emitter<InventoryState> emit) async {
 }
 
 void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
-  ApiProvider _apiProvider = ApiProvider();
+  InventoryService _inventory = InventoryService();
 
   emit(GetInventoryWaiting());
   try {
-    List<grpcStockLOTModel> data = await _apiProvider.getInventoryStockLOT(
-        event.invCode, event.productCode);
+    List<grpcStockLOTModel> data =
+        await _inventory.getInventoryStockLOT(event.invCode, event.productCode);
     emit(GetStockLOTSuccess(StockLOTData: data));
   } catch (ex) {
     if (ex != 'cancel') {
@@ -43,8 +45,39 @@ void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
     }
   }
 }
+
+void _getSlistInvOutReq(
+    GetSlistInvOutReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    List<grpcInvOutReqSlistModel> data = await _inventory.getSlistInvOutReq();
+    emit(GetSlistInvOutReqSuccess(InvOutReqSlistData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _getVoucherInvOutReq(
+    GetVoucherInvOutReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    GetVoucherInvOutReq_Response data =
+        await _inventory.getVoucherInvOutReq(event.voucherNo);
+    emit(GetVoucherInvOutReqSuccess(InvOutReqData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
 // void _addInventory(AddInventory event, Emitter<InventoryState> emit) async {
-//   ApiProvider _apiProvider = ApiProvider();
+//   ApiProvider _inventory = ApiProvider();
 
 //   String errorMessage='';
 //   if(event.InventoryName==''){
@@ -60,7 +93,7 @@ void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
 //   if(errorMessage == ''){
 //     emit(AddInventoryWaiting());
 //     try {
-//       List data = await _apiProvider.addInventory(event.sessionId, event.InventoryName, event.InventoryPhoneNumber, event.InventoryGender, event.InventoryAddress, event.apiToken);
+//       List data = await _inventory.addInventory(event.sessionId, event.InventoryName, event.InventoryPhoneNumber, event.InventoryGender, event.InventoryAddress, event.apiToken);
 //       emit(AddInventorySuccess(msg: data[0], InventoryId:data[1], InventoryName: event.InventoryName, InventoryPhoneNumber: event.InventoryPhoneNumber, InventoryGender: event.InventoryGender, InventoryAddress: event.InventoryAddress));
 //     } catch (ex){
 //       emit(AddInventoryError(errorMessage: ex.toString()));
@@ -71,7 +104,7 @@ void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
 // }
 
 // void _editInventory(EditInventory event, Emitter<InventoryState> emit) async {
-//   ApiProvider _apiProvider = ApiProvider();
+//   ApiProvider _inventory = ApiProvider();
 
 //   String errorMessage='';
 //   if(event.InventoryName==''){
@@ -87,7 +120,7 @@ void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
 //   if(errorMessage == ''){
 //     emit(EditInventoryWaiting());
 //     try {
-//       String message = await _apiProvider.editInventory(event.sessionId, event.InventoryId, event.InventoryName, event.InventoryPhoneNumber, event.InventoryGender, event.InventoryAddress, event.apiToken);
+//       String message = await _inventory.editInventory(event.sessionId, event.InventoryId, event.InventoryName, event.InventoryPhoneNumber, event.InventoryGender, event.InventoryAddress, event.apiToken);
 //       emit(EditInventorySuccess(msg: message, index: event.index, InventoryId: event.InventoryId, InventoryName: event.InventoryName, InventoryPhoneNumber: event.InventoryPhoneNumber, InventoryGender: event.InventoryGender, InventoryAddress: event.InventoryAddress));
 //     } catch (ex){
 //       emit(EditInventoryError(errorMessage: ex.toString()));
@@ -98,11 +131,11 @@ void _getStockLOT(GetStockLOT event, Emitter<InventoryState> emit) async {
 // }
 
 // void _deleteInventory(DeleteInventory event, Emitter<InventoryState> emit) async {
-//   ApiProvider _apiProvider = ApiProvider();
+//   ApiProvider _inventory = ApiProvider();
 
 //   emit(DeleteInventoryWaiting());
 //   try {
-//     String msg = await _apiProvider.deleteInventory(event.sessionId, event.InventoryId, event.apiToken);
+//     String msg = await _inventory.deleteInventory(event.sessionId, event.InventoryId, event.apiToken);
 //     emit(DeleteInventorySuccess(msg: msg, index: event.index));
 //   } catch (ex){
 //     emit(DeleteInventoryError(errorMessage: ex.toString()));

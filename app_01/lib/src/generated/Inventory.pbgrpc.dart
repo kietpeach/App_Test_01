@@ -26,6 +26,50 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/SubcribeEvents',
       ($0.SubcribeEvents_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$saveInvTransComplete = $grpc.ClientMethod<$1.SaveInvTransComplete_Request, $0.String_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveInvTransComplete',
+      ($1.SaveInvTransComplete_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$saveInvTransMac = $grpc.ClientMethod<$1.SaveInvTransMac_Request, $0.String_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveInvTransMac',
+      ($1.SaveInvTransMac_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getOutStockPriceUpdate = $grpc.ClientMethod<$1.GetOutStockPriceUpdate_Request, $1.GetOutStockPriceUpdate_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetOutStockPriceUpdate',
+      ($1.GetOutStockPriceUpdate_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetOutStockPriceUpdate_Response.fromBuffer(value));
+  static final _$updateOutStockPrice = $grpc.ClientMethod<$1.UpdateOutStockPrice_Request, $0.Empty_Response>(
+      '/grpcInventoryService.grpcInventoryService/UpdateOutStockPrice',
+      ($1.UpdateOutStockPrice_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$saveOutStockPriceUpdate = $grpc.ClientMethod<$1.SaveOutStockPriceUpdate_Request, $0.String_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveOutStockPriceUpdate',
+      ($1.SaveOutStockPriceUpdate_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$updateStockSumMonth = $grpc.ClientMethod<$1.UpdateStockSumMonth_Request, $0.Empty_Response>(
+      '/grpcInventoryService.grpcInventoryService/UpdateStockSumMonth',
+      ($1.UpdateStockSumMonth_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$saveNQP = $grpc.ClientMethod<$1.SaveNQP_Request, $0.String_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveNQP',
+      ($1.SaveNQP_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getNQPRecord = $grpc.ClientMethod<$0.String_Request, $1.GetNQPRecord_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetNQPRecord',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetNQPRecord_Response.fromBuffer(value));
+  static final _$getNQP = $grpc.ClientMethod<$0.Empty_Request, $1.GetNQP_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetNQP',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetNQP_Response.fromBuffer(value));
+  static final _$saveKietTest = $grpc.ClientMethod<$1.SaveKietTest_Request, $0.String_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveKietTest',
+      ($1.SaveKietTest_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getKietTest = $grpc.ClientMethod<$0.Empty_Request, $1.GetKietTest_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetKietTest',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetKietTest_Response.fromBuffer(value));
   static final _$saveVoucherInvTrans = $grpc.ClientMethod<$1.SaveVoucherInvTrans_Request, $0.String_Response>(
       '/grpcInventoryService.grpcInventoryService/SaveVoucherInvTrans',
       ($1.SaveVoucherInvTrans_Request value) => value.writeToBuffer(),
@@ -34,17 +78,17 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/DeleteVoucherInvTrans',
       ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
-  static final _$getVoucherInvTrans = $grpc.ClientMethod<$1.GetVoucherInvTrans_Request, $1.GetVoucherInvTrans_Response>(
+  static final _$getVoucherInvTrans = $grpc.ClientMethod<$0.String_Request, $1.GetVoucherInvTrans_Response>(
       '/grpcInventoryService.grpcInventoryService/GetVoucherInvTrans',
-      ($1.GetVoucherInvTrans_Request value) => value.writeToBuffer(),
+      ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetVoucherInvTrans_Response.fromBuffer(value));
-  static final _$getHeaderInvTrans = $grpc.ClientMethod<$1.GetHeaderInvTrans_Request, $1.GetHeaderInvTrans_Response>(
+  static final _$getHeaderInvTrans = $grpc.ClientMethod<$0.String_Request, $1.GetHeaderInvTrans_Response>(
       '/grpcInventoryService.grpcInventoryService/GetHeaderInvTrans',
-      ($1.GetHeaderInvTrans_Request value) => value.writeToBuffer(),
+      ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetHeaderInvTrans_Response.fromBuffer(value));
-  static final _$getDetailInvTrans = $grpc.ClientMethod<$1.GetDetailInvTrans_Request, $1.GetDetailInvTrans_Response>(
+  static final _$getDetailInvTrans = $grpc.ClientMethod<$0.String_Request, $1.GetDetailInvTrans_Response>(
       '/grpcInventoryService.grpcInventoryService/GetDetailInvTrans',
-      ($1.GetDetailInvTrans_Request value) => value.writeToBuffer(),
+      ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetDetailInvTrans_Response.fromBuffer(value));
   static final _$getSlistInvTrans = $grpc.ClientMethod<$0.Empty_Request, $1.GetSlistInvTrans_Response>(
       '/grpcInventoryService.grpcInventoryService/GetSlistInvTrans',
@@ -70,6 +114,10 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/GetInvTransDetailRecord',
       ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetInvTransDetailRecord_Response.fromBuffer(value));
+  static final _$getInvTransDetail = $grpc.ClientMethod<$1.GetInvTransDetail_Request, $1.GetInvTransDetail_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetInvTransDetail',
+      ($1.GetInvTransDetail_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetInvTransDetail_Response.fromBuffer(value));
   static final _$saveStockCheckDetail = $grpc.ClientMethod<$1.SaveStockCheckDetail_Request, $0.String_Response>(
       '/grpcInventoryService.grpcInventoryService/SaveStockCheckDetail',
       ($1.SaveStockCheckDetail_Request value) => value.writeToBuffer(),
@@ -106,10 +154,6 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/GetInvOutDetailRecord',
       ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetInvOutDetailRecord_Response.fromBuffer(value));
-  static final _$updateInvSumMonth = $grpc.ClientMethod<$1.UpdateInvSumMonth_Request, $0.Empty_Response>(
-      '/grpcInventoryService.grpcInventoryService/UpdateInvSumMonth',
-      ($1.UpdateInvSumMonth_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$getInvMonthyStock = $grpc.ClientMethod<$1.GetInvMonthyStock_Request, $1.GetInvMonthyStock_Response>(
       '/grpcInventoryService.grpcInventoryService/GetInvMonthyStock',
       ($1.GetInvMonthyStock_Request value) => value.writeToBuffer(),
@@ -341,6 +385,50 @@ class grpcInventoryServiceClient extends $grpc.Client {
     return $createUnaryCall(_$subcribeEvents, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.String_Response> saveInvTransComplete($1.SaveInvTransComplete_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveInvTransComplete, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveInvTransMac($1.SaveInvTransMac_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveInvTransMac, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate($1.GetOutStockPriceUpdate_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getOutStockPriceUpdate, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> updateOutStockPrice($1.UpdateOutStockPrice_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateOutStockPrice, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveOutStockPriceUpdate($1.SaveOutStockPriceUpdate_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveOutStockPriceUpdate, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> updateStockSumMonth($1.UpdateStockSumMonth_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateStockSumMonth, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveNQP($1.SaveNQP_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveNQP, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetNQPRecord_Response> getNQPRecord($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getNQPRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetNQP_Response> getNQP($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getNQP, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveKietTest($1.SaveKietTest_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveKietTest, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetKietTest_Response> getKietTest($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getKietTest, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.String_Response> saveVoucherInvTrans($1.SaveVoucherInvTrans_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$saveVoucherInvTrans, request, options: options);
   }
@@ -349,15 +437,15 @@ class grpcInventoryServiceClient extends $grpc.Client {
     return $createUnaryCall(_$deleteVoucherInvTrans, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetVoucherInvTrans_Response> getVoucherInvTrans($1.GetVoucherInvTrans_Request request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetVoucherInvTrans_Response> getVoucherInvTrans($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getVoucherInvTrans, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetHeaderInvTrans_Response> getHeaderInvTrans($1.GetHeaderInvTrans_Request request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetHeaderInvTrans_Response> getHeaderInvTrans($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getHeaderInvTrans, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetDetailInvTrans_Response> getDetailInvTrans($1.GetDetailInvTrans_Request request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetDetailInvTrans_Response> getDetailInvTrans($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getDetailInvTrans, request, options: options);
   }
 
@@ -383,6 +471,10 @@ class grpcInventoryServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetInvTransDetailRecord_Response> getInvTransDetailRecord($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getInvTransDetailRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetInvTransDetail_Response> getInvTransDetail($1.GetInvTransDetail_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getInvTransDetail, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveStockCheckDetail($1.SaveStockCheckDetail_Request request, {$grpc.CallOptions? options}) {
@@ -419,10 +511,6 @@ class grpcInventoryServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetInvOutDetailRecord_Response> getInvOutDetailRecord($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getInvOutDetailRecord, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.Empty_Response> updateInvSumMonth($1.UpdateInvSumMonth_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$updateInvSumMonth, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.GetInvMonthyStock_Response> getInvMonthyStock($1.GetInvMonthyStock_Request request, {$grpc.CallOptions? options}) {
@@ -658,6 +746,83 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SubcribeEvents_Request.fromBuffer(value),
         ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveInvTransComplete_Request, $0.String_Response>(
+        'SaveInvTransComplete',
+        saveInvTransComplete_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveInvTransComplete_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveInvTransMac_Request, $0.String_Response>(
+        'SaveInvTransMac',
+        saveInvTransMac_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveInvTransMac_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetOutStockPriceUpdate_Request, $1.GetOutStockPriceUpdate_Response>(
+        'GetOutStockPriceUpdate',
+        getOutStockPriceUpdate_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetOutStockPriceUpdate_Request.fromBuffer(value),
+        ($1.GetOutStockPriceUpdate_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.UpdateOutStockPrice_Request, $0.Empty_Response>(
+        'UpdateOutStockPrice',
+        updateOutStockPrice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.UpdateOutStockPrice_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveOutStockPriceUpdate_Request, $0.String_Response>(
+        'SaveOutStockPriceUpdate',
+        saveOutStockPriceUpdate_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveOutStockPriceUpdate_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.UpdateStockSumMonth_Request, $0.Empty_Response>(
+        'UpdateStockSumMonth',
+        updateStockSumMonth_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.UpdateStockSumMonth_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveNQP_Request, $0.String_Response>(
+        'SaveNQP',
+        saveNQP_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveNQP_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetNQPRecord_Response>(
+        'GetNQPRecord',
+        getNQPRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetNQPRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetNQP_Response>(
+        'GetNQP',
+        getNQP_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($1.GetNQP_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveKietTest_Request, $0.String_Response>(
+        'SaveKietTest',
+        saveKietTest_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveKietTest_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetKietTest_Response>(
+        'GetKietTest',
+        getKietTest_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($1.GetKietTest_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveVoucherInvTrans_Request, $0.String_Response>(
         'SaveVoucherInvTrans',
         saveVoucherInvTrans_Pre,
@@ -672,26 +837,26 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($0.String_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.GetVoucherInvTrans_Request, $1.GetVoucherInvTrans_Response>(
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetVoucherInvTrans_Response>(
         'GetVoucherInvTrans',
         getVoucherInvTrans_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.GetVoucherInvTrans_Request.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($1.GetVoucherInvTrans_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.GetHeaderInvTrans_Request, $1.GetHeaderInvTrans_Response>(
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetHeaderInvTrans_Response>(
         'GetHeaderInvTrans',
         getHeaderInvTrans_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.GetHeaderInvTrans_Request.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($1.GetHeaderInvTrans_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.GetDetailInvTrans_Request, $1.GetDetailInvTrans_Response>(
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetDetailInvTrans_Response>(
         'GetDetailInvTrans',
         getDetailInvTrans_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.GetDetailInvTrans_Request.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($1.GetDetailInvTrans_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetSlistInvTrans_Response>(
         'GetSlistInvTrans',
@@ -735,6 +900,13 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($1.GetInvTransDetailRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetInvTransDetail_Request, $1.GetInvTransDetail_Response>(
+        'GetInvTransDetail',
+        getInvTransDetail_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetInvTransDetail_Request.fromBuffer(value),
+        ($1.GetInvTransDetail_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveStockCheckDetail_Request, $0.String_Response>(
         'SaveStockCheckDetail',
         saveStockCheckDetail_Pre,
@@ -798,13 +970,6 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
         ($1.GetInvOutDetailRecord_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.UpdateInvSumMonth_Request, $0.Empty_Response>(
-        'UpdateInvSumMonth',
-        updateInvSumMonth_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $1.UpdateInvSumMonth_Request.fromBuffer(value),
-        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.GetInvMonthyStock_Request, $1.GetInvMonthyStock_Response>(
         'GetInvMonthyStock',
         getInvMonthyStock_Pre,
@@ -1196,6 +1361,50 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
     return subcribeEvents(call, await request);
   }
 
+  $async.Future<$0.String_Response> saveInvTransComplete_Pre($grpc.ServiceCall call, $async.Future<$1.SaveInvTransComplete_Request> request) async {
+    return saveInvTransComplete(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveInvTransMac_Pre($grpc.ServiceCall call, $async.Future<$1.SaveInvTransMac_Request> request) async {
+    return saveInvTransMac(call, await request);
+  }
+
+  $async.Future<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate_Pre($grpc.ServiceCall call, $async.Future<$1.GetOutStockPriceUpdate_Request> request) async {
+    return getOutStockPriceUpdate(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> updateOutStockPrice_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateOutStockPrice_Request> request) async {
+    return updateOutStockPrice(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveOutStockPriceUpdate_Pre($grpc.ServiceCall call, $async.Future<$1.SaveOutStockPriceUpdate_Request> request) async {
+    return saveOutStockPriceUpdate(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> updateStockSumMonth_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateStockSumMonth_Request> request) async {
+    return updateStockSumMonth(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveNQP_Pre($grpc.ServiceCall call, $async.Future<$1.SaveNQP_Request> request) async {
+    return saveNQP(call, await request);
+  }
+
+  $async.Future<$1.GetNQPRecord_Response> getNQPRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getNQPRecord(call, await request);
+  }
+
+  $async.Future<$1.GetNQP_Response> getNQP_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getNQP(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveKietTest_Pre($grpc.ServiceCall call, $async.Future<$1.SaveKietTest_Request> request) async {
+    return saveKietTest(call, await request);
+  }
+
+  $async.Future<$1.GetKietTest_Response> getKietTest_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getKietTest(call, await request);
+  }
+
   $async.Future<$0.String_Response> saveVoucherInvTrans_Pre($grpc.ServiceCall call, $async.Future<$1.SaveVoucherInvTrans_Request> request) async {
     return saveVoucherInvTrans(call, await request);
   }
@@ -1204,15 +1413,15 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
     return deleteVoucherInvTrans(call, await request);
   }
 
-  $async.Future<$1.GetVoucherInvTrans_Response> getVoucherInvTrans_Pre($grpc.ServiceCall call, $async.Future<$1.GetVoucherInvTrans_Request> request) async {
+  $async.Future<$1.GetVoucherInvTrans_Response> getVoucherInvTrans_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getVoucherInvTrans(call, await request);
   }
 
-  $async.Future<$1.GetHeaderInvTrans_Response> getHeaderInvTrans_Pre($grpc.ServiceCall call, $async.Future<$1.GetHeaderInvTrans_Request> request) async {
+  $async.Future<$1.GetHeaderInvTrans_Response> getHeaderInvTrans_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getHeaderInvTrans(call, await request);
   }
 
-  $async.Future<$1.GetDetailInvTrans_Response> getDetailInvTrans_Pre($grpc.ServiceCall call, $async.Future<$1.GetDetailInvTrans_Request> request) async {
+  $async.Future<$1.GetDetailInvTrans_Response> getDetailInvTrans_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getDetailInvTrans(call, await request);
   }
 
@@ -1238,6 +1447,10 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
 
   $async.Future<$1.GetInvTransDetailRecord_Response> getInvTransDetailRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getInvTransDetailRecord(call, await request);
+  }
+
+  $async.Future<$1.GetInvTransDetail_Response> getInvTransDetail_Pre($grpc.ServiceCall call, $async.Future<$1.GetInvTransDetail_Request> request) async {
+    return getInvTransDetail(call, await request);
   }
 
   $async.Future<$0.String_Response> saveStockCheckDetail_Pre($grpc.ServiceCall call, $async.Future<$1.SaveStockCheckDetail_Request> request) async {
@@ -1274,10 +1487,6 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
 
   $async.Future<$1.GetInvOutDetailRecord_Response> getInvOutDetailRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getInvOutDetailRecord(call, await request);
-  }
-
-  $async.Future<$0.Empty_Response> updateInvSumMonth_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateInvSumMonth_Request> request) async {
-    return updateInvSumMonth(call, await request);
   }
 
   $async.Future<$1.GetInvMonthyStock_Response> getInvMonthyStock_Pre($grpc.ServiceCall call, $async.Future<$1.GetInvMonthyStock_Request> request) async {
@@ -1501,17 +1710,29 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
   }
 
   $async.Future<$0.Empty_Response> subcribeEvents($grpc.ServiceCall call, $0.SubcribeEvents_Request request);
+  $async.Future<$0.String_Response> saveInvTransComplete($grpc.ServiceCall call, $1.SaveInvTransComplete_Request request);
+  $async.Future<$0.String_Response> saveInvTransMac($grpc.ServiceCall call, $1.SaveInvTransMac_Request request);
+  $async.Future<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate($grpc.ServiceCall call, $1.GetOutStockPriceUpdate_Request request);
+  $async.Future<$0.Empty_Response> updateOutStockPrice($grpc.ServiceCall call, $1.UpdateOutStockPrice_Request request);
+  $async.Future<$0.String_Response> saveOutStockPriceUpdate($grpc.ServiceCall call, $1.SaveOutStockPriceUpdate_Request request);
+  $async.Future<$0.Empty_Response> updateStockSumMonth($grpc.ServiceCall call, $1.UpdateStockSumMonth_Request request);
+  $async.Future<$0.String_Response> saveNQP($grpc.ServiceCall call, $1.SaveNQP_Request request);
+  $async.Future<$1.GetNQPRecord_Response> getNQPRecord($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetNQP_Response> getNQP($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$0.String_Response> saveKietTest($grpc.ServiceCall call, $1.SaveKietTest_Request request);
+  $async.Future<$1.GetKietTest_Response> getKietTest($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$0.String_Response> saveVoucherInvTrans($grpc.ServiceCall call, $1.SaveVoucherInvTrans_Request request);
   $async.Future<$0.String_Response> deleteVoucherInvTrans($grpc.ServiceCall call, $0.String_Request request);
-  $async.Future<$1.GetVoucherInvTrans_Response> getVoucherInvTrans($grpc.ServiceCall call, $1.GetVoucherInvTrans_Request request);
-  $async.Future<$1.GetHeaderInvTrans_Response> getHeaderInvTrans($grpc.ServiceCall call, $1.GetHeaderInvTrans_Request request);
-  $async.Future<$1.GetDetailInvTrans_Response> getDetailInvTrans($grpc.ServiceCall call, $1.GetDetailInvTrans_Request request);
+  $async.Future<$1.GetVoucherInvTrans_Response> getVoucherInvTrans($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetHeaderInvTrans_Response> getHeaderInvTrans($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetDetailInvTrans_Response> getDetailInvTrans($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetSlistInvTrans_Response> getSlistInvTrans($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$0.Empty_Response> updateInvSumTurnRate($grpc.ServiceCall call, $1.UpdateInvSumTurnRate_Request request);
   $async.Future<$1.GetStockCheckControl_Response> getStockCheckControl($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$0.Empty_Response> updateStockCheckEnding($grpc.ServiceCall call, $1.UpdateStockCheckEnding_Request request);
   $async.Future<$0.String_Response> saveInvTransDetail($grpc.ServiceCall call, $1.SaveInvTransDetail_Request request);
   $async.Future<$1.GetInvTransDetailRecord_Response> getInvTransDetailRecord($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetInvTransDetail_Response> getInvTransDetail($grpc.ServiceCall call, $1.GetInvTransDetail_Request request);
   $async.Future<$0.String_Response> saveStockCheckDetail($grpc.ServiceCall call, $1.SaveStockCheckDetail_Request request);
   $async.Future<$1.GetStockCheckDetailRecord_Response> getStockCheckDetailRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetStockCheckDetail_Response> getStockCheckDetail($grpc.ServiceCall call, $1.GetStockCheckDetail_Request request);
@@ -1521,7 +1742,6 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
   $async.Future<$1.GetInvMachiningCompCheck_Response> getInvMachiningCompCheck($grpc.ServiceCall call, $1.GetInvMachiningCompCheck_Request request);
   $async.Future<$1.GetInvTransHistory_Response> getInvTransHistory($grpc.ServiceCall call, $1.GetInvTransHistory_Request request);
   $async.Future<$1.GetInvOutDetailRecord_Response> getInvOutDetailRecord($grpc.ServiceCall call, $0.String_Request request);
-  $async.Future<$0.Empty_Response> updateInvSumMonth($grpc.ServiceCall call, $1.UpdateInvSumMonth_Request request);
   $async.Future<$1.GetInvMonthyStock_Response> getInvMonthyStock($grpc.ServiceCall call, $1.GetInvMonthyStock_Request request);
   $async.Future<$0.String_Response> saveVoucherInvAdj($grpc.ServiceCall call, $1.SaveVoucherInvAdj_Request request);
   $async.Future<$0.String_Response> deleteVoucherInvAdj($grpc.ServiceCall call, $0.String_Request request);

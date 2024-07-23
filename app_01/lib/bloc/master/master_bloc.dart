@@ -8,6 +8,7 @@ class MasterBloc extends Bloc<MasterEvent, MasterState> {
   MasterBloc() : super(InitialMasterState()) {
     on<GetMaster>(_getMaster);
     on<GetProductMaster>(_getProductMaster);
+    on<GetVoucherNo>(_getVoucherNo);
     // on<AddMaster>(_addMaster);
     // on<EditMaster>(_editMaster);
     // on<DeleteMaster>(_deleteMaster);
@@ -32,6 +33,19 @@ void _getProductMaster(
   try {
     List<grpcSelectProductModel> data = await MasterService.getProductList();
     emit(GetProductMasterSuccess(ProductMasterData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetMasterError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _getVoucherNo(GetVoucherNo event, Emitter<MasterState> emit) async {
+  emit(GetMasterWaiting());
+  try {
+    GetVoucherNo_Response data =
+        await MasterService.getVoucherNo(event.voucherCode);
+    emit(GetVoucherNoSuccess(VoucherNoData: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetMasterError(errorMessage: ex.toString()));

@@ -1,4 +1,5 @@
 import 'package:app_01/src/generated/Master.pb.dart';
+import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -55,7 +56,7 @@ class GlobalFunction {
       List<grpcSelectProductModel> listProduct, String productCode) {
     var record =
         listProduct.where((element) => element.productCode == productCode);
-    if (record != null) {
+    if (record.isNotEmpty) {
       return record.first.productName;
     }
     return "";
@@ -63,9 +64,21 @@ class GlobalFunction {
 
   String GetInvName(List<grpcInventoryModel> listInv, String invCode) {
     var record = listInv.where((element) => element.invCode == invCode);
-    if (record != null) {
+    if (record.isNotEmpty) {
       return record.first.invName;
     }
     return "";
+  }
+
+  String timeStampFormatter(Timestamp dateTime, {String? format}) {
+    return DateFormat(format ?? 'dd/MM/yyyy')
+        .format(dateTime.toDateTime().toLocal())
+        .toString();
+  }
+
+  String dateTimeFormatter(DateTime dateTime, {String? format}) {
+    return DateFormat(format ?? 'dd/MM/yyyy')
+        .format(dateTime.toLocal())
+        .toString();
   }
 }

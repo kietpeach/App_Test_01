@@ -367,4 +367,44 @@ class GlobalWidget {
       return SizedBox.shrink();
     }
   }
+
+  Widget buildButtonConfirm(context, {required Function onTap}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              height: kToolbarHeight,
+              color: ASSENT_COLOR,
+              child: Center(
+                  child: Text('Hủy',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold))),
+            ),
+          ),
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: onTap as void Function(),
+            child: Container(
+              height: kToolbarHeight,
+              color: PRIMARY_COLOR,
+              child: Center(
+                  child: Text('Xác nhận',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold))),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }

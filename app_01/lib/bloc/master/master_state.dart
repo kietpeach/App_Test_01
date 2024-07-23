@@ -27,6 +27,11 @@ class GetProductMasterSuccess extends MasterState {
   GetProductMasterSuccess({required this.ProductMasterData});
 }
 
+class GetVoucherNoSuccess extends MasterState {
+  final GetVoucherNo_Response VoucherNoData;
+  GetVoucherNoSuccess({required this.VoucherNoData});
+}
+
 // general
 class MasterErrorValidation extends MasterState {
   final String errorMessage;

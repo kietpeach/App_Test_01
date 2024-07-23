@@ -13,6 +13,406 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use saveInvTransComplete_RequestDescriptor instead')
+const SaveInvTransComplete_Request$json = {
+  '1': 'SaveInvTransComplete_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcInvTransDetailModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `SaveInvTransComplete_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveInvTransComplete_RequestDescriptor = $convert.base64Decode(
+    'ChxTYXZlSW52VHJhbnNDb21wbGV0ZV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncn'
+    'BjQ29tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSRQoGUmVjb3JkGAIg'
+    'ASgLMi0uZ3JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY0ludlRyYW5zRGV0YWlsTW9kZWxSBlJlY2'
+    '9yZA==');
+
+@$core.Deprecated('Use saveInvTransMac_RequestDescriptor instead')
+const SaveInvTransMac_Request$json = {
+  '1': 'SaveInvTransMac_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'InvVoucherNo', '3': 2, '4': 1, '5': 9, '10': 'InvVoucherNo'},
+    {'1': 'VoucherCode', '3': 3, '4': 1, '5': 9, '10': 'VoucherCode'},
+    {'1': 'RecordNo', '3': 4, '4': 1, '5': 9, '10': 'RecordNo'},
+  ],
+};
+
+/// Descriptor for `SaveInvTransMac_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveInvTransMac_RequestDescriptor = $convert.base64Decode(
+    'ChdTYXZlSW52VHJhbnNNYWNfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW'
+    '1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiIKDEludlZvdWNoZXJObxgC'
+    'IAEoCVIMSW52Vm91Y2hlck5vEiAKC1ZvdWNoZXJDb2RlGAMgASgJUgtWb3VjaGVyQ29kZRIaCg'
+    'hSZWNvcmRObxgEIAEoCVIIUmVjb3JkTm8=');
+
+@$core.Deprecated('Use getOutStockPriceUpdate_RequestDescriptor instead')
+const GetOutStockPriceUpdate_Request$json = {
+  '1': 'GetOutStockPriceUpdate_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'AccInvCode', '3': 3, '4': 1, '5': 9, '10': 'AccInvCode'},
+  ],
+};
+
+/// Descriptor for `GetOutStockPriceUpdate_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOutStockPriceUpdate_RequestDescriptor = $convert.base64Decode(
+    'Ch5HZXRPdXRTdG9ja1ByaWNlVXBkYXRlX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLm'
+    'dycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBI4CglDbG9zZURh'
+    'dGUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglDbG9zZURhdGUSHgoKQWNjSW'
+    '52Q29kZRgDIAEoCVIKQWNjSW52Q29kZQ==');
+
+@$core.Deprecated('Use getOutStockPriceUpdate_ResponseDescriptor instead')
+const GetOutStockPriceUpdate_Response$json = {
+  '1': 'GetOutStockPriceUpdate_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcOutStockPriceUpdateModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetOutStockPriceUpdate_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOutStockPriceUpdate_ResponseDescriptor = $convert.base64Decode(
+    'Ch9HZXRPdXRTdG9ja1ByaWNlVXBkYXRlX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSCl'
+    'JldHVybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRJMCgdSZWNvcmRzGAMgAygLMjIu'
+    'Z3JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY091dFN0b2NrUHJpY2VVcGRhdGVNb2RlbFIHUmVjb3'
+    'Jkcw==');
+
+@$core.Deprecated('Use updateOutStockPrice_RequestDescriptor instead')
+const UpdateOutStockPrice_Request$json = {
+  '1': 'UpdateOutStockPrice_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'AccInvCode', '3': 3, '4': 1, '5': 9, '10': 'AccInvCode'},
+    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
+  ],
+};
+
+/// Descriptor for `UpdateOutStockPrice_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateOutStockPrice_RequestDescriptor = $convert.base64Decode(
+    'ChtVcGRhdGVPdXRTdG9ja1ByaWNlX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
+    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBI4CglDbG9zZURhdGUY'
+    'AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglDbG9zZURhdGUSHgoKQWNjSW52Q2'
+    '9kZRgDIAEoCVIKQWNjSW52Q29kZRIgCgtQcm9kdWN0Q29kZRgEIAEoCVILUHJvZHVjdENvZGU=');
+
+@$core.Deprecated('Use saveOutStockPriceUpdate_RequestDescriptor instead')
+const SaveOutStockPriceUpdate_Request$json = {
+  '1': 'SaveOutStockPriceUpdate_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcOutStockPriceUpdateModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `SaveOutStockPriceUpdate_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveOutStockPriceUpdate_RequestDescriptor = $convert.base64Decode(
+    'Ch9TYXZlT3V0U3RvY2tQcmljZVVwZGF0ZV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi'
+    '5ncnBjQ29tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSSgoGUmVjb3Jk'
+    'GAIgASgLMjIuZ3JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY091dFN0b2NrUHJpY2VVcGRhdGVNb2'
+    'RlbFIGUmVjb3Jk');
+
+@$core.Deprecated('Use grpcOutStockPriceUpdateModelDescriptor instead')
+const grpcOutStockPriceUpdateModel$json = {
+  '1': 'grpcOutStockPriceUpdateModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'VoucherNo', '3': 3, '4': 1, '5': 9, '10': 'VoucherNo'},
+    {'1': 'VoucherDate', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'VoucherDate'},
+    {'1': 'TransType', '3': 5, '4': 1, '5': 5, '10': 'TransType'},
+    {'1': 'TransName', '3': 6, '4': 1, '5': 9, '10': 'TransName'},
+    {'1': 'VoucherCode', '3': 7, '4': 1, '5': 9, '10': 'VoucherCode'},
+    {'1': 'InvCode', '3': 8, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'ProductCode', '3': 9, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 10, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'Specification', '3': 11, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'UnitCode', '3': 12, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 13, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'OutQty', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OutQty'},
+    {'1': 'OldUnitPrice', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OldUnitPrice'},
+    {'1': 'UnitPrice', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnitPrice'},
+    {'1': 'Amount', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Amount'},
+    {'1': 'OutQtyEx', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OutQtyEx'},
+    {'1': 'OldUnitPriceEx', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OldUnitPriceEx'},
+    {'1': 'UnitPriceEx', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnitPriceEx'},
+    {'1': 'AmountEx', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AmountEx'},
+  ],
+};
+
+/// Descriptor for `grpcOutStockPriceUpdateModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcOutStockPriceUpdateModelDescriptor = $convert.base64Decode(
+    'ChxncnBjT3V0U3RvY2tQcmljZVVwZGF0ZU1vZGVsEg4KAklEGAEgASgJUgJJRBI4CglDbG9zZU'
+    'RhdGUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglDbG9zZURhdGUSHAoJVm91'
+    'Y2hlck5vGAMgASgJUglWb3VjaGVyTm8SPAoLVm91Y2hlckRhdGUYBCABKAsyGi5nb29nbGUucH'
+    'JvdG9idWYuVGltZXN0YW1wUgtWb3VjaGVyRGF0ZRIcCglUcmFuc1R5cGUYBSABKAVSCVRyYW5z'
+    'VHlwZRIcCglUcmFuc05hbWUYBiABKAlSCVRyYW5zTmFtZRIgCgtWb3VjaGVyQ29kZRgHIAEoCV'
+    'ILVm91Y2hlckNvZGUSGAoHSW52Q29kZRgIIAEoCVIHSW52Q29kZRIgCgtQcm9kdWN0Q29kZRgJ'
+    'IAEoCVILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYCiABKAlSC1Byb2R1Y3ROYW1lEiQKDV'
+    'NwZWNpZmljYXRpb24YCyABKAlSDVNwZWNpZmljYXRpb24SGgoIVW5pdENvZGUYDCABKAlSCFVu'
+    'aXRDb2RlEhoKCFVuaXROYW1lGA0gASgJUghVbml0TmFtZRIsCgZPdXRRdHkYDiABKAsyFC5DdX'
+    'N0b21UeXBlcy5EZWNpbWFsUgZPdXRRdHkSOAoMT2xkVW5pdFByaWNlGA8gASgLMhQuQ3VzdG9t'
+    'VHlwZXMuRGVjaW1hbFIMT2xkVW5pdFByaWNlEjIKCVVuaXRQcmljZRgQIAEoCzIULkN1c3RvbV'
+    'R5cGVzLkRlY2ltYWxSCVVuaXRQcmljZRIsCgZBbW91bnQYESABKAsyFC5DdXN0b21UeXBlcy5E'
+    'ZWNpbWFsUgZBbW91bnQSMAoIT3V0UXR5RXgYEiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg'
+    'hPdXRRdHlFeBI8Cg5PbGRVbml0UHJpY2VFeBgTIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxS'
+    'Dk9sZFVuaXRQcmljZUV4EjYKC1VuaXRQcmljZUV4GBQgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW'
+    '1hbFILVW5pdFByaWNlRXgSMAoIQW1vdW50RXgYFSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFs'
+    'UghBbW91bnRFeA==');
+
+@$core.Deprecated('Use updateStockSumMonth_RequestDescriptor instead')
+const UpdateStockSumMonth_Request$json = {
+  '1': 'UpdateStockSumMonth_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'UpdateSign', '3': 2, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UpdateSign'},
+    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcStockSumMonthModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `UpdateStockSumMonth_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateStockSumMonth_RequestDescriptor = $convert.base64Decode(
+    'ChtVcGRhdGVTdG9ja1N1bU1vbnRoX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
+    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBI0CgpVcGRhdGVTaWdu'
+    'GAIgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKVXBkYXRlU2lnbhJECgZSZWNvcmQYAyABKA'
+    'syLC5ncnBjSW52ZW50b3J5U2VydmljZS5ncnBjU3RvY2tTdW1Nb250aE1vZGVsUgZSZWNvcmQ=');
+
+@$core.Deprecated('Use grpcStockSumMonthModelDescriptor instead')
+const grpcStockSumMonthModel$json = {
+  '1': 'grpcStockSumMonthModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'AccInvCode', '3': 3, '4': 1, '5': 9, '10': 'AccInvCode'},
+    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'SOQty', '3': 5, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SOQty'},
+    {'1': 'SaleQty', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleQty'},
+    {'1': 'SaleAmount', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleAmount'},
+    {'1': 'SaleCostAmount', '3': 8, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleCostAmount'},
+    {'1': 'SaleQtyEx', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleQtyEx'},
+    {'1': 'SaleAmountEx', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleAmountEx'},
+    {'1': 'SaleCostAmountEx', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SaleCostAmountEx'},
+    {'1': 'POQty', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'POQty'},
+    {'1': 'PurchaseQty', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseQty'},
+    {'1': 'PurchaseAmount', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseAmount'},
+    {'1': 'PurchaseCost', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseCost'},
+    {'1': 'PurchaseQtyEx', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseQtyEx'},
+    {'1': 'PurchaseAmountEx', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseAmountEx'},
+    {'1': 'PurchaseCostEx', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchaseCostEx'},
+    {'1': 'ReceiveQty', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveQty'},
+    {'1': 'ReceiveAmount', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveAmount'},
+    {'1': 'ShipQty', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipQty'},
+    {'1': 'ShipAmount', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipAmount'},
+    {'1': 'StockInQty', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockInQty'},
+    {'1': 'StockInAmount', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockInAmount'},
+    {'1': 'StockOutQty', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockOutQty'},
+    {'1': 'StockOutAmount', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockOutAmount'},
+    {'1': 'FixedStockOutQty', '3': 27, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedStockOutQty'},
+    {'1': 'FixedStockOutAmount', '3': 28, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedStockOutAmount'},
+    {'1': 'AdjQty', '3': 29, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdjQty'},
+    {'1': 'AdjAmount', '3': 30, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdjAmount'},
+    {'1': 'MatOutQty', '3': 31, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatOutQty'},
+    {'1': 'MatOutAmount', '3': 32, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatOutAmount'},
+    {'1': 'CompletedQty', '3': 33, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CompletedQty'},
+    {'1': 'CompletedAmount', '3': 34, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CompletedAmount'},
+    {'1': 'CloseInvStockQty', '3': 35, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseInvStockQty'},
+    {'1': 'CloseStockQty', '3': 36, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockQty'},
+    {'1': 'CloseStockAmount', '3': 37, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockAmount'},
+    {'1': 'CloseStockPrice', '3': 38, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockPrice'},
+    {'1': 'CloseStockQtyEx', '3': 39, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockQtyEx'},
+    {'1': 'CloseStockAmountEx', '3': 40, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockAmountEx'},
+    {'1': 'CloseStockPriceEx', '3': 41, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockPriceEx'},
+  ],
+};
+
+/// Descriptor for `grpcStockSumMonthModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcStockSumMonthModelDescriptor = $convert.base64Decode(
+    'ChZncnBjU3RvY2tTdW1Nb250aE1vZGVsEg4KAklEGAEgASgJUgJJRBI4CglDbG9zZURhdGUYAi'
+    'ABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglDbG9zZURhdGUSHgoKQWNjSW52Q29k'
+    'ZRgDIAEoCVIKQWNjSW52Q29kZRIgCgtQcm9kdWN0Q29kZRgEIAEoCVILUHJvZHVjdENvZGUSKg'
+    'oFU09RdHkYBSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgVTT1F0eRIuCgdTYWxlUXR5GAYg'
+    'ASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIHU2FsZVF0eRI0CgpTYWxlQW1vdW50GAcgASgLMh'
+    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKU2FsZUFtb3VudBI8Cg5TYWxlQ29zdEFtb3VudBgIIAEo'
+    'CzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDlNhbGVDb3N0QW1vdW50EjIKCVNhbGVRdHlFeBgJIA'
+    'EoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSCVNhbGVRdHlFeBI4CgxTYWxlQW1vdW50RXgYCiAB'
+    'KAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgxTYWxlQW1vdW50RXgSQAoQU2FsZUNvc3RBbW91bn'
+    'RFeBgLIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSEFNhbGVDb3N0QW1vdW50RXgSKgoFUE9R'
+    'dHkYDCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgVQT1F0eRI2CgtQdXJjaGFzZVF0eRgNIA'
+    'EoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSC1B1cmNoYXNlUXR5EjwKDlB1cmNoYXNlQW1vdW50'
+    'GA4gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIOUHVyY2hhc2VBbW91bnQSOAoMUHVyY2hhc2'
+    'VDb3N0GA8gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIMUHVyY2hhc2VDb3N0EjoKDVB1cmNo'
+    'YXNlUXR5RXgYECABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1QdXJjaGFzZVF0eUV4EkAKEF'
+    'B1cmNoYXNlQW1vdW50RXgYESABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhBQdXJjaGFzZUFt'
+    'b3VudEV4EjwKDlB1cmNoYXNlQ29zdEV4GBIgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIOUH'
+    'VyY2hhc2VDb3N0RXgSNAoKUmVjZWl2ZVF0eRgTIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxS'
+    'ClJlY2VpdmVRdHkSOgoNUmVjZWl2ZUFtb3VudBgUIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYW'
+    'xSDVJlY2VpdmVBbW91bnQSLgoHU2hpcFF0eRgVIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxS'
+    'B1NoaXBRdHkSNAoKU2hpcEFtb3VudBgWIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClNoaX'
+    'BBbW91bnQSNAoKU3RvY2tJblF0eRgXIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClN0b2Nr'
+    'SW5RdHkSOgoNU3RvY2tJbkFtb3VudBgYIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDVN0b2'
+    'NrSW5BbW91bnQSNgoLU3RvY2tPdXRRdHkYGSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgtT'
+    'dG9ja091dFF0eRI8Cg5TdG9ja091dEFtb3VudBgaIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYW'
+    'xSDlN0b2NrT3V0QW1vdW50EkAKEEZpeGVkU3RvY2tPdXRRdHkYGyABKAsyFC5DdXN0b21UeXBl'
+    'cy5EZWNpbWFsUhBGaXhlZFN0b2NrT3V0UXR5EkYKE0ZpeGVkU3RvY2tPdXRBbW91bnQYHCABKA'
+    'syFC5DdXN0b21UeXBlcy5EZWNpbWFsUhNGaXhlZFN0b2NrT3V0QW1vdW50EiwKBkFkalF0eRgd'
+    'IAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSBkFkalF0eRIyCglBZGpBbW91bnQYHiABKAsyFC'
+    '5DdXN0b21UeXBlcy5EZWNpbWFsUglBZGpBbW91bnQSMgoJTWF0T3V0UXR5GB8gASgLMhQuQ3Vz'
+    'dG9tVHlwZXMuRGVjaW1hbFIJTWF0T3V0UXR5EjgKDE1hdE91dEFtb3VudBggIAEoCzIULkN1c3'
+    'RvbVR5cGVzLkRlY2ltYWxSDE1hdE91dEFtb3VudBI4CgxDb21wbGV0ZWRRdHkYISABKAsyFC5D'
+    'dXN0b21UeXBlcy5EZWNpbWFsUgxDb21wbGV0ZWRRdHkSPgoPQ29tcGxldGVkQW1vdW50GCIgAS'
+    'gLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIPQ29tcGxldGVkQW1vdW50EkAKEENsb3NlSW52U3Rv'
+    'Y2tRdHkYIyABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhBDbG9zZUludlN0b2NrUXR5EjoKDU'
+    'Nsb3NlU3RvY2tRdHkYJCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1DbG9zZVN0b2NrUXR5'
+    'EkAKEENsb3NlU3RvY2tBbW91bnQYJSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhBDbG9zZV'
+    'N0b2NrQW1vdW50Ej4KD0Nsb3NlU3RvY2tQcmljZRgmIAEoCzIULkN1c3RvbVR5cGVzLkRlY2lt'
+    'YWxSD0Nsb3NlU3RvY2tQcmljZRI+Cg9DbG9zZVN0b2NrUXR5RXgYJyABKAsyFC5DdXN0b21UeX'
+    'Blcy5EZWNpbWFsUg9DbG9zZVN0b2NrUXR5RXgSRAoSQ2xvc2VTdG9ja0Ftb3VudEV4GCggASgL'
+    'MhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFISQ2xvc2VTdG9ja0Ftb3VudEV4EkIKEUNsb3NlU3RvY2'
+    'tQcmljZUV4GCkgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIRQ2xvc2VTdG9ja1ByaWNlRXg=');
+
+@$core.Deprecated('Use saveNQP_RequestDescriptor instead')
+const SaveNQP_Request$json = {
+  '1': 'SaveNQP_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcNQPModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `SaveNQP_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveNQP_RequestDescriptor = $convert.base64Decode(
+    'Cg9TYXZlTlFQX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycGNDb21tb25NZXNzYW'
+    'dlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBI6CgZSZWNvcmQYAiABKAsyIi5ncnBjSW52'
+    'ZW50b3J5U2VydmljZS5ncnBjTlFQTW9kZWxSBlJlY29yZA==');
+
+@$core.Deprecated('Use getNQPRecord_ResponseDescriptor instead')
+const GetNQPRecord_Response$json = {
+  '1': 'GetNQPRecord_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcNQPModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `GetNQPRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getNQPRecord_ResponseDescriptor = $convert.base64Decode(
+    'ChVHZXROUVBSZWNvcmRfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ29kZR'
+    'IYCgdNc2dDb2RlGAIgASgJUgdNc2dDb2RlEjoKBlJlY29yZBgDIAEoCzIiLmdycGNJbnZlbnRv'
+    'cnlTZXJ2aWNlLmdycGNOUVBNb2RlbFIGUmVjb3Jk');
+
+@$core.Deprecated('Use getNQP_ResponseDescriptor instead')
+const GetNQP_Response$json = {
+  '1': 'GetNQP_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcNQPModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetNQP_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getNQP_ResponseDescriptor = $convert.base64Decode(
+    'Cg9HZXROUVBfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ29kZRIYCgdNc2'
+    'dDb2RlGAIgASgJUgdNc2dDb2RlEjwKB1JlY29yZHMYAyADKAsyIi5ncnBjSW52ZW50b3J5U2Vy'
+    'dmljZS5ncnBjTlFQTW9kZWxSB1JlY29yZHM=');
+
+@$core.Deprecated('Use grpcNQPModelDescriptor instead')
+const grpcNQPModel$json = {
+  '1': 'grpcNQPModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'DebAccID', '3': 2, '4': 1, '5': 9, '10': 'DebAccID'},
+    {'1': 'DebAccObjectID', '3': 3, '4': 1, '5': 9, '10': 'DebAccObjectID'},
+    {'1': 'DebAccObjectType', '3': 4, '4': 1, '5': 5, '10': 'DebAccObjectType'},
+    {'1': 'CreAccID', '3': 5, '4': 1, '5': 9, '10': 'CreAccID'},
+    {'1': 'CreAccObjectID', '3': 6, '4': 1, '5': 9, '10': 'CreAccObjectID'},
+    {'1': 'CreAccObjectType', '3': 7, '4': 1, '5': 5, '10': 'CreAccObjectType'},
+    {'1': 'UpdMode', '3': 8, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 9, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 10, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 11, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 13, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+  ],
+};
+
+/// Descriptor for `grpcNQPModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcNQPModelDescriptor = $convert.base64Decode(
+    'CgxncnBjTlFQTW9kZWwSDgoCSUQYASABKAlSAklEEhoKCERlYkFjY0lEGAIgASgJUghEZWJBY2'
+    'NJRBImCg5EZWJBY2NPYmplY3RJRBgDIAEoCVIORGViQWNjT2JqZWN0SUQSKgoQRGViQWNjT2Jq'
+    'ZWN0VHlwZRgEIAEoBVIQRGViQWNjT2JqZWN0VHlwZRIaCghDcmVBY2NJRBgFIAEoCVIIQ3JlQW'
+    'NjSUQSJgoOQ3JlQWNjT2JqZWN0SUQYBiABKAlSDkNyZUFjY09iamVjdElEEioKEENyZUFjY09i'
+    'amVjdFR5cGUYByABKAVSEENyZUFjY09iamVjdFR5cGUSGAoHVXBkTW9kZRgIIAEoBVIHVXBkTW'
+    '9kZRIaCghVcGRDb3VudBgJIAEoBVIIVXBkQ291bnQSKgoQVXBkVHJhbnNhY3Rpb25JRBgKIAEo'
+    'CVIQVXBkVHJhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW50SUQYCyABKAlSDFVwZEFjY291bnRJRB'
+    'I8CgtVcGREYXRlVGltZRgMIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZERh'
+    'dGVUaW1lEjwKC0NydERhdGVUaW1lGA0gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcF'
+    'ILQ3J0RGF0ZVRpbWU=');
+
+@$core.Deprecated('Use saveKietTest_RequestDescriptor instead')
+const SaveKietTest_Request$json = {
+  '1': 'SaveKietTest_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcKietTestModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `SaveKietTest_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveKietTest_RequestDescriptor = $convert.base64Decode(
+    'ChRTYXZlS2lldFRlc3RfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW1vbk'
+    '1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEj8KBlJlY29yZBgCIAEoCzInLmdy'
+    'cGNJbnZlbnRvcnlTZXJ2aWNlLmdycGNLaWV0VGVzdE1vZGVsUgZSZWNvcmQ=');
+
+@$core.Deprecated('Use getKietTest_ResponseDescriptor instead')
+const GetKietTest_Response$json = {
+  '1': 'GetKietTest_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcKietTestModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetKietTest_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getKietTest_ResponseDescriptor = $convert.base64Decode(
+    'ChRHZXRLaWV0VGVzdF9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUgpSZXR1cm5Db2RlEh'
+    'gKB01zZ0NvZGUYAiABKAlSB01zZ0NvZGUSQQoHUmVjb3JkcxgDIAMoCzInLmdycGNJbnZlbnRv'
+    'cnlTZXJ2aWNlLmdycGNLaWV0VGVzdE1vZGVsUgdSZWNvcmRz');
+
+@$core.Deprecated('Use grpcKietTestModelDescriptor instead')
+const grpcKietTestModel$json = {
+  '1': 'grpcKietTestModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'Fullname', '3': 2, '4': 1, '5': 9, '10': 'Fullname'},
+    {'1': 'Age', '3': 3, '4': 1, '5': 5, '10': 'Age'},
+    {'1': 'BirthDay', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'BirthDay'},
+    {'1': 'Sex', '3': 5, '4': 1, '5': 5, '10': 'Sex'},
+    {'1': 'UpdMode', '3': 6, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 7, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 8, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 9, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+  ],
+};
+
+/// Descriptor for `grpcKietTestModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcKietTestModelDescriptor = $convert.base64Decode(
+    'ChFncnBjS2lldFRlc3RNb2RlbBIOCgJJRBgBIAEoCVICSUQSGgoIRnVsbG5hbWUYAiABKAlSCE'
+    'Z1bGxuYW1lEhAKA0FnZRgDIAEoBVIDQWdlEjYKCEJpcnRoRGF5GAQgASgLMhouZ29vZ2xlLnBy'
+    'b3RvYnVmLlRpbWVzdGFtcFIIQmlydGhEYXkSEAoDU2V4GAUgASgFUgNTZXgSGAoHVXBkTW9kZR'
+    'gGIAEoBVIHVXBkTW9kZRIaCghVcGRDb3VudBgHIAEoBVIIVXBkQ291bnQSKgoQVXBkVHJhbnNh'
+    'Y3Rpb25JRBgIIAEoCVIQVXBkVHJhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW50SUQYCSABKAlSDF'
+    'VwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l'
+    'c3RhbXBSC1VwZERhdGVUaW1lEjwKC0NydERhdGVUaW1lGAsgASgLMhouZ29vZ2xlLnByb3RvYn'
+    'VmLlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWU=');
+
 @$core.Deprecated('Use getVoucherInvTrans_RequestDescriptor instead')
 const GetVoucherInvTrans_Request$json = {
   '1': 'GetVoucherInvTrans_Request',
@@ -148,145 +548,191 @@ const grpcInvTransHeaderModel$json = {
   '1': 'grpcInvTransHeaderModel',
   '2': [
     {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'AccountingLikedFlag', '3': 2, '4': 1, '5': 5, '10': 'AccountingLikedFlag'},
-    {'1': 'CloseDate', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
-    {'1': 'DeptCode', '3': 4, '4': 1, '5': 9, '10': 'DeptCode'},
-    {'1': 'InvDeptCode', '3': 5, '4': 1, '5': 9, '10': 'InvDeptCode'},
-    {'1': 'StaffID', '3': 6, '4': 1, '5': 9, '10': 'StaffID'},
-    {'1': 'PartnerID', '3': 7, '4': 1, '5': 9, '10': 'PartnerID'},
-    {'1': 'FactoryCode', '3': 8, '4': 1, '5': 9, '10': 'FactoryCode'},
-    {'1': 'LineCode', '3': 9, '4': 1, '5': 9, '10': 'LineCode'},
-    {'1': 'VoucherCode', '3': 10, '4': 1, '5': 9, '10': 'VoucherCode'},
-    {'1': 'InvType', '3': 11, '4': 1, '5': 5, '10': 'InvType'},
-    {'1': 'InvVoucherNo', '3': 12, '4': 1, '5': 9, '10': 'InvVoucherNo'},
-    {'1': 'InvDate', '3': 13, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
-    {'1': 'InvCode', '3': 14, '4': 1, '5': 9, '10': 'InvCode'},
-    {'1': 'Notes', '3': 15, '4': 1, '5': 9, '10': 'Notes'},
-    {'1': 'AccStaffID', '3': 16, '4': 1, '5': 9, '10': 'AccStaffID'},
-    {'1': 'AccNotes', '3': 17, '4': 1, '5': 9, '10': 'AccNotes'},
-    {'1': 'AccUpdateDone', '3': 18, '4': 1, '5': 8, '10': 'AccUpdateDone'},
-    {'1': 'UpdMode', '3': 19, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 20, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 21, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 22, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'CrtDateTime', '3': 24, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'AccBookType', '3': 2, '4': 1, '5': 5, '10': 'AccBookType'},
+    {'1': 'AccLinkedStatus', '3': 3, '4': 1, '5': 5, '10': 'AccLinkedStatus'},
+    {'1': 'CloseDate', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'DeptCode', '3': 5, '4': 1, '5': 9, '10': 'DeptCode'},
+    {'1': 'InvDeptCode', '3': 6, '4': 1, '5': 9, '10': 'InvDeptCode'},
+    {'1': 'StaffID', '3': 7, '4': 1, '5': 9, '10': 'StaffID'},
+    {'1': 'PartnerID', '3': 8, '4': 1, '5': 9, '10': 'PartnerID'},
+    {'1': 'ProduceNo', '3': 9, '4': 1, '5': 9, '10': 'ProduceNo'},
+    {'1': 'CompleteNo', '3': 10, '4': 1, '5': 9, '10': 'CompleteNo'},
+    {'1': 'FinishedProductCode', '3': 11, '4': 1, '5': 9, '10': 'FinishedProductCode'},
+    {'1': 'FactoryCode', '3': 12, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 13, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'VoucherCode', '3': 14, '4': 1, '5': 9, '10': 'VoucherCode'},
+    {'1': 'InvType', '3': 15, '4': 1, '5': 5, '10': 'InvType'},
+    {'1': 'InvAccType', '3': 16, '4': 1, '5': 5, '10': 'InvAccType'},
+    {'1': 'InvVoucherNo', '3': 17, '4': 1, '5': 9, '10': 'InvVoucherNo'},
+    {'1': 'InvDate', '3': 18, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
+    {'1': 'InvCode', '3': 19, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'Notes', '3': 20, '4': 1, '5': 9, '10': 'Notes'},
+    {'1': 'AccStaffID', '3': 21, '4': 1, '5': 9, '10': 'AccStaffID'},
+    {'1': 'AccNotes', '3': 22, '4': 1, '5': 9, '10': 'AccNotes'},
+    {'1': 'AccUpdateDone', '3': 23, '4': 1, '5': 8, '10': 'AccUpdateDone'},
+    {'1': 'UpdMode', '3': 24, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 25, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 26, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 27, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 28, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 29, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'Reason', '3': 30, '4': 1, '5': 9, '10': 'Reason'},
   ],
 };
 
 /// Descriptor for `grpcInvTransHeaderModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcInvTransHeaderModelDescriptor = $convert.base64Decode(
-    'ChdncnBjSW52VHJhbnNIZWFkZXJNb2RlbBIOCgJJRBgBIAEoCVICSUQSMAoTQWNjb3VudGluZ0'
-    'xpa2VkRmxhZxgCIAEoBVITQWNjb3VudGluZ0xpa2VkRmxhZxI4CglDbG9zZURhdGUYAyABKAsy'
-    'Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglDbG9zZURhdGUSGgoIRGVwdENvZGUYBCABKA'
-    'lSCERlcHRDb2RlEiAKC0ludkRlcHRDb2RlGAUgASgJUgtJbnZEZXB0Q29kZRIYCgdTdGFmZklE'
-    'GAYgASgJUgdTdGFmZklEEhwKCVBhcnRuZXJJRBgHIAEoCVIJUGFydG5lcklEEiAKC0ZhY3Rvcn'
-    'lDb2RlGAggASgJUgtGYWN0b3J5Q29kZRIaCghMaW5lQ29kZRgJIAEoCVIITGluZUNvZGUSIAoL'
-    'Vm91Y2hlckNvZGUYCiABKAlSC1ZvdWNoZXJDb2RlEhgKB0ludlR5cGUYCyABKAVSB0ludlR5cG'
-    'USIgoMSW52Vm91Y2hlck5vGAwgASgJUgxJbnZWb3VjaGVyTm8SNAoHSW52RGF0ZRgNIAEoCzIa'
-    'Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSB0ludkRhdGUSGAoHSW52Q29kZRgOIAEoCVIHSW'
-    '52Q29kZRIUCgVOb3RlcxgPIAEoCVIFTm90ZXMSHgoKQWNjU3RhZmZJRBgQIAEoCVIKQWNjU3Rh'
-    'ZmZJRBIaCghBY2NOb3RlcxgRIAEoCVIIQWNjTm90ZXMSJAoNQWNjVXBkYXRlRG9uZRgSIAEoCF'
-    'INQWNjVXBkYXRlRG9uZRIYCgdVcGRNb2RlGBMgASgFUgdVcGRNb2RlEhoKCFVwZENvdW50GBQg'
-    'ASgFUghVcGRDb3VudBIqChBVcGRUcmFuc2FjdGlvbklEGBUgASgJUhBVcGRUcmFuc2FjdGlvbk'
-    'lEEiIKDFVwZEFjY291bnRJRBgWIAEoCVIMVXBkQWNjb3VudElEEjwKC1VwZERhdGVUaW1lGBcg'
-    'ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILVXBkRGF0ZVRpbWUSPAoLQ3J0RGF0ZV'
-    'RpbWUYGCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtDcnREYXRlVGltZQ==');
+    'ChdncnBjSW52VHJhbnNIZWFkZXJNb2RlbBIOCgJJRBgBIAEoCVICSUQSIAoLQWNjQm9va1R5cG'
+    'UYAiABKAVSC0FjY0Jvb2tUeXBlEigKD0FjY0xpbmtlZFN0YXR1cxgDIAEoBVIPQWNjTGlua2Vk'
+    'U3RhdHVzEjgKCUNsb3NlRGF0ZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCU'
+    'Nsb3NlRGF0ZRIaCghEZXB0Q29kZRgFIAEoCVIIRGVwdENvZGUSIAoLSW52RGVwdENvZGUYBiAB'
+    'KAlSC0ludkRlcHRDb2RlEhgKB1N0YWZmSUQYByABKAlSB1N0YWZmSUQSHAoJUGFydG5lcklEGA'
+    'ggASgJUglQYXJ0bmVySUQSHAoJUHJvZHVjZU5vGAkgASgJUglQcm9kdWNlTm8SHgoKQ29tcGxl'
+    'dGVObxgKIAEoCVIKQ29tcGxldGVObxIwChNGaW5pc2hlZFByb2R1Y3RDb2RlGAsgASgJUhNGaW'
+    '5pc2hlZFByb2R1Y3RDb2RlEiAKC0ZhY3RvcnlDb2RlGAwgASgJUgtGYWN0b3J5Q29kZRIaCghM'
+    'aW5lQ29kZRgNIAEoCVIITGluZUNvZGUSIAoLVm91Y2hlckNvZGUYDiABKAlSC1ZvdWNoZXJDb2'
+    'RlEhgKB0ludlR5cGUYDyABKAVSB0ludlR5cGUSHgoKSW52QWNjVHlwZRgQIAEoBVIKSW52QWNj'
+    'VHlwZRIiCgxJbnZWb3VjaGVyTm8YESABKAlSDEludlZvdWNoZXJObxI0CgdJbnZEYXRlGBIgAS'
+    'gLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHSW52RGF0ZRIYCgdJbnZDb2RlGBMgASgJ'
+    'UgdJbnZDb2RlEhQKBU5vdGVzGBQgASgJUgVOb3RlcxIeCgpBY2NTdGFmZklEGBUgASgJUgpBY2'
+    'NTdGFmZklEEhoKCEFjY05vdGVzGBYgASgJUghBY2NOb3RlcxIkCg1BY2NVcGRhdGVEb25lGBcg'
+    'ASgIUg1BY2NVcGRhdGVEb25lEhgKB1VwZE1vZGUYGCABKAVSB1VwZE1vZGUSGgoIVXBkQ291bn'
+    'QYGSABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYGiABKAlSEFVwZFRyYW5zYWN0'
+    'aW9uSUQSIgoMVXBkQWNjb3VudElEGBsgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbW'
+    'UYHCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZRI8CgtDcnRE'
+    'YXRlVGltZRgdIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC0NydERhdGVUaW1lEh'
+    'YKBlJlYXNvbhgeIAEoCVIGUmVhc29u');
 
 @$core.Deprecated('Use grpcInvTransDetailModelDescriptor instead')
 const grpcInvTransDetailModel$json = {
   '1': 'grpcInvTransDetailModel',
   '2': [
     {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
-    {'1': 'DeptCode', '3': 3, '4': 1, '5': 9, '10': 'DeptCode'},
-    {'1': 'InvDeptCode', '3': 4, '4': 1, '5': 9, '10': 'InvDeptCode'},
-    {'1': 'StaffID', '3': 5, '4': 1, '5': 9, '10': 'StaffID'},
-    {'1': 'PartnerID', '3': 6, '4': 1, '5': 9, '10': 'PartnerID'},
-    {'1': 'FactoryCode', '3': 7, '4': 1, '5': 9, '10': 'FactoryCode'},
-    {'1': 'LineCode', '3': 8, '4': 1, '5': 9, '10': 'LineCode'},
-    {'1': 'VoucherCode', '3': 9, '4': 1, '5': 9, '10': 'VoucherCode'},
-    {'1': 'InvType', '3': 10, '4': 1, '5': 5, '10': 'InvType'},
-    {'1': 'InvVoucherNo', '3': 11, '4': 1, '5': 9, '10': 'InvVoucherNo'},
-    {'1': 'InvDate', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
-    {'1': 'InvCode', '3': 13, '4': 1, '5': 9, '10': 'InvCode'},
-    {'1': 'LineNo', '3': 14, '4': 1, '5': 5, '10': 'LineNo'},
-    {'1': 'ProductCode', '3': 15, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'ProductName', '3': 16, '4': 1, '5': 9, '10': 'ProductName'},
-    {'1': 'Specification', '3': 17, '4': 1, '5': 9, '10': 'Specification'},
-    {'1': 'UnitCode', '3': 18, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'UnitName', '3': 19, '4': 1, '5': 9, '10': 'UnitName'},
-    {'1': 'PackingQty', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty'},
-    {'1': 'CaseQty', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CaseQty'},
-    {'1': 'InOutQty', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InOutQty'},
-    {'1': 'CostUnitPrice', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
-    {'1': 'CostAmount', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostAmount'},
-    {'1': 'CreAccID', '3': 25, '4': 1, '5': 9, '10': 'CreAccID'},
-    {'1': 'DebAccID', '3': 26, '4': 1, '5': 9, '10': 'DebAccID'},
-    {'1': 'IsLOT', '3': 27, '4': 1, '5': 8, '10': 'IsLOT'},
-    {'1': 'LotID', '3': 28, '4': 1, '5': 9, '10': 'LotID'},
-    {'1': 'DateType', '3': 29, '4': 1, '5': 9, '10': 'DateType'},
-    {'1': 'LotDate', '3': 30, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LotDate'},
-    {'1': 'LotNotes', '3': 31, '4': 1, '5': 9, '10': 'LotNotes'},
-    {'1': 'Notes', '3': 32, '4': 1, '5': 9, '10': 'Notes'},
-    {'1': 'RecordNo', '3': 33, '4': 1, '5': 9, '10': 'RecordNo'},
-    {'1': 'LotRecordNo', '3': 34, '4': 1, '5': 9, '10': 'LotRecordNo'},
-    {'1': 'LotLineNo', '3': 35, '4': 1, '5': 5, '10': 'LotLineNo'},
-    {'1': 'UpdDateTime', '3': 36, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'UpdMode', '3': 37, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'AccBookType', '3': 2, '4': 1, '5': 5, '10': 'AccBookType'},
+    {'1': 'CloseDate', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'DeptCode', '3': 4, '4': 1, '5': 9, '10': 'DeptCode'},
+    {'1': 'InvDeptCode', '3': 5, '4': 1, '5': 9, '10': 'InvDeptCode'},
+    {'1': 'StaffID', '3': 6, '4': 1, '5': 9, '10': 'StaffID'},
+    {'1': 'PartnerID', '3': 7, '4': 1, '5': 9, '10': 'PartnerID'},
+    {'1': 'BomVersion', '3': 8, '4': 1, '5': 9, '10': 'BomVersion'},
+    {'1': 'IPONo', '3': 9, '4': 1, '5': 9, '10': 'IPONo'},
+    {'1': 'ProduceNo', '3': 10, '4': 1, '5': 9, '10': 'ProduceNo'},
+    {'1': 'CompleteNo', '3': 11, '4': 1, '5': 9, '10': 'CompleteNo'},
+    {'1': 'FinishedProductCode', '3': 12, '4': 1, '5': 9, '10': 'FinishedProductCode'},
+    {'1': 'FactoryCode', '3': 13, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 14, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'VoucherCode', '3': 15, '4': 1, '5': 9, '10': 'VoucherCode'},
+    {'1': 'TransType', '3': 16, '4': 1, '5': 5, '10': 'TransType'},
+    {'1': 'TransName', '3': 17, '4': 1, '5': 9, '10': 'TransName'},
+    {'1': 'InvType', '3': 18, '4': 1, '5': 5, '10': 'InvType'},
+    {'1': 'InvAccType', '3': 19, '4': 1, '5': 5, '10': 'InvAccType'},
+    {'1': 'InvVoucherNo', '3': 20, '4': 1, '5': 9, '10': 'InvVoucherNo'},
+    {'1': 'InvDate', '3': 21, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
+    {'1': 'InvCode', '3': 22, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'LineNo', '3': 23, '4': 1, '5': 5, '10': 'LineNo'},
+    {'1': 'ProductCode', '3': 24, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 25, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'Specification', '3': 26, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'UnitCode', '3': 27, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 28, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'PackingQty', '3': 29, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty'},
+    {'1': 'CaseQty', '3': 30, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CaseQty'},
+    {'1': 'InOutQty', '3': 31, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InOutQty'},
+    {'1': 'CostUnitPrice', '3': 32, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'CostAmount', '3': 33, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostAmount'},
+    {'1': 'DebAccID', '3': 34, '4': 1, '5': 9, '10': 'DebAccID'},
+    {'1': 'DebAccObjectType', '3': 35, '4': 1, '5': 5, '10': 'DebAccObjectType'},
+    {'1': 'DebAccObjectID', '3': 36, '4': 1, '5': 9, '10': 'DebAccObjectID'},
+    {'1': 'CreAccID', '3': 37, '4': 1, '5': 9, '10': 'CreAccID'},
+    {'1': 'CreAccObjectType', '3': 38, '4': 1, '5': 5, '10': 'CreAccObjectType'},
+    {'1': 'CreAccObjectID', '3': 39, '4': 1, '5': 9, '10': 'CreAccObjectID'},
+    {'1': 'IsLOT', '3': 40, '4': 1, '5': 8, '10': 'IsLOT'},
+    {'1': 'LotID', '3': 41, '4': 1, '5': 9, '10': 'LotID'},
+    {'1': 'DateType', '3': 42, '4': 1, '5': 9, '10': 'DateType'},
+    {'1': 'LotDate', '3': 43, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LotDate'},
+    {'1': 'LotNotes', '3': 44, '4': 1, '5': 9, '10': 'LotNotes'},
+    {'1': 'Notes', '3': 45, '4': 1, '5': 9, '10': 'Notes'},
+    {'1': 'RecordNo', '3': 46, '4': 1, '5': 9, '10': 'RecordNo'},
+    {'1': 'LotRecordNo', '3': 47, '4': 1, '5': 9, '10': 'LotRecordNo'},
+    {'1': 'LotLineNo', '3': 48, '4': 1, '5': 5, '10': 'LotLineNo'},
+    {'1': 'LedgerRecordNo', '3': 49, '4': 1, '5': 9, '10': 'LedgerRecordNo'},
+    {'1': 'UpdDateTime', '3': 50, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'UpdMode', '3': 51, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'Reason', '3': 52, '4': 1, '5': 9, '10': 'Reason'},
   ],
 };
 
 /// Descriptor for `grpcInvTransDetailModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcInvTransDetailModelDescriptor = $convert.base64Decode(
-    'ChdncnBjSW52VHJhbnNEZXRhaWxNb2RlbBIOCgJJRBgBIAEoCVICSUQSOAoJQ2xvc2VEYXRlGA'
-    'IgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJQ2xvc2VEYXRlEhoKCERlcHRDb2Rl'
-    'GAMgASgJUghEZXB0Q29kZRIgCgtJbnZEZXB0Q29kZRgEIAEoCVILSW52RGVwdENvZGUSGAoHU3'
-    'RhZmZJRBgFIAEoCVIHU3RhZmZJRBIcCglQYXJ0bmVySUQYBiABKAlSCVBhcnRuZXJJRBIgCgtG'
-    'YWN0b3J5Q29kZRgHIAEoCVILRmFjdG9yeUNvZGUSGgoITGluZUNvZGUYCCABKAlSCExpbmVDb2'
-    'RlEiAKC1ZvdWNoZXJDb2RlGAkgASgJUgtWb3VjaGVyQ29kZRIYCgdJbnZUeXBlGAogASgFUgdJ'
-    'bnZUeXBlEiIKDEludlZvdWNoZXJObxgLIAEoCVIMSW52Vm91Y2hlck5vEjQKB0ludkRhdGUYDC'
-    'ABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgdJbnZEYXRlEhgKB0ludkNvZGUYDSAB'
-    'KAlSB0ludkNvZGUSFgoGTGluZU5vGA4gASgFUgZMaW5lTm8SIAoLUHJvZHVjdENvZGUYDyABKA'
-    'lSC1Byb2R1Y3RDb2RlEiAKC1Byb2R1Y3ROYW1lGBAgASgJUgtQcm9kdWN0TmFtZRIkCg1TcGVj'
-    'aWZpY2F0aW9uGBEgASgJUg1TcGVjaWZpY2F0aW9uEhoKCFVuaXRDb2RlGBIgASgJUghVbml0Q2'
-    '9kZRIaCghVbml0TmFtZRgTIAEoCVIIVW5pdE5hbWUSNAoKUGFja2luZ1F0eRgUIAEoCzIULkN1'
-    'c3RvbVR5cGVzLkRlY2ltYWxSClBhY2tpbmdRdHkSLgoHQ2FzZVF0eRgVIAEoCzIULkN1c3RvbV'
-    'R5cGVzLkRlY2ltYWxSB0Nhc2VRdHkSMAoISW5PdXRRdHkYFiABKAsyFC5DdXN0b21UeXBlcy5E'
-    'ZWNpbWFsUghJbk91dFF0eRI6Cg1Db3N0VW5pdFByaWNlGBcgASgLMhQuQ3VzdG9tVHlwZXMuRG'
-    'VjaW1hbFINQ29zdFVuaXRQcmljZRI0CgpDb3N0QW1vdW50GBggASgLMhQuQ3VzdG9tVHlwZXMu'
-    'RGVjaW1hbFIKQ29zdEFtb3VudBIaCghDcmVBY2NJRBgZIAEoCVIIQ3JlQWNjSUQSGgoIRGViQW'
-    'NjSUQYGiABKAlSCERlYkFjY0lEEhQKBUlzTE9UGBsgASgIUgVJc0xPVBIUCgVMb3RJRBgcIAEo'
-    'CVIFTG90SUQSGgoIRGF0ZVR5cGUYHSABKAlSCERhdGVUeXBlEjQKB0xvdERhdGUYHiABKAsyGi'
-    '5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgdMb3REYXRlEhoKCExvdE5vdGVzGB8gASgJUghM'
-    'b3ROb3RlcxIUCgVOb3RlcxggIAEoCVIFTm90ZXMSGgoIUmVjb3JkTm8YISABKAlSCFJlY29yZE'
-    '5vEiAKC0xvdFJlY29yZE5vGCIgASgJUgtMb3RSZWNvcmRObxIcCglMb3RMaW5lTm8YIyABKAVS'
-    'CUxvdExpbmVObxI8CgtVcGREYXRlVGltZRgkIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3'
-    'RhbXBSC1VwZERhdGVUaW1lEhgKB1VwZE1vZGUYJSABKAVSB1VwZE1vZGU=');
+    'ChdncnBjSW52VHJhbnNEZXRhaWxNb2RlbBIOCgJJRBgBIAEoCVICSUQSIAoLQWNjQm9va1R5cG'
+    'UYAiABKAVSC0FjY0Jvb2tUeXBlEjgKCUNsb3NlRGF0ZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1'
+    'Zi5UaW1lc3RhbXBSCUNsb3NlRGF0ZRIaCghEZXB0Q29kZRgEIAEoCVIIRGVwdENvZGUSIAoLSW'
+    '52RGVwdENvZGUYBSABKAlSC0ludkRlcHRDb2RlEhgKB1N0YWZmSUQYBiABKAlSB1N0YWZmSUQS'
+    'HAoJUGFydG5lcklEGAcgASgJUglQYXJ0bmVySUQSHgoKQm9tVmVyc2lvbhgIIAEoCVIKQm9tVm'
+    'Vyc2lvbhIUCgVJUE9ObxgJIAEoCVIFSVBPTm8SHAoJUHJvZHVjZU5vGAogASgJUglQcm9kdWNl'
+    'Tm8SHgoKQ29tcGxldGVObxgLIAEoCVIKQ29tcGxldGVObxIwChNGaW5pc2hlZFByb2R1Y3RDb2'
+    'RlGAwgASgJUhNGaW5pc2hlZFByb2R1Y3RDb2RlEiAKC0ZhY3RvcnlDb2RlGA0gASgJUgtGYWN0'
+    'b3J5Q29kZRIaCghMaW5lQ29kZRgOIAEoCVIITGluZUNvZGUSIAoLVm91Y2hlckNvZGUYDyABKA'
+    'lSC1ZvdWNoZXJDb2RlEhwKCVRyYW5zVHlwZRgQIAEoBVIJVHJhbnNUeXBlEhwKCVRyYW5zTmFt'
+    'ZRgRIAEoCVIJVHJhbnNOYW1lEhgKB0ludlR5cGUYEiABKAVSB0ludlR5cGUSHgoKSW52QWNjVH'
+    'lwZRgTIAEoBVIKSW52QWNjVHlwZRIiCgxJbnZWb3VjaGVyTm8YFCABKAlSDEludlZvdWNoZXJO'
+    'bxI0CgdJbnZEYXRlGBUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHSW52RGF0ZR'
+    'IYCgdJbnZDb2RlGBYgASgJUgdJbnZDb2RlEhYKBkxpbmVObxgXIAEoBVIGTGluZU5vEiAKC1By'
+    'b2R1Y3RDb2RlGBggASgJUgtQcm9kdWN0Q29kZRIgCgtQcm9kdWN0TmFtZRgZIAEoCVILUHJvZH'
+    'VjdE5hbWUSJAoNU3BlY2lmaWNhdGlvbhgaIAEoCVINU3BlY2lmaWNhdGlvbhIaCghVbml0Q29k'
+    'ZRgbIAEoCVIIVW5pdENvZGUSGgoIVW5pdE5hbWUYHCABKAlSCFVuaXROYW1lEjQKClBhY2tpbm'
+    'dRdHkYHSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgpQYWNraW5nUXR5Ei4KB0Nhc2VRdHkY'
+    'HiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgdDYXNlUXR5EjAKCEluT3V0UXR5GB8gASgLMh'
+    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIISW5PdXRRdHkSOgoNQ29zdFVuaXRQcmljZRggIAEoCzIU'
+    'LkN1c3RvbVR5cGVzLkRlY2ltYWxSDUNvc3RVbml0UHJpY2USNAoKQ29zdEFtb3VudBghIAEoCz'
+    'IULkN1c3RvbVR5cGVzLkRlY2ltYWxSCkNvc3RBbW91bnQSGgoIRGViQWNjSUQYIiABKAlSCERl'
+    'YkFjY0lEEioKEERlYkFjY09iamVjdFR5cGUYIyABKAVSEERlYkFjY09iamVjdFR5cGUSJgoORG'
+    'ViQWNjT2JqZWN0SUQYJCABKAlSDkRlYkFjY09iamVjdElEEhoKCENyZUFjY0lEGCUgASgJUghD'
+    'cmVBY2NJRBIqChBDcmVBY2NPYmplY3RUeXBlGCYgASgFUhBDcmVBY2NPYmplY3RUeXBlEiYKDk'
+    'NyZUFjY09iamVjdElEGCcgASgJUg5DcmVBY2NPYmplY3RJRBIUCgVJc0xPVBgoIAEoCFIFSXNM'
+    'T1QSFAoFTG90SUQYKSABKAlSBUxvdElEEhoKCERhdGVUeXBlGCogASgJUghEYXRlVHlwZRI0Cg'
+    'dMb3REYXRlGCsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHTG90RGF0ZRIaCghM'
+    'b3ROb3RlcxgsIAEoCVIITG90Tm90ZXMSFAoFTm90ZXMYLSABKAlSBU5vdGVzEhoKCFJlY29yZE'
+    '5vGC4gASgJUghSZWNvcmRObxIgCgtMb3RSZWNvcmRObxgvIAEoCVILTG90UmVjb3JkTm8SHAoJ'
+    'TG90TGluZU5vGDAgASgFUglMb3RMaW5lTm8SJgoOTGVkZ2VyUmVjb3JkTm8YMSABKAlSDkxlZG'
+    'dlclJlY29yZE5vEjwKC1VwZERhdGVUaW1lGDIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz'
+    'dGFtcFILVXBkRGF0ZVRpbWUSGAoHVXBkTW9kZRgzIAEoBVIHVXBkTW9kZRIWCgZSZWFzb24YNC'
+    'ABKAlSBlJlYXNvbg==');
 
 @$core.Deprecated('Use grpcInvTransSlistModelDescriptor instead')
 const grpcInvTransSlistModel$json = {
   '1': 'grpcInvTransSlistModel',
   '2': [
     {'1': 'StaffID', '3': 1, '4': 1, '5': 9, '10': 'StaffID'},
-    {'1': 'PartnerID', '3': 2, '4': 1, '5': 9, '10': 'PartnerID'},
-    {'1': 'FactoryCode', '3': 3, '4': 1, '5': 9, '10': 'FactoryCode'},
-    {'1': 'LineCode', '3': 4, '4': 1, '5': 9, '10': 'LineCode'},
-    {'1': 'InvType', '3': 5, '4': 1, '5': 5, '10': 'InvType'},
-    {'1': 'InvVoucherNo', '3': 6, '4': 1, '5': 9, '10': 'InvVoucherNo'},
-    {'1': 'InvDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
-    {'1': 'InvCode', '3': 8, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'StaffName', '3': 2, '4': 1, '5': 9, '10': 'StaffName'},
+    {'1': 'PartnerID', '3': 3, '4': 1, '5': 9, '10': 'PartnerID'},
+    {'1': 'FactoryCode', '3': 4, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 5, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'InvType', '3': 6, '4': 1, '5': 5, '10': 'InvType'},
+    {'1': 'InvTypeName', '3': 7, '4': 1, '5': 9, '10': 'InvTypeName'},
+    {'1': 'InvAccType', '3': 8, '4': 1, '5': 5, '10': 'InvAccType'},
+    {'1': 'InvAccTypeName', '3': 9, '4': 1, '5': 9, '10': 'InvAccTypeName'},
+    {'1': 'InvVoucherNo', '3': 10, '4': 1, '5': 9, '10': 'InvVoucherNo'},
+    {'1': 'InvDate', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvDate'},
+    {'1': 'InvCode', '3': 12, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'InvName', '3': 13, '4': 1, '5': 9, '10': 'InvName'},
+    {'1': 'AccUpdateDone', '3': 14, '4': 1, '5': 8, '10': 'AccUpdateDone'},
+    {'1': 'Reason', '3': 15, '4': 1, '5': 9, '10': 'Reason'},
   ],
 };
 
 /// Descriptor for `grpcInvTransSlistModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcInvTransSlistModelDescriptor = $convert.base64Decode(
-    'ChZncnBjSW52VHJhbnNTbGlzdE1vZGVsEhgKB1N0YWZmSUQYASABKAlSB1N0YWZmSUQSHAoJUG'
-    'FydG5lcklEGAIgASgJUglQYXJ0bmVySUQSIAoLRmFjdG9yeUNvZGUYAyABKAlSC0ZhY3RvcnlD'
-    'b2RlEhoKCExpbmVDb2RlGAQgASgJUghMaW5lQ29kZRIYCgdJbnZUeXBlGAUgASgFUgdJbnZUeX'
-    'BlEiIKDEludlZvdWNoZXJObxgGIAEoCVIMSW52Vm91Y2hlck5vEjQKB0ludkRhdGUYByABKAsy'
-    'Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgdJbnZEYXRlEhgKB0ludkNvZGUYCCABKAlSB0'
-    'ludkNvZGU=');
+    'ChZncnBjSW52VHJhbnNTbGlzdE1vZGVsEhgKB1N0YWZmSUQYASABKAlSB1N0YWZmSUQSHAoJU3'
+    'RhZmZOYW1lGAIgASgJUglTdGFmZk5hbWUSHAoJUGFydG5lcklEGAMgASgJUglQYXJ0bmVySUQS'
+    'IAoLRmFjdG9yeUNvZGUYBCABKAlSC0ZhY3RvcnlDb2RlEhoKCExpbmVDb2RlGAUgASgJUghMaW'
+    '5lQ29kZRIYCgdJbnZUeXBlGAYgASgFUgdJbnZUeXBlEiAKC0ludlR5cGVOYW1lGAcgASgJUgtJ'
+    'bnZUeXBlTmFtZRIeCgpJbnZBY2NUeXBlGAggASgFUgpJbnZBY2NUeXBlEiYKDkludkFjY1R5cG'
+    'VOYW1lGAkgASgJUg5JbnZBY2NUeXBlTmFtZRIiCgxJbnZWb3VjaGVyTm8YCiABKAlSDEludlZv'
+    'dWNoZXJObxI0CgdJbnZEYXRlGAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHSW'
+    '52RGF0ZRIYCgdJbnZDb2RlGAwgASgJUgdJbnZDb2RlEhgKB0ludk5hbWUYDSABKAlSB0ludk5h'
+    'bWUSJAoNQWNjVXBkYXRlRG9uZRgOIAEoCFINQWNjVXBkYXRlRG9uZRIWCgZSZWFzb24YDyABKA'
+    'lSBlJlYXNvbg==');
 
 @$core.Deprecated('Use updateInvSumTurnRate_RequestDescriptor instead')
 const UpdateInvSumTurnRate_Request$json = {
@@ -431,6 +877,47 @@ final $typed_data.Uint8List getInvTransDetailRecord_ResponseDescriptor = $conver
     'CiBHZXRJbnZUcmFuc0RldGFpbFJlY29yZF9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUg'
     'pSZXR1cm5Db2RlEhgKB01zZ0NvZGUYAiABKAlSB01zZ0NvZGUSRQoGUmVjb3JkGAMgASgLMi0u'
     'Z3JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY0ludlRyYW5zRGV0YWlsTW9kZWxSBlJlY29yZA==');
+
+@$core.Deprecated('Use getInvTransDetail_RequestDescriptor instead')
+const GetInvTransDetail_Request$json = {
+  '1': 'GetInvTransDetail_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'FactoryCode', '3': 2, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 3, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'AccBookType', '3': 5, '4': 1, '5': 5, '10': 'AccBookType'},
+    {'1': 'FromDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
+    {'1': 'ToDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
+    {'1': 'InvType', '3': 8, '4': 1, '5': 5, '10': 'InvType'},
+  ],
+};
+
+/// Descriptor for `GetInvTransDetail_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getInvTransDetail_RequestDescriptor = $convert.base64Decode(
+    'ChlHZXRJbnZUcmFuc0RldGFpbF9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ2'
+    '9tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSIAoLRmFjdG9yeUNvZGUY'
+    'AiABKAlSC0ZhY3RvcnlDb2RlEhoKCExpbmVDb2RlGAMgASgJUghMaW5lQ29kZRIgCgtQcm9kdW'
+    'N0Q29kZRgEIAEoCVILUHJvZHVjdENvZGUSIAoLQWNjQm9va1R5cGUYBSABKAVSC0FjY0Jvb2tU'
+    'eXBlEjYKCEZyb21EYXRlGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIIRnJvbU'
+    'RhdGUSMgoGVG9EYXRlGAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIGVG9EYXRl'
+    'EhgKB0ludlR5cGUYCCABKAVSB0ludlR5cGU=');
+
+@$core.Deprecated('Use getInvTransDetail_ResponseDescriptor instead')
+const GetInvTransDetail_Response$json = {
+  '1': 'GetInvTransDetail_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcInvTransDetailModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetInvTransDetail_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getInvTransDetail_ResponseDescriptor = $convert.base64Decode(
+    'ChpHZXRJbnZUcmFuc0RldGFpbF9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUgpSZXR1cm'
+    '5Db2RlEhgKB01zZ0NvZGUYAiABKAlSB01zZ0NvZGUSRwoHUmVjb3JkcxgDIAMoCzItLmdycGNJ'
+    'bnZlbnRvcnlTZXJ2aWNlLmdycGNJbnZUcmFuc0RldGFpbE1vZGVsUgdSZWNvcmRz');
 
 @$core.Deprecated('Use saveStockCheckDetail_RequestDescriptor instead')
 const SaveStockCheckDetail_Request$json = {
@@ -882,81 +1369,6 @@ final $typed_data.Uint8List getInvOutDetailRecord_ResponseDescriptor = $convert.
     'V0dXJuQ29kZRIYCgdNc2dDb2RlGAIgASgJUgdNc2dDb2RlEkMKBlJlY29yZBgDIAEoCzIrLmdy'
     'cGNJbnZlbnRvcnlTZXJ2aWNlLmdycGNJbnZPdXREZXRhaWxNb2RlbFIGUmVjb3Jk');
 
-@$core.Deprecated('Use updateInvSumMonth_RequestDescriptor instead')
-const UpdateInvSumMonth_Request$json = {
-  '1': 'UpdateInvSumMonth_Request',
-  '2': [
-    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'UpdateSign', '3': 2, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UpdateSign'},
-    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcInventoryService.grpcInvSumMonthModel', '10': 'Record'},
-  ],
-};
-
-/// Descriptor for `UpdateInvSumMonth_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateInvSumMonth_RequestDescriptor = $convert.base64Decode(
-    'ChlVcGRhdGVJbnZTdW1Nb250aF9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ2'
-    '9tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSNAoKVXBkYXRlU2lnbhgC'
-    'IAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClVwZGF0ZVNpZ24SQgoGUmVjb3JkGAMgASgLMi'
-    'ouZ3JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY0ludlN1bU1vbnRoTW9kZWxSBlJlY29yZA==');
-
-@$core.Deprecated('Use grpcInvSumMonthModelDescriptor instead')
-const grpcInvSumMonthModel$json = {
-  '1': 'grpcInvSumMonthModel',
-  '2': [
-    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
-    {'1': 'InvCode', '3': 3, '4': 1, '5': 9, '10': 'InvCode'},
-    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'InvDeptCode', '3': 5, '4': 1, '5': 9, '10': 'InvDeptCode'},
-    {'1': 'SOQty', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SOQty'},
-    {'1': 'POQty', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'POQty'},
-    {'1': 'InvoiceQty', '3': 8, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvoiceQty'},
-    {'1': 'ReceiptQty', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiptQty'},
-    {'1': 'ShipQty', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipQty'},
-    {'1': 'ReceiveQty', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveQty'},
-    {'1': 'InvOutQty', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvOutQty'},
-    {'1': 'InvInQty', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvInQty'},
-    {'1': 'InvAdjQty', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvAdjQty'},
-    {'1': 'InvoiceAmt', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvoiceAmt'},
-    {'1': 'CostAmt', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostAmt'},
-    {'1': 'ReceiptAmt', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiptAmt'},
-    {'1': 'InvOutAmt', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvOutAmt'},
-    {'1': 'InvInAmt', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvInAmt'},
-    {'1': 'InvAdjAmt', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InvAdjAmt'},
-    {'1': 'ProduceQty', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ProduceQty'},
-    {'1': 'CompletedQty', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CompletedQty'},
-    {'1': 'InvCheckingDate', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvCheckingDate'},
-    {'1': 'LastReceiptPrice', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'LastReceiptPrice'},
-    {'1': 'UpdMode', '3': 25, '4': 1, '5': 5, '10': 'UpdMode'},
-  ],
-};
-
-/// Descriptor for `grpcInvSumMonthModel`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List grpcInvSumMonthModelDescriptor = $convert.base64Decode(
-    'ChRncnBjSW52U3VtTW9udGhNb2RlbBIOCgJJRBgBIAEoCVICSUQSOAoJQ2xvc2VEYXRlGAIgAS'
-    'gLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJQ2xvc2VEYXRlEhgKB0ludkNvZGUYAyAB'
-    'KAlSB0ludkNvZGUSIAoLUHJvZHVjdENvZGUYBCABKAlSC1Byb2R1Y3RDb2RlEiAKC0ludkRlcH'
-    'RDb2RlGAUgASgJUgtJbnZEZXB0Q29kZRIqCgVTT1F0eRgGIAEoCzIULkN1c3RvbVR5cGVzLkRl'
-    'Y2ltYWxSBVNPUXR5EioKBVBPUXR5GAcgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIFUE9RdH'
-    'kSNAoKSW52b2ljZVF0eRgIIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSCkludm9pY2VRdHkS'
-    'NAoKUmVjZWlwdFF0eRgJIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClJlY2VpcHRRdHkSLg'
-    'oHU2hpcFF0eRgKIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSB1NoaXBRdHkSNAoKUmVjZWl2'
-    'ZVF0eRgLIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClJlY2VpdmVRdHkSMgoJSW52T3V0UX'
-    'R5GAwgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIJSW52T3V0UXR5EjAKCEludkluUXR5GA0g'
-    'ASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIISW52SW5RdHkSMgoJSW52QWRqUXR5GA4gASgLMh'
-    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIJSW52QWRqUXR5EjQKCkludm9pY2VBbXQYDyABKAsyFC5D'
-    'dXN0b21UeXBlcy5EZWNpbWFsUgpJbnZvaWNlQW10Ei4KB0Nvc3RBbXQYECABKAsyFC5DdXN0b2'
-    '1UeXBlcy5EZWNpbWFsUgdDb3N0QW10EjQKClJlY2VpcHRBbXQYESABKAsyFC5DdXN0b21UeXBl'
-    'cy5EZWNpbWFsUgpSZWNlaXB0QW10EjIKCUludk91dEFtdBgSIAEoCzIULkN1c3RvbVR5cGVzLk'
-    'RlY2ltYWxSCUludk91dEFtdBIwCghJbnZJbkFtdBgTIAEoCzIULkN1c3RvbVR5cGVzLkRlY2lt'
-    'YWxSCEludkluQW10EjIKCUludkFkakFtdBgUIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSCU'
-    'ludkFkakFtdBI0CgpQcm9kdWNlUXR5GBUgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKUHJv'
-    'ZHVjZVF0eRI4CgxDb21wbGV0ZWRRdHkYFiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgxDb2'
-    '1wbGV0ZWRRdHkSRAoPSW52Q2hlY2tpbmdEYXRlGBcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp'
-    'bWVzdGFtcFIPSW52Q2hlY2tpbmdEYXRlEkAKEExhc3RSZWNlaXB0UHJpY2UYGCABKAsyFC5DdX'
-    'N0b21UeXBlcy5EZWNpbWFsUhBMYXN0UmVjZWlwdFByaWNlEhgKB1VwZE1vZGUYGSABKAVSB1Vw'
-    'ZE1vZGU=');
-
 @$core.Deprecated('Use getInvMonthyStock_RequestDescriptor instead')
 const GetInvMonthyStock_Request$json = {
   '1': 'GetInvMonthyStock_Request',
@@ -1230,6 +1642,7 @@ const grpcInvAdjDetailModel$json = {
     {'1': 'Notes', '3': 28, '4': 1, '5': 9, '10': 'Notes'},
     {'1': 'RecordNo', '3': 29, '4': 1, '5': 9, '10': 'RecordNo'},
     {'1': 'UpdMode', '3': 30, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'Reason', '3': 31, '4': 1, '5': 9, '10': 'Reason'},
   ],
 };
 
@@ -1254,7 +1667,7 @@ final $typed_data.Uint8List grpcInvAdjDetailModelDescriptor = $convert.base64Dec
     'HgoKSXNNdWx0aUxPVBgaIAEoCFIKSXNNdWx0aUxPVBJICgpMb3REZXRhaWxzGBsgAygLMiguZ3'
     'JwY0ludmVudG9yeVNlcnZpY2UuZ3JwY0xvdERldGFpbE1vZGVsUgpMb3REZXRhaWxzEhQKBU5v'
     'dGVzGBwgASgJUgVOb3RlcxIaCghSZWNvcmRObxgdIAEoCVIIUmVjb3JkTm8SGAoHVXBkTW9kZR'
-    'geIAEoBVIHVXBkTW9kZQ==');
+    'geIAEoBVIHVXBkTW9kZRIWCgZSZWFzb24YHyABKAlSBlJlYXNvbg==');
 
 @$core.Deprecated('Use grpcInvAdjSlistModelDescriptor instead')
 const grpcInvAdjSlistModel$json = {
@@ -1389,12 +1802,24 @@ const grpcInvMacHeaderModel$json = {
     {'1': 'LotDate', '3': 25, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LotDate'},
     {'1': 'LotNotes', '3': 26, '4': 1, '5': 9, '10': 'LotNotes'},
     {'1': 'Notes', '3': 27, '4': 1, '5': 9, '10': 'Notes'},
-    {'1': 'UpdMode', '3': 28, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 29, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 30, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 31, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 32, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'CrtDateTime', '3': 33, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'CostUnitPrice', '3': 28, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'CostAmount', '3': 29, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostAmount'},
+    {'1': 'DebAccID', '3': 30, '4': 1, '5': 9, '10': 'DebAccID'},
+    {'1': 'DebAccObjectType', '3': 31, '4': 1, '5': 5, '10': 'DebAccObjectType'},
+    {'1': 'DebAccObjectID', '3': 32, '4': 1, '5': 9, '10': 'DebAccObjectID'},
+    {'1': 'CreAccID', '3': 33, '4': 1, '5': 9, '10': 'CreAccID'},
+    {'1': 'CreAccObjectType', '3': 34, '4': 1, '5': 5, '10': 'CreAccObjectType'},
+    {'1': 'CreAccObjectID', '3': 35, '4': 1, '5': 9, '10': 'CreAccObjectID'},
+    {'1': 'UpdMode', '3': 36, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 37, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 38, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 39, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 40, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 41, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'Reason', '3': 42, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'AccStaffID', '3': 43, '4': 1, '5': 9, '10': 'AccStaffID'},
+    {'1': 'AccNotes', '3': 44, '4': 1, '5': 9, '10': 'AccNotes'},
+    {'1': 'AccUpdateDone', '3': 45, '4': 1, '5': 8, '10': 'AccUpdateDone'},
   ],
 };
 
@@ -1416,12 +1841,20 @@ final $typed_data.Uint8List grpcInvMacHeaderModelDescriptor = $convert.base64Dec
     'NldFF0eRgVIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSBlNldFF0eRIUCgVMb3RJRBgWIAEo'
     'CVIFTG90SUQSFAoFSXNMT1QYFyABKAhSBUlzTE9UEhoKCERhdGVUeXBlGBggASgJUghEYXRlVH'
     'lwZRI0CgdMb3REYXRlGBkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHTG90RGF0'
-    'ZRIaCghMb3ROb3RlcxgaIAEoCVIITG90Tm90ZXMSFAoFTm90ZXMYGyABKAlSBU5vdGVzEhgKB1'
-    'VwZE1vZGUYHCABKAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYHSABKAVSCFVwZENvdW50EioKEFVw'
-    'ZFRyYW5zYWN0aW9uSUQYHiABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGB'
-    '8gASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYICABKAsyGi5nb29nbGUucHJvdG9i'
-    'dWYuVGltZXN0YW1wUgtVcGREYXRlVGltZRI8CgtDcnREYXRlVGltZRghIAEoCzIaLmdvb2dsZS'
-    '5wcm90b2J1Zi5UaW1lc3RhbXBSC0NydERhdGVUaW1l');
+    'ZRIaCghMb3ROb3RlcxgaIAEoCVIITG90Tm90ZXMSFAoFTm90ZXMYGyABKAlSBU5vdGVzEjoKDU'
+    'Nvc3RVbml0UHJpY2UYHCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1Db3N0VW5pdFByaWNl'
+    'EjQKCkNvc3RBbW91bnQYHSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgpDb3N0QW1vdW50Eh'
+    'oKCERlYkFjY0lEGB4gASgJUghEZWJBY2NJRBIqChBEZWJBY2NPYmplY3RUeXBlGB8gASgFUhBE'
+    'ZWJBY2NPYmplY3RUeXBlEiYKDkRlYkFjY09iamVjdElEGCAgASgJUg5EZWJBY2NPYmplY3RJRB'
+    'IaCghDcmVBY2NJRBghIAEoCVIIQ3JlQWNjSUQSKgoQQ3JlQWNjT2JqZWN0VHlwZRgiIAEoBVIQ'
+    'Q3JlQWNjT2JqZWN0VHlwZRImCg5DcmVBY2NPYmplY3RJRBgjIAEoCVIOQ3JlQWNjT2JqZWN0SU'
+    'QSGAoHVXBkTW9kZRgkIAEoBVIHVXBkTW9kZRIaCghVcGRDb3VudBglIAEoBVIIVXBkQ291bnQS'
+    'KgoQVXBkVHJhbnNhY3Rpb25JRBgmIAEoCVIQVXBkVHJhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW'
+    '50SUQYJyABKAlSDFVwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgoIAEoCzIaLmdvb2dsZS5w'
+    'cm90b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1lEjwKC0NydERhdGVUaW1lGCkgASgLMhouZ2'
+    '9vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWUSFgoGUmVhc29uGCogASgJUgZS'
+    'ZWFzb24SHgoKQWNjU3RhZmZJRBgrIAEoCVIKQWNjU3RhZmZJRBIaCghBY2NOb3RlcxgsIAEoCV'
+    'IIQWNjTm90ZXMSJAoNQWNjVXBkYXRlRG9uZRgtIAEoCFINQWNjVXBkYXRlRG9uZQ==');
 
 @$core.Deprecated('Use grpcInvMacDetailModelDescriptor instead')
 const grpcInvMacDetailModel$json = {
@@ -1459,8 +1892,16 @@ const grpcInvMacDetailModel$json = {
     {'1': 'IsMultiLOT', '3': 30, '4': 1, '5': 8, '10': 'IsMultiLOT'},
     {'1': 'LotDetails', '3': 31, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcLotDetailModel', '10': 'LotDetails'},
     {'1': 'Notes', '3': 32, '4': 1, '5': 9, '10': 'Notes'},
-    {'1': 'RecordNo', '3': 33, '4': 1, '5': 9, '10': 'RecordNo'},
-    {'1': 'UpdMode', '3': 34, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'CostUnitPrice', '3': 33, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'CostAmount', '3': 34, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostAmount'},
+    {'1': 'DebAccID', '3': 35, '4': 1, '5': 9, '10': 'DebAccID'},
+    {'1': 'DebAccObjectType', '3': 36, '4': 1, '5': 5, '10': 'DebAccObjectType'},
+    {'1': 'DebAccObjectID', '3': 37, '4': 1, '5': 9, '10': 'DebAccObjectID'},
+    {'1': 'CreAccID', '3': 38, '4': 1, '5': 9, '10': 'CreAccID'},
+    {'1': 'CreAccObjectType', '3': 39, '4': 1, '5': 5, '10': 'CreAccObjectType'},
+    {'1': 'CreAccObjectID', '3': 40, '4': 1, '5': 9, '10': 'CreAccObjectID'},
+    {'1': 'RecordNo', '3': 41, '4': 1, '5': 9, '10': 'RecordNo'},
+    {'1': 'UpdMode', '3': 42, '4': 1, '5': 5, '10': 'UpdMode'},
   ],
 };
 
@@ -1486,8 +1927,14 @@ final $typed_data.Uint8List grpcInvMacDetailModelDescriptor = $convert.base64Dec
     'IaCghMb3ROb3RlcxgbIAEoCVIITG90Tm90ZXMSHAoJV2FyUGVyaW9kGBwgASgFUglXYXJQZXJp'
     'b2QSHgoKUGVyaW9kRmxhZxgdIAEoBVIKUGVyaW9kRmxhZxIeCgpJc011bHRpTE9UGB4gASgIUg'
     'pJc011bHRpTE9UEkgKCkxvdERldGFpbHMYHyADKAsyKC5ncnBjSW52ZW50b3J5U2VydmljZS5n'
-    'cnBjTG90RGV0YWlsTW9kZWxSCkxvdERldGFpbHMSFAoFTm90ZXMYICABKAlSBU5vdGVzEhoKCF'
-    'JlY29yZE5vGCEgASgJUghSZWNvcmRObxIYCgdVcGRNb2RlGCIgASgFUgdVcGRNb2Rl');
+    'cnBjTG90RGV0YWlsTW9kZWxSCkxvdERldGFpbHMSFAoFTm90ZXMYICABKAlSBU5vdGVzEjoKDU'
+    'Nvc3RVbml0UHJpY2UYISABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1Db3N0VW5pdFByaWNl'
+    'EjQKCkNvc3RBbW91bnQYIiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgpDb3N0QW1vdW50Eh'
+    'oKCERlYkFjY0lEGCMgASgJUghEZWJBY2NJRBIqChBEZWJBY2NPYmplY3RUeXBlGCQgASgFUhBE'
+    'ZWJBY2NPYmplY3RUeXBlEiYKDkRlYkFjY09iamVjdElEGCUgASgJUg5EZWJBY2NPYmplY3RJRB'
+    'IaCghDcmVBY2NJRBgmIAEoCVIIQ3JlQWNjSUQSKgoQQ3JlQWNjT2JqZWN0VHlwZRgnIAEoBVIQ'
+    'Q3JlQWNjT2JqZWN0VHlwZRImCg5DcmVBY2NPYmplY3RJRBgoIAEoCVIOQ3JlQWNjT2JqZWN0SU'
+    'QSGgoIUmVjb3JkTm8YKSABKAlSCFJlY29yZE5vEhgKB1VwZE1vZGUYKiABKAVSB1VwZE1vZGU=');
 
 @$core.Deprecated('Use grpcInvMacSlistModelDescriptor instead')
 const grpcInvMacSlistModel$json = {
@@ -1498,6 +1945,8 @@ const grpcInvMacSlistModel$json = {
     {'1': 'MacType', '3': 3, '4': 1, '5': 5, '10': 'MacType'},
     {'1': 'InInvName', '3': 4, '4': 1, '5': 9, '10': 'InInvName'},
     {'1': 'SetProductName', '3': 5, '4': 1, '5': 9, '10': 'SetProductName'},
+    {'1': 'Reason', '3': 6, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'AccUpdateDone', '3': 7, '4': 1, '5': 8, '10': 'AccUpdateDone'},
   ],
 };
 
@@ -1506,7 +1955,8 @@ final $typed_data.Uint8List grpcInvMacSlistModelDescriptor = $convert.base64Deco
     'ChRncnBjSW52TWFjU2xpc3RNb2RlbBIaCghJbnZNYWNObxgBIAEoCVIISW52TWFjTm8SOgoKSW'
     '52TWFjRGF0ZRgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkludk1hY0RhdGUS'
     'GAoHTWFjVHlwZRgDIAEoBVIHTWFjVHlwZRIcCglJbkludk5hbWUYBCABKAlSCUluSW52TmFtZR'
-    'ImCg5TZXRQcm9kdWN0TmFtZRgFIAEoCVIOU2V0UHJvZHVjdE5hbWU=');
+    'ImCg5TZXRQcm9kdWN0TmFtZRgFIAEoCVIOU2V0UHJvZHVjdE5hbWUSFgoGUmVhc29uGAYgASgJ'
+    'UgZSZWFzb24SJAoNQWNjVXBkYXRlRG9uZRgHIAEoCFINQWNjVXBkYXRlRG9uZQ==');
 
 @$core.Deprecated('Use saveVoucherInvMove_RequestDescriptor instead')
 const SaveVoucherInvMove_Request$json = {
@@ -1686,6 +2136,7 @@ const grpcInvMoveDetailModel$json = {
     {'1': 'Notes', '3': 31, '4': 1, '5': 9, '10': 'Notes'},
     {'1': 'RecordNo', '3': 32, '4': 1, '5': 9, '10': 'RecordNo'},
     {'1': 'UpdMode', '3': 33, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'CloseDate', '3': 34, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
   ],
 };
 
@@ -1712,7 +2163,8 @@ final $typed_data.Uint8List grpcInvMoveDetailModelDescriptor = $convert.base64De
     'RGV0YWlscxgdIAMoCzIoLmdycGNJbnZlbnRvcnlTZXJ2aWNlLmdycGNMb3REZXRhaWxNb2RlbF'
     'IKTG90RGV0YWlscxIaCghSZXFOb3RlcxgeIAEoCVIIUmVxTm90ZXMSFAoFTm90ZXMYHyABKAlS'
     'BU5vdGVzEhoKCFJlY29yZE5vGCAgASgJUghSZWNvcmRObxIYCgdVcGRNb2RlGCEgASgFUgdVcG'
-    'RNb2Rl');
+    'RNb2RlEjgKCUNsb3NlRGF0ZRgiIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCUNs'
+    'b3NlRGF0ZQ==');
 
 @$core.Deprecated('Use grpcInvMoveSlistModelDescriptor instead')
 const grpcInvMoveSlistModel$json = {
@@ -1890,6 +2342,7 @@ const GetStockSum_Request$json = {
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
     {'1': 'InvCode', '3': 2, '4': 1, '5': 9, '10': 'InvCode'},
     {'1': 'ProductCode', '3': 3, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductKindList', '3': 4, '4': 1, '5': 9, '10': 'ProductKindList'},
   ],
 };
 
@@ -1897,7 +2350,8 @@ const GetStockSum_Request$json = {
 final $typed_data.Uint8List getStockSum_RequestDescriptor = $convert.base64Decode(
     'ChNHZXRTdG9ja1N1bV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ29tbW9uTW'
     'Vzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSGAoHSW52Q29kZRgCIAEoCVIHSW52'
-    'Q29kZRIgCgtQcm9kdWN0Q29kZRgDIAEoCVILUHJvZHVjdENvZGU=');
+    'Q29kZRIgCgtQcm9kdWN0Q29kZRgDIAEoCVILUHJvZHVjdENvZGUSKAoPUHJvZHVjdEtpbmRMaX'
+    'N0GAQgASgJUg9Qcm9kdWN0S2luZExpc3Q=');
 
 @$core.Deprecated('Use getStockSum_ResponseDescriptor instead')
 const GetStockSum_Response$json = {
@@ -1965,20 +2419,19 @@ const grpcStockSumModel$json = {
     {'1': 'ShipRemQty', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipRemQty'},
     {'1': 'PORemQty', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PORemQty'},
     {'1': 'ReceiveRemQty', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveRemQty'},
-    {'1': 'ProduceRemQty', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ProduceRemQty'},
-    {'1': 'DepositQty', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DepositQty'},
-    {'1': 'LastPODate', '3': 17, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPODate'},
-    {'1': 'LastSODate', '3': 18, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSODate'},
-    {'1': 'LastInDate', '3': 19, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastInDate'},
-    {'1': 'LastOutDate', '3': 20, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastOutDate'},
-    {'1': 'UnitCode', '3': 21, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'UnitName', '3': 22, '4': 1, '5': 9, '10': 'UnitName'},
-    {'1': 'CloseDate', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
-    {'1': 'CloseStockQty', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockQty'},
-    {'1': 'CloseStockPrice', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockPrice'},
-    {'1': 'CloseStockAmt', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockAmt'},
-    {'1': 'CloseAccStockQty', '3': 27, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseAccStockQty'},
-    {'1': 'UpdMode', '3': 28, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'DepositQty', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DepositQty'},
+    {'1': 'LastPODate', '3': 16, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPODate'},
+    {'1': 'LastSODate', '3': 17, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSODate'},
+    {'1': 'LastInDate', '3': 18, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastInDate'},
+    {'1': 'LastOutDate', '3': 19, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastOutDate'},
+    {'1': 'UnitCode', '3': 20, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 21, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'CloseDate', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'CloseStockQty', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockQty'},
+    {'1': 'CloseStockPrice', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockPrice'},
+    {'1': 'CloseStockAmount', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockAmount'},
+    {'1': 'CloseInvStockQty', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseInvStockQty'},
+    {'1': 'UpdMode', '3': 27, '4': 1, '5': 5, '10': 'UpdMode'},
   ],
 };
 
@@ -1994,20 +2447,19 @@ final $typed_data.Uint8List grpcStockSumModelDescriptor = $convert.base64Decode(
     'N1c3RvbVR5cGVzLkRlY2ltYWxSCFNPUmVtUXR5EjQKClNoaXBSZW1RdHkYDCABKAsyFC5DdXN0'
     'b21UeXBlcy5EZWNpbWFsUgpTaGlwUmVtUXR5EjAKCFBPUmVtUXR5GA0gASgLMhQuQ3VzdG9tVH'
     'lwZXMuRGVjaW1hbFIIUE9SZW1RdHkSOgoNUmVjZWl2ZVJlbVF0eRgOIAEoCzIULkN1c3RvbVR5'
-    'cGVzLkRlY2ltYWxSDVJlY2VpdmVSZW1RdHkSOgoNUHJvZHVjZVJlbVF0eRgPIAEoCzIULkN1c3'
-    'RvbVR5cGVzLkRlY2ltYWxSDVByb2R1Y2VSZW1RdHkSNAoKRGVwb3NpdFF0eRgQIAEoCzIULkN1'
-    'c3RvbVR5cGVzLkRlY2ltYWxSCkRlcG9zaXRRdHkSOgoKTGFzdFBPRGF0ZRgRIAEoCzIaLmdvb2'
-    'dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RQT0RhdGUSOgoKTGFzdFNPRGF0ZRgSIAEoCzIa'
-    'Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RTT0RhdGUSOgoKTGFzdEluRGF0ZRgTIA'
-    'EoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RJbkRhdGUSPAoLTGFzdE91dERh'
-    'dGUYFCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtMYXN0T3V0RGF0ZRIaCghVbm'
-    'l0Q29kZRgVIAEoCVIIVW5pdENvZGUSGgoIVW5pdE5hbWUYFiABKAlSCFVuaXROYW1lEjgKCUNs'
-    'b3NlRGF0ZRgXIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCUNsb3NlRGF0ZRI6Cg'
-    '1DbG9zZVN0b2NrUXR5GBggASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINQ2xvc2VTdG9ja1F0'
-    'eRI+Cg9DbG9zZVN0b2NrUHJpY2UYGSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9DbG9zZV'
-    'N0b2NrUHJpY2USOgoNQ2xvc2VTdG9ja0FtdBgaIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxS'
-    'DUNsb3NlU3RvY2tBbXQSQAoQQ2xvc2VBY2NTdG9ja1F0eRgbIAEoCzIULkN1c3RvbVR5cGVzLk'
-    'RlY2ltYWxSEENsb3NlQWNjU3RvY2tRdHkSGAoHVXBkTW9kZRgcIAEoBVIHVXBkTW9kZQ==');
+    'cGVzLkRlY2ltYWxSDVJlY2VpdmVSZW1RdHkSNAoKRGVwb3NpdFF0eRgPIAEoCzIULkN1c3RvbV'
+    'R5cGVzLkRlY2ltYWxSCkRlcG9zaXRRdHkSOgoKTGFzdFBPRGF0ZRgQIAEoCzIaLmdvb2dsZS5w'
+    'cm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RQT0RhdGUSOgoKTGFzdFNPRGF0ZRgRIAEoCzIaLmdvb2'
+    'dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RTT0RhdGUSOgoKTGFzdEluRGF0ZRgSIAEoCzIa'
+    'Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCkxhc3RJbkRhdGUSPAoLTGFzdE91dERhdGUYEy'
+    'ABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtMYXN0T3V0RGF0ZRIaCghVbml0Q29k'
+    'ZRgUIAEoCVIIVW5pdENvZGUSGgoIVW5pdE5hbWUYFSABKAlSCFVuaXROYW1lEjgKCUNsb3NlRG'
+    'F0ZRgWIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCUNsb3NlRGF0ZRI6Cg1DbG9z'
+    'ZVN0b2NrUXR5GBcgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINQ2xvc2VTdG9ja1F0eRI+Cg'
+    '9DbG9zZVN0b2NrUHJpY2UYGCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9DbG9zZVN0b2Nr'
+    'UHJpY2USQAoQQ2xvc2VTdG9ja0Ftb3VudBgZIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSEE'
+    'Nsb3NlU3RvY2tBbW91bnQSQAoQQ2xvc2VJbnZTdG9ja1F0eRgaIAEoCzIULkN1c3RvbVR5cGVz'
+    'LkRlY2ltYWxSEENsb3NlSW52U3RvY2tRdHkSGAoHVXBkTW9kZRgbIAEoBVIHVXBkTW9kZQ==');
 
 @$core.Deprecated('Use saveVoucherInvMoveReq_RequestDescriptor instead')
 const SaveVoucherInvMoveReq_Request$json = {
@@ -2321,17 +2773,18 @@ const grpcInvOutHeaderModel$json = {
     {'1': 'InvOutReqNo', '3': 11, '4': 1, '5': 9, '10': 'InvOutReqNo'},
     {'1': 'OutInvCode', '3': 12, '4': 1, '5': 9, '10': 'OutInvCode'},
     {'1': 'OutInvName', '3': 13, '4': 1, '5': 9, '10': 'OutInvName'},
-    {'1': 'Reason', '3': 14, '4': 1, '5': 9, '10': 'Reason'},
-    {'1': 'ReqStaffID', '3': 15, '4': 1, '5': 9, '10': 'ReqStaffID'},
-    {'1': 'ReqNotes', '3': 16, '4': 1, '5': 9, '10': 'ReqNotes'},
-    {'1': 'Notes', '3': 17, '4': 1, '5': 9, '10': 'Notes'},
-    {'1': 'UpdMode', '3': 18, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 19, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 20, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 21, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'CrtDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
-    {'1': 'RefUpdCount', '3': 24, '4': 1, '5': 5, '10': 'RefUpdCount'},
+    {'1': 'InvAccType', '3': 14, '4': 1, '5': 5, '10': 'InvAccType'},
+    {'1': 'Reason', '3': 15, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'ReqStaffID', '3': 16, '4': 1, '5': 9, '10': 'ReqStaffID'},
+    {'1': 'ReqNotes', '3': 17, '4': 1, '5': 9, '10': 'ReqNotes'},
+    {'1': 'Notes', '3': 18, '4': 1, '5': 9, '10': 'Notes'},
+    {'1': 'UpdMode', '3': 19, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 20, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 21, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 22, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 24, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'RefUpdCount', '3': 25, '4': 1, '5': 5, '10': 'RefUpdCount'},
   ],
 };
 
@@ -2346,14 +2799,15 @@ final $typed_data.Uint8List grpcInvOutHeaderModelDescriptor = $convert.base64Dec
     'dGFtcFIKSW52T3V0RGF0ZRJCCg5JbnZPdXRQcm9jRGF0ZRgKIAEoCzIaLmdvb2dsZS5wcm90b2'
     'J1Zi5UaW1lc3RhbXBSDkludk91dFByb2NEYXRlEiAKC0ludk91dFJlcU5vGAsgASgJUgtJbnZP'
     'dXRSZXFObxIeCgpPdXRJbnZDb2RlGAwgASgJUgpPdXRJbnZDb2RlEh4KCk91dEludk5hbWUYDS'
-    'ABKAlSCk91dEludk5hbWUSFgoGUmVhc29uGA4gASgJUgZSZWFzb24SHgoKUmVxU3RhZmZJRBgP'
-    'IAEoCVIKUmVxU3RhZmZJRBIaCghSZXFOb3RlcxgQIAEoCVIIUmVxTm90ZXMSFAoFTm90ZXMYES'
-    'ABKAlSBU5vdGVzEhgKB1VwZE1vZGUYEiABKAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYEyABKAVS'
-    'CFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYFCABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIg'
-    'oMVXBkQWNjb3VudElEGBUgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYFiABKAsy'
-    'Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZRI8CgtDcnREYXRlVGltZR'
-    'gXIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC0NydERhdGVUaW1lEiAKC1JlZlVw'
-    'ZENvdW50GBggASgFUgtSZWZVcGRDb3VudA==');
+    'ABKAlSCk91dEludk5hbWUSHgoKSW52QWNjVHlwZRgOIAEoBVIKSW52QWNjVHlwZRIWCgZSZWFz'
+    'b24YDyABKAlSBlJlYXNvbhIeCgpSZXFTdGFmZklEGBAgASgJUgpSZXFTdGFmZklEEhoKCFJlcU'
+    '5vdGVzGBEgASgJUghSZXFOb3RlcxIUCgVOb3RlcxgSIAEoCVIFTm90ZXMSGAoHVXBkTW9kZRgT'
+    'IAEoBVIHVXBkTW9kZRIaCghVcGRDb3VudBgUIAEoBVIIVXBkQ291bnQSKgoQVXBkVHJhbnNhY3'
+    'Rpb25JRBgVIAEoCVIQVXBkVHJhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW50SUQYFiABKAlSDFVw'
+    'ZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgXIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3'
+    'RhbXBSC1VwZERhdGVUaW1lEjwKC0NydERhdGVUaW1lGBggASgLMhouZ29vZ2xlLnByb3RvYnVm'
+    'LlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWUSIAoLUmVmVXBkQ291bnQYGSABKAVSC1JlZlVwZENvdW'
+    '50');
 
 @$core.Deprecated('Use grpcInvOutDetailModelDescriptor instead')
 const grpcInvOutDetailModel$json = {
@@ -2391,6 +2845,8 @@ const grpcInvOutDetailModel$json = {
     {'1': 'Notes', '3': 30, '4': 1, '5': 9, '10': 'Notes'},
     {'1': 'RecordNo', '3': 31, '4': 1, '5': 9, '10': 'RecordNo'},
     {'1': 'UpdMode', '3': 32, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'Reason', '3': 33, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'InvAccType', '3': 34, '4': 1, '5': 5, '10': 'InvAccType'},
   ],
 };
 
@@ -2416,7 +2872,8 @@ final $typed_data.Uint8List grpcInvOutDetailModelDescriptor = $convert.base64Dec
     'lzTXVsdGlMT1QYGyABKAhSCklzTXVsdGlMT1QSSAoKTG90RGV0YWlscxgcIAMoCzIoLmdycGNJ'
     'bnZlbnRvcnlTZXJ2aWNlLmdycGNMb3REZXRhaWxNb2RlbFIKTG90RGV0YWlscxIaCghSZXFOb3'
     'RlcxgdIAEoCVIIUmVxTm90ZXMSFAoFTm90ZXMYHiABKAlSBU5vdGVzEhoKCFJlY29yZE5vGB8g'
-    'ASgJUghSZWNvcmRObxIYCgdVcGRNb2RlGCAgASgFUgdVcGRNb2Rl');
+    'ASgJUghSZWNvcmRObxIYCgdVcGRNb2RlGCAgASgFUgdVcGRNb2RlEhYKBlJlYXNvbhghIAEoCV'
+    'IGUmVhc29uEh4KCkludkFjY1R5cGUYIiABKAVSCkludkFjY1R5cGU=');
 
 @$core.Deprecated('Use grpcInvOutSlistModelDescriptor instead')
 const grpcInvOutSlistModel$json = {
@@ -2535,22 +2992,23 @@ const grpcInvOutReqHeaderModel$json = {
     {'1': 'InvOutProcDate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InvOutProcDate'},
     {'1': 'OutInvCode', '3': 6, '4': 1, '5': 9, '10': 'OutInvCode'},
     {'1': 'OutInvName', '3': 7, '4': 1, '5': 9, '10': 'OutInvName'},
-    {'1': 'Reason', '3': 8, '4': 1, '5': 9, '10': 'Reason'},
-    {'1': 'ReqNotes', '3': 9, '4': 1, '5': 9, '10': 'ReqNotes'},
-    {'1': 'ReqStaffID', '3': 10, '4': 1, '5': 9, '10': 'ReqStaffID'},
-    {'1': 'DeptCode', '3': 11, '4': 1, '5': 9, '10': 'DeptCode'},
-    {'1': 'InvDeptCode', '3': 12, '4': 1, '5': 9, '10': 'InvDeptCode'},
-    {'1': 'AprStaffID', '3': 13, '4': 1, '5': 9, '10': 'AprStaffID'},
-    {'1': 'AprDateTime', '3': 14, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'AprDateTime'},
-    {'1': 'AprNotes', '3': 15, '4': 1, '5': 9, '10': 'AprNotes'},
-    {'1': 'AprDone', '3': 16, '4': 1, '5': 8, '10': 'AprDone'},
-    {'1': 'DoneStatus', '3': 17, '4': 1, '5': 5, '10': 'DoneStatus'},
-    {'1': 'UpdMode', '3': 18, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 19, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 20, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 21, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'CrtDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'InvAccType', '3': 8, '4': 1, '5': 5, '10': 'InvAccType'},
+    {'1': 'Reason', '3': 9, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'ReqNotes', '3': 10, '4': 1, '5': 9, '10': 'ReqNotes'},
+    {'1': 'ReqStaffID', '3': 11, '4': 1, '5': 9, '10': 'ReqStaffID'},
+    {'1': 'DeptCode', '3': 12, '4': 1, '5': 9, '10': 'DeptCode'},
+    {'1': 'InvDeptCode', '3': 13, '4': 1, '5': 9, '10': 'InvDeptCode'},
+    {'1': 'AprStaffID', '3': 14, '4': 1, '5': 9, '10': 'AprStaffID'},
+    {'1': 'AprDateTime', '3': 15, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'AprDateTime'},
+    {'1': 'AprNotes', '3': 16, '4': 1, '5': 9, '10': 'AprNotes'},
+    {'1': 'AprDone', '3': 17, '4': 1, '5': 8, '10': 'AprDone'},
+    {'1': 'DoneStatus', '3': 18, '4': 1, '5': 5, '10': 'DoneStatus'},
+    {'1': 'UpdMode', '3': 19, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 20, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 21, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 22, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 24, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
   ],
 };
 
@@ -2561,18 +3019,18 @@ final $typed_data.Uint8List grpcInvOutReqHeaderModelDescriptor = $convert.base64
     'QAoNSW52T3V0UmVxRGF0ZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSDUludk'
     '91dFJlcURhdGUSQgoOSW52T3V0UHJvY0RhdGUYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt'
     'ZXN0YW1wUg5JbnZPdXRQcm9jRGF0ZRIeCgpPdXRJbnZDb2RlGAYgASgJUgpPdXRJbnZDb2RlEh'
-    '4KCk91dEludk5hbWUYByABKAlSCk91dEludk5hbWUSFgoGUmVhc29uGAggASgJUgZSZWFzb24S'
-    'GgoIUmVxTm90ZXMYCSABKAlSCFJlcU5vdGVzEh4KClJlcVN0YWZmSUQYCiABKAlSClJlcVN0YW'
-    'ZmSUQSGgoIRGVwdENvZGUYCyABKAlSCERlcHRDb2RlEiAKC0ludkRlcHRDb2RlGAwgASgJUgtJ'
-    'bnZEZXB0Q29kZRIeCgpBcHJTdGFmZklEGA0gASgJUgpBcHJTdGFmZklEEjwKC0FwckRhdGVUaW'
-    '1lGA4gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILQXByRGF0ZVRpbWUSGgoIQXBy'
-    'Tm90ZXMYDyABKAlSCEFwck5vdGVzEhgKB0FwckRvbmUYECABKAhSB0FwckRvbmUSHgoKRG9uZV'
-    'N0YXR1cxgRIAEoBVIKRG9uZVN0YXR1cxIYCgdVcGRNb2RlGBIgASgFUgdVcGRNb2RlEhoKCFVw'
-    'ZENvdW50GBMgASgFUghVcGRDb3VudBIqChBVcGRUcmFuc2FjdGlvbklEGBQgASgJUhBVcGRUcm'
-    'Fuc2FjdGlvbklEEiIKDFVwZEFjY291bnRJRBgVIAEoCVIMVXBkQWNjb3VudElEEjwKC1VwZERh'
-    'dGVUaW1lGBYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILVXBkRGF0ZVRpbWUSPA'
-    'oLQ3J0RGF0ZVRpbWUYFyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtDcnREYXRl'
-    'VGltZQ==');
+    '4KCk91dEludk5hbWUYByABKAlSCk91dEludk5hbWUSHgoKSW52QWNjVHlwZRgIIAEoBVIKSW52'
+    'QWNjVHlwZRIWCgZSZWFzb24YCSABKAlSBlJlYXNvbhIaCghSZXFOb3RlcxgKIAEoCVIIUmVxTm'
+    '90ZXMSHgoKUmVxU3RhZmZJRBgLIAEoCVIKUmVxU3RhZmZJRBIaCghEZXB0Q29kZRgMIAEoCVII'
+    'RGVwdENvZGUSIAoLSW52RGVwdENvZGUYDSABKAlSC0ludkRlcHRDb2RlEh4KCkFwclN0YWZmSU'
+    'QYDiABKAlSCkFwclN0YWZmSUQSPAoLQXByRGF0ZVRpbWUYDyABKAsyGi5nb29nbGUucHJvdG9i'
+    'dWYuVGltZXN0YW1wUgtBcHJEYXRlVGltZRIaCghBcHJOb3RlcxgQIAEoCVIIQXByTm90ZXMSGA'
+    'oHQXByRG9uZRgRIAEoCFIHQXByRG9uZRIeCgpEb25lU3RhdHVzGBIgASgFUgpEb25lU3RhdHVz'
+    'EhgKB1VwZE1vZGUYEyABKAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYFCABKAVSCFVwZENvdW50Ei'
+    'oKEFVwZFRyYW5zYWN0aW9uSUQYFSABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3Vu'
+    'dElEGBYgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYFyABKAsyGi5nb29nbGUucH'
+    'JvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZRI8CgtDcnREYXRlVGltZRgYIAEoCzIaLmdv'
+    'b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC0NydERhdGVUaW1l');
 
 @$core.Deprecated('Use grpcInvOutReqDetailModelDescriptor instead')
 const grpcInvOutReqDetailModel$json = {
@@ -2761,6 +3219,7 @@ const grpcInvInHeaderModel$json = {
     {'1': 'UpdDateTime', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
     {'1': 'CrtDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
     {'1': 'RefUpdCount', '3': 24, '4': 1, '5': 5, '10': 'RefUpdCount'},
+    {'1': 'InvAccType', '3': 25, '4': 1, '5': 5, '10': 'InvAccType'},
   ],
 };
 
@@ -2782,7 +3241,7 @@ final $typed_data.Uint8List grpcInvInHeaderModelDescriptor = $convert.base64Deco
     'QYFSABKAlSDFVwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgWIAEoCzIaLmdvb2dsZS5wcm90'
     'b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1lEjwKC0NydERhdGVUaW1lGBcgASgLMhouZ29vZ2'
     'xlLnByb3RvYnVmLlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWUSIAoLUmVmVXBkQ291bnQYGCABKAVS'
-    'C1JlZlVwZENvdW50');
+    'C1JlZlVwZENvdW50Eh4KCkludkFjY1R5cGUYGSABKAVSCkludkFjY1R5cGU=');
 
 @$core.Deprecated('Use grpcInvInDetailModelDescriptor instead')
 const grpcInvInDetailModel$json = {
@@ -2820,6 +3279,8 @@ const grpcInvInDetailModel$json = {
     {'1': 'Notes', '3': 30, '4': 1, '5': 9, '10': 'Notes'},
     {'1': 'RecordNo', '3': 31, '4': 1, '5': 9, '10': 'RecordNo'},
     {'1': 'UpdMode', '3': 32, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'Reason', '3': 33, '4': 1, '5': 9, '10': 'Reason'},
+    {'1': 'InvAccType', '3': 34, '4': 1, '5': 5, '10': 'InvAccType'},
   ],
 };
 
@@ -2845,7 +3306,8 @@ final $typed_data.Uint8List grpcInvInDetailModelDescriptor = $convert.base64Deco
     'xPVBgbIAEoCFIKSXNNdWx0aUxPVBJICgpMb3REZXRhaWxzGBwgAygLMiguZ3JwY0ludmVudG9y'
     'eVNlcnZpY2UuZ3JwY0xvdERldGFpbE1vZGVsUgpMb3REZXRhaWxzEhoKCFJlcU5vdGVzGB0gAS'
     'gJUghSZXFOb3RlcxIUCgVOb3RlcxgeIAEoCVIFTm90ZXMSGgoIUmVjb3JkTm8YHyABKAlSCFJl'
-    'Y29yZE5vEhgKB1VwZE1vZGUYICABKAVSB1VwZE1vZGU=');
+    'Y29yZE5vEhgKB1VwZE1vZGUYICABKAVSB1VwZE1vZGUSFgoGUmVhc29uGCEgASgJUgZSZWFzb2'
+    '4SHgoKSW52QWNjVHlwZRgiIAEoBVIKSW52QWNjVHlwZQ==');
 
 @$core.Deprecated('Use grpcInvInSlistModelDescriptor instead')
 const grpcInvInSlistModel$json = {
@@ -2978,6 +3440,7 @@ const grpcInvInReqHeaderModel$json = {
     {'1': 'UpdAccountID', '3': 21, '4': 1, '5': 9, '10': 'UpdAccountID'},
     {'1': 'UpdDateTime', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
     {'1': 'CrtDateTime', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+    {'1': 'InvAccType', '3': 24, '4': 1, '5': 5, '10': 'InvAccType'},
   ],
 };
 
@@ -2998,7 +3461,8 @@ final $typed_data.Uint8List grpcInvInReqHeaderModelDescriptor = $convert.base64D
     'BVIIVXBkQ291bnQSKgoQVXBkVHJhbnNhY3Rpb25JRBgUIAEoCVIQVXBkVHJhbnNhY3Rpb25JRB'
     'IiCgxVcGRBY2NvdW50SUQYFSABKAlSDFVwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgWIAEo'
     'CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1lEjwKC0NydERhdGVUaW'
-    '1lGBcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWU=');
+    '1lGBcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILQ3J0RGF0ZVRpbWUSHgoKSW52'
+    'QWNjVHlwZRgYIAEoBVIKSW52QWNjVHlwZQ==');
 
 @$core.Deprecated('Use grpcInvInReqDetailModelDescriptor instead')
 const grpcInvInReqDetailModel$json = {

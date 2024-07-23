@@ -27,6 +27,16 @@ class GetStockLOTSuccess extends InventoryState {
   GetStockLOTSuccess({required this.StockLOTData});
 }
 
+class GetSlistInvOutReqSuccess extends InventoryState {
+  final List<grpcInvOutReqSlistModel> InvOutReqSlistData;
+  GetSlistInvOutReqSuccess({required this.InvOutReqSlistData});
+}
+
+class GetVoucherInvOutReqSuccess extends InventoryState {
+  final GetVoucherInvOutReq_Response InvOutReqData;
+  GetVoucherInvOutReqSuccess({required this.InvOutReqData});
+}
+
 // general
 class InventoryErrorValidation extends InventoryState {
   final String errorMessage;

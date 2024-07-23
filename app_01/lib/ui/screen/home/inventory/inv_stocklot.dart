@@ -41,7 +41,7 @@ class _StockLOTPageState extends State<StockLOTPage> {
 
   late InventoryBloc _inventoryBloc;
   late MasterBloc _MasterBloc;
-  CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
+  //CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
   Color _underlineColor = Color(0xFFCCCCCC);
   Color _mainColor = PRIMARY_COLOR;
@@ -66,17 +66,11 @@ class _StockLOTPageState extends State<StockLOTPage> {
         widget.inventorySlistData, widget.inventoryData.invCode);
     _etproductName.text = _globalFunction.GetProductName(
         widget.productSlistData, widget.inventoryData.productCode);
-    // if(widget.inventoryData.inventoryGender=='male'){
-    //   _isSelectGender = [true, false];
-    // } else {
-    //   _isSelectGender = [false, true];
-    // }
     super.initState();
   }
 
   @override
   void dispose() {
-    apiToken.cancel("cancelled"); // cancel fetch data from API
     _etinventoryName.dispose();
     _etproductName.dispose();
     super.dispose();
@@ -205,12 +199,6 @@ class _StockLOTPageState extends State<StockLOTPage> {
         ));
   }
 
-  String dateTimeFormatter(String dateTime, {String? format}) {
-    return DateFormat(format ?? 'dd/MM/yyyy')
-        .format(DateTime.parse(dateTime).toLocal())
-        .toString();
-  }
-
   Widget _buildInventoryCard(index) {
     return Card(
       elevation: 0.5,
@@ -229,9 +217,7 @@ class _StockLOTPageState extends State<StockLOTPage> {
               width: 26,
               height: 26,
               child: Center(
-                  child: Text(
-                      //_InventoryData[index].InventoryGender == 'male' ? 'M' : 'F',
-                      'M',
+                  child: Text((index + 1).toString(),
                       style: TextStyle(color: Colors.white, fontSize: 12))),
             ),
             SizedBox(width: 12),
@@ -256,10 +242,8 @@ class _StockLOTPageState extends State<StockLOTPage> {
                           fontWeight: FontWeight.w400)),
                   Text(
                       "Ngày: " +
-                          dateTimeFormatter(_StockLOTData[index]
-                              .lotDate
-                              .toDateTime()
-                              .toString()),
+                          _globalFunction
+                              .timeStampFormatter(_StockLOTData[index].lotDate),
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],

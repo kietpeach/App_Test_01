@@ -35,7 +35,6 @@ class _InvStockPageState extends State<InvStockPage> {
   ];
   String _valScroll1 = "";
   String _valScroll2 = "";
-  //Function(String) _onChanged = (p0) {};
 
   @override
   void initState() {
@@ -208,6 +207,8 @@ class _InvStockPageState extends State<InvStockPage> {
   }
 
   Widget _buildInventoryCard(index) {
+    String productName = _globalFunction.GetProductName(
+        _ProductSlistData, _InventoryData[index].productCode);
     return Card(
       elevation: 0.5,
       child: Container(
@@ -216,7 +217,7 @@ class _InvStockPageState extends State<InvStockPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: _InventoryData[index].stockQty != 0
+                color: _InventoryData[index].stockQty.units != 0
                     ? PRIMARY_COLOR
                     : Colors.pink,
                 borderRadius: BorderRadius.all(Radius.circular(18)),
@@ -225,9 +226,7 @@ class _InvStockPageState extends State<InvStockPage> {
               width: 26,
               height: 26,
               child: Center(
-                  child: Text(
-                      //_InventoryData[index].InventoryGender == 'male' ? 'M' : 'F',
-                      'M',
+                  child: Text((index + 1).toString(),
                       style: TextStyle(color: Colors.white, fontSize: 12))),
             ),
             SizedBox(width: 12),
@@ -236,12 +235,10 @@ class _InvStockPageState extends State<InvStockPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                      _globalFunction.GetProductName(
-                          _ProductSlistData, _InventoryData[index].productCode),
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: BLACK55,
-                          fontWeight: FontWeight.w500)),
+                      productName == ''
+                          ? _InventoryData[index].productCode
+                          : productName,
+                      style: TextStyle(fontWeight: FontWeight.w500)),
                   Text("SL: " + _InventoryData[index].stockQty.units.toString(),
                       style: TextStyle(
                           fontSize: 14,

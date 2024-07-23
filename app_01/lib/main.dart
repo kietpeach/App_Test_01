@@ -1,4 +1,3 @@
-import 'package:app_01/bloc/example/example_bloc.dart';
 import 'package:app_01/bloc/inventory/inventory_bloc.dart';
 import 'package:app_01/bloc/master/master_bloc.dart';
 import 'package:app_01/ui/screen/signin/signin4.dart';
@@ -18,9 +17,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           // this bloc used for integration - api
-          BlocProvider<ExampleBloc>(
-            create: (BuildContext context) => ExampleBloc(),
-          ),
           BlocProvider<InventoryBloc>(
             create: (BuildContext context) => InventoryBloc(),
           ),

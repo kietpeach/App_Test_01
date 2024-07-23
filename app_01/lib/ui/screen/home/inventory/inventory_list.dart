@@ -1,6 +1,8 @@
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/api1.dart';
+import 'package:app_01/ui/screen/home/inventory/barcode_generator.dart';
+import 'package:app_01/ui/screen/home/inventory/barcode_scanner1.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out_req_slist.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stock.dart';
 import 'package:flutter/material.dart';
 
@@ -72,11 +74,13 @@ class _InventoryListPageState extends State<InventoryListPage> {
             _globalWidget.screenDetailList(
                 context: context, title: 'Xem tồn kho', page: InvStockPage()),
             _globalWidget.screenDetailList(
-                context: context, title: 'Xuất nhập', page: Api1Page()),
+                context: context,
+                title: 'Dach sách số yêu cầu xuất kho',
+                page: InvOutReqSlistPage()),
             _globalWidget.screenDetailList(
-                context: context, title: 'Gia công bộ', page: InvStockPage()),
-            _globalWidget.screenDetailList(
-                context: context, title: 'Kiểm kê', page: InvStockPage()),
+                context: context,
+                title: 'Tạo mã Barcode',
+                page: BarcodeGeneratorPage()),
           ],
         ));
   }

@@ -50,6 +50,90 @@ class grpcMasterServiceClient extends $grpc.Client {
       '/grpcMasterService.grpcMasterService/GetSalePrice',
       ($1.GetSalePrice_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetSalePrice_Response.fromBuffer(value));
+  static final _$getSelectProduct = $grpc.ClientMethod<$1.GetSelectProduct_Request, $1.GetSelectProduct_Response>(
+      '/grpcMasterService.grpcMasterService/GetSelectProduct',
+      ($1.GetSelectProduct_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetSelectProduct_Response.fromBuffer(value));
+  static final _$searchProduct = $grpc.ClientMethod<$1.SearchProduct_Request, $1.SearchProduct_Response>(
+      '/grpcMasterService.grpcMasterService/SearchProduct',
+      ($1.SearchProduct_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.SearchProduct_Response.fromBuffer(value));
+  static final _$getProductBarcode = $grpc.ClientMethod<$0.String_Request, $1.GetProductBarcode_Response>(
+      '/grpcMasterService.grpcMasterService/GetProductBarcode',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetProductBarcode_Response.fromBuffer(value));
+  static final _$saveWorkingTimeMaster = $grpc.ClientMethod<$1.SaveWorkingTimeMaster_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveWorkingTimeMaster',
+      ($1.SaveWorkingTimeMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getWorkingTimeMasterRecord = $grpc.ClientMethod<$0.String_Request, $1.GetWorkingTimeMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetWorkingTimeMasterRecord',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWorkingTimeMasterRecord_Response.fromBuffer(value));
+  static final _$getWorkingTimeMaster = $grpc.ClientMethod<$0.Empty_Request, $1.GetWorkingTimeMaster_Response>(
+      '/grpcMasterService.grpcMasterService/GetWorkingTimeMaster',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWorkingTimeMaster_Response.fromBuffer(value));
+  static final _$saveWageMaster = $grpc.ClientMethod<$1.SaveWageMaster_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveWageMaster',
+      ($1.SaveWageMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getWageMasterRecord = $grpc.ClientMethod<$1.GetWageMasterRecord_Request, $1.GetWageMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetWageMasterRecord',
+      ($1.GetWageMasterRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWageMasterRecord_Response.fromBuffer(value));
+  static final _$getWageMaster = $grpc.ClientMethod<$1.GetWageMaster_Request, $1.GetWageMaster_Response>(
+      '/grpcMasterService.grpcMasterService/GetWageMaster',
+      ($1.GetWageMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWageMaster_Response.fromBuffer(value));
+  static final _$getWageMasterRecordByDate = $grpc.ClientMethod<$1.GetWageMasterRecordByDate_Request, $1.GetWageMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetWageMasterRecordByDate',
+      ($1.GetWageMasterRecordByDate_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWageMasterRecord_Response.fromBuffer(value));
+  static final _$saveWorkingCalendar = $grpc.ClientMethod<$1.SaveWorkingCalendar_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveWorkingCalendar',
+      ($1.SaveWorkingCalendar_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getWorkingCalendarRecord = $grpc.ClientMethod<$1.GetWorkingCalendarRecord_Request, $1.GetWorkingCalendarRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetWorkingCalendarRecord',
+      ($1.GetWorkingCalendarRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWorkingCalendarRecord_Response.fromBuffer(value));
+  static final _$getWorkingCalendar = $grpc.ClientMethod<$0.String_Request, $1.GetWorkingCalendar_Response>(
+      '/grpcMasterService.grpcMasterService/GetWorkingCalendar',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetWorkingCalendar_Response.fromBuffer(value));
+  static final _$saveAllowanceMaster = $grpc.ClientMethod<$1.SaveAllowanceMaster_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveAllowanceMaster',
+      ($1.SaveAllowanceMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getAllowanceMasterRecord = $grpc.ClientMethod<$0.String_Request, $1.GetAllowanceMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetAllowanceMasterRecord',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetAllowanceMasterRecord_Response.fromBuffer(value));
+  static final _$getAllowanceMaster = $grpc.ClientMethod<$0.Empty_Request, $1.GetAllowanceMaster_Response>(
+      '/grpcMasterService.grpcMasterService/GetAllowanceMaster',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetAllowanceMaster_Response.fromBuffer(value));
+  static final _$saveTaxMaster = $grpc.ClientMethod<$1.SaveTaxMaster_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveTaxMaster',
+      ($1.SaveTaxMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getTaxMasterRecord = $grpc.ClientMethod<$0.String_Request, $1.GetTaxMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetTaxMasterRecord',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetTaxMasterRecord_Response.fromBuffer(value));
+  static final _$getTaxMaster = $grpc.ClientMethod<$0.Empty_Request, $1.GetTaxMaster_Response>(
+      '/grpcMasterService.grpcMasterService/GetTaxMaster',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetTaxMaster_Response.fromBuffer(value));
+  static final _$getSalaryMasterRecord = $grpc.ClientMethod<$1.GetSalaryMasterRecord_Request, $1.GetSalaryMasterRecord_Response>(
+      '/grpcMasterService.grpcMasterService/GetSalaryMasterRecord',
+      ($1.GetSalaryMasterRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetSalaryMasterRecord_Response.fromBuffer(value));
+  static final _$saveSalaryMaster = $grpc.ClientMethod<$1.SaveSalaryMaster_Request, $0.String_Response>(
+      '/grpcMasterService.grpcMasterService/SaveSalaryMaster',
+      ($1.SaveSalaryMaster_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
   static final _$getAddressMaster = $grpc.ClientMethod<$1.GetAddressMaster_Request, $1.GetAddressMaster_Response>(
       '/grpcMasterService.grpcMasterService/GetAddressMaster',
       ($1.GetAddressMaster_Request value) => value.writeToBuffer(),
@@ -78,8 +162,8 @@ class grpcMasterServiceClient extends $grpc.Client {
       '/grpcMasterService.grpcMasterService/GetProductKind',
       ($0.Empty_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetProductKind_Response.fromBuffer(value));
-  static final _$getSlishProductKind = $grpc.ClientMethod<$0.Empty_Request, $1.GetProductKind_Response>(
-      '/grpcMasterService.grpcMasterService/GetSlishProductKind',
+  static final _$getSlistProductKind = $grpc.ClientMethod<$0.Empty_Request, $1.GetProductKind_Response>(
+      '/grpcMasterService.grpcMasterService/GetSlistProductKind',
       ($0.Empty_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetProductKind_Response.fromBuffer(value));
   static final _$getProductKindRecord = $grpc.ClientMethod<$0.Int_Request, $1.GetProductKindRecord_Response>(
@@ -346,14 +430,6 @@ class grpcMasterServiceClient extends $grpc.Client {
       '/grpcMasterService.grpcMasterService/UpdateProduct',
       ($1.UpdateProduct_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
-  static final _$getSelectProduct = $grpc.ClientMethod<$1.GetSelectProduct_Request, $1.GetSelectProduct_Response>(
-      '/grpcMasterService.grpcMasterService/GetSelectProduct',
-      ($1.GetSelectProduct_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.GetSelectProduct_Response.fromBuffer(value));
-  static final _$searchProduct = $grpc.ClientMethod<$1.SearchProduct_Request, $1.SearchProduct_Response>(
-      '/grpcMasterService.grpcMasterService/SearchProduct',
-      ($1.SearchProduct_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.SearchProduct_Response.fromBuffer(value));
   static final _$saveListCustomerProperty = $grpc.ClientMethod<$1.SaveListCustomerProperty_Request, $0.Empty_Response>(
       '/grpcMasterService.grpcMasterService/SaveListCustomerProperty',
       ($1.SaveListCustomerProperty_Request value) => value.writeToBuffer(),
@@ -404,10 +480,6 @@ class grpcMasterServiceClient extends $grpc.Client {
       ($core.List<$core.int> value) => $1.GetInventorySettingRecord_Response.fromBuffer(value));
   static final _$getInventorySetting = $grpc.ClientMethod<$0.String_Request, $1.GetInventorySetting_Response>(
       '/grpcMasterService.grpcMasterService/GetInventorySetting',
-      ($0.String_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.GetInventorySetting_Response.fromBuffer(value));
-  static final _$internalPurchaseCal = $grpc.ClientMethod<$0.String_Request, $1.GetInventorySetting_Response>(
-      '/grpcMasterService.grpcMasterService/InternalPurchaseCal',
       ($0.String_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetInventorySetting_Response.fromBuffer(value));
   static final _$saveInventory = $grpc.ClientMethod<$1.SaveInventory_Request, $0.String_Response>(
@@ -509,6 +581,90 @@ class grpcMasterServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getSalePrice, request, options: options);
   }
 
+  $grpc.ResponseFuture<$1.GetSelectProduct_Response> getSelectProduct($1.GetSelectProduct_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getSelectProduct, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.SearchProduct_Response> searchProduct($1.SearchProduct_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$searchProduct, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetProductBarcode_Response> getProductBarcode($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getProductBarcode, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveWorkingTimeMaster($1.SaveWorkingTimeMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveWorkingTimeMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWorkingTimeMasterRecord_Response> getWorkingTimeMasterRecord($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWorkingTimeMasterRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWorkingTimeMaster_Response> getWorkingTimeMaster($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWorkingTimeMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveWageMaster($1.SaveWageMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveWageMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWageMasterRecord_Response> getWageMasterRecord($1.GetWageMasterRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWageMasterRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWageMaster_Response> getWageMaster($1.GetWageMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWageMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWageMasterRecord_Response> getWageMasterRecordByDate($1.GetWageMasterRecordByDate_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWageMasterRecordByDate, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveWorkingCalendar($1.SaveWorkingCalendar_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveWorkingCalendar, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWorkingCalendarRecord_Response> getWorkingCalendarRecord($1.GetWorkingCalendarRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWorkingCalendarRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetWorkingCalendar_Response> getWorkingCalendar($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getWorkingCalendar, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveAllowanceMaster($1.SaveAllowanceMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveAllowanceMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetAllowanceMasterRecord_Response> getAllowanceMasterRecord($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAllowanceMasterRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetAllowanceMaster_Response> getAllowanceMaster($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAllowanceMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveTaxMaster($1.SaveTaxMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveTaxMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetTaxMasterRecord_Response> getTaxMasterRecord($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getTaxMasterRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetTaxMaster_Response> getTaxMaster($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getTaxMaster, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetSalaryMasterRecord_Response> getSalaryMasterRecord($1.GetSalaryMasterRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getSalaryMasterRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveSalaryMaster($1.SaveSalaryMaster_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveSalaryMaster, request, options: options);
+  }
+
   $grpc.ResponseFuture<$1.GetAddressMaster_Response> getAddressMaster($1.GetAddressMaster_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAddressMaster, request, options: options);
   }
@@ -537,8 +693,8 @@ class grpcMasterServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getProductKind, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetProductKind_Response> getSlishProductKind($0.Empty_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getSlishProductKind, request, options: options);
+  $grpc.ResponseFuture<$1.GetProductKind_Response> getSlistProductKind($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getSlistProductKind, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.GetProductKindRecord_Response> getProductKindRecord($0.Int_Request request, {$grpc.CallOptions? options}) {
@@ -805,14 +961,6 @@ class grpcMasterServiceClient extends $grpc.Client {
     return $createUnaryCall(_$updateProduct, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetSelectProduct_Response> getSelectProduct($1.GetSelectProduct_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getSelectProduct, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$1.SearchProduct_Response> searchProduct($1.SearchProduct_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$searchProduct, request, options: options);
-  }
-
   $grpc.ResponseFuture<$0.Empty_Response> saveListCustomerProperty($1.SaveListCustomerProperty_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$saveListCustomerProperty, request, options: options);
   }
@@ -863,10 +1011,6 @@ class grpcMasterServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetInventorySetting_Response> getInventorySetting($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getInventorySetting, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$1.GetInventorySetting_Response> internalPurchaseCal($0.String_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$internalPurchaseCal, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveInventory($1.SaveInventory_Request request, {$grpc.CallOptions? options}) {
@@ -988,6 +1132,153 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.GetSalePrice_Request.fromBuffer(value),
         ($1.GetSalePrice_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetSelectProduct_Request, $1.GetSelectProduct_Response>(
+        'GetSelectProduct',
+        getSelectProduct_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetSelectProduct_Request.fromBuffer(value),
+        ($1.GetSelectProduct_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SearchProduct_Request, $1.SearchProduct_Response>(
+        'SearchProduct',
+        searchProduct_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SearchProduct_Request.fromBuffer(value),
+        ($1.SearchProduct_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetProductBarcode_Response>(
+        'GetProductBarcode',
+        getProductBarcode_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetProductBarcode_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveWorkingTimeMaster_Request, $0.String_Response>(
+        'SaveWorkingTimeMaster',
+        saveWorkingTimeMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveWorkingTimeMaster_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetWorkingTimeMasterRecord_Response>(
+        'GetWorkingTimeMasterRecord',
+        getWorkingTimeMasterRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetWorkingTimeMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetWorkingTimeMaster_Response>(
+        'GetWorkingTimeMaster',
+        getWorkingTimeMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($1.GetWorkingTimeMaster_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveWageMaster_Request, $0.String_Response>(
+        'SaveWageMaster',
+        saveWageMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveWageMaster_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetWageMasterRecord_Request, $1.GetWageMasterRecord_Response>(
+        'GetWageMasterRecord',
+        getWageMasterRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetWageMasterRecord_Request.fromBuffer(value),
+        ($1.GetWageMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetWageMaster_Request, $1.GetWageMaster_Response>(
+        'GetWageMaster',
+        getWageMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetWageMaster_Request.fromBuffer(value),
+        ($1.GetWageMaster_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetWageMasterRecordByDate_Request, $1.GetWageMasterRecord_Response>(
+        'GetWageMasterRecordByDate',
+        getWageMasterRecordByDate_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetWageMasterRecordByDate_Request.fromBuffer(value),
+        ($1.GetWageMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveWorkingCalendar_Request, $0.String_Response>(
+        'SaveWorkingCalendar',
+        saveWorkingCalendar_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveWorkingCalendar_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetWorkingCalendarRecord_Request, $1.GetWorkingCalendarRecord_Response>(
+        'GetWorkingCalendarRecord',
+        getWorkingCalendarRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetWorkingCalendarRecord_Request.fromBuffer(value),
+        ($1.GetWorkingCalendarRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetWorkingCalendar_Response>(
+        'GetWorkingCalendar',
+        getWorkingCalendar_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetWorkingCalendar_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveAllowanceMaster_Request, $0.String_Response>(
+        'SaveAllowanceMaster',
+        saveAllowanceMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveAllowanceMaster_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetAllowanceMasterRecord_Response>(
+        'GetAllowanceMasterRecord',
+        getAllowanceMasterRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetAllowanceMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetAllowanceMaster_Response>(
+        'GetAllowanceMaster',
+        getAllowanceMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($1.GetAllowanceMaster_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveTaxMaster_Request, $0.String_Response>(
+        'SaveTaxMaster',
+        saveTaxMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveTaxMaster_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetTaxMasterRecord_Response>(
+        'GetTaxMasterRecord',
+        getTaxMasterRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetTaxMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetTaxMaster_Response>(
+        'GetTaxMaster',
+        getTaxMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($1.GetTaxMaster_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetSalaryMasterRecord_Request, $1.GetSalaryMasterRecord_Response>(
+        'GetSalaryMasterRecord',
+        getSalaryMasterRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetSalaryMasterRecord_Request.fromBuffer(value),
+        ($1.GetSalaryMasterRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveSalaryMaster_Request, $0.String_Response>(
+        'SaveSalaryMaster',
+        saveSalaryMaster_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveSalaryMaster_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.GetAddressMaster_Request, $1.GetAddressMaster_Response>(
         'GetAddressMaster',
         getAddressMaster_Pre,
@@ -1038,8 +1329,8 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
         ($1.GetProductKind_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty_Request, $1.GetProductKind_Response>(
-        'GetSlishProductKind',
-        getSlishProductKind_Pre,
+        'GetSlistProductKind',
+        getSlistProductKind_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
@@ -1506,20 +1797,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.UpdateProduct_Request.fromBuffer(value),
         ($0.Empty_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.GetSelectProduct_Request, $1.GetSelectProduct_Response>(
-        'GetSelectProduct',
-        getSelectProduct_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $1.GetSelectProduct_Request.fromBuffer(value),
-        ($1.GetSelectProduct_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.SearchProduct_Request, $1.SearchProduct_Response>(
-        'SearchProduct',
-        searchProduct_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $1.SearchProduct_Request.fromBuffer(value),
-        ($1.SearchProduct_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveListCustomerProperty_Request, $0.Empty_Response>(
         'SaveListCustomerProperty',
         saveListCustomerProperty_Pre,
@@ -1607,13 +1884,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
     $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetInventorySetting_Response>(
         'GetInventorySetting',
         getInventorySetting_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
-        ($1.GetInventorySetting_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetInventorySetting_Response>(
-        'InternalPurchaseCal',
-        internalPurchaseCal_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
@@ -1760,6 +2030,90 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
     return getSalePrice(call, await request);
   }
 
+  $async.Future<$1.GetSelectProduct_Response> getSelectProduct_Pre($grpc.ServiceCall call, $async.Future<$1.GetSelectProduct_Request> request) async {
+    return getSelectProduct(call, await request);
+  }
+
+  $async.Future<$1.SearchProduct_Response> searchProduct_Pre($grpc.ServiceCall call, $async.Future<$1.SearchProduct_Request> request) async {
+    return searchProduct(call, await request);
+  }
+
+  $async.Future<$1.GetProductBarcode_Response> getProductBarcode_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getProductBarcode(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveWorkingTimeMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveWorkingTimeMaster_Request> request) async {
+    return saveWorkingTimeMaster(call, await request);
+  }
+
+  $async.Future<$1.GetWorkingTimeMasterRecord_Response> getWorkingTimeMasterRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getWorkingTimeMasterRecord(call, await request);
+  }
+
+  $async.Future<$1.GetWorkingTimeMaster_Response> getWorkingTimeMaster_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getWorkingTimeMaster(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveWageMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveWageMaster_Request> request) async {
+    return saveWageMaster(call, await request);
+  }
+
+  $async.Future<$1.GetWageMasterRecord_Response> getWageMasterRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetWageMasterRecord_Request> request) async {
+    return getWageMasterRecord(call, await request);
+  }
+
+  $async.Future<$1.GetWageMaster_Response> getWageMaster_Pre($grpc.ServiceCall call, $async.Future<$1.GetWageMaster_Request> request) async {
+    return getWageMaster(call, await request);
+  }
+
+  $async.Future<$1.GetWageMasterRecord_Response> getWageMasterRecordByDate_Pre($grpc.ServiceCall call, $async.Future<$1.GetWageMasterRecordByDate_Request> request) async {
+    return getWageMasterRecordByDate(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveWorkingCalendar_Pre($grpc.ServiceCall call, $async.Future<$1.SaveWorkingCalendar_Request> request) async {
+    return saveWorkingCalendar(call, await request);
+  }
+
+  $async.Future<$1.GetWorkingCalendarRecord_Response> getWorkingCalendarRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetWorkingCalendarRecord_Request> request) async {
+    return getWorkingCalendarRecord(call, await request);
+  }
+
+  $async.Future<$1.GetWorkingCalendar_Response> getWorkingCalendar_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getWorkingCalendar(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveAllowanceMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveAllowanceMaster_Request> request) async {
+    return saveAllowanceMaster(call, await request);
+  }
+
+  $async.Future<$1.GetAllowanceMasterRecord_Response> getAllowanceMasterRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getAllowanceMasterRecord(call, await request);
+  }
+
+  $async.Future<$1.GetAllowanceMaster_Response> getAllowanceMaster_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getAllowanceMaster(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveTaxMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveTaxMaster_Request> request) async {
+    return saveTaxMaster(call, await request);
+  }
+
+  $async.Future<$1.GetTaxMasterRecord_Response> getTaxMasterRecord_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getTaxMasterRecord(call, await request);
+  }
+
+  $async.Future<$1.GetTaxMaster_Response> getTaxMaster_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getTaxMaster(call, await request);
+  }
+
+  $async.Future<$1.GetSalaryMasterRecord_Response> getSalaryMasterRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetSalaryMasterRecord_Request> request) async {
+    return getSalaryMasterRecord(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveSalaryMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveSalaryMaster_Request> request) async {
+    return saveSalaryMaster(call, await request);
+  }
+
   $async.Future<$1.GetAddressMaster_Response> getAddressMaster_Pre($grpc.ServiceCall call, $async.Future<$1.GetAddressMaster_Request> request) async {
     return getAddressMaster(call, await request);
   }
@@ -1788,8 +2142,8 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
     return getProductKind(call, await request);
   }
 
-  $async.Future<$1.GetProductKind_Response> getSlishProductKind_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
-    return getSlishProductKind(call, await request);
+  $async.Future<$1.GetProductKind_Response> getSlistProductKind_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return getSlistProductKind(call, await request);
   }
 
   $async.Future<$1.GetProductKindRecord_Response> getProductKindRecord_Pre($grpc.ServiceCall call, $async.Future<$0.Int_Request> request) async {
@@ -2056,14 +2410,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
     return updateProduct(call, await request);
   }
 
-  $async.Future<$1.GetSelectProduct_Response> getSelectProduct_Pre($grpc.ServiceCall call, $async.Future<$1.GetSelectProduct_Request> request) async {
-    return getSelectProduct(call, await request);
-  }
-
-  $async.Future<$1.SearchProduct_Response> searchProduct_Pre($grpc.ServiceCall call, $async.Future<$1.SearchProduct_Request> request) async {
-    return searchProduct(call, await request);
-  }
-
   $async.Future<$0.Empty_Response> saveListCustomerProperty_Pre($grpc.ServiceCall call, $async.Future<$1.SaveListCustomerProperty_Request> request) async {
     return saveListCustomerProperty(call, await request);
   }
@@ -2114,10 +2460,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
 
   $async.Future<$1.GetInventorySetting_Response> getInventorySetting_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getInventorySetting(call, await request);
-  }
-
-  $async.Future<$1.GetInventorySetting_Response> internalPurchaseCal_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
-    return internalPurchaseCal(call, await request);
   }
 
   $async.Future<$0.String_Response> saveInventory_Pre($grpc.ServiceCall call, $async.Future<$1.SaveInventory_Request> request) async {
@@ -2191,6 +2533,27 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveSettingMaster($grpc.ServiceCall call, $1.SaveSettingMaster_Request request);
   $async.Future<$1.GetSettingMaster_Response> getSettingMaster($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$1.GetSalePrice_Response> getSalePrice($grpc.ServiceCall call, $1.GetSalePrice_Request request);
+  $async.Future<$1.GetSelectProduct_Response> getSelectProduct($grpc.ServiceCall call, $1.GetSelectProduct_Request request);
+  $async.Future<$1.SearchProduct_Response> searchProduct($grpc.ServiceCall call, $1.SearchProduct_Request request);
+  $async.Future<$1.GetProductBarcode_Response> getProductBarcode($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$0.String_Response> saveWorkingTimeMaster($grpc.ServiceCall call, $1.SaveWorkingTimeMaster_Request request);
+  $async.Future<$1.GetWorkingTimeMasterRecord_Response> getWorkingTimeMasterRecord($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetWorkingTimeMaster_Response> getWorkingTimeMaster($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$0.String_Response> saveWageMaster($grpc.ServiceCall call, $1.SaveWageMaster_Request request);
+  $async.Future<$1.GetWageMasterRecord_Response> getWageMasterRecord($grpc.ServiceCall call, $1.GetWageMasterRecord_Request request);
+  $async.Future<$1.GetWageMaster_Response> getWageMaster($grpc.ServiceCall call, $1.GetWageMaster_Request request);
+  $async.Future<$1.GetWageMasterRecord_Response> getWageMasterRecordByDate($grpc.ServiceCall call, $1.GetWageMasterRecordByDate_Request request);
+  $async.Future<$0.String_Response> saveWorkingCalendar($grpc.ServiceCall call, $1.SaveWorkingCalendar_Request request);
+  $async.Future<$1.GetWorkingCalendarRecord_Response> getWorkingCalendarRecord($grpc.ServiceCall call, $1.GetWorkingCalendarRecord_Request request);
+  $async.Future<$1.GetWorkingCalendar_Response> getWorkingCalendar($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$0.String_Response> saveAllowanceMaster($grpc.ServiceCall call, $1.SaveAllowanceMaster_Request request);
+  $async.Future<$1.GetAllowanceMasterRecord_Response> getAllowanceMasterRecord($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetAllowanceMaster_Response> getAllowanceMaster($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$0.String_Response> saveTaxMaster($grpc.ServiceCall call, $1.SaveTaxMaster_Request request);
+  $async.Future<$1.GetTaxMasterRecord_Response> getTaxMasterRecord($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetTaxMaster_Response> getTaxMaster($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$1.GetSalaryMasterRecord_Response> getSalaryMasterRecord($grpc.ServiceCall call, $1.GetSalaryMasterRecord_Request request);
+  $async.Future<$0.String_Response> saveSalaryMaster($grpc.ServiceCall call, $1.SaveSalaryMaster_Request request);
   $async.Future<$1.GetAddressMaster_Response> getAddressMaster($grpc.ServiceCall call, $1.GetAddressMaster_Request request);
   $async.Future<$1.GetAddressMasterRecord_Response> getAddressMasterRecord($grpc.ServiceCall call, $1.GetAddressMasterRecord_Request request);
   $async.Future<$0.String_Response> saveAddressMaster($grpc.ServiceCall call, $1.SaveAddressMaster_Request request);
@@ -2198,7 +2561,7 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
   $async.Future<$1.GetAddressMaster_Response> getAddressMasterByLevel($grpc.ServiceCall call, $0.Int_Request request);
   $async.Future<$0.String_Response> saveProductKind($grpc.ServiceCall call, $1.SaveProductKind_Request request);
   $async.Future<$1.GetProductKind_Response> getProductKind($grpc.ServiceCall call, $0.Empty_Request request);
-  $async.Future<$1.GetProductKind_Response> getSlishProductKind($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$1.GetProductKind_Response> getSlistProductKind($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$1.GetProductKindRecord_Response> getProductKindRecord($grpc.ServiceCall call, $0.Int_Request request);
   $async.Future<$0.String_Response> saveVoucherMaster($grpc.ServiceCall call, $1.SaveVoucherMaster_Request request);
   $async.Future<$1.GetVoucherMasterRecord_Response> getVoucherMasterRecord($grpc.ServiceCall call, $0.String_Request request);
@@ -2265,8 +2628,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
   $async.Future<$1.GetProductRecord_Response> getProductRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetProduct_Response> getProduct($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$0.Empty_Response> updateProduct($grpc.ServiceCall call, $1.UpdateProduct_Request request);
-  $async.Future<$1.GetSelectProduct_Response> getSelectProduct($grpc.ServiceCall call, $1.GetSelectProduct_Request request);
-  $async.Future<$1.SearchProduct_Response> searchProduct($grpc.ServiceCall call, $1.SearchProduct_Request request);
   $async.Future<$0.Empty_Response> saveListCustomerProperty($grpc.ServiceCall call, $1.SaveListCustomerProperty_Request request);
   $async.Future<$1.GetCustomerPropertyRecord_Response> getCustomerPropertyRecord($grpc.ServiceCall call, $1.GetCustomerPropertyRecord_Request request);
   $async.Future<$1.GetCustomerProperty_Response> getCustomerProperty($grpc.ServiceCall call, $0.String_Request request);
@@ -2280,7 +2641,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveInventorySetting($grpc.ServiceCall call, $1.SaveInventorySetting_Request request);
   $async.Future<$1.GetInventorySettingRecord_Response> getInventorySettingRecord($grpc.ServiceCall call, $1.GetInventorySettingRecord_Request request);
   $async.Future<$1.GetInventorySetting_Response> getInventorySetting($grpc.ServiceCall call, $0.String_Request request);
-  $async.Future<$1.GetInventorySetting_Response> internalPurchaseCal($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveInventory($grpc.ServiceCall call, $1.SaveInventory_Request request);
   $async.Future<$1.GetInventoryRecord_Response> getInventoryRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetInventory_Response> getInventory($grpc.ServiceCall call, $0.Empty_Request request);

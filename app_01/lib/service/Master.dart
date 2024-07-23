@@ -30,13 +30,30 @@ class MasterService {
     );
     final stub = grpcMasterServiceClient(channel);
     try {
-      res =
-          await stub.getSelectProduct(GetSelectProduct_Request(isStock: true));
+      res = await stub.getSelectProduct(GetSelectProduct_Request(isStock: 1));
     } catch (e) {
       print('Caught error: $e');
     } finally {
       channel?.shutdown();
     }
     return res.records;
+  }
+
+  static Future<GetVoucherNo_Response> getVoucherNo(String voucherCode) async {
+    GetVoucherNo_Response res = new GetVoucherNo_Response();
+    final channel = ClientChannel(
+      '115.79.6.95',
+      port: 5001,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    );
+    final stub = grpcMasterServiceClient(channel);
+    try {
+      res = await stub.getVoucherNo(String_Request(stringValue: voucherCode));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
   }
 }

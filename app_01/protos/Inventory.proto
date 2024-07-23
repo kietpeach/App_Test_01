@@ -9,13 +9,33 @@ service grpcInventoryService {
     /////Commmon Core system
     //For refresh: config, caching,..
     rpc SubcribeEvents (grpcCommonMessages.SubcribeEvents_Request) returns (grpcCommonMessages.Empty_Response); 
+    //InvTransDetail
+    rpc SaveInvTransComplete (SaveInvTransComplete_Request) returns (grpcCommonMessages.String_Response);
+    rpc SaveInvTransMac (SaveInvTransMac_Request) returns (grpcCommonMessages.String_Response);
     //>>> Start new generated rpc position
+    //>>> Start generated OutStockPriceUpdate rpc
+    rpc GetOutStockPriceUpdate (GetOutStockPriceUpdate_Request) returns (GetOutStockPriceUpdate_Response);
+    rpc UpdateOutStockPrice (UpdateOutStockPrice_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc SaveOutStockPriceUpdate (SaveOutStockPriceUpdate_Request) returns (grpcCommonMessages.String_Response);
+    //>>> End generated OutStockPriceUpdate rpc
+    //>>> Start generated StockSumMonth rpc
+    rpc UpdateStockSumMonth (UpdateStockSumMonth_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated StockSumMonth rpc
+    //>>> Start generated NQP rpc
+    rpc SaveNQP (SaveNQP_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetNQPRecord (grpcCommonMessages.String_Request) returns (GetNQPRecord_Response);
+    rpc GetNQP (grpcCommonMessages.Empty_Request) returns (GetNQP_Response);
+    //>>> End generated NQP rpc
+    //>>> Start generated KietTest rpc
+    rpc SaveKietTest (SaveKietTest_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetKietTest (grpcCommonMessages.Empty_Request) returns (GetKietTest_Response);
+    //>>> End generated KietTest rpc
     //>>> Start generated InvTransHeader rpc
     rpc SaveVoucherInvTrans (SaveVoucherInvTrans_Request) returns (grpcCommonMessages.String_Response);
     rpc DeleteVoucherInvTrans (grpcCommonMessages.String_Request) returns (grpcCommonMessages.String_Response);
-    rpc GetVoucherInvTrans (GetVoucherInvTrans_Request) returns (GetVoucherInvTrans_Response);
-    rpc GetHeaderInvTrans (GetHeaderInvTrans_Request) returns (GetHeaderInvTrans_Response);
-    rpc GetDetailInvTrans (GetDetailInvTrans_Request) returns (GetDetailInvTrans_Response);
+    rpc GetVoucherInvTrans (grpcCommonMessages.String_Request) returns (GetVoucherInvTrans_Response);
+    rpc GetHeaderInvTrans (grpcCommonMessages.String_Request) returns (GetHeaderInvTrans_Response);
+    rpc GetDetailInvTrans (grpcCommonMessages.String_Request) returns (GetDetailInvTrans_Response);
     rpc GetSlistInvTrans (grpcCommonMessages.Empty_Request) returns (GetSlistInvTrans_Response);
     //>>> End generated InvTransHeader rpc
     //>>> Start generated InvSumTurnRate rpc
@@ -28,6 +48,7 @@ service grpcInventoryService {
     //>>> Start generated InvTransDetail rpc
     rpc SaveInvTransDetail (SaveInvTransDetail_Request) returns (grpcCommonMessages.String_Response);
     rpc GetInvTransDetailRecord (grpcCommonMessages.String_Request) returns (GetInvTransDetailRecord_Response);
+    rpc GetInvTransDetail (GetInvTransDetail_Request) returns (GetInvTransDetail_Response);
     //>>> End generated InvTransDetail rpc
     //>>> Start generated StockCheckDetail rpc
     rpc SaveStockCheckDetail (SaveStockCheckDetail_Request) returns (grpcCommonMessages.String_Response);
@@ -50,9 +71,6 @@ service grpcInventoryService {
     //>>> Start generated InvOutDetail rpc
     rpc GetInvOutDetailRecord (grpcCommonMessages.String_Request) returns (GetInvOutDetailRecord_Response);
     //>>> End generated InvOutDetail rpc
-    //>>> Start generated InvSumMonth rpc
-    rpc UpdateInvSumMonth (UpdateInvSumMonth_Request) returns (grpcCommonMessages.Empty_Response);
-    //>>> End generated InvSumMonth rpc
     //>>> Start generated InvMonthyStock rpc
     rpc GetInvMonthyStock (GetInvMonthyStock_Request) returns (GetInvMonthyStock_Response);
     //>>> End generated InvMonthyStock rpc
@@ -135,7 +153,198 @@ service grpcInventoryService {
    
     
 }
+//======================================================
+// Hand made messages
+//======================================================
+message SaveInvTransComplete_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcInvTransDetailModel Record = 2;
+}
+message SaveInvTransMac_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvVoucherNo = 2;
+    string VoucherCode = 3;
+    string RecordNo = 4;
+}
 //>>> Start new generated message position
+//>>> Start generated OutStockPriceUpdate message
+message GetOutStockPriceUpdate_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp CloseDate = 2;
+    string AccInvCode = 3;
+}
+message GetOutStockPriceUpdate_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcOutStockPriceUpdateModel Records = 3;
+}
+message UpdateOutStockPrice_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp CloseDate = 2;
+    string AccInvCode = 3;
+    string ProductCode = 4;
+}
+message SaveOutStockPriceUpdate_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcOutStockPriceUpdateModel Record = 2;
+}
+message grpcOutStockPriceUpdateModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string VoucherNo = 3;
+    google.protobuf.Timestamp VoucherDate = 4;
+    int32 TransType = 5;
+    string TransName = 6;
+    string VoucherCode = 7;
+    string InvCode = 8;
+    string ProductCode = 9;
+    string ProductName = 10;
+    string Specification = 11;
+    string UnitCode = 12;
+    string UnitName = 13;
+    CustomTypes.Decimal OutQty = 14;
+    CustomTypes.Decimal OldUnitPrice = 15;
+    CustomTypes.Decimal UnitPrice = 16;
+    CustomTypes.Decimal Amount = 17;
+    CustomTypes.Decimal OutQtyEx = 18;
+    CustomTypes.Decimal OldUnitPriceEx = 19;
+    CustomTypes.Decimal UnitPriceEx = 20;
+    CustomTypes.Decimal AmountEx = 21;
+}
+//>>> End generated OutStockPriceUpdate message
+//>>> Start generated StockSumMonth message
+message UpdateStockSumMonth_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcStockSumMonthModel Record = 3;
+}
+message grpcStockSumMonthModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string AccInvCode = 3;
+    string ProductCode = 4;
+    CustomTypes.Decimal SOQty = 5;
+    CustomTypes.Decimal SaleQty = 6;
+    CustomTypes.Decimal SaleAmount = 7;
+    CustomTypes.Decimal SaleCostAmount = 8;
+    CustomTypes.Decimal SaleQtyEx = 9;
+    CustomTypes.Decimal SaleAmountEx = 10;
+    CustomTypes.Decimal SaleCostAmountEx = 11;
+    CustomTypes.Decimal POQty = 12;
+    CustomTypes.Decimal PurchaseQty = 13;
+    CustomTypes.Decimal PurchaseAmount = 14;
+    CustomTypes.Decimal PurchaseCost = 15;
+    CustomTypes.Decimal PurchaseQtyEx = 16;
+    CustomTypes.Decimal PurchaseAmountEx = 17;
+    CustomTypes.Decimal PurchaseCostEx = 18;
+    CustomTypes.Decimal ReceiveQty = 19;
+    CustomTypes.Decimal ReceiveAmount = 20;
+    CustomTypes.Decimal ShipQty = 21;
+    CustomTypes.Decimal ShipAmount = 22;
+    CustomTypes.Decimal StockInQty = 23;
+    CustomTypes.Decimal StockInAmount = 24;
+    CustomTypes.Decimal StockOutQty = 25;
+    CustomTypes.Decimal StockOutAmount = 26;
+    CustomTypes.Decimal FixedStockOutQty = 27;
+    CustomTypes.Decimal FixedStockOutAmount = 28;
+    CustomTypes.Decimal AdjQty = 29;
+    CustomTypes.Decimal AdjAmount = 30;
+    CustomTypes.Decimal MatOutQty = 31;
+    CustomTypes.Decimal MatOutAmount = 32;
+    CustomTypes.Decimal CompletedQty = 33;
+    CustomTypes.Decimal CompletedAmount = 34;
+    CustomTypes.Decimal CloseInvStockQty = 35;
+    CustomTypes.Decimal CloseStockQty = 36;
+    CustomTypes.Decimal CloseStockAmount = 37;
+    CustomTypes.Decimal CloseStockPrice = 38;
+    CustomTypes.Decimal CloseStockQtyEx = 39;
+    CustomTypes.Decimal CloseStockAmountEx = 40;
+    CustomTypes.Decimal CloseStockPriceEx = 41;
+}
+//>>> End generated StockSumMonth message
+//>>> Start generated NQP message
+message SaveNQP_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcNQPModel Record = 2;
+}
+message GetNQPRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcNQPModel Record = 3;
+}
+message GetNQP_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcNQPModel Records = 3;
+}
+message grpcNQPModel
+{
+    string ID = 1;
+    string DebAccID = 2;
+    string DebAccObjectID = 3;
+    int32 DebAccObjectType = 4;
+    string CreAccID = 5;
+    string CreAccObjectID = 6;
+    int32 CreAccObjectType = 7;
+    int32 UpdMode = 8;
+    int32 UpdCount = 9;
+    string UpdTransactionID = 10;
+    string UpdAccountID = 11;
+    google.protobuf.Timestamp UpdDateTime = 12;
+    google.protobuf.Timestamp CrtDateTime = 13;
+}
+//>>> End generated NQP message
+//>>> Start generated KietTest message
+message SaveKietTest_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcKietTestModel Record = 2;
+}
+message GetKietTest_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcKietTestModel Records = 3;
+}
+message grpcKietTestModel
+{
+    string ID = 1;
+    string Fullname = 2;
+    int32 Age = 3;
+    google.protobuf.Timestamp BirthDay = 4;
+    int32 Sex = 5;
+    int32 UpdMode = 6;
+    int32 UpdCount = 7;
+    string UpdTransactionID = 8;
+    string UpdAccountID = 9;
+    google.protobuf.Timestamp UpdDateTime = 10;
+    google.protobuf.Timestamp CrtDateTime = 11;
+}
+//>>> End generated KietTest message
 message GetVoucherInvTrans_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
@@ -194,80 +403,108 @@ message GetSlistInvTrans_Response
 message grpcInvTransHeaderModel
 {
     string ID = 1;
-    int32 AccountingLikedFlag = 2;
+    int32 AccBookType = 2;
+    int32 AccLinkedStatus = 3;
+    google.protobuf.Timestamp CloseDate = 4;
+    string DeptCode = 5;
+    string InvDeptCode = 6;
+    string StaffID = 7;
+    string PartnerID = 8;
+    string ProduceNo = 9;
+    string CompleteNo = 10;
+    string FinishedProductCode = 11;
+    string FactoryCode = 12;
+    string LineCode = 13;
+    string VoucherCode = 14;
+    int32 InvType = 15;
+    int32 InvAccType = 16;
+    string InvVoucherNo = 17;
+    google.protobuf.Timestamp InvDate = 18;
+    string InvCode = 19;
+    string Notes = 20;
+    string AccStaffID = 21;
+    string AccNotes = 22;
+    bool AccUpdateDone = 23;
+    int32 UpdMode = 24;
+    int32 UpdCount = 25;
+    string UpdTransactionID = 26;
+    string UpdAccountID = 27;
+    google.protobuf.Timestamp UpdDateTime = 28;
+    google.protobuf.Timestamp CrtDateTime = 29;
+    string Reason = 30;
+}
+message grpcInvTransDetailModel
+{
+    string ID = 1;
+    int32 AccBookType = 2;
     google.protobuf.Timestamp CloseDate = 3;
     string DeptCode = 4;
     string InvDeptCode = 5;
     string StaffID = 6;
     string PartnerID = 7;
-    string FactoryCode = 8;
-    string LineCode = 9;
-    string VoucherCode = 10;
-    int32 InvType = 11;
-    string InvVoucherNo = 12;
-    google.protobuf.Timestamp InvDate = 13;
-    string InvCode = 14;
-    string Notes = 15;
-    string AccStaffID = 16;
-    string AccNotes = 17;
-    bool AccUpdateDone = 18;
-    int32 UpdMode = 19;
-    int32 UpdCount = 20;
-    string UpdTransactionID = 21;
-    string UpdAccountID = 22;
-    google.protobuf.Timestamp UpdDateTime = 23;
-    google.protobuf.Timestamp CrtDateTime = 24;
-}
-message grpcInvTransDetailModel
-{
-    string ID = 1;
-    google.protobuf.Timestamp CloseDate = 2;
-    string DeptCode = 3;
-    string InvDeptCode = 4;
-    string StaffID = 5;
-    string PartnerID = 6;
-    string FactoryCode = 7;
-    string LineCode = 8;
-    string VoucherCode = 9;
-    int32 InvType = 10;
-    string InvVoucherNo = 11;
-    google.protobuf.Timestamp InvDate = 12;
-    string InvCode = 13;
-    int32 LineNo = 14;
-    string ProductCode = 15;
-    string ProductName = 16;
-    string Specification = 17;
-    string UnitCode = 18;
-    string UnitName = 19;
-    CustomTypes.Decimal PackingQty = 20;
-    CustomTypes.Decimal CaseQty = 21;
-    CustomTypes.Decimal InOutQty = 22;
-    CustomTypes.Decimal CostUnitPrice = 23;
-    CustomTypes.Decimal CostAmount = 24;
-    string CreAccID = 25;
-    string DebAccID = 26;
-    bool IsLOT = 27;
-    string LotID = 28;
-    string DateType = 29;
-    google.protobuf.Timestamp LotDate = 30;
-    string LotNotes = 31;
-    string Notes = 32;
-    string RecordNo = 33;
-    string LotRecordNo = 34;
-    int32 LotLineNo = 35;
-    google.protobuf.Timestamp UpdDateTime = 36;
-    int32 UpdMode = 37;
+    string BomVersion = 8;
+    string IPONo = 9;
+    string ProduceNo = 10;
+    string CompleteNo = 11;
+    string FinishedProductCode = 12;
+    string FactoryCode = 13;
+    string LineCode = 14;
+    string VoucherCode = 15;
+    int32 TransType = 16;
+    string TransName = 17;
+    int32 InvType = 18;
+    int32 InvAccType = 19;
+    string InvVoucherNo = 20;
+    google.protobuf.Timestamp InvDate = 21;
+    string InvCode = 22;
+    int32 LineNo = 23;
+    string ProductCode = 24;
+    string ProductName = 25;
+    string Specification = 26;
+    string UnitCode = 27;
+    string UnitName = 28;
+    CustomTypes.Decimal PackingQty = 29;
+    CustomTypes.Decimal CaseQty = 30;
+    CustomTypes.Decimal InOutQty = 31;
+    CustomTypes.Decimal CostUnitPrice = 32;
+    CustomTypes.Decimal CostAmount = 33;
+    string DebAccID = 34;
+    int32 DebAccObjectType = 35;
+    string DebAccObjectID = 36;
+    string CreAccID = 37;
+    int32 CreAccObjectType = 38;
+    string CreAccObjectID = 39;
+    bool IsLOT = 40;
+    string LotID = 41;
+    string DateType = 42;
+    google.protobuf.Timestamp LotDate = 43;
+    string LotNotes = 44;
+    string Notes = 45;
+    string RecordNo = 46;
+    string LotRecordNo = 47;
+    int32 LotLineNo = 48;
+    string LedgerRecordNo = 49;
+    google.protobuf.Timestamp UpdDateTime = 50;
+    int32 UpdMode = 51;
+    string Reason = 52;
 }
 message grpcInvTransSlistModel
 {
     string StaffID = 1;
-    string PartnerID = 2;
-    string FactoryCode = 3;
-    string LineCode = 4;
-    int32 InvType = 5;
-    string InvVoucherNo = 6;
-    google.protobuf.Timestamp InvDate = 7;
-    string InvCode = 8;
+    string StaffName = 2;
+    string PartnerID = 3;
+    string FactoryCode = 4;
+    string LineCode = 5;
+    int32 InvType = 6;
+    string InvTypeName = 7;
+    int32 InvAccType = 8;
+    string InvAccTypeName = 9;
+    string InvVoucherNo = 10;
+    google.protobuf.Timestamp InvDate = 11;
+    string InvCode = 12;
+    string InvName = 13;
+    bool AccUpdateDone = 14;
+    string Reason = 15;
 }
 //>>> End generated InvTransHeader message
 //>>> Start generated InvSumTurnRate message
@@ -336,6 +573,25 @@ message GetInvTransDetailRecord_Response
     string MsgCode = 2;
     //
     grpcInvTransDetailModel Record = 3;
+}
+message GetInvTransDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string FactoryCode = 2;
+    string LineCode = 3;
+    string ProductCode = 4;
+    int32 AccBookType = 5;
+    google.protobuf.Timestamp FromDate = 6;
+    google.protobuf.Timestamp ToDate = 7;
+    int32 InvType = 8;
+}
+message GetInvTransDetail_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInvTransDetailModel Records = 3;
 }
 //>>> End generated InvTransDetail message
 //>>> Start generated StockCheckDetail message
@@ -563,43 +819,6 @@ message GetInvOutDetailRecord_Response
     grpcInvOutDetailModel Record = 3;
 }
 //>>> End generated InvOutDetail message
-//>>> Start generated InvSumMonth message
-message UpdateInvSumMonth_Request
-{
-    grpcCommonMessages.UserCredential Credential = 1;
-    //
-    CustomTypes.Decimal UpdateSign = 2;
-    grpcInvSumMonthModel Record = 3;
-}
-message grpcInvSumMonthModel
-{
-    string ID = 1;
-    google.protobuf.Timestamp CloseDate = 2;
-    string InvCode = 3;
-    string ProductCode = 4;
-    string InvDeptCode = 5;
-    CustomTypes.Decimal SOQty = 6;
-    CustomTypes.Decimal POQty = 7;
-    CustomTypes.Decimal InvoiceQty = 8;
-    CustomTypes.Decimal ReceiptQty = 9;
-    CustomTypes.Decimal ShipQty = 10;
-    CustomTypes.Decimal ReceiveQty = 11;
-    CustomTypes.Decimal InvOutQty = 12;
-    CustomTypes.Decimal InvInQty = 13;
-    CustomTypes.Decimal InvAdjQty = 14;
-    CustomTypes.Decimal InvoiceAmt = 15;
-    CustomTypes.Decimal CostAmt = 16;
-    CustomTypes.Decimal ReceiptAmt = 17;
-    CustomTypes.Decimal InvOutAmt = 18;
-    CustomTypes.Decimal InvInAmt = 19;
-    CustomTypes.Decimal InvAdjAmt = 20;
-    CustomTypes.Decimal ProduceQty = 21;
-    CustomTypes.Decimal CompletedQty = 22;
-    google.protobuf.Timestamp InvCheckingDate = 23;
-    CustomTypes.Decimal LastReceiptPrice = 24;
-    int32 UpdMode = 25;
-}
-//>>> End generated InvSumMonth message
 //>>> Start generated InvMonthyStock message
 message GetInvMonthyStock_Request
 {
@@ -748,6 +967,7 @@ message grpcInvAdjDetailModel
     string Notes = 28;
     string RecordNo = 29;
     int32 UpdMode = 30;
+    string Reason = 31;
 }
 message grpcInvAdjSlistModel
 {
@@ -756,7 +976,6 @@ message grpcInvAdjSlistModel
     string InvName = 3;
     string Reason = 4;
 }
-
 //>>> End generated InvAdjHeader message
 //>>> Start generated InvMacHeader message
 message SaveVoucherInvMac_Request
@@ -824,12 +1043,24 @@ message grpcInvMacHeaderModel
     google.protobuf.Timestamp LotDate = 25;
     string LotNotes = 26;
     string Notes = 27;
-    int32 UpdMode = 28;
-    int32 UpdCount = 29;
-    string UpdTransactionID = 30;
-    string UpdAccountID = 31;
-    google.protobuf.Timestamp UpdDateTime = 32;
-    google.protobuf.Timestamp CrtDateTime = 33;
+    CustomTypes.Decimal CostUnitPrice = 28;
+    CustomTypes.Decimal CostAmount = 29;
+    string DebAccID = 30;
+    int32 DebAccObjectType = 31;
+    string DebAccObjectID = 32;
+    string CreAccID = 33;
+    int32 CreAccObjectType = 34;
+    string CreAccObjectID = 35;
+    int32 UpdMode = 36;
+    int32 UpdCount = 37;
+    string UpdTransactionID = 38;
+    string UpdAccountID = 39;
+    google.protobuf.Timestamp UpdDateTime = 40;
+    google.protobuf.Timestamp CrtDateTime = 41;
+    string Reason = 42;
+    string AccStaffID = 43;
+    string AccNotes = 44;
+    bool AccUpdateDone = 45;
 }
 message grpcInvMacDetailModel
 {
@@ -865,8 +1096,16 @@ message grpcInvMacDetailModel
     bool IsMultiLOT = 30;
     repeated grpcLotDetailModel LotDetails = 31;
     string Notes = 32;
-    string RecordNo = 33;
-    int32 UpdMode = 34;
+    CustomTypes.Decimal CostUnitPrice = 33;
+    CustomTypes.Decimal CostAmount = 34;
+    string DebAccID = 35;
+    int32 DebAccObjectType = 36;
+    string DebAccObjectID = 37;
+    string CreAccID = 38;
+    int32 CreAccObjectType = 39;
+    string CreAccObjectID = 40;
+    string RecordNo = 41;
+    int32 UpdMode = 42;
 }
 message grpcInvMacSlistModel
 {
@@ -875,7 +1114,10 @@ message grpcInvMacSlistModel
     int32 MacType = 3;
     string InInvName = 4;
     string SetProductName = 5;
+    string Reason = 6;
+    bool AccUpdateDone = 7;
 }
+
 //>>> End generated InvMacHeader message
 //>>> Start generated InvMoveHeader message
 message SaveVoucherInvMove_Request
@@ -979,6 +1221,7 @@ message grpcInvMoveDetailModel
     string Notes = 31;
     string RecordNo = 32;
     int32 UpdMode = 33;
+    google.protobuf.Timestamp CloseDate = 34;
 }
 message grpcInvMoveSlistModel
 {
@@ -1067,6 +1310,7 @@ message GetStockSum_Request
     //
     string InvCode = 2;
     string ProductCode = 3;
+    string ProductKindList = 4;
 }
 message GetStockSum_Response
 {
@@ -1105,20 +1349,19 @@ message grpcStockSumModel
     CustomTypes.Decimal ShipRemQty = 12;
     CustomTypes.Decimal PORemQty = 13;
     CustomTypes.Decimal ReceiveRemQty = 14;
-    CustomTypes.Decimal ProduceRemQty = 15;
-    CustomTypes.Decimal DepositQty = 16;
-    google.protobuf.Timestamp LastPODate = 17;
-    google.protobuf.Timestamp LastSODate = 18;
-    google.protobuf.Timestamp LastInDate = 19;
-    google.protobuf.Timestamp LastOutDate = 20;
-    string UnitCode = 21;
-    string UnitName = 22;
-    google.protobuf.Timestamp CloseDate = 23;
-    CustomTypes.Decimal CloseStockQty = 24;
-    CustomTypes.Decimal CloseStockPrice = 25;
-    CustomTypes.Decimal CloseStockAmt = 26;
-    CustomTypes.Decimal CloseAccStockQty = 27;
-    int32 UpdMode = 28;
+    CustomTypes.Decimal DepositQty = 15;
+    google.protobuf.Timestamp LastPODate = 16;
+    google.protobuf.Timestamp LastSODate = 17;
+    google.protobuf.Timestamp LastInDate = 18;
+    google.protobuf.Timestamp LastOutDate = 19;
+    string UnitCode = 20;
+    string UnitName = 21;
+    google.protobuf.Timestamp CloseDate = 22;
+    CustomTypes.Decimal CloseStockQty = 23;
+    CustomTypes.Decimal CloseStockPrice = 24;
+    CustomTypes.Decimal CloseStockAmount = 25;
+    CustomTypes.Decimal CloseInvStockQty = 26;
+    int32 UpdMode = 27;
 }
 //>>> End generated StockSum message
 //>>> Start generated InvMoveReqHeader message
@@ -1276,17 +1519,18 @@ message grpcInvOutHeaderModel
     string InvOutReqNo = 11;
     string OutInvCode = 12;
     string OutInvName = 13;
-    string Reason = 14;
-    string ReqStaffID = 15;
-    string ReqNotes = 16;
-    string Notes = 17;
-    int32 UpdMode = 18;
-    int32 UpdCount = 19;
-    string UpdTransactionID = 20;
-    string UpdAccountID = 21;
-    google.protobuf.Timestamp UpdDateTime = 22;
-    google.protobuf.Timestamp CrtDateTime = 23;
-    int32 RefUpdCount = 24;
+    int32 InvAccType = 14;
+    string Reason = 15;
+    string ReqStaffID = 16;
+    string ReqNotes = 17;
+    string Notes = 18;
+    int32 UpdMode = 19;
+    int32 UpdCount = 20;
+    string UpdTransactionID = 21;
+    string UpdAccountID = 22;
+    google.protobuf.Timestamp UpdDateTime = 23;
+    google.protobuf.Timestamp CrtDateTime = 24;
+    int32 RefUpdCount = 25;
 }
 message grpcInvOutDetailModel
 {
@@ -1322,6 +1566,8 @@ message grpcInvOutDetailModel
     string Notes = 30;
     string RecordNo = 31;
     int32 UpdMode = 32;
+    string Reason = 33;
+    int32 InvAccType = 34;
 }
 message grpcInvOutSlistModel
 {
@@ -1379,22 +1625,23 @@ message grpcInvOutReqHeaderModel
     google.protobuf.Timestamp InvOutProcDate = 5;
     string OutInvCode = 6;
     string OutInvName = 7;
-    string Reason = 8;
-    string ReqNotes = 9;
-    string ReqStaffID = 10;
-    string DeptCode = 11;
-    string InvDeptCode = 12;
-    string AprStaffID = 13;
-    google.protobuf.Timestamp AprDateTime = 14;
-    string AprNotes = 15;
-    bool AprDone = 16;
-    int32 DoneStatus = 17;
-    int32 UpdMode = 18;
-    int32 UpdCount = 19;
-    string UpdTransactionID = 20;
-    string UpdAccountID = 21;
-    google.protobuf.Timestamp UpdDateTime = 22;
-    google.protobuf.Timestamp CrtDateTime = 23;
+    int32 InvAccType = 8;
+    string Reason = 9;
+    string ReqNotes = 10;
+    string ReqStaffID = 11;
+    string DeptCode = 12;
+    string InvDeptCode = 13;
+    string AprStaffID = 14;
+    google.protobuf.Timestamp AprDateTime = 15;
+    string AprNotes = 16;
+    bool AprDone = 17;
+    int32 DoneStatus = 18;
+    int32 UpdMode = 19;
+    int32 UpdCount = 20;
+    string UpdTransactionID = 21;
+    string UpdAccountID = 22;
+    google.protobuf.Timestamp UpdDateTime = 23;
+    google.protobuf.Timestamp CrtDateTime = 24;
 }
 message grpcInvOutReqDetailModel
 {
@@ -1498,6 +1745,7 @@ message grpcInvInHeaderModel
     google.protobuf.Timestamp UpdDateTime = 22;
     google.protobuf.Timestamp CrtDateTime = 23;
     int32 RefUpdCount = 24;
+    int32 InvAccType = 25;
 }
 message grpcInvInDetailModel
 {
@@ -1533,6 +1781,8 @@ message grpcInvInDetailModel
     string Notes = 30;
     string RecordNo = 31;
     int32 UpdMode = 32;
+    string Reason = 33;
+    int32 InvAccType = 34;
 }
 message grpcInvInSlistModel
 {
@@ -1605,6 +1855,7 @@ message grpcInvInReqHeaderModel
     string UpdAccountID = 21;
     google.protobuf.Timestamp UpdDateTime = 22;
     google.protobuf.Timestamp CrtDateTime = 23;
+    int32 InvAccType = 24;
 }
 message grpcInvInReqDetailModel
 {
