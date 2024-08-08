@@ -58,10 +58,6 @@ class grpcMasterServiceClient extends $grpc.Client {
       '/grpcMasterService.grpcMasterService/SearchProduct',
       ($1.SearchProduct_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.SearchProduct_Response.fromBuffer(value));
-  static final _$getProductBarcode = $grpc.ClientMethod<$0.String_Request, $1.GetProductBarcode_Response>(
-      '/grpcMasterService.grpcMasterService/GetProductBarcode',
-      ($0.String_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.GetProductBarcode_Response.fromBuffer(value));
   static final _$saveWorkingTimeMaster = $grpc.ClientMethod<$1.SaveWorkingTimeMaster_Request, $0.String_Response>(
       '/grpcMasterService.grpcMasterService/SaveWorkingTimeMaster',
       ($1.SaveWorkingTimeMaster_Request value) => value.writeToBuffer(),
@@ -587,10 +583,6 @@ class grpcMasterServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.SearchProduct_Response> searchProduct($1.SearchProduct_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$searchProduct, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$1.GetProductBarcode_Response> getProductBarcode($0.String_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getProductBarcode, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveWorkingTimeMaster($1.SaveWorkingTimeMaster_Request request, {$grpc.CallOptions? options}) {
@@ -1146,13 +1138,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.SearchProduct_Request.fromBuffer(value),
         ($1.SearchProduct_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetProductBarcode_Response>(
-        'GetProductBarcode',
-        getProductBarcode_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
-        ($1.GetProductBarcode_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveWorkingTimeMaster_Request, $0.String_Response>(
         'SaveWorkingTimeMaster',
         saveWorkingTimeMaster_Pre,
@@ -2038,10 +2023,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
     return searchProduct(call, await request);
   }
 
-  $async.Future<$1.GetProductBarcode_Response> getProductBarcode_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
-    return getProductBarcode(call, await request);
-  }
-
   $async.Future<$0.String_Response> saveWorkingTimeMaster_Pre($grpc.ServiceCall call, $async.Future<$1.SaveWorkingTimeMaster_Request> request) async {
     return saveWorkingTimeMaster(call, await request);
   }
@@ -2535,7 +2516,6 @@ abstract class grpcMasterServiceBase extends $grpc.Service {
   $async.Future<$1.GetSalePrice_Response> getSalePrice($grpc.ServiceCall call, $1.GetSalePrice_Request request);
   $async.Future<$1.GetSelectProduct_Response> getSelectProduct($grpc.ServiceCall call, $1.GetSelectProduct_Request request);
   $async.Future<$1.SearchProduct_Response> searchProduct($grpc.ServiceCall call, $1.SearchProduct_Request request);
-  $async.Future<$1.GetProductBarcode_Response> getProductBarcode($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveWorkingTimeMaster($grpc.ServiceCall call, $1.SaveWorkingTimeMaster_Request request);
   $async.Future<$1.GetWorkingTimeMasterRecord_Response> getWorkingTimeMasterRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetWorkingTimeMaster_Response> getWorkingTimeMaster($grpc.ServiceCall call, $0.Empty_Request request);

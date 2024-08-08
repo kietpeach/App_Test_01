@@ -102,12 +102,14 @@ class _InvOutReqSlistPageState extends State<InvOutReqSlistPage> {
   Widget _buildInvOutReqCard(index) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => InvOutPage(
-                      voucherNo: _InvOutReqSlistData[index].invOutReqNo,
-                    )));
+        if (_InvOutReqSlistData[index].aprDone) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => InvOutPage(
+                        voucherNo: _InvOutReqSlistData[index].invOutReqNo,
+                      )));
+        }
       },
       child: Card(
         elevation: 0.5,

@@ -15,7 +15,7 @@ service grpcInventoryService {
     //>>> Start new generated rpc position
     //>>> Start generated OutStockPriceUpdate rpc
     rpc GetOutStockPriceUpdate (GetOutStockPriceUpdate_Request) returns (GetOutStockPriceUpdate_Response);
-    rpc UpdateOutStockPrice (UpdateOutStockPrice_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc UpdateOutStockPrice (UpdateOutStockPrice_Request) returns (UpdateOutStockPrice_Response);
     rpc SaveOutStockPriceUpdate (SaveOutStockPriceUpdate_Request) returns (grpcCommonMessages.String_Response);
     //>>> End generated OutStockPriceUpdate rpc
     //>>> Start generated StockSumMonth rpc
@@ -225,6 +225,20 @@ message grpcOutStockPriceUpdateModel
     CustomTypes.Decimal AmountEx = 21;
 }
 //>>> End generated OutStockPriceUpdate message
+message UpdateOutStockPrice_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcOutStockPriceUpdatedModel Records = 3;
+}
+message grpcOutStockPriceUpdatedModel
+{
+    string AccInvCode = 1;
+    string ProductCode = 2;
+    CustomTypes.Decimal CostUnitPrice = 3;
+    CustomTypes.Decimal CostUnitPriceEx = 4;
+}
 //>>> Start generated StockSumMonth message
 message UpdateStockSumMonth_Request
 {
@@ -487,6 +501,8 @@ message grpcInvTransDetailModel
     google.protobuf.Timestamp UpdDateTime = 50;
     int32 UpdMode = 51;
     string Reason = 52;
+    CustomTypes.Decimal CostUnitPriceEx = 53;
+    CustomTypes.Decimal CostAmountEx = 54;
 }
 message grpcInvTransSlistModel
 {
@@ -925,15 +941,16 @@ message grpcInvAdjHeaderModel
     string InvAdjNo = 8;
     google.protobuf.Timestamp InvAdjDate = 9;
     string InvCode = 10;
-    string InvName = 11;
-    string Reason = 12;
-    string Notes = 13;
-    int32 UpdMode = 14;
-    int32 UpdCount = 15;
-    string UpdTransactionID = 16;
-    string UpdAccountID = 17;
-    google.protobuf.Timestamp UpdDateTime = 18;
-    google.protobuf.Timestamp CrtDateTime = 19;
+    string AccInvCode = 11;
+    string InvName = 12;
+    string Reason = 13;
+    string Notes = 14;
+    int32 UpdMode = 15;
+    int32 UpdCount = 16;
+    string UpdTransactionID = 17;
+    string UpdAccountID = 18;
+    google.protobuf.Timestamp UpdDateTime = 19;
+    google.protobuf.Timestamp CrtDateTime = 20;
 }
 message grpcInvAdjDetailModel
 {
@@ -946,28 +963,31 @@ message grpcInvAdjDetailModel
     string InvAdjNo = 7;
     google.protobuf.Timestamp InvAdjDate = 8;
     string InvCode = 9;
-    int32 LineNo = 10;
-    string ProductCode = 11;
-    string ProductName = 12;
-    string Specification = 13;
-    string UnitCode = 14;
-    string UnitName = 15;
-    CustomTypes.Decimal PackingQty = 16;
-    CustomTypes.Decimal CaseQty = 17;
-    CustomTypes.Decimal InOutQty = 18;
-    bool IsLOT = 19;
-    string LotID = 20;
-    string DateType = 21;
-    google.protobuf.Timestamp LotDate = 22;
-    string LotNotes = 23;
-    int32 WarPeriod = 24;
-    int32 PeriodFlag = 25;
-    bool IsMultiLOT = 26;
-    repeated grpcLotDetailModel LotDetails = 27;
-    string Notes = 28;
-    string RecordNo = 29;
-    int32 UpdMode = 30;
-    string Reason = 31;
+    string AccInvCode = 10;
+    int32 LineNo = 11;
+    string ProductCode = 12;
+    string ProductName = 13;
+    string Specification = 14;
+    string UnitCode = 15;
+    string UnitName = 16;
+    CustomTypes.Decimal PackingQty = 17;
+    CustomTypes.Decimal CaseQty = 18;
+    CustomTypes.Decimal InOutQty = 19;
+    bool IsLOT = 20;
+    string LotID = 21;
+    string DateType = 22;
+    google.protobuf.Timestamp LotDate = 23;
+    string LotNotes = 24;
+    int32 WarPeriod = 25;
+    int32 PeriodFlag = 26;
+    bool IsMultiLOT = 27;
+    repeated grpcLotDetailModel LotDetails = 28;
+    CustomTypes.Decimal CostUnitPrice = 29;
+    CustomTypes.Decimal CostAmount = 30;
+    string Notes = 31;
+    string RecordNo = 32;
+    int32 UpdMode = 33;
+    string Reason = 34;
 }
 message grpcInvAdjSlistModel
 {
@@ -1018,6 +1038,59 @@ message grpcInvMacHeaderModel
 {
     string ID = 1;
     int32 AccLinkedStatus = 2;
+    int32 AccBookType = 3;
+    google.protobuf.Timestamp CloseDate = 4;
+    string DeptCode = 5;
+    string InInvDeptCode = 6;
+    string OutInvDeptCode = 7;
+    string StaffID = 8;
+    string VoucherCode = 9;
+    string InvMacNo = 10;
+    google.protobuf.Timestamp InvMacDate = 11;
+    int32 MacType = 12;
+    string InAccInvCode = 13;
+    string InInvCode = 14;
+    string InInvName = 15;
+    string OutAccInvCode = 16;
+    string OutInvCode = 17;
+    string OutInvName = 18;
+    string SetProductCode = 19;
+    string SetProductName = 20;
+    string Specification = 21;
+    string UnitCode = 22;
+    string UnitName = 23;
+    CustomTypes.Decimal SetQty = 24;
+    string LotID = 25;
+    bool IsLOT = 26;
+    string DateType = 27;
+    google.protobuf.Timestamp LotDate = 28;
+    string LotNotes = 29;
+    string Notes = 30;
+    CustomTypes.Decimal CostUnitPrice = 31;
+    CustomTypes.Decimal CostUnitPriceEx = 32;
+    CustomTypes.Decimal CostAmount = 33;
+    CustomTypes.Decimal CostAmountEx = 34;
+    string DebAccID = 35;
+    int32 DebAccObjectType = 36;
+    string DebAccObjectID = 37;
+    string CreAccID = 38;
+    int32 CreAccObjectType = 39;
+    string CreAccObjectID = 40;
+    int32 UpdMode = 41;
+    int32 UpdCount = 42;
+    string UpdTransactionID = 43;
+    string UpdAccountID = 44;
+    google.protobuf.Timestamp UpdDateTime = 45;
+    google.protobuf.Timestamp CrtDateTime = 46;
+    string Reason = 47;
+    string AccStaffID = 48;
+    string AccNotes = 49;
+    bool AccUpdateDone = 50;
+}
+message grpcInvMacDetailModel
+{
+    string ID = 1;
+    int32 AccBookType = 2;
     google.protobuf.Timestamp CloseDate = 3;
     string DeptCode = 4;
     string InInvDeptCode = 5;
@@ -1028,84 +1101,41 @@ message grpcInvMacHeaderModel
     google.protobuf.Timestamp InvMacDate = 10;
     int32 MacType = 11;
     string InInvCode = 12;
-    string InInvName = 13;
+    string InAccInvCode = 13;
     string OutInvCode = 14;
-    string OutInvName = 15;
+    string OutAccInvCode = 15;
     string SetProductCode = 16;
-    string SetProductName = 17;
-    string Specification = 18;
-    string UnitCode = 19;
-    string UnitName = 20;
-    CustomTypes.Decimal SetQty = 21;
-    string LotID = 22;
-    bool IsLOT = 23;
-    string DateType = 24;
-    google.protobuf.Timestamp LotDate = 25;
-    string LotNotes = 26;
-    string Notes = 27;
-    CustomTypes.Decimal CostUnitPrice = 28;
-    CustomTypes.Decimal CostAmount = 29;
-    string DebAccID = 30;
-    int32 DebAccObjectType = 31;
-    string DebAccObjectID = 32;
-    string CreAccID = 33;
-    int32 CreAccObjectType = 34;
-    string CreAccObjectID = 35;
-    int32 UpdMode = 36;
-    int32 UpdCount = 37;
-    string UpdTransactionID = 38;
-    string UpdAccountID = 39;
-    google.protobuf.Timestamp UpdDateTime = 40;
-    google.protobuf.Timestamp CrtDateTime = 41;
-    string Reason = 42;
-    string AccStaffID = 43;
-    string AccNotes = 44;
-    bool AccUpdateDone = 45;
-}
-message grpcInvMacDetailModel
-{
-    string ID = 1;
-    google.protobuf.Timestamp CloseDate = 2;
-    string DeptCode = 3;
-    string InInvDeptCode = 4;
-    string OutInvDeptCode = 5;
-    string StaffID = 6;
-    string VoucherCode = 7;
-    string InvMacNo = 8;
-    google.protobuf.Timestamp InvMacDate = 9;
-    int32 MacType = 10;
-    string InInvCode = 11;
-    string OutInvCode = 12;
-    string SetProductCode = 13;
-    int32 LineNo = 14;
-    string ProductCode = 15;
-    string ProductName = 16;
-    string Specification = 17;
-    string UnitCode = 18;
-    string UnitName = 19;
-    CustomTypes.Decimal PackingQty = 20;
-    CustomTypes.Decimal CaseQty = 21;
-    CustomTypes.Decimal InOutQty = 22;
-    bool IsLOT = 23;
-    string LotID = 24;
-    string DateType = 25;
-    google.protobuf.Timestamp LotDate = 26;
-    string LotNotes = 27;
-    int32 WarPeriod = 28;
-    int32 PeriodFlag = 29;
-    bool IsMultiLOT = 30;
-    repeated grpcLotDetailModel LotDetails = 31;
-    string Notes = 32;
-    CustomTypes.Decimal CostUnitPrice = 33;
-    CustomTypes.Decimal CostAmount = 34;
-    string DebAccID = 35;
-    int32 DebAccObjectType = 36;
-    string DebAccObjectID = 37;
-    string CreAccID = 38;
-    int32 CreAccObjectType = 39;
-    string CreAccObjectID = 40;
-    string RecordNo = 41;
-    int32 UpdMode = 42;
+    int32 LineNo = 17;
+    string ProductCode = 18;
+    string ProductName = 19;
+    string Specification = 20;
+    string UnitCode = 21;
+    string UnitName = 22;
+    CustomTypes.Decimal PackingQty = 23;
+    CustomTypes.Decimal CaseQty = 24;
+    CustomTypes.Decimal InOutQty = 25;
+    bool IsLOT = 26;
+    string LotID = 27;
+    string DateType = 28;
+    google.protobuf.Timestamp LotDate = 29;
+    string LotNotes = 30;
+    int32 WarPeriod = 31;
+    int32 PeriodFlag = 32;
+    bool IsMultiLOT = 33;
+    repeated grpcLotDetailModel LotDetails = 34;
+    string Notes = 35;
+    CustomTypes.Decimal CostUnitPrice = 36;
+    CustomTypes.Decimal CostUnitPriceEx = 37;
+    CustomTypes.Decimal CostAmount = 38;
+    CustomTypes.Decimal CostAmountEx = 39;
+    string DebAccID = 40;
+    int32 DebAccObjectType = 41;
+    string DebAccObjectID = 42;
+    string CreAccID = 43;
+    int32 CreAccObjectType = 44;
+    string CreAccObjectID = 45;
+    string RecordNo = 46;
+    int32 UpdMode = 47;
 }
 message grpcInvMacSlistModel
 {
@@ -1117,7 +1147,6 @@ message grpcInvMacSlistModel
     string Reason = 6;
     bool AccUpdateDone = 7;
 }
-
 //>>> End generated InvMacHeader message
 //>>> Start generated InvMoveHeader message
 message SaveVoucherInvMove_Request
@@ -1170,58 +1199,64 @@ message grpcInvMoveHeaderModel
     google.protobuf.Timestamp InvMoveDate = 10;
     google.protobuf.Timestamp InvMoveProcDate = 11;
     string InvMoveReqNo = 12;
-    string OutInvCode = 13;
-    string OutInvName = 14;
-    string InInvCode = 15;
-    string InInvName = 16;
-    string Reason = 17;
-    string ReqStaffID = 18;
-    string ReqNotes = 19;
-    string Notes = 20;
-    int32 UpdMode = 21;
-    int32 UpdCount = 22;
-    string UpdTransactionID = 23;
-    string UpdAccountID = 24;
-    google.protobuf.Timestamp UpdDateTime = 25;
-    google.protobuf.Timestamp CrtDateTime = 26;
-    int32 RefUpdCount = 27;
+    string OutAccInvCode = 13;
+    string OutInvCode = 14;
+    string OutInvName = 15;
+    string InAccInvCode = 16;
+    string InInvCode = 17;
+    string InInvName = 18;
+    string Reason = 19;
+    string ReqStaffID = 20;
+    string ReqNotes = 21;
+    string Notes = 22;
+    int32 UpdMode = 23;
+    int32 UpdCount = 24;
+    string UpdTransactionID = 25;
+    string UpdAccountID = 26;
+    google.protobuf.Timestamp UpdDateTime = 27;
+    google.protobuf.Timestamp CrtDateTime = 28;
+    int32 RefUpdCount = 29;
 }
 message grpcInvMoveDetailModel
 {
     string ID = 1;
-    string StaffID = 2;
-    string DeptCode = 3;
-    string OutInvDeptCode = 4;
-    string InInvDeptCode = 5;
-    string VoucherCode = 6;
-    string InvMoveNo = 7;
-    google.protobuf.Timestamp InvMoveDate = 8;
-    string OutInvCode = 9;
-    string InInvCode = 10;
-    int32 LineNo = 11;
-    string ProductCode = 12;
-    string ProductName = 13;
-    string Specification = 14;
-    string UnitCode = 15;
-    string UnitName = 16;
-    CustomTypes.Decimal PackingQty = 17;
-    CustomTypes.Decimal CaseQty = 18;
-    CustomTypes.Decimal ReqQty = 19;
-    CustomTypes.Decimal InOutQty = 20;
-    bool IsLOT = 21;
-    string LotID = 22;
-    string DateType = 23;
-    google.protobuf.Timestamp LotDate = 24;
-    string LotNotes = 25;
-    int32 WarPeriod = 26;
-    int32 PeriodFlag = 27;
-    bool IsMultiLOT = 28;
-    repeated grpcLotDetailModel LotDetails = 29;
-    string ReqNotes = 30;
-    string Notes = 31;
-    string RecordNo = 32;
-    int32 UpdMode = 33;
-    google.protobuf.Timestamp CloseDate = 34;
+    google.protobuf.Timestamp CloseDate = 2;
+    string StaffID = 3;
+    string DeptCode = 4;
+    string OutInvDeptCode = 5;
+    string InInvDeptCode = 6;
+    string VoucherCode = 7;
+    string InvMoveNo = 8;
+    google.protobuf.Timestamp InvMoveDate = 9;
+    string OutAccInvCode = 10;
+    string OutInvCode = 11;
+    string InAccInvCode = 12;
+    string InInvCode = 13;
+    int32 LineNo = 14;
+    string ProductCode = 15;
+    string ProductName = 16;
+    string Specification = 17;
+    string UnitCode = 18;
+    string UnitName = 19;
+    CustomTypes.Decimal PackingQty = 20;
+    CustomTypes.Decimal CaseQty = 21;
+    CustomTypes.Decimal ReqQty = 22;
+    CustomTypes.Decimal InOutQty = 23;
+    bool IsLOT = 24;
+    string LotID = 25;
+    string DateType = 26;
+    google.protobuf.Timestamp LotDate = 27;
+    string LotNotes = 28;
+    int32 WarPeriod = 29;
+    int32 PeriodFlag = 30;
+    bool IsMultiLOT = 31;
+    repeated grpcLotDetailModel LotDetails = 32;
+    string ReqNotes = 33;
+    string Notes = 34;
+    CustomTypes.Decimal CostUnitPrice = 35;
+    CustomTypes.Decimal CostAmount = 36;
+    string RecordNo = 37;
+    int32 UpdMode = 38;
 }
 message grpcInvMoveSlistModel
 {
@@ -1337,31 +1372,32 @@ message grpcStockSumModel
 {
     string ID = 1;
     string InvDeptCode = 2;
-    string InvCode = 3;
-    string ProductCode = 4;
-    int32 ProductKind = 5;
-    string ClassCode1 = 6;
-    string ClassCode2 = 7;
-    string ClassCode3 = 8;
-    CustomTypes.Decimal StockQty = 9;
-    CustomTypes.Decimal KeepStockQty = 10;
-    CustomTypes.Decimal SORemQty = 11;
-    CustomTypes.Decimal ShipRemQty = 12;
-    CustomTypes.Decimal PORemQty = 13;
-    CustomTypes.Decimal ReceiveRemQty = 14;
-    CustomTypes.Decimal DepositQty = 15;
-    google.protobuf.Timestamp LastPODate = 16;
-    google.protobuf.Timestamp LastSODate = 17;
-    google.protobuf.Timestamp LastInDate = 18;
-    google.protobuf.Timestamp LastOutDate = 19;
-    string UnitCode = 20;
-    string UnitName = 21;
-    google.protobuf.Timestamp CloseDate = 22;
-    CustomTypes.Decimal CloseStockQty = 23;
-    CustomTypes.Decimal CloseStockPrice = 24;
-    CustomTypes.Decimal CloseStockAmount = 25;
-    CustomTypes.Decimal CloseInvStockQty = 26;
-    int32 UpdMode = 27;
+    string AccInvCode = 3;
+    string InvCode = 4;
+    string ProductCode = 5;
+    int32 ProductKind = 6;
+    string ClassCode1 = 7;
+    string ClassCode2 = 8;
+    string ClassCode3 = 9;
+    CustomTypes.Decimal StockQty = 10;
+    CustomTypes.Decimal KeepStockQty = 11;
+    CustomTypes.Decimal SORemQty = 12;
+    CustomTypes.Decimal ShipRemQty = 13;
+    CustomTypes.Decimal PORemQty = 14;
+    CustomTypes.Decimal ReceiveRemQty = 15;
+    CustomTypes.Decimal DepositQty = 16;
+    google.protobuf.Timestamp LastPODate = 17;
+    google.protobuf.Timestamp LastSODate = 18;
+    google.protobuf.Timestamp LastInDate = 19;
+    google.protobuf.Timestamp LastOutDate = 20;
+    string UnitCode = 21;
+    string UnitName = 22;
+    google.protobuf.Timestamp CloseDate = 23;
+    CustomTypes.Decimal CloseStockQty = 24;
+    CustomTypes.Decimal CloseStockPrice = 25;
+    CustomTypes.Decimal CloseStockAmount = 26;
+    CustomTypes.Decimal CloseInvStockQty = 27;
+    int32 UpdMode = 28;
 }
 //>>> End generated StockSum message
 //>>> Start generated InvMoveReqHeader message
@@ -1517,20 +1553,21 @@ message grpcInvOutHeaderModel
     google.protobuf.Timestamp InvOutDate = 9;
     google.protobuf.Timestamp InvOutProcDate = 10;
     string InvOutReqNo = 11;
-    string OutInvCode = 12;
-    string OutInvName = 13;
-    int32 InvAccType = 14;
-    string Reason = 15;
-    string ReqStaffID = 16;
-    string ReqNotes = 17;
-    string Notes = 18;
-    int32 UpdMode = 19;
-    int32 UpdCount = 20;
-    string UpdTransactionID = 21;
-    string UpdAccountID = 22;
-    google.protobuf.Timestamp UpdDateTime = 23;
-    google.protobuf.Timestamp CrtDateTime = 24;
-    int32 RefUpdCount = 25;
+    string OutAccInvCode = 12;
+    string OutInvCode = 13;
+    string OutInvName = 14;
+    int32 InvAccType = 15;
+    string Reason = 16;
+    string ReqStaffID = 17;
+    string ReqNotes = 18;
+    string Notes = 19;
+    int32 UpdMode = 20;
+    int32 UpdCount = 21;
+    string UpdTransactionID = 22;
+    string UpdAccountID = 23;
+    google.protobuf.Timestamp UpdDateTime = 24;
+    google.protobuf.Timestamp CrtDateTime = 25;
+    int32 RefUpdCount = 26;
 }
 message grpcInvOutDetailModel
 {
@@ -1565,9 +1602,11 @@ message grpcInvOutDetailModel
     string ReqNotes = 29;
     string Notes = 30;
     string RecordNo = 31;
-    int32 UpdMode = 32;
-    string Reason = 33;
-    int32 InvAccType = 34;
+    string Reason = 32;
+    int32 InvAccType = 33;
+    CustomTypes.Decimal CostUnitPrice = 34;
+    CustomTypes.Decimal CostAmount = 35;
+    int32 UpdMode = 36;
 }
 message grpcInvOutSlistModel
 {
@@ -1732,20 +1771,21 @@ message grpcInvInHeaderModel
     google.protobuf.Timestamp InvInDate = 9;
     google.protobuf.Timestamp InvInProcDate = 10;
     string InvInReqNo = 11;
-    string InInvCode = 12;
-    string InInvName = 13;
-    string Reason = 14;
-    string ReqStaffID = 15;
-    string ReqNotes = 16;
-    string Notes = 17;
-    int32 UpdMode = 18;
-    int32 UpdCount = 19;
-    string UpdTransactionID = 20;
-    string UpdAccountID = 21;
-    google.protobuf.Timestamp UpdDateTime = 22;
-    google.protobuf.Timestamp CrtDateTime = 23;
-    int32 RefUpdCount = 24;
-    int32 InvAccType = 25;
+    string InAccInvCode = 12;
+    string InInvCode = 13;
+    string InInvName = 14;
+    string Reason = 15;
+    string ReqStaffID = 16;
+    string ReqNotes = 17;
+    string Notes = 18;
+    int32 UpdMode = 19;
+    int32 UpdCount = 20;
+    string UpdTransactionID = 21;
+    string UpdAccountID = 22;
+    google.protobuf.Timestamp UpdDateTime = 23;
+    google.protobuf.Timestamp CrtDateTime = 24;
+    int32 RefUpdCount = 25;
+    int32 InvAccType = 26;
 }
 message grpcInvInDetailModel
 {
@@ -1758,31 +1798,34 @@ message grpcInvInDetailModel
     string InvInNo = 7;
     google.protobuf.Timestamp InvInDate = 8;
     string InInvCode = 9;
-    int32 LineNo = 10;
-    string ProductCode = 11;
-    string ProductName = 12;
-    string Specification = 13;
-    string UnitCode = 14;
-    string UnitName = 15;
-    CustomTypes.Decimal PackingQty = 16;
-    CustomTypes.Decimal CaseQty = 17;
-    CustomTypes.Decimal InOutQty = 18;
-    CustomTypes.Decimal ReqQty = 19;
-    bool IsLOT = 20;
-    string LotID = 21;
-    string DateType = 22;
-    google.protobuf.Timestamp LotDate = 23;
-    string LotNotes = 24;
-    int32 WarPeriod = 25;
-    int32 PeriodFlag = 26;
-    bool IsMultiLOT = 27;
-    repeated grpcLotDetailModel LotDetails = 28;
-    string ReqNotes = 29;
-    string Notes = 30;
-    string RecordNo = 31;
-    int32 UpdMode = 32;
-    string Reason = 33;
-    int32 InvAccType = 34;
+    string InAccInvCode = 10;
+    int32 LineNo = 11;
+    string ProductCode = 12;
+    string ProductName = 13;
+    string Specification = 14;
+    string UnitCode = 15;
+    string UnitName = 16;
+    CustomTypes.Decimal PackingQty = 17;
+    CustomTypes.Decimal CaseQty = 18;
+    CustomTypes.Decimal InOutQty = 19;
+    CustomTypes.Decimal ReqQty = 20;
+    bool IsLOT = 21;
+    string LotID = 22;
+    string DateType = 23;
+    google.protobuf.Timestamp LotDate = 24;
+    string LotNotes = 25;
+    int32 WarPeriod = 26;
+    int32 PeriodFlag = 27;
+    bool IsMultiLOT = 28;
+    repeated grpcLotDetailModel LotDetails = 29;
+    string ReqNotes = 30;
+    string Notes = 31;
+    CustomTypes.Decimal CostUnitPrice = 32;
+    CustomTypes.Decimal CostAmount = 33;
+    string RecordNo = 34;
+    int32 UpdMode = 35;
+    string Reason = 36;
+    int32 InvAccType = 37;
 }
 message grpcInvInSlistModel
 {

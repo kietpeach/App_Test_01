@@ -81,4 +81,13 @@ class GlobalFunction {
         .format(dateTime.toLocal())
         .toString();
   }
+
+  DateTime startOfDay(DateTime dateTime) {
+    return DateTime(dateTime.year, dateTime.month, dateTime.day, 0, 0, 0, 0);
+  }
+
+  DateTime endOfDay(DateTime dateTime) {
+    return DateTime(
+        dateTime.year, dateTime.month, dateTime.day, 23, 59, 59, 999);
+  }
 }

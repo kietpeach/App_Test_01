@@ -1,3 +1,4 @@
+import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -22,6 +23,12 @@ class GetSlistInvOutReq extends InventoryEvent {
 class GetVoucherInvOutReq extends InventoryEvent {
   final String voucherNo;
   GetVoucherInvOutReq({required this.voucherNo});
+}
+
+class SaveVoucherInvOut extends InventoryEvent {
+  final grpcInvOutHeaderModel headerModel;
+  final List<grpcInvOutDetailModel> detailModel;
+  SaveVoucherInvOut({required this.headerModel, required this.detailModel});
 }
 // class AddInventory extends InventoryEvent {
 //   final String sessionId;

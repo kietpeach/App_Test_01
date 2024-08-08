@@ -1,3 +1,4 @@
+import 'package:app_01/src/generated/Common.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 //import 'package:app_01/ui/models/inventory/Inventory_model.dart';
 import 'package:meta/meta.dart';
@@ -35,6 +36,11 @@ class GetSlistInvOutReqSuccess extends InventoryState {
 class GetVoucherInvOutReqSuccess extends InventoryState {
   final GetVoucherInvOutReq_Response InvOutReqData;
   GetVoucherInvOutReqSuccess({required this.InvOutReqData});
+}
+
+class SaveVoucherInvOutSuccess extends InventoryState {
+  final String_Response Response;
+  SaveVoucherInvOutSuccess({required this.Response});
 }
 
 // general

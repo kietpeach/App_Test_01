@@ -1,4 +1,5 @@
 import 'package:app_01/service/Inventory.dart';
+import 'package:app_01/src/generated/Common.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 //import 'package:app_01/ui/models/inventory/Inventory_model.dart';
 import 'package:bloc/bloc.dart';
@@ -10,6 +11,7 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
     on<GetStockLOT>(_getStockLOT);
     on<GetSlistInvOutReq>(_getSlistInvOutReq);
     on<GetVoucherInvOutReq>(_getVoucherInvOutReq);
+    on<SaveVoucherInvOut>(_saveVoucherInvOut);
     // on<AddInventory>(_addInventory);
     // on<EditInventory>(_editInventory);
     // on<DeleteInventory>(_deleteInventory);
@@ -70,6 +72,22 @@ void _getVoucherInvOutReq(
     GetVoucherInvOutReq_Response data =
         await _inventory.getVoucherInvOutReq(event.voucherNo);
     emit(GetVoucherInvOutReqSuccess(InvOutReqData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _saveVoucherInvOut(
+    SaveVoucherInvOut event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    String_Response data = await _inventory.saveVoucherInvOut(
+        event.headerModel, event.detailModel);
+    emit(SaveVoucherInvOutSuccess(Response: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetInventoryError(errorMessage: ex.toString()));

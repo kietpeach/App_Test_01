@@ -15,6 +15,11 @@ class GetVoucherNo extends MasterEvent {
   final String voucherCode;
   GetVoucherNo({required this.voucherCode});
 }
+
+class GetProductRecord extends MasterEvent {
+  final String productCode;
+  GetProductRecord({required this.productCode});
+}
 // class AddMaster extends MasterEvent {
 //   final String sessionId;
 //   final String MasterName,

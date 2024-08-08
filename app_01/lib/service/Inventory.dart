@@ -106,4 +106,24 @@ class InventoryService {
     }
     return res;
   }
+
+  Future<String_Response> saveVoucherInvOut(grpcInvOutHeaderModel headerModel,
+      List<grpcInvOutDetailModel> detailModel) async {
+    String_Response res = new String_Response();
+    final channel = ClientChannel(
+      '115.79.6.95',
+      port: 5004,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    );
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.saveVoucherInvOut(
+          SaveVoucherInvOut_Request(header: headerModel, details: detailModel));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
 }

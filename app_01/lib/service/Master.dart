@@ -56,4 +56,24 @@ class MasterService {
     }
     return res;
   }
+
+  static Future<GetProductRecord_Response> getProductRecord(
+      String productCode) async {
+    GetProductRecord_Response res = new GetProductRecord_Response();
+    final channel = ClientChannel(
+      '115.79.6.95',
+      port: 5001,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    );
+    final stub = grpcMasterServiceClient(channel);
+    try {
+      res =
+          await stub.getProductRecord(String_Request(stringValue: productCode));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
 }

@@ -20,7 +20,6 @@ service grpcMasterService {
     //Product
     rpc GetSelectProduct (GetSelectProduct_Request) returns (GetSelectProduct_Response);
     rpc SearchProduct (SearchProduct_Request) returns (SearchProduct_Response);
-    rpc GetProductBarcode (grpcCommonMessages.String_Request) returns (GetProductBarcode_Response);
     
     //>>> Start new generated rpc position
     //>>> Start generated WorkingTimeMaster rpc
@@ -226,13 +225,6 @@ service grpcMasterService {
 //======================================================
 // Message
 //======================================================
-message GetProductBarcode_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    grpcProductModel Record = 3;
-}
 message GetVoucherNo_Response
 {
     int32 ReturnCode = 1;
@@ -403,7 +395,7 @@ message grpcWageMasterModel
     google.protobuf.Timestamp ContractDate = 21;
     bool IsRegular = 22;
     bool IsUsed = 23;
-    google.protobuf.Timestamp FromDate = 24;
+    google.protobuf.Timestamp StartDate = 24;
     int32 UpdMode = 25;
     google.protobuf.Timestamp UpdDateTime = 26;
 }
@@ -486,7 +478,7 @@ message grpcAllowanceMasterModel
     int32 LineNo = 2;
     string AllowanceCode = 3;
     string AllowanceName = 4;
-    google.protobuf.Timestamp FromDate = 5;
+    google.protobuf.Timestamp StartDate = 5;
     CustomTypes.Decimal AmountN = 6;
     bool IsTax = 7;
     int32 UpdMode = 8;
@@ -551,30 +543,37 @@ message grpcSalaryMasterModel
 {
     string ID = 1;
     google.protobuf.Timestamp StartDate = 2;
-    CustomTypes.Decimal SocialInsRate = 3;
-    CustomTypes.Decimal HealthInsRate = 4;
-    CustomTypes.Decimal UnemploymentInsRate = 5;
-    CustomTypes.Decimal TradeUnionRate = 6;
-    CustomTypes.Decimal SocialInsCoRate = 7;
-    CustomTypes.Decimal HealthInsCoRate = 8;
-    CustomTypes.Decimal UnemploymentInsCoRate = 9;
-    CustomTypes.Decimal TradeUnionCoRate = 10;
-    CustomTypes.Decimal DeductAmountN = 11;
-    CustomTypes.Decimal DeductExtAmountN = 12;
-    CustomTypes.Decimal OvertimeRate = 13;
-    CustomTypes.Decimal DayOffRate = 14;
-    CustomTypes.Decimal HolidaysRate = 15;
-    CustomTypes.Decimal OvernightRate = 16;
-    CustomTypes.Decimal StopWokingRate = 17;
-    CustomTypes.Decimal AdvanceRate = 18;
-    CustomTypes.Decimal AdvanceAmountN = 19;
-    CustomTypes.Decimal StdWrkHours = 20;
-    CustomTypes.Decimal ProduceStdWrkHours = 21;
-    CustomTypes.Decimal DaytimeRate = 22;
-    CustomTypes.Decimal NightRate = 23;
-    CustomTypes.Decimal MinimumWage = 24;
-    int32 UpdMode = 25;
-    google.protobuf.Timestamp UpdDateTime = 26;
+    string AccID = 3;
+    string SocialInsAccID = 4;
+    string HealthInsAccID = 5;
+    string UnemploymentInsAccID = 6;
+    string TradeUnionAccID = 7;
+    string PersonalIncTaxAccID = 8;
+    CustomTypes.Decimal SocialInsRate = 9;
+    CustomTypes.Decimal HealthInsRate = 10;
+    CustomTypes.Decimal UnemploymentInsRate = 11;
+    CustomTypes.Decimal TradeUnionRate = 12;
+    CustomTypes.Decimal SocialInsCoRate = 13;
+    CustomTypes.Decimal HealthInsCoRate = 14;
+    CustomTypes.Decimal UnemploymentInsCoRate = 15;
+    CustomTypes.Decimal TradeUnionCoRate = 16;
+    CustomTypes.Decimal DeductAmountN = 17;
+    CustomTypes.Decimal DeductExtAmountN = 18;
+    CustomTypes.Decimal OvertimeRate = 19;
+    CustomTypes.Decimal DayOffRate = 20;
+    CustomTypes.Decimal HolidaysRate = 21;
+    CustomTypes.Decimal OvernightRate = 22;
+    CustomTypes.Decimal StopWorkingRate = 23;
+    CustomTypes.Decimal AdvanceRate = 24;
+    CustomTypes.Decimal AdvanceAmountN = 25;
+    CustomTypes.Decimal StdWrkHours = 26;
+    CustomTypes.Decimal ProduceStdWrkHours = 27;
+    CustomTypes.Decimal DaytimeRate = 28;
+    CustomTypes.Decimal OvernightExRate = 29;
+    CustomTypes.Decimal OvertimeExRate = 30;
+    CustomTypes.Decimal MinimumWage = 31;
+    int32 UpdMode = 32;
+    google.protobuf.Timestamp UpdDateTime = 33;
 }
 //>>> End generated SalaryMaster message
 //>>> Start generated AddressMaster message
@@ -1383,6 +1382,7 @@ message GetVendor_Request
     string ClassCode2 = 3;
     string ClassCode3 = 4;
     string PurchaseDeptCode = 5;
+    bool IsFactory = 6;
 }
 message GetVendor_Response
 {
@@ -1413,18 +1413,20 @@ message grpcVendorModel
     string PicID = 18;
     string PurchaseDeptCode = 19;
     google.protobuf.Timestamp LastPurchaseDate = 20;
-    int32 TaxFlag = 21;
-    bool IsFactory = 22;
-    string ComTaxCode = 23;
-    repeated grpcBankAccountModel BankAccounts = 24;
-    bool Enabled = 25;
-    string AccID = 26;
-    int32 POType = 27;
-    int32 UpdMode = 28;
-    int32 UpdCount = 29;
-    string UpdTransactionID = 30;
-    string UpdAccountID = 31;
-    google.protobuf.Timestamp UpdDateTime = 32;
+    int32 ShipLeadTime = 21;
+    int32 ImportLeadTime = 22;
+    int32 TaxFlag = 23;
+    bool IsFactory = 24;
+    string ComTaxCode = 25;
+    repeated grpcBankAccountModel BankAccounts = 26;
+    bool Enabled = 27;
+    string AccID = 28;
+    int32 POType = 29;
+    int32 UpdMode = 30;
+    int32 UpdCount = 31;
+    string UpdTransactionID = 32;
+    string UpdAccountID = 33;
+    google.protobuf.Timestamp UpdDateTime = 34;
 }
 //>>> End generated Vendor message
 //>>> Start generated CustomerRank message
@@ -1706,60 +1708,61 @@ message grpcProductModel
     google.protobuf.Timestamp InsideEffectToDate = 35;
     google.protobuf.Timestamp OutsideEffectFromDate = 36;
     google.protobuf.Timestamp OutsideEffectToDate = 37;
-    int32 CostCalFlag = 38;
-    int32 InvCostCalFlag = 39;
-    bool IsStock = 40;
-    bool IsLOT = 41;
-    string DateType = 42;
-    int32 WarPeriod = 43;
-    int32 PeriodFlag = 44;
-    int32 MinWarPeriod = 45;
-    int32 ProduceFlag = 46;
-    bool IsKeepStock = 47;
-    int32 KeepStockPeriod = 48;
-    google.protobuf.Timestamp LastPurchaseDate = 49;
-    google.protobuf.Timestamp LastSaleDate = 50;
-    int32 TaxFlag = 51;
-    int32 PurchaseTaxFlag = 52;
-    CustomTypes.Decimal VATRate = 53;
-    CustomTypes.Decimal ImportTaxRate = 54;
-    CustomTypes.Decimal ExciseTaxRate = 55;
-    CustomTypes.Decimal EnvTaxRate = 56;
-    string ClassCode1 = 57;
-    string ClassCode2 = 58;
-    string ClassCode3 = 59;
-    string ClassName1 = 60;
-    string ClassName2 = 61;
-    string ClassName3 = 62;
-    string VendorID = 63;
-    string MakerID = 64;
-    CustomTypes.Decimal MatCost = 65;
-    CustomTypes.Decimal LaborCost = 66;
-    CustomTypes.Decimal FeeCost = 67;
-    CustomTypes.Decimal CostUnitPrice = 68;
-    CustomTypes.Decimal MatMainCost = 69;
-    CustomTypes.Decimal MatSubCost = 70;
-    CustomTypes.Decimal ComponentCost = 71;
-    CustomTypes.Decimal OtherCost = 72;
-    CustomTypes.Decimal SemiProdCost = 73;
-    CustomTypes.Decimal DirectLaborCost = 74;
-    CustomTypes.Decimal InDirectLaborCost = 75;
-    CustomTypes.Decimal FixedLaborCost = 76;
-    CustomTypes.Decimal VarLaborCost = 77;
-    CustomTypes.Decimal DirectFeeCost = 78;
-    CustomTypes.Decimal InDirectFeeCost = 79;
-    CustomTypes.Decimal FixedFeeCost = 80;
-    CustomTypes.Decimal VarFeeCost = 81;
-    string StockAccID = 82;
-    string RevenueAccID = 83;
-    string FeeAccID = 84;
-    bool Enabled = 85;
-    int32 UpdMode = 86;
-    int32 UpdCount = 87;
-    string UpdTransactionID = 88;
-    string UpdAccountID = 89;
-    google.protobuf.Timestamp UpdDateTime = 90;
-    string RecordNo = 91;
+    bool IsStock = 38;
+    bool IsLOT = 39;
+    string DateType = 40;
+    int32 WarPeriod = 41;
+    int32 PeriodFlag = 42;
+    int32 MinWarPeriod = 43;
+    int32 ProduceFlag = 44;
+    bool IsKeepStock = 45;
+    int32 KeepStockPeriod = 46;
+    google.protobuf.Timestamp LastPurchaseDate = 47;
+    google.protobuf.Timestamp LastSaleDate = 48;
+    int32 TaxFlag = 49;
+    int32 PurchaseTaxFlag = 50;
+    CustomTypes.Decimal VATRate = 51;
+    CustomTypes.Decimal ImportTaxRate = 52;
+    CustomTypes.Decimal ExciseTaxRate = 53;
+    CustomTypes.Decimal EnvTaxRate = 54;
+    string ClassCode1 = 55;
+    string ClassCode2 = 56;
+    string ClassCode3 = 57;
+    string ClassName1 = 58;
+    string ClassName2 = 59;
+    string ClassName3 = 60;
+    string VendorID = 61;
+    string MakerID = 62;
+    int32 CostCalFlag = 63;
+    int32 InvCostCalFlag = 64;
+    CustomTypes.Decimal CostUnitPrice = 65;
+    CustomTypes.Decimal CostUnitPriceEx = 66;
+    CustomTypes.Decimal MatCost = 67;
+    CustomTypes.Decimal LaborCost = 68;
+    CustomTypes.Decimal FeeCost = 69;
+    CustomTypes.Decimal MatMainCost = 70;
+    CustomTypes.Decimal MatSubCost = 71;
+    CustomTypes.Decimal ComponentCost = 72;
+    CustomTypes.Decimal OtherCost = 73;
+    CustomTypes.Decimal SemiProdCost = 74;
+    CustomTypes.Decimal DirectLaborCost = 75;
+    CustomTypes.Decimal InDirectLaborCost = 76;
+    CustomTypes.Decimal FixedLaborCost = 77;
+    CustomTypes.Decimal VarLaborCost = 78;
+    CustomTypes.Decimal DirectFeeCost = 79;
+    CustomTypes.Decimal InDirectFeeCost = 80;
+    CustomTypes.Decimal FixedFeeCost = 81;
+    CustomTypes.Decimal VarFeeCost = 82;
+    string StockAccID = 83;
+    string RevenueAccID = 84;
+    string FeeAccID = 85;
+    bool Enabled = 86;
+    int32 UpdMode = 87;
+    int32 UpdCount = 88;
+    string UpdTransactionID = 89;
+    string UpdAccountID = 90;
+    google.protobuf.Timestamp UpdDateTime = 91;
+    string RecordNo = 92;
 }
 //>>> End generated Product message
 message SearchProduct_Request

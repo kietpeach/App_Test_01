@@ -38,10 +38,10 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/GetOutStockPriceUpdate',
       ($1.GetOutStockPriceUpdate_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetOutStockPriceUpdate_Response.fromBuffer(value));
-  static final _$updateOutStockPrice = $grpc.ClientMethod<$1.UpdateOutStockPrice_Request, $0.Empty_Response>(
+  static final _$updateOutStockPrice = $grpc.ClientMethod<$1.UpdateOutStockPrice_Request, $1.UpdateOutStockPrice_Response>(
       '/grpcInventoryService.grpcInventoryService/UpdateOutStockPrice',
       ($1.UpdateOutStockPrice_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.UpdateOutStockPrice_Response.fromBuffer(value));
   static final _$saveOutStockPriceUpdate = $grpc.ClientMethod<$1.SaveOutStockPriceUpdate_Request, $0.String_Response>(
       '/grpcInventoryService.grpcInventoryService/SaveOutStockPriceUpdate',
       ($1.SaveOutStockPriceUpdate_Request value) => value.writeToBuffer(),
@@ -397,7 +397,7 @@ class grpcInventoryServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getOutStockPriceUpdate, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.Empty_Response> updateOutStockPrice($1.UpdateOutStockPrice_Request request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.UpdateOutStockPrice_Response> updateOutStockPrice($1.UpdateOutStockPrice_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateOutStockPrice, request, options: options);
   }
 
@@ -767,13 +767,13 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.GetOutStockPriceUpdate_Request.fromBuffer(value),
         ($1.GetOutStockPriceUpdate_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.UpdateOutStockPrice_Request, $0.Empty_Response>(
+    $addMethod($grpc.ServiceMethod<$1.UpdateOutStockPrice_Request, $1.UpdateOutStockPrice_Response>(
         'UpdateOutStockPrice',
         updateOutStockPrice_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $1.UpdateOutStockPrice_Request.fromBuffer(value),
-        ($0.Empty_Response value) => value.writeToBuffer()));
+        ($1.UpdateOutStockPrice_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveOutStockPriceUpdate_Request, $0.String_Response>(
         'SaveOutStockPriceUpdate',
         saveOutStockPriceUpdate_Pre,
@@ -1373,7 +1373,7 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
     return getOutStockPriceUpdate(call, await request);
   }
 
-  $async.Future<$0.Empty_Response> updateOutStockPrice_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateOutStockPrice_Request> request) async {
+  $async.Future<$1.UpdateOutStockPrice_Response> updateOutStockPrice_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateOutStockPrice_Request> request) async {
     return updateOutStockPrice(call, await request);
   }
 
@@ -1713,7 +1713,7 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveInvTransComplete($grpc.ServiceCall call, $1.SaveInvTransComplete_Request request);
   $async.Future<$0.String_Response> saveInvTransMac($grpc.ServiceCall call, $1.SaveInvTransMac_Request request);
   $async.Future<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate($grpc.ServiceCall call, $1.GetOutStockPriceUpdate_Request request);
-  $async.Future<$0.Empty_Response> updateOutStockPrice($grpc.ServiceCall call, $1.UpdateOutStockPrice_Request request);
+  $async.Future<$1.UpdateOutStockPrice_Response> updateOutStockPrice($grpc.ServiceCall call, $1.UpdateOutStockPrice_Request request);
   $async.Future<$0.String_Response> saveOutStockPriceUpdate($grpc.ServiceCall call, $1.SaveOutStockPriceUpdate_Request request);
   $async.Future<$0.Empty_Response> updateStockSumMonth($grpc.ServiceCall call, $1.UpdateStockSumMonth_Request request);
   $async.Future<$0.String_Response> saveNQP($grpc.ServiceCall call, $1.SaveNQP_Request request);

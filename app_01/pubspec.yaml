@@ -30,6 +30,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  fixnum: ^1.1.0
   audioplayers: 5.2.1
   backdrop: 0.9.1
   badges: 3.1.2

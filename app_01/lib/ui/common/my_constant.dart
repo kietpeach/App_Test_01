@@ -10,3 +10,11 @@ class VoucherCode {
   static const String InvAdj = "InvAdj";
   static const String InvTrans = "InvTrans";
 }
+
+class MyConstant {
+  //UpdMode
+  static const int UpdMode_NoChange = 0;
+  static const int UpdMode_Addnew = 1;
+  static const int UpdMode_Update = 2;
+  static const int UpdMode_Delete = 3;
+}

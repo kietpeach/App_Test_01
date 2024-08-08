@@ -853,6 +853,174 @@ class grpcOutStockPriceUpdateModel extends $pb.GeneratedMessage {
 }
 
 /// >>> End generated OutStockPriceUpdate message
+class UpdateOutStockPrice_Response extends $pb.GeneratedMessage {
+  factory UpdateOutStockPrice_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    $core.Iterable<grpcOutStockPriceUpdatedModel>? records,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (records != null) {
+      $result.records.addAll(records);
+    }
+    return $result;
+  }
+  UpdateOutStockPrice_Response._() : super();
+  factory UpdateOutStockPrice_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateOutStockPrice_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateOutStockPrice_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..pc<grpcOutStockPriceUpdatedModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcOutStockPriceUpdatedModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateOutStockPrice_Response clone() => UpdateOutStockPrice_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateOutStockPrice_Response copyWith(void Function(UpdateOutStockPrice_Response) updates) => super.copyWith((message) => updates(message as UpdateOutStockPrice_Response)) as UpdateOutStockPrice_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateOutStockPrice_Response create() => UpdateOutStockPrice_Response._();
+  UpdateOutStockPrice_Response createEmptyInstance() => create();
+  static $pb.PbList<UpdateOutStockPrice_Response> createRepeated() => $pb.PbList<UpdateOutStockPrice_Response>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateOutStockPrice_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateOutStockPrice_Response>(create);
+  static UpdateOutStockPrice_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<grpcOutStockPriceUpdatedModel> get records => $_getList(2);
+}
+
+class grpcOutStockPriceUpdatedModel extends $pb.GeneratedMessage {
+  factory grpcOutStockPriceUpdatedModel({
+    $core.String? accInvCode,
+    $core.String? productCode,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costUnitPriceEx,
+  }) {
+    final $result = create();
+    if (accInvCode != null) {
+      $result.accInvCode = accInvCode;
+    }
+    if (productCode != null) {
+      $result.productCode = productCode;
+    }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costUnitPriceEx != null) {
+      $result.costUnitPriceEx = costUnitPriceEx;
+    }
+    return $result;
+  }
+  grpcOutStockPriceUpdatedModel._() : super();
+  factory grpcOutStockPriceUpdatedModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcOutStockPriceUpdatedModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcOutStockPriceUpdatedModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'AccInvCode', protoName: 'AccInvCode')
+    ..aOS(2, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOM<$3.Decimal>(3, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(4, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $3.Decimal.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcOutStockPriceUpdatedModel clone() => grpcOutStockPriceUpdatedModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcOutStockPriceUpdatedModel copyWith(void Function(grpcOutStockPriceUpdatedModel) updates) => super.copyWith((message) => updates(message as grpcOutStockPriceUpdatedModel)) as grpcOutStockPriceUpdatedModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcOutStockPriceUpdatedModel create() => grpcOutStockPriceUpdatedModel._();
+  grpcOutStockPriceUpdatedModel createEmptyInstance() => create();
+  static $pb.PbList<grpcOutStockPriceUpdatedModel> createRepeated() => $pb.PbList<grpcOutStockPriceUpdatedModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcOutStockPriceUpdatedModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcOutStockPriceUpdatedModel>(create);
+  static grpcOutStockPriceUpdatedModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get accInvCode => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set accInvCode($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAccInvCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccInvCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get productCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set productCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasProductCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProductCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $3.Decimal get costUnitPrice => $_getN(2);
+  @$pb.TagNumber(3)
+  set costUnitPrice($3.Decimal v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCostUnitPrice() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCostUnitPrice() => clearField(3);
+  @$pb.TagNumber(3)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $3.Decimal get costUnitPriceEx => $_getN(3);
+  @$pb.TagNumber(4)
+  set costUnitPriceEx($3.Decimal v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCostUnitPriceEx() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCostUnitPriceEx() => clearField(4);
+  @$pb.TagNumber(4)
+  $3.Decimal ensureCostUnitPriceEx() => $_ensure(3);
+}
+
 /// >>> Start generated StockSumMonth message
 class UpdateStockSumMonth_Request extends $pb.GeneratedMessage {
   factory UpdateStockSumMonth_Request({
@@ -3512,6 +3680,8 @@ class grpcInvTransDetailModel extends $pb.GeneratedMessage {
     $2.Timestamp? updDateTime,
     $core.int? updMode,
     $core.String? reason,
+    $3.Decimal? costUnitPriceEx,
+    $3.Decimal? costAmountEx,
   }) {
     final $result = create();
     if (iD != null) {
@@ -3670,6 +3840,12 @@ class grpcInvTransDetailModel extends $pb.GeneratedMessage {
     if (reason != null) {
       $result.reason = reason;
     }
+    if (costUnitPriceEx != null) {
+      $result.costUnitPriceEx = costUnitPriceEx;
+    }
+    if (costAmountEx != null) {
+      $result.costAmountEx = costAmountEx;
+    }
     return $result;
   }
   grpcInvTransDetailModel._() : super();
@@ -3729,6 +3905,8 @@ class grpcInvTransDetailModel extends $pb.GeneratedMessage {
     ..aOM<$2.Timestamp>(50, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
     ..a<$core.int>(51, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..aOS(52, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOM<$3.Decimal>(53, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(54, _omitFieldNames ? '' : 'CostAmountEx', protoName: 'CostAmountEx', subBuilder: $3.Decimal.create)
     ..hasRequiredFields = false
   ;
 
@@ -4238,6 +4416,28 @@ class grpcInvTransDetailModel extends $pb.GeneratedMessage {
   $core.bool hasReason() => $_has(51);
   @$pb.TagNumber(52)
   void clearReason() => clearField(52);
+
+  @$pb.TagNumber(53)
+  $3.Decimal get costUnitPriceEx => $_getN(52);
+  @$pb.TagNumber(53)
+  set costUnitPriceEx($3.Decimal v) { setField(53, v); }
+  @$pb.TagNumber(53)
+  $core.bool hasCostUnitPriceEx() => $_has(52);
+  @$pb.TagNumber(53)
+  void clearCostUnitPriceEx() => clearField(53);
+  @$pb.TagNumber(53)
+  $3.Decimal ensureCostUnitPriceEx() => $_ensure(52);
+
+  @$pb.TagNumber(54)
+  $3.Decimal get costAmountEx => $_getN(53);
+  @$pb.TagNumber(54)
+  set costAmountEx($3.Decimal v) { setField(54, v); }
+  @$pb.TagNumber(54)
+  $core.bool hasCostAmountEx() => $_has(53);
+  @$pb.TagNumber(54)
+  void clearCostAmountEx() => clearField(54);
+  @$pb.TagNumber(54)
+  $3.Decimal ensureCostAmountEx() => $_ensure(53);
 }
 
 class grpcInvTransSlistModel extends $pb.GeneratedMessage {
@@ -9382,6 +9582,7 @@ class grpcInvAdjHeaderModel extends $pb.GeneratedMessage {
     $core.String? invAdjNo,
     $2.Timestamp? invAdjDate,
     $core.String? invCode,
+    $core.String? accInvCode,
     $core.String? invName,
     $core.String? reason,
     $core.String? notes,
@@ -9422,6 +9623,9 @@ class grpcInvAdjHeaderModel extends $pb.GeneratedMessage {
     }
     if (invCode != null) {
       $result.invCode = invCode;
+    }
+    if (accInvCode != null) {
+      $result.accInvCode = accInvCode;
     }
     if (invName != null) {
       $result.invName = invName;
@@ -9467,15 +9671,16 @@ class grpcInvAdjHeaderModel extends $pb.GeneratedMessage {
     ..aOS(8, _omitFieldNames ? '' : 'InvAdjNo', protoName: 'InvAdjNo')
     ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'InvAdjDate', protoName: 'InvAdjDate', subBuilder: $2.Timestamp.create)
     ..aOS(10, _omitFieldNames ? '' : 'InvCode', protoName: 'InvCode')
-    ..aOS(11, _omitFieldNames ? '' : 'InvName', protoName: 'InvName')
-    ..aOS(12, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..aOS(13, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(15, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(16, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(17, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(18, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(19, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
+    ..aOS(11, _omitFieldNames ? '' : 'AccInvCode', protoName: 'AccInvCode')
+    ..aOS(12, _omitFieldNames ? '' : 'InvName', protoName: 'InvName')
+    ..aOS(13, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(14, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..a<$core.int>(15, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(16, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(17, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(18, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$2.Timestamp>(19, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(20, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -9595,89 +9800,98 @@ class grpcInvAdjHeaderModel extends $pb.GeneratedMessage {
   void clearInvCode() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get invName => $_getSZ(10);
+  $core.String get accInvCode => $_getSZ(10);
   @$pb.TagNumber(11)
-  set invName($core.String v) { $_setString(10, v); }
+  set accInvCode($core.String v) { $_setString(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasInvName() => $_has(10);
+  $core.bool hasAccInvCode() => $_has(10);
   @$pb.TagNumber(11)
-  void clearInvName() => clearField(11);
+  void clearAccInvCode() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get reason => $_getSZ(11);
+  $core.String get invName => $_getSZ(11);
   @$pb.TagNumber(12)
-  set reason($core.String v) { $_setString(11, v); }
+  set invName($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasReason() => $_has(11);
+  $core.bool hasInvName() => $_has(11);
   @$pb.TagNumber(12)
-  void clearReason() => clearField(12);
+  void clearInvName() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get notes => $_getSZ(12);
+  $core.String get reason => $_getSZ(12);
   @$pb.TagNumber(13)
-  set notes($core.String v) { $_setString(12, v); }
+  set reason($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasNotes() => $_has(12);
+  $core.bool hasReason() => $_has(12);
   @$pb.TagNumber(13)
-  void clearNotes() => clearField(13);
+  void clearReason() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.int get updMode => $_getIZ(13);
+  $core.String get notes => $_getSZ(13);
   @$pb.TagNumber(14)
-  set updMode($core.int v) { $_setSignedInt32(13, v); }
+  set notes($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasUpdMode() => $_has(13);
+  $core.bool hasNotes() => $_has(13);
   @$pb.TagNumber(14)
-  void clearUpdMode() => clearField(14);
+  void clearNotes() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.int get updCount => $_getIZ(14);
+  $core.int get updMode => $_getIZ(14);
   @$pb.TagNumber(15)
-  set updCount($core.int v) { $_setSignedInt32(14, v); }
+  set updMode($core.int v) { $_setSignedInt32(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasUpdCount() => $_has(14);
+  $core.bool hasUpdMode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUpdCount() => clearField(15);
+  void clearUpdMode() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get updTransactionID => $_getSZ(15);
+  $core.int get updCount => $_getIZ(15);
   @$pb.TagNumber(16)
-  set updTransactionID($core.String v) { $_setString(15, v); }
+  set updCount($core.int v) { $_setSignedInt32(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasUpdTransactionID() => $_has(15);
+  $core.bool hasUpdCount() => $_has(15);
   @$pb.TagNumber(16)
-  void clearUpdTransactionID() => clearField(16);
+  void clearUpdCount() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get updAccountID => $_getSZ(16);
+  $core.String get updTransactionID => $_getSZ(16);
   @$pb.TagNumber(17)
-  set updAccountID($core.String v) { $_setString(16, v); }
+  set updTransactionID($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasUpdAccountID() => $_has(16);
+  $core.bool hasUpdTransactionID() => $_has(16);
   @$pb.TagNumber(17)
-  void clearUpdAccountID() => clearField(17);
+  void clearUpdTransactionID() => clearField(17);
 
   @$pb.TagNumber(18)
-  $2.Timestamp get updDateTime => $_getN(17);
+  $core.String get updAccountID => $_getSZ(17);
   @$pb.TagNumber(18)
-  set updDateTime($2.Timestamp v) { setField(18, v); }
+  set updAccountID($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasUpdDateTime() => $_has(17);
+  $core.bool hasUpdAccountID() => $_has(17);
   @$pb.TagNumber(18)
-  void clearUpdDateTime() => clearField(18);
-  @$pb.TagNumber(18)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(17);
+  void clearUpdAccountID() => clearField(18);
 
   @$pb.TagNumber(19)
-  $2.Timestamp get crtDateTime => $_getN(18);
+  $2.Timestamp get updDateTime => $_getN(18);
   @$pb.TagNumber(19)
-  set crtDateTime($2.Timestamp v) { setField(19, v); }
+  set updDateTime($2.Timestamp v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasCrtDateTime() => $_has(18);
+  $core.bool hasUpdDateTime() => $_has(18);
   @$pb.TagNumber(19)
-  void clearCrtDateTime() => clearField(19);
+  void clearUpdDateTime() => clearField(19);
   @$pb.TagNumber(19)
-  $2.Timestamp ensureCrtDateTime() => $_ensure(18);
+  $2.Timestamp ensureUpdDateTime() => $_ensure(18);
+
+  @$pb.TagNumber(20)
+  $2.Timestamp get crtDateTime => $_getN(19);
+  @$pb.TagNumber(20)
+  set crtDateTime($2.Timestamp v) { setField(20, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasCrtDateTime() => $_has(19);
+  @$pb.TagNumber(20)
+  void clearCrtDateTime() => clearField(20);
+  @$pb.TagNumber(20)
+  $2.Timestamp ensureCrtDateTime() => $_ensure(19);
 }
 
 class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
@@ -9691,6 +9905,7 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
     $core.String? invAdjNo,
     $2.Timestamp? invAdjDate,
     $core.String? invCode,
+    $core.String? accInvCode,
     $core.int? lineNo,
     $core.String? productCode,
     $core.String? productName,
@@ -9709,6 +9924,8 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
     $core.int? periodFlag,
     $core.bool? isMultiLOT,
     $core.Iterable<grpcLotDetailModel>? lotDetails,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costAmount,
     $core.String? notes,
     $core.String? recordNo,
     $core.int? updMode,
@@ -9741,6 +9958,9 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
     }
     if (invCode != null) {
       $result.invCode = invCode;
+    }
+    if (accInvCode != null) {
+      $result.accInvCode = accInvCode;
     }
     if (lineNo != null) {
       $result.lineNo = lineNo;
@@ -9796,6 +10016,12 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
     if (lotDetails != null) {
       $result.lotDetails.addAll(lotDetails);
     }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costAmount != null) {
+      $result.costAmount = costAmount;
+    }
     if (notes != null) {
       $result.notes = notes;
     }
@@ -9824,28 +10050,31 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'InvAdjNo', protoName: 'InvAdjNo')
     ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'InvAdjDate', protoName: 'InvAdjDate', subBuilder: $2.Timestamp.create)
     ..aOS(9, _omitFieldNames ? '' : 'InvCode', protoName: 'InvCode')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
-    ..aOS(11, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(12, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
-    ..aOS(13, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(14, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(15, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$3.Decimal>(16, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(17, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(18, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
-    ..aOB(19, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
-    ..aOS(20, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
-    ..aOS(21, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
-    ..aOM<$2.Timestamp>(22, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
-    ..aOS(23, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
-    ..a<$core.int>(24, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
-    ..a<$core.int>(25, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
-    ..aOB(26, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
-    ..pc<grpcLotDetailModel>(27, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
-    ..aOS(28, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOS(29, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
-    ..a<$core.int>(30, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOS(31, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(10, _omitFieldNames ? '' : 'AccInvCode', protoName: 'AccInvCode')
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
+    ..aOS(12, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(13, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
+    ..aOS(14, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(15, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(16, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$3.Decimal>(17, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(18, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(19, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
+    ..aOB(20, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
+    ..aOS(21, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
+    ..aOS(22, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
+    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
+    ..aOS(24, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
+    ..a<$core.int>(25, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
+    ..a<$core.int>(26, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
+    ..aOB(27, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
+    ..pc<grpcLotDetailModel>(28, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
+    ..aOM<$3.Decimal>(29, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(30, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..aOS(31, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..aOS(32, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
+    ..a<$core.int>(33, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOS(34, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
     ..hasRequiredFields = false
   ;
 
@@ -9956,204 +10185,235 @@ class grpcInvAdjDetailModel extends $pb.GeneratedMessage {
   void clearInvCode() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.int get lineNo => $_getIZ(9);
+  $core.String get accInvCode => $_getSZ(9);
   @$pb.TagNumber(10)
-  set lineNo($core.int v) { $_setSignedInt32(9, v); }
+  set accInvCode($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasLineNo() => $_has(9);
+  $core.bool hasAccInvCode() => $_has(9);
   @$pb.TagNumber(10)
-  void clearLineNo() => clearField(10);
+  void clearAccInvCode() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get productCode => $_getSZ(10);
+  $core.int get lineNo => $_getIZ(10);
   @$pb.TagNumber(11)
-  set productCode($core.String v) { $_setString(10, v); }
+  set lineNo($core.int v) { $_setSignedInt32(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasProductCode() => $_has(10);
+  $core.bool hasLineNo() => $_has(10);
   @$pb.TagNumber(11)
-  void clearProductCode() => clearField(11);
+  void clearLineNo() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get productName => $_getSZ(11);
+  $core.String get productCode => $_getSZ(11);
   @$pb.TagNumber(12)
-  set productName($core.String v) { $_setString(11, v); }
+  set productCode($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasProductName() => $_has(11);
+  $core.bool hasProductCode() => $_has(11);
   @$pb.TagNumber(12)
-  void clearProductName() => clearField(12);
+  void clearProductCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get specification => $_getSZ(12);
+  $core.String get productName => $_getSZ(12);
   @$pb.TagNumber(13)
-  set specification($core.String v) { $_setString(12, v); }
+  set productName($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasSpecification() => $_has(12);
+  $core.bool hasProductName() => $_has(12);
   @$pb.TagNumber(13)
-  void clearSpecification() => clearField(13);
+  void clearProductName() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get unitCode => $_getSZ(13);
+  $core.String get specification => $_getSZ(13);
   @$pb.TagNumber(14)
-  set unitCode($core.String v) { $_setString(13, v); }
+  set specification($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasUnitCode() => $_has(13);
+  $core.bool hasSpecification() => $_has(13);
   @$pb.TagNumber(14)
-  void clearUnitCode() => clearField(14);
+  void clearSpecification() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get unitName => $_getSZ(14);
+  $core.String get unitCode => $_getSZ(14);
   @$pb.TagNumber(15)
-  set unitName($core.String v) { $_setString(14, v); }
+  set unitCode($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasUnitName() => $_has(14);
+  $core.bool hasUnitCode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUnitName() => clearField(15);
+  void clearUnitCode() => clearField(15);
 
   @$pb.TagNumber(16)
-  $3.Decimal get packingQty => $_getN(15);
+  $core.String get unitName => $_getSZ(15);
   @$pb.TagNumber(16)
-  set packingQty($3.Decimal v) { setField(16, v); }
+  set unitName($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasPackingQty() => $_has(15);
+  $core.bool hasUnitName() => $_has(15);
   @$pb.TagNumber(16)
-  void clearPackingQty() => clearField(16);
-  @$pb.TagNumber(16)
-  $3.Decimal ensurePackingQty() => $_ensure(15);
+  void clearUnitName() => clearField(16);
 
   @$pb.TagNumber(17)
-  $3.Decimal get caseQty => $_getN(16);
+  $3.Decimal get packingQty => $_getN(16);
   @$pb.TagNumber(17)
-  set caseQty($3.Decimal v) { setField(17, v); }
+  set packingQty($3.Decimal v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasCaseQty() => $_has(16);
+  $core.bool hasPackingQty() => $_has(16);
   @$pb.TagNumber(17)
-  void clearCaseQty() => clearField(17);
+  void clearPackingQty() => clearField(17);
   @$pb.TagNumber(17)
-  $3.Decimal ensureCaseQty() => $_ensure(16);
+  $3.Decimal ensurePackingQty() => $_ensure(16);
 
   @$pb.TagNumber(18)
-  $3.Decimal get inOutQty => $_getN(17);
+  $3.Decimal get caseQty => $_getN(17);
   @$pb.TagNumber(18)
-  set inOutQty($3.Decimal v) { setField(18, v); }
+  set caseQty($3.Decimal v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasInOutQty() => $_has(17);
+  $core.bool hasCaseQty() => $_has(17);
   @$pb.TagNumber(18)
-  void clearInOutQty() => clearField(18);
+  void clearCaseQty() => clearField(18);
   @$pb.TagNumber(18)
-  $3.Decimal ensureInOutQty() => $_ensure(17);
+  $3.Decimal ensureCaseQty() => $_ensure(17);
 
   @$pb.TagNumber(19)
-  $core.bool get isLOT => $_getBF(18);
+  $3.Decimal get inOutQty => $_getN(18);
   @$pb.TagNumber(19)
-  set isLOT($core.bool v) { $_setBool(18, v); }
+  set inOutQty($3.Decimal v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasIsLOT() => $_has(18);
+  $core.bool hasInOutQty() => $_has(18);
   @$pb.TagNumber(19)
-  void clearIsLOT() => clearField(19);
+  void clearInOutQty() => clearField(19);
+  @$pb.TagNumber(19)
+  $3.Decimal ensureInOutQty() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $core.String get lotID => $_getSZ(19);
+  $core.bool get isLOT => $_getBF(19);
   @$pb.TagNumber(20)
-  set lotID($core.String v) { $_setString(19, v); }
+  set isLOT($core.bool v) { $_setBool(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasLotID() => $_has(19);
+  $core.bool hasIsLOT() => $_has(19);
   @$pb.TagNumber(20)
-  void clearLotID() => clearField(20);
+  void clearIsLOT() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get dateType => $_getSZ(20);
+  $core.String get lotID => $_getSZ(20);
   @$pb.TagNumber(21)
-  set dateType($core.String v) { $_setString(20, v); }
+  set lotID($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasDateType() => $_has(20);
+  $core.bool hasLotID() => $_has(20);
   @$pb.TagNumber(21)
-  void clearDateType() => clearField(21);
+  void clearLotID() => clearField(21);
 
   @$pb.TagNumber(22)
-  $2.Timestamp get lotDate => $_getN(21);
+  $core.String get dateType => $_getSZ(21);
   @$pb.TagNumber(22)
-  set lotDate($2.Timestamp v) { setField(22, v); }
+  set dateType($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasLotDate() => $_has(21);
+  $core.bool hasDateType() => $_has(21);
   @$pb.TagNumber(22)
-  void clearLotDate() => clearField(22);
-  @$pb.TagNumber(22)
-  $2.Timestamp ensureLotDate() => $_ensure(21);
+  void clearDateType() => clearField(22);
 
   @$pb.TagNumber(23)
-  $core.String get lotNotes => $_getSZ(22);
+  $2.Timestamp get lotDate => $_getN(22);
   @$pb.TagNumber(23)
-  set lotNotes($core.String v) { $_setString(22, v); }
+  set lotDate($2.Timestamp v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasLotNotes() => $_has(22);
+  $core.bool hasLotDate() => $_has(22);
   @$pb.TagNumber(23)
-  void clearLotNotes() => clearField(23);
+  void clearLotDate() => clearField(23);
+  @$pb.TagNumber(23)
+  $2.Timestamp ensureLotDate() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $core.int get warPeriod => $_getIZ(23);
+  $core.String get lotNotes => $_getSZ(23);
   @$pb.TagNumber(24)
-  set warPeriod($core.int v) { $_setSignedInt32(23, v); }
+  set lotNotes($core.String v) { $_setString(23, v); }
   @$pb.TagNumber(24)
-  $core.bool hasWarPeriod() => $_has(23);
+  $core.bool hasLotNotes() => $_has(23);
   @$pb.TagNumber(24)
-  void clearWarPeriod() => clearField(24);
+  void clearLotNotes() => clearField(24);
 
   @$pb.TagNumber(25)
-  $core.int get periodFlag => $_getIZ(24);
+  $core.int get warPeriod => $_getIZ(24);
   @$pb.TagNumber(25)
-  set periodFlag($core.int v) { $_setSignedInt32(24, v); }
+  set warPeriod($core.int v) { $_setSignedInt32(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasPeriodFlag() => $_has(24);
+  $core.bool hasWarPeriod() => $_has(24);
   @$pb.TagNumber(25)
-  void clearPeriodFlag() => clearField(25);
+  void clearWarPeriod() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.bool get isMultiLOT => $_getBF(25);
+  $core.int get periodFlag => $_getIZ(25);
   @$pb.TagNumber(26)
-  set isMultiLOT($core.bool v) { $_setBool(25, v); }
+  set periodFlag($core.int v) { $_setSignedInt32(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasIsMultiLOT() => $_has(25);
+  $core.bool hasPeriodFlag() => $_has(25);
   @$pb.TagNumber(26)
-  void clearIsMultiLOT() => clearField(26);
+  void clearPeriodFlag() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.List<grpcLotDetailModel> get lotDetails => $_getList(26);
+  $core.bool get isMultiLOT => $_getBF(26);
+  @$pb.TagNumber(27)
+  set isMultiLOT($core.bool v) { $_setBool(26, v); }
+  @$pb.TagNumber(27)
+  $core.bool hasIsMultiLOT() => $_has(26);
+  @$pb.TagNumber(27)
+  void clearIsMultiLOT() => clearField(27);
 
   @$pb.TagNumber(28)
-  $core.String get notes => $_getSZ(27);
-  @$pb.TagNumber(28)
-  set notes($core.String v) { $_setString(27, v); }
-  @$pb.TagNumber(28)
-  $core.bool hasNotes() => $_has(27);
-  @$pb.TagNumber(28)
-  void clearNotes() => clearField(28);
+  $core.List<grpcLotDetailModel> get lotDetails => $_getList(27);
 
   @$pb.TagNumber(29)
-  $core.String get recordNo => $_getSZ(28);
+  $3.Decimal get costUnitPrice => $_getN(28);
   @$pb.TagNumber(29)
-  set recordNo($core.String v) { $_setString(28, v); }
+  set costUnitPrice($3.Decimal v) { setField(29, v); }
   @$pb.TagNumber(29)
-  $core.bool hasRecordNo() => $_has(28);
+  $core.bool hasCostUnitPrice() => $_has(28);
   @$pb.TagNumber(29)
-  void clearRecordNo() => clearField(29);
+  void clearCostUnitPrice() => clearField(29);
+  @$pb.TagNumber(29)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(28);
 
   @$pb.TagNumber(30)
-  $core.int get updMode => $_getIZ(29);
+  $3.Decimal get costAmount => $_getN(29);
   @$pb.TagNumber(30)
-  set updMode($core.int v) { $_setSignedInt32(29, v); }
+  set costAmount($3.Decimal v) { setField(30, v); }
   @$pb.TagNumber(30)
-  $core.bool hasUpdMode() => $_has(29);
+  $core.bool hasCostAmount() => $_has(29);
   @$pb.TagNumber(30)
-  void clearUpdMode() => clearField(30);
+  void clearCostAmount() => clearField(30);
+  @$pb.TagNumber(30)
+  $3.Decimal ensureCostAmount() => $_ensure(29);
 
   @$pb.TagNumber(31)
-  $core.String get reason => $_getSZ(30);
+  $core.String get notes => $_getSZ(30);
   @$pb.TagNumber(31)
-  set reason($core.String v) { $_setString(30, v); }
+  set notes($core.String v) { $_setString(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasReason() => $_has(30);
+  $core.bool hasNotes() => $_has(30);
   @$pb.TagNumber(31)
-  void clearReason() => clearField(31);
+  void clearNotes() => clearField(31);
+
+  @$pb.TagNumber(32)
+  $core.String get recordNo => $_getSZ(31);
+  @$pb.TagNumber(32)
+  set recordNo($core.String v) { $_setString(31, v); }
+  @$pb.TagNumber(32)
+  $core.bool hasRecordNo() => $_has(31);
+  @$pb.TagNumber(32)
+  void clearRecordNo() => clearField(32);
+
+  @$pb.TagNumber(33)
+  $core.int get updMode => $_getIZ(32);
+  @$pb.TagNumber(33)
+  set updMode($core.int v) { $_setSignedInt32(32, v); }
+  @$pb.TagNumber(33)
+  $core.bool hasUpdMode() => $_has(32);
+  @$pb.TagNumber(33)
+  void clearUpdMode() => clearField(33);
+
+  @$pb.TagNumber(34)
+  $core.String get reason => $_getSZ(33);
+  @$pb.TagNumber(34)
+  set reason($core.String v) { $_setString(33, v); }
+  @$pb.TagNumber(34)
+  $core.bool hasReason() => $_has(33);
+  @$pb.TagNumber(34)
+  void clearReason() => clearField(34);
 }
 
 class grpcInvAdjSlistModel extends $pb.GeneratedMessage {
@@ -10644,6 +10904,7 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   factory grpcInvMacHeaderModel({
     $core.String? iD,
     $core.int? accLinkedStatus,
+    $core.int? accBookType,
     $2.Timestamp? closeDate,
     $core.String? deptCode,
     $core.String? inInvDeptCode,
@@ -10653,8 +10914,10 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
     $core.String? invMacNo,
     $2.Timestamp? invMacDate,
     $core.int? macType,
+    $core.String? inAccInvCode,
     $core.String? inInvCode,
     $core.String? inInvName,
+    $core.String? outAccInvCode,
     $core.String? outInvCode,
     $core.String? outInvName,
     $core.String? setProductCode,
@@ -10670,7 +10933,9 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
     $core.String? lotNotes,
     $core.String? notes,
     $3.Decimal? costUnitPrice,
+    $3.Decimal? costUnitPriceEx,
     $3.Decimal? costAmount,
+    $3.Decimal? costAmountEx,
     $core.String? debAccID,
     $core.int? debAccObjectType,
     $core.String? debAccObjectID,
@@ -10694,6 +10959,9 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
     }
     if (accLinkedStatus != null) {
       $result.accLinkedStatus = accLinkedStatus;
+    }
+    if (accBookType != null) {
+      $result.accBookType = accBookType;
     }
     if (closeDate != null) {
       $result.closeDate = closeDate;
@@ -10722,11 +10990,17 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
     if (macType != null) {
       $result.macType = macType;
     }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
+    }
     if (inInvCode != null) {
       $result.inInvCode = inInvCode;
     }
     if (inInvName != null) {
       $result.inInvName = inInvName;
+    }
+    if (outAccInvCode != null) {
+      $result.outAccInvCode = outAccInvCode;
     }
     if (outInvCode != null) {
       $result.outInvCode = outInvCode;
@@ -10773,8 +11047,14 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
     if (costUnitPrice != null) {
       $result.costUnitPrice = costUnitPrice;
     }
+    if (costUnitPriceEx != null) {
+      $result.costUnitPriceEx = costUnitPriceEx;
+    }
     if (costAmount != null) {
       $result.costAmount = costAmount;
+    }
+    if (costAmountEx != null) {
+      $result.costAmountEx = costAmountEx;
     }
     if (debAccID != null) {
       $result.debAccID = debAccID;
@@ -10833,49 +11113,54 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcInvMacHeaderModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'AccLinkedStatus', $pb.PbFieldType.O3, protoName: 'AccLinkedStatus')
-    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
-    ..aOS(4, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
-    ..aOS(5, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
-    ..aOS(6, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
-    ..aOS(7, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
-    ..aOS(8, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
-    ..aOS(9, _omitFieldNames ? '' : 'InvMacNo', protoName: 'InvMacNo')
-    ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'InvMacDate', protoName: 'InvMacDate', subBuilder: $2.Timestamp.create)
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'MacType', $pb.PbFieldType.O3, protoName: 'MacType')
-    ..aOS(12, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..aOS(13, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
-    ..aOS(14, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
-    ..aOS(15, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
-    ..aOS(16, _omitFieldNames ? '' : 'SetProductCode', protoName: 'SetProductCode')
-    ..aOS(17, _omitFieldNames ? '' : 'SetProductName', protoName: 'SetProductName')
-    ..aOS(18, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(19, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(20, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$3.Decimal>(21, _omitFieldNames ? '' : 'SetQty', protoName: 'SetQty', subBuilder: $3.Decimal.create)
-    ..aOS(22, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
-    ..aOB(23, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
-    ..aOS(24, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
-    ..aOM<$2.Timestamp>(25, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
-    ..aOS(26, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
-    ..aOS(27, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOM<$3.Decimal>(28, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(29, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
-    ..aOS(30, _omitFieldNames ? '' : 'DebAccID', protoName: 'DebAccID')
-    ..a<$core.int>(31, _omitFieldNames ? '' : 'DebAccObjectType', $pb.PbFieldType.O3, protoName: 'DebAccObjectType')
-    ..aOS(32, _omitFieldNames ? '' : 'DebAccObjectID', protoName: 'DebAccObjectID')
-    ..aOS(33, _omitFieldNames ? '' : 'CreAccID', protoName: 'CreAccID')
-    ..a<$core.int>(34, _omitFieldNames ? '' : 'CreAccObjectType', $pb.PbFieldType.O3, protoName: 'CreAccObjectType')
-    ..aOS(35, _omitFieldNames ? '' : 'CreAccObjectID', protoName: 'CreAccObjectID')
-    ..a<$core.int>(36, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(37, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(38, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(39, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(40, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(41, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
-    ..aOS(42, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..aOS(43, _omitFieldNames ? '' : 'AccStaffID', protoName: 'AccStaffID')
-    ..aOS(44, _omitFieldNames ? '' : 'AccNotes', protoName: 'AccNotes')
-    ..aOB(45, _omitFieldNames ? '' : 'AccUpdateDone', protoName: 'AccUpdateDone')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'AccBookType', $pb.PbFieldType.O3, protoName: 'AccBookType')
+    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
+    ..aOS(5, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
+    ..aOS(6, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
+    ..aOS(7, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
+    ..aOS(8, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(9, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
+    ..aOS(10, _omitFieldNames ? '' : 'InvMacNo', protoName: 'InvMacNo')
+    ..aOM<$2.Timestamp>(11, _omitFieldNames ? '' : 'InvMacDate', protoName: 'InvMacDate', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(12, _omitFieldNames ? '' : 'MacType', $pb.PbFieldType.O3, protoName: 'MacType')
+    ..aOS(13, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..aOS(14, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
+    ..aOS(15, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
+    ..aOS(16, _omitFieldNames ? '' : 'OutAccInvCode', protoName: 'OutAccInvCode')
+    ..aOS(17, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
+    ..aOS(18, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
+    ..aOS(19, _omitFieldNames ? '' : 'SetProductCode', protoName: 'SetProductCode')
+    ..aOS(20, _omitFieldNames ? '' : 'SetProductName', protoName: 'SetProductName')
+    ..aOS(21, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(22, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(23, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$3.Decimal>(24, _omitFieldNames ? '' : 'SetQty', protoName: 'SetQty', subBuilder: $3.Decimal.create)
+    ..aOS(25, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
+    ..aOB(26, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
+    ..aOS(27, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
+    ..aOM<$2.Timestamp>(28, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
+    ..aOS(29, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
+    ..aOS(30, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..aOM<$3.Decimal>(31, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(32, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(33, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(34, _omitFieldNames ? '' : 'CostAmountEx', protoName: 'CostAmountEx', subBuilder: $3.Decimal.create)
+    ..aOS(35, _omitFieldNames ? '' : 'DebAccID', protoName: 'DebAccID')
+    ..a<$core.int>(36, _omitFieldNames ? '' : 'DebAccObjectType', $pb.PbFieldType.O3, protoName: 'DebAccObjectType')
+    ..aOS(37, _omitFieldNames ? '' : 'DebAccObjectID', protoName: 'DebAccObjectID')
+    ..aOS(38, _omitFieldNames ? '' : 'CreAccID', protoName: 'CreAccID')
+    ..a<$core.int>(39, _omitFieldNames ? '' : 'CreAccObjectType', $pb.PbFieldType.O3, protoName: 'CreAccObjectType')
+    ..aOS(40, _omitFieldNames ? '' : 'CreAccObjectID', protoName: 'CreAccObjectID')
+    ..a<$core.int>(41, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(42, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(43, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(44, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$2.Timestamp>(45, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(46, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
+    ..aOS(47, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(48, _omitFieldNames ? '' : 'AccStaffID', protoName: 'AccStaffID')
+    ..aOS(49, _omitFieldNames ? '' : 'AccNotes', protoName: 'AccNotes')
+    ..aOB(50, _omitFieldNames ? '' : 'AccUpdateDone', protoName: 'AccUpdateDone')
     ..hasRequiredFields = false
   ;
 
@@ -10917,6 +11202,747 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   $core.bool hasAccLinkedStatus() => $_has(1);
   @$pb.TagNumber(2)
   void clearAccLinkedStatus() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get accBookType => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set accBookType($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAccBookType() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAccBookType() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $2.Timestamp get closeDate => $_getN(3);
+  @$pb.TagNumber(4)
+  set closeDate($2.Timestamp v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCloseDate() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCloseDate() => clearField(4);
+  @$pb.TagNumber(4)
+  $2.Timestamp ensureCloseDate() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get deptCode => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set deptCode($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasDeptCode() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDeptCode() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get inInvDeptCode => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set inInvDeptCode($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasInInvDeptCode() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearInInvDeptCode() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get outInvDeptCode => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set outInvDeptCode($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasOutInvDeptCode() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearOutInvDeptCode() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get staffID => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set staffID($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasStaffID() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearStaffID() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get voucherCode => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set voucherCode($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasVoucherCode() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearVoucherCode() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get invMacNo => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set invMacNo($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasInvMacNo() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearInvMacNo() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $2.Timestamp get invMacDate => $_getN(10);
+  @$pb.TagNumber(11)
+  set invMacDate($2.Timestamp v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasInvMacDate() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearInvMacDate() => clearField(11);
+  @$pb.TagNumber(11)
+  $2.Timestamp ensureInvMacDate() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  $core.int get macType => $_getIZ(11);
+  @$pb.TagNumber(12)
+  set macType($core.int v) { $_setSignedInt32(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasMacType() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearMacType() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.String get inAccInvCode => $_getSZ(12);
+  @$pb.TagNumber(13)
+  set inAccInvCode($core.String v) { $_setString(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasInAccInvCode() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearInAccInvCode() => clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.String get inInvCode => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set inInvCode($core.String v) { $_setString(13, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasInInvCode() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearInInvCode() => clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.String get inInvName => $_getSZ(14);
+  @$pb.TagNumber(15)
+  set inInvName($core.String v) { $_setString(14, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasInInvName() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearInInvName() => clearField(15);
+
+  @$pb.TagNumber(16)
+  $core.String get outAccInvCode => $_getSZ(15);
+  @$pb.TagNumber(16)
+  set outAccInvCode($core.String v) { $_setString(15, v); }
+  @$pb.TagNumber(16)
+  $core.bool hasOutAccInvCode() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearOutAccInvCode() => clearField(16);
+
+  @$pb.TagNumber(17)
+  $core.String get outInvCode => $_getSZ(16);
+  @$pb.TagNumber(17)
+  set outInvCode($core.String v) { $_setString(16, v); }
+  @$pb.TagNumber(17)
+  $core.bool hasOutInvCode() => $_has(16);
+  @$pb.TagNumber(17)
+  void clearOutInvCode() => clearField(17);
+
+  @$pb.TagNumber(18)
+  $core.String get outInvName => $_getSZ(17);
+  @$pb.TagNumber(18)
+  set outInvName($core.String v) { $_setString(17, v); }
+  @$pb.TagNumber(18)
+  $core.bool hasOutInvName() => $_has(17);
+  @$pb.TagNumber(18)
+  void clearOutInvName() => clearField(18);
+
+  @$pb.TagNumber(19)
+  $core.String get setProductCode => $_getSZ(18);
+  @$pb.TagNumber(19)
+  set setProductCode($core.String v) { $_setString(18, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasSetProductCode() => $_has(18);
+  @$pb.TagNumber(19)
+  void clearSetProductCode() => clearField(19);
+
+  @$pb.TagNumber(20)
+  $core.String get setProductName => $_getSZ(19);
+  @$pb.TagNumber(20)
+  set setProductName($core.String v) { $_setString(19, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasSetProductName() => $_has(19);
+  @$pb.TagNumber(20)
+  void clearSetProductName() => clearField(20);
+
+  @$pb.TagNumber(21)
+  $core.String get specification => $_getSZ(20);
+  @$pb.TagNumber(21)
+  set specification($core.String v) { $_setString(20, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasSpecification() => $_has(20);
+  @$pb.TagNumber(21)
+  void clearSpecification() => clearField(21);
+
+  @$pb.TagNumber(22)
+  $core.String get unitCode => $_getSZ(21);
+  @$pb.TagNumber(22)
+  set unitCode($core.String v) { $_setString(21, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasUnitCode() => $_has(21);
+  @$pb.TagNumber(22)
+  void clearUnitCode() => clearField(22);
+
+  @$pb.TagNumber(23)
+  $core.String get unitName => $_getSZ(22);
+  @$pb.TagNumber(23)
+  set unitName($core.String v) { $_setString(22, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasUnitName() => $_has(22);
+  @$pb.TagNumber(23)
+  void clearUnitName() => clearField(23);
+
+  @$pb.TagNumber(24)
+  $3.Decimal get setQty => $_getN(23);
+  @$pb.TagNumber(24)
+  set setQty($3.Decimal v) { setField(24, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasSetQty() => $_has(23);
+  @$pb.TagNumber(24)
+  void clearSetQty() => clearField(24);
+  @$pb.TagNumber(24)
+  $3.Decimal ensureSetQty() => $_ensure(23);
+
+  @$pb.TagNumber(25)
+  $core.String get lotID => $_getSZ(24);
+  @$pb.TagNumber(25)
+  set lotID($core.String v) { $_setString(24, v); }
+  @$pb.TagNumber(25)
+  $core.bool hasLotID() => $_has(24);
+  @$pb.TagNumber(25)
+  void clearLotID() => clearField(25);
+
+  @$pb.TagNumber(26)
+  $core.bool get isLOT => $_getBF(25);
+  @$pb.TagNumber(26)
+  set isLOT($core.bool v) { $_setBool(25, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasIsLOT() => $_has(25);
+  @$pb.TagNumber(26)
+  void clearIsLOT() => clearField(26);
+
+  @$pb.TagNumber(27)
+  $core.String get dateType => $_getSZ(26);
+  @$pb.TagNumber(27)
+  set dateType($core.String v) { $_setString(26, v); }
+  @$pb.TagNumber(27)
+  $core.bool hasDateType() => $_has(26);
+  @$pb.TagNumber(27)
+  void clearDateType() => clearField(27);
+
+  @$pb.TagNumber(28)
+  $2.Timestamp get lotDate => $_getN(27);
+  @$pb.TagNumber(28)
+  set lotDate($2.Timestamp v) { setField(28, v); }
+  @$pb.TagNumber(28)
+  $core.bool hasLotDate() => $_has(27);
+  @$pb.TagNumber(28)
+  void clearLotDate() => clearField(28);
+  @$pb.TagNumber(28)
+  $2.Timestamp ensureLotDate() => $_ensure(27);
+
+  @$pb.TagNumber(29)
+  $core.String get lotNotes => $_getSZ(28);
+  @$pb.TagNumber(29)
+  set lotNotes($core.String v) { $_setString(28, v); }
+  @$pb.TagNumber(29)
+  $core.bool hasLotNotes() => $_has(28);
+  @$pb.TagNumber(29)
+  void clearLotNotes() => clearField(29);
+
+  @$pb.TagNumber(30)
+  $core.String get notes => $_getSZ(29);
+  @$pb.TagNumber(30)
+  set notes($core.String v) { $_setString(29, v); }
+  @$pb.TagNumber(30)
+  $core.bool hasNotes() => $_has(29);
+  @$pb.TagNumber(30)
+  void clearNotes() => clearField(30);
+
+  @$pb.TagNumber(31)
+  $3.Decimal get costUnitPrice => $_getN(30);
+  @$pb.TagNumber(31)
+  set costUnitPrice($3.Decimal v) { setField(31, v); }
+  @$pb.TagNumber(31)
+  $core.bool hasCostUnitPrice() => $_has(30);
+  @$pb.TagNumber(31)
+  void clearCostUnitPrice() => clearField(31);
+  @$pb.TagNumber(31)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(30);
+
+  @$pb.TagNumber(32)
+  $3.Decimal get costUnitPriceEx => $_getN(31);
+  @$pb.TagNumber(32)
+  set costUnitPriceEx($3.Decimal v) { setField(32, v); }
+  @$pb.TagNumber(32)
+  $core.bool hasCostUnitPriceEx() => $_has(31);
+  @$pb.TagNumber(32)
+  void clearCostUnitPriceEx() => clearField(32);
+  @$pb.TagNumber(32)
+  $3.Decimal ensureCostUnitPriceEx() => $_ensure(31);
+
+  @$pb.TagNumber(33)
+  $3.Decimal get costAmount => $_getN(32);
+  @$pb.TagNumber(33)
+  set costAmount($3.Decimal v) { setField(33, v); }
+  @$pb.TagNumber(33)
+  $core.bool hasCostAmount() => $_has(32);
+  @$pb.TagNumber(33)
+  void clearCostAmount() => clearField(33);
+  @$pb.TagNumber(33)
+  $3.Decimal ensureCostAmount() => $_ensure(32);
+
+  @$pb.TagNumber(34)
+  $3.Decimal get costAmountEx => $_getN(33);
+  @$pb.TagNumber(34)
+  set costAmountEx($3.Decimal v) { setField(34, v); }
+  @$pb.TagNumber(34)
+  $core.bool hasCostAmountEx() => $_has(33);
+  @$pb.TagNumber(34)
+  void clearCostAmountEx() => clearField(34);
+  @$pb.TagNumber(34)
+  $3.Decimal ensureCostAmountEx() => $_ensure(33);
+
+  @$pb.TagNumber(35)
+  $core.String get debAccID => $_getSZ(34);
+  @$pb.TagNumber(35)
+  set debAccID($core.String v) { $_setString(34, v); }
+  @$pb.TagNumber(35)
+  $core.bool hasDebAccID() => $_has(34);
+  @$pb.TagNumber(35)
+  void clearDebAccID() => clearField(35);
+
+  @$pb.TagNumber(36)
+  $core.int get debAccObjectType => $_getIZ(35);
+  @$pb.TagNumber(36)
+  set debAccObjectType($core.int v) { $_setSignedInt32(35, v); }
+  @$pb.TagNumber(36)
+  $core.bool hasDebAccObjectType() => $_has(35);
+  @$pb.TagNumber(36)
+  void clearDebAccObjectType() => clearField(36);
+
+  @$pb.TagNumber(37)
+  $core.String get debAccObjectID => $_getSZ(36);
+  @$pb.TagNumber(37)
+  set debAccObjectID($core.String v) { $_setString(36, v); }
+  @$pb.TagNumber(37)
+  $core.bool hasDebAccObjectID() => $_has(36);
+  @$pb.TagNumber(37)
+  void clearDebAccObjectID() => clearField(37);
+
+  @$pb.TagNumber(38)
+  $core.String get creAccID => $_getSZ(37);
+  @$pb.TagNumber(38)
+  set creAccID($core.String v) { $_setString(37, v); }
+  @$pb.TagNumber(38)
+  $core.bool hasCreAccID() => $_has(37);
+  @$pb.TagNumber(38)
+  void clearCreAccID() => clearField(38);
+
+  @$pb.TagNumber(39)
+  $core.int get creAccObjectType => $_getIZ(38);
+  @$pb.TagNumber(39)
+  set creAccObjectType($core.int v) { $_setSignedInt32(38, v); }
+  @$pb.TagNumber(39)
+  $core.bool hasCreAccObjectType() => $_has(38);
+  @$pb.TagNumber(39)
+  void clearCreAccObjectType() => clearField(39);
+
+  @$pb.TagNumber(40)
+  $core.String get creAccObjectID => $_getSZ(39);
+  @$pb.TagNumber(40)
+  set creAccObjectID($core.String v) { $_setString(39, v); }
+  @$pb.TagNumber(40)
+  $core.bool hasCreAccObjectID() => $_has(39);
+  @$pb.TagNumber(40)
+  void clearCreAccObjectID() => clearField(40);
+
+  @$pb.TagNumber(41)
+  $core.int get updMode => $_getIZ(40);
+  @$pb.TagNumber(41)
+  set updMode($core.int v) { $_setSignedInt32(40, v); }
+  @$pb.TagNumber(41)
+  $core.bool hasUpdMode() => $_has(40);
+  @$pb.TagNumber(41)
+  void clearUpdMode() => clearField(41);
+
+  @$pb.TagNumber(42)
+  $core.int get updCount => $_getIZ(41);
+  @$pb.TagNumber(42)
+  set updCount($core.int v) { $_setSignedInt32(41, v); }
+  @$pb.TagNumber(42)
+  $core.bool hasUpdCount() => $_has(41);
+  @$pb.TagNumber(42)
+  void clearUpdCount() => clearField(42);
+
+  @$pb.TagNumber(43)
+  $core.String get updTransactionID => $_getSZ(42);
+  @$pb.TagNumber(43)
+  set updTransactionID($core.String v) { $_setString(42, v); }
+  @$pb.TagNumber(43)
+  $core.bool hasUpdTransactionID() => $_has(42);
+  @$pb.TagNumber(43)
+  void clearUpdTransactionID() => clearField(43);
+
+  @$pb.TagNumber(44)
+  $core.String get updAccountID => $_getSZ(43);
+  @$pb.TagNumber(44)
+  set updAccountID($core.String v) { $_setString(43, v); }
+  @$pb.TagNumber(44)
+  $core.bool hasUpdAccountID() => $_has(43);
+  @$pb.TagNumber(44)
+  void clearUpdAccountID() => clearField(44);
+
+  @$pb.TagNumber(45)
+  $2.Timestamp get updDateTime => $_getN(44);
+  @$pb.TagNumber(45)
+  set updDateTime($2.Timestamp v) { setField(45, v); }
+  @$pb.TagNumber(45)
+  $core.bool hasUpdDateTime() => $_has(44);
+  @$pb.TagNumber(45)
+  void clearUpdDateTime() => clearField(45);
+  @$pb.TagNumber(45)
+  $2.Timestamp ensureUpdDateTime() => $_ensure(44);
+
+  @$pb.TagNumber(46)
+  $2.Timestamp get crtDateTime => $_getN(45);
+  @$pb.TagNumber(46)
+  set crtDateTime($2.Timestamp v) { setField(46, v); }
+  @$pb.TagNumber(46)
+  $core.bool hasCrtDateTime() => $_has(45);
+  @$pb.TagNumber(46)
+  void clearCrtDateTime() => clearField(46);
+  @$pb.TagNumber(46)
+  $2.Timestamp ensureCrtDateTime() => $_ensure(45);
+
+  @$pb.TagNumber(47)
+  $core.String get reason => $_getSZ(46);
+  @$pb.TagNumber(47)
+  set reason($core.String v) { $_setString(46, v); }
+  @$pb.TagNumber(47)
+  $core.bool hasReason() => $_has(46);
+  @$pb.TagNumber(47)
+  void clearReason() => clearField(47);
+
+  @$pb.TagNumber(48)
+  $core.String get accStaffID => $_getSZ(47);
+  @$pb.TagNumber(48)
+  set accStaffID($core.String v) { $_setString(47, v); }
+  @$pb.TagNumber(48)
+  $core.bool hasAccStaffID() => $_has(47);
+  @$pb.TagNumber(48)
+  void clearAccStaffID() => clearField(48);
+
+  @$pb.TagNumber(49)
+  $core.String get accNotes => $_getSZ(48);
+  @$pb.TagNumber(49)
+  set accNotes($core.String v) { $_setString(48, v); }
+  @$pb.TagNumber(49)
+  $core.bool hasAccNotes() => $_has(48);
+  @$pb.TagNumber(49)
+  void clearAccNotes() => clearField(49);
+
+  @$pb.TagNumber(50)
+  $core.bool get accUpdateDone => $_getBF(49);
+  @$pb.TagNumber(50)
+  set accUpdateDone($core.bool v) { $_setBool(49, v); }
+  @$pb.TagNumber(50)
+  $core.bool hasAccUpdateDone() => $_has(49);
+  @$pb.TagNumber(50)
+  void clearAccUpdateDone() => clearField(50);
+}
+
+class grpcInvMacDetailModel extends $pb.GeneratedMessage {
+  factory grpcInvMacDetailModel({
+    $core.String? iD,
+    $core.int? accBookType,
+    $2.Timestamp? closeDate,
+    $core.String? deptCode,
+    $core.String? inInvDeptCode,
+    $core.String? outInvDeptCode,
+    $core.String? staffID,
+    $core.String? voucherCode,
+    $core.String? invMacNo,
+    $2.Timestamp? invMacDate,
+    $core.int? macType,
+    $core.String? inInvCode,
+    $core.String? inAccInvCode,
+    $core.String? outInvCode,
+    $core.String? outAccInvCode,
+    $core.String? setProductCode,
+    $core.int? lineNo,
+    $core.String? productCode,
+    $core.String? productName,
+    $core.String? specification,
+    $core.String? unitCode,
+    $core.String? unitName,
+    $3.Decimal? packingQty,
+    $3.Decimal? caseQty,
+    $3.Decimal? inOutQty,
+    $core.bool? isLOT,
+    $core.String? lotID,
+    $core.String? dateType,
+    $2.Timestamp? lotDate,
+    $core.String? lotNotes,
+    $core.int? warPeriod,
+    $core.int? periodFlag,
+    $core.bool? isMultiLOT,
+    $core.Iterable<grpcLotDetailModel>? lotDetails,
+    $core.String? notes,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costUnitPriceEx,
+    $3.Decimal? costAmount,
+    $3.Decimal? costAmountEx,
+    $core.String? debAccID,
+    $core.int? debAccObjectType,
+    $core.String? debAccObjectID,
+    $core.String? creAccID,
+    $core.int? creAccObjectType,
+    $core.String? creAccObjectID,
+    $core.String? recordNo,
+    $core.int? updMode,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (accBookType != null) {
+      $result.accBookType = accBookType;
+    }
+    if (closeDate != null) {
+      $result.closeDate = closeDate;
+    }
+    if (deptCode != null) {
+      $result.deptCode = deptCode;
+    }
+    if (inInvDeptCode != null) {
+      $result.inInvDeptCode = inInvDeptCode;
+    }
+    if (outInvDeptCode != null) {
+      $result.outInvDeptCode = outInvDeptCode;
+    }
+    if (staffID != null) {
+      $result.staffID = staffID;
+    }
+    if (voucherCode != null) {
+      $result.voucherCode = voucherCode;
+    }
+    if (invMacNo != null) {
+      $result.invMacNo = invMacNo;
+    }
+    if (invMacDate != null) {
+      $result.invMacDate = invMacDate;
+    }
+    if (macType != null) {
+      $result.macType = macType;
+    }
+    if (inInvCode != null) {
+      $result.inInvCode = inInvCode;
+    }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
+    }
+    if (outInvCode != null) {
+      $result.outInvCode = outInvCode;
+    }
+    if (outAccInvCode != null) {
+      $result.outAccInvCode = outAccInvCode;
+    }
+    if (setProductCode != null) {
+      $result.setProductCode = setProductCode;
+    }
+    if (lineNo != null) {
+      $result.lineNo = lineNo;
+    }
+    if (productCode != null) {
+      $result.productCode = productCode;
+    }
+    if (productName != null) {
+      $result.productName = productName;
+    }
+    if (specification != null) {
+      $result.specification = specification;
+    }
+    if (unitCode != null) {
+      $result.unitCode = unitCode;
+    }
+    if (unitName != null) {
+      $result.unitName = unitName;
+    }
+    if (packingQty != null) {
+      $result.packingQty = packingQty;
+    }
+    if (caseQty != null) {
+      $result.caseQty = caseQty;
+    }
+    if (inOutQty != null) {
+      $result.inOutQty = inOutQty;
+    }
+    if (isLOT != null) {
+      $result.isLOT = isLOT;
+    }
+    if (lotID != null) {
+      $result.lotID = lotID;
+    }
+    if (dateType != null) {
+      $result.dateType = dateType;
+    }
+    if (lotDate != null) {
+      $result.lotDate = lotDate;
+    }
+    if (lotNotes != null) {
+      $result.lotNotes = lotNotes;
+    }
+    if (warPeriod != null) {
+      $result.warPeriod = warPeriod;
+    }
+    if (periodFlag != null) {
+      $result.periodFlag = periodFlag;
+    }
+    if (isMultiLOT != null) {
+      $result.isMultiLOT = isMultiLOT;
+    }
+    if (lotDetails != null) {
+      $result.lotDetails.addAll(lotDetails);
+    }
+    if (notes != null) {
+      $result.notes = notes;
+    }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costUnitPriceEx != null) {
+      $result.costUnitPriceEx = costUnitPriceEx;
+    }
+    if (costAmount != null) {
+      $result.costAmount = costAmount;
+    }
+    if (costAmountEx != null) {
+      $result.costAmountEx = costAmountEx;
+    }
+    if (debAccID != null) {
+      $result.debAccID = debAccID;
+    }
+    if (debAccObjectType != null) {
+      $result.debAccObjectType = debAccObjectType;
+    }
+    if (debAccObjectID != null) {
+      $result.debAccObjectID = debAccObjectID;
+    }
+    if (creAccID != null) {
+      $result.creAccID = creAccID;
+    }
+    if (creAccObjectType != null) {
+      $result.creAccObjectType = creAccObjectType;
+    }
+    if (creAccObjectID != null) {
+      $result.creAccObjectID = creAccObjectID;
+    }
+    if (recordNo != null) {
+      $result.recordNo = recordNo;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
+    }
+    return $result;
+  }
+  grpcInvMacDetailModel._() : super();
+  factory grpcInvMacDetailModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcInvMacDetailModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcInvMacDetailModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'AccBookType', $pb.PbFieldType.O3, protoName: 'AccBookType')
+    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
+    ..aOS(4, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
+    ..aOS(5, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
+    ..aOS(6, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
+    ..aOS(7, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(8, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
+    ..aOS(9, _omitFieldNames ? '' : 'InvMacNo', protoName: 'InvMacNo')
+    ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'InvMacDate', protoName: 'InvMacDate', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'MacType', $pb.PbFieldType.O3, protoName: 'MacType')
+    ..aOS(12, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
+    ..aOS(13, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..aOS(14, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
+    ..aOS(15, _omitFieldNames ? '' : 'OutAccInvCode', protoName: 'OutAccInvCode')
+    ..aOS(16, _omitFieldNames ? '' : 'SetProductCode', protoName: 'SetProductCode')
+    ..a<$core.int>(17, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
+    ..aOS(18, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(19, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
+    ..aOS(20, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(21, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(22, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$3.Decimal>(23, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(24, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(25, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
+    ..aOB(26, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
+    ..aOS(27, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
+    ..aOS(28, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
+    ..aOM<$2.Timestamp>(29, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
+    ..aOS(30, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
+    ..a<$core.int>(31, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
+    ..a<$core.int>(32, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
+    ..aOB(33, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
+    ..pc<grpcLotDetailModel>(34, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
+    ..aOS(35, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..aOM<$3.Decimal>(36, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(37, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(38, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(39, _omitFieldNames ? '' : 'CostAmountEx', protoName: 'CostAmountEx', subBuilder: $3.Decimal.create)
+    ..aOS(40, _omitFieldNames ? '' : 'DebAccID', protoName: 'DebAccID')
+    ..a<$core.int>(41, _omitFieldNames ? '' : 'DebAccObjectType', $pb.PbFieldType.O3, protoName: 'DebAccObjectType')
+    ..aOS(42, _omitFieldNames ? '' : 'DebAccObjectID', protoName: 'DebAccObjectID')
+    ..aOS(43, _omitFieldNames ? '' : 'CreAccID', protoName: 'CreAccID')
+    ..a<$core.int>(44, _omitFieldNames ? '' : 'CreAccObjectType', $pb.PbFieldType.O3, protoName: 'CreAccObjectType')
+    ..aOS(45, _omitFieldNames ? '' : 'CreAccObjectID', protoName: 'CreAccObjectID')
+    ..aOS(46, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
+    ..a<$core.int>(47, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcInvMacDetailModel clone() => grpcInvMacDetailModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcInvMacDetailModel copyWith(void Function(grpcInvMacDetailModel) updates) => super.copyWith((message) => updates(message as grpcInvMacDetailModel)) as grpcInvMacDetailModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcInvMacDetailModel create() => grpcInvMacDetailModel._();
+  grpcInvMacDetailModel createEmptyInstance() => create();
+  static $pb.PbList<grpcInvMacDetailModel> createRepeated() => $pb.PbList<grpcInvMacDetailModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcInvMacDetailModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcInvMacDetailModel>(create);
+  static grpcInvMacDetailModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get accBookType => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set accBookType($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasAccBookType() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAccBookType() => clearField(2);
 
   @$pb.TagNumber(3)
   $2.Timestamp get closeDate => $_getN(2);
@@ -11013,13 +12039,13 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   void clearInInvCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get inInvName => $_getSZ(12);
+  $core.String get inAccInvCode => $_getSZ(12);
   @$pb.TagNumber(13)
-  set inInvName($core.String v) { $_setString(12, v); }
+  set inAccInvCode($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasInInvName() => $_has(12);
+  $core.bool hasInAccInvCode() => $_has(12);
   @$pb.TagNumber(13)
-  void clearInInvName() => clearField(13);
+  void clearInAccInvCode() => clearField(13);
 
   @$pb.TagNumber(14)
   $core.String get outInvCode => $_getSZ(13);
@@ -11031,13 +12057,13 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   void clearOutInvCode() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get outInvName => $_getSZ(14);
+  $core.String get outAccInvCode => $_getSZ(14);
   @$pb.TagNumber(15)
-  set outInvName($core.String v) { $_setString(14, v); }
+  set outAccInvCode($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasOutInvName() => $_has(14);
+  $core.bool hasOutAccInvCode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearOutInvName() => clearField(15);
+  void clearOutAccInvCode() => clearField(15);
 
   @$pb.TagNumber(16)
   $core.String get setProductCode => $_getSZ(15);
@@ -11049,911 +12075,293 @@ class grpcInvMacHeaderModel extends $pb.GeneratedMessage {
   void clearSetProductCode() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get setProductName => $_getSZ(16);
+  $core.int get lineNo => $_getIZ(16);
   @$pb.TagNumber(17)
-  set setProductName($core.String v) { $_setString(16, v); }
+  set lineNo($core.int v) { $_setSignedInt32(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasSetProductName() => $_has(16);
+  $core.bool hasLineNo() => $_has(16);
   @$pb.TagNumber(17)
-  void clearSetProductName() => clearField(17);
+  void clearLineNo() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.String get specification => $_getSZ(17);
+  $core.String get productCode => $_getSZ(17);
   @$pb.TagNumber(18)
-  set specification($core.String v) { $_setString(17, v); }
+  set productCode($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasSpecification() => $_has(17);
+  $core.bool hasProductCode() => $_has(17);
   @$pb.TagNumber(18)
-  void clearSpecification() => clearField(18);
+  void clearProductCode() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.String get unitCode => $_getSZ(18);
+  $core.String get productName => $_getSZ(18);
   @$pb.TagNumber(19)
-  set unitCode($core.String v) { $_setString(18, v); }
+  set productName($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasUnitCode() => $_has(18);
+  $core.bool hasProductName() => $_has(18);
   @$pb.TagNumber(19)
-  void clearUnitCode() => clearField(19);
+  void clearProductName() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.String get unitName => $_getSZ(19);
+  $core.String get specification => $_getSZ(19);
   @$pb.TagNumber(20)
-  set unitName($core.String v) { $_setString(19, v); }
+  set specification($core.String v) { $_setString(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasUnitName() => $_has(19);
+  $core.bool hasSpecification() => $_has(19);
   @$pb.TagNumber(20)
-  void clearUnitName() => clearField(20);
+  void clearSpecification() => clearField(20);
 
   @$pb.TagNumber(21)
-  $3.Decimal get setQty => $_getN(20);
+  $core.String get unitCode => $_getSZ(20);
   @$pb.TagNumber(21)
-  set setQty($3.Decimal v) { setField(21, v); }
+  set unitCode($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasSetQty() => $_has(20);
+  $core.bool hasUnitCode() => $_has(20);
   @$pb.TagNumber(21)
-  void clearSetQty() => clearField(21);
-  @$pb.TagNumber(21)
-  $3.Decimal ensureSetQty() => $_ensure(20);
+  void clearUnitCode() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.String get lotID => $_getSZ(21);
+  $core.String get unitName => $_getSZ(21);
   @$pb.TagNumber(22)
-  set lotID($core.String v) { $_setString(21, v); }
+  set unitName($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasLotID() => $_has(21);
+  $core.bool hasUnitName() => $_has(21);
   @$pb.TagNumber(22)
-  void clearLotID() => clearField(22);
+  void clearUnitName() => clearField(22);
 
   @$pb.TagNumber(23)
-  $core.bool get isLOT => $_getBF(22);
+  $3.Decimal get packingQty => $_getN(22);
   @$pb.TagNumber(23)
-  set isLOT($core.bool v) { $_setBool(22, v); }
+  set packingQty($3.Decimal v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasIsLOT() => $_has(22);
+  $core.bool hasPackingQty() => $_has(22);
   @$pb.TagNumber(23)
-  void clearIsLOT() => clearField(23);
+  void clearPackingQty() => clearField(23);
+  @$pb.TagNumber(23)
+  $3.Decimal ensurePackingQty() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $core.String get dateType => $_getSZ(23);
+  $3.Decimal get caseQty => $_getN(23);
   @$pb.TagNumber(24)
-  set dateType($core.String v) { $_setString(23, v); }
+  set caseQty($3.Decimal v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasDateType() => $_has(23);
+  $core.bool hasCaseQty() => $_has(23);
   @$pb.TagNumber(24)
-  void clearDateType() => clearField(24);
+  void clearCaseQty() => clearField(24);
+  @$pb.TagNumber(24)
+  $3.Decimal ensureCaseQty() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $2.Timestamp get lotDate => $_getN(24);
+  $3.Decimal get inOutQty => $_getN(24);
   @$pb.TagNumber(25)
-  set lotDate($2.Timestamp v) { setField(25, v); }
+  set inOutQty($3.Decimal v) { setField(25, v); }
   @$pb.TagNumber(25)
-  $core.bool hasLotDate() => $_has(24);
+  $core.bool hasInOutQty() => $_has(24);
   @$pb.TagNumber(25)
-  void clearLotDate() => clearField(25);
+  void clearInOutQty() => clearField(25);
   @$pb.TagNumber(25)
-  $2.Timestamp ensureLotDate() => $_ensure(24);
+  $3.Decimal ensureInOutQty() => $_ensure(24);
 
   @$pb.TagNumber(26)
-  $core.String get lotNotes => $_getSZ(25);
+  $core.bool get isLOT => $_getBF(25);
   @$pb.TagNumber(26)
-  set lotNotes($core.String v) { $_setString(25, v); }
+  set isLOT($core.bool v) { $_setBool(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasLotNotes() => $_has(25);
+  $core.bool hasIsLOT() => $_has(25);
   @$pb.TagNumber(26)
-  void clearLotNotes() => clearField(26);
+  void clearIsLOT() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.String get notes => $_getSZ(26);
+  $core.String get lotID => $_getSZ(26);
   @$pb.TagNumber(27)
-  set notes($core.String v) { $_setString(26, v); }
+  set lotID($core.String v) { $_setString(26, v); }
   @$pb.TagNumber(27)
-  $core.bool hasNotes() => $_has(26);
+  $core.bool hasLotID() => $_has(26);
   @$pb.TagNumber(27)
-  void clearNotes() => clearField(27);
+  void clearLotID() => clearField(27);
 
   @$pb.TagNumber(28)
-  $3.Decimal get costUnitPrice => $_getN(27);
+  $core.String get dateType => $_getSZ(27);
   @$pb.TagNumber(28)
-  set costUnitPrice($3.Decimal v) { setField(28, v); }
+  set dateType($core.String v) { $_setString(27, v); }
   @$pb.TagNumber(28)
-  $core.bool hasCostUnitPrice() => $_has(27);
+  $core.bool hasDateType() => $_has(27);
   @$pb.TagNumber(28)
-  void clearCostUnitPrice() => clearField(28);
-  @$pb.TagNumber(28)
-  $3.Decimal ensureCostUnitPrice() => $_ensure(27);
+  void clearDateType() => clearField(28);
 
   @$pb.TagNumber(29)
-  $3.Decimal get costAmount => $_getN(28);
+  $2.Timestamp get lotDate => $_getN(28);
   @$pb.TagNumber(29)
-  set costAmount($3.Decimal v) { setField(29, v); }
+  set lotDate($2.Timestamp v) { setField(29, v); }
   @$pb.TagNumber(29)
-  $core.bool hasCostAmount() => $_has(28);
+  $core.bool hasLotDate() => $_has(28);
   @$pb.TagNumber(29)
-  void clearCostAmount() => clearField(29);
+  void clearLotDate() => clearField(29);
   @$pb.TagNumber(29)
-  $3.Decimal ensureCostAmount() => $_ensure(28);
+  $2.Timestamp ensureLotDate() => $_ensure(28);
 
   @$pb.TagNumber(30)
-  $core.String get debAccID => $_getSZ(29);
+  $core.String get lotNotes => $_getSZ(29);
   @$pb.TagNumber(30)
-  set debAccID($core.String v) { $_setString(29, v); }
+  set lotNotes($core.String v) { $_setString(29, v); }
   @$pb.TagNumber(30)
-  $core.bool hasDebAccID() => $_has(29);
+  $core.bool hasLotNotes() => $_has(29);
   @$pb.TagNumber(30)
-  void clearDebAccID() => clearField(30);
+  void clearLotNotes() => clearField(30);
 
   @$pb.TagNumber(31)
-  $core.int get debAccObjectType => $_getIZ(30);
+  $core.int get warPeriod => $_getIZ(30);
   @$pb.TagNumber(31)
-  set debAccObjectType($core.int v) { $_setSignedInt32(30, v); }
+  set warPeriod($core.int v) { $_setSignedInt32(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasDebAccObjectType() => $_has(30);
+  $core.bool hasWarPeriod() => $_has(30);
   @$pb.TagNumber(31)
-  void clearDebAccObjectType() => clearField(31);
+  void clearWarPeriod() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.String get debAccObjectID => $_getSZ(31);
+  $core.int get periodFlag => $_getIZ(31);
   @$pb.TagNumber(32)
-  set debAccObjectID($core.String v) { $_setString(31, v); }
+  set periodFlag($core.int v) { $_setSignedInt32(31, v); }
   @$pb.TagNumber(32)
-  $core.bool hasDebAccObjectID() => $_has(31);
+  $core.bool hasPeriodFlag() => $_has(31);
   @$pb.TagNumber(32)
-  void clearDebAccObjectID() => clearField(32);
+  void clearPeriodFlag() => clearField(32);
 
   @$pb.TagNumber(33)
-  $core.String get creAccID => $_getSZ(32);
+  $core.bool get isMultiLOT => $_getBF(32);
   @$pb.TagNumber(33)
-  set creAccID($core.String v) { $_setString(32, v); }
+  set isMultiLOT($core.bool v) { $_setBool(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasCreAccID() => $_has(32);
+  $core.bool hasIsMultiLOT() => $_has(32);
   @$pb.TagNumber(33)
-  void clearCreAccID() => clearField(33);
+  void clearIsMultiLOT() => clearField(33);
 
   @$pb.TagNumber(34)
-  $core.int get creAccObjectType => $_getIZ(33);
-  @$pb.TagNumber(34)
-  set creAccObjectType($core.int v) { $_setSignedInt32(33, v); }
-  @$pb.TagNumber(34)
-  $core.bool hasCreAccObjectType() => $_has(33);
-  @$pb.TagNumber(34)
-  void clearCreAccObjectType() => clearField(34);
+  $core.List<grpcLotDetailModel> get lotDetails => $_getList(33);
 
   @$pb.TagNumber(35)
-  $core.String get creAccObjectID => $_getSZ(34);
+  $core.String get notes => $_getSZ(34);
   @$pb.TagNumber(35)
-  set creAccObjectID($core.String v) { $_setString(34, v); }
+  set notes($core.String v) { $_setString(34, v); }
   @$pb.TagNumber(35)
-  $core.bool hasCreAccObjectID() => $_has(34);
+  $core.bool hasNotes() => $_has(34);
   @$pb.TagNumber(35)
-  void clearCreAccObjectID() => clearField(35);
+  void clearNotes() => clearField(35);
 
   @$pb.TagNumber(36)
-  $core.int get updMode => $_getIZ(35);
+  $3.Decimal get costUnitPrice => $_getN(35);
   @$pb.TagNumber(36)
-  set updMode($core.int v) { $_setSignedInt32(35, v); }
+  set costUnitPrice($3.Decimal v) { setField(36, v); }
   @$pb.TagNumber(36)
-  $core.bool hasUpdMode() => $_has(35);
+  $core.bool hasCostUnitPrice() => $_has(35);
   @$pb.TagNumber(36)
-  void clearUpdMode() => clearField(36);
+  void clearCostUnitPrice() => clearField(36);
+  @$pb.TagNumber(36)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(35);
 
   @$pb.TagNumber(37)
-  $core.int get updCount => $_getIZ(36);
+  $3.Decimal get costUnitPriceEx => $_getN(36);
   @$pb.TagNumber(37)
-  set updCount($core.int v) { $_setSignedInt32(36, v); }
+  set costUnitPriceEx($3.Decimal v) { setField(37, v); }
   @$pb.TagNumber(37)
-  $core.bool hasUpdCount() => $_has(36);
+  $core.bool hasCostUnitPriceEx() => $_has(36);
   @$pb.TagNumber(37)
-  void clearUpdCount() => clearField(37);
+  void clearCostUnitPriceEx() => clearField(37);
+  @$pb.TagNumber(37)
+  $3.Decimal ensureCostUnitPriceEx() => $_ensure(36);
 
   @$pb.TagNumber(38)
-  $core.String get updTransactionID => $_getSZ(37);
+  $3.Decimal get costAmount => $_getN(37);
   @$pb.TagNumber(38)
-  set updTransactionID($core.String v) { $_setString(37, v); }
+  set costAmount($3.Decimal v) { setField(38, v); }
   @$pb.TagNumber(38)
-  $core.bool hasUpdTransactionID() => $_has(37);
+  $core.bool hasCostAmount() => $_has(37);
   @$pb.TagNumber(38)
-  void clearUpdTransactionID() => clearField(38);
+  void clearCostAmount() => clearField(38);
+  @$pb.TagNumber(38)
+  $3.Decimal ensureCostAmount() => $_ensure(37);
 
   @$pb.TagNumber(39)
-  $core.String get updAccountID => $_getSZ(38);
+  $3.Decimal get costAmountEx => $_getN(38);
   @$pb.TagNumber(39)
-  set updAccountID($core.String v) { $_setString(38, v); }
+  set costAmountEx($3.Decimal v) { setField(39, v); }
   @$pb.TagNumber(39)
-  $core.bool hasUpdAccountID() => $_has(38);
+  $core.bool hasCostAmountEx() => $_has(38);
   @$pb.TagNumber(39)
-  void clearUpdAccountID() => clearField(39);
+  void clearCostAmountEx() => clearField(39);
+  @$pb.TagNumber(39)
+  $3.Decimal ensureCostAmountEx() => $_ensure(38);
 
   @$pb.TagNumber(40)
-  $2.Timestamp get updDateTime => $_getN(39);
+  $core.String get debAccID => $_getSZ(39);
   @$pb.TagNumber(40)
-  set updDateTime($2.Timestamp v) { setField(40, v); }
+  set debAccID($core.String v) { $_setString(39, v); }
   @$pb.TagNumber(40)
-  $core.bool hasUpdDateTime() => $_has(39);
+  $core.bool hasDebAccID() => $_has(39);
   @$pb.TagNumber(40)
-  void clearUpdDateTime() => clearField(40);
-  @$pb.TagNumber(40)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(39);
+  void clearDebAccID() => clearField(40);
 
   @$pb.TagNumber(41)
-  $2.Timestamp get crtDateTime => $_getN(40);
+  $core.int get debAccObjectType => $_getIZ(40);
   @$pb.TagNumber(41)
-  set crtDateTime($2.Timestamp v) { setField(41, v); }
+  set debAccObjectType($core.int v) { $_setSignedInt32(40, v); }
   @$pb.TagNumber(41)
-  $core.bool hasCrtDateTime() => $_has(40);
+  $core.bool hasDebAccObjectType() => $_has(40);
   @$pb.TagNumber(41)
-  void clearCrtDateTime() => clearField(41);
-  @$pb.TagNumber(41)
-  $2.Timestamp ensureCrtDateTime() => $_ensure(40);
+  void clearDebAccObjectType() => clearField(41);
 
   @$pb.TagNumber(42)
-  $core.String get reason => $_getSZ(41);
+  $core.String get debAccObjectID => $_getSZ(41);
   @$pb.TagNumber(42)
-  set reason($core.String v) { $_setString(41, v); }
+  set debAccObjectID($core.String v) { $_setString(41, v); }
   @$pb.TagNumber(42)
-  $core.bool hasReason() => $_has(41);
+  $core.bool hasDebAccObjectID() => $_has(41);
   @$pb.TagNumber(42)
-  void clearReason() => clearField(42);
+  void clearDebAccObjectID() => clearField(42);
 
   @$pb.TagNumber(43)
-  $core.String get accStaffID => $_getSZ(42);
+  $core.String get creAccID => $_getSZ(42);
   @$pb.TagNumber(43)
-  set accStaffID($core.String v) { $_setString(42, v); }
+  set creAccID($core.String v) { $_setString(42, v); }
   @$pb.TagNumber(43)
-  $core.bool hasAccStaffID() => $_has(42);
+  $core.bool hasCreAccID() => $_has(42);
   @$pb.TagNumber(43)
-  void clearAccStaffID() => clearField(43);
+  void clearCreAccID() => clearField(43);
 
   @$pb.TagNumber(44)
-  $core.String get accNotes => $_getSZ(43);
+  $core.int get creAccObjectType => $_getIZ(43);
   @$pb.TagNumber(44)
-  set accNotes($core.String v) { $_setString(43, v); }
+  set creAccObjectType($core.int v) { $_setSignedInt32(43, v); }
   @$pb.TagNumber(44)
-  $core.bool hasAccNotes() => $_has(43);
+  $core.bool hasCreAccObjectType() => $_has(43);
   @$pb.TagNumber(44)
-  void clearAccNotes() => clearField(44);
+  void clearCreAccObjectType() => clearField(44);
 
   @$pb.TagNumber(45)
-  $core.bool get accUpdateDone => $_getBF(44);
+  $core.String get creAccObjectID => $_getSZ(44);
   @$pb.TagNumber(45)
-  set accUpdateDone($core.bool v) { $_setBool(44, v); }
+  set creAccObjectID($core.String v) { $_setString(44, v); }
   @$pb.TagNumber(45)
-  $core.bool hasAccUpdateDone() => $_has(44);
+  $core.bool hasCreAccObjectID() => $_has(44);
   @$pb.TagNumber(45)
-  void clearAccUpdateDone() => clearField(45);
-}
+  void clearCreAccObjectID() => clearField(45);
 
-class grpcInvMacDetailModel extends $pb.GeneratedMessage {
-  factory grpcInvMacDetailModel({
-    $core.String? iD,
-    $2.Timestamp? closeDate,
-    $core.String? deptCode,
-    $core.String? inInvDeptCode,
-    $core.String? outInvDeptCode,
-    $core.String? staffID,
-    $core.String? voucherCode,
-    $core.String? invMacNo,
-    $2.Timestamp? invMacDate,
-    $core.int? macType,
-    $core.String? inInvCode,
-    $core.String? outInvCode,
-    $core.String? setProductCode,
-    $core.int? lineNo,
-    $core.String? productCode,
-    $core.String? productName,
-    $core.String? specification,
-    $core.String? unitCode,
-    $core.String? unitName,
-    $3.Decimal? packingQty,
-    $3.Decimal? caseQty,
-    $3.Decimal? inOutQty,
-    $core.bool? isLOT,
-    $core.String? lotID,
-    $core.String? dateType,
-    $2.Timestamp? lotDate,
-    $core.String? lotNotes,
-    $core.int? warPeriod,
-    $core.int? periodFlag,
-    $core.bool? isMultiLOT,
-    $core.Iterable<grpcLotDetailModel>? lotDetails,
-    $core.String? notes,
-    $3.Decimal? costUnitPrice,
-    $3.Decimal? costAmount,
-    $core.String? debAccID,
-    $core.int? debAccObjectType,
-    $core.String? debAccObjectID,
-    $core.String? creAccID,
-    $core.int? creAccObjectType,
-    $core.String? creAccObjectID,
-    $core.String? recordNo,
-    $core.int? updMode,
-  }) {
-    final $result = create();
-    if (iD != null) {
-      $result.iD = iD;
-    }
-    if (closeDate != null) {
-      $result.closeDate = closeDate;
-    }
-    if (deptCode != null) {
-      $result.deptCode = deptCode;
-    }
-    if (inInvDeptCode != null) {
-      $result.inInvDeptCode = inInvDeptCode;
-    }
-    if (outInvDeptCode != null) {
-      $result.outInvDeptCode = outInvDeptCode;
-    }
-    if (staffID != null) {
-      $result.staffID = staffID;
-    }
-    if (voucherCode != null) {
-      $result.voucherCode = voucherCode;
-    }
-    if (invMacNo != null) {
-      $result.invMacNo = invMacNo;
-    }
-    if (invMacDate != null) {
-      $result.invMacDate = invMacDate;
-    }
-    if (macType != null) {
-      $result.macType = macType;
-    }
-    if (inInvCode != null) {
-      $result.inInvCode = inInvCode;
-    }
-    if (outInvCode != null) {
-      $result.outInvCode = outInvCode;
-    }
-    if (setProductCode != null) {
-      $result.setProductCode = setProductCode;
-    }
-    if (lineNo != null) {
-      $result.lineNo = lineNo;
-    }
-    if (productCode != null) {
-      $result.productCode = productCode;
-    }
-    if (productName != null) {
-      $result.productName = productName;
-    }
-    if (specification != null) {
-      $result.specification = specification;
-    }
-    if (unitCode != null) {
-      $result.unitCode = unitCode;
-    }
-    if (unitName != null) {
-      $result.unitName = unitName;
-    }
-    if (packingQty != null) {
-      $result.packingQty = packingQty;
-    }
-    if (caseQty != null) {
-      $result.caseQty = caseQty;
-    }
-    if (inOutQty != null) {
-      $result.inOutQty = inOutQty;
-    }
-    if (isLOT != null) {
-      $result.isLOT = isLOT;
-    }
-    if (lotID != null) {
-      $result.lotID = lotID;
-    }
-    if (dateType != null) {
-      $result.dateType = dateType;
-    }
-    if (lotDate != null) {
-      $result.lotDate = lotDate;
-    }
-    if (lotNotes != null) {
-      $result.lotNotes = lotNotes;
-    }
-    if (warPeriod != null) {
-      $result.warPeriod = warPeriod;
-    }
-    if (periodFlag != null) {
-      $result.periodFlag = periodFlag;
-    }
-    if (isMultiLOT != null) {
-      $result.isMultiLOT = isMultiLOT;
-    }
-    if (lotDetails != null) {
-      $result.lotDetails.addAll(lotDetails);
-    }
-    if (notes != null) {
-      $result.notes = notes;
-    }
-    if (costUnitPrice != null) {
-      $result.costUnitPrice = costUnitPrice;
-    }
-    if (costAmount != null) {
-      $result.costAmount = costAmount;
-    }
-    if (debAccID != null) {
-      $result.debAccID = debAccID;
-    }
-    if (debAccObjectType != null) {
-      $result.debAccObjectType = debAccObjectType;
-    }
-    if (debAccObjectID != null) {
-      $result.debAccObjectID = debAccObjectID;
-    }
-    if (creAccID != null) {
-      $result.creAccID = creAccID;
-    }
-    if (creAccObjectType != null) {
-      $result.creAccObjectType = creAccObjectType;
-    }
-    if (creAccObjectID != null) {
-      $result.creAccObjectID = creAccObjectID;
-    }
-    if (recordNo != null) {
-      $result.recordNo = recordNo;
-    }
-    if (updMode != null) {
-      $result.updMode = updMode;
-    }
-    return $result;
-  }
-  grpcInvMacDetailModel._() : super();
-  factory grpcInvMacDetailModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory grpcInvMacDetailModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$pb.TagNumber(46)
+  $core.String get recordNo => $_getSZ(45);
+  @$pb.TagNumber(46)
+  set recordNo($core.String v) { $_setString(45, v); }
+  @$pb.TagNumber(46)
+  $core.bool hasRecordNo() => $_has(45);
+  @$pb.TagNumber(46)
+  void clearRecordNo() => clearField(46);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcInvMacDetailModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
-    ..aOS(3, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
-    ..aOS(4, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
-    ..aOS(5, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
-    ..aOS(6, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
-    ..aOS(7, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
-    ..aOS(8, _omitFieldNames ? '' : 'InvMacNo', protoName: 'InvMacNo')
-    ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'InvMacDate', protoName: 'InvMacDate', subBuilder: $2.Timestamp.create)
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'MacType', $pb.PbFieldType.O3, protoName: 'MacType')
-    ..aOS(11, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..aOS(12, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
-    ..aOS(13, _omitFieldNames ? '' : 'SetProductCode', protoName: 'SetProductCode')
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
-    ..aOS(15, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(16, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
-    ..aOS(17, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(18, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(19, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$3.Decimal>(20, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(21, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(22, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
-    ..aOB(23, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
-    ..aOS(24, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
-    ..aOS(25, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
-    ..aOM<$2.Timestamp>(26, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
-    ..aOS(27, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
-    ..a<$core.int>(28, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
-    ..a<$core.int>(29, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
-    ..aOB(30, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
-    ..pc<grpcLotDetailModel>(31, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
-    ..aOS(32, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOM<$3.Decimal>(33, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(34, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
-    ..aOS(35, _omitFieldNames ? '' : 'DebAccID', protoName: 'DebAccID')
-    ..a<$core.int>(36, _omitFieldNames ? '' : 'DebAccObjectType', $pb.PbFieldType.O3, protoName: 'DebAccObjectType')
-    ..aOS(37, _omitFieldNames ? '' : 'DebAccObjectID', protoName: 'DebAccObjectID')
-    ..aOS(38, _omitFieldNames ? '' : 'CreAccID', protoName: 'CreAccID')
-    ..a<$core.int>(39, _omitFieldNames ? '' : 'CreAccObjectType', $pb.PbFieldType.O3, protoName: 'CreAccObjectType')
-    ..aOS(40, _omitFieldNames ? '' : 'CreAccObjectID', protoName: 'CreAccObjectID')
-    ..aOS(41, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
-    ..a<$core.int>(42, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  grpcInvMacDetailModel clone() => grpcInvMacDetailModel()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  grpcInvMacDetailModel copyWith(void Function(grpcInvMacDetailModel) updates) => super.copyWith((message) => updates(message as grpcInvMacDetailModel)) as grpcInvMacDetailModel;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static grpcInvMacDetailModel create() => grpcInvMacDetailModel._();
-  grpcInvMacDetailModel createEmptyInstance() => create();
-  static $pb.PbList<grpcInvMacDetailModel> createRepeated() => $pb.PbList<grpcInvMacDetailModel>();
-  @$core.pragma('dart2js:noInline')
-  static grpcInvMacDetailModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcInvMacDetailModel>(create);
-  static grpcInvMacDetailModel? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get iD => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set iD($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasID() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearID() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $2.Timestamp get closeDate => $_getN(1);
-  @$pb.TagNumber(2)
-  set closeDate($2.Timestamp v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasCloseDate() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearCloseDate() => clearField(2);
-  @$pb.TagNumber(2)
-  $2.Timestamp ensureCloseDate() => $_ensure(1);
-
-  @$pb.TagNumber(3)
-  $core.String get deptCode => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set deptCode($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasDeptCode() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearDeptCode() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get inInvDeptCode => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set inInvDeptCode($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasInInvDeptCode() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearInInvDeptCode() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get outInvDeptCode => $_getSZ(4);
-  @$pb.TagNumber(5)
-  set outInvDeptCode($core.String v) { $_setString(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasOutInvDeptCode() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearOutInvDeptCode() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get staffID => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set staffID($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasStaffID() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearStaffID() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get voucherCode => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set voucherCode($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasVoucherCode() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearVoucherCode() => clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.String get invMacNo => $_getSZ(7);
-  @$pb.TagNumber(8)
-  set invMacNo($core.String v) { $_setString(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasInvMacNo() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearInvMacNo() => clearField(8);
-
-  @$pb.TagNumber(9)
-  $2.Timestamp get invMacDate => $_getN(8);
-  @$pb.TagNumber(9)
-  set invMacDate($2.Timestamp v) { setField(9, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasInvMacDate() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearInvMacDate() => clearField(9);
-  @$pb.TagNumber(9)
-  $2.Timestamp ensureInvMacDate() => $_ensure(8);
-
-  @$pb.TagNumber(10)
-  $core.int get macType => $_getIZ(9);
-  @$pb.TagNumber(10)
-  set macType($core.int v) { $_setSignedInt32(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasMacType() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearMacType() => clearField(10);
-
-  @$pb.TagNumber(11)
-  $core.String get inInvCode => $_getSZ(10);
-  @$pb.TagNumber(11)
-  set inInvCode($core.String v) { $_setString(10, v); }
-  @$pb.TagNumber(11)
-  $core.bool hasInInvCode() => $_has(10);
-  @$pb.TagNumber(11)
-  void clearInInvCode() => clearField(11);
-
-  @$pb.TagNumber(12)
-  $core.String get outInvCode => $_getSZ(11);
-  @$pb.TagNumber(12)
-  set outInvCode($core.String v) { $_setString(11, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasOutInvCode() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearOutInvCode() => clearField(12);
-
-  @$pb.TagNumber(13)
-  $core.String get setProductCode => $_getSZ(12);
-  @$pb.TagNumber(13)
-  set setProductCode($core.String v) { $_setString(12, v); }
-  @$pb.TagNumber(13)
-  $core.bool hasSetProductCode() => $_has(12);
-  @$pb.TagNumber(13)
-  void clearSetProductCode() => clearField(13);
-
-  @$pb.TagNumber(14)
-  $core.int get lineNo => $_getIZ(13);
-  @$pb.TagNumber(14)
-  set lineNo($core.int v) { $_setSignedInt32(13, v); }
-  @$pb.TagNumber(14)
-  $core.bool hasLineNo() => $_has(13);
-  @$pb.TagNumber(14)
-  void clearLineNo() => clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.String get productCode => $_getSZ(14);
-  @$pb.TagNumber(15)
-  set productCode($core.String v) { $_setString(14, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasProductCode() => $_has(14);
-  @$pb.TagNumber(15)
-  void clearProductCode() => clearField(15);
-
-  @$pb.TagNumber(16)
-  $core.String get productName => $_getSZ(15);
-  @$pb.TagNumber(16)
-  set productName($core.String v) { $_setString(15, v); }
-  @$pb.TagNumber(16)
-  $core.bool hasProductName() => $_has(15);
-  @$pb.TagNumber(16)
-  void clearProductName() => clearField(16);
-
-  @$pb.TagNumber(17)
-  $core.String get specification => $_getSZ(16);
-  @$pb.TagNumber(17)
-  set specification($core.String v) { $_setString(16, v); }
-  @$pb.TagNumber(17)
-  $core.bool hasSpecification() => $_has(16);
-  @$pb.TagNumber(17)
-  void clearSpecification() => clearField(17);
-
-  @$pb.TagNumber(18)
-  $core.String get unitCode => $_getSZ(17);
-  @$pb.TagNumber(18)
-  set unitCode($core.String v) { $_setString(17, v); }
-  @$pb.TagNumber(18)
-  $core.bool hasUnitCode() => $_has(17);
-  @$pb.TagNumber(18)
-  void clearUnitCode() => clearField(18);
-
-  @$pb.TagNumber(19)
-  $core.String get unitName => $_getSZ(18);
-  @$pb.TagNumber(19)
-  set unitName($core.String v) { $_setString(18, v); }
-  @$pb.TagNumber(19)
-  $core.bool hasUnitName() => $_has(18);
-  @$pb.TagNumber(19)
-  void clearUnitName() => clearField(19);
-
-  @$pb.TagNumber(20)
-  $3.Decimal get packingQty => $_getN(19);
-  @$pb.TagNumber(20)
-  set packingQty($3.Decimal v) { setField(20, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasPackingQty() => $_has(19);
-  @$pb.TagNumber(20)
-  void clearPackingQty() => clearField(20);
-  @$pb.TagNumber(20)
-  $3.Decimal ensurePackingQty() => $_ensure(19);
-
-  @$pb.TagNumber(21)
-  $3.Decimal get caseQty => $_getN(20);
-  @$pb.TagNumber(21)
-  set caseQty($3.Decimal v) { setField(21, v); }
-  @$pb.TagNumber(21)
-  $core.bool hasCaseQty() => $_has(20);
-  @$pb.TagNumber(21)
-  void clearCaseQty() => clearField(21);
-  @$pb.TagNumber(21)
-  $3.Decimal ensureCaseQty() => $_ensure(20);
-
-  @$pb.TagNumber(22)
-  $3.Decimal get inOutQty => $_getN(21);
-  @$pb.TagNumber(22)
-  set inOutQty($3.Decimal v) { setField(22, v); }
-  @$pb.TagNumber(22)
-  $core.bool hasInOutQty() => $_has(21);
-  @$pb.TagNumber(22)
-  void clearInOutQty() => clearField(22);
-  @$pb.TagNumber(22)
-  $3.Decimal ensureInOutQty() => $_ensure(21);
-
-  @$pb.TagNumber(23)
-  $core.bool get isLOT => $_getBF(22);
-  @$pb.TagNumber(23)
-  set isLOT($core.bool v) { $_setBool(22, v); }
-  @$pb.TagNumber(23)
-  $core.bool hasIsLOT() => $_has(22);
-  @$pb.TagNumber(23)
-  void clearIsLOT() => clearField(23);
-
-  @$pb.TagNumber(24)
-  $core.String get lotID => $_getSZ(23);
-  @$pb.TagNumber(24)
-  set lotID($core.String v) { $_setString(23, v); }
-  @$pb.TagNumber(24)
-  $core.bool hasLotID() => $_has(23);
-  @$pb.TagNumber(24)
-  void clearLotID() => clearField(24);
-
-  @$pb.TagNumber(25)
-  $core.String get dateType => $_getSZ(24);
-  @$pb.TagNumber(25)
-  set dateType($core.String v) { $_setString(24, v); }
-  @$pb.TagNumber(25)
-  $core.bool hasDateType() => $_has(24);
-  @$pb.TagNumber(25)
-  void clearDateType() => clearField(25);
-
-  @$pb.TagNumber(26)
-  $2.Timestamp get lotDate => $_getN(25);
-  @$pb.TagNumber(26)
-  set lotDate($2.Timestamp v) { setField(26, v); }
-  @$pb.TagNumber(26)
-  $core.bool hasLotDate() => $_has(25);
-  @$pb.TagNumber(26)
-  void clearLotDate() => clearField(26);
-  @$pb.TagNumber(26)
-  $2.Timestamp ensureLotDate() => $_ensure(25);
-
-  @$pb.TagNumber(27)
-  $core.String get lotNotes => $_getSZ(26);
-  @$pb.TagNumber(27)
-  set lotNotes($core.String v) { $_setString(26, v); }
-  @$pb.TagNumber(27)
-  $core.bool hasLotNotes() => $_has(26);
-  @$pb.TagNumber(27)
-  void clearLotNotes() => clearField(27);
-
-  @$pb.TagNumber(28)
-  $core.int get warPeriod => $_getIZ(27);
-  @$pb.TagNumber(28)
-  set warPeriod($core.int v) { $_setSignedInt32(27, v); }
-  @$pb.TagNumber(28)
-  $core.bool hasWarPeriod() => $_has(27);
-  @$pb.TagNumber(28)
-  void clearWarPeriod() => clearField(28);
-
-  @$pb.TagNumber(29)
-  $core.int get periodFlag => $_getIZ(28);
-  @$pb.TagNumber(29)
-  set periodFlag($core.int v) { $_setSignedInt32(28, v); }
-  @$pb.TagNumber(29)
-  $core.bool hasPeriodFlag() => $_has(28);
-  @$pb.TagNumber(29)
-  void clearPeriodFlag() => clearField(29);
-
-  @$pb.TagNumber(30)
-  $core.bool get isMultiLOT => $_getBF(29);
-  @$pb.TagNumber(30)
-  set isMultiLOT($core.bool v) { $_setBool(29, v); }
-  @$pb.TagNumber(30)
-  $core.bool hasIsMultiLOT() => $_has(29);
-  @$pb.TagNumber(30)
-  void clearIsMultiLOT() => clearField(30);
-
-  @$pb.TagNumber(31)
-  $core.List<grpcLotDetailModel> get lotDetails => $_getList(30);
-
-  @$pb.TagNumber(32)
-  $core.String get notes => $_getSZ(31);
-  @$pb.TagNumber(32)
-  set notes($core.String v) { $_setString(31, v); }
-  @$pb.TagNumber(32)
-  $core.bool hasNotes() => $_has(31);
-  @$pb.TagNumber(32)
-  void clearNotes() => clearField(32);
-
-  @$pb.TagNumber(33)
-  $3.Decimal get costUnitPrice => $_getN(32);
-  @$pb.TagNumber(33)
-  set costUnitPrice($3.Decimal v) { setField(33, v); }
-  @$pb.TagNumber(33)
-  $core.bool hasCostUnitPrice() => $_has(32);
-  @$pb.TagNumber(33)
-  void clearCostUnitPrice() => clearField(33);
-  @$pb.TagNumber(33)
-  $3.Decimal ensureCostUnitPrice() => $_ensure(32);
-
-  @$pb.TagNumber(34)
-  $3.Decimal get costAmount => $_getN(33);
-  @$pb.TagNumber(34)
-  set costAmount($3.Decimal v) { setField(34, v); }
-  @$pb.TagNumber(34)
-  $core.bool hasCostAmount() => $_has(33);
-  @$pb.TagNumber(34)
-  void clearCostAmount() => clearField(34);
-  @$pb.TagNumber(34)
-  $3.Decimal ensureCostAmount() => $_ensure(33);
-
-  @$pb.TagNumber(35)
-  $core.String get debAccID => $_getSZ(34);
-  @$pb.TagNumber(35)
-  set debAccID($core.String v) { $_setString(34, v); }
-  @$pb.TagNumber(35)
-  $core.bool hasDebAccID() => $_has(34);
-  @$pb.TagNumber(35)
-  void clearDebAccID() => clearField(35);
-
-  @$pb.TagNumber(36)
-  $core.int get debAccObjectType => $_getIZ(35);
-  @$pb.TagNumber(36)
-  set debAccObjectType($core.int v) { $_setSignedInt32(35, v); }
-  @$pb.TagNumber(36)
-  $core.bool hasDebAccObjectType() => $_has(35);
-  @$pb.TagNumber(36)
-  void clearDebAccObjectType() => clearField(36);
-
-  @$pb.TagNumber(37)
-  $core.String get debAccObjectID => $_getSZ(36);
-  @$pb.TagNumber(37)
-  set debAccObjectID($core.String v) { $_setString(36, v); }
-  @$pb.TagNumber(37)
-  $core.bool hasDebAccObjectID() => $_has(36);
-  @$pb.TagNumber(37)
-  void clearDebAccObjectID() => clearField(37);
-
-  @$pb.TagNumber(38)
-  $core.String get creAccID => $_getSZ(37);
-  @$pb.TagNumber(38)
-  set creAccID($core.String v) { $_setString(37, v); }
-  @$pb.TagNumber(38)
-  $core.bool hasCreAccID() => $_has(37);
-  @$pb.TagNumber(38)
-  void clearCreAccID() => clearField(38);
-
-  @$pb.TagNumber(39)
-  $core.int get creAccObjectType => $_getIZ(38);
-  @$pb.TagNumber(39)
-  set creAccObjectType($core.int v) { $_setSignedInt32(38, v); }
-  @$pb.TagNumber(39)
-  $core.bool hasCreAccObjectType() => $_has(38);
-  @$pb.TagNumber(39)
-  void clearCreAccObjectType() => clearField(39);
-
-  @$pb.TagNumber(40)
-  $core.String get creAccObjectID => $_getSZ(39);
-  @$pb.TagNumber(40)
-  set creAccObjectID($core.String v) { $_setString(39, v); }
-  @$pb.TagNumber(40)
-  $core.bool hasCreAccObjectID() => $_has(39);
-  @$pb.TagNumber(40)
-  void clearCreAccObjectID() => clearField(40);
-
-  @$pb.TagNumber(41)
-  $core.String get recordNo => $_getSZ(40);
-  @$pb.TagNumber(41)
-  set recordNo($core.String v) { $_setString(40, v); }
-  @$pb.TagNumber(41)
-  $core.bool hasRecordNo() => $_has(40);
-  @$pb.TagNumber(41)
-  void clearRecordNo() => clearField(41);
-
-  @$pb.TagNumber(42)
-  $core.int get updMode => $_getIZ(41);
-  @$pb.TagNumber(42)
-  set updMode($core.int v) { $_setSignedInt32(41, v); }
-  @$pb.TagNumber(42)
-  $core.bool hasUpdMode() => $_has(41);
-  @$pb.TagNumber(42)
-  void clearUpdMode() => clearField(42);
+  @$pb.TagNumber(47)
+  $core.int get updMode => $_getIZ(46);
+  @$pb.TagNumber(47)
+  set updMode($core.int v) { $_setSignedInt32(46, v); }
+  @$pb.TagNumber(47)
+  $core.bool hasUpdMode() => $_has(46);
+  @$pb.TagNumber(47)
+  void clearUpdMode() => clearField(47);
 }
 
 class grpcInvMacSlistModel extends $pb.GeneratedMessage {
@@ -12496,8 +12904,10 @@ class grpcInvMoveHeaderModel extends $pb.GeneratedMessage {
     $2.Timestamp? invMoveDate,
     $2.Timestamp? invMoveProcDate,
     $core.String? invMoveReqNo,
+    $core.String? outAccInvCode,
     $core.String? outInvCode,
     $core.String? outInvName,
+    $core.String? inAccInvCode,
     $core.String? inInvCode,
     $core.String? inInvName,
     $core.String? reason,
@@ -12549,11 +12959,17 @@ class grpcInvMoveHeaderModel extends $pb.GeneratedMessage {
     if (invMoveReqNo != null) {
       $result.invMoveReqNo = invMoveReqNo;
     }
+    if (outAccInvCode != null) {
+      $result.outAccInvCode = outAccInvCode;
+    }
     if (outInvCode != null) {
       $result.outInvCode = outInvCode;
     }
     if (outInvName != null) {
       $result.outInvName = outInvName;
+    }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
     }
     if (inInvCode != null) {
       $result.inInvCode = inInvCode;
@@ -12613,21 +13029,23 @@ class grpcInvMoveHeaderModel extends $pb.GeneratedMessage {
     ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'InvMoveDate', protoName: 'InvMoveDate', subBuilder: $2.Timestamp.create)
     ..aOM<$2.Timestamp>(11, _omitFieldNames ? '' : 'InvMoveProcDate', protoName: 'InvMoveProcDate', subBuilder: $2.Timestamp.create)
     ..aOS(12, _omitFieldNames ? '' : 'InvMoveReqNo', protoName: 'InvMoveReqNo')
-    ..aOS(13, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
-    ..aOS(14, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
-    ..aOS(15, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..aOS(16, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
-    ..aOS(17, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..aOS(18, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
-    ..aOS(19, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
-    ..aOS(20, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..a<$core.int>(21, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(22, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(23, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(24, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(25, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(26, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
-    ..a<$core.int>(27, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
+    ..aOS(13, _omitFieldNames ? '' : 'OutAccInvCode', protoName: 'OutAccInvCode')
+    ..aOS(14, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
+    ..aOS(15, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
+    ..aOS(16, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..aOS(17, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
+    ..aOS(18, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
+    ..aOS(19, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(20, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
+    ..aOS(21, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
+    ..aOS(22, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..a<$core.int>(23, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(24, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(25, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(26, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$2.Timestamp>(27, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(28, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(29, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
     ..hasRequiredFields = false
   ;
 
@@ -12767,148 +13185,167 @@ class grpcInvMoveHeaderModel extends $pb.GeneratedMessage {
   void clearInvMoveReqNo() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get outInvCode => $_getSZ(12);
+  $core.String get outAccInvCode => $_getSZ(12);
   @$pb.TagNumber(13)
-  set outInvCode($core.String v) { $_setString(12, v); }
+  set outAccInvCode($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasOutInvCode() => $_has(12);
+  $core.bool hasOutAccInvCode() => $_has(12);
   @$pb.TagNumber(13)
-  void clearOutInvCode() => clearField(13);
+  void clearOutAccInvCode() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get outInvName => $_getSZ(13);
+  $core.String get outInvCode => $_getSZ(13);
   @$pb.TagNumber(14)
-  set outInvName($core.String v) { $_setString(13, v); }
+  set outInvCode($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasOutInvName() => $_has(13);
+  $core.bool hasOutInvCode() => $_has(13);
   @$pb.TagNumber(14)
-  void clearOutInvName() => clearField(14);
+  void clearOutInvCode() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get inInvCode => $_getSZ(14);
+  $core.String get outInvName => $_getSZ(14);
   @$pb.TagNumber(15)
-  set inInvCode($core.String v) { $_setString(14, v); }
+  set outInvName($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasInInvCode() => $_has(14);
+  $core.bool hasOutInvName() => $_has(14);
   @$pb.TagNumber(15)
-  void clearInInvCode() => clearField(15);
+  void clearOutInvName() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get inInvName => $_getSZ(15);
+  $core.String get inAccInvCode => $_getSZ(15);
   @$pb.TagNumber(16)
-  set inInvName($core.String v) { $_setString(15, v); }
+  set inAccInvCode($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasInInvName() => $_has(15);
+  $core.bool hasInAccInvCode() => $_has(15);
   @$pb.TagNumber(16)
-  void clearInInvName() => clearField(16);
+  void clearInAccInvCode() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get reason => $_getSZ(16);
+  $core.String get inInvCode => $_getSZ(16);
   @$pb.TagNumber(17)
-  set reason($core.String v) { $_setString(16, v); }
+  set inInvCode($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasReason() => $_has(16);
+  $core.bool hasInInvCode() => $_has(16);
   @$pb.TagNumber(17)
-  void clearReason() => clearField(17);
+  void clearInInvCode() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.String get reqStaffID => $_getSZ(17);
+  $core.String get inInvName => $_getSZ(17);
   @$pb.TagNumber(18)
-  set reqStaffID($core.String v) { $_setString(17, v); }
+  set inInvName($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasReqStaffID() => $_has(17);
+  $core.bool hasInInvName() => $_has(17);
   @$pb.TagNumber(18)
-  void clearReqStaffID() => clearField(18);
+  void clearInInvName() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.String get reqNotes => $_getSZ(18);
+  $core.String get reason => $_getSZ(18);
   @$pb.TagNumber(19)
-  set reqNotes($core.String v) { $_setString(18, v); }
+  set reason($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasReqNotes() => $_has(18);
+  $core.bool hasReason() => $_has(18);
   @$pb.TagNumber(19)
-  void clearReqNotes() => clearField(19);
+  void clearReason() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.String get notes => $_getSZ(19);
+  $core.String get reqStaffID => $_getSZ(19);
   @$pb.TagNumber(20)
-  set notes($core.String v) { $_setString(19, v); }
+  set reqStaffID($core.String v) { $_setString(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasNotes() => $_has(19);
+  $core.bool hasReqStaffID() => $_has(19);
   @$pb.TagNumber(20)
-  void clearNotes() => clearField(20);
+  void clearReqStaffID() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.int get updMode => $_getIZ(20);
+  $core.String get reqNotes => $_getSZ(20);
   @$pb.TagNumber(21)
-  set updMode($core.int v) { $_setSignedInt32(20, v); }
+  set reqNotes($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasUpdMode() => $_has(20);
+  $core.bool hasReqNotes() => $_has(20);
   @$pb.TagNumber(21)
-  void clearUpdMode() => clearField(21);
+  void clearReqNotes() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.int get updCount => $_getIZ(21);
+  $core.String get notes => $_getSZ(21);
   @$pb.TagNumber(22)
-  set updCount($core.int v) { $_setSignedInt32(21, v); }
+  set notes($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasUpdCount() => $_has(21);
+  $core.bool hasNotes() => $_has(21);
   @$pb.TagNumber(22)
-  void clearUpdCount() => clearField(22);
+  void clearNotes() => clearField(22);
 
   @$pb.TagNumber(23)
-  $core.String get updTransactionID => $_getSZ(22);
+  $core.int get updMode => $_getIZ(22);
   @$pb.TagNumber(23)
-  set updTransactionID($core.String v) { $_setString(22, v); }
+  set updMode($core.int v) { $_setSignedInt32(22, v); }
   @$pb.TagNumber(23)
-  $core.bool hasUpdTransactionID() => $_has(22);
+  $core.bool hasUpdMode() => $_has(22);
   @$pb.TagNumber(23)
-  void clearUpdTransactionID() => clearField(23);
+  void clearUpdMode() => clearField(23);
 
   @$pb.TagNumber(24)
-  $core.String get updAccountID => $_getSZ(23);
+  $core.int get updCount => $_getIZ(23);
   @$pb.TagNumber(24)
-  set updAccountID($core.String v) { $_setString(23, v); }
+  set updCount($core.int v) { $_setSignedInt32(23, v); }
   @$pb.TagNumber(24)
-  $core.bool hasUpdAccountID() => $_has(23);
+  $core.bool hasUpdCount() => $_has(23);
   @$pb.TagNumber(24)
-  void clearUpdAccountID() => clearField(24);
+  void clearUpdCount() => clearField(24);
 
   @$pb.TagNumber(25)
-  $2.Timestamp get updDateTime => $_getN(24);
+  $core.String get updTransactionID => $_getSZ(24);
   @$pb.TagNumber(25)
-  set updDateTime($2.Timestamp v) { setField(25, v); }
+  set updTransactionID($core.String v) { $_setString(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasUpdDateTime() => $_has(24);
+  $core.bool hasUpdTransactionID() => $_has(24);
   @$pb.TagNumber(25)
-  void clearUpdDateTime() => clearField(25);
-  @$pb.TagNumber(25)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(24);
+  void clearUpdTransactionID() => clearField(25);
 
   @$pb.TagNumber(26)
-  $2.Timestamp get crtDateTime => $_getN(25);
+  $core.String get updAccountID => $_getSZ(25);
   @$pb.TagNumber(26)
-  set crtDateTime($2.Timestamp v) { setField(26, v); }
+  set updAccountID($core.String v) { $_setString(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasCrtDateTime() => $_has(25);
+  $core.bool hasUpdAccountID() => $_has(25);
   @$pb.TagNumber(26)
-  void clearCrtDateTime() => clearField(26);
-  @$pb.TagNumber(26)
-  $2.Timestamp ensureCrtDateTime() => $_ensure(25);
+  void clearUpdAccountID() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.int get refUpdCount => $_getIZ(26);
+  $2.Timestamp get updDateTime => $_getN(26);
   @$pb.TagNumber(27)
-  set refUpdCount($core.int v) { $_setSignedInt32(26, v); }
+  set updDateTime($2.Timestamp v) { setField(27, v); }
   @$pb.TagNumber(27)
-  $core.bool hasRefUpdCount() => $_has(26);
+  $core.bool hasUpdDateTime() => $_has(26);
   @$pb.TagNumber(27)
-  void clearRefUpdCount() => clearField(27);
+  void clearUpdDateTime() => clearField(27);
+  @$pb.TagNumber(27)
+  $2.Timestamp ensureUpdDateTime() => $_ensure(26);
+
+  @$pb.TagNumber(28)
+  $2.Timestamp get crtDateTime => $_getN(27);
+  @$pb.TagNumber(28)
+  set crtDateTime($2.Timestamp v) { setField(28, v); }
+  @$pb.TagNumber(28)
+  $core.bool hasCrtDateTime() => $_has(27);
+  @$pb.TagNumber(28)
+  void clearCrtDateTime() => clearField(28);
+  @$pb.TagNumber(28)
+  $2.Timestamp ensureCrtDateTime() => $_ensure(27);
+
+  @$pb.TagNumber(29)
+  $core.int get refUpdCount => $_getIZ(28);
+  @$pb.TagNumber(29)
+  set refUpdCount($core.int v) { $_setSignedInt32(28, v); }
+  @$pb.TagNumber(29)
+  $core.bool hasRefUpdCount() => $_has(28);
+  @$pb.TagNumber(29)
+  void clearRefUpdCount() => clearField(29);
 }
 
 class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
   factory grpcInvMoveDetailModel({
     $core.String? iD,
+    $2.Timestamp? closeDate,
     $core.String? staffID,
     $core.String? deptCode,
     $core.String? outInvDeptCode,
@@ -12916,7 +13353,9 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
     $core.String? voucherCode,
     $core.String? invMoveNo,
     $2.Timestamp? invMoveDate,
+    $core.String? outAccInvCode,
     $core.String? outInvCode,
+    $core.String? inAccInvCode,
     $core.String? inInvCode,
     $core.int? lineNo,
     $core.String? productCode,
@@ -12939,13 +13378,17 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
     $core.Iterable<grpcLotDetailModel>? lotDetails,
     $core.String? reqNotes,
     $core.String? notes,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costAmount,
     $core.String? recordNo,
     $core.int? updMode,
-    $2.Timestamp? closeDate,
   }) {
     final $result = create();
     if (iD != null) {
       $result.iD = iD;
+    }
+    if (closeDate != null) {
+      $result.closeDate = closeDate;
     }
     if (staffID != null) {
       $result.staffID = staffID;
@@ -12968,8 +13411,14 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
     if (invMoveDate != null) {
       $result.invMoveDate = invMoveDate;
     }
+    if (outAccInvCode != null) {
+      $result.outAccInvCode = outAccInvCode;
+    }
     if (outInvCode != null) {
       $result.outInvCode = outInvCode;
+    }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
     }
     if (inInvCode != null) {
       $result.inInvCode = inInvCode;
@@ -13037,14 +13486,17 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
     if (notes != null) {
       $result.notes = notes;
     }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costAmount != null) {
+      $result.costAmount = costAmount;
+    }
     if (recordNo != null) {
       $result.recordNo = recordNo;
     }
     if (updMode != null) {
       $result.updMode = updMode;
-    }
-    if (closeDate != null) {
-      $result.closeDate = closeDate;
     }
     return $result;
   }
@@ -13054,39 +13506,43 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcInvMoveDetailModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
-    ..aOS(3, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
-    ..aOS(4, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
-    ..aOS(5, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
-    ..aOS(6, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
-    ..aOS(7, _omitFieldNames ? '' : 'InvMoveNo', protoName: 'InvMoveNo')
-    ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'InvMoveDate', protoName: 'InvMoveDate', subBuilder: $2.Timestamp.create)
-    ..aOS(9, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
-    ..aOS(10, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
-    ..aOS(12, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(13, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
-    ..aOS(14, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(15, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(16, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$3.Decimal>(17, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(18, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(19, _omitFieldNames ? '' : 'ReqQty', protoName: 'ReqQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(20, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
-    ..aOB(21, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
-    ..aOS(22, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
-    ..aOS(23, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
-    ..aOM<$2.Timestamp>(24, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
-    ..aOS(25, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
-    ..a<$core.int>(26, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
-    ..a<$core.int>(27, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
-    ..aOB(28, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
-    ..pc<grpcLotDetailModel>(29, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
-    ..aOS(30, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
-    ..aOS(31, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOS(32, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
-    ..a<$core.int>(33, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$2.Timestamp>(34, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
+    ..aOS(3, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(4, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
+    ..aOS(5, _omitFieldNames ? '' : 'OutInvDeptCode', protoName: 'OutInvDeptCode')
+    ..aOS(6, _omitFieldNames ? '' : 'InInvDeptCode', protoName: 'InInvDeptCode')
+    ..aOS(7, _omitFieldNames ? '' : 'VoucherCode', protoName: 'VoucherCode')
+    ..aOS(8, _omitFieldNames ? '' : 'InvMoveNo', protoName: 'InvMoveNo')
+    ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'InvMoveDate', protoName: 'InvMoveDate', subBuilder: $2.Timestamp.create)
+    ..aOS(10, _omitFieldNames ? '' : 'OutAccInvCode', protoName: 'OutAccInvCode')
+    ..aOS(11, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
+    ..aOS(12, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..aOS(13, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
+    ..a<$core.int>(14, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
+    ..aOS(15, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(16, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
+    ..aOS(17, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(18, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(19, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$3.Decimal>(20, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(21, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(22, _omitFieldNames ? '' : 'ReqQty', protoName: 'ReqQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(23, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
+    ..aOB(24, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
+    ..aOS(25, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
+    ..aOS(26, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
+    ..aOM<$2.Timestamp>(27, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
+    ..aOS(28, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
+    ..a<$core.int>(29, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
+    ..a<$core.int>(30, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
+    ..aOB(31, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
+    ..pc<grpcLotDetailModel>(32, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
+    ..aOS(33, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
+    ..aOS(34, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..aOM<$3.Decimal>(35, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(36, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..aOS(37, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
+    ..a<$core.int>(38, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
 
@@ -13121,309 +13577,349 @@ class grpcInvMoveDetailModel extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get staffID => $_getSZ(1);
+  $2.Timestamp get closeDate => $_getN(1);
   @$pb.TagNumber(2)
-  set staffID($core.String v) { $_setString(1, v); }
+  set closeDate($2.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasStaffID() => $_has(1);
+  $core.bool hasCloseDate() => $_has(1);
   @$pb.TagNumber(2)
-  void clearStaffID() => clearField(2);
+  void clearCloseDate() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.Timestamp ensureCloseDate() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $core.String get deptCode => $_getSZ(2);
+  $core.String get staffID => $_getSZ(2);
   @$pb.TagNumber(3)
-  set deptCode($core.String v) { $_setString(2, v); }
+  set staffID($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDeptCode() => $_has(2);
+  $core.bool hasStaffID() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDeptCode() => clearField(3);
+  void clearStaffID() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get outInvDeptCode => $_getSZ(3);
+  $core.String get deptCode => $_getSZ(3);
   @$pb.TagNumber(4)
-  set outInvDeptCode($core.String v) { $_setString(3, v); }
+  set deptCode($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasOutInvDeptCode() => $_has(3);
+  $core.bool hasDeptCode() => $_has(3);
   @$pb.TagNumber(4)
-  void clearOutInvDeptCode() => clearField(4);
+  void clearDeptCode() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get inInvDeptCode => $_getSZ(4);
+  $core.String get outInvDeptCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set inInvDeptCode($core.String v) { $_setString(4, v); }
+  set outInvDeptCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasInInvDeptCode() => $_has(4);
+  $core.bool hasOutInvDeptCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearInInvDeptCode() => clearField(5);
+  void clearOutInvDeptCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get voucherCode => $_getSZ(5);
+  $core.String get inInvDeptCode => $_getSZ(5);
   @$pb.TagNumber(6)
-  set voucherCode($core.String v) { $_setString(5, v); }
+  set inInvDeptCode($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasVoucherCode() => $_has(5);
+  $core.bool hasInInvDeptCode() => $_has(5);
   @$pb.TagNumber(6)
-  void clearVoucherCode() => clearField(6);
+  void clearInInvDeptCode() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get invMoveNo => $_getSZ(6);
+  $core.String get voucherCode => $_getSZ(6);
   @$pb.TagNumber(7)
-  set invMoveNo($core.String v) { $_setString(6, v); }
+  set voucherCode($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasInvMoveNo() => $_has(6);
+  $core.bool hasVoucherCode() => $_has(6);
   @$pb.TagNumber(7)
-  void clearInvMoveNo() => clearField(7);
+  void clearVoucherCode() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Timestamp get invMoveDate => $_getN(7);
+  $core.String get invMoveNo => $_getSZ(7);
   @$pb.TagNumber(8)
-  set invMoveDate($2.Timestamp v) { setField(8, v); }
+  set invMoveNo($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasInvMoveDate() => $_has(7);
+  $core.bool hasInvMoveNo() => $_has(7);
   @$pb.TagNumber(8)
-  void clearInvMoveDate() => clearField(8);
-  @$pb.TagNumber(8)
-  $2.Timestamp ensureInvMoveDate() => $_ensure(7);
+  void clearInvMoveNo() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.String get outInvCode => $_getSZ(8);
+  $2.Timestamp get invMoveDate => $_getN(8);
   @$pb.TagNumber(9)
-  set outInvCode($core.String v) { $_setString(8, v); }
+  set invMoveDate($2.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasOutInvCode() => $_has(8);
+  $core.bool hasInvMoveDate() => $_has(8);
   @$pb.TagNumber(9)
-  void clearOutInvCode() => clearField(9);
+  void clearInvMoveDate() => clearField(9);
+  @$pb.TagNumber(9)
+  $2.Timestamp ensureInvMoveDate() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $core.String get inInvCode => $_getSZ(9);
+  $core.String get outAccInvCode => $_getSZ(9);
   @$pb.TagNumber(10)
-  set inInvCode($core.String v) { $_setString(9, v); }
+  set outAccInvCode($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasInInvCode() => $_has(9);
+  $core.bool hasOutAccInvCode() => $_has(9);
   @$pb.TagNumber(10)
-  void clearInInvCode() => clearField(10);
+  void clearOutAccInvCode() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.int get lineNo => $_getIZ(10);
+  $core.String get outInvCode => $_getSZ(10);
   @$pb.TagNumber(11)
-  set lineNo($core.int v) { $_setSignedInt32(10, v); }
+  set outInvCode($core.String v) { $_setString(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasLineNo() => $_has(10);
+  $core.bool hasOutInvCode() => $_has(10);
   @$pb.TagNumber(11)
-  void clearLineNo() => clearField(11);
+  void clearOutInvCode() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get productCode => $_getSZ(11);
+  $core.String get inAccInvCode => $_getSZ(11);
   @$pb.TagNumber(12)
-  set productCode($core.String v) { $_setString(11, v); }
+  set inAccInvCode($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasProductCode() => $_has(11);
+  $core.bool hasInAccInvCode() => $_has(11);
   @$pb.TagNumber(12)
-  void clearProductCode() => clearField(12);
+  void clearInAccInvCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get productName => $_getSZ(12);
+  $core.String get inInvCode => $_getSZ(12);
   @$pb.TagNumber(13)
-  set productName($core.String v) { $_setString(12, v); }
+  set inInvCode($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasProductName() => $_has(12);
+  $core.bool hasInInvCode() => $_has(12);
   @$pb.TagNumber(13)
-  void clearProductName() => clearField(13);
+  void clearInInvCode() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get specification => $_getSZ(13);
+  $core.int get lineNo => $_getIZ(13);
   @$pb.TagNumber(14)
-  set specification($core.String v) { $_setString(13, v); }
+  set lineNo($core.int v) { $_setSignedInt32(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasSpecification() => $_has(13);
+  $core.bool hasLineNo() => $_has(13);
   @$pb.TagNumber(14)
-  void clearSpecification() => clearField(14);
+  void clearLineNo() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get unitCode => $_getSZ(14);
+  $core.String get productCode => $_getSZ(14);
   @$pb.TagNumber(15)
-  set unitCode($core.String v) { $_setString(14, v); }
+  set productCode($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasUnitCode() => $_has(14);
+  $core.bool hasProductCode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUnitCode() => clearField(15);
+  void clearProductCode() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get unitName => $_getSZ(15);
+  $core.String get productName => $_getSZ(15);
   @$pb.TagNumber(16)
-  set unitName($core.String v) { $_setString(15, v); }
+  set productName($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasUnitName() => $_has(15);
+  $core.bool hasProductName() => $_has(15);
   @$pb.TagNumber(16)
-  void clearUnitName() => clearField(16);
+  void clearProductName() => clearField(16);
 
   @$pb.TagNumber(17)
-  $3.Decimal get packingQty => $_getN(16);
+  $core.String get specification => $_getSZ(16);
   @$pb.TagNumber(17)
-  set packingQty($3.Decimal v) { setField(17, v); }
+  set specification($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasPackingQty() => $_has(16);
+  $core.bool hasSpecification() => $_has(16);
   @$pb.TagNumber(17)
-  void clearPackingQty() => clearField(17);
-  @$pb.TagNumber(17)
-  $3.Decimal ensurePackingQty() => $_ensure(16);
+  void clearSpecification() => clearField(17);
 
   @$pb.TagNumber(18)
-  $3.Decimal get caseQty => $_getN(17);
+  $core.String get unitCode => $_getSZ(17);
   @$pb.TagNumber(18)
-  set caseQty($3.Decimal v) { setField(18, v); }
+  set unitCode($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasCaseQty() => $_has(17);
+  $core.bool hasUnitCode() => $_has(17);
   @$pb.TagNumber(18)
-  void clearCaseQty() => clearField(18);
-  @$pb.TagNumber(18)
-  $3.Decimal ensureCaseQty() => $_ensure(17);
+  void clearUnitCode() => clearField(18);
 
   @$pb.TagNumber(19)
-  $3.Decimal get reqQty => $_getN(18);
+  $core.String get unitName => $_getSZ(18);
   @$pb.TagNumber(19)
-  set reqQty($3.Decimal v) { setField(19, v); }
+  set unitName($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasReqQty() => $_has(18);
+  $core.bool hasUnitName() => $_has(18);
   @$pb.TagNumber(19)
-  void clearReqQty() => clearField(19);
-  @$pb.TagNumber(19)
-  $3.Decimal ensureReqQty() => $_ensure(18);
+  void clearUnitName() => clearField(19);
 
   @$pb.TagNumber(20)
-  $3.Decimal get inOutQty => $_getN(19);
+  $3.Decimal get packingQty => $_getN(19);
   @$pb.TagNumber(20)
-  set inOutQty($3.Decimal v) { setField(20, v); }
+  set packingQty($3.Decimal v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasInOutQty() => $_has(19);
+  $core.bool hasPackingQty() => $_has(19);
   @$pb.TagNumber(20)
-  void clearInOutQty() => clearField(20);
+  void clearPackingQty() => clearField(20);
   @$pb.TagNumber(20)
-  $3.Decimal ensureInOutQty() => $_ensure(19);
+  $3.Decimal ensurePackingQty() => $_ensure(19);
 
   @$pb.TagNumber(21)
-  $core.bool get isLOT => $_getBF(20);
+  $3.Decimal get caseQty => $_getN(20);
   @$pb.TagNumber(21)
-  set isLOT($core.bool v) { $_setBool(20, v); }
+  set caseQty($3.Decimal v) { setField(21, v); }
   @$pb.TagNumber(21)
-  $core.bool hasIsLOT() => $_has(20);
+  $core.bool hasCaseQty() => $_has(20);
   @$pb.TagNumber(21)
-  void clearIsLOT() => clearField(21);
+  void clearCaseQty() => clearField(21);
+  @$pb.TagNumber(21)
+  $3.Decimal ensureCaseQty() => $_ensure(20);
 
   @$pb.TagNumber(22)
-  $core.String get lotID => $_getSZ(21);
+  $3.Decimal get reqQty => $_getN(21);
   @$pb.TagNumber(22)
-  set lotID($core.String v) { $_setString(21, v); }
+  set reqQty($3.Decimal v) { setField(22, v); }
   @$pb.TagNumber(22)
-  $core.bool hasLotID() => $_has(21);
+  $core.bool hasReqQty() => $_has(21);
   @$pb.TagNumber(22)
-  void clearLotID() => clearField(22);
+  void clearReqQty() => clearField(22);
+  @$pb.TagNumber(22)
+  $3.Decimal ensureReqQty() => $_ensure(21);
 
   @$pb.TagNumber(23)
-  $core.String get dateType => $_getSZ(22);
+  $3.Decimal get inOutQty => $_getN(22);
   @$pb.TagNumber(23)
-  set dateType($core.String v) { $_setString(22, v); }
+  set inOutQty($3.Decimal v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasDateType() => $_has(22);
+  $core.bool hasInOutQty() => $_has(22);
   @$pb.TagNumber(23)
-  void clearDateType() => clearField(23);
+  void clearInOutQty() => clearField(23);
+  @$pb.TagNumber(23)
+  $3.Decimal ensureInOutQty() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $2.Timestamp get lotDate => $_getN(23);
+  $core.bool get isLOT => $_getBF(23);
   @$pb.TagNumber(24)
-  set lotDate($2.Timestamp v) { setField(24, v); }
+  set isLOT($core.bool v) { $_setBool(23, v); }
   @$pb.TagNumber(24)
-  $core.bool hasLotDate() => $_has(23);
+  $core.bool hasIsLOT() => $_has(23);
   @$pb.TagNumber(24)
-  void clearLotDate() => clearField(24);
-  @$pb.TagNumber(24)
-  $2.Timestamp ensureLotDate() => $_ensure(23);
+  void clearIsLOT() => clearField(24);
 
   @$pb.TagNumber(25)
-  $core.String get lotNotes => $_getSZ(24);
+  $core.String get lotID => $_getSZ(24);
   @$pb.TagNumber(25)
-  set lotNotes($core.String v) { $_setString(24, v); }
+  set lotID($core.String v) { $_setString(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasLotNotes() => $_has(24);
+  $core.bool hasLotID() => $_has(24);
   @$pb.TagNumber(25)
-  void clearLotNotes() => clearField(25);
+  void clearLotID() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.int get warPeriod => $_getIZ(25);
+  $core.String get dateType => $_getSZ(25);
   @$pb.TagNumber(26)
-  set warPeriod($core.int v) { $_setSignedInt32(25, v); }
+  set dateType($core.String v) { $_setString(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasWarPeriod() => $_has(25);
+  $core.bool hasDateType() => $_has(25);
   @$pb.TagNumber(26)
-  void clearWarPeriod() => clearField(26);
+  void clearDateType() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.int get periodFlag => $_getIZ(26);
+  $2.Timestamp get lotDate => $_getN(26);
   @$pb.TagNumber(27)
-  set periodFlag($core.int v) { $_setSignedInt32(26, v); }
+  set lotDate($2.Timestamp v) { setField(27, v); }
   @$pb.TagNumber(27)
-  $core.bool hasPeriodFlag() => $_has(26);
+  $core.bool hasLotDate() => $_has(26);
   @$pb.TagNumber(27)
-  void clearPeriodFlag() => clearField(27);
+  void clearLotDate() => clearField(27);
+  @$pb.TagNumber(27)
+  $2.Timestamp ensureLotDate() => $_ensure(26);
 
   @$pb.TagNumber(28)
-  $core.bool get isMultiLOT => $_getBF(27);
+  $core.String get lotNotes => $_getSZ(27);
   @$pb.TagNumber(28)
-  set isMultiLOT($core.bool v) { $_setBool(27, v); }
+  set lotNotes($core.String v) { $_setString(27, v); }
   @$pb.TagNumber(28)
-  $core.bool hasIsMultiLOT() => $_has(27);
+  $core.bool hasLotNotes() => $_has(27);
   @$pb.TagNumber(28)
-  void clearIsMultiLOT() => clearField(28);
+  void clearLotNotes() => clearField(28);
 
   @$pb.TagNumber(29)
-  $core.List<grpcLotDetailModel> get lotDetails => $_getList(28);
+  $core.int get warPeriod => $_getIZ(28);
+  @$pb.TagNumber(29)
+  set warPeriod($core.int v) { $_setSignedInt32(28, v); }
+  @$pb.TagNumber(29)
+  $core.bool hasWarPeriod() => $_has(28);
+  @$pb.TagNumber(29)
+  void clearWarPeriod() => clearField(29);
 
   @$pb.TagNumber(30)
-  $core.String get reqNotes => $_getSZ(29);
+  $core.int get periodFlag => $_getIZ(29);
   @$pb.TagNumber(30)
-  set reqNotes($core.String v) { $_setString(29, v); }
+  set periodFlag($core.int v) { $_setSignedInt32(29, v); }
   @$pb.TagNumber(30)
-  $core.bool hasReqNotes() => $_has(29);
+  $core.bool hasPeriodFlag() => $_has(29);
   @$pb.TagNumber(30)
-  void clearReqNotes() => clearField(30);
+  void clearPeriodFlag() => clearField(30);
 
   @$pb.TagNumber(31)
-  $core.String get notes => $_getSZ(30);
+  $core.bool get isMultiLOT => $_getBF(30);
   @$pb.TagNumber(31)
-  set notes($core.String v) { $_setString(30, v); }
+  set isMultiLOT($core.bool v) { $_setBool(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasNotes() => $_has(30);
+  $core.bool hasIsMultiLOT() => $_has(30);
   @$pb.TagNumber(31)
-  void clearNotes() => clearField(31);
+  void clearIsMultiLOT() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.String get recordNo => $_getSZ(31);
-  @$pb.TagNumber(32)
-  set recordNo($core.String v) { $_setString(31, v); }
-  @$pb.TagNumber(32)
-  $core.bool hasRecordNo() => $_has(31);
-  @$pb.TagNumber(32)
-  void clearRecordNo() => clearField(32);
+  $core.List<grpcLotDetailModel> get lotDetails => $_getList(31);
 
   @$pb.TagNumber(33)
-  $core.int get updMode => $_getIZ(32);
+  $core.String get reqNotes => $_getSZ(32);
   @$pb.TagNumber(33)
-  set updMode($core.int v) { $_setSignedInt32(32, v); }
+  set reqNotes($core.String v) { $_setString(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasUpdMode() => $_has(32);
+  $core.bool hasReqNotes() => $_has(32);
   @$pb.TagNumber(33)
-  void clearUpdMode() => clearField(33);
+  void clearReqNotes() => clearField(33);
 
   @$pb.TagNumber(34)
-  $2.Timestamp get closeDate => $_getN(33);
+  $core.String get notes => $_getSZ(33);
   @$pb.TagNumber(34)
-  set closeDate($2.Timestamp v) { setField(34, v); }
+  set notes($core.String v) { $_setString(33, v); }
   @$pb.TagNumber(34)
-  $core.bool hasCloseDate() => $_has(33);
+  $core.bool hasNotes() => $_has(33);
   @$pb.TagNumber(34)
-  void clearCloseDate() => clearField(34);
-  @$pb.TagNumber(34)
-  $2.Timestamp ensureCloseDate() => $_ensure(33);
+  void clearNotes() => clearField(34);
+
+  @$pb.TagNumber(35)
+  $3.Decimal get costUnitPrice => $_getN(34);
+  @$pb.TagNumber(35)
+  set costUnitPrice($3.Decimal v) { setField(35, v); }
+  @$pb.TagNumber(35)
+  $core.bool hasCostUnitPrice() => $_has(34);
+  @$pb.TagNumber(35)
+  void clearCostUnitPrice() => clearField(35);
+  @$pb.TagNumber(35)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(34);
+
+  @$pb.TagNumber(36)
+  $3.Decimal get costAmount => $_getN(35);
+  @$pb.TagNumber(36)
+  set costAmount($3.Decimal v) { setField(36, v); }
+  @$pb.TagNumber(36)
+  $core.bool hasCostAmount() => $_has(35);
+  @$pb.TagNumber(36)
+  void clearCostAmount() => clearField(36);
+  @$pb.TagNumber(36)
+  $3.Decimal ensureCostAmount() => $_ensure(35);
+
+  @$pb.TagNumber(37)
+  $core.String get recordNo => $_getSZ(36);
+  @$pb.TagNumber(37)
+  set recordNo($core.String v) { $_setString(36, v); }
+  @$pb.TagNumber(37)
+  $core.bool hasRecordNo() => $_has(36);
+  @$pb.TagNumber(37)
+  void clearRecordNo() => clearField(37);
+
+  @$pb.TagNumber(38)
+  $core.int get updMode => $_getIZ(37);
+  @$pb.TagNumber(38)
+  set updMode($core.int v) { $_setSignedInt32(37, v); }
+  @$pb.TagNumber(38)
+  $core.bool hasUpdMode() => $_has(37);
+  @$pb.TagNumber(38)
+  void clearUpdMode() => clearField(38);
 }
 
 class grpcInvMoveSlistModel extends $pb.GeneratedMessage {
@@ -14736,6 +15232,7 @@ class grpcStockSumModel extends $pb.GeneratedMessage {
   factory grpcStockSumModel({
     $core.String? iD,
     $core.String? invDeptCode,
+    $core.String? accInvCode,
     $core.String? invCode,
     $core.String? productCode,
     $core.int? productKind,
@@ -14768,6 +15265,9 @@ class grpcStockSumModel extends $pb.GeneratedMessage {
     }
     if (invDeptCode != null) {
       $result.invDeptCode = invDeptCode;
+    }
+    if (accInvCode != null) {
+      $result.accInvCode = accInvCode;
     }
     if (invCode != null) {
       $result.invCode = invCode;
@@ -14853,31 +15353,32 @@ class grpcStockSumModel extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcStockSumModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcInventoryService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'InvDeptCode', protoName: 'InvDeptCode')
-    ..aOS(3, _omitFieldNames ? '' : 'InvCode', protoName: 'InvCode')
-    ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
-    ..aOS(6, _omitFieldNames ? '' : 'ClassCode1', protoName: 'ClassCode1')
-    ..aOS(7, _omitFieldNames ? '' : 'ClassCode2', protoName: 'ClassCode2')
-    ..aOS(8, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
-    ..aOM<$3.Decimal>(9, _omitFieldNames ? '' : 'StockQty', protoName: 'StockQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(10, _omitFieldNames ? '' : 'KeepStockQty', protoName: 'KeepStockQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(11, _omitFieldNames ? '' : 'SORemQty', protoName: 'SORemQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(12, _omitFieldNames ? '' : 'ShipRemQty', protoName: 'ShipRemQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(13, _omitFieldNames ? '' : 'PORemQty', protoName: 'PORemQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(14, _omitFieldNames ? '' : 'ReceiveRemQty', protoName: 'ReceiveRemQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(15, _omitFieldNames ? '' : 'DepositQty', protoName: 'DepositQty', subBuilder: $3.Decimal.create)
-    ..aOM<$2.Timestamp>(16, _omitFieldNames ? '' : 'LastPODate', protoName: 'LastPODate', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(17, _omitFieldNames ? '' : 'LastSODate', protoName: 'LastSODate', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(18, _omitFieldNames ? '' : 'LastInDate', protoName: 'LastInDate', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(19, _omitFieldNames ? '' : 'LastOutDate', protoName: 'LastOutDate', subBuilder: $2.Timestamp.create)
-    ..aOS(20, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(21, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Timestamp>(22, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
-    ..aOM<$3.Decimal>(23, _omitFieldNames ? '' : 'CloseStockQty', protoName: 'CloseStockQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(24, _omitFieldNames ? '' : 'CloseStockPrice', protoName: 'CloseStockPrice', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(25, _omitFieldNames ? '' : 'CloseStockAmount', protoName: 'CloseStockAmount', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(26, _omitFieldNames ? '' : 'CloseInvStockQty', protoName: 'CloseInvStockQty', subBuilder: $3.Decimal.create)
-    ..a<$core.int>(27, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOS(3, _omitFieldNames ? '' : 'AccInvCode', protoName: 'AccInvCode')
+    ..aOS(4, _omitFieldNames ? '' : 'InvCode', protoName: 'InvCode')
+    ..aOS(5, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
+    ..aOS(7, _omitFieldNames ? '' : 'ClassCode1', protoName: 'ClassCode1')
+    ..aOS(8, _omitFieldNames ? '' : 'ClassCode2', protoName: 'ClassCode2')
+    ..aOS(9, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
+    ..aOM<$3.Decimal>(10, _omitFieldNames ? '' : 'StockQty', protoName: 'StockQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(11, _omitFieldNames ? '' : 'KeepStockQty', protoName: 'KeepStockQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(12, _omitFieldNames ? '' : 'SORemQty', protoName: 'SORemQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(13, _omitFieldNames ? '' : 'ShipRemQty', protoName: 'ShipRemQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(14, _omitFieldNames ? '' : 'PORemQty', protoName: 'PORemQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(15, _omitFieldNames ? '' : 'ReceiveRemQty', protoName: 'ReceiveRemQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(16, _omitFieldNames ? '' : 'DepositQty', protoName: 'DepositQty', subBuilder: $3.Decimal.create)
+    ..aOM<$2.Timestamp>(17, _omitFieldNames ? '' : 'LastPODate', protoName: 'LastPODate', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(18, _omitFieldNames ? '' : 'LastSODate', protoName: 'LastSODate', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(19, _omitFieldNames ? '' : 'LastInDate', protoName: 'LastInDate', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(20, _omitFieldNames ? '' : 'LastOutDate', protoName: 'LastOutDate', subBuilder: $2.Timestamp.create)
+    ..aOS(21, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(22, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $2.Timestamp.create)
+    ..aOM<$3.Decimal>(24, _omitFieldNames ? '' : 'CloseStockQty', protoName: 'CloseStockQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(25, _omitFieldNames ? '' : 'CloseStockPrice', protoName: 'CloseStockPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(26, _omitFieldNames ? '' : 'CloseStockAmount', protoName: 'CloseStockAmount', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(27, _omitFieldNames ? '' : 'CloseInvStockQty', protoName: 'CloseInvStockQty', subBuilder: $3.Decimal.create)
+    ..a<$core.int>(28, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
 
@@ -14921,261 +15422,270 @@ class grpcStockSumModel extends $pb.GeneratedMessage {
   void clearInvDeptCode() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get invCode => $_getSZ(2);
+  $core.String get accInvCode => $_getSZ(2);
   @$pb.TagNumber(3)
-  set invCode($core.String v) { $_setString(2, v); }
+  set accInvCode($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasInvCode() => $_has(2);
+  $core.bool hasAccInvCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearInvCode() => clearField(3);
+  void clearAccInvCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get productCode => $_getSZ(3);
+  $core.String get invCode => $_getSZ(3);
   @$pb.TagNumber(4)
-  set productCode($core.String v) { $_setString(3, v); }
+  set invCode($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasProductCode() => $_has(3);
+  $core.bool hasInvCode() => $_has(3);
   @$pb.TagNumber(4)
-  void clearProductCode() => clearField(4);
+  void clearInvCode() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.int get productKind => $_getIZ(4);
+  $core.String get productCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set productKind($core.int v) { $_setSignedInt32(4, v); }
+  set productCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasProductKind() => $_has(4);
+  $core.bool hasProductCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearProductKind() => clearField(5);
+  void clearProductCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get classCode1 => $_getSZ(5);
+  $core.int get productKind => $_getIZ(5);
   @$pb.TagNumber(6)
-  set classCode1($core.String v) { $_setString(5, v); }
+  set productKind($core.int v) { $_setSignedInt32(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasClassCode1() => $_has(5);
+  $core.bool hasProductKind() => $_has(5);
   @$pb.TagNumber(6)
-  void clearClassCode1() => clearField(6);
+  void clearProductKind() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get classCode2 => $_getSZ(6);
+  $core.String get classCode1 => $_getSZ(6);
   @$pb.TagNumber(7)
-  set classCode2($core.String v) { $_setString(6, v); }
+  set classCode1($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasClassCode2() => $_has(6);
+  $core.bool hasClassCode1() => $_has(6);
   @$pb.TagNumber(7)
-  void clearClassCode2() => clearField(7);
+  void clearClassCode1() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get classCode3 => $_getSZ(7);
+  $core.String get classCode2 => $_getSZ(7);
   @$pb.TagNumber(8)
-  set classCode3($core.String v) { $_setString(7, v); }
+  set classCode2($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasClassCode3() => $_has(7);
+  $core.bool hasClassCode2() => $_has(7);
   @$pb.TagNumber(8)
-  void clearClassCode3() => clearField(8);
+  void clearClassCode2() => clearField(8);
 
   @$pb.TagNumber(9)
-  $3.Decimal get stockQty => $_getN(8);
+  $core.String get classCode3 => $_getSZ(8);
   @$pb.TagNumber(9)
-  set stockQty($3.Decimal v) { setField(9, v); }
+  set classCode3($core.String v) { $_setString(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasStockQty() => $_has(8);
+  $core.bool hasClassCode3() => $_has(8);
   @$pb.TagNumber(9)
-  void clearStockQty() => clearField(9);
-  @$pb.TagNumber(9)
-  $3.Decimal ensureStockQty() => $_ensure(8);
+  void clearClassCode3() => clearField(9);
 
   @$pb.TagNumber(10)
-  $3.Decimal get keepStockQty => $_getN(9);
+  $3.Decimal get stockQty => $_getN(9);
   @$pb.TagNumber(10)
-  set keepStockQty($3.Decimal v) { setField(10, v); }
+  set stockQty($3.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasKeepStockQty() => $_has(9);
+  $core.bool hasStockQty() => $_has(9);
   @$pb.TagNumber(10)
-  void clearKeepStockQty() => clearField(10);
+  void clearStockQty() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Decimal ensureKeepStockQty() => $_ensure(9);
+  $3.Decimal ensureStockQty() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $3.Decimal get sORemQty => $_getN(10);
+  $3.Decimal get keepStockQty => $_getN(10);
   @$pb.TagNumber(11)
-  set sORemQty($3.Decimal v) { setField(11, v); }
+  set keepStockQty($3.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
-  $core.bool hasSORemQty() => $_has(10);
+  $core.bool hasKeepStockQty() => $_has(10);
   @$pb.TagNumber(11)
-  void clearSORemQty() => clearField(11);
+  void clearKeepStockQty() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Decimal ensureSORemQty() => $_ensure(10);
+  $3.Decimal ensureKeepStockQty() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $3.Decimal get shipRemQty => $_getN(11);
+  $3.Decimal get sORemQty => $_getN(11);
   @$pb.TagNumber(12)
-  set shipRemQty($3.Decimal v) { setField(12, v); }
+  set sORemQty($3.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
-  $core.bool hasShipRemQty() => $_has(11);
+  $core.bool hasSORemQty() => $_has(11);
   @$pb.TagNumber(12)
-  void clearShipRemQty() => clearField(12);
+  void clearSORemQty() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Decimal ensureShipRemQty() => $_ensure(11);
+  $3.Decimal ensureSORemQty() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $3.Decimal get pORemQty => $_getN(12);
+  $3.Decimal get shipRemQty => $_getN(12);
   @$pb.TagNumber(13)
-  set pORemQty($3.Decimal v) { setField(13, v); }
+  set shipRemQty($3.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasPORemQty() => $_has(12);
+  $core.bool hasShipRemQty() => $_has(12);
   @$pb.TagNumber(13)
-  void clearPORemQty() => clearField(13);
+  void clearShipRemQty() => clearField(13);
   @$pb.TagNumber(13)
-  $3.Decimal ensurePORemQty() => $_ensure(12);
+  $3.Decimal ensureShipRemQty() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $3.Decimal get receiveRemQty => $_getN(13);
+  $3.Decimal get pORemQty => $_getN(13);
   @$pb.TagNumber(14)
-  set receiveRemQty($3.Decimal v) { setField(14, v); }
+  set pORemQty($3.Decimal v) { setField(14, v); }
   @$pb.TagNumber(14)
-  $core.bool hasReceiveRemQty() => $_has(13);
+  $core.bool hasPORemQty() => $_has(13);
   @$pb.TagNumber(14)
-  void clearReceiveRemQty() => clearField(14);
+  void clearPORemQty() => clearField(14);
   @$pb.TagNumber(14)
-  $3.Decimal ensureReceiveRemQty() => $_ensure(13);
+  $3.Decimal ensurePORemQty() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $3.Decimal get depositQty => $_getN(14);
+  $3.Decimal get receiveRemQty => $_getN(14);
   @$pb.TagNumber(15)
-  set depositQty($3.Decimal v) { setField(15, v); }
+  set receiveRemQty($3.Decimal v) { setField(15, v); }
   @$pb.TagNumber(15)
-  $core.bool hasDepositQty() => $_has(14);
+  $core.bool hasReceiveRemQty() => $_has(14);
   @$pb.TagNumber(15)
-  void clearDepositQty() => clearField(15);
+  void clearReceiveRemQty() => clearField(15);
   @$pb.TagNumber(15)
-  $3.Decimal ensureDepositQty() => $_ensure(14);
+  $3.Decimal ensureReceiveRemQty() => $_ensure(14);
 
   @$pb.TagNumber(16)
-  $2.Timestamp get lastPODate => $_getN(15);
+  $3.Decimal get depositQty => $_getN(15);
   @$pb.TagNumber(16)
-  set lastPODate($2.Timestamp v) { setField(16, v); }
+  set depositQty($3.Decimal v) { setField(16, v); }
   @$pb.TagNumber(16)
-  $core.bool hasLastPODate() => $_has(15);
+  $core.bool hasDepositQty() => $_has(15);
   @$pb.TagNumber(16)
-  void clearLastPODate() => clearField(16);
+  void clearDepositQty() => clearField(16);
   @$pb.TagNumber(16)
-  $2.Timestamp ensureLastPODate() => $_ensure(15);
+  $3.Decimal ensureDepositQty() => $_ensure(15);
 
   @$pb.TagNumber(17)
-  $2.Timestamp get lastSODate => $_getN(16);
+  $2.Timestamp get lastPODate => $_getN(16);
   @$pb.TagNumber(17)
-  set lastSODate($2.Timestamp v) { setField(17, v); }
+  set lastPODate($2.Timestamp v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasLastSODate() => $_has(16);
+  $core.bool hasLastPODate() => $_has(16);
   @$pb.TagNumber(17)
-  void clearLastSODate() => clearField(17);
+  void clearLastPODate() => clearField(17);
   @$pb.TagNumber(17)
-  $2.Timestamp ensureLastSODate() => $_ensure(16);
+  $2.Timestamp ensureLastPODate() => $_ensure(16);
 
   @$pb.TagNumber(18)
-  $2.Timestamp get lastInDate => $_getN(17);
+  $2.Timestamp get lastSODate => $_getN(17);
   @$pb.TagNumber(18)
-  set lastInDate($2.Timestamp v) { setField(18, v); }
+  set lastSODate($2.Timestamp v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasLastInDate() => $_has(17);
+  $core.bool hasLastSODate() => $_has(17);
   @$pb.TagNumber(18)
-  void clearLastInDate() => clearField(18);
+  void clearLastSODate() => clearField(18);
   @$pb.TagNumber(18)
-  $2.Timestamp ensureLastInDate() => $_ensure(17);
+  $2.Timestamp ensureLastSODate() => $_ensure(17);
 
   @$pb.TagNumber(19)
-  $2.Timestamp get lastOutDate => $_getN(18);
+  $2.Timestamp get lastInDate => $_getN(18);
   @$pb.TagNumber(19)
-  set lastOutDate($2.Timestamp v) { setField(19, v); }
+  set lastInDate($2.Timestamp v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasLastOutDate() => $_has(18);
+  $core.bool hasLastInDate() => $_has(18);
   @$pb.TagNumber(19)
-  void clearLastOutDate() => clearField(19);
+  void clearLastInDate() => clearField(19);
   @$pb.TagNumber(19)
-  $2.Timestamp ensureLastOutDate() => $_ensure(18);
+  $2.Timestamp ensureLastInDate() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $core.String get unitCode => $_getSZ(19);
+  $2.Timestamp get lastOutDate => $_getN(19);
   @$pb.TagNumber(20)
-  set unitCode($core.String v) { $_setString(19, v); }
+  set lastOutDate($2.Timestamp v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasUnitCode() => $_has(19);
+  $core.bool hasLastOutDate() => $_has(19);
   @$pb.TagNumber(20)
-  void clearUnitCode() => clearField(20);
+  void clearLastOutDate() => clearField(20);
+  @$pb.TagNumber(20)
+  $2.Timestamp ensureLastOutDate() => $_ensure(19);
 
   @$pb.TagNumber(21)
-  $core.String get unitName => $_getSZ(20);
+  $core.String get unitCode => $_getSZ(20);
   @$pb.TagNumber(21)
-  set unitName($core.String v) { $_setString(20, v); }
+  set unitCode($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasUnitName() => $_has(20);
+  $core.bool hasUnitCode() => $_has(20);
   @$pb.TagNumber(21)
-  void clearUnitName() => clearField(21);
+  void clearUnitCode() => clearField(21);
 
   @$pb.TagNumber(22)
-  $2.Timestamp get closeDate => $_getN(21);
+  $core.String get unitName => $_getSZ(21);
   @$pb.TagNumber(22)
-  set closeDate($2.Timestamp v) { setField(22, v); }
+  set unitName($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasCloseDate() => $_has(21);
+  $core.bool hasUnitName() => $_has(21);
   @$pb.TagNumber(22)
-  void clearCloseDate() => clearField(22);
-  @$pb.TagNumber(22)
-  $2.Timestamp ensureCloseDate() => $_ensure(21);
+  void clearUnitName() => clearField(22);
 
   @$pb.TagNumber(23)
-  $3.Decimal get closeStockQty => $_getN(22);
+  $2.Timestamp get closeDate => $_getN(22);
   @$pb.TagNumber(23)
-  set closeStockQty($3.Decimal v) { setField(23, v); }
+  set closeDate($2.Timestamp v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasCloseStockQty() => $_has(22);
+  $core.bool hasCloseDate() => $_has(22);
   @$pb.TagNumber(23)
-  void clearCloseStockQty() => clearField(23);
+  void clearCloseDate() => clearField(23);
   @$pb.TagNumber(23)
-  $3.Decimal ensureCloseStockQty() => $_ensure(22);
+  $2.Timestamp ensureCloseDate() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $3.Decimal get closeStockPrice => $_getN(23);
+  $3.Decimal get closeStockQty => $_getN(23);
   @$pb.TagNumber(24)
-  set closeStockPrice($3.Decimal v) { setField(24, v); }
+  set closeStockQty($3.Decimal v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasCloseStockPrice() => $_has(23);
+  $core.bool hasCloseStockQty() => $_has(23);
   @$pb.TagNumber(24)
-  void clearCloseStockPrice() => clearField(24);
+  void clearCloseStockQty() => clearField(24);
   @$pb.TagNumber(24)
-  $3.Decimal ensureCloseStockPrice() => $_ensure(23);
+  $3.Decimal ensureCloseStockQty() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $3.Decimal get closeStockAmount => $_getN(24);
+  $3.Decimal get closeStockPrice => $_getN(24);
   @$pb.TagNumber(25)
-  set closeStockAmount($3.Decimal v) { setField(25, v); }
+  set closeStockPrice($3.Decimal v) { setField(25, v); }
   @$pb.TagNumber(25)
-  $core.bool hasCloseStockAmount() => $_has(24);
+  $core.bool hasCloseStockPrice() => $_has(24);
   @$pb.TagNumber(25)
-  void clearCloseStockAmount() => clearField(25);
+  void clearCloseStockPrice() => clearField(25);
   @$pb.TagNumber(25)
-  $3.Decimal ensureCloseStockAmount() => $_ensure(24);
+  $3.Decimal ensureCloseStockPrice() => $_ensure(24);
 
   @$pb.TagNumber(26)
-  $3.Decimal get closeInvStockQty => $_getN(25);
+  $3.Decimal get closeStockAmount => $_getN(25);
   @$pb.TagNumber(26)
-  set closeInvStockQty($3.Decimal v) { setField(26, v); }
+  set closeStockAmount($3.Decimal v) { setField(26, v); }
   @$pb.TagNumber(26)
-  $core.bool hasCloseInvStockQty() => $_has(25);
+  $core.bool hasCloseStockAmount() => $_has(25);
   @$pb.TagNumber(26)
-  void clearCloseInvStockQty() => clearField(26);
+  void clearCloseStockAmount() => clearField(26);
   @$pb.TagNumber(26)
-  $3.Decimal ensureCloseInvStockQty() => $_ensure(25);
+  $3.Decimal ensureCloseStockAmount() => $_ensure(25);
 
   @$pb.TagNumber(27)
-  $core.int get updMode => $_getIZ(26);
+  $3.Decimal get closeInvStockQty => $_getN(26);
   @$pb.TagNumber(27)
-  set updMode($core.int v) { $_setSignedInt32(26, v); }
+  set closeInvStockQty($3.Decimal v) { setField(27, v); }
   @$pb.TagNumber(27)
-  $core.bool hasUpdMode() => $_has(26);
+  $core.bool hasCloseInvStockQty() => $_has(26);
   @$pb.TagNumber(27)
-  void clearUpdMode() => clearField(27);
+  void clearCloseInvStockQty() => clearField(27);
+  @$pb.TagNumber(27)
+  $3.Decimal ensureCloseInvStockQty() => $_ensure(26);
+
+  @$pb.TagNumber(28)
+  $core.int get updMode => $_getIZ(27);
+  @$pb.TagNumber(28)
+  set updMode($core.int v) { $_setSignedInt32(27, v); }
+  @$pb.TagNumber(28)
+  $core.bool hasUpdMode() => $_has(27);
+  @$pb.TagNumber(28)
+  void clearUpdMode() => clearField(28);
 }
 
 /// >>> End generated StockSum message
@@ -16885,6 +17395,7 @@ class grpcInvOutHeaderModel extends $pb.GeneratedMessage {
     $2.Timestamp? invOutDate,
     $2.Timestamp? invOutProcDate,
     $core.String? invOutReqNo,
+    $core.String? outAccInvCode,
     $core.String? outInvCode,
     $core.String? outInvName,
     $core.int? invAccType,
@@ -16933,6 +17444,9 @@ class grpcInvOutHeaderModel extends $pb.GeneratedMessage {
     }
     if (invOutReqNo != null) {
       $result.invOutReqNo = invOutReqNo;
+    }
+    if (outAccInvCode != null) {
+      $result.outAccInvCode = outAccInvCode;
     }
     if (outInvCode != null) {
       $result.outInvCode = outInvCode;
@@ -16994,20 +17508,21 @@ class grpcInvOutHeaderModel extends $pb.GeneratedMessage {
     ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'InvOutDate', protoName: 'InvOutDate', subBuilder: $2.Timestamp.create)
     ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'InvOutProcDate', protoName: 'InvOutProcDate', subBuilder: $2.Timestamp.create)
     ..aOS(11, _omitFieldNames ? '' : 'InvOutReqNo', protoName: 'InvOutReqNo')
-    ..aOS(12, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
-    ..aOS(13, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
-    ..aOS(15, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..aOS(16, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
-    ..aOS(17, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
-    ..aOS(18, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..a<$core.int>(19, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(20, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(21, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(22, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(24, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
-    ..a<$core.int>(25, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
+    ..aOS(12, _omitFieldNames ? '' : 'OutAccInvCode', protoName: 'OutAccInvCode')
+    ..aOS(13, _omitFieldNames ? '' : 'OutInvCode', protoName: 'OutInvCode')
+    ..aOS(14, _omitFieldNames ? '' : 'OutInvName', protoName: 'OutInvName')
+    ..a<$core.int>(15, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
+    ..aOS(16, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(17, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
+    ..aOS(18, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
+    ..aOS(19, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..a<$core.int>(20, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(21, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(22, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(23, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$2.Timestamp>(24, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(25, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(26, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
     ..hasRequiredFields = false
   ;
 
@@ -17138,134 +17653,143 @@ class grpcInvOutHeaderModel extends $pb.GeneratedMessage {
   void clearInvOutReqNo() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get outInvCode => $_getSZ(11);
+  $core.String get outAccInvCode => $_getSZ(11);
   @$pb.TagNumber(12)
-  set outInvCode($core.String v) { $_setString(11, v); }
+  set outAccInvCode($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasOutInvCode() => $_has(11);
+  $core.bool hasOutAccInvCode() => $_has(11);
   @$pb.TagNumber(12)
-  void clearOutInvCode() => clearField(12);
+  void clearOutAccInvCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get outInvName => $_getSZ(12);
+  $core.String get outInvCode => $_getSZ(12);
   @$pb.TagNumber(13)
-  set outInvName($core.String v) { $_setString(12, v); }
+  set outInvCode($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasOutInvName() => $_has(12);
+  $core.bool hasOutInvCode() => $_has(12);
   @$pb.TagNumber(13)
-  void clearOutInvName() => clearField(13);
+  void clearOutInvCode() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.int get invAccType => $_getIZ(13);
+  $core.String get outInvName => $_getSZ(13);
   @$pb.TagNumber(14)
-  set invAccType($core.int v) { $_setSignedInt32(13, v); }
+  set outInvName($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasInvAccType() => $_has(13);
+  $core.bool hasOutInvName() => $_has(13);
   @$pb.TagNumber(14)
-  void clearInvAccType() => clearField(14);
+  void clearOutInvName() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get reason => $_getSZ(14);
+  $core.int get invAccType => $_getIZ(14);
   @$pb.TagNumber(15)
-  set reason($core.String v) { $_setString(14, v); }
+  set invAccType($core.int v) { $_setSignedInt32(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasReason() => $_has(14);
+  $core.bool hasInvAccType() => $_has(14);
   @$pb.TagNumber(15)
-  void clearReason() => clearField(15);
+  void clearInvAccType() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get reqStaffID => $_getSZ(15);
+  $core.String get reason => $_getSZ(15);
   @$pb.TagNumber(16)
-  set reqStaffID($core.String v) { $_setString(15, v); }
+  set reason($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasReqStaffID() => $_has(15);
+  $core.bool hasReason() => $_has(15);
   @$pb.TagNumber(16)
-  void clearReqStaffID() => clearField(16);
+  void clearReason() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get reqNotes => $_getSZ(16);
+  $core.String get reqStaffID => $_getSZ(16);
   @$pb.TagNumber(17)
-  set reqNotes($core.String v) { $_setString(16, v); }
+  set reqStaffID($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasReqNotes() => $_has(16);
+  $core.bool hasReqStaffID() => $_has(16);
   @$pb.TagNumber(17)
-  void clearReqNotes() => clearField(17);
+  void clearReqStaffID() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.String get notes => $_getSZ(17);
+  $core.String get reqNotes => $_getSZ(17);
   @$pb.TagNumber(18)
-  set notes($core.String v) { $_setString(17, v); }
+  set reqNotes($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasNotes() => $_has(17);
+  $core.bool hasReqNotes() => $_has(17);
   @$pb.TagNumber(18)
-  void clearNotes() => clearField(18);
+  void clearReqNotes() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.int get updMode => $_getIZ(18);
+  $core.String get notes => $_getSZ(18);
   @$pb.TagNumber(19)
-  set updMode($core.int v) { $_setSignedInt32(18, v); }
+  set notes($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasUpdMode() => $_has(18);
+  $core.bool hasNotes() => $_has(18);
   @$pb.TagNumber(19)
-  void clearUpdMode() => clearField(19);
+  void clearNotes() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.int get updCount => $_getIZ(19);
+  $core.int get updMode => $_getIZ(19);
   @$pb.TagNumber(20)
-  set updCount($core.int v) { $_setSignedInt32(19, v); }
+  set updMode($core.int v) { $_setSignedInt32(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasUpdCount() => $_has(19);
+  $core.bool hasUpdMode() => $_has(19);
   @$pb.TagNumber(20)
-  void clearUpdCount() => clearField(20);
+  void clearUpdMode() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get updTransactionID => $_getSZ(20);
+  $core.int get updCount => $_getIZ(20);
   @$pb.TagNumber(21)
-  set updTransactionID($core.String v) { $_setString(20, v); }
+  set updCount($core.int v) { $_setSignedInt32(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasUpdTransactionID() => $_has(20);
+  $core.bool hasUpdCount() => $_has(20);
   @$pb.TagNumber(21)
-  void clearUpdTransactionID() => clearField(21);
+  void clearUpdCount() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.String get updAccountID => $_getSZ(21);
+  $core.String get updTransactionID => $_getSZ(21);
   @$pb.TagNumber(22)
-  set updAccountID($core.String v) { $_setString(21, v); }
+  set updTransactionID($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasUpdAccountID() => $_has(21);
+  $core.bool hasUpdTransactionID() => $_has(21);
   @$pb.TagNumber(22)
-  void clearUpdAccountID() => clearField(22);
+  void clearUpdTransactionID() => clearField(22);
 
   @$pb.TagNumber(23)
-  $2.Timestamp get updDateTime => $_getN(22);
+  $core.String get updAccountID => $_getSZ(22);
   @$pb.TagNumber(23)
-  set updDateTime($2.Timestamp v) { setField(23, v); }
+  set updAccountID($core.String v) { $_setString(22, v); }
   @$pb.TagNumber(23)
-  $core.bool hasUpdDateTime() => $_has(22);
+  $core.bool hasUpdAccountID() => $_has(22);
   @$pb.TagNumber(23)
-  void clearUpdDateTime() => clearField(23);
-  @$pb.TagNumber(23)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(22);
+  void clearUpdAccountID() => clearField(23);
 
   @$pb.TagNumber(24)
-  $2.Timestamp get crtDateTime => $_getN(23);
+  $2.Timestamp get updDateTime => $_getN(23);
   @$pb.TagNumber(24)
-  set crtDateTime($2.Timestamp v) { setField(24, v); }
+  set updDateTime($2.Timestamp v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasCrtDateTime() => $_has(23);
+  $core.bool hasUpdDateTime() => $_has(23);
   @$pb.TagNumber(24)
-  void clearCrtDateTime() => clearField(24);
+  void clearUpdDateTime() => clearField(24);
   @$pb.TagNumber(24)
-  $2.Timestamp ensureCrtDateTime() => $_ensure(23);
+  $2.Timestamp ensureUpdDateTime() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $core.int get refUpdCount => $_getIZ(24);
+  $2.Timestamp get crtDateTime => $_getN(24);
   @$pb.TagNumber(25)
-  set refUpdCount($core.int v) { $_setSignedInt32(24, v); }
+  set crtDateTime($2.Timestamp v) { setField(25, v); }
   @$pb.TagNumber(25)
-  $core.bool hasRefUpdCount() => $_has(24);
+  $core.bool hasCrtDateTime() => $_has(24);
   @$pb.TagNumber(25)
-  void clearRefUpdCount() => clearField(25);
+  void clearCrtDateTime() => clearField(25);
+  @$pb.TagNumber(25)
+  $2.Timestamp ensureCrtDateTime() => $_ensure(24);
+
+  @$pb.TagNumber(26)
+  $core.int get refUpdCount => $_getIZ(25);
+  @$pb.TagNumber(26)
+  set refUpdCount($core.int v) { $_setSignedInt32(25, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasRefUpdCount() => $_has(25);
+  @$pb.TagNumber(26)
+  void clearRefUpdCount() => clearField(26);
 }
 
 class grpcInvOutDetailModel extends $pb.GeneratedMessage {
@@ -17301,9 +17825,11 @@ class grpcInvOutDetailModel extends $pb.GeneratedMessage {
     $core.String? reqNotes,
     $core.String? notes,
     $core.String? recordNo,
-    $core.int? updMode,
     $core.String? reason,
     $core.int? invAccType,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costAmount,
+    $core.int? updMode,
   }) {
     final $result = create();
     if (iD != null) {
@@ -17399,14 +17925,20 @@ class grpcInvOutDetailModel extends $pb.GeneratedMessage {
     if (recordNo != null) {
       $result.recordNo = recordNo;
     }
-    if (updMode != null) {
-      $result.updMode = updMode;
-    }
     if (reason != null) {
       $result.reason = reason;
     }
     if (invAccType != null) {
       $result.invAccType = invAccType;
+    }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costAmount != null) {
+      $result.costAmount = costAmount;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
     }
     return $result;
   }
@@ -17446,9 +17978,11 @@ class grpcInvOutDetailModel extends $pb.GeneratedMessage {
     ..aOS(29, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
     ..aOS(30, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
     ..aOS(31, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
-    ..a<$core.int>(32, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOS(33, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..a<$core.int>(34, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
+    ..aOS(32, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..a<$core.int>(33, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
+    ..aOM<$3.Decimal>(34, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(35, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..a<$core.int>(36, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
 
@@ -17761,31 +18295,53 @@ class grpcInvOutDetailModel extends $pb.GeneratedMessage {
   void clearRecordNo() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.int get updMode => $_getIZ(31);
+  $core.String get reason => $_getSZ(31);
   @$pb.TagNumber(32)
-  set updMode($core.int v) { $_setSignedInt32(31, v); }
+  set reason($core.String v) { $_setString(31, v); }
   @$pb.TagNumber(32)
-  $core.bool hasUpdMode() => $_has(31);
+  $core.bool hasReason() => $_has(31);
   @$pb.TagNumber(32)
-  void clearUpdMode() => clearField(32);
+  void clearReason() => clearField(32);
 
   @$pb.TagNumber(33)
-  $core.String get reason => $_getSZ(32);
+  $core.int get invAccType => $_getIZ(32);
   @$pb.TagNumber(33)
-  set reason($core.String v) { $_setString(32, v); }
+  set invAccType($core.int v) { $_setSignedInt32(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasReason() => $_has(32);
+  $core.bool hasInvAccType() => $_has(32);
   @$pb.TagNumber(33)
-  void clearReason() => clearField(33);
+  void clearInvAccType() => clearField(33);
 
   @$pb.TagNumber(34)
-  $core.int get invAccType => $_getIZ(33);
+  $3.Decimal get costUnitPrice => $_getN(33);
   @$pb.TagNumber(34)
-  set invAccType($core.int v) { $_setSignedInt32(33, v); }
+  set costUnitPrice($3.Decimal v) { setField(34, v); }
   @$pb.TagNumber(34)
-  $core.bool hasInvAccType() => $_has(33);
+  $core.bool hasCostUnitPrice() => $_has(33);
   @$pb.TagNumber(34)
-  void clearInvAccType() => clearField(34);
+  void clearCostUnitPrice() => clearField(34);
+  @$pb.TagNumber(34)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(33);
+
+  @$pb.TagNumber(35)
+  $3.Decimal get costAmount => $_getN(34);
+  @$pb.TagNumber(35)
+  set costAmount($3.Decimal v) { setField(35, v); }
+  @$pb.TagNumber(35)
+  $core.bool hasCostAmount() => $_has(34);
+  @$pb.TagNumber(35)
+  void clearCostAmount() => clearField(35);
+  @$pb.TagNumber(35)
+  $3.Decimal ensureCostAmount() => $_ensure(34);
+
+  @$pb.TagNumber(36)
+  $core.int get updMode => $_getIZ(35);
+  @$pb.TagNumber(36)
+  set updMode($core.int v) { $_setSignedInt32(35, v); }
+  @$pb.TagNumber(36)
+  $core.bool hasUpdMode() => $_has(35);
+  @$pb.TagNumber(36)
+  void clearUpdMode() => clearField(36);
 }
 
 class grpcInvOutSlistModel extends $pb.GeneratedMessage {
@@ -19623,6 +20179,7 @@ class grpcInvInHeaderModel extends $pb.GeneratedMessage {
     $2.Timestamp? invInDate,
     $2.Timestamp? invInProcDate,
     $core.String? invInReqNo,
+    $core.String? inAccInvCode,
     $core.String? inInvCode,
     $core.String? inInvName,
     $core.String? reason,
@@ -19671,6 +20228,9 @@ class grpcInvInHeaderModel extends $pb.GeneratedMessage {
     }
     if (invInReqNo != null) {
       $result.invInReqNo = invInReqNo;
+    }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
     }
     if (inInvCode != null) {
       $result.inInvCode = inInvCode;
@@ -19732,20 +20292,21 @@ class grpcInvInHeaderModel extends $pb.GeneratedMessage {
     ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'InvInDate', protoName: 'InvInDate', subBuilder: $2.Timestamp.create)
     ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'InvInProcDate', protoName: 'InvInProcDate', subBuilder: $2.Timestamp.create)
     ..aOS(11, _omitFieldNames ? '' : 'InvInReqNo', protoName: 'InvInReqNo')
-    ..aOS(12, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..aOS(13, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
-    ..aOS(14, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..aOS(15, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
-    ..aOS(16, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
-    ..aOS(17, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..a<$core.int>(18, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(19, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(20, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(21, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(22, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
-    ..a<$core.int>(24, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
-    ..a<$core.int>(25, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
+    ..aOS(12, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..aOS(13, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
+    ..aOS(14, _omitFieldNames ? '' : 'InInvName', protoName: 'InInvName')
+    ..aOS(15, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..aOS(16, _omitFieldNames ? '' : 'ReqStaffID', protoName: 'ReqStaffID')
+    ..aOS(17, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
+    ..aOS(18, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..a<$core.int>(19, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(20, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(21, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(22, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$2.Timestamp>(24, _omitFieldNames ? '' : 'CrtDateTime', protoName: 'CrtDateTime', subBuilder: $2.Timestamp.create)
+    ..a<$core.int>(25, _omitFieldNames ? '' : 'RefUpdCount', $pb.PbFieldType.O3, protoName: 'RefUpdCount')
+    ..a<$core.int>(26, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
     ..hasRequiredFields = false
   ;
 
@@ -19876,134 +20437,143 @@ class grpcInvInHeaderModel extends $pb.GeneratedMessage {
   void clearInvInReqNo() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get inInvCode => $_getSZ(11);
+  $core.String get inAccInvCode => $_getSZ(11);
   @$pb.TagNumber(12)
-  set inInvCode($core.String v) { $_setString(11, v); }
+  set inAccInvCode($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasInInvCode() => $_has(11);
+  $core.bool hasInAccInvCode() => $_has(11);
   @$pb.TagNumber(12)
-  void clearInInvCode() => clearField(12);
+  void clearInAccInvCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get inInvName => $_getSZ(12);
+  $core.String get inInvCode => $_getSZ(12);
   @$pb.TagNumber(13)
-  set inInvName($core.String v) { $_setString(12, v); }
+  set inInvCode($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasInInvName() => $_has(12);
+  $core.bool hasInInvCode() => $_has(12);
   @$pb.TagNumber(13)
-  void clearInInvName() => clearField(13);
+  void clearInInvCode() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get reason => $_getSZ(13);
+  $core.String get inInvName => $_getSZ(13);
   @$pb.TagNumber(14)
-  set reason($core.String v) { $_setString(13, v); }
+  set inInvName($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasReason() => $_has(13);
+  $core.bool hasInInvName() => $_has(13);
   @$pb.TagNumber(14)
-  void clearReason() => clearField(14);
+  void clearInInvName() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get reqStaffID => $_getSZ(14);
+  $core.String get reason => $_getSZ(14);
   @$pb.TagNumber(15)
-  set reqStaffID($core.String v) { $_setString(14, v); }
+  set reason($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasReqStaffID() => $_has(14);
+  $core.bool hasReason() => $_has(14);
   @$pb.TagNumber(15)
-  void clearReqStaffID() => clearField(15);
+  void clearReason() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get reqNotes => $_getSZ(15);
+  $core.String get reqStaffID => $_getSZ(15);
   @$pb.TagNumber(16)
-  set reqNotes($core.String v) { $_setString(15, v); }
+  set reqStaffID($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasReqNotes() => $_has(15);
+  $core.bool hasReqStaffID() => $_has(15);
   @$pb.TagNumber(16)
-  void clearReqNotes() => clearField(16);
+  void clearReqStaffID() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get notes => $_getSZ(16);
+  $core.String get reqNotes => $_getSZ(16);
   @$pb.TagNumber(17)
-  set notes($core.String v) { $_setString(16, v); }
+  set reqNotes($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasNotes() => $_has(16);
+  $core.bool hasReqNotes() => $_has(16);
   @$pb.TagNumber(17)
-  void clearNotes() => clearField(17);
+  void clearReqNotes() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.int get updMode => $_getIZ(17);
+  $core.String get notes => $_getSZ(17);
   @$pb.TagNumber(18)
-  set updMode($core.int v) { $_setSignedInt32(17, v); }
+  set notes($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasUpdMode() => $_has(17);
+  $core.bool hasNotes() => $_has(17);
   @$pb.TagNumber(18)
-  void clearUpdMode() => clearField(18);
+  void clearNotes() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.int get updCount => $_getIZ(18);
+  $core.int get updMode => $_getIZ(18);
   @$pb.TagNumber(19)
-  set updCount($core.int v) { $_setSignedInt32(18, v); }
+  set updMode($core.int v) { $_setSignedInt32(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasUpdCount() => $_has(18);
+  $core.bool hasUpdMode() => $_has(18);
   @$pb.TagNumber(19)
-  void clearUpdCount() => clearField(19);
+  void clearUpdMode() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.String get updTransactionID => $_getSZ(19);
+  $core.int get updCount => $_getIZ(19);
   @$pb.TagNumber(20)
-  set updTransactionID($core.String v) { $_setString(19, v); }
+  set updCount($core.int v) { $_setSignedInt32(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasUpdTransactionID() => $_has(19);
+  $core.bool hasUpdCount() => $_has(19);
   @$pb.TagNumber(20)
-  void clearUpdTransactionID() => clearField(20);
+  void clearUpdCount() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get updAccountID => $_getSZ(20);
+  $core.String get updTransactionID => $_getSZ(20);
   @$pb.TagNumber(21)
-  set updAccountID($core.String v) { $_setString(20, v); }
+  set updTransactionID($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasUpdAccountID() => $_has(20);
+  $core.bool hasUpdTransactionID() => $_has(20);
   @$pb.TagNumber(21)
-  void clearUpdAccountID() => clearField(21);
+  void clearUpdTransactionID() => clearField(21);
 
   @$pb.TagNumber(22)
-  $2.Timestamp get updDateTime => $_getN(21);
+  $core.String get updAccountID => $_getSZ(21);
   @$pb.TagNumber(22)
-  set updDateTime($2.Timestamp v) { setField(22, v); }
+  set updAccountID($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasUpdDateTime() => $_has(21);
+  $core.bool hasUpdAccountID() => $_has(21);
   @$pb.TagNumber(22)
-  void clearUpdDateTime() => clearField(22);
-  @$pb.TagNumber(22)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(21);
+  void clearUpdAccountID() => clearField(22);
 
   @$pb.TagNumber(23)
-  $2.Timestamp get crtDateTime => $_getN(22);
+  $2.Timestamp get updDateTime => $_getN(22);
   @$pb.TagNumber(23)
-  set crtDateTime($2.Timestamp v) { setField(23, v); }
+  set updDateTime($2.Timestamp v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasCrtDateTime() => $_has(22);
+  $core.bool hasUpdDateTime() => $_has(22);
   @$pb.TagNumber(23)
-  void clearCrtDateTime() => clearField(23);
+  void clearUpdDateTime() => clearField(23);
   @$pb.TagNumber(23)
-  $2.Timestamp ensureCrtDateTime() => $_ensure(22);
+  $2.Timestamp ensureUpdDateTime() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $core.int get refUpdCount => $_getIZ(23);
+  $2.Timestamp get crtDateTime => $_getN(23);
   @$pb.TagNumber(24)
-  set refUpdCount($core.int v) { $_setSignedInt32(23, v); }
+  set crtDateTime($2.Timestamp v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasRefUpdCount() => $_has(23);
+  $core.bool hasCrtDateTime() => $_has(23);
   @$pb.TagNumber(24)
-  void clearRefUpdCount() => clearField(24);
+  void clearCrtDateTime() => clearField(24);
+  @$pb.TagNumber(24)
+  $2.Timestamp ensureCrtDateTime() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $core.int get invAccType => $_getIZ(24);
+  $core.int get refUpdCount => $_getIZ(24);
   @$pb.TagNumber(25)
-  set invAccType($core.int v) { $_setSignedInt32(24, v); }
+  set refUpdCount($core.int v) { $_setSignedInt32(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasInvAccType() => $_has(24);
+  $core.bool hasRefUpdCount() => $_has(24);
   @$pb.TagNumber(25)
-  void clearInvAccType() => clearField(25);
+  void clearRefUpdCount() => clearField(25);
+
+  @$pb.TagNumber(26)
+  $core.int get invAccType => $_getIZ(25);
+  @$pb.TagNumber(26)
+  set invAccType($core.int v) { $_setSignedInt32(25, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasInvAccType() => $_has(25);
+  @$pb.TagNumber(26)
+  void clearInvAccType() => clearField(26);
 }
 
 class grpcInvInDetailModel extends $pb.GeneratedMessage {
@@ -20017,6 +20587,7 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
     $core.String? invInNo,
     $2.Timestamp? invInDate,
     $core.String? inInvCode,
+    $core.String? inAccInvCode,
     $core.int? lineNo,
     $core.String? productCode,
     $core.String? productName,
@@ -20038,6 +20609,8 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
     $core.Iterable<grpcLotDetailModel>? lotDetails,
     $core.String? reqNotes,
     $core.String? notes,
+    $3.Decimal? costUnitPrice,
+    $3.Decimal? costAmount,
     $core.String? recordNo,
     $core.int? updMode,
     $core.String? reason,
@@ -20070,6 +20643,9 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
     }
     if (inInvCode != null) {
       $result.inInvCode = inInvCode;
+    }
+    if (inAccInvCode != null) {
+      $result.inAccInvCode = inAccInvCode;
     }
     if (lineNo != null) {
       $result.lineNo = lineNo;
@@ -20134,6 +20710,12 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
     if (notes != null) {
       $result.notes = notes;
     }
+    if (costUnitPrice != null) {
+      $result.costUnitPrice = costUnitPrice;
+    }
+    if (costAmount != null) {
+      $result.costAmount = costAmount;
+    }
     if (recordNo != null) {
       $result.recordNo = recordNo;
     }
@@ -20162,31 +20744,34 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'InvInNo', protoName: 'InvInNo')
     ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'InvInDate', protoName: 'InvInDate', subBuilder: $2.Timestamp.create)
     ..aOS(9, _omitFieldNames ? '' : 'InInvCode', protoName: 'InInvCode')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
-    ..aOS(11, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(12, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
-    ..aOS(13, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(14, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(15, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$3.Decimal>(16, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(17, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(18, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(19, _omitFieldNames ? '' : 'ReqQty', protoName: 'ReqQty', subBuilder: $3.Decimal.create)
-    ..aOB(20, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
-    ..aOS(21, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
-    ..aOS(22, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
-    ..aOM<$2.Timestamp>(23, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
-    ..aOS(24, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
-    ..a<$core.int>(25, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
-    ..a<$core.int>(26, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
-    ..aOB(27, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
-    ..pc<grpcLotDetailModel>(28, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
-    ..aOS(29, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
-    ..aOS(30, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOS(31, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
-    ..a<$core.int>(32, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOS(33, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
-    ..a<$core.int>(34, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
+    ..aOS(10, _omitFieldNames ? '' : 'InAccInvCode', protoName: 'InAccInvCode')
+    ..a<$core.int>(11, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
+    ..aOS(12, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(13, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
+    ..aOS(14, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(15, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(16, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$3.Decimal>(17, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(18, _omitFieldNames ? '' : 'CaseQty', protoName: 'CaseQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(19, _omitFieldNames ? '' : 'InOutQty', protoName: 'InOutQty', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(20, _omitFieldNames ? '' : 'ReqQty', protoName: 'ReqQty', subBuilder: $3.Decimal.create)
+    ..aOB(21, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
+    ..aOS(22, _omitFieldNames ? '' : 'LotID', protoName: 'LotID')
+    ..aOS(23, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
+    ..aOM<$2.Timestamp>(24, _omitFieldNames ? '' : 'LotDate', protoName: 'LotDate', subBuilder: $2.Timestamp.create)
+    ..aOS(25, _omitFieldNames ? '' : 'LotNotes', protoName: 'LotNotes')
+    ..a<$core.int>(26, _omitFieldNames ? '' : 'WarPeriod', $pb.PbFieldType.O3, protoName: 'WarPeriod')
+    ..a<$core.int>(27, _omitFieldNames ? '' : 'PeriodFlag', $pb.PbFieldType.O3, protoName: 'PeriodFlag')
+    ..aOB(28, _omitFieldNames ? '' : 'IsMultiLOT', protoName: 'IsMultiLOT')
+    ..pc<grpcLotDetailModel>(29, _omitFieldNames ? '' : 'LotDetails', $pb.PbFieldType.PM, protoName: 'LotDetails', subBuilder: grpcLotDetailModel.create)
+    ..aOS(30, _omitFieldNames ? '' : 'ReqNotes', protoName: 'ReqNotes')
+    ..aOS(31, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
+    ..aOM<$3.Decimal>(32, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $3.Decimal.create)
+    ..aOM<$3.Decimal>(33, _omitFieldNames ? '' : 'CostAmount', protoName: 'CostAmount', subBuilder: $3.Decimal.create)
+    ..aOS(34, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
+    ..a<$core.int>(35, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOS(36, _omitFieldNames ? '' : 'Reason', protoName: 'Reason')
+    ..a<$core.int>(37, _omitFieldNames ? '' : 'InvAccType', $pb.PbFieldType.O3, protoName: 'InvAccType')
     ..hasRequiredFields = false
   ;
 
@@ -20297,233 +20882,264 @@ class grpcInvInDetailModel extends $pb.GeneratedMessage {
   void clearInInvCode() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.int get lineNo => $_getIZ(9);
+  $core.String get inAccInvCode => $_getSZ(9);
   @$pb.TagNumber(10)
-  set lineNo($core.int v) { $_setSignedInt32(9, v); }
+  set inAccInvCode($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasLineNo() => $_has(9);
+  $core.bool hasInAccInvCode() => $_has(9);
   @$pb.TagNumber(10)
-  void clearLineNo() => clearField(10);
+  void clearInAccInvCode() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get productCode => $_getSZ(10);
+  $core.int get lineNo => $_getIZ(10);
   @$pb.TagNumber(11)
-  set productCode($core.String v) { $_setString(10, v); }
+  set lineNo($core.int v) { $_setSignedInt32(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasProductCode() => $_has(10);
+  $core.bool hasLineNo() => $_has(10);
   @$pb.TagNumber(11)
-  void clearProductCode() => clearField(11);
+  void clearLineNo() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get productName => $_getSZ(11);
+  $core.String get productCode => $_getSZ(11);
   @$pb.TagNumber(12)
-  set productName($core.String v) { $_setString(11, v); }
+  set productCode($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasProductName() => $_has(11);
+  $core.bool hasProductCode() => $_has(11);
   @$pb.TagNumber(12)
-  void clearProductName() => clearField(12);
+  void clearProductCode() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get specification => $_getSZ(12);
+  $core.String get productName => $_getSZ(12);
   @$pb.TagNumber(13)
-  set specification($core.String v) { $_setString(12, v); }
+  set productName($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasSpecification() => $_has(12);
+  $core.bool hasProductName() => $_has(12);
   @$pb.TagNumber(13)
-  void clearSpecification() => clearField(13);
+  void clearProductName() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get unitCode => $_getSZ(13);
+  $core.String get specification => $_getSZ(13);
   @$pb.TagNumber(14)
-  set unitCode($core.String v) { $_setString(13, v); }
+  set specification($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasUnitCode() => $_has(13);
+  $core.bool hasSpecification() => $_has(13);
   @$pb.TagNumber(14)
-  void clearUnitCode() => clearField(14);
+  void clearSpecification() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get unitName => $_getSZ(14);
+  $core.String get unitCode => $_getSZ(14);
   @$pb.TagNumber(15)
-  set unitName($core.String v) { $_setString(14, v); }
+  set unitCode($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasUnitName() => $_has(14);
+  $core.bool hasUnitCode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUnitName() => clearField(15);
+  void clearUnitCode() => clearField(15);
 
   @$pb.TagNumber(16)
-  $3.Decimal get packingQty => $_getN(15);
+  $core.String get unitName => $_getSZ(15);
   @$pb.TagNumber(16)
-  set packingQty($3.Decimal v) { setField(16, v); }
+  set unitName($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasPackingQty() => $_has(15);
+  $core.bool hasUnitName() => $_has(15);
   @$pb.TagNumber(16)
-  void clearPackingQty() => clearField(16);
-  @$pb.TagNumber(16)
-  $3.Decimal ensurePackingQty() => $_ensure(15);
+  void clearUnitName() => clearField(16);
 
   @$pb.TagNumber(17)
-  $3.Decimal get caseQty => $_getN(16);
+  $3.Decimal get packingQty => $_getN(16);
   @$pb.TagNumber(17)
-  set caseQty($3.Decimal v) { setField(17, v); }
+  set packingQty($3.Decimal v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasCaseQty() => $_has(16);
+  $core.bool hasPackingQty() => $_has(16);
   @$pb.TagNumber(17)
-  void clearCaseQty() => clearField(17);
+  void clearPackingQty() => clearField(17);
   @$pb.TagNumber(17)
-  $3.Decimal ensureCaseQty() => $_ensure(16);
+  $3.Decimal ensurePackingQty() => $_ensure(16);
 
   @$pb.TagNumber(18)
-  $3.Decimal get inOutQty => $_getN(17);
+  $3.Decimal get caseQty => $_getN(17);
   @$pb.TagNumber(18)
-  set inOutQty($3.Decimal v) { setField(18, v); }
+  set caseQty($3.Decimal v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasInOutQty() => $_has(17);
+  $core.bool hasCaseQty() => $_has(17);
   @$pb.TagNumber(18)
-  void clearInOutQty() => clearField(18);
+  void clearCaseQty() => clearField(18);
   @$pb.TagNumber(18)
-  $3.Decimal ensureInOutQty() => $_ensure(17);
+  $3.Decimal ensureCaseQty() => $_ensure(17);
 
   @$pb.TagNumber(19)
-  $3.Decimal get reqQty => $_getN(18);
+  $3.Decimal get inOutQty => $_getN(18);
   @$pb.TagNumber(19)
-  set reqQty($3.Decimal v) { setField(19, v); }
+  set inOutQty($3.Decimal v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasReqQty() => $_has(18);
+  $core.bool hasInOutQty() => $_has(18);
   @$pb.TagNumber(19)
-  void clearReqQty() => clearField(19);
+  void clearInOutQty() => clearField(19);
   @$pb.TagNumber(19)
-  $3.Decimal ensureReqQty() => $_ensure(18);
+  $3.Decimal ensureInOutQty() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $core.bool get isLOT => $_getBF(19);
+  $3.Decimal get reqQty => $_getN(19);
   @$pb.TagNumber(20)
-  set isLOT($core.bool v) { $_setBool(19, v); }
+  set reqQty($3.Decimal v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasIsLOT() => $_has(19);
+  $core.bool hasReqQty() => $_has(19);
   @$pb.TagNumber(20)
-  void clearIsLOT() => clearField(20);
+  void clearReqQty() => clearField(20);
+  @$pb.TagNumber(20)
+  $3.Decimal ensureReqQty() => $_ensure(19);
 
   @$pb.TagNumber(21)
-  $core.String get lotID => $_getSZ(20);
+  $core.bool get isLOT => $_getBF(20);
   @$pb.TagNumber(21)
-  set lotID($core.String v) { $_setString(20, v); }
+  set isLOT($core.bool v) { $_setBool(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasLotID() => $_has(20);
+  $core.bool hasIsLOT() => $_has(20);
   @$pb.TagNumber(21)
-  void clearLotID() => clearField(21);
+  void clearIsLOT() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.String get dateType => $_getSZ(21);
+  $core.String get lotID => $_getSZ(21);
   @$pb.TagNumber(22)
-  set dateType($core.String v) { $_setString(21, v); }
+  set lotID($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasDateType() => $_has(21);
+  $core.bool hasLotID() => $_has(21);
   @$pb.TagNumber(22)
-  void clearDateType() => clearField(22);
+  void clearLotID() => clearField(22);
 
   @$pb.TagNumber(23)
-  $2.Timestamp get lotDate => $_getN(22);
+  $core.String get dateType => $_getSZ(22);
   @$pb.TagNumber(23)
-  set lotDate($2.Timestamp v) { setField(23, v); }
+  set dateType($core.String v) { $_setString(22, v); }
   @$pb.TagNumber(23)
-  $core.bool hasLotDate() => $_has(22);
+  $core.bool hasDateType() => $_has(22);
   @$pb.TagNumber(23)
-  void clearLotDate() => clearField(23);
-  @$pb.TagNumber(23)
-  $2.Timestamp ensureLotDate() => $_ensure(22);
+  void clearDateType() => clearField(23);
 
   @$pb.TagNumber(24)
-  $core.String get lotNotes => $_getSZ(23);
+  $2.Timestamp get lotDate => $_getN(23);
   @$pb.TagNumber(24)
-  set lotNotes($core.String v) { $_setString(23, v); }
+  set lotDate($2.Timestamp v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasLotNotes() => $_has(23);
+  $core.bool hasLotDate() => $_has(23);
   @$pb.TagNumber(24)
-  void clearLotNotes() => clearField(24);
+  void clearLotDate() => clearField(24);
+  @$pb.TagNumber(24)
+  $2.Timestamp ensureLotDate() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $core.int get warPeriod => $_getIZ(24);
+  $core.String get lotNotes => $_getSZ(24);
   @$pb.TagNumber(25)
-  set warPeriod($core.int v) { $_setSignedInt32(24, v); }
+  set lotNotes($core.String v) { $_setString(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasWarPeriod() => $_has(24);
+  $core.bool hasLotNotes() => $_has(24);
   @$pb.TagNumber(25)
-  void clearWarPeriod() => clearField(25);
+  void clearLotNotes() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.int get periodFlag => $_getIZ(25);
+  $core.int get warPeriod => $_getIZ(25);
   @$pb.TagNumber(26)
-  set periodFlag($core.int v) { $_setSignedInt32(25, v); }
+  set warPeriod($core.int v) { $_setSignedInt32(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasPeriodFlag() => $_has(25);
+  $core.bool hasWarPeriod() => $_has(25);
   @$pb.TagNumber(26)
-  void clearPeriodFlag() => clearField(26);
+  void clearWarPeriod() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.bool get isMultiLOT => $_getBF(26);
+  $core.int get periodFlag => $_getIZ(26);
   @$pb.TagNumber(27)
-  set isMultiLOT($core.bool v) { $_setBool(26, v); }
+  set periodFlag($core.int v) { $_setSignedInt32(26, v); }
   @$pb.TagNumber(27)
-  $core.bool hasIsMultiLOT() => $_has(26);
+  $core.bool hasPeriodFlag() => $_has(26);
   @$pb.TagNumber(27)
-  void clearIsMultiLOT() => clearField(27);
+  void clearPeriodFlag() => clearField(27);
 
   @$pb.TagNumber(28)
-  $core.List<grpcLotDetailModel> get lotDetails => $_getList(27);
+  $core.bool get isMultiLOT => $_getBF(27);
+  @$pb.TagNumber(28)
+  set isMultiLOT($core.bool v) { $_setBool(27, v); }
+  @$pb.TagNumber(28)
+  $core.bool hasIsMultiLOT() => $_has(27);
+  @$pb.TagNumber(28)
+  void clearIsMultiLOT() => clearField(28);
 
   @$pb.TagNumber(29)
-  $core.String get reqNotes => $_getSZ(28);
-  @$pb.TagNumber(29)
-  set reqNotes($core.String v) { $_setString(28, v); }
-  @$pb.TagNumber(29)
-  $core.bool hasReqNotes() => $_has(28);
-  @$pb.TagNumber(29)
-  void clearReqNotes() => clearField(29);
+  $core.List<grpcLotDetailModel> get lotDetails => $_getList(28);
 
   @$pb.TagNumber(30)
-  $core.String get notes => $_getSZ(29);
+  $core.String get reqNotes => $_getSZ(29);
   @$pb.TagNumber(30)
-  set notes($core.String v) { $_setString(29, v); }
+  set reqNotes($core.String v) { $_setString(29, v); }
   @$pb.TagNumber(30)
-  $core.bool hasNotes() => $_has(29);
+  $core.bool hasReqNotes() => $_has(29);
   @$pb.TagNumber(30)
-  void clearNotes() => clearField(30);
+  void clearReqNotes() => clearField(30);
 
   @$pb.TagNumber(31)
-  $core.String get recordNo => $_getSZ(30);
+  $core.String get notes => $_getSZ(30);
   @$pb.TagNumber(31)
-  set recordNo($core.String v) { $_setString(30, v); }
+  set notes($core.String v) { $_setString(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasRecordNo() => $_has(30);
+  $core.bool hasNotes() => $_has(30);
   @$pb.TagNumber(31)
-  void clearRecordNo() => clearField(31);
+  void clearNotes() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.int get updMode => $_getIZ(31);
+  $3.Decimal get costUnitPrice => $_getN(31);
   @$pb.TagNumber(32)
-  set updMode($core.int v) { $_setSignedInt32(31, v); }
+  set costUnitPrice($3.Decimal v) { setField(32, v); }
   @$pb.TagNumber(32)
-  $core.bool hasUpdMode() => $_has(31);
+  $core.bool hasCostUnitPrice() => $_has(31);
   @$pb.TagNumber(32)
-  void clearUpdMode() => clearField(32);
+  void clearCostUnitPrice() => clearField(32);
+  @$pb.TagNumber(32)
+  $3.Decimal ensureCostUnitPrice() => $_ensure(31);
 
   @$pb.TagNumber(33)
-  $core.String get reason => $_getSZ(32);
+  $3.Decimal get costAmount => $_getN(32);
   @$pb.TagNumber(33)
-  set reason($core.String v) { $_setString(32, v); }
+  set costAmount($3.Decimal v) { setField(33, v); }
   @$pb.TagNumber(33)
-  $core.bool hasReason() => $_has(32);
+  $core.bool hasCostAmount() => $_has(32);
   @$pb.TagNumber(33)
-  void clearReason() => clearField(33);
+  void clearCostAmount() => clearField(33);
+  @$pb.TagNumber(33)
+  $3.Decimal ensureCostAmount() => $_ensure(32);
 
   @$pb.TagNumber(34)
-  $core.int get invAccType => $_getIZ(33);
+  $core.String get recordNo => $_getSZ(33);
   @$pb.TagNumber(34)
-  set invAccType($core.int v) { $_setSignedInt32(33, v); }
+  set recordNo($core.String v) { $_setString(33, v); }
   @$pb.TagNumber(34)
-  $core.bool hasInvAccType() => $_has(33);
+  $core.bool hasRecordNo() => $_has(33);
   @$pb.TagNumber(34)
-  void clearInvAccType() => clearField(34);
+  void clearRecordNo() => clearField(34);
+
+  @$pb.TagNumber(35)
+  $core.int get updMode => $_getIZ(34);
+  @$pb.TagNumber(35)
+  set updMode($core.int v) { $_setSignedInt32(34, v); }
+  @$pb.TagNumber(35)
+  $core.bool hasUpdMode() => $_has(34);
+  @$pb.TagNumber(35)
+  void clearUpdMode() => clearField(35);
+
+  @$pb.TagNumber(36)
+  $core.String get reason => $_getSZ(35);
+  @$pb.TagNumber(36)
+  set reason($core.String v) { $_setString(35, v); }
+  @$pb.TagNumber(36)
+  $core.bool hasReason() => $_has(35);
+  @$pb.TagNumber(36)
+  void clearReason() => clearField(36);
+
+  @$pb.TagNumber(37)
+  $core.int get invAccType => $_getIZ(36);
+  @$pb.TagNumber(37)
+  set invAccType($core.int v) { $_setSignedInt32(36, v); }
+  @$pb.TagNumber(37)
+  $core.bool hasInvAccType() => $_has(36);
+  @$pb.TagNumber(37)
+  void clearInvAccType() => clearField(37);
 }
 
 class grpcInvInSlistModel extends $pb.GeneratedMessage {

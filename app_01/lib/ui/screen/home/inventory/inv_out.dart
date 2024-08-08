@@ -193,11 +193,14 @@ class _InvOutPageState extends State<InvOutPage> {
               context,
               MaterialPageRoute(
                   builder: (context) => BarcodeScanner1Page(
-                        productCode: e.productCode,
+                        invOutNo: _voucherNoData.voucherNo,
                         reqQty: reqQty,
+                        headerModel: _invOutReqData.header,
+                        detailModel: e,
                       )));
         },
         cells: <DataCell>[
+          DataCell(Text(e.lineNo.toString())),
           DataCell(Text(e.productName)),
           DataCell(Text(e.unitName)),
           DataCell(Text(e.packingQty.units.toString())),
@@ -210,6 +213,7 @@ class _InvOutPageState extends State<InvOutPage> {
 
   List<DataColumn> get _createColumns {
     return <DataColumn>[
+      DataColumn(label: Text('STT'), numeric: true),
       DataColumn(label: Text('Sản phẩm')),
       DataColumn(label: Text('Đơn vị')),
       DataColumn(label: Text('SLĐG'), numeric: true),
