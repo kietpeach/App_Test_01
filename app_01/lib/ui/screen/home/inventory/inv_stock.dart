@@ -24,13 +24,13 @@ class _InvStockPageState extends State<InvStockPage> {
   final _globalWidget = GlobalWidget();
   final _globalFunction = GlobalFunction();
 
-  late InventoryBloc _InventoryBloc;
-  late MasterBloc _MasterBloc;
+  late InventoryBloc _inventoryBloc;
+  late MasterBloc _masterBloc;
   CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
-  List<grpcStockSumModel> _InventoryData = [];
-  List<grpcInventoryModel> _InventorySlistData = [new grpcInventoryModel()];
-  List<grpcSelectProductModel> _ProductSlistData = [
+  List<grpcStockSumModel> _inventoryData = [];
+  List<grpcInventoryModel> _inventorySlistData = [new grpcInventoryModel()];
+  List<grpcSelectProductModel> _productSlistData = [
     new grpcSelectProductModel()
   ];
   String _valScroll1 = "";
@@ -38,10 +38,10 @@ class _InvStockPageState extends State<InvStockPage> {
 
   @override
   void initState() {
-    _InventoryBloc = BlocProvider.of<InventoryBloc>(context);
-    _MasterBloc = BlocProvider.of<MasterBloc>(context);
-    _MasterBloc.add(GetMaster());
-    _MasterBloc.add(GetProductMaster());
+    _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
+    _masterBloc = BlocProvider.of<MasterBloc>(context);
+    _masterBloc.add(GetInventoryMaster());
+    _masterBloc.add(GetProductMaster());
     super.initState();
   }
 
@@ -66,8 +66,8 @@ class _InvStockPageState extends State<InvStockPage> {
                   title: 'Xem tồn kho', desc: ''),
             ),
             IC_Inventory(
-              InventorySlistData: _InventorySlistData,
-              valScroll1: _valScroll1,
+              inventorySlistData: _inventorySlistData,
+              valScroll: _valScroll1,
               onChanged: (String? value) {
                 setState(() {
                   _valScroll1 = value!;
@@ -75,8 +75,8 @@ class _InvStockPageState extends State<InvStockPage> {
               },
             ),
             IC_Product_V2(
-              ProductSlistData: _ProductSlistData,
-              valScroll2: _valScroll2,
+              productSlistData: _productSlistData,
+              valScroll: _valScroll2,
               onChanged: (String? value) {
                 setState(() {
                   _valScroll2 = value!;
@@ -90,8 +90,8 @@ class _InvStockPageState extends State<InvStockPage> {
                 _globalWidget.createButton(
                     buttonName: 'Tìm kiếm',
                     onPressed: () {
-                      _InventoryData.clear();
-                      _InventoryBloc.add(GetInventory(
+                      _inventoryData.clear();
+                      _inventoryBloc.add(GetInventory(
                           invCode: _valScroll1, productCode: _valScroll2));
                     }),
                 // _globalWidget.createButton(
@@ -124,8 +124,7 @@ class _InvStockPageState extends State<InvStockPage> {
                         textColor: Colors.white,
                         fontSize: 13);
                   }
-                  // if (state is DeleteInventoryWaiting) {
-                  //   Navigator.pop(context);
+                  // if (state is GetInventoryWaiting) {
                   //   _globalFunction.showProgressDialog(context);
                   // }
                   // if (state is DeleteInventoryError) {
@@ -138,18 +137,18 @@ class _InvStockPageState extends State<InvStockPage> {
                   //       fontSize: 13);
                   // }
                   if (state is GetInventorySuccess) {
-                    _InventoryData.addAll(state.InventoryData);
+                    _inventoryData.addAll(state.InventoryData);
                   }
                   // if (state is DeleteInventorySuccess) {
                   //   Navigator.pop(context);
-                  //   _InventoryData.removeAt(state.index);
+                  //   _inventoryData.removeAt(state.index);
                   //   Fluttertoast.showToast(
                   //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
                   // }
                   // if (state is AddInventorySuccess) {
                   //   Navigator.pop(context);
                   //   Navigator.pop(context);
-                  //   _InventoryData.insert(
+                  //   _inventoryData.insert(
                   //       0,
                   //       InventoryModel(
                   //           InventoryId: state.InventoryId,
@@ -163,7 +162,7 @@ class _InvStockPageState extends State<InvStockPage> {
                   // if (state is EditInventorySuccess) {
                   //   Navigator.pop(context);
                   //   Navigator.pop(context);
-                  //   _InventoryData[state.index] = InventoryModel(
+                  //   _inventoryData[state.index] = InventoryModel(
                   //       InventoryId: state.InventoryId,
                   //       InventoryName: state.InventoryName,
                   //       InventoryPhoneNumber: state.InventoryPhoneNumber,
@@ -178,14 +177,15 @@ class _InvStockPageState extends State<InvStockPage> {
                     if (state is GetInventoryError) {
                       return Text('error occured');
                     } else {
-                      if (_InventoryData.length == 0) {
-                        //return Center(child: CircularProgressIndicator());
-                        return Center(
-                            child: Icon(Icons.search_off,
-                                size: 32, color: Colors.grey[700]));
+                      if (_inventoryData.length == 0 &&
+                          state is GetInventoryWaiting) {
+                        return Center(child: CircularProgressIndicator());
+                        // return Center(
+                        //     child: Icon(Icons.search_off,
+                        //         size: 32, color: Colors.grey[700]));
                       } else {
                         return ListView.builder(
-                          itemCount: _InventoryData.length,
+                          itemCount: _inventoryData.length,
                           shrinkWrap: true,
                           primary: false,
                           // Add one more item for progress indicator
@@ -208,7 +208,7 @@ class _InvStockPageState extends State<InvStockPage> {
 
   Widget _buildInventoryCard(index) {
     String productName = _globalFunction.GetProductName(
-        _ProductSlistData, _InventoryData[index].productCode);
+        _productSlistData, _inventoryData[index].productCode);
     return Card(
       elevation: 0.5,
       child: Container(
@@ -217,7 +217,7 @@ class _InvStockPageState extends State<InvStockPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: _InventoryData[index].stockQty.units != 0
+                color: _inventoryData[index].stockQty.units != 0
                     ? PRIMARY_COLOR
                     : Colors.pink,
                 borderRadius: BorderRadius.all(Radius.circular(18)),
@@ -236,10 +236,10 @@ class _InvStockPageState extends State<InvStockPage> {
                 children: [
                   Text(
                       productName == ''
-                          ? _InventoryData[index].productCode
+                          ? _inventoryData[index].productCode
                           : productName,
                       style: TextStyle(fontWeight: FontWeight.w500)),
-                  Text("SL: " + _InventoryData[index].stockQty.units.toString(),
+                  Text("SL: " + _inventoryData[index].stockQty.units.toString(),
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],
@@ -257,9 +257,9 @@ class _InvStockPageState extends State<InvStockPage> {
                       MaterialPageRoute(
                           builder: (context) => StockLOTPage(
                               index: index,
-                              inventoryData: _InventoryData[index],
-                              productSlistData: _ProductSlistData,
-                              inventorySlistData: _InventorySlistData)));
+                              inventoryData: _inventoryData[index],
+                              productSlistData: _productSlistData,
+                              inventorySlistData: _inventorySlistData)));
                 },
                 child:
                     Icon(Icons.inventory, size: 24, color: Colors.grey[700])),
@@ -284,9 +284,9 @@ class _InvStockPageState extends State<InvStockPage> {
   //       child: Text('No', style: TextStyle(color: SOFT_BLUE)));
   //   Widget continueButton = TextButton(
   //       onPressed: () {
-  //         _InventoryBloc.add(DeleteInventory(
+  //         _inventoryBloc.add(DeleteInventory(
   //             sessionId: '5f0e6bfbafe255.00218389',
-  //             //InventoryId: _InventoryData[index].InventoryId,
+  //             //InventoryId: _inventoryData[index].InventoryId,
   //             InventoryId: 1,
   //             index: index,
   //             apiToken: apiToken));
@@ -299,11 +299,11 @@ class _InvStockPageState extends State<InvStockPage> {
   //       borderRadius: BorderRadius.circular(10),
   //     ),
   //     title: Text(
-  //       'Delete ' + _InventoryData[index].InventoryName,
+  //       'Delete ' + _inventoryData[index].InventoryName,
   //       style: TextStyle(fontSize: 18),
   //     ),
   //     content: Text(
-  //         'Are you sure to delete ' + _InventoryData[index].InventoryName + ' ?',
+  //         'Are you sure to delete ' + _inventoryData[index].InventoryName + ' ?',
   //         style: TextStyle(fontSize: 13)),
   //     actions: [
   //       cancelButton,

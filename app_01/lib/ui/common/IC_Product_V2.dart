@@ -9,15 +9,15 @@ import '../../bloc/master/bloc.dart';
 class IC_Product_V2 extends StatelessWidget {
   const IC_Product_V2({
     super.key,
-    required List<grpcSelectProductModel> ProductSlistData,
-    required String valScroll2,
+    required List<grpcSelectProductModel> productSlistData,
+    required String valScroll,
     required Function(String?)? onChanged,
-  })  : _ProductSlistData = ProductSlistData,
-        _valScroll2 = valScroll2,
+  })  : _productSlistData = productSlistData,
+        _valScroll = valScroll,
         _onChanged = onChanged;
 
-  final List<grpcSelectProductModel> _ProductSlistData;
-  final String _valScroll2;
+  final List<grpcSelectProductModel> _productSlistData;
+  final String _valScroll;
   final Function(String?)? _onChanged;
 
   @override
@@ -34,7 +34,7 @@ class IC_Product_V2 extends StatelessWidget {
               fontSize: 13);
         }
         if (state is GetProductMasterSuccess) {
-          _ProductSlistData.addAll(state.ProductMasterData);
+          _productSlistData.addAll(state.ProductMasterData);
         }
       }, child: BlocBuilder<MasterBloc, MasterState>(builder: (context, state) {
         return DropdownButton(
@@ -44,14 +44,16 @@ class IC_Product_V2 extends StatelessWidget {
             height: 4,
             color: PRIMARY_COLOR,
           ),
-          value: _valScroll2 == "" ? null : _valScroll2,
-          items: List.generate(_ProductSlistData.length, (index) {
+          value: _valScroll == "" ? null : _valScroll,
+          items: List.generate(_productSlistData.length, (index) {
             return DropdownMenuItem(
-              child: Text(_ProductSlistData[index].productName),
-              value: _ProductSlistData[index].productCode,
+              child: Text(_productSlistData[index].productName),
+              value: _productSlistData[index].productCode,
             );
           }),
           onChanged: _onChanged,
+          isExpanded: true,
+          menuMaxHeight: 400,
         );
       })),
     );

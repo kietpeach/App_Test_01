@@ -1,4 +1,4 @@
-import 'package:app_01/service/Inventory.dart';
+import 'package:app_01/service/inventory.dart';
 import 'package:app_01/src/generated/Common.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 //import 'package:app_01/ui/models/inventory/Inventory_model.dart';

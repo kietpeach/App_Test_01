@@ -9,15 +9,15 @@ import '../../bloc/master/bloc.dart';
 class IC_Inventory extends StatelessWidget {
   const IC_Inventory({
     super.key,
-    required List<grpcInventoryModel> InventorySlistData,
-    required String valScroll1,
+    required List<grpcInventoryModel> inventorySlistData,
+    required String valScroll,
     required Function(String?)? onChanged,
-  })  : _InventorySlistData = InventorySlistData,
-        _valScroll1 = valScroll1,
+  })  : _inventorySlistData = inventorySlistData,
+        valScroll = valScroll,
         _onChanged = onChanged;
 
-  final List<grpcInventoryModel> _InventorySlistData;
-  final String _valScroll1;
+  final List<grpcInventoryModel> _inventorySlistData;
+  final String valScroll;
   final Function(String?)? _onChanged;
 
   @override
@@ -33,8 +33,8 @@ class IC_Inventory extends StatelessWidget {
               textColor: Colors.white,
               fontSize: 13);
         }
-        if (state is GetMasterSuccess) {
-          _InventorySlistData.addAll(state.MasterData);
+        if (state is GetInventoryMasterSuccess) {
+          _inventorySlistData.addAll(state.InventoryMasterData);
         }
       }, child: BlocBuilder<MasterBloc, MasterState>(builder: (context, state) {
         return DropdownButton(
@@ -44,14 +44,16 @@ class IC_Inventory extends StatelessWidget {
             height: 4,
             color: PRIMARY_COLOR,
           ),
-          value: _valScroll1 == "" ? null : _valScroll1,
-          items: List.generate(_InventorySlistData.length, (index) {
+          value: valScroll == "" ? null : valScroll,
+          items: List.generate(_inventorySlistData.length, (index) {
             return DropdownMenuItem(
-              child: Text(_InventorySlistData[index].invName),
-              value: _InventorySlistData[index].invCode,
+              child: Text(_inventorySlistData[index].invName),
+              value: _inventorySlistData[index].invCode,
             );
           }),
           onChanged: _onChanged,
+          isExpanded: true,
+          menuMaxHeight: 400,
         );
       })),
     );

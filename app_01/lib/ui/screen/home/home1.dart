@@ -1,3 +1,5 @@
+import 'package:app_01/model/userInfo_model.dart';
+import 'package:app_01/service/admin.dart';
 import 'package:app_01/ui/screen/home/inventory/inventory_list.dart';
 import 'package:app_01/ui/screen/signin/signin4.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -19,6 +21,9 @@ class _Home1PageState extends State<Home1Page> {
   // initialize global widget
   final _globalWidget = GlobalWidget();
 
+  UserInfoModel userInfo = new UserInfoModel(
+      deptCode: "", fullname: "", staffID: "", userName: "", userRoleID: "");
+
   Color _color1 = Color(0xFF07ac12);
   Color _color2 = Color(0xFF07ac12);
 
@@ -29,6 +34,7 @@ class _Home1PageState extends State<Home1Page> {
 
   @override
   void initState() {
+    userInfo = AdminService.getUserInfo();
     _bannerData.add(
         BannerSliderModel(id: 1, image: GLOBAL_URL + '/home_banner/1.jpg'));
     _bannerData.add(
@@ -140,7 +146,7 @@ class _Home1PageState extends State<Home1Page> {
                           msg: 'Click name', toastLength: Toast.LENGTH_SHORT);
                     },
                     child: Text(
-                      'Peach Admin',
+                      userInfo.fullname,
                       style: TextStyle(
                           color: _color2,
                           fontWeight: FontWeight.bold,

@@ -1,4 +1,4 @@
-import 'package:app_01/service/Admin.dart';
+import 'package:app_01/service/admin.dart';
 import 'package:app_01/ui/screen/home/home1.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -126,8 +126,8 @@ class _Signin4PageState extends State<Signin4Page> {
               )),
             ),
             onPressed: () async {
-              int res = await AdminService.login(_etID.text, _etPassWord.text);
-              if (res == 200) {
+              var res = await AdminService.login(_etID.text, _etPassWord.text);
+              if (res.returnCode == 200) {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => Home1Page()));
               } else {

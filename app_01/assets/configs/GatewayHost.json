@@ -1,0 +1,17 @@
+[
+  {
+    "IP": "115.79.6.95",
+    "Port": 5099,
+    "Service": "Admin"
+  },
+  {
+    "IP": "115.79.6.95",
+    "Port": 5001,
+    "Service": "Master"
+  },
+  {
+    "IP": "115.79.6.95",
+    "Port": 5004,
+    "Service": "Inventory"
+  }
+]

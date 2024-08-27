@@ -1,4 +1,4 @@
-import 'package:app_01/service/Master.dart';
+import 'package:app_01/service/master.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
 //import 'package:app_01/ui/models/Master/Master_model.dart';
 import 'package:bloc/bloc.dart';
@@ -6,7 +6,7 @@ import './bloc.dart';
 
 class MasterBloc extends Bloc<MasterEvent, MasterState> {
   MasterBloc() : super(InitialMasterState()) {
-    on<GetMaster>(_getMaster);
+    on<GetInventoryMaster>(_getInventoryMaster);
     on<GetProductMaster>(_getProductMaster);
     on<GetVoucherNo>(_getVoucherNo);
     on<GetProductRecord>(_getProductRecord);
@@ -16,11 +16,12 @@ class MasterBloc extends Bloc<MasterEvent, MasterState> {
   }
 }
 
-void _getMaster(GetMaster event, Emitter<MasterState> emit) async {
+void _getInventoryMaster(
+    GetInventoryMaster event, Emitter<MasterState> emit) async {
   emit(GetMasterWaiting());
   try {
     List<grpcInventoryModel> data = await MasterService.getInventoryList();
-    emit(GetMasterSuccess(MasterData: data));
+    emit(GetInventoryMasterSuccess(InventoryMasterData: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetMasterError(errorMessage: ex.toString()));

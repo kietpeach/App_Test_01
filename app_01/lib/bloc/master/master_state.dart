@@ -17,9 +17,9 @@ class GetMasterError extends MasterState {
   });
 }
 
-class GetMasterSuccess extends MasterState {
-  final List<grpcInventoryModel> MasterData;
-  GetMasterSuccess({required this.MasterData});
+class GetInventoryMasterSuccess extends MasterState {
+  final List<grpcInventoryModel> InventoryMasterData;
+  GetInventoryMasterSuccess({required this.InventoryMasterData});
 }
 
 class GetProductMasterSuccess extends MasterState {

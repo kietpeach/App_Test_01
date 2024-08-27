@@ -34,6 +34,14 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/SaveInvTransMac',
       ($1.SaveInvTransMac_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getOutStockPriceControl = $grpc.ClientMethod<$0.Date_Request, $1.GetOutStockPriceControl_Response>(
+      '/grpcInventoryService.grpcInventoryService/GetOutStockPriceControl',
+      ($0.Date_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetOutStockPriceControl_Response.fromBuffer(value));
+  static final _$saveOutStockPriceControl = $grpc.ClientMethod<$1.SaveOutStockPriceControl_Request, $0.Empty_Response>(
+      '/grpcInventoryService.grpcInventoryService/SaveOutStockPriceControl',
+      ($1.SaveOutStockPriceControl_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$getOutStockPriceUpdate = $grpc.ClientMethod<$1.GetOutStockPriceUpdate_Request, $1.GetOutStockPriceUpdate_Response>(
       '/grpcInventoryService.grpcInventoryService/GetOutStockPriceUpdate',
       ($1.GetOutStockPriceUpdate_Request value) => value.writeToBuffer(),
@@ -118,6 +126,10 @@ class grpcInventoryServiceClient extends $grpc.Client {
       '/grpcInventoryService.grpcInventoryService/GetInvTransDetail',
       ($1.GetInvTransDetail_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetInvTransDetail_Response.fromBuffer(value));
+  static final _$updateInStockPrice = $grpc.ClientMethod<$1.UpdateInStockPrice_Request, $0.Empty_Response>(
+      '/grpcInventoryService.grpcInventoryService/UpdateInStockPrice',
+      ($1.UpdateInStockPrice_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$saveStockCheckDetail = $grpc.ClientMethod<$1.SaveStockCheckDetail_Request, $0.String_Response>(
       '/grpcInventoryService.grpcInventoryService/SaveStockCheckDetail',
       ($1.SaveStockCheckDetail_Request value) => value.writeToBuffer(),
@@ -393,6 +405,14 @@ class grpcInventoryServiceClient extends $grpc.Client {
     return $createUnaryCall(_$saveInvTransMac, request, options: options);
   }
 
+  $grpc.ResponseFuture<$1.GetOutStockPriceControl_Response> getOutStockPriceControl($0.Date_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getOutStockPriceControl, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> saveOutStockPriceControl($1.SaveOutStockPriceControl_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveOutStockPriceControl, request, options: options);
+  }
+
   $grpc.ResponseFuture<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate($1.GetOutStockPriceUpdate_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getOutStockPriceUpdate, request, options: options);
   }
@@ -475,6 +495,10 @@ class grpcInventoryServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetInvTransDetail_Response> getInvTransDetail($1.GetInvTransDetail_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getInvTransDetail, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> updateInStockPrice($1.UpdateInStockPrice_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateInStockPrice, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveStockCheckDetail($1.SaveStockCheckDetail_Request request, {$grpc.CallOptions? options}) {
@@ -760,6 +784,20 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.SaveInvTransMac_Request.fromBuffer(value),
         ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Date_Request, $1.GetOutStockPriceControl_Response>(
+        'GetOutStockPriceControl',
+        getOutStockPriceControl_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Date_Request.fromBuffer(value),
+        ($1.GetOutStockPriceControl_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveOutStockPriceControl_Request, $0.Empty_Response>(
+        'SaveOutStockPriceControl',
+        saveOutStockPriceControl_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveOutStockPriceControl_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.GetOutStockPriceUpdate_Request, $1.GetOutStockPriceUpdate_Response>(
         'GetOutStockPriceUpdate',
         getOutStockPriceUpdate_Pre,
@@ -907,6 +945,13 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.GetInvTransDetail_Request.fromBuffer(value),
         ($1.GetInvTransDetail_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.UpdateInStockPrice_Request, $0.Empty_Response>(
+        'UpdateInStockPrice',
+        updateInStockPrice_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.UpdateInStockPrice_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveStockCheckDetail_Request, $0.String_Response>(
         'SaveStockCheckDetail',
         saveStockCheckDetail_Pre,
@@ -1369,6 +1414,14 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
     return saveInvTransMac(call, await request);
   }
 
+  $async.Future<$1.GetOutStockPriceControl_Response> getOutStockPriceControl_Pre($grpc.ServiceCall call, $async.Future<$0.Date_Request> request) async {
+    return getOutStockPriceControl(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> saveOutStockPriceControl_Pre($grpc.ServiceCall call, $async.Future<$1.SaveOutStockPriceControl_Request> request) async {
+    return saveOutStockPriceControl(call, await request);
+  }
+
   $async.Future<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate_Pre($grpc.ServiceCall call, $async.Future<$1.GetOutStockPriceUpdate_Request> request) async {
     return getOutStockPriceUpdate(call, await request);
   }
@@ -1451,6 +1504,10 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
 
   $async.Future<$1.GetInvTransDetail_Response> getInvTransDetail_Pre($grpc.ServiceCall call, $async.Future<$1.GetInvTransDetail_Request> request) async {
     return getInvTransDetail(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> updateInStockPrice_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateInStockPrice_Request> request) async {
+    return updateInStockPrice(call, await request);
   }
 
   $async.Future<$0.String_Response> saveStockCheckDetail_Pre($grpc.ServiceCall call, $async.Future<$1.SaveStockCheckDetail_Request> request) async {
@@ -1712,6 +1769,8 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
   $async.Future<$0.Empty_Response> subcribeEvents($grpc.ServiceCall call, $0.SubcribeEvents_Request request);
   $async.Future<$0.String_Response> saveInvTransComplete($grpc.ServiceCall call, $1.SaveInvTransComplete_Request request);
   $async.Future<$0.String_Response> saveInvTransMac($grpc.ServiceCall call, $1.SaveInvTransMac_Request request);
+  $async.Future<$1.GetOutStockPriceControl_Response> getOutStockPriceControl($grpc.ServiceCall call, $0.Date_Request request);
+  $async.Future<$0.Empty_Response> saveOutStockPriceControl($grpc.ServiceCall call, $1.SaveOutStockPriceControl_Request request);
   $async.Future<$1.GetOutStockPriceUpdate_Response> getOutStockPriceUpdate($grpc.ServiceCall call, $1.GetOutStockPriceUpdate_Request request);
   $async.Future<$1.UpdateOutStockPrice_Response> updateOutStockPrice($grpc.ServiceCall call, $1.UpdateOutStockPrice_Request request);
   $async.Future<$0.String_Response> saveOutStockPriceUpdate($grpc.ServiceCall call, $1.SaveOutStockPriceUpdate_Request request);
@@ -1733,6 +1792,7 @@ abstract class grpcInventoryServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveInvTransDetail($grpc.ServiceCall call, $1.SaveInvTransDetail_Request request);
   $async.Future<$1.GetInvTransDetailRecord_Response> getInvTransDetailRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetInvTransDetail_Response> getInvTransDetail($grpc.ServiceCall call, $1.GetInvTransDetail_Request request);
+  $async.Future<$0.Empty_Response> updateInStockPrice($grpc.ServiceCall call, $1.UpdateInStockPrice_Request request);
   $async.Future<$0.String_Response> saveStockCheckDetail($grpc.ServiceCall call, $1.SaveStockCheckDetail_Request request);
   $async.Future<$1.GetStockCheckDetailRecord_Response> getStockCheckDetailRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetStockCheckDetail_Response> getStockCheckDetail($grpc.ServiceCall call, $1.GetStockCheckDetail_Request request);

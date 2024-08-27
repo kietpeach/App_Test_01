@@ -9,7 +9,7 @@ import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_scanner1.dart';
+import 'package:app_01/ui/screen/home/inventory/barcode_scanner_invout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -121,23 +121,22 @@ class _InvOutPageState extends State<InvOutPage> {
                       _selectDateWithMinMaxDate(context);
                     },
                     maxLines: 1,
-                    cursorColor: Colors.grey[600],
-                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                    style: TextStyle(color: _color1),
                     decoration: InputDecoration(
                       isDense: true,
                       suffixIcon: Icon(Icons.date_range, color: Colors.green),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[600]!),
-                      ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[600]!),
+                          borderSide:
+                              BorderSide(color: _mainColor, width: 2.0)),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: _underlineColor),
                       ),
                       labelText: 'Ngày xuất kho',
                       contentPadding: EdgeInsets.only(bottom: 2),
                     ),
                   ),
                 ),
-                TextFormField(
+                TextField(
                   readOnly: true,
                   controller: _etInvOutReqNo,
                   keyboardType: TextInputType.phone,
@@ -177,10 +176,10 @@ class _InvOutPageState extends State<InvOutPage> {
           },
         ),
       ),
-      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
-        Fluttertoast.showToast(
-            msg: 'Click Confirm ', toastLength: Toast.LENGTH_SHORT);
-      }),
+      // bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
+      //   Fluttertoast.showToast(
+      //       msg: 'Click Confirm ', toastLength: Toast.LENGTH_SHORT);
+      // }),
     );
   }
 
@@ -192,7 +191,7 @@ class _InvOutPageState extends State<InvOutPage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => BarcodeScanner1Page(
+                  builder: (context) => BarcodeScannerInvOutPage(
                         invOutNo: _voucherNoData.voucherNo,
                         reqQty: reqQty,
                         headerModel: _invOutReqData.header,
@@ -223,10 +222,8 @@ class _InvOutPageState extends State<InvOutPage> {
   }
 
   Future<Null> _selectDateWithMinMaxDate(BuildContext context) async {
-    var firstDate =
-        DateTime(initialDate.year, initialDate.month - 3, initialDate.day);
-    var lastDate =
-        DateTime(initialDate.year, initialDate.month, initialDate.day + 7);
+    var firstDate = DateTime(initialDate.year - 100);
+    var lastDate = DateTime(initialDate.year + 100);
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: _selectedDate,

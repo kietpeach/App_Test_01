@@ -40,7 +40,7 @@ class _StockLOTPageState extends State<StockLOTPage> {
   final _globalFunction = GlobalFunction();
 
   late InventoryBloc _inventoryBloc;
-  late MasterBloc _MasterBloc;
+  late MasterBloc _masterBloc;
   //CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
   Color _underlineColor = Color(0xFFCCCCCC);
@@ -56,8 +56,8 @@ class _StockLOTPageState extends State<StockLOTPage> {
 
   @override
   void initState() {
-    _MasterBloc = BlocProvider.of<MasterBloc>(context);
-    _MasterBloc.add(GetMaster());
+    _masterBloc = BlocProvider.of<MasterBloc>(context);
+    _masterBloc.add(GetInventoryMaster());
     _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
     _inventoryBloc.add(GetStockLOT(
         invCode: widget.inventoryData.invCode,

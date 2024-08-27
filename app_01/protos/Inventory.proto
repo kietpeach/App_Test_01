@@ -13,6 +13,10 @@ service grpcInventoryService {
     rpc SaveInvTransComplete (SaveInvTransComplete_Request) returns (grpcCommonMessages.String_Response);
     rpc SaveInvTransMac (SaveInvTransMac_Request) returns (grpcCommonMessages.String_Response);
     //>>> Start new generated rpc position
+    //>>> Start generated OutStockPriceControl rpc
+    rpc GetOutStockPriceControl (grpcCommonMessages.Date_Request) returns (GetOutStockPriceControl_Response);
+    rpc SaveOutStockPriceControl (SaveOutStockPriceControl_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated OutStockPriceControl rpc
     //>>> Start generated OutStockPriceUpdate rpc
     rpc GetOutStockPriceUpdate (GetOutStockPriceUpdate_Request) returns (GetOutStockPriceUpdate_Response);
     rpc UpdateOutStockPrice (UpdateOutStockPrice_Request) returns (UpdateOutStockPrice_Response);
@@ -49,6 +53,7 @@ service grpcInventoryService {
     rpc SaveInvTransDetail (SaveInvTransDetail_Request) returns (grpcCommonMessages.String_Response);
     rpc GetInvTransDetailRecord (grpcCommonMessages.String_Request) returns (GetInvTransDetailRecord_Response);
     rpc GetInvTransDetail (GetInvTransDetail_Request) returns (GetInvTransDetail_Response);
+    rpc UpdateInStockPrice (UpdateInStockPrice_Request) returns (grpcCommonMessages.Empty_Response);
     //>>> End generated InvTransDetail rpc
     //>>> Start generated StockCheckDetail rpc
     rpc SaveStockCheckDetail (SaveStockCheckDetail_Request) returns (grpcCommonMessages.String_Response);
@@ -171,6 +176,34 @@ message SaveInvTransMac_Request
     string RecordNo = 4;
 }
 //>>> Start new generated message position
+//>>> Start generated OutStockPriceControl message
+message GetOutStockPriceControl_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcOutStockPriceControlModel Records = 3;
+}
+message SaveOutStockPriceControl_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //Records
+    repeated grpcOutStockPriceControlModel Records = 2;
+    //Delete filters
+}
+message grpcOutStockPriceControlModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string InvCode = 3;
+    string InvName = 4;
+    string InvDeptCode = 5;
+    bool IsOK = 6;
+    string ErrorLog = 7;
+    google.protobuf.Timestamp LastExecuteTime = 8;
+    bool Selected = 9;
+}
+//>>> End generated OutStockPriceControl message
 //>>> Start generated OutStockPriceUpdate message
 message GetOutStockPriceUpdate_Request
 {
@@ -238,6 +271,8 @@ message grpcOutStockPriceUpdatedModel
     string ProductCode = 2;
     CustomTypes.Decimal CostUnitPrice = 3;
     CustomTypes.Decimal CostUnitPriceEx = 4;
+    bool IsOK = 5;
+    string ErrorLog = 6;
 }
 //>>> Start generated StockSumMonth message
 message UpdateStockSumMonth_Request
@@ -608,6 +643,17 @@ message GetInvTransDetail_Response
     string MsgCode = 2;
     //
     repeated grpcInvTransDetailModel Records = 3;
+}
+message UpdateInStockPrice_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp CloseDate = 2;
+    string FactoryCode = 3;
+    string LineCode = 4;
+    string FinishedProductCode = 5;
+    CustomTypes.Decimal CostUnitPrice = 6;
+    CustomTypes.Decimal CostUnitPriceEx = 7;
 }
 //>>> End generated InvTransDetail message
 //>>> Start generated StockCheckDetail message
@@ -1374,30 +1420,24 @@ message grpcStockSumModel
     string InvDeptCode = 2;
     string AccInvCode = 3;
     string InvCode = 4;
-    string ProductCode = 5;
-    int32 ProductKind = 6;
-    string ClassCode1 = 7;
-    string ClassCode2 = 8;
-    string ClassCode3 = 9;
-    CustomTypes.Decimal StockQty = 10;
-    CustomTypes.Decimal KeepStockQty = 11;
-    CustomTypes.Decimal SORemQty = 12;
-    CustomTypes.Decimal ShipRemQty = 13;
-    CustomTypes.Decimal PORemQty = 14;
-    CustomTypes.Decimal ReceiveRemQty = 15;
-    CustomTypes.Decimal DepositQty = 16;
-    google.protobuf.Timestamp LastPODate = 17;
-    google.protobuf.Timestamp LastSODate = 18;
-    google.protobuf.Timestamp LastInDate = 19;
-    google.protobuf.Timestamp LastOutDate = 20;
-    string UnitCode = 21;
-    string UnitName = 22;
-    google.protobuf.Timestamp CloseDate = 23;
-    CustomTypes.Decimal CloseStockQty = 24;
-    CustomTypes.Decimal CloseStockPrice = 25;
-    CustomTypes.Decimal CloseStockAmount = 26;
-    CustomTypes.Decimal CloseInvStockQty = 27;
-    int32 UpdMode = 28;
+    string ClassCode1 = 5;
+    string ClassCode2 = 6;
+    string ClassCode3 = 7;
+    int32 ProductKind = 8;
+    string ProductCode = 9;
+    string UnitCode = 10;
+    string UnitName = 11;
+    CustomTypes.Decimal StockQty = 12;
+    CustomTypes.Decimal KeepStockQty = 13;
+    CustomTypes.Decimal SORemQty = 14;
+    CustomTypes.Decimal ShipRemQty = 15;
+    CustomTypes.Decimal PORemQty = 16;
+    CustomTypes.Decimal ReceiveRemQty = 17;
+    CustomTypes.Decimal DepositQty = 18;
+    google.protobuf.Timestamp LastPODate = 19;
+    google.protobuf.Timestamp LastSODate = 20;
+    google.protobuf.Timestamp LastInDate = 21;
+    google.protobuf.Timestamp LastOutDate = 22;
 }
 //>>> End generated StockSum message
 //>>> Start generated InvMoveReqHeader message

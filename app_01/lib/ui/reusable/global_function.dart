@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:flutter/material.dart';
@@ -89,5 +91,20 @@ class GlobalFunction {
   DateTime endOfDay(DateTime dateTime) {
     return DateTime(
         dateTime.year, dateTime.month, dateTime.day, 23, 59, 59, 999);
+  }
+
+  static Future<String> writeStringFileToLocal(
+      String path, String fileName, String string) async {
+    try {
+      Directory subFolder = new Directory(path);
+      File fileLocal = new File(path + "/" + fileName);
+      if (!subFolder.existsSync()) {
+        subFolder.createSync();
+      }
+      await fileLocal.writeAsString(string);
+      return "";
+    } catch (e) {
+      return e.toString();
+    }
   }
 }

@@ -1,7 +1,8 @@
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/barcode_generator.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_scanner1.dart';
+import 'package:app_01/ui/screen/home/inventory/barcode_scanner_invout.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out_req.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_out_req_slist.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stock.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +74,10 @@ class _InventoryListPageState extends State<InventoryListPage> {
             SizedBox(height: 18),
             _globalWidget.screenDetailList(
                 context: context, title: 'Xem tồn kho', page: InvStockPage()),
+            _globalWidget.screenDetailList(
+                context: context,
+                title: 'Yêu cầu xuất kho',
+                page: InvOutReqPage()),
             _globalWidget.screenDetailList(
                 context: context,
                 title: 'Dach sách số yêu cầu xuất kho',

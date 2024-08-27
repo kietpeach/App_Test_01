@@ -47,6 +47,65 @@ final $typed_data.Uint8List saveInvTransMac_RequestDescriptor = $convert.base64D
     'IAEoCVIMSW52Vm91Y2hlck5vEiAKC1ZvdWNoZXJDb2RlGAMgASgJUgtWb3VjaGVyQ29kZRIaCg'
     'hSZWNvcmRObxgEIAEoCVIIUmVjb3JkTm8=');
 
+@$core.Deprecated('Use getOutStockPriceControl_ResponseDescriptor instead')
+const GetOutStockPriceControl_Response$json = {
+  '1': 'GetOutStockPriceControl_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcOutStockPriceControlModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetOutStockPriceControl_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOutStockPriceControl_ResponseDescriptor = $convert.base64Decode(
+    'CiBHZXRPdXRTdG9ja1ByaWNlQ29udHJvbF9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUg'
+    'pSZXR1cm5Db2RlEhgKB01zZ0NvZGUYAiABKAlSB01zZ0NvZGUSTQoHUmVjb3JkcxgDIAMoCzIz'
+    'LmdycGNJbnZlbnRvcnlTZXJ2aWNlLmdycGNPdXRTdG9ja1ByaWNlQ29udHJvbE1vZGVsUgdSZW'
+    'NvcmRz');
+
+@$core.Deprecated('Use saveOutStockPriceControl_RequestDescriptor instead')
+const SaveOutStockPriceControl_Request$json = {
+  '1': 'SaveOutStockPriceControl_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Records', '3': 2, '4': 3, '5': 11, '6': '.grpcInventoryService.grpcOutStockPriceControlModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `SaveOutStockPriceControl_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveOutStockPriceControl_RequestDescriptor = $convert.base64Decode(
+    'CiBTYXZlT3V0U3RvY2tQcmljZUNvbnRyb2xfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMi'
+    'IuZ3JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEk0KB1JlY29y'
+    'ZHMYAiADKAsyMy5ncnBjSW52ZW50b3J5U2VydmljZS5ncnBjT3V0U3RvY2tQcmljZUNvbnRyb2'
+    'xNb2RlbFIHUmVjb3Jkcw==');
+
+@$core.Deprecated('Use grpcOutStockPriceControlModelDescriptor instead')
+const grpcOutStockPriceControlModel$json = {
+  '1': 'grpcOutStockPriceControlModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'InvCode', '3': 3, '4': 1, '5': 9, '10': 'InvCode'},
+    {'1': 'InvName', '3': 4, '4': 1, '5': 9, '10': 'InvName'},
+    {'1': 'InvDeptCode', '3': 5, '4': 1, '5': 9, '10': 'InvDeptCode'},
+    {'1': 'IsOK', '3': 6, '4': 1, '5': 8, '10': 'IsOK'},
+    {'1': 'ErrorLog', '3': 7, '4': 1, '5': 9, '10': 'ErrorLog'},
+    {'1': 'LastExecuteTime', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastExecuteTime'},
+    {'1': 'Selected', '3': 9, '4': 1, '5': 8, '10': 'Selected'},
+  ],
+};
+
+/// Descriptor for `grpcOutStockPriceControlModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcOutStockPriceControlModelDescriptor = $convert.base64Decode(
+    'Ch1ncnBjT3V0U3RvY2tQcmljZUNvbnRyb2xNb2RlbBIOCgJJRBgBIAEoCVICSUQSOAoJQ2xvc2'
+    'VEYXRlGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJQ2xvc2VEYXRlEhgKB0lu'
+    'dkNvZGUYAyABKAlSB0ludkNvZGUSGAoHSW52TmFtZRgEIAEoCVIHSW52TmFtZRIgCgtJbnZEZX'
+    'B0Q29kZRgFIAEoCVILSW52RGVwdENvZGUSEgoESXNPSxgGIAEoCFIESXNPSxIaCghFcnJvckxv'
+    'ZxgHIAEoCVIIRXJyb3JMb2cSRAoPTGFzdEV4ZWN1dGVUaW1lGAggASgLMhouZ29vZ2xlLnByb3'
+    'RvYnVmLlRpbWVzdGFtcFIPTGFzdEV4ZWN1dGVUaW1lEhoKCFNlbGVjdGVkGAkgASgIUghTZWxl'
+    'Y3RlZA==');
+
 @$core.Deprecated('Use getOutStockPriceUpdate_RequestDescriptor instead')
 const GetOutStockPriceUpdate_Request$json = {
   '1': 'GetOutStockPriceUpdate_Request',
@@ -188,6 +247,8 @@ const grpcOutStockPriceUpdatedModel$json = {
     {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
     {'1': 'CostUnitPrice', '3': 3, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
     {'1': 'CostUnitPriceEx', '3': 4, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPriceEx'},
+    {'1': 'IsOK', '3': 5, '4': 1, '5': 8, '10': 'IsOK'},
+    {'1': 'ErrorLog', '3': 6, '4': 1, '5': 9, '10': 'ErrorLog'},
   ],
 };
 
@@ -196,7 +257,8 @@ final $typed_data.Uint8List grpcOutStockPriceUpdatedModelDescriptor = $convert.b
     'Ch1ncnBjT3V0U3RvY2tQcmljZVVwZGF0ZWRNb2RlbBIeCgpBY2NJbnZDb2RlGAEgASgJUgpBY2'
     'NJbnZDb2RlEiAKC1Byb2R1Y3RDb2RlGAIgASgJUgtQcm9kdWN0Q29kZRI6Cg1Db3N0VW5pdFBy'
     'aWNlGAMgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINQ29zdFVuaXRQcmljZRI+Cg9Db3N0VW'
-    '5pdFByaWNlRXgYBCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9Db3N0VW5pdFByaWNlRXg=');
+    '5pdFByaWNlRXgYBCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9Db3N0VW5pdFByaWNlRXgS'
+    'EgoESXNPSxgFIAEoCFIESXNPSxIaCghFcnJvckxvZxgGIAEoCVIIRXJyb3JMb2c=');
 
 @$core.Deprecated('Use updateStockSumMonth_RequestDescriptor instead')
 const UpdateStockSumMonth_Request$json = {
@@ -957,6 +1019,31 @@ final $typed_data.Uint8List getInvTransDetail_ResponseDescriptor = $convert.base
     'ChpHZXRJbnZUcmFuc0RldGFpbF9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUgpSZXR1cm'
     '5Db2RlEhgKB01zZ0NvZGUYAiABKAlSB01zZ0NvZGUSRwoHUmVjb3JkcxgDIAMoCzItLmdycGNJ'
     'bnZlbnRvcnlTZXJ2aWNlLmdycGNJbnZUcmFuc0RldGFpbE1vZGVsUgdSZWNvcmRz');
+
+@$core.Deprecated('Use updateInStockPrice_RequestDescriptor instead')
+const UpdateInStockPrice_Request$json = {
+  '1': 'UpdateInStockPrice_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CloseDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
+    {'1': 'FactoryCode', '3': 3, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 4, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'FinishedProductCode', '3': 5, '4': 1, '5': 9, '10': 'FinishedProductCode'},
+    {'1': 'CostUnitPrice', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'CostUnitPriceEx', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPriceEx'},
+  ],
+};
+
+/// Descriptor for `UpdateInStockPrice_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateInStockPrice_RequestDescriptor = $convert.base64Decode(
+    'ChpVcGRhdGVJblN0b2NrUHJpY2VfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0'
+    'NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEjgKCUNsb3NlRGF0ZRgC'
+    'IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCUNsb3NlRGF0ZRIgCgtGYWN0b3J5Q2'
+    '9kZRgDIAEoCVILRmFjdG9yeUNvZGUSGgoITGluZUNvZGUYBCABKAlSCExpbmVDb2RlEjAKE0Zp'
+    'bmlzaGVkUHJvZHVjdENvZGUYBSABKAlSE0ZpbmlzaGVkUHJvZHVjdENvZGUSOgoNQ29zdFVuaX'
+    'RQcmljZRgGIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDUNvc3RVbml0UHJpY2USPgoPQ29z'
+    'dFVuaXRQcmljZUV4GAcgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIPQ29zdFVuaXRQcmljZU'
+    'V4');
 
 @$core.Deprecated('Use saveStockCheckDetail_RequestDescriptor instead')
 const SaveStockCheckDetail_Request$json = {
@@ -2485,30 +2572,24 @@ const grpcStockSumModel$json = {
     {'1': 'InvDeptCode', '3': 2, '4': 1, '5': 9, '10': 'InvDeptCode'},
     {'1': 'AccInvCode', '3': 3, '4': 1, '5': 9, '10': 'AccInvCode'},
     {'1': 'InvCode', '3': 4, '4': 1, '5': 9, '10': 'InvCode'},
-    {'1': 'ProductCode', '3': 5, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'ProductKind', '3': 6, '4': 1, '5': 5, '10': 'ProductKind'},
-    {'1': 'ClassCode1', '3': 7, '4': 1, '5': 9, '10': 'ClassCode1'},
-    {'1': 'ClassCode2', '3': 8, '4': 1, '5': 9, '10': 'ClassCode2'},
-    {'1': 'ClassCode3', '3': 9, '4': 1, '5': 9, '10': 'ClassCode3'},
-    {'1': 'StockQty', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockQty'},
-    {'1': 'KeepStockQty', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'KeepStockQty'},
-    {'1': 'SORemQty', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SORemQty'},
-    {'1': 'ShipRemQty', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipRemQty'},
-    {'1': 'PORemQty', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PORemQty'},
-    {'1': 'ReceiveRemQty', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveRemQty'},
-    {'1': 'DepositQty', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DepositQty'},
-    {'1': 'LastPODate', '3': 17, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPODate'},
-    {'1': 'LastSODate', '3': 18, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSODate'},
-    {'1': 'LastInDate', '3': 19, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastInDate'},
-    {'1': 'LastOutDate', '3': 20, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastOutDate'},
-    {'1': 'UnitCode', '3': 21, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'UnitName', '3': 22, '4': 1, '5': 9, '10': 'UnitName'},
-    {'1': 'CloseDate', '3': 23, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CloseDate'},
-    {'1': 'CloseStockQty', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockQty'},
-    {'1': 'CloseStockPrice', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockPrice'},
-    {'1': 'CloseStockAmount', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseStockAmount'},
-    {'1': 'CloseInvStockQty', '3': 27, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CloseInvStockQty'},
-    {'1': 'UpdMode', '3': 28, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'ClassCode1', '3': 5, '4': 1, '5': 9, '10': 'ClassCode1'},
+    {'1': 'ClassCode2', '3': 6, '4': 1, '5': 9, '10': 'ClassCode2'},
+    {'1': 'ClassCode3', '3': 7, '4': 1, '5': 9, '10': 'ClassCode3'},
+    {'1': 'ProductKind', '3': 8, '4': 1, '5': 5, '10': 'ProductKind'},
+    {'1': 'ProductCode', '3': 9, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'UnitCode', '3': 10, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 11, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'StockQty', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StockQty'},
+    {'1': 'KeepStockQty', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'KeepStockQty'},
+    {'1': 'SORemQty', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SORemQty'},
+    {'1': 'ShipRemQty', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ShipRemQty'},
+    {'1': 'PORemQty', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PORemQty'},
+    {'1': 'ReceiveRemQty', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ReceiveRemQty'},
+    {'1': 'DepositQty', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DepositQty'},
+    {'1': 'LastPODate', '3': 19, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPODate'},
+    {'1': 'LastSODate', '3': 20, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSODate'},
+    {'1': 'LastInDate', '3': 21, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastInDate'},
+    {'1': 'LastOutDate', '3': 22, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastOutDate'},
   ],
 };
 
@@ -2516,28 +2597,22 @@ const grpcStockSumModel$json = {
 final $typed_data.Uint8List grpcStockSumModelDescriptor = $convert.base64Decode(
     'ChFncnBjU3RvY2tTdW1Nb2RlbBIOCgJJRBgBIAEoCVICSUQSIAoLSW52RGVwdENvZGUYAiABKA'
     'lSC0ludkRlcHRDb2RlEh4KCkFjY0ludkNvZGUYAyABKAlSCkFjY0ludkNvZGUSGAoHSW52Q29k'
-    'ZRgEIAEoCVIHSW52Q29kZRIgCgtQcm9kdWN0Q29kZRgFIAEoCVILUHJvZHVjdENvZGUSIAoLUH'
-    'JvZHVjdEtpbmQYBiABKAVSC1Byb2R1Y3RLaW5kEh4KCkNsYXNzQ29kZTEYByABKAlSCkNsYXNz'
-    'Q29kZTESHgoKQ2xhc3NDb2RlMhgIIAEoCVIKQ2xhc3NDb2RlMhIeCgpDbGFzc0NvZGUzGAkgAS'
-    'gJUgpDbGFzc0NvZGUzEjAKCFN0b2NrUXR5GAogASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFII'
-    'U3RvY2tRdHkSOAoMS2VlcFN0b2NrUXR5GAsgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIMS2'
-    'VlcFN0b2NrUXR5EjAKCFNPUmVtUXR5GAwgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIIU09S'
-    'ZW1RdHkSNAoKU2hpcFJlbVF0eRgNIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSClNoaXBSZW'
-    '1RdHkSMAoIUE9SZW1RdHkYDiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUghQT1JlbVF0eRI6'
-    'Cg1SZWNlaXZlUmVtUXR5GA8gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINUmVjZWl2ZVJlbV'
-    'F0eRI0CgpEZXBvc2l0UXR5GBAgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKRGVwb3NpdFF0'
-    'eRI6CgpMYXN0UE9EYXRlGBEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIKTGFzdF'
-    'BPRGF0ZRI6CgpMYXN0U09EYXRlGBIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIK'
-    'TGFzdFNPRGF0ZRI6CgpMYXN0SW5EYXRlGBMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdG'
-    'FtcFIKTGFzdEluRGF0ZRI8CgtMYXN0T3V0RGF0ZRgUIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U'
-    'aW1lc3RhbXBSC0xhc3RPdXREYXRlEhoKCFVuaXRDb2RlGBUgASgJUghVbml0Q29kZRIaCghVbm'
-    'l0TmFtZRgWIAEoCVIIVW5pdE5hbWUSOAoJQ2xvc2VEYXRlGBcgASgLMhouZ29vZ2xlLnByb3Rv'
-    'YnVmLlRpbWVzdGFtcFIJQ2xvc2VEYXRlEjoKDUNsb3NlU3RvY2tRdHkYGCABKAsyFC5DdXN0b2'
-    '1UeXBlcy5EZWNpbWFsUg1DbG9zZVN0b2NrUXR5Ej4KD0Nsb3NlU3RvY2tQcmljZRgZIAEoCzIU'
-    'LkN1c3RvbVR5cGVzLkRlY2ltYWxSD0Nsb3NlU3RvY2tQcmljZRJAChBDbG9zZVN0b2NrQW1vdW'
-    '50GBogASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIQQ2xvc2VTdG9ja0Ftb3VudBJAChBDbG9z'
-    'ZUludlN0b2NrUXR5GBsgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIQQ2xvc2VJbnZTdG9ja1'
-    'F0eRIYCgdVcGRNb2RlGBwgASgFUgdVcGRNb2Rl');
+    'ZRgEIAEoCVIHSW52Q29kZRIeCgpDbGFzc0NvZGUxGAUgASgJUgpDbGFzc0NvZGUxEh4KCkNsYX'
+    'NzQ29kZTIYBiABKAlSCkNsYXNzQ29kZTISHgoKQ2xhc3NDb2RlMxgHIAEoCVIKQ2xhc3NDb2Rl'
+    'MxIgCgtQcm9kdWN0S2luZBgIIAEoBVILUHJvZHVjdEtpbmQSIAoLUHJvZHVjdENvZGUYCSABKA'
+    'lSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2RlGAogASgJUghVbml0Q29kZRIaCghVbml0TmFtZRgL'
+    'IAEoCVIIVW5pdE5hbWUSMAoIU3RvY2tRdHkYDCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg'
+    'hTdG9ja1F0eRI4CgxLZWVwU3RvY2tRdHkYDSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgxL'
+    'ZWVwU3RvY2tRdHkSMAoIU09SZW1RdHkYDiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUghTT1'
+    'JlbVF0eRI0CgpTaGlwUmVtUXR5GA8gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKU2hpcFJl'
+    'bVF0eRIwCghQT1JlbVF0eRgQIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSCFBPUmVtUXR5Ej'
+    'oKDVJlY2VpdmVSZW1RdHkYESABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1SZWNlaXZlUmVt'
+    'UXR5EjQKCkRlcG9zaXRRdHkYEiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgpEZXBvc2l0UX'
+    'R5EjoKCkxhc3RQT0RhdGUYEyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgpMYXN0'
+    'UE9EYXRlEjoKCkxhc3RTT0RhdGUYFCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUg'
+    'pMYXN0U09EYXRlEjoKCkxhc3RJbkRhdGUYFSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0'
+    'YW1wUgpMYXN0SW5EYXRlEjwKC0xhc3RPdXREYXRlGBYgASgLMhouZ29vZ2xlLnByb3RvYnVmLl'
+    'RpbWVzdGFtcFILTGFzdE91dERhdGU=');
 
 @$core.Deprecated('Use saveVoucherInvMoveReq_RequestDescriptor instead')
 const SaveVoucherInvMoveReq_Request$json = {

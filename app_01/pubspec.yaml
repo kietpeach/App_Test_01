@@ -205,3 +205,4 @@ flutter:
 
     - assets/videos/demo.mp4
     - assets/sounds/demo1.mp3
+    - assets/configs/GatewayHost.json

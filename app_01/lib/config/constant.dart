@@ -35,3 +35,12 @@ const String SERVER_URL = 'https://ijtechnology.net/api_devkit';
 
 const String LOGIN_API = SERVER_URL + "/authentication/login";
 const String PRODUCT_API = SERVER_URL + "/example/getProduct";
+
+//PATH (file name, folder name)
+const String FILE_GATEWAY = "GatewayHost.json";
+const String ASSET_CONFIGS = "configs";
+const String FOLDER_ASSETS = "assets";
+//
+const String Admin = "Admin";
+const String Master = "Master";
+const String Inventory = "Inventory";

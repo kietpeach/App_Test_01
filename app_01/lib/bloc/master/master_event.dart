@@ -3,8 +3,8 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class MasterEvent {}
 
-class GetMaster extends MasterEvent {
-  GetMaster();
+class GetInventoryMaster extends MasterEvent {
+  GetInventoryMaster();
 }
 
 class GetProductMaster extends MasterEvent {
