@@ -93,4 +93,21 @@ class MasterService {
     }
     return res;
   }
+
+  // static Future<GetUnitRecord_Response> getUnitRecord(String unitCode) async {
+  //   if (host == null) {
+  //     await getGateway(Master);
+  //   }
+  //   GetUnitRecord_Response res = new GetUnitRecord_Response();
+  //   final channel = GrpcClient.getClientChannelByHost(host!, port!);
+  //   final stub = grpcMasterServiceClient(channel);
+  //   try {
+  //     res = await stub.getUnitRecord(String_Request(stringValue: unitCode));
+  //   } catch (e) {
+  //     print('Caught error: $e');
+  //   } finally {
+  //     channel?.shutdown();
+  //   }
+  //   return res;
+  // }
 }

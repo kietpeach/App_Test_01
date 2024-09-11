@@ -12,7 +12,8 @@ import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inventory_list.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out_req_slist.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -100,8 +101,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     if (!mounted) return;
 
     setState(() {
-      _scanBarcode = barcodeScanRes;
-      //'TS_TRANCHAU1/LOT1/20240704/1';
+      _scanBarcode = 'TS_TRANCHAU1/LOT1/20240704/1';
     });
     final splitted = _scanBarcode.split('/');
     _productCode = splitted[0];
@@ -147,8 +147,15 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     return BlocListener<InventoryBloc, InventoryState>(
       listener: (context, state) {
         if (state is SaveVoucherInvOutSuccess) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => InventoryListPage()));
+          Navigator.pop(context);
+          Navigator.pop(context);
+          Navigator.pop(context);
+          Navigator.pop(context);
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      InvOutPage(voucherNo: _invOutHeaderModel.invOutReqNo)));
           Fluttertoast.showToast(
               msg: 'Xuất kho thành công, số xuất kho: ' +
                   state.Response.stringValue,

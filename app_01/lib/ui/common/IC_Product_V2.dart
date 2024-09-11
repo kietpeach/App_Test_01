@@ -10,14 +10,17 @@ class IC_Product_V2 extends StatelessWidget {
   const IC_Product_V2({
     super.key,
     required List<grpcSelectProductModel> productSlistData,
-    required String valScroll,
+    required String? valScroll,
+    required String? Function(String?)? validate,
     required Function(String?)? onChanged,
   })  : _productSlistData = productSlistData,
         _valScroll = valScroll,
+        _validate = validate,
         _onChanged = onChanged;
 
   final List<grpcSelectProductModel> _productSlistData;
-  final String _valScroll;
+  final String? _valScroll;
+  final String? Function(String?)? _validate;
   final Function(String?)? _onChanged;
 
   @override
@@ -37,12 +40,18 @@ class IC_Product_V2 extends StatelessWidget {
           _productSlistData.addAll(state.ProductMasterData);
         }
       }, child: BlocBuilder<MasterBloc, MasterState>(builder: (context, state) {
-        return DropdownButton(
-          hint: Text("Sản phẩm"),
+        return DropdownButtonFormField(
+          validator: _validate,
+          hint: Text("Sản phẩm",
+              style:
+                  TextStyle(color: COLORHINT, fontWeight: FontWeight.normal)),
           icon: Icon(Icons.keyboard_arrow_down),
-          underline: Container(
-            height: 4,
-            color: PRIMARY_COLOR,
+          decoration: InputDecoration(
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: PRIMARY_COLOR, width: 2.0)),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFCCCCCC)),
+            ),
           ),
           value: _valScroll == "" ? null : _valScroll,
           items: List.generate(_productSlistData.length, (index) {

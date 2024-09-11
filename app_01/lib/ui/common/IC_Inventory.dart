@@ -11,13 +11,16 @@ class IC_Inventory extends StatelessWidget {
     super.key,
     required List<grpcInventoryModel> inventorySlistData,
     required String valScroll,
+    required String? Function(String?)? validate,
     required Function(String?)? onChanged,
   })  : _inventorySlistData = inventorySlistData,
         valScroll = valScroll,
+        _validate = validate,
         _onChanged = onChanged;
 
   final List<grpcInventoryModel> _inventorySlistData;
   final String valScroll;
+  final String? Function(String?)? _validate;
   final Function(String?)? _onChanged;
 
   @override
@@ -37,12 +40,18 @@ class IC_Inventory extends StatelessWidget {
           _inventorySlistData.addAll(state.InventoryMasterData);
         }
       }, child: BlocBuilder<MasterBloc, MasterState>(builder: (context, state) {
-        return DropdownButton(
-          hint: Text("Kho"),
+        return DropdownButtonFormField(
+          validator: _validate,
+          hint: Text("Kho",
+              style:
+                  TextStyle(color: COLORHINT, fontWeight: FontWeight.normal)),
           icon: Icon(Icons.keyboard_arrow_down),
-          underline: Container(
-            height: 4,
-            color: PRIMARY_COLOR,
+          decoration: InputDecoration(
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: PRIMARY_COLOR, width: 2.0)),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFCCCCCC)),
+            ),
           ),
           value: valScroll == "" ? null : valScroll,
           items: List.generate(_inventorySlistData.length, (index) {

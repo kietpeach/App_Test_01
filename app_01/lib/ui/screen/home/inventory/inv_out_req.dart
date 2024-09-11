@@ -5,17 +5,20 @@ import 'package:app_01/bloc/master/master_event.dart';
 import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/cubit/add_product_cubit.dart';
+import 'package:app_01/service/admin.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
+import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:app_01/ui/common/ic_inventory.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/add_product.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_scanner_invout.dart';
+import 'package:app_01/ui/screen/home/inventory/edit_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:objectid/objectid.dart';
 
 class InvOutReqPage extends StatefulWidget {
   const InvOutReqPage({Key? key}) : super(key: key);
@@ -28,9 +31,12 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
   // initialize global widget
   final _globalWidget = GlobalWidget();
   final _globalFunction = GlobalFunction();
+  // validate
+  final _formKey = GlobalKey<FormState>();
 
   late MasterBloc _masterBloc;
   late InventoryBloc _inventoryBloc;
+  late AddProductCubit _inventoryCubit;
 
   Color _underlineColor = Color(0xFFCCCCCC);
   Color _mainColor = PRIMARY_COLOR;
@@ -41,13 +47,17 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
       new GetVoucherInvOutReq_Response();
   GetVoucherNo_Response _voucherNoData = new GetVoucherNo_Response();
   TextEditingController _etInvOutReqNo = TextEditingController();
+  TextEditingController _etReason = TextEditingController();
   //DatePicker
   DateTime _selectedReqDate = DateTime.now(), initialDate = DateTime.now();
   TextEditingController _invOutReqDate = TextEditingController();
   TextEditingController _invOutProcDate = TextEditingController();
   //IC
+  List<grpcSelectProductModel> _productSlistData = [
+    new grpcSelectProductModel()
+  ];
   List<grpcInventoryModel> _inventorySlistData = [new grpcInventoryModel()];
-  String _valScroll1 = "";
+  String _valScrollInventory = "";
   //Header data
   grpcInvOutReqHeaderModel _invOutReqHeaderModel =
       new grpcInvOutReqHeaderModel();
@@ -56,12 +66,17 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
 
   @override
   void initState() {
+    _inventoryCubit = BlocProvider.of<AddProductCubit>(context);
     _masterBloc = BlocProvider.of<MasterBloc>(context);
     _masterBloc.add(GetInventoryMaster());
     _masterBloc.add(GetVoucherNo(voucherCode: VoucherCode.InvOutReq));
     _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
     _invOutReqDate.text = _globalFunction.dateTimeFormatter(DateTime.now());
+    _invOutReqHeaderModel.invOutReqDate =
+        Timestamp.fromDateTime(DateTime.now());
     _invOutProcDate.text = _globalFunction.dateTimeFormatter(DateTime.now());
+    _invOutReqHeaderModel.invOutProcDate =
+        Timestamp.fromDateTime(DateTime.now());
     super.initState();
   }
 
@@ -76,133 +91,201 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: _globalWidget.globalAppBar(),
-      body: BlocBuilder<InventoryBloc, InventoryState>(
-        builder: (context, state) {
-          return ListView(
-            padding: EdgeInsets.all(16),
-            children: [
-              Text('Yêu cầu xuất kho',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: BLACK21,
-                      fontWeight: FontWeight.w500)),
-              BlocListener<MasterBloc, MasterState>(
-                listener: (context, state) {
-                  if (state is GetVoucherNoSuccess) {
-                    _voucherNoData = state.VoucherNoData;
-                    _etInvOutReqNo.text = _voucherNoData.voucherNo;
-                  }
-                },
-                child: TextField(
-                  controller: _etInvOutReqNo,
-                  keyboardType: TextInputType.text,
-                  style: TextStyle(color: _color1),
-                  decoration: InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: _mainColor, width: 2.0)),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: _underlineColor),
-                    ),
-                    labelText: 'Số yêu cầu',
-                    labelStyle: TextStyle(color: _color2),
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 8),
-                child: TextField(
-                  controller: _invOutReqDate,
-                  onTap: () {
-                    _selectDateWithMinMaxDate(context, _invOutReqDate);
-                  },
-                  maxLines: 1,
-                  style: TextStyle(color: _color1),
-                  decoration: InputDecoration(
-                    isDense: true,
-                    suffixIcon: Icon(Icons.date_range, color: Colors.green),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: _mainColor, width: 2.0)),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: _underlineColor),
-                    ),
-                    labelText: 'Ngày yêu cầu',
-                    labelStyle: TextStyle(color: _color2),
-                    contentPadding: EdgeInsets.only(bottom: 2),
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 8),
-                child: TextField(
-                  controller: _invOutProcDate,
-                  onTap: () {
-                    _selectDateWithMinMaxDate(context, _invOutProcDate);
-                  },
-                  maxLines: 1,
-                  style: TextStyle(color: _color1),
-                  decoration: InputDecoration(
-                    isDense: true,
-                    suffixIcon: Icon(Icons.date_range, color: Colors.green),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: _mainColor, width: 2.0)),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: _underlineColor),
-                    ),
-                    labelText: 'Ngày xuất',
-                    labelStyle: TextStyle(color: _color2),
-                    contentPadding: EdgeInsets.only(bottom: 2),
-                  ),
-                ),
-              ),
-              IC_Inventory(
-                inventorySlistData: _inventorySlistData,
-                valScroll: _valScroll1,
-                onChanged: (String? value) {
-                  setState(() {
-                    _valScroll1 = value!;
-                  });
-                },
-              ),
-              _globalWidget.createButton(
-                  buttonName: 'Thêm sản phẩm',
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AddProductPage()));
-                  }),
-              SizedBox(
-                height: 20,
-              ),
-              BlocListener<AddProductCubit, AddProductState>(
-                listener: (context, state) {
-                  if (state is AddProductSuccess) {
-                    Navigator.pop(context);
-                    _listInvOutReqDetailModel.add(state.ProductDetail);
-                  }
-                },
-                child: BlocBuilder<AddProductCubit, AddProductState>(
-                  builder: (context, state) {
-                    return ListView.builder(
-                        itemCount: _listInvOutReqDetailModel.length,
-                        shrinkWrap: true,
-                        primary: false,
-                        // Add one more item for progress indicator
-                        padding: EdgeInsets.symmetric(vertical: 0),
-                        itemBuilder: (BuildContext context, int index) {
-                          return _buildProductCard(index);
-                        });
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 42,
-              ),
-            ],
-          );
+      body: BlocListener<InventoryBloc, InventoryState>(
+        listener: (context, state) {
+          if (state is SaveVoucherInvOutReqSuccess) {
+            // Reload lại màn hình khi save voucher thành công
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => super.widget));
+            Fluttertoast.showToast(
+                msg: 'Yêu cầu thành công: ' + state.Response.stringValue,
+                toastLength: Toast.LENGTH_LONG);
+          }
         },
+        child: BlocBuilder<InventoryBloc, InventoryState>(
+          builder: (context, state) {
+            return Form(
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.all(16),
+                children: [
+                  Text('Yêu cầu xuất kho',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: BLACK21,
+                          fontWeight: FontWeight.w500)),
+                  BlocListener<MasterBloc, MasterState>(
+                    listener: (context, state) {
+                      if (state is GetProductMasterSuccess) {
+                        _productSlistData.clear();
+                        _productSlistData.addAll(state.ProductMasterData);
+                      }
+                      if (state is GetVoucherNoSuccess) {
+                        _voucherNoData = state.VoucherNoData;
+                        _etInvOutReqNo.text = _voucherNoData.voucherNo;
+                      }
+                    },
+                    child: TextField(
+                      controller: _etInvOutReqNo,
+                      keyboardType: TextInputType.text,
+                      style: TextStyle(color: _color1),
+                      decoration: InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: _mainColor, width: 2.0)),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: _underlineColor),
+                        ),
+                        labelText: 'Số yêu cầu',
+                        labelStyle: TextStyle(color: _color2),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8),
+                    child: TextField(
+                      controller: _invOutReqDate,
+                      onTap: () {
+                        _selectDateWithMinMaxDate(
+                            context, _invOutReqDate, 'invOutReqDate');
+                      },
+                      maxLines: 1,
+                      style: TextStyle(color: _color1),
+                      decoration: InputDecoration(
+                        isDense: true,
+                        suffixIcon: Icon(Icons.date_range, color: Colors.green),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: _mainColor, width: 2.0)),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: _underlineColor),
+                        ),
+                        labelText: 'Ngày yêu cầu',
+                        labelStyle: TextStyle(color: _color2),
+                        contentPadding: EdgeInsets.only(bottom: 2),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 8),
+                    child: TextField(
+                      controller: _invOutProcDate,
+                      onTap: () {
+                        _selectDateWithMinMaxDate(
+                            context, _invOutProcDate, 'invOutProcDate');
+                      },
+                      maxLines: 1,
+                      style: TextStyle(color: _color1),
+                      decoration: InputDecoration(
+                        isDense: true,
+                        suffixIcon: Icon(Icons.date_range, color: Colors.green),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: _mainColor, width: 2.0)),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: _underlineColor),
+                        ),
+                        labelText: 'Ngày xuất',
+                        labelStyle: TextStyle(color: _color2),
+                        contentPadding: EdgeInsets.only(bottom: 2),
+                      ),
+                    ),
+                  ),
+                  IC_Inventory(
+                    validate: (value) {
+                      if (value != null && value.isNotEmpty) {
+                        return null;
+                      } else {
+                        return REQUIRED;
+                      }
+                    },
+                    inventorySlistData: _inventorySlistData,
+                    valScroll: _valScrollInventory,
+                    onChanged: (String? value) {
+                      var inv = _inventorySlistData
+                          .firstWhere((e) => e.invCode == value);
+                      _invOutReqHeaderModel.outInvName = inv.invName;
+                      _invOutReqHeaderModel.invDeptCode = inv.invDeptCode;
+                      setState(() {
+                        _valScrollInventory = value!;
+                      });
+                    },
+                  ),
+                  TextField(
+                    controller: _etReason,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(color: _color1),
+                    decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: _mainColor, width: 2.0)),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: _underlineColor),
+                      ),
+                      labelText: 'Lý do',
+                      labelStyle: TextStyle(color: _color2),
+                    ),
+                  ),
+                  _globalWidget.createButton(
+                      buttonName: 'Thêm sản phẩm',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddProductPage()));
+                      }),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  BlocListener<AddProductCubit, AddProductState>(
+                    listener: (context, state) {
+                      if (state is AddProductSuccess) {
+                        Navigator.pop(context);
+                        _listInvOutReqDetailModel.add(state.ProductDetail);
+                      }
+                      if (state is DeleteProductSuccess) {
+                        Navigator.pop(context);
+                        _listInvOutReqDetailModel.remove(state.ProductDetail);
+                      }
+                    },
+                    child: BlocBuilder<AddProductCubit, AddProductState>(
+                      builder: (context, state) {
+                        return ListView.builder(
+                            itemCount: _listInvOutReqDetailModel.length,
+                            shrinkWrap: true,
+                            primary: false,
+                            // Add one more item for progress indicator
+                            padding: EdgeInsets.symmetric(vertical: 0),
+                            itemBuilder: (BuildContext context, int index) {
+                              return _buildProductCard(index);
+                            });
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 42,
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
-      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {}),
+      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
+        if (_formKey.currentState!.validate()) {
+          if (_listInvOutReqDetailModel.length == 0) {
+            Fluttertoast.showToast(
+                msg: 'Chưa thêm sản phẩm!', toastLength: Toast.LENGTH_LONG);
+          } else {
+            copyPropertiesData();
+            _inventoryBloc.add(SaveVoucherInvOutReq(
+                headerModel: _invOutReqHeaderModel,
+                detailModel: _listInvOutReqDetailModel));
+          }
+        }
+      }),
     );
   }
 
@@ -235,7 +318,12 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                           fontSize: 18,
                           color: BLACK55,
                           fontWeight: FontWeight.w500)),
-                  Text(_listInvOutReqDetailModel[index].reqQty.toString(),
+                  Text(
+                      'SL qui đổi: ' +
+                          _listInvOutReqDetailModel[index]
+                              .reqQty
+                              .units
+                              .toString(),
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],
@@ -246,17 +334,21 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
             SizedBox(width: 12),
             GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => EditDataPage(
-                  //             index: index, studentData: _studentData[index])));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EditProductPage(
+                                index: index,
+                                invOutReqDetailModel:
+                                    _listInvOutReqDetailModel[index],
+                                productSlistData: _productSlistData,
+                              )));
                 },
                 child: Icon(Icons.edit, size: 24, color: Colors.grey[700])),
             SizedBox(width: 8),
             GestureDetector(
                 onTap: () {
-                  // _showPopupDelete(index);
+                  _showPopupDelete(index);
                 },
                 child: Icon(Icons.delete, size: 24, color: Colors.grey[700])),
           ],
@@ -265,8 +357,8 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
     );
   }
 
-  Future<Null> _selectDateWithMinMaxDate(
-      BuildContext context, TextEditingController textEditingController) async {
+  Future<Null> _selectDateWithMinMaxDate(BuildContext context,
+      TextEditingController textEditingController, String date) async {
     var firstDate = DateTime(initialDate.year - 100);
     var lastDate = DateTime(initialDate.year + 100);
     final DateTime? picked = await showDatePicker(
@@ -291,7 +383,86 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
         _selectedReqDate = picked;
         textEditingController.text =
             _globalFunction.dateTimeFormatter(_selectedReqDate);
+        if (date == 'invOutReqDate') {
+          _invOutReqHeaderModel.invOutReqDate =
+              Timestamp.fromDateTime(_selectedReqDate);
+        }
+        if (date == 'invOutProcDate') {
+          _invOutReqHeaderModel.invOutProcDate =
+              Timestamp.fromDateTime(_selectedReqDate);
+        }
       });
     }
+  }
+
+  void copyPropertiesData() {
+    //Header
+    _invOutReqHeaderModel.invOutReqNo = _etInvOutReqNo.text;
+    _invOutReqHeaderModel.outInvCode = _valScrollInventory;
+    _invOutReqHeaderModel.invAccType = 6; // Viết IC InvAccType
+    var userInfo = AdminService.getUserInfo();
+    _invOutReqHeaderModel.reqStaffID = userInfo.staffID;
+    _invOutReqHeaderModel.deptCode = userInfo.deptCode;
+    _invOutReqHeaderModel.aprStaffID = userInfo.aprStaffID; // Viết IC staff
+    _invOutReqHeaderModel.aprDateTime = Timestamp.fromDateTime(DateTime.now());
+    _invOutReqHeaderModel.aprDone = false;
+    _invOutReqHeaderModel.reason = _etReason.text;
+    _invOutReqHeaderModel.updMode = MyConstant.UpdMode_Addnew;
+    _invOutReqHeaderModel.updTransactionID = ObjectId().hexString;
+    _invOutReqHeaderModel.updAccountID = userInfo.staffID;
+
+    //Detail
+    for (var item in _listInvOutReqDetailModel) {
+      // coppy from Header
+      item.lineNo = _listInvOutReqDetailModel.indexOf(item) + 1;
+      item.deptCode = _invOutReqHeaderModel.deptCode;
+      item.invDeptCode = _invOutReqHeaderModel.invDeptCode;
+      item.invOutReqDate = _invOutReqHeaderModel.invOutReqDate;
+      item.invOutReqNo = _invOutReqHeaderModel.invOutReqNo;
+      item.outInvCode = _invOutReqHeaderModel.outInvCode;
+      item.reqStaffID = _invOutReqHeaderModel.reqStaffID;
+    }
+  }
+
+  void _showPopupDelete(index) {
+    // set up the buttons
+    Widget cancelButton = TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text('Không', style: TextStyle(color: SOFT_BLUE)));
+    Widget continueButton = TextButton(
+        onPressed: () {
+          _inventoryCubit.deleteProduct(_listInvOutReqDetailModel[index]);
+        },
+        child: Text('Có', style: TextStyle(color: SOFT_BLUE)));
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: Text(
+        'Xóa ' + _listInvOutReqDetailModel[index].productName,
+        style: TextStyle(fontSize: 18),
+      ),
+      content: Text(
+          'Bạn chăn chắn muốn xóa ' +
+              _listInvOutReqDetailModel[index].productName +
+              ' ?',
+          style: TextStyle(fontSize: 13)),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }

@@ -1,32 +1,38 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/inventory/bloc.dart';
 import 'package:app_01/bloc/master/master_bloc.dart';
 import 'package:app_01/bloc/master/master_event.dart';
 import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/cubit/add_product_cubit.dart';
-import 'package:app_01/service/master.dart';
 import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/ui/common/ic_product_v2.dart';
 import 'package:app_01/ui/common/ic_unit.dart';
 import 'package:app_01/ui/common/my_constant.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:dio/dio.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-class AddProductPage extends StatefulWidget {
+class EditProductPage extends StatefulWidget {
+  final index;
+  final grpcInvOutReqDetailModel invOutReqDetailModel;
+  final List<grpcSelectProductModel> productSlistData;
+
+  const EditProductPage(
+      {Key? key,
+      this.index,
+      required this.invOutReqDetailModel,
+      required this.productSlistData})
+      : super(key: key);
+
   @override
-  _AddProductPageState createState() => _AddProductPageState();
+  _EditProductPageState createState() => _EditProductPageState();
 }
 
-class _AddProductPageState extends State<AddProductPage> {
+class _EditProductPageState extends State<EditProductPage> {
   // initialize global widget and global function
   final _globalWidget = GlobalWidget();
   // validate
@@ -44,10 +50,7 @@ class _AddProductPageState extends State<AddProductPage> {
   TextEditingController _etPackingQty = TextEditingController();
   TextEditingController _etCaseQty = TextEditingController();
   TextEditingController _etReqQty = TextEditingController();
-  // IC
-  List<grpcSelectProductModel> _productSlistData = [
-    new grpcSelectProductModel()
-  ];
+  //IC
   List<ProductUnitModel> _unitSlistData = [new ProductUnitModel()];
   // Product master data
   GetProductRecord_Response _productRecord = new GetProductRecord_Response();
@@ -60,7 +63,13 @@ class _AddProductPageState extends State<AddProductPage> {
   void initState() {
     _inventoryCubit = BlocProvider.of<AddProductCubit>(context);
     _masterBloc = BlocProvider.of<MasterBloc>(context);
-    _masterBloc.add(GetProductMaster());
+    _valScrollProduct = widget.invOutReqDetailModel.productCode;
+    //_valScrollUnit = widget.invOutReqDetailModel.unitCode;
+    _etSpecification.text = widget.invOutReqDetailModel.specification;
+    _etPackingQty.text =
+        widget.invOutReqDetailModel.packingQty.units.toString();
+    _etCaseQty.text = widget.invOutReqDetailModel.caseQty.units.toString();
+    _etReqQty.text = widget.invOutReqDetailModel.reqQty.units.toString();
     super.initState();
   }
 
@@ -148,28 +157,48 @@ class _AddProductPageState extends State<AddProductPage> {
                     }
                   }
                 },
-                child: IC_Product_V2(
-                  validate: (value) {
-                    if (value != null && value.isNotEmpty) {
-                      return null;
-                    } else {
-                      return REQUIRED;
-                    }
-                  },
-                  productSlistData: _productSlistData,
-                  valScroll: _valScrollProduct,
-                  onChanged: (String? value) {
-                    _etCaseQty.text = '';
-                    _etReqQty.text = '';
-                    _valScrollUnit = '';
-                    if (value != null && value.isNotEmpty) {
-                      _masterBloc.add(GetProductRecord(productCode: value));
-                    }
-                    setState(() {
-                      _valScrollProduct = value!;
-                    });
-                    //
-                  },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 8),
+                  child: DropdownButtonFormField(
+                    validator: (value) {
+                      if (value != null && value.isNotEmpty) {
+                        return null;
+                      } else {
+                        return REQUIRED;
+                      }
+                    },
+                    icon: Icon(Icons.keyboard_arrow_down),
+                    decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: PRIMARY_COLOR, width: 2.0)),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFFCCCCCC)),
+                      ),
+                    ),
+                    value: _valScrollProduct,
+                    items:
+                        List.generate(widget.productSlistData.length, (index) {
+                      return DropdownMenuItem(
+                        child: Text(widget.productSlistData[index].productName),
+                        value: widget.productSlistData[index].productCode,
+                      );
+                    }),
+                    onChanged: (String? value) {
+                      setState(() {
+                        _etCaseQty.text = '';
+                        _etReqQty.text = '';
+                        _valScrollUnit = '';
+                        if (value != null && value.isNotEmpty) {
+                          _masterBloc.add(GetProductRecord(productCode: value));
+                        }
+                        setState(() {
+                          _valScrollProduct = value!;
+                        });
+                      });
+                    },
+                    isExpanded: true,
+                  ),
                 ),
               ),
               SizedBox(

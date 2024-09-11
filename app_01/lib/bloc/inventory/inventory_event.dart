@@ -25,6 +25,12 @@ class GetVoucherInvOutReq extends InventoryEvent {
   GetVoucherInvOutReq({required this.voucherNo});
 }
 
+class SaveVoucherInvOutReq extends InventoryEvent {
+  final grpcInvOutReqHeaderModel headerModel;
+  final List<grpcInvOutReqDetailModel> detailModel;
+  SaveVoucherInvOutReq({required this.headerModel, required this.detailModel});
+}
+
 class SaveVoucherInvOut extends InventoryEvent {
   final grpcInvOutHeaderModel headerModel;
   final List<grpcInvOutDetailModel> detailModel;

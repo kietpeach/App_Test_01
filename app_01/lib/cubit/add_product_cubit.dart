@@ -10,4 +10,8 @@ class AddProductCubit extends Cubit<AddProductState> {
   void addProduct(product) {
     emit(AddProductSuccess(product));
   }
+
+  void deleteProduct(product) {
+    emit(DeleteProductSuccess(product));
+  }
 }

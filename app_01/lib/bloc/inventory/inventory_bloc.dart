@@ -11,6 +11,7 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
     on<GetStockLOT>(_getStockLOT);
     on<GetSlistInvOutReq>(_getSlistInvOutReq);
     on<GetVoucherInvOutReq>(_getVoucherInvOutReq);
+    on<SaveVoucherInvOutReq>(_saveVoucherInvOutReq);
     on<SaveVoucherInvOut>(_saveVoucherInvOut);
     // on<AddInventory>(_addInventory);
     // on<EditInventory>(_editInventory);
@@ -72,6 +73,22 @@ void _getVoucherInvOutReq(
     GetVoucherInvOutReq_Response data =
         await _inventory.getVoucherInvOutReq(event.voucherNo);
     emit(GetVoucherInvOutReqSuccess(InvOutReqData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _saveVoucherInvOutReq(
+    SaveVoucherInvOutReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    String_Response data = await _inventory.saveVoucherInvOutReq(
+        event.headerModel, event.detailModel);
+    emit(SaveVoucherInvOutReqSuccess(Response: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetInventoryError(errorMessage: ex.toString()));

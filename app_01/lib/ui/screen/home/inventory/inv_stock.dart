@@ -66,6 +66,7 @@ class _InvStockPageState extends State<InvStockPage> {
                   title: 'Xem tồn kho', desc: ''),
             ),
             IC_Inventory(
+              validate: null,
               inventorySlistData: _inventorySlistData,
               valScroll: _valScroll1,
               onChanged: (String? value) {
@@ -75,6 +76,7 @@ class _InvStockPageState extends State<InvStockPage> {
               },
             ),
             IC_Product_V2(
+              validate: null,
               productSlistData: _productSlistData,
               valScroll: _valScroll2,
               onChanged: (String? value) {

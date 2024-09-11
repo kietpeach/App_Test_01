@@ -22,7 +22,12 @@ class _Home1PageState extends State<Home1Page> {
   final _globalWidget = GlobalWidget();
 
   UserInfoModel userInfo = new UserInfoModel(
-      deptCode: "", fullname: "", staffID: "", userName: "", userRoleID: "");
+      deptCode: "",
+      fullname: "",
+      staffID: "",
+      userName: "",
+      userRoleID: "",
+      aprStaffID: "");
 
   Color _color1 = Color(0xFF07ac12);
   Color _color2 = Color(0xFF07ac12);

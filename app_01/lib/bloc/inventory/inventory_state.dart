@@ -38,6 +38,11 @@ class GetVoucherInvOutReqSuccess extends InventoryState {
   GetVoucherInvOutReqSuccess({required this.InvOutReqData});
 }
 
+class SaveVoucherInvOutReqSuccess extends InventoryState {
+  final String_Response Response;
+  SaveVoucherInvOutReqSuccess({required this.Response});
+}
+
 class SaveVoucherInvOutSuccess extends InventoryState {
   final String_Response Response;
   SaveVoucherInvOutSuccess({required this.Response});

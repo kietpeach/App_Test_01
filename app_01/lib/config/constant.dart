@@ -10,6 +10,10 @@ const String APP_NAME = 'DevKit';
 const Color PRIMARY_COLOR = Color(0xFF07ac12);
 const Color ASSENT_COLOR = Color(0xFFe75f3f);
 
+const Color UNDERLINECOLOR = Color(0xFFCCCCCC);
+const Color COLORTEXT = Color(0xFF515151);
+const Color COLORHINT = Color(0xff777777);
+
 const Color BLACK21 = Color(0xFF212121);
 const Color BLACK55 = Color(0xFF555555);
 const Color BLACK77 = Color(0xFF777777);
@@ -44,3 +48,5 @@ const String FOLDER_ASSETS = "assets";
 const String Admin = "Admin";
 const String Master = "Master";
 const String Inventory = "Inventory";
+//
+const String REQUIRED = "Bắt buộc nhập";

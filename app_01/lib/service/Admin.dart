@@ -15,6 +15,7 @@ import 'package:crypto/crypto.dart' as crypto;
 class AdminService {
   static String deptCode = "";
   static String staffID = "";
+  static String aprStaffID = "";
   static String userName = "";
   static String fullname = "";
   static String userRoleID = "";
@@ -53,6 +54,7 @@ class AdminService {
       var staff = await getStaffRecord(staffID);
       deptCode = staff.deptCode;
       fullname = staff.staffName;
+      aprStaffID = staff.aprStaffID;
     } catch (e) {
       print('Caught error: $e');
     } finally {
@@ -101,6 +103,7 @@ class AdminService {
         fullname: fullname,
         userName: userName,
         staffID: staffID,
+        aprStaffID: aprStaffID,
         userRoleID: userRoleID);
     return userInfo;
   }
