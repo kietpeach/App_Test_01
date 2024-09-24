@@ -37,6 +37,11 @@ class GetProductRecordSuccess extends MasterState {
   GetProductRecordSuccess({required this.ProductRecordData});
 }
 
+class GetProductRecordInitSuccess extends MasterState {
+  final GetProductRecord_Response ProductRecordData;
+  GetProductRecordInitSuccess({required this.ProductRecordData});
+}
+
 // general
 class MasterErrorValidation extends MasterState {
   final String errorMessage;

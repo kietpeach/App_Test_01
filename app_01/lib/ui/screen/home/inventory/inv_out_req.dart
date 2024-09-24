@@ -6,15 +6,19 @@ import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/cubit/add_product_cubit.dart';
 import 'package:app_01/service/admin.dart';
+import 'package:app_01/service/inventory.dart';
+import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:app_01/ui/common/ic_inventory.dart';
+import 'package:app_01/ui/common/ic_inventory_search.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/add_product.dart';
 import 'package:app_01/ui/screen/home/inventory/edit_product.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -57,7 +61,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
     new grpcSelectProductModel()
   ];
   List<grpcInventoryModel> _inventorySlistData = [new grpcInventoryModel()];
-  String _valScrollInventory = "";
+  SingleValueDropDownController _cntInventory = SingleValueDropDownController();
   //Header data
   grpcInvOutReqHeaderModel _invOutReqHeaderModel =
       new grpcInvOutReqHeaderModel();
@@ -193,7 +197,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                       ),
                     ),
                   ),
-                  IC_Inventory(
+                  IC_Inventory_Search(
                     validate: (value) {
                       if (value != null && value.isNotEmpty) {
                         return null;
@@ -202,17 +206,34 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                       }
                     },
                     inventorySlistData: _inventorySlistData,
-                    valScroll: _valScrollInventory,
-                    onChanged: (String? value) {
+                    controller: _cntInventory,
+                    onChanged: (value) {
                       var inv = _inventorySlistData
-                          .firstWhere((e) => e.invCode == value);
+                          .firstWhere((e) => e.invCode == value.value);
                       _invOutReqHeaderModel.outInvName = inv.invName;
                       _invOutReqHeaderModel.invDeptCode = inv.invDeptCode;
-                      setState(() {
-                        _valScrollInventory = value!;
-                      });
                     },
                   ),
+                  // IC_Inventory(
+                  //   validate: (value) {
+                  //     if (value != null && value.isNotEmpty) {
+                  //       return null;
+                  //     } else {
+                  //       return REQUIRED;
+                  //     }
+                  //   },
+                  //   inventorySlistData: _inventorySlistData,
+                  //   valScroll: _valScrollInventory,
+                  //   onChanged: (String? value) {
+                  //     var inv = _inventorySlistData
+                  //         .firstWhere((e) => e.invCode == value);
+                  //     _invOutReqHeaderModel.outInvName = inv.invName;
+                  //     _invOutReqHeaderModel.invDeptCode = inv.invDeptCode;
+                  //     setState(() {
+                  //       _valScrollInventory = value!;
+                  //     });
+                  //   },
+                  // ),
                   TextField(
                     controller: _etReason,
                     keyboardType: TextInputType.text,
@@ -245,6 +266,11 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                         Navigator.pop(context);
                         _listInvOutReqDetailModel.add(state.ProductDetail);
                       }
+                      if (state is EditProductSuccess) {
+                        Navigator.pop(context);
+                        _listInvOutReqDetailModel[state.ProductDetail.lineNo -
+                            1] = state.ProductDetail;
+                      }
                       if (state is DeleteProductSuccess) {
                         Navigator.pop(context);
                         _listInvOutReqDetailModel.remove(state.ProductDetail);
@@ -273,19 +299,19 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
           },
         ),
       ),
-      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
+      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () async {
         if (_formKey.currentState!.validate()) {
           if (_listInvOutReqDetailModel.length == 0) {
             Fluttertoast.showToast(
                 msg: 'Chưa thêm sản phẩm!', toastLength: Toast.LENGTH_LONG);
           } else {
-            copyPropertiesData();
+            await copyPropertiesData();
             _inventoryBloc.add(SaveVoucherInvOutReq(
                 headerModel: _invOutReqHeaderModel,
                 detailModel: _listInvOutReqDetailModel));
           }
         }
-      }),
+      }, textButtonConfirm: TEXTBUTTONCONFIRM, textButtonBack: TEXTBUTTONBACK),
     );
   }
 
@@ -334,6 +360,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
             SizedBox(width: 12),
             GestureDetector(
                 onTap: () {
+                  _listInvOutReqDetailModel[index].lineNo = index + 1;
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -395,10 +422,10 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
     }
   }
 
-  void copyPropertiesData() {
+  Future<Null> copyPropertiesData() async {
     //Header
     _invOutReqHeaderModel.invOutReqNo = _etInvOutReqNo.text;
-    _invOutReqHeaderModel.outInvCode = _valScrollInventory;
+    _invOutReqHeaderModel.outInvCode = _cntInventory.dropDownValue?.value;
     _invOutReqHeaderModel.invAccType = 6; // Viết IC InvAccType
     var userInfo = AdminService.getUserInfo();
     _invOutReqHeaderModel.reqStaffID = userInfo.staffID;
@@ -421,6 +448,14 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
       item.invOutReqNo = _invOutReqHeaderModel.invOutReqNo;
       item.outInvCode = _invOutReqHeaderModel.outInvCode;
       item.reqStaffID = _invOutReqHeaderModel.reqStaffID;
+      // Get tồn kho, giữ kho
+      var stockSumRecord = await InventoryService.getStockSumRecord(
+          item.outInvCode, item.productCode);
+      item.stockQty = stockSumRecord.stockQty;
+      item.keepStockQty = stockSumRecord.keepStockQty;
+      var avaiStockQty =
+          stockSumRecord.stockQty.units - stockSumRecord.keepStockQty.units;
+      item.avaiStockQty = new Decimal(units: avaiStockQty);
     }
   }
 
@@ -447,7 +482,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
         style: TextStyle(fontSize: 18),
       ),
       content: Text(
-          'Bạn chăn chắn muốn xóa ' +
+          'Bạn chăc chắn muốn xóa ' +
               _listInvOutReqDetailModel[index].productName +
               ' ?',
           style: TextStyle(fontSize: 13)),

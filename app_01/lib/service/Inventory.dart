@@ -162,4 +162,23 @@ class InventoryService {
     }
     return res;
   }
+
+  static Future<grpcStockSumModel> getStockSumRecord(
+      String invCode, String productCode) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    GetStockSumRecord_Response res = new GetStockSumRecord_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.getStockSumRecord(GetStockSumRecord_Request(
+          invCode: invCode, productCode: productCode));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.record;
+  }
 }

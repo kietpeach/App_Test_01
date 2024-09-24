@@ -36,21 +36,23 @@ const GetSalePrice_Request$json = {
   '1': 'GetSalePrice_Request',
   '2': [
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'CurrencyCode', '3': 2, '4': 1, '5': 9, '10': 'CurrencyCode'},
-    {'1': 'ProductCode', '3': 3, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'UnitCode', '3': 4, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'CustomerID', '3': 5, '4': 1, '5': 9, '10': 'CustomerID'},
-    {'1': 'IsPromotion', '3': 6, '4': 1, '5': 8, '10': 'IsPromotion'},
+    {'1': 'TaxFlag', '3': 2, '4': 1, '5': 5, '10': 'TaxFlag'},
+    {'1': 'CurrencyCode', '3': 3, '4': 1, '5': 9, '10': 'CurrencyCode'},
+    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'UnitCode', '3': 5, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'CustomerID', '3': 6, '4': 1, '5': 9, '10': 'CustomerID'},
+    {'1': 'IsPromotion', '3': 7, '4': 1, '5': 8, '10': 'IsPromotion'},
   ],
 };
 
 /// Descriptor for `GetSalePrice_Request`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSalePrice_RequestDescriptor = $convert.base64Decode(
     'ChRHZXRTYWxlUHJpY2VfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW1vbk'
-    '1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiIKDEN1cnJlbmN5Q29kZRgCIAEo'
-    'CVIMQ3VycmVuY3lDb2RlEiAKC1Byb2R1Y3RDb2RlGAMgASgJUgtQcm9kdWN0Q29kZRIaCghVbm'
-    'l0Q29kZRgEIAEoCVIIVW5pdENvZGUSHgoKQ3VzdG9tZXJJRBgFIAEoCVIKQ3VzdG9tZXJJRBIg'
-    'CgtJc1Byb21vdGlvbhgGIAEoCFILSXNQcm9tb3Rpb24=');
+    '1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhgKB1RheEZsYWcYAiABKAVSB1Rh'
+    'eEZsYWcSIgoMQ3VycmVuY3lDb2RlGAMgASgJUgxDdXJyZW5jeUNvZGUSIAoLUHJvZHVjdENvZG'
+    'UYBCABKAlSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2RlGAUgASgJUghVbml0Q29kZRIeCgpDdXN0'
+    'b21lcklEGAYgASgJUgpDdXN0b21lcklEEiAKC0lzUHJvbW90aW9uGAcgASgIUgtJc1Byb21vdG'
+    'lvbg==');
 
 @$core.Deprecated('Use getSalePrice_ResponseDescriptor instead')
 const GetSalePrice_Response$json = {
@@ -62,8 +64,9 @@ const GetSalePrice_Response$json = {
     {'1': 'RankCode', '3': 4, '4': 1, '5': 9, '10': 'RankCode'},
     {'1': 'StdUnitPrice', '3': 5, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StdUnitPrice'},
     {'1': 'UnitPrice', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnitPrice'},
-    {'1': 'DiscountRate', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DiscountRate'},
-    {'1': 'PriceSourceFlag', '3': 8, '4': 1, '5': 5, '10': 'PriceSourceFlag'},
+    {'1': 'AprUnitPrice', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AprUnitPrice'},
+    {'1': 'DiscountRate', '3': 8, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DiscountRate'},
+    {'1': 'PriceSourceFlag', '3': 9, '4': 1, '5': 5, '10': 'PriceSourceFlag'},
   ],
 };
 
@@ -73,9 +76,10 @@ final $typed_data.Uint8List getSalePrice_ResponseDescriptor = $convert.base64Dec
     'IYCgdNc2dDb2RlGAIgASgJUgdNc2dDb2RlEhwKCVByaWNlVHlwZRgDIAEoBVIJUHJpY2VUeXBl'
     'EhoKCFJhbmtDb2RlGAQgASgJUghSYW5rQ29kZRI4CgxTdGRVbml0UHJpY2UYBSABKAsyFC5DdX'
     'N0b21UeXBlcy5EZWNpbWFsUgxTdGRVbml0UHJpY2USMgoJVW5pdFByaWNlGAYgASgLMhQuQ3Vz'
-    'dG9tVHlwZXMuRGVjaW1hbFIJVW5pdFByaWNlEjgKDERpc2NvdW50UmF0ZRgHIAEoCzIULkN1c3'
-    'RvbVR5cGVzLkRlY2ltYWxSDERpc2NvdW50UmF0ZRIoCg9QcmljZVNvdXJjZUZsYWcYCCABKAVS'
-    'D1ByaWNlU291cmNlRmxhZw==');
+    'dG9tVHlwZXMuRGVjaW1hbFIJVW5pdFByaWNlEjgKDEFwclVuaXRQcmljZRgHIAEoCzIULkN1c3'
+    'RvbVR5cGVzLkRlY2ltYWxSDEFwclVuaXRQcmljZRI4CgxEaXNjb3VudFJhdGUYCCABKAsyFC5D'
+    'dXN0b21UeXBlcy5EZWNpbWFsUgxEaXNjb3VudFJhdGUSKAoPUHJpY2VTb3VyY2VGbGFnGAkgAS'
+    'gFUg9QcmljZVNvdXJjZUZsYWc=');
 
 @$core.Deprecated('Use commitVoucherNo_RequestDescriptor instead')
 const CommitVoucherNo_Request$json = {
@@ -159,6 +163,22 @@ final $typed_data.Uint8List grpcSettingMasterModelDescriptor = $convert.base64De
     'EjoKCkRhdGVWYWx1ZTIYDSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgpEYXRlVm'
     'FsdWUyEhwKCUJvb2xWYWx1ZRgOIAEoCFIJQm9vbFZhbHVlEhgKB1VwZE1vZGUYDyABKAVSB1Vw'
     'ZE1vZGU=');
+
+@$core.Deprecated('Use updateDeptFromStaffToWage_RequestDescriptor instead')
+const UpdateDeptFromStaffToWage_Request$json = {
+  '1': 'UpdateDeptFromStaffToWage_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'StaffID', '3': 2, '4': 1, '5': 9, '10': 'StaffID'},
+    {'1': 'DeptCode', '3': 3, '4': 1, '5': 9, '10': 'DeptCode'},
+  ],
+};
+
+/// Descriptor for `UpdateDeptFromStaffToWage_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateDeptFromStaffToWage_RequestDescriptor = $convert.base64Decode(
+    'CiFVcGRhdGVEZXB0RnJvbVN0YWZmVG9XYWdlX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCz'
+    'IiLmdycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIYCgdTdGFm'
+    'ZklEGAIgASgJUgdTdGFmZklEEhoKCERlcHRDb2RlGAMgASgJUghEZXB0Q29kZQ==');
 
 @$core.Deprecated('Use saveWorkingTimeMaster_RequestDescriptor instead')
 const SaveWorkingTimeMaster_Request$json = {
@@ -691,36 +711,37 @@ const grpcSalaryMasterModel$json = {
     {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
     {'1': 'StartDate', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'StartDate'},
     {'1': 'AccID', '3': 3, '4': 1, '5': 9, '10': 'AccID'},
-    {'1': 'SocialInsAccID', '3': 4, '4': 1, '5': 9, '10': 'SocialInsAccID'},
-    {'1': 'HealthInsAccID', '3': 5, '4': 1, '5': 9, '10': 'HealthInsAccID'},
-    {'1': 'UnemploymentInsAccID', '3': 6, '4': 1, '5': 9, '10': 'UnemploymentInsAccID'},
-    {'1': 'TradeUnionAccID', '3': 7, '4': 1, '5': 9, '10': 'TradeUnionAccID'},
-    {'1': 'PersonalIncTaxAccID', '3': 8, '4': 1, '5': 9, '10': 'PersonalIncTaxAccID'},
-    {'1': 'SocialInsRate', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SocialInsRate'},
-    {'1': 'HealthInsRate', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HealthInsRate'},
-    {'1': 'UnemploymentInsRate', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnemploymentInsRate'},
-    {'1': 'TradeUnionRate', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'TradeUnionRate'},
-    {'1': 'SocialInsCoRate', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SocialInsCoRate'},
-    {'1': 'HealthInsCoRate', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HealthInsCoRate'},
-    {'1': 'UnemploymentInsCoRate', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnemploymentInsCoRate'},
-    {'1': 'TradeUnionCoRate', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'TradeUnionCoRate'},
-    {'1': 'DeductAmountN', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DeductAmountN'},
-    {'1': 'DeductExtAmountN', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DeductExtAmountN'},
-    {'1': 'OvertimeRate', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvertimeRate'},
-    {'1': 'DayOffRate', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DayOffRate'},
-    {'1': 'HolidaysRate', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HolidaysRate'},
-    {'1': 'OvernightRate', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvernightRate'},
-    {'1': 'StopWorkingRate', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StopWorkingRate'},
-    {'1': 'AdvanceRate', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdvanceRate'},
-    {'1': 'AdvanceAmountN', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdvanceAmountN'},
-    {'1': 'StdWrkHours', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StdWrkHours'},
-    {'1': 'ProduceStdWrkHours', '3': 27, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ProduceStdWrkHours'},
-    {'1': 'DaytimeRate', '3': 28, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DaytimeRate'},
-    {'1': 'OvernightExRate', '3': 29, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvernightExRate'},
-    {'1': 'OvertimeExRate', '3': 30, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvertimeExRate'},
-    {'1': 'MinimumWage', '3': 31, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MinimumWage'},
-    {'1': 'UpdMode', '3': 32, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdDateTime', '3': 33, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'AccObjectID', '3': 4, '4': 1, '5': 9, '10': 'AccObjectID'},
+    {'1': 'SocialInsAccID', '3': 5, '4': 1, '5': 9, '10': 'SocialInsAccID'},
+    {'1': 'HealthInsAccID', '3': 6, '4': 1, '5': 9, '10': 'HealthInsAccID'},
+    {'1': 'UnemploymentInsAccID', '3': 7, '4': 1, '5': 9, '10': 'UnemploymentInsAccID'},
+    {'1': 'TradeUnionAccID', '3': 8, '4': 1, '5': 9, '10': 'TradeUnionAccID'},
+    {'1': 'PersonalIncTaxAccID', '3': 9, '4': 1, '5': 9, '10': 'PersonalIncTaxAccID'},
+    {'1': 'SocialInsRate', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SocialInsRate'},
+    {'1': 'HealthInsRate', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HealthInsRate'},
+    {'1': 'UnemploymentInsRate', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnemploymentInsRate'},
+    {'1': 'TradeUnionRate', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'TradeUnionRate'},
+    {'1': 'SocialInsCoRate', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SocialInsCoRate'},
+    {'1': 'HealthInsCoRate', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HealthInsCoRate'},
+    {'1': 'UnemploymentInsCoRate', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnemploymentInsCoRate'},
+    {'1': 'TradeUnionCoRate', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'TradeUnionCoRate'},
+    {'1': 'DeductAmountN', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DeductAmountN'},
+    {'1': 'DeductExtAmountN', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DeductExtAmountN'},
+    {'1': 'OvertimeRate', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvertimeRate'},
+    {'1': 'DayOffRate', '3': 21, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DayOffRate'},
+    {'1': 'HolidaysRate', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'HolidaysRate'},
+    {'1': 'OvernightRate', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvernightRate'},
+    {'1': 'StopWorkingRate', '3': 24, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StopWorkingRate'},
+    {'1': 'AdvanceRate', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdvanceRate'},
+    {'1': 'AdvanceAmountN', '3': 26, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AdvanceAmountN'},
+    {'1': 'StdWrkHours', '3': 27, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'StdWrkHours'},
+    {'1': 'ProduceStdWrkHours', '3': 28, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ProduceStdWrkHours'},
+    {'1': 'DaytimeRate', '3': 29, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DaytimeRate'},
+    {'1': 'OvernightExRate', '3': 30, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvernightExRate'},
+    {'1': 'OvertimeExRate', '3': 31, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OvertimeExRate'},
+    {'1': 'MinimumWage', '3': 32, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MinimumWage'},
+    {'1': 'UpdMode', '3': 33, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdDateTime', '3': 34, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -728,38 +749,39 @@ const grpcSalaryMasterModel$json = {
 final $typed_data.Uint8List grpcSalaryMasterModelDescriptor = $convert.base64Decode(
     'ChVncnBjU2FsYXJ5TWFzdGVyTW9kZWwSDgoCSUQYASABKAlSAklEEjgKCVN0YXJ0RGF0ZRgCIA'
     'EoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCVN0YXJ0RGF0ZRIUCgVBY2NJRBgDIAEo'
-    'CVIFQWNjSUQSJgoOU29jaWFsSW5zQWNjSUQYBCABKAlSDlNvY2lhbEluc0FjY0lEEiYKDkhlYW'
-    'x0aEluc0FjY0lEGAUgASgJUg5IZWFsdGhJbnNBY2NJRBIyChRVbmVtcGxveW1lbnRJbnNBY2NJ'
-    'RBgGIAEoCVIUVW5lbXBsb3ltZW50SW5zQWNjSUQSKAoPVHJhZGVVbmlvbkFjY0lEGAcgASgJUg'
-    '9UcmFkZVVuaW9uQWNjSUQSMAoTUGVyc29uYWxJbmNUYXhBY2NJRBgIIAEoCVITUGVyc29uYWxJ'
-    'bmNUYXhBY2NJRBI6Cg1Tb2NpYWxJbnNSYXRlGAkgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbF'
-    'INU29jaWFsSW5zUmF0ZRI6Cg1IZWFsdGhJbnNSYXRlGAogASgLMhQuQ3VzdG9tVHlwZXMuRGVj'
-    'aW1hbFINSGVhbHRoSW5zUmF0ZRJGChNVbmVtcGxveW1lbnRJbnNSYXRlGAsgASgLMhQuQ3VzdG'
-    '9tVHlwZXMuRGVjaW1hbFITVW5lbXBsb3ltZW50SW5zUmF0ZRI8Cg5UcmFkZVVuaW9uUmF0ZRgM'
-    'IAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDlRyYWRlVW5pb25SYXRlEj4KD1NvY2lhbEluc0'
-    'NvUmF0ZRgNIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSD1NvY2lhbEluc0NvUmF0ZRI+Cg9I'
-    'ZWFsdGhJbnNDb1JhdGUYDiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9IZWFsdGhJbnNDb1'
-    'JhdGUSSgoVVW5lbXBsb3ltZW50SW5zQ29SYXRlGA8gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1h'
-    'bFIVVW5lbXBsb3ltZW50SW5zQ29SYXRlEkAKEFRyYWRlVW5pb25Db1JhdGUYECABKAsyFC5DdX'
-    'N0b21UeXBlcy5EZWNpbWFsUhBUcmFkZVVuaW9uQ29SYXRlEjoKDURlZHVjdEFtb3VudE4YESAB'
-    'KAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1EZWR1Y3RBbW91bnROEkAKEERlZHVjdEV4dEFtb3'
-    'VudE4YEiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhBEZWR1Y3RFeHRBbW91bnROEjgKDE92'
-    'ZXJ0aW1lUmF0ZRgTIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDE92ZXJ0aW1lUmF0ZRI0Cg'
-    'pEYXlPZmZSYXRlGBQgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKRGF5T2ZmUmF0ZRI4CgxI'
-    'b2xpZGF5c1JhdGUYFSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgxIb2xpZGF5c1JhdGUSOg'
-    'oNT3Zlcm5pZ2h0UmF0ZRgWIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDU92ZXJuaWdodFJh'
-    'dGUSPgoPU3RvcFdvcmtpbmdSYXRlGBcgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIPU3RvcF'
-    'dvcmtpbmdSYXRlEjYKC0FkdmFuY2VSYXRlGBggASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIL'
-    'QWR2YW5jZVJhdGUSPAoOQWR2YW5jZUFtb3VudE4YGSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbW'
-    'FsUg5BZHZhbmNlQW1vdW50ThI2CgtTdGRXcmtIb3VycxgaIAEoCzIULkN1c3RvbVR5cGVzLkRl'
-    'Y2ltYWxSC1N0ZFdya0hvdXJzEkQKElByb2R1Y2VTdGRXcmtIb3VycxgbIAEoCzIULkN1c3RvbV'
-    'R5cGVzLkRlY2ltYWxSElByb2R1Y2VTdGRXcmtIb3VycxI2CgtEYXl0aW1lUmF0ZRgcIAEoCzIU'
-    'LkN1c3RvbVR5cGVzLkRlY2ltYWxSC0RheXRpbWVSYXRlEj4KD092ZXJuaWdodEV4UmF0ZRgdIA'
-    'EoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSD092ZXJuaWdodEV4UmF0ZRI8Cg5PdmVydGltZUV4'
-    'UmF0ZRgeIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDk92ZXJ0aW1lRXhSYXRlEjYKC01pbm'
-    'ltdW1XYWdlGB8gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFILTWluaW11bVdhZ2USGAoHVXBk'
-    'TW9kZRggIAEoBVIHVXBkTW9kZRI8CgtVcGREYXRlVGltZRghIAEoCzIaLmdvb2dsZS5wcm90b2'
-    'J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1l');
+    'CVIFQWNjSUQSIAoLQWNjT2JqZWN0SUQYBCABKAlSC0FjY09iamVjdElEEiYKDlNvY2lhbEluc0'
+    'FjY0lEGAUgASgJUg5Tb2NpYWxJbnNBY2NJRBImCg5IZWFsdGhJbnNBY2NJRBgGIAEoCVIOSGVh'
+    'bHRoSW5zQWNjSUQSMgoUVW5lbXBsb3ltZW50SW5zQWNjSUQYByABKAlSFFVuZW1wbG95bWVudE'
+    'luc0FjY0lEEigKD1RyYWRlVW5pb25BY2NJRBgIIAEoCVIPVHJhZGVVbmlvbkFjY0lEEjAKE1Bl'
+    'cnNvbmFsSW5jVGF4QWNjSUQYCSABKAlSE1BlcnNvbmFsSW5jVGF4QWNjSUQSOgoNU29jaWFsSW'
+    '5zUmF0ZRgKIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDVNvY2lhbEluc1JhdGUSOgoNSGVh'
+    'bHRoSW5zUmF0ZRgLIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDUhlYWx0aEluc1JhdGUSRg'
+    'oTVW5lbXBsb3ltZW50SW5zUmF0ZRgMIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSE1VuZW1w'
+    'bG95bWVudEluc1JhdGUSPAoOVHJhZGVVbmlvblJhdGUYDSABKAsyFC5DdXN0b21UeXBlcy5EZW'
+    'NpbWFsUg5UcmFkZVVuaW9uUmF0ZRI+Cg9Tb2NpYWxJbnNDb1JhdGUYDiABKAsyFC5DdXN0b21U'
+    'eXBlcy5EZWNpbWFsUg9Tb2NpYWxJbnNDb1JhdGUSPgoPSGVhbHRoSW5zQ29SYXRlGA8gASgLMh'
+    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIPSGVhbHRoSW5zQ29SYXRlEkoKFVVuZW1wbG95bWVudElu'
+    'c0NvUmF0ZRgQIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSFVVuZW1wbG95bWVudEluc0NvUm'
+    'F0ZRJAChBUcmFkZVVuaW9uQ29SYXRlGBEgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIQVHJh'
+    'ZGVVbmlvbkNvUmF0ZRI6Cg1EZWR1Y3RBbW91bnROGBIgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW'
+    '1hbFINRGVkdWN0QW1vdW50ThJAChBEZWR1Y3RFeHRBbW91bnROGBMgASgLMhQuQ3VzdG9tVHlw'
+    'ZXMuRGVjaW1hbFIQRGVkdWN0RXh0QW1vdW50ThI4CgxPdmVydGltZVJhdGUYFCABKAsyFC5DdX'
+    'N0b21UeXBlcy5EZWNpbWFsUgxPdmVydGltZVJhdGUSNAoKRGF5T2ZmUmF0ZRgVIAEoCzIULkN1'
+    'c3RvbVR5cGVzLkRlY2ltYWxSCkRheU9mZlJhdGUSOAoMSG9saWRheXNSYXRlGBYgASgLMhQuQ3'
+    'VzdG9tVHlwZXMuRGVjaW1hbFIMSG9saWRheXNSYXRlEjoKDU92ZXJuaWdodFJhdGUYFyABKAsy'
+    'FC5DdXN0b21UeXBlcy5EZWNpbWFsUg1PdmVybmlnaHRSYXRlEj4KD1N0b3BXb3JraW5nUmF0ZR'
+    'gYIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSD1N0b3BXb3JraW5nUmF0ZRI2CgtBZHZhbmNl'
+    'UmF0ZRgZIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSC0FkdmFuY2VSYXRlEjwKDkFkdmFuY2'
+    'VBbW91bnROGBogASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIOQWR2YW5jZUFtb3VudE4SNgoL'
+    'U3RkV3JrSG91cnMYGyABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgtTdGRXcmtIb3VycxJECh'
+    'JQcm9kdWNlU3RkV3JrSG91cnMYHCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhJQcm9kdWNl'
+    'U3RkV3JrSG91cnMSNgoLRGF5dGltZVJhdGUYHSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg'
+    'tEYXl0aW1lUmF0ZRI+Cg9PdmVybmlnaHRFeFJhdGUYHiABKAsyFC5DdXN0b21UeXBlcy5EZWNp'
+    'bWFsUg9PdmVybmlnaHRFeFJhdGUSPAoOT3ZlcnRpbWVFeFJhdGUYHyABKAsyFC5DdXN0b21UeX'
+    'Blcy5EZWNpbWFsUg5PdmVydGltZUV4UmF0ZRI2CgtNaW5pbXVtV2FnZRggIAEoCzIULkN1c3Rv'
+    'bVR5cGVzLkRlY2ltYWxSC01pbmltdW1XYWdlEhgKB1VwZE1vZGUYISABKAVSB1VwZE1vZGUSPA'
+    'oLVXBkRGF0ZVRpbWUYIiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRl'
+    'VGltZQ==');
 
 @$core.Deprecated('Use getAddressMaster_RequestDescriptor instead')
 const GetAddressMaster_Request$json = {
@@ -1994,84 +2016,6 @@ final $typed_data.Uint8List grpcStdFeeDevideModelDescriptor = $convert.base64Dec
     'xVcGRBY2NvdW50SUQYCyABKAlSDFVwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgMIAEoCzIa'
     'Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1l');
 
-@$core.Deprecated('Use saveFeeItem_RequestDescriptor instead')
-const SaveFeeItem_Request$json = {
-  '1': 'SaveFeeItem_Request',
-  '2': [
-    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcMasterService.grpcFeeItemModel', '10': 'Record'},
-  ],
-};
-
-/// Descriptor for `SaveFeeItem_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List saveFeeItem_RequestDescriptor = $convert.base64Decode(
-    'ChNTYXZlRmVlSXRlbV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ29tbW9uTW'
-    'Vzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSOwoGUmVjb3JkGAIgASgLMiMuZ3Jw'
-    'Y01hc3RlclNlcnZpY2UuZ3JwY0ZlZUl0ZW1Nb2RlbFIGUmVjb3Jk');
-
-@$core.Deprecated('Use getFeeItemRecord_ResponseDescriptor instead')
-const GetFeeItemRecord_Response$json = {
-  '1': 'GetFeeItemRecord_Response',
-  '2': [
-    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
-    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
-    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcMasterService.grpcFeeItemModel', '10': 'Record'},
-  ],
-};
-
-/// Descriptor for `GetFeeItemRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getFeeItemRecord_ResponseDescriptor = $convert.base64Decode(
-    'ChlHZXRGZWVJdGVtUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldHVybk'
-    'NvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRI7CgZSZWNvcmQYAyABKAsyIy5ncnBjTWFz'
-    'dGVyU2VydmljZS5ncnBjRmVlSXRlbU1vZGVsUgZSZWNvcmQ=');
-
-@$core.Deprecated('Use getFeeItem_ResponseDescriptor instead')
-const GetFeeItem_Response$json = {
-  '1': 'GetFeeItem_Response',
-  '2': [
-    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
-    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
-    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcMasterService.grpcFeeItemModel', '10': 'Records'},
-  ],
-};
-
-/// Descriptor for `GetFeeItem_Response`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getFeeItem_ResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRGZWVJdGVtX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldHVybkNvZGUSGA'
-    'oHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRI9CgdSZWNvcmRzGAMgAygLMiMuZ3JwY01hc3RlclNl'
-    'cnZpY2UuZ3JwY0ZlZUl0ZW1Nb2RlbFIHUmVjb3Jkcw==');
-
-@$core.Deprecated('Use grpcFeeItemModelDescriptor instead')
-const grpcFeeItemModel$json = {
-  '1': 'grpcFeeItemModel',
-  '2': [
-    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'FeeItemCode', '3': 2, '4': 1, '5': 9, '10': 'FeeItemCode'},
-    {'1': 'FeeItemName', '3': 3, '4': 1, '5': 9, '10': 'FeeItemName'},
-    {'1': 'IsProduceFee', '3': 4, '4': 1, '5': 8, '10': 'IsProduceFee'},
-    {'1': 'IsLaborFee', '3': 5, '4': 1, '5': 8, '10': 'IsLaborFee'},
-    {'1': 'DirectFeeType', '3': 6, '4': 1, '5': 5, '10': 'DirectFeeType'},
-    {'1': 'InDirectFeeType', '3': 7, '4': 1, '5': 5, '10': 'InDirectFeeType'},
-    {'1': 'UpdMode', '3': 8, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 9, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 10, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 11, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-  ],
-};
-
-/// Descriptor for `grpcFeeItemModel`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List grpcFeeItemModelDescriptor = $convert.base64Decode(
-    'ChBncnBjRmVlSXRlbU1vZGVsEg4KAklEGAEgASgJUgJJRBIgCgtGZWVJdGVtQ29kZRgCIAEoCV'
-    'ILRmVlSXRlbUNvZGUSIAoLRmVlSXRlbU5hbWUYAyABKAlSC0ZlZUl0ZW1OYW1lEiIKDElzUHJv'
-    'ZHVjZUZlZRgEIAEoCFIMSXNQcm9kdWNlRmVlEh4KCklzTGFib3JGZWUYBSABKAhSCklzTGFib3'
-    'JGZWUSJAoNRGlyZWN0RmVlVHlwZRgGIAEoBVINRGlyZWN0RmVlVHlwZRIoCg9JbkRpcmVjdEZl'
-    'ZVR5cGUYByABKAVSD0luRGlyZWN0RmVlVHlwZRIYCgdVcGRNb2RlGAggASgFUgdVcGRNb2RlEh'
-    'oKCFVwZENvdW50GAkgASgFUghVcGRDb3VudBIqChBVcGRUcmFuc2FjdGlvbklEGAogASgJUhBV'
-    'cGRUcmFuc2FjdGlvbklEEiIKDFVwZEFjY291bnRJRBgLIAEoCVIMVXBkQWNjb3VudElEEjwKC1'
-    'VwZERhdGVUaW1lGAwgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILVXBkRGF0ZVRp'
-    'bWU=');
-
 @$core.Deprecated('Use saveStdLabor_RequestDescriptor instead')
 const SaveStdLabor_Request$json = {
   '1': 'SaveStdLabor_Request',
@@ -2193,23 +2137,23 @@ const GetPriceListRecord_Request$json = {
   '1': 'GetPriceListRecord_Request',
   '2': [
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'CurrencyCode', '3': 2, '4': 1, '5': 9, '10': 'CurrencyCode'},
-    {'1': 'ProductCode', '3': 3, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'UnitCode', '3': 4, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'FromDate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
-    {'1': 'ToDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 7, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'TaxFlag', '3': 2, '4': 1, '5': 5, '10': 'TaxFlag'},
+    {'1': 'CurrencyCode', '3': 3, '4': 1, '5': 9, '10': 'CurrencyCode'},
+    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'UnitCode', '3': 5, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'FromDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
+    {'1': 'ToDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
   ],
 };
 
 /// Descriptor for `GetPriceListRecord_Request`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPriceListRecord_RequestDescriptor = $convert.base64Decode(
     'ChpHZXRQcmljZUxpc3RSZWNvcmRfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0'
-    'NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiIKDEN1cnJlbmN5Q29k'
-    'ZRgCIAEoCVIMQ3VycmVuY3lDb2RlEiAKC1Byb2R1Y3RDb2RlGAMgASgJUgtQcm9kdWN0Q29kZR'
-    'IaCghVbml0Q29kZRgEIAEoCVIIVW5pdENvZGUSNgoIRnJvbURhdGUYBSABKAsyGi5nb29nbGUu'
-    'cHJvdG9idWYuVGltZXN0YW1wUghGcm9tRGF0ZRIyCgZUb0RhdGUYBiABKAsyGi5nb29nbGUucH'
-    'JvdG9idWYuVGltZXN0YW1wUgZUb0RhdGUSDgoCSUQYByABKAlSAklE');
+    'NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhgKB1RheEZsYWcYAiAB'
+    'KAVSB1RheEZsYWcSIgoMQ3VycmVuY3lDb2RlGAMgASgJUgxDdXJyZW5jeUNvZGUSIAoLUHJvZH'
+    'VjdENvZGUYBCABKAlSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2RlGAUgASgJUghVbml0Q29kZRI2'
+    'CghGcm9tRGF0ZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCEZyb21EYXRlEj'
+    'IKBlRvRGF0ZRgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSBlRvRGF0ZQ==');
 
 @$core.Deprecated('Use getPriceListRecord_ResponseDescriptor instead')
 const GetPriceListRecord_Response$json = {
@@ -2232,19 +2176,21 @@ const GetPriceList_Request$json = {
   '1': 'GetPriceList_Request',
   '2': [
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'CurrencyCode', '3': 2, '4': 1, '5': 9, '10': 'CurrencyCode'},
-    {'1': 'ProductKind', '3': 3, '4': 1, '5': 5, '10': 'ProductKind'},
-    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'State', '3': 5, '4': 1, '5': 5, '10': 'State'},
+    {'1': 'TaxFlag', '3': 2, '4': 1, '5': 5, '10': 'TaxFlag'},
+    {'1': 'CurrencyCode', '3': 3, '4': 1, '5': 9, '10': 'CurrencyCode'},
+    {'1': 'ProductKind', '3': 4, '4': 1, '5': 5, '10': 'ProductKind'},
+    {'1': 'ProductCode', '3': 5, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'State', '3': 6, '4': 1, '5': 5, '10': 'State'},
   ],
 };
 
 /// Descriptor for `GetPriceList_Request`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPriceList_RequestDescriptor = $convert.base64Decode(
     'ChRHZXRQcmljZUxpc3RfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW1vbk'
-    '1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiIKDEN1cnJlbmN5Q29kZRgCIAEo'
-    'CVIMQ3VycmVuY3lDb2RlEiAKC1Byb2R1Y3RLaW5kGAMgASgFUgtQcm9kdWN0S2luZBIgCgtQcm'
-    '9kdWN0Q29kZRgEIAEoCVILUHJvZHVjdENvZGUSFAoFU3RhdGUYBSABKAVSBVN0YXRl');
+    '1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhgKB1RheEZsYWcYAiABKAVSB1Rh'
+    'eEZsYWcSIgoMQ3VycmVuY3lDb2RlGAMgASgJUgxDdXJyZW5jeUNvZGUSIAoLUHJvZHVjdEtpbm'
+    'QYBCABKAVSC1Byb2R1Y3RLaW5kEiAKC1Byb2R1Y3RDb2RlGAUgASgJUgtQcm9kdWN0Q29kZRIU'
+    'CgVTdGF0ZRgGIAEoBVIFU3RhdGU=');
 
 @$core.Deprecated('Use getPriceList_ResponseDescriptor instead')
 const GetPriceList_Response$json = {
@@ -2262,69 +2208,60 @@ final $typed_data.Uint8List getPriceList_ResponseDescriptor = $convert.base64Dec
     'IYCgdNc2dDb2RlGAIgASgJUgdNc2dDb2RlEj8KB1JlY29yZHMYAyADKAsyJS5ncnBjTWFzdGVy'
     'U2VydmljZS5ncnBjUHJpY2VMaXN0TW9kZWxSB1JlY29yZHM=');
 
-@$core.Deprecated('Use getPrice_RequestDescriptor instead')
-const GetPrice_Request$json = {
-  '1': 'GetPrice_Request',
-  '2': [
-    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'CurrencyCode', '3': 2, '4': 1, '5': 9, '10': 'CurrencyCode'},
-    {'1': 'ProductCode', '3': 3, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'UnitCode', '3': 4, '4': 1, '5': 9, '10': 'UnitCode'},
-  ],
-};
-
-/// Descriptor for `GetPrice_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getPrice_RequestDescriptor = $convert.base64Decode(
-    'ChBHZXRQcmljZV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ29tbW9uTWVzc2'
-    'FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSIgoMQ3VycmVuY3lDb2RlGAIgASgJUgxD'
-    'dXJyZW5jeUNvZGUSIAoLUHJvZHVjdENvZGUYAyABKAlSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2'
-    'RlGAQgASgJUghVbml0Q29kZQ==');
-
 @$core.Deprecated('Use grpcPriceListModelDescriptor instead')
 const grpcPriceListModel$json = {
   '1': 'grpcPriceListModel',
   '2': [
     {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'CurrencyCode', '3': 2, '4': 1, '5': 9, '10': 'CurrencyCode'},
-    {'1': 'ProductKind', '3': 3, '4': 1, '5': 5, '10': 'ProductKind'},
-    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'ProductName', '3': 5, '4': 1, '5': 9, '10': 'ProductName'},
-    {'1': 'Specification', '3': 6, '4': 1, '5': 9, '10': 'Specification'},
-    {'1': 'UnitCode', '3': 7, '4': 1, '5': 9, '10': 'UnitCode'},
-    {'1': 'UnitName', '3': 8, '4': 1, '5': 9, '10': 'UnitName'},
-    {'1': 'PackingQty', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty'},
-    {'1': 'FromDate', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
-    {'1': 'ToDate', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'CostUnitPrice', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
-    {'1': 'EndUserUnitPrice', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'EndUserUnitPrice'},
-    {'1': 'ResellerUnitPrice', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ResellerUnitPrice'},
-    {'1': 'PartnerUnitPrice', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PartnerUnitPrice'},
-    {'1': 'UpdMode', '3': 16, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 17, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 18, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 19, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 20, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'TaxFlag', '3': 2, '4': 1, '5': 5, '10': 'TaxFlag'},
+    {'1': 'CurrencyCode', '3': 3, '4': 1, '5': 9, '10': 'CurrencyCode'},
+    {'1': 'ProductKind', '3': 4, '4': 1, '5': 5, '10': 'ProductKind'},
+    {'1': 'ProductCode', '3': 5, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 6, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'Specification', '3': 7, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'UnitCode', '3': 8, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 9, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'PackingQty', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty'},
+    {'1': 'FromDate', '3': 11, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
+    {'1': 'ToDate', '3': 12, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
+    {'1': 'CostUnitPrice', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'EndUserUnitPrice', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'EndUserUnitPrice'},
+    {'1': 'ResellerUnitPrice', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ResellerUnitPrice'},
+    {'1': 'PartnerUnitPrice', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PartnerUnitPrice'},
+    {'1': 'MinEndUserUnitPrice', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MinEndUserUnitPrice'},
+    {'1': 'MinResellerUnitPrice', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MinResellerUnitPrice'},
+    {'1': 'MinPartnerUnitPrice', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MinPartnerUnitPrice'},
+    {'1': 'UpdMode', '3': 20, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 21, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 22, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 23, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 24, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
 /// Descriptor for `grpcPriceListModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcPriceListModelDescriptor = $convert.base64Decode(
-    'ChJncnBjUHJpY2VMaXN0TW9kZWwSDgoCSUQYASABKAlSAklEEiIKDEN1cnJlbmN5Q29kZRgCIA'
-    'EoCVIMQ3VycmVuY3lDb2RlEiAKC1Byb2R1Y3RLaW5kGAMgASgFUgtQcm9kdWN0S2luZBIgCgtQ'
-    'cm9kdWN0Q29kZRgEIAEoCVILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYBSABKAlSC1Byb2'
-    'R1Y3ROYW1lEiQKDVNwZWNpZmljYXRpb24YBiABKAlSDVNwZWNpZmljYXRpb24SGgoIVW5pdENv'
-    'ZGUYByABKAlSCFVuaXRDb2RlEhoKCFVuaXROYW1lGAggASgJUghVbml0TmFtZRI0CgpQYWNraW'
-    '5nUXR5GAkgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKUGFja2luZ1F0eRI2CghGcm9tRGF0'
-    'ZRgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCEZyb21EYXRlEjIKBlRvRGF0ZR'
-    'gLIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSBlRvRGF0ZRI6Cg1Db3N0VW5pdFBy'
-    'aWNlGAwgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINQ29zdFVuaXRQcmljZRJAChBFbmRVc2'
-    'VyVW5pdFByaWNlGA0gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIQRW5kVXNlclVuaXRQcmlj'
-    'ZRJCChFSZXNlbGxlclVuaXRQcmljZRgOIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSEVJlc2'
-    'VsbGVyVW5pdFByaWNlEkAKEFBhcnRuZXJVbml0UHJpY2UYDyABKAsyFC5DdXN0b21UeXBlcy5E'
-    'ZWNpbWFsUhBQYXJ0bmVyVW5pdFByaWNlEhgKB1VwZE1vZGUYECABKAVSB1VwZE1vZGUSGgoIVX'
-    'BkQ291bnQYESABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYEiABKAlSEFVwZFRy'
-    'YW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGBMgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRG'
-    'F0ZVRpbWUYFCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
+    'ChJncnBjUHJpY2VMaXN0TW9kZWwSDgoCSUQYASABKAlSAklEEhgKB1RheEZsYWcYAiABKAVSB1'
+    'RheEZsYWcSIgoMQ3VycmVuY3lDb2RlGAMgASgJUgxDdXJyZW5jeUNvZGUSIAoLUHJvZHVjdEtp'
+    'bmQYBCABKAVSC1Byb2R1Y3RLaW5kEiAKC1Byb2R1Y3RDb2RlGAUgASgJUgtQcm9kdWN0Q29kZR'
+    'IgCgtQcm9kdWN0TmFtZRgGIAEoCVILUHJvZHVjdE5hbWUSJAoNU3BlY2lmaWNhdGlvbhgHIAEo'
+    'CVINU3BlY2lmaWNhdGlvbhIaCghVbml0Q29kZRgIIAEoCVIIVW5pdENvZGUSGgoIVW5pdE5hbW'
+    'UYCSABKAlSCFVuaXROYW1lEjQKClBhY2tpbmdRdHkYCiABKAsyFC5DdXN0b21UeXBlcy5EZWNp'
+    'bWFsUgpQYWNraW5nUXR5EjYKCEZyb21EYXRlGAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbW'
+    'VzdGFtcFIIRnJvbURhdGUSMgoGVG9EYXRlGAwgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz'
+    'dGFtcFIGVG9EYXRlEjoKDUNvc3RVbml0UHJpY2UYDSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbW'
+    'FsUg1Db3N0VW5pdFByaWNlEkAKEEVuZFVzZXJVbml0UHJpY2UYDiABKAsyFC5DdXN0b21UeXBl'
+    'cy5EZWNpbWFsUhBFbmRVc2VyVW5pdFByaWNlEkIKEVJlc2VsbGVyVW5pdFByaWNlGA8gASgLMh'
+    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIRUmVzZWxsZXJVbml0UHJpY2USQAoQUGFydG5lclVuaXRQ'
+    'cmljZRgQIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSEFBhcnRuZXJVbml0UHJpY2USRgoTTW'
+    'luRW5kVXNlclVuaXRQcmljZRgRIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSE01pbkVuZFVz'
+    'ZXJVbml0UHJpY2USSAoUTWluUmVzZWxsZXJVbml0UHJpY2UYEiABKAsyFC5DdXN0b21UeXBlcy'
+    '5EZWNpbWFsUhRNaW5SZXNlbGxlclVuaXRQcmljZRJGChNNaW5QYXJ0bmVyVW5pdFByaWNlGBMg'
+    'ASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFITTWluUGFydG5lclVuaXRQcmljZRIYCgdVcGRNb2'
+    'RlGBQgASgFUgdVcGRNb2RlEhoKCFVwZENvdW50GBUgASgFUghVcGRDb3VudBIqChBVcGRUcmFu'
+    'c2FjdGlvbklEGBYgASgJUhBVcGRUcmFuc2FjdGlvbklEEiIKDFVwZEFjY291bnRJRBgXIAEoCV'
+    'IMVXBkQWNjb3VudElEEjwKC1VwZERhdGVUaW1lGBggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp'
+    'bWVzdGFtcFILVXBkRGF0ZVRpbWU=');
 
 @$core.Deprecated('Use saveRankDiscount_RequestDescriptor instead')
 const SaveRankDiscount_Request$json = {
@@ -2491,6 +2428,26 @@ final $typed_data.Uint8List getVendor_ResponseDescriptor = $convert.base64Decode
     'ChJHZXRWZW5kb3JfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ29kZRIYCg'
     'dNc2dDb2RlGAIgASgJUgdNc2dDb2RlEjwKB1JlY29yZHMYAyADKAsyIi5ncnBjTWFzdGVyU2Vy'
     'dmljZS5ncnBjVmVuZG9yTW9kZWxSB1JlY29yZHM=');
+
+@$core.Deprecated('Use updateVendorContact_RequestDescriptor instead')
+const UpdateVendorContact_Request$json = {
+  '1': 'UpdateVendorContact_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'VendorID', '3': 2, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'ContactPerson', '3': 3, '4': 1, '5': 9, '10': 'ContactPerson'},
+    {'1': 'ContactPhone', '3': 4, '4': 1, '5': 9, '10': 'ContactPhone'},
+    {'1': 'ContactEmail', '3': 5, '4': 1, '5': 9, '10': 'ContactEmail'},
+  ],
+};
+
+/// Descriptor for `UpdateVendorContact_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateVendorContact_RequestDescriptor = $convert.base64Decode(
+    'ChtVcGRhdGVWZW5kb3JDb250YWN0X1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
+    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIaCghWZW5kb3JJRBgC'
+    'IAEoCVIIVmVuZG9ySUQSJAoNQ29udGFjdFBlcnNvbhgDIAEoCVINQ29udGFjdFBlcnNvbhIiCg'
+    'xDb250YWN0UGhvbmUYBCABKAlSDENvbnRhY3RQaG9uZRIiCgxDb250YWN0RW1haWwYBSABKAlS'
+    'DENvbnRhY3RFbWFpbA==');
 
 @$core.Deprecated('Use grpcVendorModelDescriptor instead')
 const grpcVendorModel$json = {
@@ -3686,7 +3643,6 @@ const GetCustomerContractPriceRecord_Request$json = {
     {'1': 'UnitCode', '3': 5, '4': 1, '5': 9, '10': 'UnitCode'},
     {'1': 'FromDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
     {'1': 'ToDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 8, '4': 1, '5': 9, '10': 'ID'},
   ],
 };
 
@@ -3698,7 +3654,7 @@ final $typed_data.Uint8List getCustomerContractPriceRecord_RequestDescriptor = $
     'JyZW5jeUNvZGUSIAoLUHJvZHVjdENvZGUYBCABKAlSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2Rl'
     'GAUgASgJUghVbml0Q29kZRI2CghGcm9tRGF0ZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW'
     '1lc3RhbXBSCEZyb21EYXRlEjIKBlRvRGF0ZRgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l'
-    'c3RhbXBSBlRvRGF0ZRIOCgJJRBgIIAEoCVICSUQ=');
+    'c3RhbXBSBlRvRGF0ZQ==');
 
 @$core.Deprecated('Use getCustomerContractPriceRecord_ResponseDescriptor instead')
 const GetCustomerContractPriceRecord_Response$json = {

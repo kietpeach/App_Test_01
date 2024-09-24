@@ -6,8 +6,12 @@ import "CustomDatatype.proto";
 package grpcAdminService;
 //Services
 service grpcAdminService {
+    //======================================================
+    // HandMade rpc
+    //======================================================
     //For refresh: config, caching,..
     rpc SubcribeEvents (grpcCommonMessages.SubcribeEvents_Request) returns (grpcCommonMessages.Empty_Response); 
+    rpc RebuildSummary (RebuildSummary_Request) returns (grpcCommonMessages.Empty_Response);
     //Test decimal
     rpc TestDecimal (TestDecimal_Request) returns (TestDecimal_Response);
     //Events
@@ -44,12 +48,15 @@ service grpcAdminService {
     rpc GetScreenImageCount (grpcCommonMessages.String_Request) returns (grpcCommonMessages.Int_Response);
     rpc SaveScreenImage (SaveScreenImage_Request) returns (grpcCommonMessages.String_Response);
     //ScreenFunction
+    rpc CopyScreenFunction (CopyScreenFunction_Request) returns (grpcCommonMessages.Empty_Response);
     rpc GetScreenFunction (grpcCommonMessages.String_Request) returns (GetScreenFunction_Response);
     rpc SaveScreenFunction (SaveScreenFunction_Request) returns (grpcCommonMessages.String_Response);
     //ScreenItem
     rpc GetScreenItem (grpcCommonMessages.String_Request) returns (GetScreenItem_Response);
     rpc SaveScreenItem (SaveScreenItem_Request) returns (grpcCommonMessages.String_Response);
+    rpc CopyScreenItem (CopyScreenItem_Request) returns (grpcCommonMessages.Empty_Response);
     //CRUDTable
+    rpc CopyCRUDTable (CopyCRUDTable_Request) returns (grpcCommonMessages.Empty_Response);
     rpc GetCRUDTable (grpcCommonMessages.String_Request) returns (GetCRUDTable_Response);
     rpc SaveCRUDTable (SaveCRUDTable_Request) returns (grpcCommonMessages.String_Response);
     //CRUDDetail
@@ -64,7 +71,30 @@ service grpcAdminService {
     //
     //ClassificationMaster
     rpc ImportClassificationMaster (ImportClassificationMaster_Request) returns (grpcCommonMessages.Empty_Response);
+    //======================================================
+    // Generated rpc
+    //======================================================
     //>>> Start new generated rpc position
+    //>>> Start generated MonthClosingTable rpc
+    rpc GetMonthClosingTable (grpcCommonMessages.Date_Request) returns (GetMonthClosingTable_Response);
+    rpc MonthClosing (MonthClosing_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc MonthUnClosing (grpcCommonMessages.Date_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated MonthClosingTable rpc
+    //>>> Start generated MenuSubGroup rpc
+    rpc SaveMenuSubGroup (SaveMenuSubGroup_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetMenuSubGroupRecord (GetMenuSubGroupRecord_Request) returns (GetMenuSubGroupRecord_Response);
+    rpc GetMenuSubGroup (GetMenuSubGroup_Request) returns (GetMenuSubGroup_Response);
+    //>>> End generated MenuSubGroup rpc
+    //>>> Start generated MenuItem rpc
+    rpc SaveMenuItem (SaveMenuItem_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetMenuItem (GetMenuItem_Request) returns (GetMenuItem_Response);
+    rpc GetMenuItemRecord (GetMenuItemRecord_Request) returns (GetMenuItemRecord_Response);
+    //>>> End generated MenuItem rpc
+    //>>> Start generated MenuGroup rpc
+    rpc SaveMenuGroup (SaveMenuGroup_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetMenuGroup (grpcCommonMessages.String_Request) returns (GetMenuGroup_Response);
+    rpc GetMenuGroupRecord (GetMenuGroupRecord_Request) returns (GetMenuGroupRecord_Response);
+    //>>> End generated MenuGroup rpc
     //>>> Start generated DeductPeople rpc
     //>>> End generated DeductPeople rpc
     //>>> Start generated ScreenDeployment rpc
@@ -77,8 +107,9 @@ service grpcAdminService {
     //>>> Start generated RoleDetail rpc
     rpc SaveRoleDetail (SaveRoleDetail_Request) returns (grpcCommonMessages.String_Response);
     rpc GetRoleDetailRecord (GetRoleDetailRecord_Request) returns (GetRoleDetailRecord_Response);
-    rpc GetRoleDetail (grpcCommonMessages.String_Request) returns (GetRoleDetail_Response);
+    rpc GetRoleDetail (GetRoleDetail_Request) returns (GetRoleDetail_Response);
     //>>> End generated RoleDetail rpc
+    rpc GetAutSceenList (GetAutSceenList_Request) returns (GetRoleDetail_Response);
     //>>> Start generated Role rpc
     rpc SaveRole (SaveRole_Request) returns (grpcCommonMessages.String_Response);
     rpc GetRoleRecord (grpcCommonMessages.String_Request) returns (GetRoleRecord_Response);
@@ -126,6 +157,14 @@ service grpcAdminService {
 //======================================================
 // Messages
 //======================================================
+message RebuildSummary_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp CloseDate = 2;
+    bool IsCurrentSummary = 3;
+    bool IsMonthSummary = 4;
+}
 //IC
 message GetIC_Response
 {
@@ -175,6 +214,13 @@ message grpcScreenImageModel
     int32 UpdMode = 99;
 }
 //ScreenFunction
+message CopyScreenFunction_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string FromScreenID = 2;
+    string ToScreenID = 3;
+}
 message GetScreenFunction_Response
 {
     int32 ReturnCode = 1;
@@ -216,6 +262,13 @@ message GetMRUList_Response
     repeated string Records = 3;
 }
 //ScreenItem
+message CopyScreenItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string FromScreenID = 2;
+    string ToScreenID = 3;
+}
 message GetScreenItem_Response
 {
     int32 ReturnCode = 1;
@@ -276,6 +329,13 @@ message grpcScreenItemHistoryModel
     int32 UpdMode = 99;
 }
 //CRUDTable
+message CopyCRUDTable_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string FromScreenID = 2;
+    string ToScreenID = 3;
+}
 message GetCRUDTable_Response
 {
     int32 ReturnCode = 1;
@@ -515,7 +575,8 @@ message grpcTableListModel {
     string RecordNo = 8;
     bool IsVoucherTable = 9;
     bool IsSubModel = 10;
-    bool HasApprove = 11;
+    bool IsClearData = 11;
+    bool HasApprove = 12;
     int32 UpdMode = 100;
 }
 //FieldList
@@ -579,6 +640,8 @@ message grpcTableDefinitionModel {
     string InOutMode = 16;
     string CodingNotes = 17;
     string CodingExtNotes = 18;
+    bool IsRepeated = 19;
+    int32 RepeatCount = 20;
     google.protobuf.Timestamp ModifiedOn = 99;
     int32 UpdMode = 100;
 }
@@ -654,6 +717,169 @@ message grpcApiListModel {
     int32 UpdMode = 99;
 }
 //>>> Start new generated message position
+//>>> Start generated MonthClosingTable message
+message GetMonthClosingTable_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcMonthClosingTableModel Records = 3;
+}
+message MonthClosing_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    google.protobuf.Timestamp CloseDate = 2;
+    bool IsUpdateOutStockPrice = 3;
+}
+message grpcMonthClosingTableModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string CheckItem = 3;
+    string CheckContent = 4;
+    bool IsOK = 5;
+    bool IsRequired = 6;
+}
+//>>> End generated MonthClosingTable message
+//>>> Start generated MenuSubGroup message
+message SaveMenuSubGroup_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcMenuSubGroupModel Record = 2;
+}
+message GetMenuSubGroupRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string MenuGroupID = 3;
+    string MenuSubGroupID = 4;
+}
+message GetMenuSubGroupRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcMenuSubGroupModel Record = 3;
+}
+message GetMenuSubGroup_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string MenuGroupID = 3;
+}
+message GetMenuSubGroup_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcMenuSubGroupModel Records = 3;
+}
+message grpcMenuSubGroupModel
+{
+    string ID = 1;
+    string SystemID = 2;
+    string MenuGroupID = 3;
+    string MenuSubGroupID = 4;
+    string MenuText = 5;
+    string ScreenID = 6;
+    bytes Icon = 7;
+    int32 SeqNo = 8;
+    bool Enabled = 9;
+    int32 UpdMode = 10;
+}
+//>>> End generated MenuSubGroup message
+//>>> Start generated MenuItem message
+message SaveMenuItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcMenuItemModel Record = 2;
+}
+message GetMenuItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string MenuSubGroupID = 3;
+}
+message GetMenuItem_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcMenuItemModel Records = 3;
+}
+message GetMenuItemRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string MenuSubGroupID = 3;
+    string ScreenID = 4;
+}
+message GetMenuItemRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcMenuItemModel Record = 3;
+}
+message grpcMenuItemModel
+{
+    string ID = 1;
+    string SystemID = 2;
+    string MenuSubGroupID = 3;
+    string ScreenID = 4;
+    string MenuText = 5;
+    int32 SeqNo = 6;
+    bool Enabled = 7;
+    int32 UpdMode = 8;
+}
+//>>> End generated MenuItem message
+//>>> Start generated MenuGroup message
+message SaveMenuGroup_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcMenuGroupModel Record = 2;
+}
+message GetMenuGroup_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcMenuGroupModel Records = 3;
+}
+message GetMenuGroupRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string MenuGroupID = 3;
+}
+message GetMenuGroupRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcMenuGroupModel Record = 3;
+}
+message grpcMenuGroupModel
+{
+    string ID = 1;
+    string MenuGroupID = 2;
+    string MenuText = 3;
+    bytes Icon = 4;
+    int32 SeqNo = 5;
+    string SystemID = 6;
+    bool Enabled = 7;
+    int32 UpdMode = 8;
+}
+//>>> End generated MenuGroup message
 //>>> Start generated DeductPeople message
 message grpcDeductPeopleModel
 {
@@ -679,9 +905,24 @@ message grpcBankAccountModel
     string BankName = 5;
     string BankBranch = 6;
     string CityID = 7;
-    int32 UpdMode = 8;
+    bool IsUsed = 8;
+    int32 UpdMode = 9;
 }
 //>>> End generated BankAccount message
+//>>> Start generated AllowanceMaster message
+message grpcAllowanceMasterModel
+{
+    string ID = 1;
+    int32 LineNo = 2;
+    string AllowanceCode = 3;
+    string AllowanceName = 4;
+    google.protobuf.Timestamp StartDate = 5;
+    CustomTypes.Decimal AmountN = 6;
+    bool IsTax = 7;
+    int32 UpdMode = 8;
+    google.protobuf.Timestamp UpdDateTime = 9;
+}
+//>>> End generated AllowanceMaster message
 //>>> Start generated ScreenDeployment message
 message SaveScreenDeployment_Request
 {
@@ -734,6 +975,13 @@ message grpcScreenDeploymentModel
     int32 UpdCount = 11;
 }
 //>>> End generated ScreenDeployment message
+message GetAutSceenList_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string RoleID = 3;
+}
 //>>> Start generated RoleDetail message
 message SaveRoleDetail_Request
 {
@@ -745,8 +993,9 @@ message GetRoleDetailRecord_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    string RoleID = 2;
-    string ScreenID = 3;
+    string SystemID = 2;
+    string RoleID = 3;
+    string ScreenID = 4;
 }
 message GetRoleDetailRecord_Response
 {
@@ -755,6 +1004,15 @@ message GetRoleDetailRecord_Response
     //
     grpcRoleDetailModel Record = 3;
 }
+message GetRoleDetail_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string RoleID = 3;
+    string MenuGroupID = 4;
+    string MenuSubGroupID = 5;
+}
 message GetRoleDetail_Response
 {
     int32 ReturnCode = 1;
@@ -762,36 +1020,23 @@ message GetRoleDetail_Response
     //
     repeated grpcRoleDetailModel Records = 3;
 }
-message grpcRoleDetailModel {
+message grpcRoleDetailModel
+{
     string ID = 1;
-    string RoleID = 2;
-    string ScreenID = 3;
-    string ScreenName = 4;
-    string F1 = 5;
-    string F2 = 6;
-    string F3 = 7;
-    string F4 = 8;
-    string F5 = 9;
-    string F6 = 10;
-    string F7 = 11;
-    string F8 = 12;
-    string F9 = 13;
-    string F10 = 14;
-    string F11 = 15;
-    string F12 = 16;
-    bool AuthF1 = 17;
-    bool AuthF2 = 18;
-    bool AuthF3 = 19;
-    bool AuthF4 = 20;
-    bool AuthF5 = 21;
-    bool AuthF6 = 22;
-    bool AuthF7 = 23;
-    bool AuthF8 = 24;
-    bool AuthF9 = 25;
-    bool AuthF10 = 26;
-    bool AuthF11 = 27;
-    bool AuthF12 = 28;
-    int32 UpdMode = 29;
+    string SystemID = 2;
+    string RoleID = 3;
+    int32 Level = 4;
+    string MenuGroupID = 5;
+    string MenuSubGroupID = 6;
+    string ScreenID = 7;
+    string ScreenName = 8;
+    bool FullAllowded = 9;
+    bool AddnewAllowed = 10;
+    bool UpdateAllowed = 11;
+    bool DeleteAllowed = 12;
+    bool ExportAllowed = 13;
+    bool PrintAllowed = 14;
+    int32 UpdMode = 15;
 }
 //>>> End generated RoleDetail message
 //>>> Start generated Role message
@@ -856,47 +1101,48 @@ message grpcScreenModel
     string ScreenName = 6;
     string MenuName = 7;
     bool IsShowPopup = 8;
-    string F1 = 9;
-    string F2 = 10;
-    string F3 = 11;
-    string F4 = 12;
-    string F5 = 13;
-    string F6 = 14;
-    string F7 = 15;
-    string F8 = 16;
-    string F9 = 17;
-    string F10 = 18;
-    string F11 = 19;
-    string F12 = 20;
-    string ShortCutKeyF1 = 21;
-    string ShortCutKeyF2 = 22;
-    string ShortCutKeyF3 = 23;
-    string ShortCutKeyF4 = 24;
-    string ShortCutKeyF5 = 25;
-    string ShortCutKeyF6 = 26;
-    string ShortCutKeyF7 = 27;
-    string ShortCutKeyF8 = 28;
-    string ShortCutKeyF9 = 29;
-    string ShortCutKeyF10 = 30;
-    string ShortCutKeyF11 = 31;
-    string ShortCutKeyF12 = 32;
-    bytes IconF1 = 33;
-    bytes IconF2 = 34;
-    bytes IconF3 = 35;
-    bytes IconF4 = 36;
-    bytes IconF5 = 37;
-    bytes IconF6 = 38;
-    bytes IconF7 = 39;
-    bytes IconF8 = 40;
-    bytes IconF9 = 41;
-    bytes IconF10 = 42;
-    bytes IconF11 = 43;
-    bytes IconF12 = 44;
-    int32 UpdMode = 45;
-    int32 UpdCount = 46;
-    string UpdTransactionID = 47;
-    string UpdAccountID = 48;
-    google.protobuf.Timestamp UpdDateTime = 49;
+    bool IsMaximized = 9;
+    string F1 = 10;
+    string F2 = 11;
+    string F3 = 12;
+    string F4 = 13;
+    string F5 = 14;
+    string F6 = 15;
+    string F7 = 16;
+    string F8 = 17;
+    string F9 = 18;
+    string F10 = 19;
+    string F11 = 20;
+    string F12 = 21;
+    string ShortCutKeyF1 = 22;
+    string ShortCutKeyF2 = 23;
+    string ShortCutKeyF3 = 24;
+    string ShortCutKeyF4 = 25;
+    string ShortCutKeyF5 = 26;
+    string ShortCutKeyF6 = 27;
+    string ShortCutKeyF7 = 28;
+    string ShortCutKeyF8 = 29;
+    string ShortCutKeyF9 = 30;
+    string ShortCutKeyF10 = 31;
+    string ShortCutKeyF11 = 32;
+    string ShortCutKeyF12 = 33;
+    bytes IconF1 = 34;
+    bytes IconF2 = 35;
+    bytes IconF3 = 36;
+    bytes IconF4 = 37;
+    bytes IconF5 = 38;
+    bytes IconF6 = 39;
+    bytes IconF7 = 40;
+    bytes IconF8 = 41;
+    bytes IconF9 = 42;
+    bytes IconF10 = 43;
+    bytes IconF11 = 44;
+    bytes IconF12 = 45;
+    int32 UpdMode = 46;
+    int32 UpdCount = 47;
+    string UpdTransactionID = 48;
+    string UpdAccountID = 49;
+    google.protobuf.Timestamp UpdDateTime = 50;
 }
 //>>> End generated Screen message
 message ImportScreen_Request {
@@ -1018,13 +1264,27 @@ message grpcStaffModel
     string TaxCode = 19;
     string PermanentAddress = 20;
     string TempAddress = 21;
-    repeated grpcDeductPeopleModel DeductPeoples = 22;
-    repeated grpcBankAccountModel BankAccounts = 23;
-    int32 UpdMode = 24;
-    int32 UpdCount = 25;
-    string UpdTransactionID = 26;
-    string UpdAccountID = 27;
-    google.protobuf.Timestamp UpdDateTime = 28;
+    google.protobuf.Timestamp ContractDate = 22;
+    bool IsRegular = 23;
+    google.protobuf.Timestamp InsStartDate = 24;
+    int32 TaxType = 25;
+    int32 SalaryType = 26;
+    CustomTypes.Decimal PieceworkWage = 27;
+    CustomTypes.Decimal PieceworkWageRate = 28;
+    string AccID = 29;
+    string FeeItemCode = 30;
+    string StCode = 31;
+    string ObjectID = 32;
+    string FactoryCode = 33;
+    string LineCode = 34;
+    repeated grpcBankAccountModel BankAccounts = 35;
+    repeated grpcDeductPeopleModel DeductPeoples = 36;
+    repeated grpcAllowanceMasterModel AllowanceMasters = 37;
+    int32 UpdMode = 38;
+    int32 UpdCount = 39;
+    string UpdTransactionID = 40;
+    string UpdAccountID = 41;
+    google.protobuf.Timestamp UpdDateTime = 42;
 }
 //>>> End generated Staff message
 //>>> Start generated Department message

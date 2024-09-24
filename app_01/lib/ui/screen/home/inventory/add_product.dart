@@ -1,25 +1,21 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/inventory/bloc.dart';
 import 'package:app_01/bloc/master/master_bloc.dart';
 import 'package:app_01/bloc/master/master_event.dart';
 import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/cubit/add_product_cubit.dart';
-import 'package:app_01/service/master.dart';
 import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/ui/common/ic_product_v2.dart';
-import 'package:app_01/ui/common/ic_unit.dart';
+import 'package:app_01/ui/common/ic_product_v2_search.dart';
+import 'package:app_01/ui/common/ic_unit_search.dart';
 import 'package:app_01/ui/common/my_constant.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:dio/dio.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 
 class AddProductPage extends StatefulWidget {
   @override
@@ -44,15 +40,15 @@ class _AddProductPageState extends State<AddProductPage> {
   TextEditingController _etPackingQty = TextEditingController();
   TextEditingController _etCaseQty = TextEditingController();
   TextEditingController _etReqQty = TextEditingController();
+  SingleValueDropDownController _cntProduct = SingleValueDropDownController();
+  SingleValueDropDownController _cntUnit = SingleValueDropDownController();
   // IC
   List<grpcSelectProductModel> _productSlistData = [
     new grpcSelectProductModel()
   ];
-  List<ProductUnitModel> _unitSlistData = [new ProductUnitModel()];
+  List<ProductUnitSearchModel> _unitSlistData = [new ProductUnitSearchModel()];
   // Product master data
   GetProductRecord_Response _productRecord = new GetProductRecord_Response();
-  String _valScrollProduct = "";
-  String _valScrollUnit = "";
   //Detail data
   grpcInvOutReqDetailModel _invOutReqDetailModel = grpcInvOutReqDetailModel();
 
@@ -98,15 +94,22 @@ class _AddProductPageState extends State<AddProductPage> {
                         _productRecord.record.packingQty1.units.toString();
                     _invOutReqDetailModel.unitName =
                         _productRecord.record.unitName1;
+                    // setState(() {
+                    //   _valScrollUnit = _productRecord.record.unitCode1;
+                    // });
                     setState(() {
-                      _valScrollUnit = _productRecord.record.unitCode1;
+                      _cntUnit = SingleValueDropDownController(
+                          data: DropDownValueModel(
+                              name: _productRecord.record.unitName1,
+                              value: _productRecord.record.unitCode1));
                     });
+
                     //
                     _unitSlistData.clear();
                     //Lấy data đơn vị cho sản phẩm đc chọn ở IC
                     //UnitCode1
                     if (_productRecord.record.unitCode1.isNotEmpty) {
-                      var productUnitModel = new ProductUnitModel();
+                      var productUnitModel = new ProductUnitSearchModel();
                       productUnitModel.unitName =
                           _productRecord.record.unitName1;
                       productUnitModel.unitCode =
@@ -120,7 +123,7 @@ class _AddProductPageState extends State<AddProductPage> {
                     if (_productRecord.record.unitCode2.isNotEmpty &&
                         _productRecord.record.unitCode2 !=
                             _productRecord.record.unitCode1) {
-                      var productUnitModel = new ProductUnitModel();
+                      var productUnitModel = new ProductUnitSearchModel();
                       productUnitModel.unitName =
                           _productRecord.record.unitName2;
                       productUnitModel.unitCode =
@@ -136,7 +139,7 @@ class _AddProductPageState extends State<AddProductPage> {
                             _productRecord.record.unitCode2 &&
                         _productRecord.record.unitCode3 !=
                             _productRecord.record.unitCode1) {
-                      var productUnitModel = new ProductUnitModel();
+                      var productUnitModel = new ProductUnitSearchModel();
                       productUnitModel.unitName =
                           _productRecord.record.unitName3;
                       productUnitModel.unitCode =
@@ -148,7 +151,30 @@ class _AddProductPageState extends State<AddProductPage> {
                     }
                   }
                 },
-                child: IC_Product_V2(
+                // child: IC_Product_V2(
+                //   validate: (value) {
+                //     if (value != null && value.isNotEmpty) {
+                //       return null;
+                //     } else {
+                //       return REQUIRED;
+                //     }
+                //   },
+                //   productSlistData: _productSlistData,
+                //   valScroll: _valScrollProduct,
+                //   onChanged: (String? value) {
+                //     _etCaseQty.text = '';
+                //     _etReqQty.text = '';
+                //     _valScrollUnit = '';
+                //     if (value != null && value.isNotEmpty) {
+                //       _masterBloc.add(GetProductRecord(productCode: value));
+                //     }
+                //     setState(() {
+                //       _valScrollProduct = value!;
+                //     });
+                //     //
+                //   },
+                // ),
+                child: IC_Product_V2_Search(
                   validate: (value) {
                     if (value != null && value.isNotEmpty) {
                       return null;
@@ -157,25 +183,24 @@ class _AddProductPageState extends State<AddProductPage> {
                     }
                   },
                   productSlistData: _productSlistData,
-                  valScroll: _valScrollProduct,
-                  onChanged: (String? value) {
+                  controller: _cntProduct,
+                  onChanged: (value) {
                     _etCaseQty.text = '';
                     _etReqQty.text = '';
-                    _valScrollUnit = '';
-                    if (value != null && value.isNotEmpty) {
-                      _masterBloc.add(GetProductRecord(productCode: value));
+                    //_valScrollUnit = '';
+                    _cntUnit = SingleValueDropDownController(
+                        data: DropDownValueModel(name: "", value: ""));
+                    if (value != null && value.value.isNotEmpty) {
+                      _masterBloc
+                          .add(GetProductRecord(productCode: value.value));
                     }
-                    setState(() {
-                      _valScrollProduct = value!;
-                    });
-                    //
                   },
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              IC_Unit(
+              IC_Unit_Search(
                 validate: (value) {
                   if (value != null && value.isNotEmpty) {
                     return null;
@@ -183,21 +208,40 @@ class _AddProductPageState extends State<AddProductPage> {
                     return REQUIRED;
                   }
                 },
+                controller: _cntUnit,
                 unitSlistData: _unitSlistData,
-                valScroll: _valScrollUnit,
-                onChanged: (String? value) {
+                onChanged: (value) {
                   _etCaseQty.text = '';
                   _etReqQty.text = '';
-                  var unit =
-                      _unitSlistData.firstWhere((e) => e.unitCode == value);
+                  var unit = _unitSlistData
+                      .firstWhere((e) => e.unitCode == value.value);
                   _etPackingQty.text = unit.packingQty;
                   _invOutReqDetailModel.unitName = unit.unitName;
-                  setState(() {
-                    _valScrollUnit = value!;
-                  });
-                  //
                 },
               ),
+              //               IC_Unit(
+              //   validate: (value) {
+              //     if (value != null && value.isNotEmpty) {
+              //       return null;
+              //     } else {
+              //       return REQUIRED;
+              //     }
+              //   },
+              //   unitSlistData: _unitSlistData,
+              //   valScroll: _valScrollUnit,
+              //   onChanged: (String? value) {
+              //     _etCaseQty.text = '';
+              //     _etReqQty.text = '';
+              //     var unit =
+              //         _unitSlistData.firstWhere((e) => e.unitCode == value);
+              //     _etPackingQty.text = unit.packingQty;
+              //     _invOutReqDetailModel.unitName = unit.unitName;
+              //     setState(() {
+              //       _valScrollUnit = value!;
+              //     });
+              //     //
+              //   },
+              // ),
               SizedBox(
                 height: 20,
               ),
@@ -307,10 +351,10 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   void copyPropertiesData() {
-    _invOutReqDetailModel.productCode = _valScrollProduct;
+    _invOutReqDetailModel.productCode = _cntProduct.dropDownValue?.value;
     _invOutReqDetailModel.productName = _productRecord.record.productName;
     _invOutReqDetailModel.specification = _etSpecification.text;
-    _invOutReqDetailModel.unitCode = _valScrollUnit;
+    _invOutReqDetailModel.unitCode = _cntUnit.dropDownValue?.value;
     _invOutReqDetailModel.packingQty =
         new Decimal(units: Int64(int.parse(_etPackingQty.text)));
     _invOutReqDetailModel.caseQty =

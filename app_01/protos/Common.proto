@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 option csharp_namespace = "Common.Messages";
 import "timestamp.proto";
+import "CustomDatatype.proto";
 package grpcCommonMessages;
 
 //======================================================
@@ -35,11 +36,11 @@ message Int_Request
     //
     int32 IntValue = 2;
 }
-message Double_Request
+message Decimal_Request
 {
     UserCredential Credential = 1;
     //
-    double DoubleValue = 2;
+    CustomTypes.Decimal DecimalValue = 2;
 }
 message Bool_Request
 {
@@ -73,12 +74,12 @@ message Int_Response
     //
      int32 IntValue = 3;
 }
-message Double_Response
+message Decimal_Response
 {
     int32 ReturnCode = 1;
     string MsgCode = 2;
     //
-    double DoubleValue = 3;
+    CustomTypes.Decimal DecimalValue = 3;
 }
 message Bool_Response
 {

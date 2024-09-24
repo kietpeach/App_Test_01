@@ -6,6 +6,7 @@ import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_out.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out_apr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -107,6 +108,13 @@ class _InvOutReqSlistPageState extends State<InvOutReqSlistPage> {
               context,
               MaterialPageRoute(
                   builder: (context) => InvOutPage(
+                        voucherNo: _InvOutReqSlistData[index].invOutReqNo,
+                      )));
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => InvOutAprPage(
                         voucherNo: _InvOutReqSlistData[index].invOutReqNo,
                       )));
         }

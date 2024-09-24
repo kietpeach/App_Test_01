@@ -34,7 +34,7 @@ class IC_Unit extends StatelessWidget {
             hint: Text("Đơn vị",
                 style:
                     TextStyle(color: COLORHINT, fontWeight: FontWeight.normal)),
-            icon: Icon(Icons.keyboard_arrow_down),
+            icon: Icon(Icons.arrow_drop_down),
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: PRIMARY_COLOR, width: 2.0)),

@@ -14,13 +14,109 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'Common.pb.dart' as $0;
-import 'CustomDatatype.pb.dart' as $3;
-import 'timestamp.pb.dart' as $2;
+import 'CustomDatatype.pb.dart' as $4;
+import 'timestamp.pb.dart' as $5;
 
 ///
 /// ======================================================
 ///  Messages
 /// ======================================================
+class RebuildSummary_Request extends $pb.GeneratedMessage {
+  factory RebuildSummary_Request({
+    $0.UserCredential? credential,
+    $5.Timestamp? closeDate,
+    $core.bool? isCurrentSummary,
+    $core.bool? isMonthSummary,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (closeDate != null) {
+      $result.closeDate = closeDate;
+    }
+    if (isCurrentSummary != null) {
+      $result.isCurrentSummary = isCurrentSummary;
+    }
+    if (isMonthSummary != null) {
+      $result.isMonthSummary = isMonthSummary;
+    }
+    return $result;
+  }
+  RebuildSummary_Request._() : super();
+  factory RebuildSummary_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RebuildSummary_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RebuildSummary_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $5.Timestamp.create)
+    ..aOB(3, _omitFieldNames ? '' : 'IsCurrentSummary', protoName: 'IsCurrentSummary')
+    ..aOB(4, _omitFieldNames ? '' : 'IsMonthSummary', protoName: 'IsMonthSummary')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RebuildSummary_Request clone() => RebuildSummary_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RebuildSummary_Request copyWith(void Function(RebuildSummary_Request) updates) => super.copyWith((message) => updates(message as RebuildSummary_Request)) as RebuildSummary_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RebuildSummary_Request create() => RebuildSummary_Request._();
+  RebuildSummary_Request createEmptyInstance() => create();
+  static $pb.PbList<RebuildSummary_Request> createRepeated() => $pb.PbList<RebuildSummary_Request>();
+  @$core.pragma('dart2js:noInline')
+  static RebuildSummary_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RebuildSummary_Request>(create);
+  static RebuildSummary_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $5.Timestamp get closeDate => $_getN(1);
+  @$pb.TagNumber(2)
+  set closeDate($5.Timestamp v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCloseDate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCloseDate() => clearField(2);
+  @$pb.TagNumber(2)
+  $5.Timestamp ensureCloseDate() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.bool get isCurrentSummary => $_getBF(2);
+  @$pb.TagNumber(3)
+  set isCurrentSummary($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasIsCurrentSummary() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearIsCurrentSummary() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get isMonthSummary => $_getBF(3);
+  @$pb.TagNumber(4)
+  set isMonthSummary($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasIsMonthSummary() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearIsMonthSummary() => clearField(4);
+}
+
 /// IC
 class GetIC_Response extends $pb.GeneratedMessage {
   factory GetIC_Response({
@@ -572,6 +668,86 @@ class grpcScreenImageModel extends $pb.GeneratedMessage {
 }
 
 /// ScreenFunction
+class CopyScreenFunction_Request extends $pb.GeneratedMessage {
+  factory CopyScreenFunction_Request({
+    $0.UserCredential? credential,
+    $core.String? fromScreenID,
+    $core.String? toScreenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (fromScreenID != null) {
+      $result.fromScreenID = fromScreenID;
+    }
+    if (toScreenID != null) {
+      $result.toScreenID = toScreenID;
+    }
+    return $result;
+  }
+  CopyScreenFunction_Request._() : super();
+  factory CopyScreenFunction_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CopyScreenFunction_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CopyScreenFunction_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'FromScreenID', protoName: 'FromScreenID')
+    ..aOS(3, _omitFieldNames ? '' : 'ToScreenID', protoName: 'ToScreenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CopyScreenFunction_Request clone() => CopyScreenFunction_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CopyScreenFunction_Request copyWith(void Function(CopyScreenFunction_Request) updates) => super.copyWith((message) => updates(message as CopyScreenFunction_Request)) as CopyScreenFunction_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CopyScreenFunction_Request create() => CopyScreenFunction_Request._();
+  CopyScreenFunction_Request createEmptyInstance() => create();
+  static $pb.PbList<CopyScreenFunction_Request> createRepeated() => $pb.PbList<CopyScreenFunction_Request>();
+  @$core.pragma('dart2js:noInline')
+  static CopyScreenFunction_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CopyScreenFunction_Request>(create);
+  static CopyScreenFunction_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get fromScreenID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set fromScreenID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFromScreenID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFromScreenID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get toScreenID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set toScreenID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasToScreenID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearToScreenID() => clearField(3);
+}
+
 class GetScreenFunction_Response extends $pb.GeneratedMessage {
   factory GetScreenFunction_Response({
     $core.int? returnCode,
@@ -859,7 +1035,7 @@ class grpcScreenFunctionHistoryModel extends $pb.GeneratedMessage {
     $core.int? version,
     $core.String? functions,
     $core.String? functionsExt,
-    $2.Timestamp? modifiedOn,
+    $5.Timestamp? modifiedOn,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -888,7 +1064,7 @@ class grpcScreenFunctionHistoryModel extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'Version', $pb.PbFieldType.O3, protoName: 'Version')
     ..aOS(2, _omitFieldNames ? '' : 'Functions', protoName: 'Functions')
     ..aOS(3, _omitFieldNames ? '' : 'FunctionsExt', protoName: 'FunctionsExt')
-    ..aOM<$2.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(99, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -942,15 +1118,15 @@ class grpcScreenFunctionHistoryModel extends $pb.GeneratedMessage {
   void clearFunctionsExt() => clearField(3);
 
   @$pb.TagNumber(98)
-  $2.Timestamp get modifiedOn => $_getN(3);
+  $5.Timestamp get modifiedOn => $_getN(3);
   @$pb.TagNumber(98)
-  set modifiedOn($2.Timestamp v) { setField(98, v); }
+  set modifiedOn($5.Timestamp v) { setField(98, v); }
   @$pb.TagNumber(98)
   $core.bool hasModifiedOn() => $_has(3);
   @$pb.TagNumber(98)
   void clearModifiedOn() => clearField(98);
   @$pb.TagNumber(98)
-  $2.Timestamp ensureModifiedOn() => $_ensure(3);
+  $5.Timestamp ensureModifiedOn() => $_ensure(3);
 
   @$pb.TagNumber(99)
   $core.int get updMode => $_getIZ(4);
@@ -1036,6 +1212,86 @@ class GetMRUList_Response extends $pb.GeneratedMessage {
 }
 
 /// ScreenItem
+class CopyScreenItem_Request extends $pb.GeneratedMessage {
+  factory CopyScreenItem_Request({
+    $0.UserCredential? credential,
+    $core.String? fromScreenID,
+    $core.String? toScreenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (fromScreenID != null) {
+      $result.fromScreenID = fromScreenID;
+    }
+    if (toScreenID != null) {
+      $result.toScreenID = toScreenID;
+    }
+    return $result;
+  }
+  CopyScreenItem_Request._() : super();
+  factory CopyScreenItem_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CopyScreenItem_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CopyScreenItem_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'FromScreenID', protoName: 'FromScreenID')
+    ..aOS(3, _omitFieldNames ? '' : 'ToScreenID', protoName: 'ToScreenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CopyScreenItem_Request clone() => CopyScreenItem_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CopyScreenItem_Request copyWith(void Function(CopyScreenItem_Request) updates) => super.copyWith((message) => updates(message as CopyScreenItem_Request)) as CopyScreenItem_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CopyScreenItem_Request create() => CopyScreenItem_Request._();
+  CopyScreenItem_Request createEmptyInstance() => create();
+  static $pb.PbList<CopyScreenItem_Request> createRepeated() => $pb.PbList<CopyScreenItem_Request>();
+  @$core.pragma('dart2js:noInline')
+  static CopyScreenItem_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CopyScreenItem_Request>(create);
+  static CopyScreenItem_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get fromScreenID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set fromScreenID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFromScreenID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFromScreenID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get toScreenID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set toScreenID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasToScreenID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearToScreenID() => clearField(3);
+}
+
 class GetScreenItem_Response extends $pb.GeneratedMessage {
   factory GetScreenItem_Response({
     $core.int? returnCode,
@@ -1558,7 +1814,7 @@ class grpcScreenItemHistoryModel extends $pb.GeneratedMessage {
     $core.String? notes,
     $core.String? notesExt,
     $core.String? iCName,
-    $2.Timestamp? modifiedOn,
+    $5.Timestamp? modifiedOn,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -1631,7 +1887,7 @@ class grpcScreenItemHistoryModel extends $pb.GeneratedMessage {
     ..aOS(12, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
     ..aOS(13, _omitFieldNames ? '' : 'NotesExt', protoName: 'NotesExt')
     ..aOS(14, _omitFieldNames ? '' : 'ICName', protoName: 'ICName')
-    ..aOM<$2.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(99, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -1784,15 +2040,15 @@ class grpcScreenItemHistoryModel extends $pb.GeneratedMessage {
   void clearICName() => clearField(14);
 
   @$pb.TagNumber(98)
-  $2.Timestamp get modifiedOn => $_getN(14);
+  $5.Timestamp get modifiedOn => $_getN(14);
   @$pb.TagNumber(98)
-  set modifiedOn($2.Timestamp v) { setField(98, v); }
+  set modifiedOn($5.Timestamp v) { setField(98, v); }
   @$pb.TagNumber(98)
   $core.bool hasModifiedOn() => $_has(14);
   @$pb.TagNumber(98)
   void clearModifiedOn() => clearField(98);
   @$pb.TagNumber(98)
-  $2.Timestamp ensureModifiedOn() => $_ensure(14);
+  $5.Timestamp ensureModifiedOn() => $_ensure(14);
 
   @$pb.TagNumber(99)
   $core.int get updMode => $_getIZ(15);
@@ -1805,6 +2061,86 @@ class grpcScreenItemHistoryModel extends $pb.GeneratedMessage {
 }
 
 /// CRUDTable
+class CopyCRUDTable_Request extends $pb.GeneratedMessage {
+  factory CopyCRUDTable_Request({
+    $0.UserCredential? credential,
+    $core.String? fromScreenID,
+    $core.String? toScreenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (fromScreenID != null) {
+      $result.fromScreenID = fromScreenID;
+    }
+    if (toScreenID != null) {
+      $result.toScreenID = toScreenID;
+    }
+    return $result;
+  }
+  CopyCRUDTable_Request._() : super();
+  factory CopyCRUDTable_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CopyCRUDTable_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CopyCRUDTable_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'FromScreenID', protoName: 'FromScreenID')
+    ..aOS(3, _omitFieldNames ? '' : 'ToScreenID', protoName: 'ToScreenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CopyCRUDTable_Request clone() => CopyCRUDTable_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CopyCRUDTable_Request copyWith(void Function(CopyCRUDTable_Request) updates) => super.copyWith((message) => updates(message as CopyCRUDTable_Request)) as CopyCRUDTable_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CopyCRUDTable_Request create() => CopyCRUDTable_Request._();
+  CopyCRUDTable_Request createEmptyInstance() => create();
+  static $pb.PbList<CopyCRUDTable_Request> createRepeated() => $pb.PbList<CopyCRUDTable_Request>();
+  @$core.pragma('dart2js:noInline')
+  static CopyCRUDTable_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CopyCRUDTable_Request>(create);
+  static CopyCRUDTable_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get fromScreenID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set fromScreenID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFromScreenID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFromScreenID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get toScreenID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set toScreenID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasToScreenID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearToScreenID() => clearField(3);
+}
+
 class GetCRUDTable_Response extends $pb.GeneratedMessage {
   factory GetCRUDTable_Response({
     $core.int? returnCode,
@@ -2645,7 +2981,7 @@ class grpcCRUDDetailHistoryModel extends $pb.GeneratedMessage {
     $core.String? updateType,
     $core.String? codingContent,
     $core.String? codingContentExt,
-    $2.Timestamp? modifiedOn,
+    $5.Timestamp? modifiedOn,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -2682,7 +3018,7 @@ class grpcCRUDDetailHistoryModel extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'UpdateType', protoName: 'UpdateType')
     ..aOS(4, _omitFieldNames ? '' : 'CodingContent', protoName: 'CodingContent')
     ..aOS(5, _omitFieldNames ? '' : 'CodingContentExt', protoName: 'CodingContentExt')
-    ..aOM<$2.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(98, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(99, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -2754,15 +3090,15 @@ class grpcCRUDDetailHistoryModel extends $pb.GeneratedMessage {
   void clearCodingContentExt() => clearField(5);
 
   @$pb.TagNumber(98)
-  $2.Timestamp get modifiedOn => $_getN(5);
+  $5.Timestamp get modifiedOn => $_getN(5);
   @$pb.TagNumber(98)
-  set modifiedOn($2.Timestamp v) { setField(98, v); }
+  set modifiedOn($5.Timestamp v) { setField(98, v); }
   @$pb.TagNumber(98)
   $core.bool hasModifiedOn() => $_has(5);
   @$pb.TagNumber(98)
   void clearModifiedOn() => clearField(98);
   @$pb.TagNumber(98)
-  $2.Timestamp ensureModifiedOn() => $_ensure(5);
+  $5.Timestamp ensureModifiedOn() => $_ensure(5);
 
   @$pb.TagNumber(99)
   $core.int get updMode => $_getIZ(6);
@@ -2845,9 +3181,9 @@ class TestDecimal_Request extends $pb.GeneratedMessage {
 
 class TestDecimalModel extends $pb.GeneratedMessage {
   factory TestDecimalModel({
-    $3.Decimal? decValue1,
-    $3.Decimal? decValue2,
-    $3.Decimal? stringValue,
+    $4.Decimal? decValue1,
+    $4.Decimal? decValue2,
+    $4.Decimal? stringValue,
   }) {
     final $result = create();
     if (decValue1 != null) {
@@ -2866,9 +3202,9 @@ class TestDecimalModel extends $pb.GeneratedMessage {
   factory TestDecimalModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TestDecimalModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
-    ..aOM<$3.Decimal>(2, _omitFieldNames ? '' : 'DecValue1', protoName: 'DecValue1', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(3, _omitFieldNames ? '' : 'DecValue2', protoName: 'DecValue2', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(4, _omitFieldNames ? '' : 'StringValue', protoName: 'StringValue', subBuilder: $3.Decimal.create)
+    ..aOM<$4.Decimal>(2, _omitFieldNames ? '' : 'DecValue1', protoName: 'DecValue1', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(3, _omitFieldNames ? '' : 'DecValue2', protoName: 'DecValue2', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(4, _omitFieldNames ? '' : 'StringValue', protoName: 'StringValue', subBuilder: $4.Decimal.create)
     ..hasRequiredFields = false
   ;
 
@@ -2894,37 +3230,37 @@ class TestDecimalModel extends $pb.GeneratedMessage {
   static TestDecimalModel? _defaultInstance;
 
   @$pb.TagNumber(2)
-  $3.Decimal get decValue1 => $_getN(0);
+  $4.Decimal get decValue1 => $_getN(0);
   @$pb.TagNumber(2)
-  set decValue1($3.Decimal v) { setField(2, v); }
+  set decValue1($4.Decimal v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasDecValue1() => $_has(0);
   @$pb.TagNumber(2)
   void clearDecValue1() => clearField(2);
   @$pb.TagNumber(2)
-  $3.Decimal ensureDecValue1() => $_ensure(0);
+  $4.Decimal ensureDecValue1() => $_ensure(0);
 
   @$pb.TagNumber(3)
-  $3.Decimal get decValue2 => $_getN(1);
+  $4.Decimal get decValue2 => $_getN(1);
   @$pb.TagNumber(3)
-  set decValue2($3.Decimal v) { setField(3, v); }
+  set decValue2($4.Decimal v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDecValue2() => $_has(1);
   @$pb.TagNumber(3)
   void clearDecValue2() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Decimal ensureDecValue2() => $_ensure(1);
+  $4.Decimal ensureDecValue2() => $_ensure(1);
 
   @$pb.TagNumber(4)
-  $3.Decimal get stringValue => $_getN(2);
+  $4.Decimal get stringValue => $_getN(2);
   @$pb.TagNumber(4)
-  set stringValue($3.Decimal v) { setField(4, v); }
+  set stringValue($4.Decimal v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasStringValue() => $_has(2);
   @$pb.TagNumber(4)
   void clearStringValue() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Decimal ensureStringValue() => $_ensure(2);
+  $4.Decimal ensureStringValue() => $_ensure(2);
 }
 
 class TestDecimal_Response extends $pb.GeneratedMessage {
@@ -4551,6 +4887,7 @@ class grpcTableListModel extends $pb.GeneratedMessage {
     $core.String? recordNo,
     $core.bool? isVoucherTable,
     $core.bool? isSubModel,
+    $core.bool? isClearData,
     $core.bool? hasApprove,
     $core.int? updMode,
   }) {
@@ -4585,6 +4922,9 @@ class grpcTableListModel extends $pb.GeneratedMessage {
     if (isSubModel != null) {
       $result.isSubModel = isSubModel;
     }
+    if (isClearData != null) {
+      $result.isClearData = isClearData;
+    }
     if (hasApprove != null) {
       $result.hasApprove = hasApprove;
     }
@@ -4608,7 +4948,8 @@ class grpcTableListModel extends $pb.GeneratedMessage {
     ..aOS(8, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..aOB(9, _omitFieldNames ? '' : 'IsVoucherTable', protoName: 'IsVoucherTable')
     ..aOB(10, _omitFieldNames ? '' : 'IsSubModel', protoName: 'IsSubModel')
-    ..aOB(11, _omitFieldNames ? '' : 'HasApprove', protoName: 'HasApprove')
+    ..aOB(11, _omitFieldNames ? '' : 'IsClearData', protoName: 'IsClearData')
+    ..aOB(12, _omitFieldNames ? '' : 'HasApprove', protoName: 'HasApprove')
     ..a<$core.int>(100, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -4725,20 +5066,29 @@ class grpcTableListModel extends $pb.GeneratedMessage {
   void clearIsSubModel() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.bool get hasApprove => $_getBF(10);
+  $core.bool get isClearData => $_getBF(10);
   @$pb.TagNumber(11)
-  set hasApprove($core.bool v) { $_setBool(10, v); }
+  set isClearData($core.bool v) { $_setBool(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasHasApprove() => $_has(10);
+  $core.bool hasIsClearData() => $_has(10);
   @$pb.TagNumber(11)
-  void clearHasApprove() => clearField(11);
+  void clearIsClearData() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.bool get hasApprove => $_getBF(11);
+  @$pb.TagNumber(12)
+  set hasApprove($core.bool v) { $_setBool(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasHasApprove() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearHasApprove() => clearField(12);
 
   @$pb.TagNumber(100)
-  $core.int get updMode => $_getIZ(11);
+  $core.int get updMode => $_getIZ(12);
   @$pb.TagNumber(100)
-  set updMode($core.int v) { $_setSignedInt32(11, v); }
+  set updMode($core.int v) { $_setSignedInt32(12, v); }
   @$pb.TagNumber(100)
-  $core.bool hasUpdMode() => $_has(11);
+  $core.bool hasUpdMode() => $_has(12);
   @$pb.TagNumber(100)
   void clearUpdMode() => clearField(100);
 }
@@ -5293,7 +5643,9 @@ class grpcTableDefinitionModel extends $pb.GeneratedMessage {
     $core.String? inOutMode,
     $core.String? codingNotes,
     $core.String? codingExtNotes,
-    $2.Timestamp? modifiedOn,
+    $core.bool? isRepeated,
+    $core.int? repeatCount,
+    $5.Timestamp? modifiedOn,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -5351,6 +5703,12 @@ class grpcTableDefinitionModel extends $pb.GeneratedMessage {
     if (codingExtNotes != null) {
       $result.codingExtNotes = codingExtNotes;
     }
+    if (isRepeated != null) {
+      $result.isRepeated = isRepeated;
+    }
+    if (repeatCount != null) {
+      $result.repeatCount = repeatCount;
+    }
     if (modifiedOn != null) {
       $result.modifiedOn = modifiedOn;
     }
@@ -5382,7 +5740,9 @@ class grpcTableDefinitionModel extends $pb.GeneratedMessage {
     ..aOS(16, _omitFieldNames ? '' : 'InOutMode', protoName: 'InOutMode')
     ..aOS(17, _omitFieldNames ? '' : 'CodingNotes', protoName: 'CodingNotes')
     ..aOS(18, _omitFieldNames ? '' : 'CodingExtNotes', protoName: 'CodingExtNotes')
-    ..aOM<$2.Timestamp>(99, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $2.Timestamp.create)
+    ..aOB(19, _omitFieldNames ? '' : 'IsRepeated', protoName: 'IsRepeated')
+    ..a<$core.int>(20, _omitFieldNames ? '' : 'RepeatCount', $pb.PbFieldType.O3, protoName: 'RepeatCount')
+    ..aOM<$5.Timestamp>(99, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(100, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -5570,23 +5930,41 @@ class grpcTableDefinitionModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(18)
   void clearCodingExtNotes() => clearField(18);
 
+  @$pb.TagNumber(19)
+  $core.bool get isRepeated => $_getBF(18);
+  @$pb.TagNumber(19)
+  set isRepeated($core.bool v) { $_setBool(18, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasIsRepeated() => $_has(18);
+  @$pb.TagNumber(19)
+  void clearIsRepeated() => clearField(19);
+
+  @$pb.TagNumber(20)
+  $core.int get repeatCount => $_getIZ(19);
+  @$pb.TagNumber(20)
+  set repeatCount($core.int v) { $_setSignedInt32(19, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasRepeatCount() => $_has(19);
+  @$pb.TagNumber(20)
+  void clearRepeatCount() => clearField(20);
+
   @$pb.TagNumber(99)
-  $2.Timestamp get modifiedOn => $_getN(18);
+  $5.Timestamp get modifiedOn => $_getN(20);
   @$pb.TagNumber(99)
-  set modifiedOn($2.Timestamp v) { setField(99, v); }
+  set modifiedOn($5.Timestamp v) { setField(99, v); }
   @$pb.TagNumber(99)
-  $core.bool hasModifiedOn() => $_has(18);
+  $core.bool hasModifiedOn() => $_has(20);
   @$pb.TagNumber(99)
   void clearModifiedOn() => clearField(99);
   @$pb.TagNumber(99)
-  $2.Timestamp ensureModifiedOn() => $_ensure(18);
+  $5.Timestamp ensureModifiedOn() => $_ensure(20);
 
   @$pb.TagNumber(100)
-  $core.int get updMode => $_getIZ(19);
+  $core.int get updMode => $_getIZ(21);
   @$pb.TagNumber(100)
-  set updMode($core.int v) { $_setSignedInt32(19, v); }
+  set updMode($core.int v) { $_setSignedInt32(21, v); }
   @$pb.TagNumber(100)
-  $core.bool hasUpdMode() => $_has(19);
+  $core.bool hasUpdMode() => $_has(21);
   @$pb.TagNumber(100)
   void clearUpdMode() => clearField(100);
 }
@@ -5947,7 +6325,7 @@ class grpcClassificationMasterModel extends $pb.GeneratedMessage {
     $core.String? parentClassID,
     $core.String? updaterID,
     $core.String? clientID,
-    $2.Timestamp? updateDate,
+    $5.Timestamp? updateDate,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -5996,7 +6374,7 @@ class grpcClassificationMasterModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'ParentClassID', protoName: 'ParentClassID')
     ..aOS(97, _omitFieldNames ? '' : 'UpdaterID', protoName: 'UpdaterID')
     ..aOS(98, _omitFieldNames ? '' : 'ClientID', protoName: 'ClientID')
-    ..aOM<$2.Timestamp>(99, _omitFieldNames ? '' : 'UpdateDate', protoName: 'UpdateDate', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(99, _omitFieldNames ? '' : 'UpdateDate', protoName: 'UpdateDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(100, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -6095,15 +6473,15 @@ class grpcClassificationMasterModel extends $pb.GeneratedMessage {
   void clearClientID() => clearField(98);
 
   @$pb.TagNumber(99)
-  $2.Timestamp get updateDate => $_getN(8);
+  $5.Timestamp get updateDate => $_getN(8);
   @$pb.TagNumber(99)
-  set updateDate($2.Timestamp v) { setField(99, v); }
+  set updateDate($5.Timestamp v) { setField(99, v); }
   @$pb.TagNumber(99)
   $core.bool hasUpdateDate() => $_has(8);
   @$pb.TagNumber(99)
   void clearUpdateDate() => clearField(99);
   @$pb.TagNumber(99)
-  $2.Timestamp ensureUpdateDate() => $_ensure(8);
+  $5.Timestamp ensureUpdateDate() => $_ensure(8);
 
   @$pb.TagNumber(100)
   $core.int get updMode => $_getIZ(9);
@@ -6503,18 +6881,1862 @@ class grpcApiListModel extends $pb.GeneratedMessage {
 }
 
 /// >>> Start new generated message position
+/// >>> Start generated MonthClosingTable message
+class GetMonthClosingTable_Response extends $pb.GeneratedMessage {
+  factory GetMonthClosingTable_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    $core.Iterable<grpcMonthClosingTableModel>? records,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (records != null) {
+      $result.records.addAll(records);
+    }
+    return $result;
+  }
+  GetMonthClosingTable_Response._() : super();
+  factory GetMonthClosingTable_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMonthClosingTable_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMonthClosingTable_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..pc<grpcMonthClosingTableModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcMonthClosingTableModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMonthClosingTable_Response clone() => GetMonthClosingTable_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMonthClosingTable_Response copyWith(void Function(GetMonthClosingTable_Response) updates) => super.copyWith((message) => updates(message as GetMonthClosingTable_Response)) as GetMonthClosingTable_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMonthClosingTable_Response create() => GetMonthClosingTable_Response._();
+  GetMonthClosingTable_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMonthClosingTable_Response> createRepeated() => $pb.PbList<GetMonthClosingTable_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMonthClosingTable_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMonthClosingTable_Response>(create);
+  static GetMonthClosingTable_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<grpcMonthClosingTableModel> get records => $_getList(2);
+}
+
+class MonthClosing_Request extends $pb.GeneratedMessage {
+  factory MonthClosing_Request({
+    $0.UserCredential? credential,
+    $5.Timestamp? closeDate,
+    $core.bool? isUpdateOutStockPrice,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (closeDate != null) {
+      $result.closeDate = closeDate;
+    }
+    if (isUpdateOutStockPrice != null) {
+      $result.isUpdateOutStockPrice = isUpdateOutStockPrice;
+    }
+    return $result;
+  }
+  MonthClosing_Request._() : super();
+  factory MonthClosing_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MonthClosing_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MonthClosing_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $5.Timestamp.create)
+    ..aOB(3, _omitFieldNames ? '' : 'IsUpdateOutStockPrice', protoName: 'IsUpdateOutStockPrice')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MonthClosing_Request clone() => MonthClosing_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MonthClosing_Request copyWith(void Function(MonthClosing_Request) updates) => super.copyWith((message) => updates(message as MonthClosing_Request)) as MonthClosing_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MonthClosing_Request create() => MonthClosing_Request._();
+  MonthClosing_Request createEmptyInstance() => create();
+  static $pb.PbList<MonthClosing_Request> createRepeated() => $pb.PbList<MonthClosing_Request>();
+  @$core.pragma('dart2js:noInline')
+  static MonthClosing_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MonthClosing_Request>(create);
+  static MonthClosing_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $5.Timestamp get closeDate => $_getN(1);
+  @$pb.TagNumber(2)
+  set closeDate($5.Timestamp v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCloseDate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCloseDate() => clearField(2);
+  @$pb.TagNumber(2)
+  $5.Timestamp ensureCloseDate() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.bool get isUpdateOutStockPrice => $_getBF(2);
+  @$pb.TagNumber(3)
+  set isUpdateOutStockPrice($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasIsUpdateOutStockPrice() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearIsUpdateOutStockPrice() => clearField(3);
+}
+
+class grpcMonthClosingTableModel extends $pb.GeneratedMessage {
+  factory grpcMonthClosingTableModel({
+    $core.String? iD,
+    $5.Timestamp? closeDate,
+    $core.String? checkItem,
+    $core.String? checkContent,
+    $core.bool? isOK,
+    $core.bool? isRequired,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (closeDate != null) {
+      $result.closeDate = closeDate;
+    }
+    if (checkItem != null) {
+      $result.checkItem = checkItem;
+    }
+    if (checkContent != null) {
+      $result.checkContent = checkContent;
+    }
+    if (isOK != null) {
+      $result.isOK = isOK;
+    }
+    if (isRequired != null) {
+      $result.isRequired = isRequired;
+    }
+    return $result;
+  }
+  grpcMonthClosingTableModel._() : super();
+  factory grpcMonthClosingTableModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcMonthClosingTableModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcMonthClosingTableModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'CloseDate', protoName: 'CloseDate', subBuilder: $5.Timestamp.create)
+    ..aOS(3, _omitFieldNames ? '' : 'CheckItem', protoName: 'CheckItem')
+    ..aOS(4, _omitFieldNames ? '' : 'CheckContent', protoName: 'CheckContent')
+    ..aOB(5, _omitFieldNames ? '' : 'IsOK', protoName: 'IsOK')
+    ..aOB(6, _omitFieldNames ? '' : 'IsRequired', protoName: 'IsRequired')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcMonthClosingTableModel clone() => grpcMonthClosingTableModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcMonthClosingTableModel copyWith(void Function(grpcMonthClosingTableModel) updates) => super.copyWith((message) => updates(message as grpcMonthClosingTableModel)) as grpcMonthClosingTableModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcMonthClosingTableModel create() => grpcMonthClosingTableModel._();
+  grpcMonthClosingTableModel createEmptyInstance() => create();
+  static $pb.PbList<grpcMonthClosingTableModel> createRepeated() => $pb.PbList<grpcMonthClosingTableModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcMonthClosingTableModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcMonthClosingTableModel>(create);
+  static grpcMonthClosingTableModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $5.Timestamp get closeDate => $_getN(1);
+  @$pb.TagNumber(2)
+  set closeDate($5.Timestamp v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCloseDate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCloseDate() => clearField(2);
+  @$pb.TagNumber(2)
+  $5.Timestamp ensureCloseDate() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get checkItem => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set checkItem($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCheckItem() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCheckItem() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get checkContent => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set checkContent($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCheckContent() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCheckContent() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get isOK => $_getBF(4);
+  @$pb.TagNumber(5)
+  set isOK($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasIsOK() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearIsOK() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get isRequired => $_getBF(5);
+  @$pb.TagNumber(6)
+  set isRequired($core.bool v) { $_setBool(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasIsRequired() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearIsRequired() => clearField(6);
+}
+
+/// >>> End generated MonthClosingTable message
+/// >>> Start generated MenuSubGroup message
+class SaveMenuSubGroup_Request extends $pb.GeneratedMessage {
+  factory SaveMenuSubGroup_Request({
+    $0.UserCredential? credential,
+    grpcMenuSubGroupModel? record,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  SaveMenuSubGroup_Request._() : super();
+  factory SaveMenuSubGroup_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SaveMenuSubGroup_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveMenuSubGroup_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOM<grpcMenuSubGroupModel>(2, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuSubGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SaveMenuSubGroup_Request clone() => SaveMenuSubGroup_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SaveMenuSubGroup_Request copyWith(void Function(SaveMenuSubGroup_Request) updates) => super.copyWith((message) => updates(message as SaveMenuSubGroup_Request)) as SaveMenuSubGroup_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuSubGroup_Request create() => SaveMenuSubGroup_Request._();
+  SaveMenuSubGroup_Request createEmptyInstance() => create();
+  static $pb.PbList<SaveMenuSubGroup_Request> createRepeated() => $pb.PbList<SaveMenuSubGroup_Request>();
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuSubGroup_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveMenuSubGroup_Request>(create);
+  static SaveMenuSubGroup_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  grpcMenuSubGroupModel get record => $_getN(1);
+  @$pb.TagNumber(2)
+  set record(grpcMenuSubGroupModel v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRecord() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRecord() => clearField(2);
+  @$pb.TagNumber(2)
+  grpcMenuSubGroupModel ensureRecord() => $_ensure(1);
+}
+
+class GetMenuSubGroupRecord_Request extends $pb.GeneratedMessage {
+  factory GetMenuSubGroupRecord_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? menuGroupID,
+    $core.String? menuSubGroupID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    return $result;
+  }
+  GetMenuSubGroupRecord_Request._() : super();
+  factory GetMenuSubGroupRecord_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuSubGroupRecord_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuSubGroupRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..aOS(4, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroupRecord_Request clone() => GetMenuSubGroupRecord_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroupRecord_Request copyWith(void Function(GetMenuSubGroupRecord_Request) updates) => super.copyWith((message) => updates(message as GetMenuSubGroupRecord_Request)) as GetMenuSubGroupRecord_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroupRecord_Request create() => GetMenuSubGroupRecord_Request._();
+  GetMenuSubGroupRecord_Request createEmptyInstance() => create();
+  static $pb.PbList<GetMenuSubGroupRecord_Request> createRepeated() => $pb.PbList<GetMenuSubGroupRecord_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroupRecord_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuSubGroupRecord_Request>(create);
+  static GetMenuSubGroupRecord_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuGroupID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get menuSubGroupID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set menuSubGroupID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasMenuSubGroupID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMenuSubGroupID() => clearField(4);
+}
+
+class GetMenuSubGroupRecord_Response extends $pb.GeneratedMessage {
+  factory GetMenuSubGroupRecord_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    grpcMenuSubGroupModel? record,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  GetMenuSubGroupRecord_Response._() : super();
+  factory GetMenuSubGroupRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuSubGroupRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuSubGroupRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..aOM<grpcMenuSubGroupModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuSubGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroupRecord_Response clone() => GetMenuSubGroupRecord_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroupRecord_Response copyWith(void Function(GetMenuSubGroupRecord_Response) updates) => super.copyWith((message) => updates(message as GetMenuSubGroupRecord_Response)) as GetMenuSubGroupRecord_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroupRecord_Response create() => GetMenuSubGroupRecord_Response._();
+  GetMenuSubGroupRecord_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuSubGroupRecord_Response> createRepeated() => $pb.PbList<GetMenuSubGroupRecord_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroupRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuSubGroupRecord_Response>(create);
+  static GetMenuSubGroupRecord_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  grpcMenuSubGroupModel get record => $_getN(2);
+  @$pb.TagNumber(3)
+  set record(grpcMenuSubGroupModel v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRecord() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRecord() => clearField(3);
+  @$pb.TagNumber(3)
+  grpcMenuSubGroupModel ensureRecord() => $_ensure(2);
+}
+
+class GetMenuSubGroup_Request extends $pb.GeneratedMessage {
+  factory GetMenuSubGroup_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? menuGroupID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    return $result;
+  }
+  GetMenuSubGroup_Request._() : super();
+  factory GetMenuSubGroup_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuSubGroup_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuSubGroup_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroup_Request clone() => GetMenuSubGroup_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroup_Request copyWith(void Function(GetMenuSubGroup_Request) updates) => super.copyWith((message) => updates(message as GetMenuSubGroup_Request)) as GetMenuSubGroup_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroup_Request create() => GetMenuSubGroup_Request._();
+  GetMenuSubGroup_Request createEmptyInstance() => create();
+  static $pb.PbList<GetMenuSubGroup_Request> createRepeated() => $pb.PbList<GetMenuSubGroup_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroup_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuSubGroup_Request>(create);
+  static GetMenuSubGroup_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuGroupID() => clearField(3);
+}
+
+class GetMenuSubGroup_Response extends $pb.GeneratedMessage {
+  factory GetMenuSubGroup_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    $core.Iterable<grpcMenuSubGroupModel>? records,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (records != null) {
+      $result.records.addAll(records);
+    }
+    return $result;
+  }
+  GetMenuSubGroup_Response._() : super();
+  factory GetMenuSubGroup_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuSubGroup_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuSubGroup_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..pc<grpcMenuSubGroupModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcMenuSubGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroup_Response clone() => GetMenuSubGroup_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuSubGroup_Response copyWith(void Function(GetMenuSubGroup_Response) updates) => super.copyWith((message) => updates(message as GetMenuSubGroup_Response)) as GetMenuSubGroup_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroup_Response create() => GetMenuSubGroup_Response._();
+  GetMenuSubGroup_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuSubGroup_Response> createRepeated() => $pb.PbList<GetMenuSubGroup_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuSubGroup_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuSubGroup_Response>(create);
+  static GetMenuSubGroup_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<grpcMenuSubGroupModel> get records => $_getList(2);
+}
+
+class grpcMenuSubGroupModel extends $pb.GeneratedMessage {
+  factory grpcMenuSubGroupModel({
+    $core.String? iD,
+    $core.String? systemID,
+    $core.String? menuGroupID,
+    $core.String? menuSubGroupID,
+    $core.String? menuText,
+    $core.String? screenID,
+    $core.List<$core.int>? icon,
+    $core.int? seqNo,
+    $core.bool? enabled,
+    $core.int? updMode,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    if (menuText != null) {
+      $result.menuText = menuText;
+    }
+    if (screenID != null) {
+      $result.screenID = screenID;
+    }
+    if (icon != null) {
+      $result.icon = icon;
+    }
+    if (seqNo != null) {
+      $result.seqNo = seqNo;
+    }
+    if (enabled != null) {
+      $result.enabled = enabled;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
+    }
+    return $result;
+  }
+  grpcMenuSubGroupModel._() : super();
+  factory grpcMenuSubGroupModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcMenuSubGroupModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcMenuSubGroupModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..aOS(4, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..aOS(5, _omitFieldNames ? '' : 'MenuText', protoName: 'MenuText')
+    ..aOS(6, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..a<$core.List<$core.int>>(7, _omitFieldNames ? '' : 'Icon', $pb.PbFieldType.OY, protoName: 'Icon')
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'SeqNo', $pb.PbFieldType.O3, protoName: 'SeqNo')
+    ..aOB(9, _omitFieldNames ? '' : 'Enabled', protoName: 'Enabled')
+    ..a<$core.int>(10, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcMenuSubGroupModel clone() => grpcMenuSubGroupModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcMenuSubGroupModel copyWith(void Function(grpcMenuSubGroupModel) updates) => super.copyWith((message) => updates(message as grpcMenuSubGroupModel)) as grpcMenuSubGroupModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuSubGroupModel create() => grpcMenuSubGroupModel._();
+  grpcMenuSubGroupModel createEmptyInstance() => create();
+  static $pb.PbList<grpcMenuSubGroupModel> createRepeated() => $pb.PbList<grpcMenuSubGroupModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuSubGroupModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcMenuSubGroupModel>(create);
+  static grpcMenuSubGroupModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuGroupID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get menuSubGroupID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set menuSubGroupID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasMenuSubGroupID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMenuSubGroupID() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get menuText => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set menuText($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMenuText() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMenuText() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get screenID => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set screenID($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasScreenID() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearScreenID() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.int> get icon => $_getN(6);
+  @$pb.TagNumber(7)
+  set icon($core.List<$core.int> v) { $_setBytes(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIcon() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIcon() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get seqNo => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set seqNo($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasSeqNo() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearSeqNo() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.bool get enabled => $_getBF(8);
+  @$pb.TagNumber(9)
+  set enabled($core.bool v) { $_setBool(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasEnabled() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearEnabled() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.int get updMode => $_getIZ(9);
+  @$pb.TagNumber(10)
+  set updMode($core.int v) { $_setSignedInt32(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasUpdMode() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearUpdMode() => clearField(10);
+}
+
+/// >>> End generated MenuSubGroup message
+/// >>> Start generated MenuItem message
+class SaveMenuItem_Request extends $pb.GeneratedMessage {
+  factory SaveMenuItem_Request({
+    $0.UserCredential? credential,
+    grpcMenuItemModel? record,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  SaveMenuItem_Request._() : super();
+  factory SaveMenuItem_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SaveMenuItem_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveMenuItem_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOM<grpcMenuItemModel>(2, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuItemModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SaveMenuItem_Request clone() => SaveMenuItem_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SaveMenuItem_Request copyWith(void Function(SaveMenuItem_Request) updates) => super.copyWith((message) => updates(message as SaveMenuItem_Request)) as SaveMenuItem_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuItem_Request create() => SaveMenuItem_Request._();
+  SaveMenuItem_Request createEmptyInstance() => create();
+  static $pb.PbList<SaveMenuItem_Request> createRepeated() => $pb.PbList<SaveMenuItem_Request>();
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuItem_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveMenuItem_Request>(create);
+  static SaveMenuItem_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  grpcMenuItemModel get record => $_getN(1);
+  @$pb.TagNumber(2)
+  set record(grpcMenuItemModel v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRecord() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRecord() => clearField(2);
+  @$pb.TagNumber(2)
+  grpcMenuItemModel ensureRecord() => $_ensure(1);
+}
+
+class GetMenuItem_Request extends $pb.GeneratedMessage {
+  factory GetMenuItem_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? menuSubGroupID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    return $result;
+  }
+  GetMenuItem_Request._() : super();
+  factory GetMenuItem_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuItem_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuItem_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuItem_Request clone() => GetMenuItem_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuItem_Request copyWith(void Function(GetMenuItem_Request) updates) => super.copyWith((message) => updates(message as GetMenuItem_Request)) as GetMenuItem_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItem_Request create() => GetMenuItem_Request._();
+  GetMenuItem_Request createEmptyInstance() => create();
+  static $pb.PbList<GetMenuItem_Request> createRepeated() => $pb.PbList<GetMenuItem_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItem_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuItem_Request>(create);
+  static GetMenuItem_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuSubGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuSubGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuSubGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuSubGroupID() => clearField(3);
+}
+
+class GetMenuItem_Response extends $pb.GeneratedMessage {
+  factory GetMenuItem_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    $core.Iterable<grpcMenuItemModel>? records,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (records != null) {
+      $result.records.addAll(records);
+    }
+    return $result;
+  }
+  GetMenuItem_Response._() : super();
+  factory GetMenuItem_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuItem_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuItem_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..pc<grpcMenuItemModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcMenuItemModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuItem_Response clone() => GetMenuItem_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuItem_Response copyWith(void Function(GetMenuItem_Response) updates) => super.copyWith((message) => updates(message as GetMenuItem_Response)) as GetMenuItem_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItem_Response create() => GetMenuItem_Response._();
+  GetMenuItem_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuItem_Response> createRepeated() => $pb.PbList<GetMenuItem_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItem_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuItem_Response>(create);
+  static GetMenuItem_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<grpcMenuItemModel> get records => $_getList(2);
+}
+
+class GetMenuItemRecord_Request extends $pb.GeneratedMessage {
+  factory GetMenuItemRecord_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? menuSubGroupID,
+    $core.String? screenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    if (screenID != null) {
+      $result.screenID = screenID;
+    }
+    return $result;
+  }
+  GetMenuItemRecord_Request._() : super();
+  factory GetMenuItemRecord_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuItemRecord_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuItemRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..aOS(4, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuItemRecord_Request clone() => GetMenuItemRecord_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuItemRecord_Request copyWith(void Function(GetMenuItemRecord_Request) updates) => super.copyWith((message) => updates(message as GetMenuItemRecord_Request)) as GetMenuItemRecord_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItemRecord_Request create() => GetMenuItemRecord_Request._();
+  GetMenuItemRecord_Request createEmptyInstance() => create();
+  static $pb.PbList<GetMenuItemRecord_Request> createRepeated() => $pb.PbList<GetMenuItemRecord_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItemRecord_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuItemRecord_Request>(create);
+  static GetMenuItemRecord_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuSubGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuSubGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuSubGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuSubGroupID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get screenID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set screenID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasScreenID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearScreenID() => clearField(4);
+}
+
+class GetMenuItemRecord_Response extends $pb.GeneratedMessage {
+  factory GetMenuItemRecord_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    grpcMenuItemModel? record,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  GetMenuItemRecord_Response._() : super();
+  factory GetMenuItemRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuItemRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuItemRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..aOM<grpcMenuItemModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuItemModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuItemRecord_Response clone() => GetMenuItemRecord_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuItemRecord_Response copyWith(void Function(GetMenuItemRecord_Response) updates) => super.copyWith((message) => updates(message as GetMenuItemRecord_Response)) as GetMenuItemRecord_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItemRecord_Response create() => GetMenuItemRecord_Response._();
+  GetMenuItemRecord_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuItemRecord_Response> createRepeated() => $pb.PbList<GetMenuItemRecord_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuItemRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuItemRecord_Response>(create);
+  static GetMenuItemRecord_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  grpcMenuItemModel get record => $_getN(2);
+  @$pb.TagNumber(3)
+  set record(grpcMenuItemModel v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRecord() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRecord() => clearField(3);
+  @$pb.TagNumber(3)
+  grpcMenuItemModel ensureRecord() => $_ensure(2);
+}
+
+class grpcMenuItemModel extends $pb.GeneratedMessage {
+  factory grpcMenuItemModel({
+    $core.String? iD,
+    $core.String? systemID,
+    $core.String? menuSubGroupID,
+    $core.String? screenID,
+    $core.String? menuText,
+    $core.int? seqNo,
+    $core.bool? enabled,
+    $core.int? updMode,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    if (screenID != null) {
+      $result.screenID = screenID;
+    }
+    if (menuText != null) {
+      $result.menuText = menuText;
+    }
+    if (seqNo != null) {
+      $result.seqNo = seqNo;
+    }
+    if (enabled != null) {
+      $result.enabled = enabled;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
+    }
+    return $result;
+  }
+  grpcMenuItemModel._() : super();
+  factory grpcMenuItemModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcMenuItemModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcMenuItemModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..aOS(4, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..aOS(5, _omitFieldNames ? '' : 'MenuText', protoName: 'MenuText')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'SeqNo', $pb.PbFieldType.O3, protoName: 'SeqNo')
+    ..aOB(7, _omitFieldNames ? '' : 'Enabled', protoName: 'Enabled')
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcMenuItemModel clone() => grpcMenuItemModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcMenuItemModel copyWith(void Function(grpcMenuItemModel) updates) => super.copyWith((message) => updates(message as grpcMenuItemModel)) as grpcMenuItemModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuItemModel create() => grpcMenuItemModel._();
+  grpcMenuItemModel createEmptyInstance() => create();
+  static $pb.PbList<grpcMenuItemModel> createRepeated() => $pb.PbList<grpcMenuItemModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuItemModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcMenuItemModel>(create);
+  static grpcMenuItemModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuSubGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuSubGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuSubGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuSubGroupID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get screenID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set screenID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasScreenID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearScreenID() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get menuText => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set menuText($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMenuText() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMenuText() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get seqNo => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set seqNo($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasSeqNo() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSeqNo() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get enabled => $_getBF(6);
+  @$pb.TagNumber(7)
+  set enabled($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasEnabled() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearEnabled() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get updMode => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set updMode($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasUpdMode() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearUpdMode() => clearField(8);
+}
+
+/// >>> End generated MenuItem message
+/// >>> Start generated MenuGroup message
+class SaveMenuGroup_Request extends $pb.GeneratedMessage {
+  factory SaveMenuGroup_Request({
+    $0.UserCredential? credential,
+    grpcMenuGroupModel? record,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  SaveMenuGroup_Request._() : super();
+  factory SaveMenuGroup_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SaveMenuGroup_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveMenuGroup_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOM<grpcMenuGroupModel>(2, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SaveMenuGroup_Request clone() => SaveMenuGroup_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SaveMenuGroup_Request copyWith(void Function(SaveMenuGroup_Request) updates) => super.copyWith((message) => updates(message as SaveMenuGroup_Request)) as SaveMenuGroup_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuGroup_Request create() => SaveMenuGroup_Request._();
+  SaveMenuGroup_Request createEmptyInstance() => create();
+  static $pb.PbList<SaveMenuGroup_Request> createRepeated() => $pb.PbList<SaveMenuGroup_Request>();
+  @$core.pragma('dart2js:noInline')
+  static SaveMenuGroup_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveMenuGroup_Request>(create);
+  static SaveMenuGroup_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  grpcMenuGroupModel get record => $_getN(1);
+  @$pb.TagNumber(2)
+  set record(grpcMenuGroupModel v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRecord() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRecord() => clearField(2);
+  @$pb.TagNumber(2)
+  grpcMenuGroupModel ensureRecord() => $_ensure(1);
+}
+
+class GetMenuGroup_Response extends $pb.GeneratedMessage {
+  factory GetMenuGroup_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    $core.Iterable<grpcMenuGroupModel>? records,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (records != null) {
+      $result.records.addAll(records);
+    }
+    return $result;
+  }
+  GetMenuGroup_Response._() : super();
+  factory GetMenuGroup_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuGroup_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuGroup_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..pc<grpcMenuGroupModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcMenuGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuGroup_Response clone() => GetMenuGroup_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuGroup_Response copyWith(void Function(GetMenuGroup_Response) updates) => super.copyWith((message) => updates(message as GetMenuGroup_Response)) as GetMenuGroup_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroup_Response create() => GetMenuGroup_Response._();
+  GetMenuGroup_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuGroup_Response> createRepeated() => $pb.PbList<GetMenuGroup_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroup_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuGroup_Response>(create);
+  static GetMenuGroup_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<grpcMenuGroupModel> get records => $_getList(2);
+}
+
+class GetMenuGroupRecord_Request extends $pb.GeneratedMessage {
+  factory GetMenuGroupRecord_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? menuGroupID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    return $result;
+  }
+  GetMenuGroupRecord_Request._() : super();
+  factory GetMenuGroupRecord_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuGroupRecord_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuGroupRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuGroupRecord_Request clone() => GetMenuGroupRecord_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuGroupRecord_Request copyWith(void Function(GetMenuGroupRecord_Request) updates) => super.copyWith((message) => updates(message as GetMenuGroupRecord_Request)) as GetMenuGroupRecord_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroupRecord_Request create() => GetMenuGroupRecord_Request._();
+  GetMenuGroupRecord_Request createEmptyInstance() => create();
+  static $pb.PbList<GetMenuGroupRecord_Request> createRepeated() => $pb.PbList<GetMenuGroupRecord_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroupRecord_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuGroupRecord_Request>(create);
+  static GetMenuGroupRecord_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuGroupID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuGroupID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuGroupID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuGroupID() => clearField(3);
+}
+
+class GetMenuGroupRecord_Response extends $pb.GeneratedMessage {
+  factory GetMenuGroupRecord_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    grpcMenuGroupModel? record,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  GetMenuGroupRecord_Response._() : super();
+  factory GetMenuGroupRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetMenuGroupRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetMenuGroupRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..aOM<grpcMenuGroupModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcMenuGroupModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetMenuGroupRecord_Response clone() => GetMenuGroupRecord_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetMenuGroupRecord_Response copyWith(void Function(GetMenuGroupRecord_Response) updates) => super.copyWith((message) => updates(message as GetMenuGroupRecord_Response)) as GetMenuGroupRecord_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroupRecord_Response create() => GetMenuGroupRecord_Response._();
+  GetMenuGroupRecord_Response createEmptyInstance() => create();
+  static $pb.PbList<GetMenuGroupRecord_Response> createRepeated() => $pb.PbList<GetMenuGroupRecord_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetMenuGroupRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetMenuGroupRecord_Response>(create);
+  static GetMenuGroupRecord_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  grpcMenuGroupModel get record => $_getN(2);
+  @$pb.TagNumber(3)
+  set record(grpcMenuGroupModel v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRecord() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRecord() => clearField(3);
+  @$pb.TagNumber(3)
+  grpcMenuGroupModel ensureRecord() => $_ensure(2);
+}
+
+class grpcMenuGroupModel extends $pb.GeneratedMessage {
+  factory grpcMenuGroupModel({
+    $core.String? iD,
+    $core.String? menuGroupID,
+    $core.String? menuText,
+    $core.List<$core.int>? icon,
+    $core.int? seqNo,
+    $core.String? systemID,
+    $core.bool? enabled,
+    $core.int? updMode,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    if (menuText != null) {
+      $result.menuText = menuText;
+    }
+    if (icon != null) {
+      $result.icon = icon;
+    }
+    if (seqNo != null) {
+      $result.seqNo = seqNo;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (enabled != null) {
+      $result.enabled = enabled;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
+    }
+    return $result;
+  }
+  grpcMenuGroupModel._() : super();
+  factory grpcMenuGroupModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcMenuGroupModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcMenuGroupModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..aOS(2, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..aOS(3, _omitFieldNames ? '' : 'MenuText', protoName: 'MenuText')
+    ..a<$core.List<$core.int>>(4, _omitFieldNames ? '' : 'Icon', $pb.PbFieldType.OY, protoName: 'Icon')
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'SeqNo', $pb.PbFieldType.O3, protoName: 'SeqNo')
+    ..aOS(6, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOB(7, _omitFieldNames ? '' : 'Enabled', protoName: 'Enabled')
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcMenuGroupModel clone() => grpcMenuGroupModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcMenuGroupModel copyWith(void Function(grpcMenuGroupModel) updates) => super.copyWith((message) => updates(message as grpcMenuGroupModel)) as grpcMenuGroupModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuGroupModel create() => grpcMenuGroupModel._();
+  grpcMenuGroupModel createEmptyInstance() => create();
+  static $pb.PbList<grpcMenuGroupModel> createRepeated() => $pb.PbList<grpcMenuGroupModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcMenuGroupModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcMenuGroupModel>(create);
+  static grpcMenuGroupModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get menuGroupID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set menuGroupID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMenuGroupID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMenuGroupID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get menuText => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set menuText($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasMenuText() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMenuText() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<$core.int> get icon => $_getN(3);
+  @$pb.TagNumber(4)
+  set icon($core.List<$core.int> v) { $_setBytes(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasIcon() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearIcon() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get seqNo => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set seqNo($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasSeqNo() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSeqNo() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get systemID => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set systemID($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasSystemID() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSystemID() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get enabled => $_getBF(6);
+  @$pb.TagNumber(7)
+  set enabled($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasEnabled() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearEnabled() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get updMode => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set updMode($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasUpdMode() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearUpdMode() => clearField(8);
+}
+
+/// >>> End generated MenuGroup message
 /// >>> Start generated DeductPeople message
 class grpcDeductPeopleModel extends $pb.GeneratedMessage {
   factory grpcDeductPeopleModel({
     $core.String? iD,
     $core.String? fullname,
     $core.String? relation,
-    $2.Timestamp? birthDay,
+    $5.Timestamp? birthDay,
     $core.String? taxCode,
     $core.String? national,
     $core.String? citizenID,
-    $2.Timestamp? fromMonth,
-    $2.Timestamp? toMonth,
+    $5.Timestamp? fromMonth,
+    $5.Timestamp? toMonth,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -6558,12 +8780,12 @@ class grpcDeductPeopleModel extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'Fullname', protoName: 'Fullname')
     ..aOS(3, _omitFieldNames ? '' : 'Relation', protoName: 'Relation')
-    ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'BirthDay', protoName: 'BirthDay', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(4, _omitFieldNames ? '' : 'BirthDay', protoName: 'BirthDay', subBuilder: $5.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'TaxCode', protoName: 'TaxCode')
     ..aOS(6, _omitFieldNames ? '' : 'National', protoName: 'National')
     ..aOS(7, _omitFieldNames ? '' : 'CitizenID', protoName: 'CitizenID')
-    ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'FromMonth', protoName: 'FromMonth', subBuilder: $2.Timestamp.create)
-    ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'ToMonth', protoName: 'ToMonth', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(8, _omitFieldNames ? '' : 'FromMonth', protoName: 'FromMonth', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'ToMonth', protoName: 'ToMonth', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(10, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -6617,15 +8839,15 @@ class grpcDeductPeopleModel extends $pb.GeneratedMessage {
   void clearRelation() => clearField(3);
 
   @$pb.TagNumber(4)
-  $2.Timestamp get birthDay => $_getN(3);
+  $5.Timestamp get birthDay => $_getN(3);
   @$pb.TagNumber(4)
-  set birthDay($2.Timestamp v) { setField(4, v); }
+  set birthDay($5.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasBirthDay() => $_has(3);
   @$pb.TagNumber(4)
   void clearBirthDay() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Timestamp ensureBirthDay() => $_ensure(3);
+  $5.Timestamp ensureBirthDay() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get taxCode => $_getSZ(4);
@@ -6655,26 +8877,26 @@ class grpcDeductPeopleModel extends $pb.GeneratedMessage {
   void clearCitizenID() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Timestamp get fromMonth => $_getN(7);
+  $5.Timestamp get fromMonth => $_getN(7);
   @$pb.TagNumber(8)
-  set fromMonth($2.Timestamp v) { setField(8, v); }
+  set fromMonth($5.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasFromMonth() => $_has(7);
   @$pb.TagNumber(8)
   void clearFromMonth() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Timestamp ensureFromMonth() => $_ensure(7);
+  $5.Timestamp ensureFromMonth() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Timestamp get toMonth => $_getN(8);
+  $5.Timestamp get toMonth => $_getN(8);
   @$pb.TagNumber(9)
-  set toMonth($2.Timestamp v) { setField(9, v); }
+  set toMonth($5.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasToMonth() => $_has(8);
   @$pb.TagNumber(9)
   void clearToMonth() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Timestamp ensureToMonth() => $_ensure(8);
+  $5.Timestamp ensureToMonth() => $_ensure(8);
 
   @$pb.TagNumber(10)
   $core.int get updMode => $_getIZ(9);
@@ -6697,6 +8919,7 @@ class grpcBankAccountModel extends $pb.GeneratedMessage {
     $core.String? bankName,
     $core.String? bankBranch,
     $core.String? cityID,
+    $core.bool? isUsed,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -6721,6 +8944,9 @@ class grpcBankAccountModel extends $pb.GeneratedMessage {
     if (cityID != null) {
       $result.cityID = cityID;
     }
+    if (isUsed != null) {
+      $result.isUsed = isUsed;
+    }
     if (updMode != null) {
       $result.updMode = updMode;
     }
@@ -6738,7 +8964,8 @@ class grpcBankAccountModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'BankName', protoName: 'BankName')
     ..aOS(6, _omitFieldNames ? '' : 'BankBranch', protoName: 'BankBranch')
     ..aOS(7, _omitFieldNames ? '' : 'CityID', protoName: 'CityID')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOB(8, _omitFieldNames ? '' : 'IsUsed', protoName: 'IsUsed')
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
 
@@ -6827,6 +9054,174 @@ class grpcBankAccountModel extends $pb.GeneratedMessage {
   void clearCityID() => clearField(7);
 
   @$pb.TagNumber(8)
+  $core.bool get isUsed => $_getBF(7);
+  @$pb.TagNumber(8)
+  set isUsed($core.bool v) { $_setBool(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasIsUsed() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIsUsed() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.int get updMode => $_getIZ(8);
+  @$pb.TagNumber(9)
+  set updMode($core.int v) { $_setSignedInt32(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasUpdMode() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearUpdMode() => clearField(9);
+}
+
+/// >>> End generated BankAccount message
+/// >>> Start generated AllowanceMaster message
+class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
+  factory grpcAllowanceMasterModel({
+    $core.String? iD,
+    $core.int? lineNo,
+    $core.String? allowanceCode,
+    $core.String? allowanceName,
+    $5.Timestamp? startDate,
+    $4.Decimal? amountN,
+    $core.bool? isTax,
+    $core.int? updMode,
+    $5.Timestamp? updDateTime,
+  }) {
+    final $result = create();
+    if (iD != null) {
+      $result.iD = iD;
+    }
+    if (lineNo != null) {
+      $result.lineNo = lineNo;
+    }
+    if (allowanceCode != null) {
+      $result.allowanceCode = allowanceCode;
+    }
+    if (allowanceName != null) {
+      $result.allowanceName = allowanceName;
+    }
+    if (startDate != null) {
+      $result.startDate = startDate;
+    }
+    if (amountN != null) {
+      $result.amountN = amountN;
+    }
+    if (isTax != null) {
+      $result.isTax = isTax;
+    }
+    if (updMode != null) {
+      $result.updMode = updMode;
+    }
+    if (updDateTime != null) {
+      $result.updDateTime = updDateTime;
+    }
+    return $result;
+  }
+  grpcAllowanceMasterModel._() : super();
+  factory grpcAllowanceMasterModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory grpcAllowanceMasterModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcAllowanceMasterModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
+    ..aOS(3, _omitFieldNames ? '' : 'AllowanceCode', protoName: 'AllowanceCode')
+    ..aOS(4, _omitFieldNames ? '' : 'AllowanceName', protoName: 'AllowanceName')
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $4.Decimal.create)
+    ..aOB(7, _omitFieldNames ? '' : 'IsTax', protoName: 'IsTax')
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  grpcAllowanceMasterModel clone() => grpcAllowanceMasterModel()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  grpcAllowanceMasterModel copyWith(void Function(grpcAllowanceMasterModel) updates) => super.copyWith((message) => updates(message as grpcAllowanceMasterModel)) as grpcAllowanceMasterModel;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static grpcAllowanceMasterModel create() => grpcAllowanceMasterModel._();
+  grpcAllowanceMasterModel createEmptyInstance() => create();
+  static $pb.PbList<grpcAllowanceMasterModel> createRepeated() => $pb.PbList<grpcAllowanceMasterModel>();
+  @$core.pragma('dart2js:noInline')
+  static grpcAllowanceMasterModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcAllowanceMasterModel>(create);
+  static grpcAllowanceMasterModel? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get iD => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set iD($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get lineNo => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set lineNo($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLineNo() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLineNo() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get allowanceCode => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set allowanceCode($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAllowanceCode() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAllowanceCode() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get allowanceName => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set allowanceName($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasAllowanceName() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAllowanceName() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $5.Timestamp get startDate => $_getN(4);
+  @$pb.TagNumber(5)
+  set startDate($5.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasStartDate() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearStartDate() => clearField(5);
+  @$pb.TagNumber(5)
+  $5.Timestamp ensureStartDate() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $4.Decimal get amountN => $_getN(5);
+  @$pb.TagNumber(6)
+  set amountN($4.Decimal v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAmountN() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAmountN() => clearField(6);
+  @$pb.TagNumber(6)
+  $4.Decimal ensureAmountN() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $core.bool get isTax => $_getBF(6);
+  @$pb.TagNumber(7)
+  set isTax($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIsTax() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIsTax() => clearField(7);
+
+  @$pb.TagNumber(8)
   $core.int get updMode => $_getIZ(7);
   @$pb.TagNumber(8)
   set updMode($core.int v) { $_setSignedInt32(7, v); }
@@ -6834,9 +9229,20 @@ class grpcBankAccountModel extends $pb.GeneratedMessage {
   $core.bool hasUpdMode() => $_has(7);
   @$pb.TagNumber(8)
   void clearUpdMode() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $5.Timestamp get updDateTime => $_getN(8);
+  @$pb.TagNumber(9)
+  set updDateTime($5.Timestamp v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasUpdDateTime() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearUpdDateTime() => clearField(9);
+  @$pb.TagNumber(9)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(8);
 }
 
-/// >>> End generated BankAccount message
+/// >>> End generated AllowanceMaster message
 /// >>> Start generated ScreenDeployment message
 class SaveScreenDeployment_Request extends $pb.GeneratedMessage {
   factory SaveScreenDeployment_Request({
@@ -7144,7 +9550,7 @@ class UpdateScreenDeployment_Request extends $pb.GeneratedMessage {
     $core.String? screenID,
     $core.String? fileName,
     $core.int? version,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (credential != null) {
@@ -7173,7 +9579,7 @@ class UpdateScreenDeployment_Request extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
     ..aOS(3, _omitFieldNames ? '' : 'FileName', protoName: 'FileName')
     ..a<$core.int>(4, _omitFieldNames ? '' : 'Version', $pb.PbFieldType.O3, protoName: 'Version')
-    ..aOM<$2.Timestamp>(5, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -7237,15 +9643,15 @@ class UpdateScreenDeployment_Request extends $pb.GeneratedMessage {
   void clearVersion() => clearField(4);
 
   @$pb.TagNumber(5)
-  $2.Timestamp get updDateTime => $_getN(4);
+  $5.Timestamp get updDateTime => $_getN(4);
   @$pb.TagNumber(5)
-  set updDateTime($2.Timestamp v) { setField(5, v); }
+  set updDateTime($5.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasUpdDateTime() => $_has(4);
   @$pb.TagNumber(5)
   void clearUpdDateTime() => clearField(5);
   @$pb.TagNumber(5)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(4);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(4);
 }
 
 class grpcScreenDeploymentModel extends $pb.GeneratedMessage {
@@ -7258,7 +9664,7 @@ class grpcScreenDeploymentModel extends $pb.GeneratedMessage {
     $core.String? fileName,
     $core.int? version,
     $core.String? notes,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
     $core.int? updMode,
     $core.int? updCount,
   }) {
@@ -7311,7 +9717,7 @@ class grpcScreenDeploymentModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'FileName', protoName: 'FileName')
     ..a<$core.int>(7, _omitFieldNames ? '' : 'Version', $pb.PbFieldType.O3, protoName: 'Version')
     ..aOS(8, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOM<$2.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(10, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..hasRequiredFields = false
@@ -7411,15 +9817,15 @@ class grpcScreenDeploymentModel extends $pb.GeneratedMessage {
   void clearNotes() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Timestamp get updDateTime => $_getN(8);
+  $5.Timestamp get updDateTime => $_getN(8);
   @$pb.TagNumber(9)
-  set updDateTime($2.Timestamp v) { setField(9, v); }
+  set updDateTime($5.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasUpdDateTime() => $_has(8);
   @$pb.TagNumber(9)
   void clearUpdDateTime() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(8);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(8);
 
   @$pb.TagNumber(10)
   $core.int get updMode => $_getIZ(9);
@@ -7441,6 +9847,86 @@ class grpcScreenDeploymentModel extends $pb.GeneratedMessage {
 }
 
 /// >>> End generated ScreenDeployment message
+class GetAutSceenList_Request extends $pb.GeneratedMessage {
+  factory GetAutSceenList_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? roleID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (roleID != null) {
+      $result.roleID = roleID;
+    }
+    return $result;
+  }
+  GetAutSceenList_Request._() : super();
+  factory GetAutSceenList_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAutSceenList_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAutSceenList_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAutSceenList_Request clone() => GetAutSceenList_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAutSceenList_Request copyWith(void Function(GetAutSceenList_Request) updates) => super.copyWith((message) => updates(message as GetAutSceenList_Request)) as GetAutSceenList_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetAutSceenList_Request create() => GetAutSceenList_Request._();
+  GetAutSceenList_Request createEmptyInstance() => create();
+  static $pb.PbList<GetAutSceenList_Request> createRepeated() => $pb.PbList<GetAutSceenList_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetAutSceenList_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAutSceenList_Request>(create);
+  static GetAutSceenList_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get roleID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set roleID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRoleID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRoleID() => clearField(3);
+}
+
 /// >>> Start generated RoleDetail message
 class SaveRoleDetail_Request extends $pb.GeneratedMessage {
   factory SaveRoleDetail_Request({
@@ -7513,12 +9999,16 @@ class SaveRoleDetail_Request extends $pb.GeneratedMessage {
 class GetRoleDetailRecord_Request extends $pb.GeneratedMessage {
   factory GetRoleDetailRecord_Request({
     $0.UserCredential? credential,
+    $core.String? systemID,
     $core.String? roleID,
     $core.String? screenID,
   }) {
     final $result = create();
     if (credential != null) {
       $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
     }
     if (roleID != null) {
       $result.roleID = roleID;
@@ -7534,8 +10024,9 @@ class GetRoleDetailRecord_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetailRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
-    ..aOS(3, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
+    ..aOS(4, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
     ..hasRequiredFields = false
   ;
 
@@ -7572,22 +10063,31 @@ class GetRoleDetailRecord_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get roleID => $_getSZ(1);
+  $core.String get systemID => $_getSZ(1);
   @$pb.TagNumber(2)
-  set roleID($core.String v) { $_setString(1, v); }
+  set systemID($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRoleID() => $_has(1);
+  $core.bool hasSystemID() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRoleID() => clearField(2);
+  void clearSystemID() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get screenID => $_getSZ(2);
+  $core.String get roleID => $_getSZ(2);
   @$pb.TagNumber(3)
-  set screenID($core.String v) { $_setString(2, v); }
+  set roleID($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasScreenID() => $_has(2);
+  $core.bool hasRoleID() => $_has(2);
   @$pb.TagNumber(3)
-  void clearScreenID() => clearField(3);
+  void clearRoleID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get screenID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set screenID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasScreenID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearScreenID() => clearField(4);
 }
 
 class GetRoleDetailRecord_Response extends $pb.GeneratedMessage {
@@ -7670,6 +10170,114 @@ class GetRoleDetailRecord_Response extends $pb.GeneratedMessage {
   grpcRoleDetailModel ensureRecord() => $_ensure(2);
 }
 
+class GetRoleDetail_Request extends $pb.GeneratedMessage {
+  factory GetRoleDetail_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? roleID,
+    $core.String? menuGroupID,
+    $core.String? menuSubGroupID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (roleID != null) {
+      $result.roleID = roleID;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
+    }
+    return $result;
+  }
+  GetRoleDetail_Request._() : super();
+  factory GetRoleDetail_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetRoleDetail_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetail_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
+    ..aOS(4, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..aOS(5, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetRoleDetail_Request clone() => GetRoleDetail_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetRoleDetail_Request copyWith(void Function(GetRoleDetail_Request) updates) => super.copyWith((message) => updates(message as GetRoleDetail_Request)) as GetRoleDetail_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetail_Request create() => GetRoleDetail_Request._();
+  GetRoleDetail_Request createEmptyInstance() => create();
+  static $pb.PbList<GetRoleDetail_Request> createRepeated() => $pb.PbList<GetRoleDetail_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetail_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetRoleDetail_Request>(create);
+  static GetRoleDetail_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get roleID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set roleID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRoleID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRoleID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get menuGroupID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set menuGroupID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasMenuGroupID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMenuGroupID() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get menuSubGroupID => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set menuSubGroupID($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMenuSubGroupID() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMenuSubGroupID() => clearField(5);
+}
+
 class GetRoleDetail_Response extends $pb.GeneratedMessage {
   factory GetRoleDetail_Response({
     $core.int? returnCode,
@@ -7745,41 +10353,39 @@ class GetRoleDetail_Response extends $pb.GeneratedMessage {
 class grpcRoleDetailModel extends $pb.GeneratedMessage {
   factory grpcRoleDetailModel({
     $core.String? iD,
+    $core.String? systemID,
     $core.String? roleID,
+    $core.int? level,
+    $core.String? menuGroupID,
+    $core.String? menuSubGroupID,
     $core.String? screenID,
     $core.String? screenName,
-    $core.String? f1,
-    $core.String? f2,
-    $core.String? f3,
-    $core.String? f4,
-    $core.String? f5,
-    $core.String? f6,
-    $core.String? f7,
-    $core.String? f8,
-    $core.String? f9,
-    $core.String? f10,
-    $core.String? f11,
-    $core.String? f12,
-    $core.bool? authF1,
-    $core.bool? authF2,
-    $core.bool? authF3,
-    $core.bool? authF4,
-    $core.bool? authF5,
-    $core.bool? authF6,
-    $core.bool? authF7,
-    $core.bool? authF8,
-    $core.bool? authF9,
-    $core.bool? authF10,
-    $core.bool? authF11,
-    $core.bool? authF12,
+    $core.bool? fullAllowded,
+    $core.bool? addnewAllowed,
+    $core.bool? updateAllowed,
+    $core.bool? deleteAllowed,
+    $core.bool? exportAllowed,
+    $core.bool? printAllowed,
     $core.int? updMode,
   }) {
     final $result = create();
     if (iD != null) {
       $result.iD = iD;
     }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
     if (roleID != null) {
       $result.roleID = roleID;
+    }
+    if (level != null) {
+      $result.level = level;
+    }
+    if (menuGroupID != null) {
+      $result.menuGroupID = menuGroupID;
+    }
+    if (menuSubGroupID != null) {
+      $result.menuSubGroupID = menuSubGroupID;
     }
     if (screenID != null) {
       $result.screenID = screenID;
@@ -7787,77 +10393,23 @@ class grpcRoleDetailModel extends $pb.GeneratedMessage {
     if (screenName != null) {
       $result.screenName = screenName;
     }
-    if (f1 != null) {
-      $result.f1 = f1;
+    if (fullAllowded != null) {
+      $result.fullAllowded = fullAllowded;
     }
-    if (f2 != null) {
-      $result.f2 = f2;
+    if (addnewAllowed != null) {
+      $result.addnewAllowed = addnewAllowed;
     }
-    if (f3 != null) {
-      $result.f3 = f3;
+    if (updateAllowed != null) {
+      $result.updateAllowed = updateAllowed;
     }
-    if (f4 != null) {
-      $result.f4 = f4;
+    if (deleteAllowed != null) {
+      $result.deleteAllowed = deleteAllowed;
     }
-    if (f5 != null) {
-      $result.f5 = f5;
+    if (exportAllowed != null) {
+      $result.exportAllowed = exportAllowed;
     }
-    if (f6 != null) {
-      $result.f6 = f6;
-    }
-    if (f7 != null) {
-      $result.f7 = f7;
-    }
-    if (f8 != null) {
-      $result.f8 = f8;
-    }
-    if (f9 != null) {
-      $result.f9 = f9;
-    }
-    if (f10 != null) {
-      $result.f10 = f10;
-    }
-    if (f11 != null) {
-      $result.f11 = f11;
-    }
-    if (f12 != null) {
-      $result.f12 = f12;
-    }
-    if (authF1 != null) {
-      $result.authF1 = authF1;
-    }
-    if (authF2 != null) {
-      $result.authF2 = authF2;
-    }
-    if (authF3 != null) {
-      $result.authF3 = authF3;
-    }
-    if (authF4 != null) {
-      $result.authF4 = authF4;
-    }
-    if (authF5 != null) {
-      $result.authF5 = authF5;
-    }
-    if (authF6 != null) {
-      $result.authF6 = authF6;
-    }
-    if (authF7 != null) {
-      $result.authF7 = authF7;
-    }
-    if (authF8 != null) {
-      $result.authF8 = authF8;
-    }
-    if (authF9 != null) {
-      $result.authF9 = authF9;
-    }
-    if (authF10 != null) {
-      $result.authF10 = authF10;
-    }
-    if (authF11 != null) {
-      $result.authF11 = authF11;
-    }
-    if (authF12 != null) {
-      $result.authF12 = authF12;
+    if (printAllowed != null) {
+      $result.printAllowed = printAllowed;
     }
     if (updMode != null) {
       $result.updMode = updMode;
@@ -7870,34 +10422,20 @@ class grpcRoleDetailModel extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcRoleDetailModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOS(2, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
-    ..aOS(3, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
-    ..aOS(4, _omitFieldNames ? '' : 'ScreenName', protoName: 'ScreenName')
-    ..aOS(5, _omitFieldNames ? '' : 'F1', protoName: 'F1')
-    ..aOS(6, _omitFieldNames ? '' : 'F2', protoName: 'F2')
-    ..aOS(7, _omitFieldNames ? '' : 'F3', protoName: 'F3')
-    ..aOS(8, _omitFieldNames ? '' : 'F4', protoName: 'F4')
-    ..aOS(9, _omitFieldNames ? '' : 'F5', protoName: 'F5')
-    ..aOS(10, _omitFieldNames ? '' : 'F6', protoName: 'F6')
-    ..aOS(11, _omitFieldNames ? '' : 'F7', protoName: 'F7')
-    ..aOS(12, _omitFieldNames ? '' : 'F8', protoName: 'F8')
-    ..aOS(13, _omitFieldNames ? '' : 'F9', protoName: 'F9')
-    ..aOS(14, _omitFieldNames ? '' : 'F10', protoName: 'F10')
-    ..aOS(15, _omitFieldNames ? '' : 'F11', protoName: 'F11')
-    ..aOS(16, _omitFieldNames ? '' : 'F12', protoName: 'F12')
-    ..aOB(17, _omitFieldNames ? '' : 'AuthF1', protoName: 'AuthF1')
-    ..aOB(18, _omitFieldNames ? '' : 'AuthF2', protoName: 'AuthF2')
-    ..aOB(19, _omitFieldNames ? '' : 'AuthF3', protoName: 'AuthF3')
-    ..aOB(20, _omitFieldNames ? '' : 'AuthF4', protoName: 'AuthF4')
-    ..aOB(21, _omitFieldNames ? '' : 'AuthF5', protoName: 'AuthF5')
-    ..aOB(22, _omitFieldNames ? '' : 'AuthF6', protoName: 'AuthF6')
-    ..aOB(23, _omitFieldNames ? '' : 'AuthF7', protoName: 'AuthF7')
-    ..aOB(24, _omitFieldNames ? '' : 'AuthF8', protoName: 'AuthF8')
-    ..aOB(25, _omitFieldNames ? '' : 'AuthF9', protoName: 'AuthF9')
-    ..aOB(26, _omitFieldNames ? '' : 'AuthF10', protoName: 'AuthF10')
-    ..aOB(27, _omitFieldNames ? '' : 'AuthF11', protoName: 'AuthF11')
-    ..aOB(28, _omitFieldNames ? '' : 'AuthF12', protoName: 'AuthF12')
-    ..a<$core.int>(29, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'Level', $pb.PbFieldType.O3, protoName: 'Level')
+    ..aOS(5, _omitFieldNames ? '' : 'MenuGroupID', protoName: 'MenuGroupID')
+    ..aOS(6, _omitFieldNames ? '' : 'MenuSubGroupID', protoName: 'MenuSubGroupID')
+    ..aOS(7, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..aOS(8, _omitFieldNames ? '' : 'ScreenName', protoName: 'ScreenName')
+    ..aOB(9, _omitFieldNames ? '' : 'FullAllowded', protoName: 'FullAllowded')
+    ..aOB(10, _omitFieldNames ? '' : 'AddnewAllowed', protoName: 'AddnewAllowed')
+    ..aOB(11, _omitFieldNames ? '' : 'UpdateAllowed', protoName: 'UpdateAllowed')
+    ..aOB(12, _omitFieldNames ? '' : 'DeleteAllowed', protoName: 'DeleteAllowed')
+    ..aOB(13, _omitFieldNames ? '' : 'ExportAllowed', protoName: 'ExportAllowed')
+    ..aOB(14, _omitFieldNames ? '' : 'PrintAllowed', protoName: 'PrintAllowed')
+    ..a<$core.int>(15, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
 
@@ -7932,256 +10470,130 @@ class grpcRoleDetailModel extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get roleID => $_getSZ(1);
+  $core.String get systemID => $_getSZ(1);
   @$pb.TagNumber(2)
-  set roleID($core.String v) { $_setString(1, v); }
+  set systemID($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRoleID() => $_has(1);
+  $core.bool hasSystemID() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRoleID() => clearField(2);
+  void clearSystemID() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get screenID => $_getSZ(2);
+  $core.String get roleID => $_getSZ(2);
   @$pb.TagNumber(3)
-  set screenID($core.String v) { $_setString(2, v); }
+  set roleID($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasScreenID() => $_has(2);
+  $core.bool hasRoleID() => $_has(2);
   @$pb.TagNumber(3)
-  void clearScreenID() => clearField(3);
+  void clearRoleID() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get screenName => $_getSZ(3);
+  $core.int get level => $_getIZ(3);
   @$pb.TagNumber(4)
-  set screenName($core.String v) { $_setString(3, v); }
+  set level($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasScreenName() => $_has(3);
+  $core.bool hasLevel() => $_has(3);
   @$pb.TagNumber(4)
-  void clearScreenName() => clearField(4);
+  void clearLevel() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get f1 => $_getSZ(4);
+  $core.String get menuGroupID => $_getSZ(4);
   @$pb.TagNumber(5)
-  set f1($core.String v) { $_setString(4, v); }
+  set menuGroupID($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasF1() => $_has(4);
+  $core.bool hasMenuGroupID() => $_has(4);
   @$pb.TagNumber(5)
-  void clearF1() => clearField(5);
+  void clearMenuGroupID() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get f2 => $_getSZ(5);
+  $core.String get menuSubGroupID => $_getSZ(5);
   @$pb.TagNumber(6)
-  set f2($core.String v) { $_setString(5, v); }
+  set menuSubGroupID($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasF2() => $_has(5);
+  $core.bool hasMenuSubGroupID() => $_has(5);
   @$pb.TagNumber(6)
-  void clearF2() => clearField(6);
+  void clearMenuSubGroupID() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get f3 => $_getSZ(6);
+  $core.String get screenID => $_getSZ(6);
   @$pb.TagNumber(7)
-  set f3($core.String v) { $_setString(6, v); }
+  set screenID($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasF3() => $_has(6);
+  $core.bool hasScreenID() => $_has(6);
   @$pb.TagNumber(7)
-  void clearF3() => clearField(7);
+  void clearScreenID() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get f4 => $_getSZ(7);
+  $core.String get screenName => $_getSZ(7);
   @$pb.TagNumber(8)
-  set f4($core.String v) { $_setString(7, v); }
+  set screenName($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasF4() => $_has(7);
+  $core.bool hasScreenName() => $_has(7);
   @$pb.TagNumber(8)
-  void clearF4() => clearField(8);
+  void clearScreenName() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.String get f5 => $_getSZ(8);
+  $core.bool get fullAllowded => $_getBF(8);
   @$pb.TagNumber(9)
-  set f5($core.String v) { $_setString(8, v); }
+  set fullAllowded($core.bool v) { $_setBool(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasF5() => $_has(8);
+  $core.bool hasFullAllowded() => $_has(8);
   @$pb.TagNumber(9)
-  void clearF5() => clearField(9);
+  void clearFullAllowded() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.String get f6 => $_getSZ(9);
+  $core.bool get addnewAllowed => $_getBF(9);
   @$pb.TagNumber(10)
-  set f6($core.String v) { $_setString(9, v); }
+  set addnewAllowed($core.bool v) { $_setBool(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasF6() => $_has(9);
+  $core.bool hasAddnewAllowed() => $_has(9);
   @$pb.TagNumber(10)
-  void clearF6() => clearField(10);
+  void clearAddnewAllowed() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get f7 => $_getSZ(10);
+  $core.bool get updateAllowed => $_getBF(10);
   @$pb.TagNumber(11)
-  set f7($core.String v) { $_setString(10, v); }
+  set updateAllowed($core.bool v) { $_setBool(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasF7() => $_has(10);
+  $core.bool hasUpdateAllowed() => $_has(10);
   @$pb.TagNumber(11)
-  void clearF7() => clearField(11);
+  void clearUpdateAllowed() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get f8 => $_getSZ(11);
+  $core.bool get deleteAllowed => $_getBF(11);
   @$pb.TagNumber(12)
-  set f8($core.String v) { $_setString(11, v); }
+  set deleteAllowed($core.bool v) { $_setBool(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasF8() => $_has(11);
+  $core.bool hasDeleteAllowed() => $_has(11);
   @$pb.TagNumber(12)
-  void clearF8() => clearField(12);
+  void clearDeleteAllowed() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get f9 => $_getSZ(12);
+  $core.bool get exportAllowed => $_getBF(12);
   @$pb.TagNumber(13)
-  set f9($core.String v) { $_setString(12, v); }
+  set exportAllowed($core.bool v) { $_setBool(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasF9() => $_has(12);
+  $core.bool hasExportAllowed() => $_has(12);
   @$pb.TagNumber(13)
-  void clearF9() => clearField(13);
+  void clearExportAllowed() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get f10 => $_getSZ(13);
+  $core.bool get printAllowed => $_getBF(13);
   @$pb.TagNumber(14)
-  set f10($core.String v) { $_setString(13, v); }
+  set printAllowed($core.bool v) { $_setBool(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasF10() => $_has(13);
+  $core.bool hasPrintAllowed() => $_has(13);
   @$pb.TagNumber(14)
-  void clearF10() => clearField(14);
+  void clearPrintAllowed() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get f11 => $_getSZ(14);
+  $core.int get updMode => $_getIZ(14);
   @$pb.TagNumber(15)
-  set f11($core.String v) { $_setString(14, v); }
+  set updMode($core.int v) { $_setSignedInt32(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasF11() => $_has(14);
+  $core.bool hasUpdMode() => $_has(14);
   @$pb.TagNumber(15)
-  void clearF11() => clearField(15);
-
-  @$pb.TagNumber(16)
-  $core.String get f12 => $_getSZ(15);
-  @$pb.TagNumber(16)
-  set f12($core.String v) { $_setString(15, v); }
-  @$pb.TagNumber(16)
-  $core.bool hasF12() => $_has(15);
-  @$pb.TagNumber(16)
-  void clearF12() => clearField(16);
-
-  @$pb.TagNumber(17)
-  $core.bool get authF1 => $_getBF(16);
-  @$pb.TagNumber(17)
-  set authF1($core.bool v) { $_setBool(16, v); }
-  @$pb.TagNumber(17)
-  $core.bool hasAuthF1() => $_has(16);
-  @$pb.TagNumber(17)
-  void clearAuthF1() => clearField(17);
-
-  @$pb.TagNumber(18)
-  $core.bool get authF2 => $_getBF(17);
-  @$pb.TagNumber(18)
-  set authF2($core.bool v) { $_setBool(17, v); }
-  @$pb.TagNumber(18)
-  $core.bool hasAuthF2() => $_has(17);
-  @$pb.TagNumber(18)
-  void clearAuthF2() => clearField(18);
-
-  @$pb.TagNumber(19)
-  $core.bool get authF3 => $_getBF(18);
-  @$pb.TagNumber(19)
-  set authF3($core.bool v) { $_setBool(18, v); }
-  @$pb.TagNumber(19)
-  $core.bool hasAuthF3() => $_has(18);
-  @$pb.TagNumber(19)
-  void clearAuthF3() => clearField(19);
-
-  @$pb.TagNumber(20)
-  $core.bool get authF4 => $_getBF(19);
-  @$pb.TagNumber(20)
-  set authF4($core.bool v) { $_setBool(19, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasAuthF4() => $_has(19);
-  @$pb.TagNumber(20)
-  void clearAuthF4() => clearField(20);
-
-  @$pb.TagNumber(21)
-  $core.bool get authF5 => $_getBF(20);
-  @$pb.TagNumber(21)
-  set authF5($core.bool v) { $_setBool(20, v); }
-  @$pb.TagNumber(21)
-  $core.bool hasAuthF5() => $_has(20);
-  @$pb.TagNumber(21)
-  void clearAuthF5() => clearField(21);
-
-  @$pb.TagNumber(22)
-  $core.bool get authF6 => $_getBF(21);
-  @$pb.TagNumber(22)
-  set authF6($core.bool v) { $_setBool(21, v); }
-  @$pb.TagNumber(22)
-  $core.bool hasAuthF6() => $_has(21);
-  @$pb.TagNumber(22)
-  void clearAuthF6() => clearField(22);
-
-  @$pb.TagNumber(23)
-  $core.bool get authF7 => $_getBF(22);
-  @$pb.TagNumber(23)
-  set authF7($core.bool v) { $_setBool(22, v); }
-  @$pb.TagNumber(23)
-  $core.bool hasAuthF7() => $_has(22);
-  @$pb.TagNumber(23)
-  void clearAuthF7() => clearField(23);
-
-  @$pb.TagNumber(24)
-  $core.bool get authF8 => $_getBF(23);
-  @$pb.TagNumber(24)
-  set authF8($core.bool v) { $_setBool(23, v); }
-  @$pb.TagNumber(24)
-  $core.bool hasAuthF8() => $_has(23);
-  @$pb.TagNumber(24)
-  void clearAuthF8() => clearField(24);
-
-  @$pb.TagNumber(25)
-  $core.bool get authF9 => $_getBF(24);
-  @$pb.TagNumber(25)
-  set authF9($core.bool v) { $_setBool(24, v); }
-  @$pb.TagNumber(25)
-  $core.bool hasAuthF9() => $_has(24);
-  @$pb.TagNumber(25)
-  void clearAuthF9() => clearField(25);
-
-  @$pb.TagNumber(26)
-  $core.bool get authF10 => $_getBF(25);
-  @$pb.TagNumber(26)
-  set authF10($core.bool v) { $_setBool(25, v); }
-  @$pb.TagNumber(26)
-  $core.bool hasAuthF10() => $_has(25);
-  @$pb.TagNumber(26)
-  void clearAuthF10() => clearField(26);
-
-  @$pb.TagNumber(27)
-  $core.bool get authF11 => $_getBF(26);
-  @$pb.TagNumber(27)
-  set authF11($core.bool v) { $_setBool(26, v); }
-  @$pb.TagNumber(27)
-  $core.bool hasAuthF11() => $_has(26);
-  @$pb.TagNumber(27)
-  void clearAuthF11() => clearField(27);
-
-  @$pb.TagNumber(28)
-  $core.bool get authF12 => $_getBF(27);
-  @$pb.TagNumber(28)
-  set authF12($core.bool v) { $_setBool(27, v); }
-  @$pb.TagNumber(28)
-  $core.bool hasAuthF12() => $_has(27);
-  @$pb.TagNumber(28)
-  void clearAuthF12() => clearField(28);
-
-  @$pb.TagNumber(29)
-  $core.int get updMode => $_getIZ(28);
-  @$pb.TagNumber(29)
-  set updMode($core.int v) { $_setSignedInt32(28, v); }
-  @$pb.TagNumber(29)
-  $core.bool hasUpdMode() => $_has(28);
-  @$pb.TagNumber(29)
-  void clearUpdMode() => clearField(29);
+  void clearUpdMode() => clearField(15);
 }
 
 /// >>> End generated RoleDetail message
@@ -8758,6 +11170,7 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     $core.String? screenName,
     $core.String? menuName,
     $core.bool? isShowPopup,
+    $core.bool? isMaximized,
     $core.String? f1,
     $core.String? f2,
     $core.String? f3,
@@ -8798,7 +11211,7 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -8824,6 +11237,9 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     }
     if (isShowPopup != null) {
       $result.isShowPopup = isShowPopup;
+    }
+    if (isMaximized != null) {
+      $result.isMaximized = isMaximized;
     }
     if (f1 != null) {
       $result.f1 = f1;
@@ -8963,47 +11379,48 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'ScreenName', protoName: 'ScreenName')
     ..aOS(7, _omitFieldNames ? '' : 'MenuName', protoName: 'MenuName')
     ..aOB(8, _omitFieldNames ? '' : 'IsShowPopup', protoName: 'IsShowPopup')
-    ..aOS(9, _omitFieldNames ? '' : 'F1', protoName: 'F1')
-    ..aOS(10, _omitFieldNames ? '' : 'F2', protoName: 'F2')
-    ..aOS(11, _omitFieldNames ? '' : 'F3', protoName: 'F3')
-    ..aOS(12, _omitFieldNames ? '' : 'F4', protoName: 'F4')
-    ..aOS(13, _omitFieldNames ? '' : 'F5', protoName: 'F5')
-    ..aOS(14, _omitFieldNames ? '' : 'F6', protoName: 'F6')
-    ..aOS(15, _omitFieldNames ? '' : 'F7', protoName: 'F7')
-    ..aOS(16, _omitFieldNames ? '' : 'F8', protoName: 'F8')
-    ..aOS(17, _omitFieldNames ? '' : 'F9', protoName: 'F9')
-    ..aOS(18, _omitFieldNames ? '' : 'F10', protoName: 'F10')
-    ..aOS(19, _omitFieldNames ? '' : 'F11', protoName: 'F11')
-    ..aOS(20, _omitFieldNames ? '' : 'F12', protoName: 'F12')
-    ..aOS(21, _omitFieldNames ? '' : 'ShortCutKeyF1', protoName: 'ShortCutKeyF1')
-    ..aOS(22, _omitFieldNames ? '' : 'ShortCutKeyF2', protoName: 'ShortCutKeyF2')
-    ..aOS(23, _omitFieldNames ? '' : 'ShortCutKeyF3', protoName: 'ShortCutKeyF3')
-    ..aOS(24, _omitFieldNames ? '' : 'ShortCutKeyF4', protoName: 'ShortCutKeyF4')
-    ..aOS(25, _omitFieldNames ? '' : 'ShortCutKeyF5', protoName: 'ShortCutKeyF5')
-    ..aOS(26, _omitFieldNames ? '' : 'ShortCutKeyF6', protoName: 'ShortCutKeyF6')
-    ..aOS(27, _omitFieldNames ? '' : 'ShortCutKeyF7', protoName: 'ShortCutKeyF7')
-    ..aOS(28, _omitFieldNames ? '' : 'ShortCutKeyF8', protoName: 'ShortCutKeyF8')
-    ..aOS(29, _omitFieldNames ? '' : 'ShortCutKeyF9', protoName: 'ShortCutKeyF9')
-    ..aOS(30, _omitFieldNames ? '' : 'ShortCutKeyF10', protoName: 'ShortCutKeyF10')
-    ..aOS(31, _omitFieldNames ? '' : 'ShortCutKeyF11', protoName: 'ShortCutKeyF11')
-    ..aOS(32, _omitFieldNames ? '' : 'ShortCutKeyF12', protoName: 'ShortCutKeyF12')
-    ..a<$core.List<$core.int>>(33, _omitFieldNames ? '' : 'IconF1', $pb.PbFieldType.OY, protoName: 'IconF1')
-    ..a<$core.List<$core.int>>(34, _omitFieldNames ? '' : 'IconF2', $pb.PbFieldType.OY, protoName: 'IconF2')
-    ..a<$core.List<$core.int>>(35, _omitFieldNames ? '' : 'IconF3', $pb.PbFieldType.OY, protoName: 'IconF3')
-    ..a<$core.List<$core.int>>(36, _omitFieldNames ? '' : 'IconF4', $pb.PbFieldType.OY, protoName: 'IconF4')
-    ..a<$core.List<$core.int>>(37, _omitFieldNames ? '' : 'IconF5', $pb.PbFieldType.OY, protoName: 'IconF5')
-    ..a<$core.List<$core.int>>(38, _omitFieldNames ? '' : 'IconF6', $pb.PbFieldType.OY, protoName: 'IconF6')
-    ..a<$core.List<$core.int>>(39, _omitFieldNames ? '' : 'IconF7', $pb.PbFieldType.OY, protoName: 'IconF7')
-    ..a<$core.List<$core.int>>(40, _omitFieldNames ? '' : 'IconF8', $pb.PbFieldType.OY, protoName: 'IconF8')
-    ..a<$core.List<$core.int>>(41, _omitFieldNames ? '' : 'IconF9', $pb.PbFieldType.OY, protoName: 'IconF9')
-    ..a<$core.List<$core.int>>(42, _omitFieldNames ? '' : 'IconF10', $pb.PbFieldType.OY, protoName: 'IconF10')
-    ..a<$core.List<$core.int>>(43, _omitFieldNames ? '' : 'IconF11', $pb.PbFieldType.OY, protoName: 'IconF11')
-    ..a<$core.List<$core.int>>(44, _omitFieldNames ? '' : 'IconF12', $pb.PbFieldType.OY, protoName: 'IconF12')
-    ..a<$core.int>(45, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(46, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(47, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(48, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(49, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOB(9, _omitFieldNames ? '' : 'IsMaximized', protoName: 'IsMaximized')
+    ..aOS(10, _omitFieldNames ? '' : 'F1', protoName: 'F1')
+    ..aOS(11, _omitFieldNames ? '' : 'F2', protoName: 'F2')
+    ..aOS(12, _omitFieldNames ? '' : 'F3', protoName: 'F3')
+    ..aOS(13, _omitFieldNames ? '' : 'F4', protoName: 'F4')
+    ..aOS(14, _omitFieldNames ? '' : 'F5', protoName: 'F5')
+    ..aOS(15, _omitFieldNames ? '' : 'F6', protoName: 'F6')
+    ..aOS(16, _omitFieldNames ? '' : 'F7', protoName: 'F7')
+    ..aOS(17, _omitFieldNames ? '' : 'F8', protoName: 'F8')
+    ..aOS(18, _omitFieldNames ? '' : 'F9', protoName: 'F9')
+    ..aOS(19, _omitFieldNames ? '' : 'F10', protoName: 'F10')
+    ..aOS(20, _omitFieldNames ? '' : 'F11', protoName: 'F11')
+    ..aOS(21, _omitFieldNames ? '' : 'F12', protoName: 'F12')
+    ..aOS(22, _omitFieldNames ? '' : 'ShortCutKeyF1', protoName: 'ShortCutKeyF1')
+    ..aOS(23, _omitFieldNames ? '' : 'ShortCutKeyF2', protoName: 'ShortCutKeyF2')
+    ..aOS(24, _omitFieldNames ? '' : 'ShortCutKeyF3', protoName: 'ShortCutKeyF3')
+    ..aOS(25, _omitFieldNames ? '' : 'ShortCutKeyF4', protoName: 'ShortCutKeyF4')
+    ..aOS(26, _omitFieldNames ? '' : 'ShortCutKeyF5', protoName: 'ShortCutKeyF5')
+    ..aOS(27, _omitFieldNames ? '' : 'ShortCutKeyF6', protoName: 'ShortCutKeyF6')
+    ..aOS(28, _omitFieldNames ? '' : 'ShortCutKeyF7', protoName: 'ShortCutKeyF7')
+    ..aOS(29, _omitFieldNames ? '' : 'ShortCutKeyF8', protoName: 'ShortCutKeyF8')
+    ..aOS(30, _omitFieldNames ? '' : 'ShortCutKeyF9', protoName: 'ShortCutKeyF9')
+    ..aOS(31, _omitFieldNames ? '' : 'ShortCutKeyF10', protoName: 'ShortCutKeyF10')
+    ..aOS(32, _omitFieldNames ? '' : 'ShortCutKeyF11', protoName: 'ShortCutKeyF11')
+    ..aOS(33, _omitFieldNames ? '' : 'ShortCutKeyF12', protoName: 'ShortCutKeyF12')
+    ..a<$core.List<$core.int>>(34, _omitFieldNames ? '' : 'IconF1', $pb.PbFieldType.OY, protoName: 'IconF1')
+    ..a<$core.List<$core.int>>(35, _omitFieldNames ? '' : 'IconF2', $pb.PbFieldType.OY, protoName: 'IconF2')
+    ..a<$core.List<$core.int>>(36, _omitFieldNames ? '' : 'IconF3', $pb.PbFieldType.OY, protoName: 'IconF3')
+    ..a<$core.List<$core.int>>(37, _omitFieldNames ? '' : 'IconF4', $pb.PbFieldType.OY, protoName: 'IconF4')
+    ..a<$core.List<$core.int>>(38, _omitFieldNames ? '' : 'IconF5', $pb.PbFieldType.OY, protoName: 'IconF5')
+    ..a<$core.List<$core.int>>(39, _omitFieldNames ? '' : 'IconF6', $pb.PbFieldType.OY, protoName: 'IconF6')
+    ..a<$core.List<$core.int>>(40, _omitFieldNames ? '' : 'IconF7', $pb.PbFieldType.OY, protoName: 'IconF7')
+    ..a<$core.List<$core.int>>(41, _omitFieldNames ? '' : 'IconF8', $pb.PbFieldType.OY, protoName: 'IconF8')
+    ..a<$core.List<$core.int>>(42, _omitFieldNames ? '' : 'IconF9', $pb.PbFieldType.OY, protoName: 'IconF9')
+    ..a<$core.List<$core.int>>(43, _omitFieldNames ? '' : 'IconF10', $pb.PbFieldType.OY, protoName: 'IconF10')
+    ..a<$core.List<$core.int>>(44, _omitFieldNames ? '' : 'IconF11', $pb.PbFieldType.OY, protoName: 'IconF11')
+    ..a<$core.List<$core.int>>(45, _omitFieldNames ? '' : 'IconF12', $pb.PbFieldType.OY, protoName: 'IconF12')
+    ..a<$core.int>(46, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(47, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(48, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(49, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$5.Timestamp>(50, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -9101,375 +11518,384 @@ class grpcScreenModel extends $pb.GeneratedMessage {
   void clearIsShowPopup() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.String get f1 => $_getSZ(8);
+  $core.bool get isMaximized => $_getBF(8);
   @$pb.TagNumber(9)
-  set f1($core.String v) { $_setString(8, v); }
+  set isMaximized($core.bool v) { $_setBool(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasF1() => $_has(8);
+  $core.bool hasIsMaximized() => $_has(8);
   @$pb.TagNumber(9)
-  void clearF1() => clearField(9);
+  void clearIsMaximized() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.String get f2 => $_getSZ(9);
+  $core.String get f1 => $_getSZ(9);
   @$pb.TagNumber(10)
-  set f2($core.String v) { $_setString(9, v); }
+  set f1($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasF2() => $_has(9);
+  $core.bool hasF1() => $_has(9);
   @$pb.TagNumber(10)
-  void clearF2() => clearField(10);
+  void clearF1() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get f3 => $_getSZ(10);
+  $core.String get f2 => $_getSZ(10);
   @$pb.TagNumber(11)
-  set f3($core.String v) { $_setString(10, v); }
+  set f2($core.String v) { $_setString(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasF3() => $_has(10);
+  $core.bool hasF2() => $_has(10);
   @$pb.TagNumber(11)
-  void clearF3() => clearField(11);
+  void clearF2() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get f4 => $_getSZ(11);
+  $core.String get f3 => $_getSZ(11);
   @$pb.TagNumber(12)
-  set f4($core.String v) { $_setString(11, v); }
+  set f3($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasF4() => $_has(11);
+  $core.bool hasF3() => $_has(11);
   @$pb.TagNumber(12)
-  void clearF4() => clearField(12);
+  void clearF3() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get f5 => $_getSZ(12);
+  $core.String get f4 => $_getSZ(12);
   @$pb.TagNumber(13)
-  set f5($core.String v) { $_setString(12, v); }
+  set f4($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasF5() => $_has(12);
+  $core.bool hasF4() => $_has(12);
   @$pb.TagNumber(13)
-  void clearF5() => clearField(13);
+  void clearF4() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get f6 => $_getSZ(13);
+  $core.String get f5 => $_getSZ(13);
   @$pb.TagNumber(14)
-  set f6($core.String v) { $_setString(13, v); }
+  set f5($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasF6() => $_has(13);
+  $core.bool hasF5() => $_has(13);
   @$pb.TagNumber(14)
-  void clearF6() => clearField(14);
+  void clearF5() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get f7 => $_getSZ(14);
+  $core.String get f6 => $_getSZ(14);
   @$pb.TagNumber(15)
-  set f7($core.String v) { $_setString(14, v); }
+  set f6($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasF7() => $_has(14);
+  $core.bool hasF6() => $_has(14);
   @$pb.TagNumber(15)
-  void clearF7() => clearField(15);
+  void clearF6() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get f8 => $_getSZ(15);
+  $core.String get f7 => $_getSZ(15);
   @$pb.TagNumber(16)
-  set f8($core.String v) { $_setString(15, v); }
+  set f7($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasF8() => $_has(15);
+  $core.bool hasF7() => $_has(15);
   @$pb.TagNumber(16)
-  void clearF8() => clearField(16);
+  void clearF7() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get f9 => $_getSZ(16);
+  $core.String get f8 => $_getSZ(16);
   @$pb.TagNumber(17)
-  set f9($core.String v) { $_setString(16, v); }
+  set f8($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasF9() => $_has(16);
+  $core.bool hasF8() => $_has(16);
   @$pb.TagNumber(17)
-  void clearF9() => clearField(17);
+  void clearF8() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.String get f10 => $_getSZ(17);
+  $core.String get f9 => $_getSZ(17);
   @$pb.TagNumber(18)
-  set f10($core.String v) { $_setString(17, v); }
+  set f9($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasF10() => $_has(17);
+  $core.bool hasF9() => $_has(17);
   @$pb.TagNumber(18)
-  void clearF10() => clearField(18);
+  void clearF9() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.String get f11 => $_getSZ(18);
+  $core.String get f10 => $_getSZ(18);
   @$pb.TagNumber(19)
-  set f11($core.String v) { $_setString(18, v); }
+  set f10($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasF11() => $_has(18);
+  $core.bool hasF10() => $_has(18);
   @$pb.TagNumber(19)
-  void clearF11() => clearField(19);
+  void clearF10() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.String get f12 => $_getSZ(19);
+  $core.String get f11 => $_getSZ(19);
   @$pb.TagNumber(20)
-  set f12($core.String v) { $_setString(19, v); }
+  set f11($core.String v) { $_setString(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasF12() => $_has(19);
+  $core.bool hasF11() => $_has(19);
   @$pb.TagNumber(20)
-  void clearF12() => clearField(20);
+  void clearF11() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get shortCutKeyF1 => $_getSZ(20);
+  $core.String get f12 => $_getSZ(20);
   @$pb.TagNumber(21)
-  set shortCutKeyF1($core.String v) { $_setString(20, v); }
+  set f12($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasShortCutKeyF1() => $_has(20);
+  $core.bool hasF12() => $_has(20);
   @$pb.TagNumber(21)
-  void clearShortCutKeyF1() => clearField(21);
+  void clearF12() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.String get shortCutKeyF2 => $_getSZ(21);
+  $core.String get shortCutKeyF1 => $_getSZ(21);
   @$pb.TagNumber(22)
-  set shortCutKeyF2($core.String v) { $_setString(21, v); }
+  set shortCutKeyF1($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasShortCutKeyF2() => $_has(21);
+  $core.bool hasShortCutKeyF1() => $_has(21);
   @$pb.TagNumber(22)
-  void clearShortCutKeyF2() => clearField(22);
+  void clearShortCutKeyF1() => clearField(22);
 
   @$pb.TagNumber(23)
-  $core.String get shortCutKeyF3 => $_getSZ(22);
+  $core.String get shortCutKeyF2 => $_getSZ(22);
   @$pb.TagNumber(23)
-  set shortCutKeyF3($core.String v) { $_setString(22, v); }
+  set shortCutKeyF2($core.String v) { $_setString(22, v); }
   @$pb.TagNumber(23)
-  $core.bool hasShortCutKeyF3() => $_has(22);
+  $core.bool hasShortCutKeyF2() => $_has(22);
   @$pb.TagNumber(23)
-  void clearShortCutKeyF3() => clearField(23);
+  void clearShortCutKeyF2() => clearField(23);
 
   @$pb.TagNumber(24)
-  $core.String get shortCutKeyF4 => $_getSZ(23);
+  $core.String get shortCutKeyF3 => $_getSZ(23);
   @$pb.TagNumber(24)
-  set shortCutKeyF4($core.String v) { $_setString(23, v); }
+  set shortCutKeyF3($core.String v) { $_setString(23, v); }
   @$pb.TagNumber(24)
-  $core.bool hasShortCutKeyF4() => $_has(23);
+  $core.bool hasShortCutKeyF3() => $_has(23);
   @$pb.TagNumber(24)
-  void clearShortCutKeyF4() => clearField(24);
+  void clearShortCutKeyF3() => clearField(24);
 
   @$pb.TagNumber(25)
-  $core.String get shortCutKeyF5 => $_getSZ(24);
+  $core.String get shortCutKeyF4 => $_getSZ(24);
   @$pb.TagNumber(25)
-  set shortCutKeyF5($core.String v) { $_setString(24, v); }
+  set shortCutKeyF4($core.String v) { $_setString(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasShortCutKeyF5() => $_has(24);
+  $core.bool hasShortCutKeyF4() => $_has(24);
   @$pb.TagNumber(25)
-  void clearShortCutKeyF5() => clearField(25);
+  void clearShortCutKeyF4() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.String get shortCutKeyF6 => $_getSZ(25);
+  $core.String get shortCutKeyF5 => $_getSZ(25);
   @$pb.TagNumber(26)
-  set shortCutKeyF6($core.String v) { $_setString(25, v); }
+  set shortCutKeyF5($core.String v) { $_setString(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasShortCutKeyF6() => $_has(25);
+  $core.bool hasShortCutKeyF5() => $_has(25);
   @$pb.TagNumber(26)
-  void clearShortCutKeyF6() => clearField(26);
+  void clearShortCutKeyF5() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.String get shortCutKeyF7 => $_getSZ(26);
+  $core.String get shortCutKeyF6 => $_getSZ(26);
   @$pb.TagNumber(27)
-  set shortCutKeyF7($core.String v) { $_setString(26, v); }
+  set shortCutKeyF6($core.String v) { $_setString(26, v); }
   @$pb.TagNumber(27)
-  $core.bool hasShortCutKeyF7() => $_has(26);
+  $core.bool hasShortCutKeyF6() => $_has(26);
   @$pb.TagNumber(27)
-  void clearShortCutKeyF7() => clearField(27);
+  void clearShortCutKeyF6() => clearField(27);
 
   @$pb.TagNumber(28)
-  $core.String get shortCutKeyF8 => $_getSZ(27);
+  $core.String get shortCutKeyF7 => $_getSZ(27);
   @$pb.TagNumber(28)
-  set shortCutKeyF8($core.String v) { $_setString(27, v); }
+  set shortCutKeyF7($core.String v) { $_setString(27, v); }
   @$pb.TagNumber(28)
-  $core.bool hasShortCutKeyF8() => $_has(27);
+  $core.bool hasShortCutKeyF7() => $_has(27);
   @$pb.TagNumber(28)
-  void clearShortCutKeyF8() => clearField(28);
+  void clearShortCutKeyF7() => clearField(28);
 
   @$pb.TagNumber(29)
-  $core.String get shortCutKeyF9 => $_getSZ(28);
+  $core.String get shortCutKeyF8 => $_getSZ(28);
   @$pb.TagNumber(29)
-  set shortCutKeyF9($core.String v) { $_setString(28, v); }
+  set shortCutKeyF8($core.String v) { $_setString(28, v); }
   @$pb.TagNumber(29)
-  $core.bool hasShortCutKeyF9() => $_has(28);
+  $core.bool hasShortCutKeyF8() => $_has(28);
   @$pb.TagNumber(29)
-  void clearShortCutKeyF9() => clearField(29);
+  void clearShortCutKeyF8() => clearField(29);
 
   @$pb.TagNumber(30)
-  $core.String get shortCutKeyF10 => $_getSZ(29);
+  $core.String get shortCutKeyF9 => $_getSZ(29);
   @$pb.TagNumber(30)
-  set shortCutKeyF10($core.String v) { $_setString(29, v); }
+  set shortCutKeyF9($core.String v) { $_setString(29, v); }
   @$pb.TagNumber(30)
-  $core.bool hasShortCutKeyF10() => $_has(29);
+  $core.bool hasShortCutKeyF9() => $_has(29);
   @$pb.TagNumber(30)
-  void clearShortCutKeyF10() => clearField(30);
+  void clearShortCutKeyF9() => clearField(30);
 
   @$pb.TagNumber(31)
-  $core.String get shortCutKeyF11 => $_getSZ(30);
+  $core.String get shortCutKeyF10 => $_getSZ(30);
   @$pb.TagNumber(31)
-  set shortCutKeyF11($core.String v) { $_setString(30, v); }
+  set shortCutKeyF10($core.String v) { $_setString(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasShortCutKeyF11() => $_has(30);
+  $core.bool hasShortCutKeyF10() => $_has(30);
   @$pb.TagNumber(31)
-  void clearShortCutKeyF11() => clearField(31);
+  void clearShortCutKeyF10() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.String get shortCutKeyF12 => $_getSZ(31);
+  $core.String get shortCutKeyF11 => $_getSZ(31);
   @$pb.TagNumber(32)
-  set shortCutKeyF12($core.String v) { $_setString(31, v); }
+  set shortCutKeyF11($core.String v) { $_setString(31, v); }
   @$pb.TagNumber(32)
-  $core.bool hasShortCutKeyF12() => $_has(31);
+  $core.bool hasShortCutKeyF11() => $_has(31);
   @$pb.TagNumber(32)
-  void clearShortCutKeyF12() => clearField(32);
+  void clearShortCutKeyF11() => clearField(32);
 
   @$pb.TagNumber(33)
-  $core.List<$core.int> get iconF1 => $_getN(32);
+  $core.String get shortCutKeyF12 => $_getSZ(32);
   @$pb.TagNumber(33)
-  set iconF1($core.List<$core.int> v) { $_setBytes(32, v); }
+  set shortCutKeyF12($core.String v) { $_setString(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasIconF1() => $_has(32);
+  $core.bool hasShortCutKeyF12() => $_has(32);
   @$pb.TagNumber(33)
-  void clearIconF1() => clearField(33);
+  void clearShortCutKeyF12() => clearField(33);
 
   @$pb.TagNumber(34)
-  $core.List<$core.int> get iconF2 => $_getN(33);
+  $core.List<$core.int> get iconF1 => $_getN(33);
   @$pb.TagNumber(34)
-  set iconF2($core.List<$core.int> v) { $_setBytes(33, v); }
+  set iconF1($core.List<$core.int> v) { $_setBytes(33, v); }
   @$pb.TagNumber(34)
-  $core.bool hasIconF2() => $_has(33);
+  $core.bool hasIconF1() => $_has(33);
   @$pb.TagNumber(34)
-  void clearIconF2() => clearField(34);
+  void clearIconF1() => clearField(34);
 
   @$pb.TagNumber(35)
-  $core.List<$core.int> get iconF3 => $_getN(34);
+  $core.List<$core.int> get iconF2 => $_getN(34);
   @$pb.TagNumber(35)
-  set iconF3($core.List<$core.int> v) { $_setBytes(34, v); }
+  set iconF2($core.List<$core.int> v) { $_setBytes(34, v); }
   @$pb.TagNumber(35)
-  $core.bool hasIconF3() => $_has(34);
+  $core.bool hasIconF2() => $_has(34);
   @$pb.TagNumber(35)
-  void clearIconF3() => clearField(35);
+  void clearIconF2() => clearField(35);
 
   @$pb.TagNumber(36)
-  $core.List<$core.int> get iconF4 => $_getN(35);
+  $core.List<$core.int> get iconF3 => $_getN(35);
   @$pb.TagNumber(36)
-  set iconF4($core.List<$core.int> v) { $_setBytes(35, v); }
+  set iconF3($core.List<$core.int> v) { $_setBytes(35, v); }
   @$pb.TagNumber(36)
-  $core.bool hasIconF4() => $_has(35);
+  $core.bool hasIconF3() => $_has(35);
   @$pb.TagNumber(36)
-  void clearIconF4() => clearField(36);
+  void clearIconF3() => clearField(36);
 
   @$pb.TagNumber(37)
-  $core.List<$core.int> get iconF5 => $_getN(36);
+  $core.List<$core.int> get iconF4 => $_getN(36);
   @$pb.TagNumber(37)
-  set iconF5($core.List<$core.int> v) { $_setBytes(36, v); }
+  set iconF4($core.List<$core.int> v) { $_setBytes(36, v); }
   @$pb.TagNumber(37)
-  $core.bool hasIconF5() => $_has(36);
+  $core.bool hasIconF4() => $_has(36);
   @$pb.TagNumber(37)
-  void clearIconF5() => clearField(37);
+  void clearIconF4() => clearField(37);
 
   @$pb.TagNumber(38)
-  $core.List<$core.int> get iconF6 => $_getN(37);
+  $core.List<$core.int> get iconF5 => $_getN(37);
   @$pb.TagNumber(38)
-  set iconF6($core.List<$core.int> v) { $_setBytes(37, v); }
+  set iconF5($core.List<$core.int> v) { $_setBytes(37, v); }
   @$pb.TagNumber(38)
-  $core.bool hasIconF6() => $_has(37);
+  $core.bool hasIconF5() => $_has(37);
   @$pb.TagNumber(38)
-  void clearIconF6() => clearField(38);
+  void clearIconF5() => clearField(38);
 
   @$pb.TagNumber(39)
-  $core.List<$core.int> get iconF7 => $_getN(38);
+  $core.List<$core.int> get iconF6 => $_getN(38);
   @$pb.TagNumber(39)
-  set iconF7($core.List<$core.int> v) { $_setBytes(38, v); }
+  set iconF6($core.List<$core.int> v) { $_setBytes(38, v); }
   @$pb.TagNumber(39)
-  $core.bool hasIconF7() => $_has(38);
+  $core.bool hasIconF6() => $_has(38);
   @$pb.TagNumber(39)
-  void clearIconF7() => clearField(39);
+  void clearIconF6() => clearField(39);
 
   @$pb.TagNumber(40)
-  $core.List<$core.int> get iconF8 => $_getN(39);
+  $core.List<$core.int> get iconF7 => $_getN(39);
   @$pb.TagNumber(40)
-  set iconF8($core.List<$core.int> v) { $_setBytes(39, v); }
+  set iconF7($core.List<$core.int> v) { $_setBytes(39, v); }
   @$pb.TagNumber(40)
-  $core.bool hasIconF8() => $_has(39);
+  $core.bool hasIconF7() => $_has(39);
   @$pb.TagNumber(40)
-  void clearIconF8() => clearField(40);
+  void clearIconF7() => clearField(40);
 
   @$pb.TagNumber(41)
-  $core.List<$core.int> get iconF9 => $_getN(40);
+  $core.List<$core.int> get iconF8 => $_getN(40);
   @$pb.TagNumber(41)
-  set iconF9($core.List<$core.int> v) { $_setBytes(40, v); }
+  set iconF8($core.List<$core.int> v) { $_setBytes(40, v); }
   @$pb.TagNumber(41)
-  $core.bool hasIconF9() => $_has(40);
+  $core.bool hasIconF8() => $_has(40);
   @$pb.TagNumber(41)
-  void clearIconF9() => clearField(41);
+  void clearIconF8() => clearField(41);
 
   @$pb.TagNumber(42)
-  $core.List<$core.int> get iconF10 => $_getN(41);
+  $core.List<$core.int> get iconF9 => $_getN(41);
   @$pb.TagNumber(42)
-  set iconF10($core.List<$core.int> v) { $_setBytes(41, v); }
+  set iconF9($core.List<$core.int> v) { $_setBytes(41, v); }
   @$pb.TagNumber(42)
-  $core.bool hasIconF10() => $_has(41);
+  $core.bool hasIconF9() => $_has(41);
   @$pb.TagNumber(42)
-  void clearIconF10() => clearField(42);
+  void clearIconF9() => clearField(42);
 
   @$pb.TagNumber(43)
-  $core.List<$core.int> get iconF11 => $_getN(42);
+  $core.List<$core.int> get iconF10 => $_getN(42);
   @$pb.TagNumber(43)
-  set iconF11($core.List<$core.int> v) { $_setBytes(42, v); }
+  set iconF10($core.List<$core.int> v) { $_setBytes(42, v); }
   @$pb.TagNumber(43)
-  $core.bool hasIconF11() => $_has(42);
+  $core.bool hasIconF10() => $_has(42);
   @$pb.TagNumber(43)
-  void clearIconF11() => clearField(43);
+  void clearIconF10() => clearField(43);
 
   @$pb.TagNumber(44)
-  $core.List<$core.int> get iconF12 => $_getN(43);
+  $core.List<$core.int> get iconF11 => $_getN(43);
   @$pb.TagNumber(44)
-  set iconF12($core.List<$core.int> v) { $_setBytes(43, v); }
+  set iconF11($core.List<$core.int> v) { $_setBytes(43, v); }
   @$pb.TagNumber(44)
-  $core.bool hasIconF12() => $_has(43);
+  $core.bool hasIconF11() => $_has(43);
   @$pb.TagNumber(44)
-  void clearIconF12() => clearField(44);
+  void clearIconF11() => clearField(44);
 
   @$pb.TagNumber(45)
-  $core.int get updMode => $_getIZ(44);
+  $core.List<$core.int> get iconF12 => $_getN(44);
   @$pb.TagNumber(45)
-  set updMode($core.int v) { $_setSignedInt32(44, v); }
+  set iconF12($core.List<$core.int> v) { $_setBytes(44, v); }
   @$pb.TagNumber(45)
-  $core.bool hasUpdMode() => $_has(44);
+  $core.bool hasIconF12() => $_has(44);
   @$pb.TagNumber(45)
-  void clearUpdMode() => clearField(45);
+  void clearIconF12() => clearField(45);
 
   @$pb.TagNumber(46)
-  $core.int get updCount => $_getIZ(45);
+  $core.int get updMode => $_getIZ(45);
   @$pb.TagNumber(46)
-  set updCount($core.int v) { $_setSignedInt32(45, v); }
+  set updMode($core.int v) { $_setSignedInt32(45, v); }
   @$pb.TagNumber(46)
-  $core.bool hasUpdCount() => $_has(45);
+  $core.bool hasUpdMode() => $_has(45);
   @$pb.TagNumber(46)
-  void clearUpdCount() => clearField(46);
+  void clearUpdMode() => clearField(46);
 
   @$pb.TagNumber(47)
-  $core.String get updTransactionID => $_getSZ(46);
+  $core.int get updCount => $_getIZ(46);
   @$pb.TagNumber(47)
-  set updTransactionID($core.String v) { $_setString(46, v); }
+  set updCount($core.int v) { $_setSignedInt32(46, v); }
   @$pb.TagNumber(47)
-  $core.bool hasUpdTransactionID() => $_has(46);
+  $core.bool hasUpdCount() => $_has(46);
   @$pb.TagNumber(47)
-  void clearUpdTransactionID() => clearField(47);
+  void clearUpdCount() => clearField(47);
 
   @$pb.TagNumber(48)
-  $core.String get updAccountID => $_getSZ(47);
+  $core.String get updTransactionID => $_getSZ(47);
   @$pb.TagNumber(48)
-  set updAccountID($core.String v) { $_setString(47, v); }
+  set updTransactionID($core.String v) { $_setString(47, v); }
   @$pb.TagNumber(48)
-  $core.bool hasUpdAccountID() => $_has(47);
+  $core.bool hasUpdTransactionID() => $_has(47);
   @$pb.TagNumber(48)
-  void clearUpdAccountID() => clearField(48);
+  void clearUpdTransactionID() => clearField(48);
 
   @$pb.TagNumber(49)
-  $2.Timestamp get updDateTime => $_getN(48);
+  $core.String get updAccountID => $_getSZ(48);
   @$pb.TagNumber(49)
-  set updDateTime($2.Timestamp v) { setField(49, v); }
+  set updAccountID($core.String v) { $_setString(48, v); }
   @$pb.TagNumber(49)
-  $core.bool hasUpdDateTime() => $_has(48);
+  $core.bool hasUpdAccountID() => $_has(48);
   @$pb.TagNumber(49)
-  void clearUpdDateTime() => clearField(49);
-  @$pb.TagNumber(49)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(48);
+  void clearUpdAccountID() => clearField(49);
+
+  @$pb.TagNumber(50)
+  $5.Timestamp get updDateTime => $_getN(49);
+  @$pb.TagNumber(50)
+  set updDateTime($5.Timestamp v) { setField(50, v); }
+  @$pb.TagNumber(50)
+  $core.bool hasUpdDateTime() => $_has(49);
+  @$pb.TagNumber(50)
+  void clearUpdDateTime() => clearField(50);
+  @$pb.TagNumber(50)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(49);
 }
 
 /// >>> End generated Screen message
@@ -9851,7 +12277,7 @@ class grpcUserAccountModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -9924,7 +12350,7 @@ class grpcUserAccountModel extends $pb.GeneratedMessage {
     ..a<$core.int>(13, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(14, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(15, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -10085,15 +12511,15 @@ class grpcUserAccountModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(15);
 
   @$pb.TagNumber(16)
-  $2.Timestamp get updDateTime => $_getN(15);
+  $5.Timestamp get updDateTime => $_getN(15);
   @$pb.TagNumber(16)
-  set updDateTime($2.Timestamp v) { setField(16, v); }
+  set updDateTime($5.Timestamp v) { setField(16, v); }
   @$pb.TagNumber(16)
   $core.bool hasUpdDateTime() => $_has(15);
   @$pb.TagNumber(16)
   void clearUpdDateTime() => clearField(16);
   @$pb.TagNumber(16)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(15);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(15);
 }
 
 /// >>> End generated UserAccount message
@@ -10595,13 +13021,13 @@ class grpcStaffModel extends $pb.GeneratedMessage {
     $core.int? sex,
     $core.String? position,
     $core.String? aprStaffID,
-    $2.Timestamp? birthDay,
+    $5.Timestamp? birthDay,
     $core.String? citizenID,
-    $2.Timestamp? issueDate,
+    $5.Timestamp? issueDate,
     $core.String? issuePlace,
-    $3.Decimal? wage,
-    $3.Decimal? insWage,
-    $3.Decimal? wageRate,
+    $4.Decimal? wage,
+    $4.Decimal? insWage,
+    $4.Decimal? wageRate,
     $core.int? deductPeopleCount,
     $core.int? laborContractType,
     $core.String? phone,
@@ -10609,13 +13035,27 @@ class grpcStaffModel extends $pb.GeneratedMessage {
     $core.String? taxCode,
     $core.String? permanentAddress,
     $core.String? tempAddress,
-    $core.Iterable<grpcDeductPeopleModel>? deductPeoples,
+    $5.Timestamp? contractDate,
+    $core.bool? isRegular,
+    $5.Timestamp? insStartDate,
+    $core.int? taxType,
+    $core.int? salaryType,
+    $4.Decimal? pieceworkWage,
+    $4.Decimal? pieceworkWageRate,
+    $core.String? accID,
+    $core.String? feeItemCode,
+    $core.String? stCode,
+    $core.String? objectID,
+    $core.String? factoryCode,
+    $core.String? lineCode,
     $core.Iterable<grpcBankAccountModel>? bankAccounts,
+    $core.Iterable<grpcDeductPeopleModel>? deductPeoples,
+    $core.Iterable<grpcAllowanceMasterModel>? allowanceMasters,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -10681,11 +13121,53 @@ class grpcStaffModel extends $pb.GeneratedMessage {
     if (tempAddress != null) {
       $result.tempAddress = tempAddress;
     }
-    if (deductPeoples != null) {
-      $result.deductPeoples.addAll(deductPeoples);
+    if (contractDate != null) {
+      $result.contractDate = contractDate;
+    }
+    if (isRegular != null) {
+      $result.isRegular = isRegular;
+    }
+    if (insStartDate != null) {
+      $result.insStartDate = insStartDate;
+    }
+    if (taxType != null) {
+      $result.taxType = taxType;
+    }
+    if (salaryType != null) {
+      $result.salaryType = salaryType;
+    }
+    if (pieceworkWage != null) {
+      $result.pieceworkWage = pieceworkWage;
+    }
+    if (pieceworkWageRate != null) {
+      $result.pieceworkWageRate = pieceworkWageRate;
+    }
+    if (accID != null) {
+      $result.accID = accID;
+    }
+    if (feeItemCode != null) {
+      $result.feeItemCode = feeItemCode;
+    }
+    if (stCode != null) {
+      $result.stCode = stCode;
+    }
+    if (objectID != null) {
+      $result.objectID = objectID;
+    }
+    if (factoryCode != null) {
+      $result.factoryCode = factoryCode;
+    }
+    if (lineCode != null) {
+      $result.lineCode = lineCode;
     }
     if (bankAccounts != null) {
       $result.bankAccounts.addAll(bankAccounts);
+    }
+    if (deductPeoples != null) {
+      $result.deductPeoples.addAll(deductPeoples);
+    }
+    if (allowanceMasters != null) {
+      $result.allowanceMasters.addAll(allowanceMasters);
     }
     if (updMode != null) {
       $result.updMode = updMode;
@@ -10716,13 +13198,13 @@ class grpcStaffModel extends $pb.GeneratedMessage {
     ..a<$core.int>(5, _omitFieldNames ? '' : 'Sex', $pb.PbFieldType.O3, protoName: 'Sex')
     ..aOS(6, _omitFieldNames ? '' : 'Position', protoName: 'Position')
     ..aOS(7, _omitFieldNames ? '' : 'AprStaffID', protoName: 'AprStaffID')
-    ..aOM<$2.Timestamp>(8, _omitFieldNames ? '' : 'BirthDay', protoName: 'BirthDay', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(8, _omitFieldNames ? '' : 'BirthDay', protoName: 'BirthDay', subBuilder: $5.Timestamp.create)
     ..aOS(9, _omitFieldNames ? '' : 'CitizenID', protoName: 'CitizenID')
-    ..aOM<$2.Timestamp>(10, _omitFieldNames ? '' : 'IssueDate', protoName: 'IssueDate', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'IssueDate', protoName: 'IssueDate', subBuilder: $5.Timestamp.create)
     ..aOS(11, _omitFieldNames ? '' : 'IssuePlace', protoName: 'IssuePlace')
-    ..aOM<$3.Decimal>(12, _omitFieldNames ? '' : 'Wage', protoName: 'Wage', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(13, _omitFieldNames ? '' : 'InsWage', protoName: 'InsWage', subBuilder: $3.Decimal.create)
-    ..aOM<$3.Decimal>(14, _omitFieldNames ? '' : 'WageRate', protoName: 'WageRate', subBuilder: $3.Decimal.create)
+    ..aOM<$4.Decimal>(12, _omitFieldNames ? '' : 'Wage', protoName: 'Wage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(13, _omitFieldNames ? '' : 'InsWage', protoName: 'InsWage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(14, _omitFieldNames ? '' : 'WageRate', protoName: 'WageRate', subBuilder: $4.Decimal.create)
     ..a<$core.int>(15, _omitFieldNames ? '' : 'DeductPeopleCount', $pb.PbFieldType.O3, protoName: 'DeductPeopleCount')
     ..a<$core.int>(16, _omitFieldNames ? '' : 'LaborContractType', $pb.PbFieldType.O3, protoName: 'LaborContractType')
     ..aOS(17, _omitFieldNames ? '' : 'Phone', protoName: 'Phone')
@@ -10730,13 +13212,27 @@ class grpcStaffModel extends $pb.GeneratedMessage {
     ..aOS(19, _omitFieldNames ? '' : 'TaxCode', protoName: 'TaxCode')
     ..aOS(20, _omitFieldNames ? '' : 'PermanentAddress', protoName: 'PermanentAddress')
     ..aOS(21, _omitFieldNames ? '' : 'TempAddress', protoName: 'TempAddress')
-    ..pc<grpcDeductPeopleModel>(22, _omitFieldNames ? '' : 'DeductPeoples', $pb.PbFieldType.PM, protoName: 'DeductPeoples', subBuilder: grpcDeductPeopleModel.create)
-    ..pc<grpcBankAccountModel>(23, _omitFieldNames ? '' : 'BankAccounts', $pb.PbFieldType.PM, protoName: 'BankAccounts', subBuilder: grpcBankAccountModel.create)
-    ..a<$core.int>(24, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(25, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(26, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(27, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(28, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(22, _omitFieldNames ? '' : 'ContractDate', protoName: 'ContractDate', subBuilder: $5.Timestamp.create)
+    ..aOB(23, _omitFieldNames ? '' : 'IsRegular', protoName: 'IsRegular')
+    ..aOM<$5.Timestamp>(24, _omitFieldNames ? '' : 'InsStartDate', protoName: 'InsStartDate', subBuilder: $5.Timestamp.create)
+    ..a<$core.int>(25, _omitFieldNames ? '' : 'TaxType', $pb.PbFieldType.O3, protoName: 'TaxType')
+    ..a<$core.int>(26, _omitFieldNames ? '' : 'SalaryType', $pb.PbFieldType.O3, protoName: 'SalaryType')
+    ..aOM<$4.Decimal>(27, _omitFieldNames ? '' : 'PieceworkWage', protoName: 'PieceworkWage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(28, _omitFieldNames ? '' : 'PieceworkWageRate', protoName: 'PieceworkWageRate', subBuilder: $4.Decimal.create)
+    ..aOS(29, _omitFieldNames ? '' : 'AccID', protoName: 'AccID')
+    ..aOS(30, _omitFieldNames ? '' : 'FeeItemCode', protoName: 'FeeItemCode')
+    ..aOS(31, _omitFieldNames ? '' : 'StCode', protoName: 'StCode')
+    ..aOS(32, _omitFieldNames ? '' : 'ObjectID', protoName: 'ObjectID')
+    ..aOS(33, _omitFieldNames ? '' : 'FactoryCode', protoName: 'FactoryCode')
+    ..aOS(34, _omitFieldNames ? '' : 'LineCode', protoName: 'LineCode')
+    ..pc<grpcBankAccountModel>(35, _omitFieldNames ? '' : 'BankAccounts', $pb.PbFieldType.PM, protoName: 'BankAccounts', subBuilder: grpcBankAccountModel.create)
+    ..pc<grpcDeductPeopleModel>(36, _omitFieldNames ? '' : 'DeductPeoples', $pb.PbFieldType.PM, protoName: 'DeductPeoples', subBuilder: grpcDeductPeopleModel.create)
+    ..pc<grpcAllowanceMasterModel>(37, _omitFieldNames ? '' : 'AllowanceMasters', $pb.PbFieldType.PM, protoName: 'AllowanceMasters', subBuilder: grpcAllowanceMasterModel.create)
+    ..a<$core.int>(38, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(39, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(40, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(41, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$5.Timestamp>(42, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -10825,15 +13321,15 @@ class grpcStaffModel extends $pb.GeneratedMessage {
   void clearAprStaffID() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Timestamp get birthDay => $_getN(7);
+  $5.Timestamp get birthDay => $_getN(7);
   @$pb.TagNumber(8)
-  set birthDay($2.Timestamp v) { setField(8, v); }
+  set birthDay($5.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasBirthDay() => $_has(7);
   @$pb.TagNumber(8)
   void clearBirthDay() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Timestamp ensureBirthDay() => $_ensure(7);
+  $5.Timestamp ensureBirthDay() => $_ensure(7);
 
   @$pb.TagNumber(9)
   $core.String get citizenID => $_getSZ(8);
@@ -10845,15 +13341,15 @@ class grpcStaffModel extends $pb.GeneratedMessage {
   void clearCitizenID() => clearField(9);
 
   @$pb.TagNumber(10)
-  $2.Timestamp get issueDate => $_getN(9);
+  $5.Timestamp get issueDate => $_getN(9);
   @$pb.TagNumber(10)
-  set issueDate($2.Timestamp v) { setField(10, v); }
+  set issueDate($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasIssueDate() => $_has(9);
   @$pb.TagNumber(10)
   void clearIssueDate() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Timestamp ensureIssueDate() => $_ensure(9);
+  $5.Timestamp ensureIssueDate() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.String get issuePlace => $_getSZ(10);
@@ -10865,37 +13361,37 @@ class grpcStaffModel extends $pb.GeneratedMessage {
   void clearIssuePlace() => clearField(11);
 
   @$pb.TagNumber(12)
-  $3.Decimal get wage => $_getN(11);
+  $4.Decimal get wage => $_getN(11);
   @$pb.TagNumber(12)
-  set wage($3.Decimal v) { setField(12, v); }
+  set wage($4.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasWage() => $_has(11);
   @$pb.TagNumber(12)
   void clearWage() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Decimal ensureWage() => $_ensure(11);
+  $4.Decimal ensureWage() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $3.Decimal get insWage => $_getN(12);
+  $4.Decimal get insWage => $_getN(12);
   @$pb.TagNumber(13)
-  set insWage($3.Decimal v) { setField(13, v); }
+  set insWage($4.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasInsWage() => $_has(12);
   @$pb.TagNumber(13)
   void clearInsWage() => clearField(13);
   @$pb.TagNumber(13)
-  $3.Decimal ensureInsWage() => $_ensure(12);
+  $4.Decimal ensureInsWage() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $3.Decimal get wageRate => $_getN(13);
+  $4.Decimal get wageRate => $_getN(13);
   @$pb.TagNumber(14)
-  set wageRate($3.Decimal v) { setField(14, v); }
+  set wageRate($4.Decimal v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasWageRate() => $_has(13);
   @$pb.TagNumber(14)
   void clearWageRate() => clearField(14);
   @$pb.TagNumber(14)
-  $3.Decimal ensureWageRate() => $_ensure(13);
+  $4.Decimal ensureWageRate() => $_ensure(13);
 
   @$pb.TagNumber(15)
   $core.int get deductPeopleCount => $_getIZ(14);
@@ -10961,57 +13457,185 @@ class grpcStaffModel extends $pb.GeneratedMessage {
   void clearTempAddress() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.List<grpcDeductPeopleModel> get deductPeoples => $_getList(21);
+  $5.Timestamp get contractDate => $_getN(21);
+  @$pb.TagNumber(22)
+  set contractDate($5.Timestamp v) { setField(22, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasContractDate() => $_has(21);
+  @$pb.TagNumber(22)
+  void clearContractDate() => clearField(22);
+  @$pb.TagNumber(22)
+  $5.Timestamp ensureContractDate() => $_ensure(21);
 
   @$pb.TagNumber(23)
-  $core.List<grpcBankAccountModel> get bankAccounts => $_getList(22);
+  $core.bool get isRegular => $_getBF(22);
+  @$pb.TagNumber(23)
+  set isRegular($core.bool v) { $_setBool(22, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasIsRegular() => $_has(22);
+  @$pb.TagNumber(23)
+  void clearIsRegular() => clearField(23);
 
   @$pb.TagNumber(24)
-  $core.int get updMode => $_getIZ(23);
+  $5.Timestamp get insStartDate => $_getN(23);
   @$pb.TagNumber(24)
-  set updMode($core.int v) { $_setSignedInt32(23, v); }
+  set insStartDate($5.Timestamp v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasUpdMode() => $_has(23);
+  $core.bool hasInsStartDate() => $_has(23);
   @$pb.TagNumber(24)
-  void clearUpdMode() => clearField(24);
+  void clearInsStartDate() => clearField(24);
+  @$pb.TagNumber(24)
+  $5.Timestamp ensureInsStartDate() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $core.int get updCount => $_getIZ(24);
+  $core.int get taxType => $_getIZ(24);
   @$pb.TagNumber(25)
-  set updCount($core.int v) { $_setSignedInt32(24, v); }
+  set taxType($core.int v) { $_setSignedInt32(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasUpdCount() => $_has(24);
+  $core.bool hasTaxType() => $_has(24);
   @$pb.TagNumber(25)
-  void clearUpdCount() => clearField(25);
+  void clearTaxType() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.String get updTransactionID => $_getSZ(25);
+  $core.int get salaryType => $_getIZ(25);
   @$pb.TagNumber(26)
-  set updTransactionID($core.String v) { $_setString(25, v); }
+  set salaryType($core.int v) { $_setSignedInt32(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasUpdTransactionID() => $_has(25);
+  $core.bool hasSalaryType() => $_has(25);
   @$pb.TagNumber(26)
-  void clearUpdTransactionID() => clearField(26);
+  void clearSalaryType() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.String get updAccountID => $_getSZ(26);
+  $4.Decimal get pieceworkWage => $_getN(26);
   @$pb.TagNumber(27)
-  set updAccountID($core.String v) { $_setString(26, v); }
+  set pieceworkWage($4.Decimal v) { setField(27, v); }
   @$pb.TagNumber(27)
-  $core.bool hasUpdAccountID() => $_has(26);
+  $core.bool hasPieceworkWage() => $_has(26);
   @$pb.TagNumber(27)
-  void clearUpdAccountID() => clearField(27);
+  void clearPieceworkWage() => clearField(27);
+  @$pb.TagNumber(27)
+  $4.Decimal ensurePieceworkWage() => $_ensure(26);
 
   @$pb.TagNumber(28)
-  $2.Timestamp get updDateTime => $_getN(27);
+  $4.Decimal get pieceworkWageRate => $_getN(27);
   @$pb.TagNumber(28)
-  set updDateTime($2.Timestamp v) { setField(28, v); }
+  set pieceworkWageRate($4.Decimal v) { setField(28, v); }
   @$pb.TagNumber(28)
-  $core.bool hasUpdDateTime() => $_has(27);
+  $core.bool hasPieceworkWageRate() => $_has(27);
   @$pb.TagNumber(28)
-  void clearUpdDateTime() => clearField(28);
+  void clearPieceworkWageRate() => clearField(28);
   @$pb.TagNumber(28)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(27);
+  $4.Decimal ensurePieceworkWageRate() => $_ensure(27);
+
+  @$pb.TagNumber(29)
+  $core.String get accID => $_getSZ(28);
+  @$pb.TagNumber(29)
+  set accID($core.String v) { $_setString(28, v); }
+  @$pb.TagNumber(29)
+  $core.bool hasAccID() => $_has(28);
+  @$pb.TagNumber(29)
+  void clearAccID() => clearField(29);
+
+  @$pb.TagNumber(30)
+  $core.String get feeItemCode => $_getSZ(29);
+  @$pb.TagNumber(30)
+  set feeItemCode($core.String v) { $_setString(29, v); }
+  @$pb.TagNumber(30)
+  $core.bool hasFeeItemCode() => $_has(29);
+  @$pb.TagNumber(30)
+  void clearFeeItemCode() => clearField(30);
+
+  @$pb.TagNumber(31)
+  $core.String get stCode => $_getSZ(30);
+  @$pb.TagNumber(31)
+  set stCode($core.String v) { $_setString(30, v); }
+  @$pb.TagNumber(31)
+  $core.bool hasStCode() => $_has(30);
+  @$pb.TagNumber(31)
+  void clearStCode() => clearField(31);
+
+  @$pb.TagNumber(32)
+  $core.String get objectID => $_getSZ(31);
+  @$pb.TagNumber(32)
+  set objectID($core.String v) { $_setString(31, v); }
+  @$pb.TagNumber(32)
+  $core.bool hasObjectID() => $_has(31);
+  @$pb.TagNumber(32)
+  void clearObjectID() => clearField(32);
+
+  @$pb.TagNumber(33)
+  $core.String get factoryCode => $_getSZ(32);
+  @$pb.TagNumber(33)
+  set factoryCode($core.String v) { $_setString(32, v); }
+  @$pb.TagNumber(33)
+  $core.bool hasFactoryCode() => $_has(32);
+  @$pb.TagNumber(33)
+  void clearFactoryCode() => clearField(33);
+
+  @$pb.TagNumber(34)
+  $core.String get lineCode => $_getSZ(33);
+  @$pb.TagNumber(34)
+  set lineCode($core.String v) { $_setString(33, v); }
+  @$pb.TagNumber(34)
+  $core.bool hasLineCode() => $_has(33);
+  @$pb.TagNumber(34)
+  void clearLineCode() => clearField(34);
+
+  @$pb.TagNumber(35)
+  $core.List<grpcBankAccountModel> get bankAccounts => $_getList(34);
+
+  @$pb.TagNumber(36)
+  $core.List<grpcDeductPeopleModel> get deductPeoples => $_getList(35);
+
+  @$pb.TagNumber(37)
+  $core.List<grpcAllowanceMasterModel> get allowanceMasters => $_getList(36);
+
+  @$pb.TagNumber(38)
+  $core.int get updMode => $_getIZ(37);
+  @$pb.TagNumber(38)
+  set updMode($core.int v) { $_setSignedInt32(37, v); }
+  @$pb.TagNumber(38)
+  $core.bool hasUpdMode() => $_has(37);
+  @$pb.TagNumber(38)
+  void clearUpdMode() => clearField(38);
+
+  @$pb.TagNumber(39)
+  $core.int get updCount => $_getIZ(38);
+  @$pb.TagNumber(39)
+  set updCount($core.int v) { $_setSignedInt32(38, v); }
+  @$pb.TagNumber(39)
+  $core.bool hasUpdCount() => $_has(38);
+  @$pb.TagNumber(39)
+  void clearUpdCount() => clearField(39);
+
+  @$pb.TagNumber(40)
+  $core.String get updTransactionID => $_getSZ(39);
+  @$pb.TagNumber(40)
+  set updTransactionID($core.String v) { $_setString(39, v); }
+  @$pb.TagNumber(40)
+  $core.bool hasUpdTransactionID() => $_has(39);
+  @$pb.TagNumber(40)
+  void clearUpdTransactionID() => clearField(40);
+
+  @$pb.TagNumber(41)
+  $core.String get updAccountID => $_getSZ(40);
+  @$pb.TagNumber(41)
+  set updAccountID($core.String v) { $_setString(40, v); }
+  @$pb.TagNumber(41)
+  $core.bool hasUpdAccountID() => $_has(40);
+  @$pb.TagNumber(41)
+  void clearUpdAccountID() => clearField(41);
+
+  @$pb.TagNumber(42)
+  $5.Timestamp get updDateTime => $_getN(41);
+  @$pb.TagNumber(42)
+  set updDateTime($5.Timestamp v) { setField(42, v); }
+  @$pb.TagNumber(42)
+  $core.bool hasUpdDateTime() => $_has(41);
+  @$pb.TagNumber(42)
+  void clearUpdDateTime() => clearField(42);
+  @$pb.TagNumber(42)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(41);
 }
 
 /// >>> End generated Staff message
@@ -11855,7 +14479,7 @@ class grpcClassificationModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $2.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -11932,7 +14556,7 @@ class grpcClassificationModel extends $pb.GeneratedMessage {
     ..a<$core.int>(14, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(15, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(16, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$2.Timestamp>(17, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(17, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -12102,15 +14726,15 @@ class grpcClassificationModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(16);
 
   @$pb.TagNumber(17)
-  $2.Timestamp get updDateTime => $_getN(16);
+  $5.Timestamp get updDateTime => $_getN(16);
   @$pb.TagNumber(17)
-  set updDateTime($2.Timestamp v) { setField(17, v); }
+  set updDateTime($5.Timestamp v) { setField(17, v); }
   @$pb.TagNumber(17)
   $core.bool hasUpdDateTime() => $_has(16);
   @$pb.TagNumber(17)
   void clearUpdDateTime() => clearField(17);
   @$pb.TagNumber(17)
-  $2.Timestamp ensureUpdDateTime() => $_ensure(16);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(16);
 }
 
 /// >>> End generated Classification message

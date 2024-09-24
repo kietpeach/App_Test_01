@@ -13,7 +13,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'timestamp.pb.dart' as $2;
+import 'CustomDatatype.pb.dart' as $4;
+import 'timestamp.pb.dart' as $5;
 
 /// ======================================================
 ///  Common Messages
@@ -389,27 +390,27 @@ class Int_Request extends $pb.GeneratedMessage {
   void clearIntValue() => clearField(2);
 }
 
-class Double_Request extends $pb.GeneratedMessage {
-  factory Double_Request({
+class Decimal_Request extends $pb.GeneratedMessage {
+  factory Decimal_Request({
     UserCredential? credential,
-    $core.double? doubleValue,
+    $4.Decimal? decimalValue,
   }) {
     final $result = create();
     if (credential != null) {
       $result.credential = credential;
     }
-    if (doubleValue != null) {
-      $result.doubleValue = doubleValue;
+    if (decimalValue != null) {
+      $result.decimalValue = decimalValue;
     }
     return $result;
   }
-  Double_Request._() : super();
-  factory Double_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Double_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Decimal_Request._() : super();
+  factory Decimal_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Decimal_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Double_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Decimal_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
     ..aOM<UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: UserCredential.create)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'DoubleValue', $pb.PbFieldType.OD, protoName: 'DoubleValue')
+    ..aOM<$4.Decimal>(2, _omitFieldNames ? '' : 'DecimalValue', protoName: 'DecimalValue', subBuilder: $4.Decimal.create)
     ..hasRequiredFields = false
   ;
 
@@ -417,22 +418,22 @@ class Double_Request extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Double_Request clone() => Double_Request()..mergeFromMessage(this);
+  Decimal_Request clone() => Decimal_Request()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Double_Request copyWith(void Function(Double_Request) updates) => super.copyWith((message) => updates(message as Double_Request)) as Double_Request;
+  Decimal_Request copyWith(void Function(Decimal_Request) updates) => super.copyWith((message) => updates(message as Decimal_Request)) as Decimal_Request;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Double_Request create() => Double_Request._();
-  Double_Request createEmptyInstance() => create();
-  static $pb.PbList<Double_Request> createRepeated() => $pb.PbList<Double_Request>();
+  static Decimal_Request create() => Decimal_Request._();
+  Decimal_Request createEmptyInstance() => create();
+  static $pb.PbList<Decimal_Request> createRepeated() => $pb.PbList<Decimal_Request>();
   @$core.pragma('dart2js:noInline')
-  static Double_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Double_Request>(create);
-  static Double_Request? _defaultInstance;
+  static Decimal_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Decimal_Request>(create);
+  static Decimal_Request? _defaultInstance;
 
   @$pb.TagNumber(1)
   UserCredential get credential => $_getN(0);
@@ -446,13 +447,15 @@ class Double_Request extends $pb.GeneratedMessage {
   UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.double get doubleValue => $_getN(1);
+  $4.Decimal get decimalValue => $_getN(1);
   @$pb.TagNumber(2)
-  set doubleValue($core.double v) { $_setDouble(1, v); }
+  set decimalValue($4.Decimal v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDoubleValue() => $_has(1);
+  $core.bool hasDecimalValue() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDoubleValue() => clearField(2);
+  void clearDecimalValue() => clearField(2);
+  @$pb.TagNumber(2)
+  $4.Decimal ensureDecimalValue() => $_ensure(1);
 }
 
 class Bool_Request extends $pb.GeneratedMessage {
@@ -524,7 +527,7 @@ class Bool_Request extends $pb.GeneratedMessage {
 class Date_Request extends $pb.GeneratedMessage {
   factory Date_Request({
     UserCredential? credential,
-    $2.Timestamp? dateValue,
+    $5.Timestamp? dateValue,
   }) {
     final $result = create();
     if (credential != null) {
@@ -541,7 +544,7 @@ class Date_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Date_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
     ..aOM<UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: UserCredential.create)
-    ..aOM<$2.Timestamp>(2, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -578,15 +581,15 @@ class Date_Request extends $pb.GeneratedMessage {
   UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $2.Timestamp get dateValue => $_getN(1);
+  $5.Timestamp get dateValue => $_getN(1);
   @$pb.TagNumber(2)
-  set dateValue($2.Timestamp v) { setField(2, v); }
+  set dateValue($5.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasDateValue() => $_has(1);
   @$pb.TagNumber(2)
   void clearDateValue() => clearField(2);
   @$pb.TagNumber(2)
-  $2.Timestamp ensureDateValue() => $_ensure(1);
+  $5.Timestamp ensureDateValue() => $_ensure(1);
 }
 
 /// Common Response
@@ -810,11 +813,11 @@ class Int_Response extends $pb.GeneratedMessage {
   void clearIntValue() => clearField(3);
 }
 
-class Double_Response extends $pb.GeneratedMessage {
-  factory Double_Response({
+class Decimal_Response extends $pb.GeneratedMessage {
+  factory Decimal_Response({
     $core.int? returnCode,
     $core.String? msgCode,
-    $core.double? doubleValue,
+    $4.Decimal? decimalValue,
   }) {
     final $result = create();
     if (returnCode != null) {
@@ -823,19 +826,19 @@ class Double_Response extends $pb.GeneratedMessage {
     if (msgCode != null) {
       $result.msgCode = msgCode;
     }
-    if (doubleValue != null) {
-      $result.doubleValue = doubleValue;
+    if (decimalValue != null) {
+      $result.decimalValue = decimalValue;
     }
     return $result;
   }
-  Double_Response._() : super();
-  factory Double_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Double_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Decimal_Response._() : super();
+  factory Decimal_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Decimal_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Double_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Decimal_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
     ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'DoubleValue', $pb.PbFieldType.OD, protoName: 'DoubleValue')
+    ..aOM<$4.Decimal>(3, _omitFieldNames ? '' : 'DecimalValue', protoName: 'DecimalValue', subBuilder: $4.Decimal.create)
     ..hasRequiredFields = false
   ;
 
@@ -843,22 +846,22 @@ class Double_Response extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Double_Response clone() => Double_Response()..mergeFromMessage(this);
+  Decimal_Response clone() => Decimal_Response()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Double_Response copyWith(void Function(Double_Response) updates) => super.copyWith((message) => updates(message as Double_Response)) as Double_Response;
+  Decimal_Response copyWith(void Function(Decimal_Response) updates) => super.copyWith((message) => updates(message as Decimal_Response)) as Decimal_Response;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Double_Response create() => Double_Response._();
-  Double_Response createEmptyInstance() => create();
-  static $pb.PbList<Double_Response> createRepeated() => $pb.PbList<Double_Response>();
+  static Decimal_Response create() => Decimal_Response._();
+  Decimal_Response createEmptyInstance() => create();
+  static $pb.PbList<Decimal_Response> createRepeated() => $pb.PbList<Decimal_Response>();
   @$core.pragma('dart2js:noInline')
-  static Double_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Double_Response>(create);
-  static Double_Response? _defaultInstance;
+  static Decimal_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Decimal_Response>(create);
+  static Decimal_Response? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.int get returnCode => $_getIZ(0);
@@ -879,13 +882,15 @@ class Double_Response extends $pb.GeneratedMessage {
   void clearMsgCode() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get doubleValue => $_getN(2);
+  $4.Decimal get decimalValue => $_getN(2);
   @$pb.TagNumber(3)
-  set doubleValue($core.double v) { $_setDouble(2, v); }
+  set decimalValue($4.Decimal v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDoubleValue() => $_has(2);
+  $core.bool hasDecimalValue() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDoubleValue() => clearField(3);
+  void clearDecimalValue() => clearField(3);
+  @$pb.TagNumber(3)
+  $4.Decimal ensureDecimalValue() => $_ensure(2);
 }
 
 class Bool_Response extends $pb.GeneratedMessage {
@@ -970,7 +975,7 @@ class Date_Response extends $pb.GeneratedMessage {
   factory Date_Response({
     $core.int? returnCode,
     $core.String? msgCode,
-    $2.Timestamp? dateValue,
+    $5.Timestamp? dateValue,
   }) {
     final $result = create();
     if (returnCode != null) {
@@ -991,7 +996,7 @@ class Date_Response extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Date_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcCommonMessages'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
     ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
-    ..aOM<$2.Timestamp>(3, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $2.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1035,15 +1040,15 @@ class Date_Response extends $pb.GeneratedMessage {
   void clearMsgCode() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Timestamp get dateValue => $_getN(2);
+  $5.Timestamp get dateValue => $_getN(2);
   @$pb.TagNumber(3)
-  set dateValue($2.Timestamp v) { setField(3, v); }
+  set dateValue($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDateValue() => $_has(2);
   @$pb.TagNumber(3)
   void clearDateValue() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Timestamp ensureDateValue() => $_ensure(2);
+  $5.Timestamp ensureDateValue() => $_ensure(2);
 }
 
 

@@ -14,8 +14,8 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'Common.pb.dart' as $0;
-import 'CustomDatatype.pb.dart' as $2;
-import 'timestamp.pb.dart' as $3;
+import 'CustomDatatype.pb.dart' as $4;
+import 'timestamp.pb.dart' as $5;
 
 /// ======================================================
 ///  Message
@@ -129,6 +129,7 @@ class GetVoucherNo_Response extends $pb.GeneratedMessage {
 class GetSalePrice_Request extends $pb.GeneratedMessage {
   factory GetSalePrice_Request({
     $0.UserCredential? credential,
+    $core.int? taxFlag,
     $core.String? currencyCode,
     $core.String? productCode,
     $core.String? unitCode,
@@ -138,6 +139,9 @@ class GetSalePrice_Request extends $pb.GeneratedMessage {
     final $result = create();
     if (credential != null) {
       $result.credential = credential;
+    }
+    if (taxFlag != null) {
+      $result.taxFlag = taxFlag;
     }
     if (currencyCode != null) {
       $result.currencyCode = currencyCode;
@@ -162,11 +166,12 @@ class GetSalePrice_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSalePrice_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
-    ..aOS(3, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(4, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(5, _omitFieldNames ? '' : 'CustomerID', protoName: 'CustomerID')
-    ..aOB(6, _omitFieldNames ? '' : 'IsPromotion', protoName: 'IsPromotion')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
+    ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
+    ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(5, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(6, _omitFieldNames ? '' : 'CustomerID', protoName: 'CustomerID')
+    ..aOB(7, _omitFieldNames ? '' : 'IsPromotion', protoName: 'IsPromotion')
     ..hasRequiredFields = false
   ;
 
@@ -203,49 +208,58 @@ class GetSalePrice_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get currencyCode => $_getSZ(1);
+  $core.int get taxFlag => $_getIZ(1);
   @$pb.TagNumber(2)
-  set currencyCode($core.String v) { $_setString(1, v); }
+  set taxFlag($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCurrencyCode() => $_has(1);
+  $core.bool hasTaxFlag() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrencyCode() => clearField(2);
+  void clearTaxFlag() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get productCode => $_getSZ(2);
+  $core.String get currencyCode => $_getSZ(2);
   @$pb.TagNumber(3)
-  set productCode($core.String v) { $_setString(2, v); }
+  set currencyCode($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasProductCode() => $_has(2);
+  $core.bool hasCurrencyCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearProductCode() => clearField(3);
+  void clearCurrencyCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get unitCode => $_getSZ(3);
+  $core.String get productCode => $_getSZ(3);
   @$pb.TagNumber(4)
-  set unitCode($core.String v) { $_setString(3, v); }
+  set productCode($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasUnitCode() => $_has(3);
+  $core.bool hasProductCode() => $_has(3);
   @$pb.TagNumber(4)
-  void clearUnitCode() => clearField(4);
+  void clearProductCode() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get customerID => $_getSZ(4);
+  $core.String get unitCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set customerID($core.String v) { $_setString(4, v); }
+  set unitCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasCustomerID() => $_has(4);
+  $core.bool hasUnitCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearCustomerID() => clearField(5);
+  void clearUnitCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.bool get isPromotion => $_getBF(5);
+  $core.String get customerID => $_getSZ(5);
   @$pb.TagNumber(6)
-  set isPromotion($core.bool v) { $_setBool(5, v); }
+  set customerID($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasIsPromotion() => $_has(5);
+  $core.bool hasCustomerID() => $_has(5);
   @$pb.TagNumber(6)
-  void clearIsPromotion() => clearField(6);
+  void clearCustomerID() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get isPromotion => $_getBF(6);
+  @$pb.TagNumber(7)
+  set isPromotion($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIsPromotion() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIsPromotion() => clearField(7);
 }
 
 class GetSalePrice_Response extends $pb.GeneratedMessage {
@@ -254,9 +268,10 @@ class GetSalePrice_Response extends $pb.GeneratedMessage {
     $core.String? msgCode,
     $core.int? priceType,
     $core.String? rankCode,
-    $2.Decimal? stdUnitPrice,
-    $2.Decimal? unitPrice,
-    $2.Decimal? discountRate,
+    $4.Decimal? stdUnitPrice,
+    $4.Decimal? unitPrice,
+    $4.Decimal? aprUnitPrice,
+    $4.Decimal? discountRate,
     $core.int? priceSourceFlag,
   }) {
     final $result = create();
@@ -278,6 +293,9 @@ class GetSalePrice_Response extends $pb.GeneratedMessage {
     if (unitPrice != null) {
       $result.unitPrice = unitPrice;
     }
+    if (aprUnitPrice != null) {
+      $result.aprUnitPrice = aprUnitPrice;
+    }
     if (discountRate != null) {
       $result.discountRate = discountRate;
     }
@@ -295,10 +313,11 @@ class GetSalePrice_Response extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'PriceType', $pb.PbFieldType.O3, protoName: 'PriceType')
     ..aOS(4, _omitFieldNames ? '' : 'RankCode', protoName: 'RankCode')
-    ..aOM<$2.Decimal>(5, _omitFieldNames ? '' : 'StdUnitPrice', protoName: 'StdUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(6, _omitFieldNames ? '' : 'UnitPrice', protoName: 'UnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(7, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $2.Decimal.create)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'PriceSourceFlag', $pb.PbFieldType.O3, protoName: 'PriceSourceFlag')
+    ..aOM<$4.Decimal>(5, _omitFieldNames ? '' : 'StdUnitPrice', protoName: 'StdUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'UnitPrice', protoName: 'UnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(7, _omitFieldNames ? '' : 'AprUnitPrice', protoName: 'AprUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $4.Decimal.create)
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'PriceSourceFlag', $pb.PbFieldType.O3, protoName: 'PriceSourceFlag')
     ..hasRequiredFields = false
   ;
 
@@ -360,46 +379,57 @@ class GetSalePrice_Response extends $pb.GeneratedMessage {
   void clearRankCode() => clearField(4);
 
   @$pb.TagNumber(5)
-  $2.Decimal get stdUnitPrice => $_getN(4);
+  $4.Decimal get stdUnitPrice => $_getN(4);
   @$pb.TagNumber(5)
-  set stdUnitPrice($2.Decimal v) { setField(5, v); }
+  set stdUnitPrice($4.Decimal v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStdUnitPrice() => $_has(4);
   @$pb.TagNumber(5)
   void clearStdUnitPrice() => clearField(5);
   @$pb.TagNumber(5)
-  $2.Decimal ensureStdUnitPrice() => $_ensure(4);
+  $4.Decimal ensureStdUnitPrice() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $2.Decimal get unitPrice => $_getN(5);
+  $4.Decimal get unitPrice => $_getN(5);
   @$pb.TagNumber(6)
-  set unitPrice($2.Decimal v) { setField(6, v); }
+  set unitPrice($4.Decimal v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasUnitPrice() => $_has(5);
   @$pb.TagNumber(6)
   void clearUnitPrice() => clearField(6);
   @$pb.TagNumber(6)
-  $2.Decimal ensureUnitPrice() => $_ensure(5);
+  $4.Decimal ensureUnitPrice() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $2.Decimal get discountRate => $_getN(6);
+  $4.Decimal get aprUnitPrice => $_getN(6);
   @$pb.TagNumber(7)
-  set discountRate($2.Decimal v) { setField(7, v); }
+  set aprUnitPrice($4.Decimal v) { setField(7, v); }
   @$pb.TagNumber(7)
-  $core.bool hasDiscountRate() => $_has(6);
+  $core.bool hasAprUnitPrice() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDiscountRate() => clearField(7);
+  void clearAprUnitPrice() => clearField(7);
   @$pb.TagNumber(7)
-  $2.Decimal ensureDiscountRate() => $_ensure(6);
+  $4.Decimal ensureAprUnitPrice() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $core.int get priceSourceFlag => $_getIZ(7);
+  $4.Decimal get discountRate => $_getN(7);
   @$pb.TagNumber(8)
-  set priceSourceFlag($core.int v) { $_setSignedInt32(7, v); }
+  set discountRate($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
-  $core.bool hasPriceSourceFlag() => $_has(7);
+  $core.bool hasDiscountRate() => $_has(7);
   @$pb.TagNumber(8)
-  void clearPriceSourceFlag() => clearField(8);
+  void clearDiscountRate() => clearField(8);
+  @$pb.TagNumber(8)
+  $4.Decimal ensureDiscountRate() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $core.int get priceSourceFlag => $_getIZ(8);
+  @$pb.TagNumber(9)
+  set priceSourceFlag($core.int v) { $_setSignedInt32(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasPriceSourceFlag() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearPriceSourceFlag() => clearField(9);
 }
 
 class CommitVoucherNo_Request extends $pb.GeneratedMessage {
@@ -636,10 +666,10 @@ class grpcSettingMasterModel extends $pb.GeneratedMessage {
     $core.String? stringValue2,
     $core.int? intValue1,
     $core.int? intValue2,
-    $2.Decimal? doubleValue1,
-    $2.Decimal? doubleValue2,
-    $3.Timestamp? dateValue1,
-    $3.Timestamp? dateValue2,
+    $4.Decimal? doubleValue1,
+    $4.Decimal? doubleValue2,
+    $5.Timestamp? dateValue1,
+    $5.Timestamp? dateValue2,
     $core.bool? boolValue,
     $core.int? updMode,
   }) {
@@ -705,10 +735,10 @@ class grpcSettingMasterModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'StringValue2', protoName: 'StringValue2')
     ..a<$core.int>(8, _omitFieldNames ? '' : 'IntValue1', $pb.PbFieldType.O3, protoName: 'IntValue1')
     ..a<$core.int>(9, _omitFieldNames ? '' : 'IntValue2', $pb.PbFieldType.O3, protoName: 'IntValue2')
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'DoubleValue1', protoName: 'DoubleValue1', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'DoubleValue2', protoName: 'DoubleValue2', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'DateValue1', protoName: 'DateValue1', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(13, _omitFieldNames ? '' : 'DateValue2', protoName: 'DateValue2', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'DoubleValue1', protoName: 'DoubleValue1', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'DoubleValue2', protoName: 'DoubleValue2', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'DateValue1', protoName: 'DateValue1', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(13, _omitFieldNames ? '' : 'DateValue2', protoName: 'DateValue2', subBuilder: $5.Timestamp.create)
     ..aOB(14, _omitFieldNames ? '' : 'BoolValue', protoName: 'BoolValue')
     ..a<$core.int>(15, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
@@ -817,48 +847,48 @@ class grpcSettingMasterModel extends $pb.GeneratedMessage {
   void clearIntValue2() => clearField(9);
 
   @$pb.TagNumber(10)
-  $2.Decimal get doubleValue1 => $_getN(9);
+  $4.Decimal get doubleValue1 => $_getN(9);
   @$pb.TagNumber(10)
-  set doubleValue1($2.Decimal v) { setField(10, v); }
+  set doubleValue1($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasDoubleValue1() => $_has(9);
   @$pb.TagNumber(10)
   void clearDoubleValue1() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureDoubleValue1() => $_ensure(9);
+  $4.Decimal ensureDoubleValue1() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get doubleValue2 => $_getN(10);
+  $4.Decimal get doubleValue2 => $_getN(10);
   @$pb.TagNumber(11)
-  set doubleValue2($2.Decimal v) { setField(11, v); }
+  set doubleValue2($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasDoubleValue2() => $_has(10);
   @$pb.TagNumber(11)
   void clearDoubleValue2() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensureDoubleValue2() => $_ensure(10);
+  $4.Decimal ensureDoubleValue2() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get dateValue1 => $_getN(11);
+  $5.Timestamp get dateValue1 => $_getN(11);
   @$pb.TagNumber(12)
-  set dateValue1($3.Timestamp v) { setField(12, v); }
+  set dateValue1($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasDateValue1() => $_has(11);
   @$pb.TagNumber(12)
   void clearDateValue1() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureDateValue1() => $_ensure(11);
+  $5.Timestamp ensureDateValue1() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $3.Timestamp get dateValue2 => $_getN(12);
+  $5.Timestamp get dateValue2 => $_getN(12);
   @$pb.TagNumber(13)
-  set dateValue2($3.Timestamp v) { setField(13, v); }
+  set dateValue2($5.Timestamp v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasDateValue2() => $_has(12);
   @$pb.TagNumber(13)
   void clearDateValue2() => clearField(13);
   @$pb.TagNumber(13)
-  $3.Timestamp ensureDateValue2() => $_ensure(12);
+  $5.Timestamp ensureDateValue2() => $_ensure(12);
 
   @$pb.TagNumber(14)
   $core.bool get boolValue => $_getBF(13);
@@ -877,6 +907,89 @@ class grpcSettingMasterModel extends $pb.GeneratedMessage {
   $core.bool hasUpdMode() => $_has(14);
   @$pb.TagNumber(15)
   void clearUpdMode() => clearField(15);
+}
+
+/// =================================================
+///  WageMaster
+/// =================================================
+class UpdateDeptFromStaffToWage_Request extends $pb.GeneratedMessage {
+  factory UpdateDeptFromStaffToWage_Request({
+    $0.UserCredential? credential,
+    $core.String? staffID,
+    $core.String? deptCode,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (staffID != null) {
+      $result.staffID = staffID;
+    }
+    if (deptCode != null) {
+      $result.deptCode = deptCode;
+    }
+    return $result;
+  }
+  UpdateDeptFromStaffToWage_Request._() : super();
+  factory UpdateDeptFromStaffToWage_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateDeptFromStaffToWage_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDeptFromStaffToWage_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(3, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateDeptFromStaffToWage_Request clone() => UpdateDeptFromStaffToWage_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateDeptFromStaffToWage_Request copyWith(void Function(UpdateDeptFromStaffToWage_Request) updates) => super.copyWith((message) => updates(message as UpdateDeptFromStaffToWage_Request)) as UpdateDeptFromStaffToWage_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateDeptFromStaffToWage_Request create() => UpdateDeptFromStaffToWage_Request._();
+  UpdateDeptFromStaffToWage_Request createEmptyInstance() => create();
+  static $pb.PbList<UpdateDeptFromStaffToWage_Request> createRepeated() => $pb.PbList<UpdateDeptFromStaffToWage_Request>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateDeptFromStaffToWage_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateDeptFromStaffToWage_Request>(create);
+  static UpdateDeptFromStaffToWage_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get staffID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set staffID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasStaffID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearStaffID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get deptCode => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set deptCode($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDeptCode() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDeptCode() => clearField(3);
 }
 
 /// >>> Start new generated message position
@@ -1105,10 +1218,10 @@ class grpcWorkingTimeMasterModel extends $pb.GeneratedMessage {
   factory grpcWorkingTimeMasterModel({
     $core.String? iD,
     $core.String? month,
-    $2.Decimal? workingDay,
-    $2.Decimal? workingHour,
+    $4.Decimal? workingDay,
+    $4.Decimal? workingHour,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -1138,10 +1251,10 @@ class grpcWorkingTimeMasterModel extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcWorkingTimeMasterModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'Month', protoName: 'Month')
-    ..aOM<$2.Decimal>(3, _omitFieldNames ? '' : 'WorkingDay', protoName: 'WorkingDay', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(4, _omitFieldNames ? '' : 'WorkingHour', protoName: 'WorkingHour', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(3, _omitFieldNames ? '' : 'WorkingDay', protoName: 'WorkingDay', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(4, _omitFieldNames ? '' : 'WorkingHour', protoName: 'WorkingHour', subBuilder: $4.Decimal.create)
     ..a<$core.int>(5, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1185,26 +1298,26 @@ class grpcWorkingTimeMasterModel extends $pb.GeneratedMessage {
   void clearMonth() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Decimal get workingDay => $_getN(2);
+  $4.Decimal get workingDay => $_getN(2);
   @$pb.TagNumber(3)
-  set workingDay($2.Decimal v) { setField(3, v); }
+  set workingDay($4.Decimal v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasWorkingDay() => $_has(2);
   @$pb.TagNumber(3)
   void clearWorkingDay() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Decimal ensureWorkingDay() => $_ensure(2);
+  $4.Decimal ensureWorkingDay() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $2.Decimal get workingHour => $_getN(3);
+  $4.Decimal get workingHour => $_getN(3);
   @$pb.TagNumber(4)
-  set workingHour($2.Decimal v) { setField(4, v); }
+  set workingHour($4.Decimal v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasWorkingHour() => $_has(3);
   @$pb.TagNumber(4)
   void clearWorkingHour() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Decimal ensureWorkingHour() => $_ensure(3);
+  $4.Decimal ensureWorkingHour() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.int get updMode => $_getIZ(4);
@@ -1216,15 +1329,15 @@ class grpcWorkingTimeMasterModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get updDateTime => $_getN(5);
+  $5.Timestamp get updDateTime => $_getN(5);
   @$pb.TagNumber(6)
-  set updDateTime($3.Timestamp v) { setField(6, v); }
+  set updDateTime($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasUpdDateTime() => $_has(5);
   @$pb.TagNumber(6)
   void clearUpdDateTime() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(5);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(5);
 }
 
 /// >>> End generated WorkingTimeMaster message
@@ -1301,7 +1414,7 @@ class GetWageMasterRecord_Request extends $pb.GeneratedMessage {
   factory GetWageMasterRecord_Request({
     $0.UserCredential? credential,
     $core.String? staffID,
-    $3.Timestamp? fromDate,
+    $5.Timestamp? fromDate,
   }) {
     final $result = create();
     if (credential != null) {
@@ -1322,7 +1435,7 @@ class GetWageMasterRecord_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetWageMasterRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
     ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1368,15 +1481,15 @@ class GetWageMasterRecord_Request extends $pb.GeneratedMessage {
   void clearStaffID() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get fromDate => $_getN(2);
+  $5.Timestamp get fromDate => $_getN(2);
   @$pb.TagNumber(3)
-  set fromDate($3.Timestamp v) { setField(3, v); }
+  set fromDate($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureFromDate() => $_ensure(2);
+  $5.Timestamp ensureFromDate() => $_ensure(2);
 }
 
 class GetWageMasterRecord_Response extends $pb.GeneratedMessage {
@@ -1615,7 +1728,7 @@ class GetWageMasterRecordByDate_Request extends $pb.GeneratedMessage {
   factory GetWageMasterRecordByDate_Request({
     $0.UserCredential? credential,
     $core.String? staffID,
-    $3.Timestamp? fromDate,
+    $5.Timestamp? fromDate,
   }) {
     final $result = create();
     if (credential != null) {
@@ -1636,7 +1749,7 @@ class GetWageMasterRecordByDate_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetWageMasterRecordByDate_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
     ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1682,15 +1795,15 @@ class GetWageMasterRecordByDate_Request extends $pb.GeneratedMessage {
   void clearStaffID() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get fromDate => $_getN(2);
+  $5.Timestamp get fromDate => $_getN(2);
   @$pb.TagNumber(3)
-  set fromDate($3.Timestamp v) { setField(3, v); }
+  set fromDate($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureFromDate() => $_ensure(2);
+  $5.Timestamp ensureFromDate() => $_ensure(2);
 }
 
 class grpcWageMasterModel extends $pb.GeneratedMessage {
@@ -1699,12 +1812,12 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
     $core.int? lineNo,
     $core.String? staffID,
     $core.String? staffName,
-    $2.Decimal? wage,
-    $2.Decimal? wageRate,
-    $2.Decimal? insWage,
-    $2.Decimal? pieceworkWage,
-    $2.Decimal? pieceworkWageRate,
-    $3.Timestamp? insStartDate,
+    $4.Decimal? wage,
+    $4.Decimal? wageRate,
+    $4.Decimal? insWage,
+    $4.Decimal? pieceworkWage,
+    $4.Decimal? pieceworkWageRate,
+    $5.Timestamp? insStartDate,
     $core.String? accID,
     $core.String? objectID,
     $core.int? salaryType,
@@ -1715,12 +1828,12 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
     $core.String? lineCode,
     $core.int? laborContractType,
     $core.int? taxType,
-    $3.Timestamp? contractDate,
+    $5.Timestamp? contractDate,
     $core.bool? isRegular,
     $core.bool? isUsed,
-    $3.Timestamp? startDate,
+    $5.Timestamp? startDate,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -1812,12 +1925,12 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
     ..aOS(3, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
     ..aOS(4, _omitFieldNames ? '' : 'StaffName', protoName: 'StaffName')
-    ..aOM<$2.Decimal>(5, _omitFieldNames ? '' : 'Wage', protoName: 'Wage', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(6, _omitFieldNames ? '' : 'WageRate', protoName: 'WageRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(7, _omitFieldNames ? '' : 'InsWage', protoName: 'InsWage', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'PieceworkWage', protoName: 'PieceworkWage', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'PieceworkWageRate', protoName: 'PieceworkWageRate', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'InsStartDate', protoName: 'InsStartDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(5, _omitFieldNames ? '' : 'Wage', protoName: 'Wage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'WageRate', protoName: 'WageRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(7, _omitFieldNames ? '' : 'InsWage', protoName: 'InsWage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'PieceworkWage', protoName: 'PieceworkWage', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'PieceworkWageRate', protoName: 'PieceworkWageRate', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'InsStartDate', protoName: 'InsStartDate', subBuilder: $5.Timestamp.create)
     ..aOS(11, _omitFieldNames ? '' : 'AccID', protoName: 'AccID')
     ..aOS(12, _omitFieldNames ? '' : 'ObjectID', protoName: 'ObjectID')
     ..a<$core.int>(13, _omitFieldNames ? '' : 'SalaryType', $pb.PbFieldType.O3, protoName: 'SalaryType')
@@ -1828,12 +1941,12 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
     ..aOS(18, _omitFieldNames ? '' : 'LineCode', protoName: 'LineCode')
     ..a<$core.int>(19, _omitFieldNames ? '' : 'LaborContractType', $pb.PbFieldType.O3, protoName: 'LaborContractType')
     ..a<$core.int>(20, _omitFieldNames ? '' : 'TaxType', $pb.PbFieldType.O3, protoName: 'TaxType')
-    ..aOM<$3.Timestamp>(21, _omitFieldNames ? '' : 'ContractDate', protoName: 'ContractDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(21, _omitFieldNames ? '' : 'ContractDate', protoName: 'ContractDate', subBuilder: $5.Timestamp.create)
     ..aOB(22, _omitFieldNames ? '' : 'IsRegular', protoName: 'IsRegular')
     ..aOB(23, _omitFieldNames ? '' : 'IsUsed', protoName: 'IsUsed')
-    ..aOM<$3.Timestamp>(24, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(24, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(25, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(26, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(26, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1895,70 +2008,70 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
   void clearStaffName() => clearField(4);
 
   @$pb.TagNumber(5)
-  $2.Decimal get wage => $_getN(4);
+  $4.Decimal get wage => $_getN(4);
   @$pb.TagNumber(5)
-  set wage($2.Decimal v) { setField(5, v); }
+  set wage($4.Decimal v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasWage() => $_has(4);
   @$pb.TagNumber(5)
   void clearWage() => clearField(5);
   @$pb.TagNumber(5)
-  $2.Decimal ensureWage() => $_ensure(4);
+  $4.Decimal ensureWage() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $2.Decimal get wageRate => $_getN(5);
+  $4.Decimal get wageRate => $_getN(5);
   @$pb.TagNumber(6)
-  set wageRate($2.Decimal v) { setField(6, v); }
+  set wageRate($4.Decimal v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasWageRate() => $_has(5);
   @$pb.TagNumber(6)
   void clearWageRate() => clearField(6);
   @$pb.TagNumber(6)
-  $2.Decimal ensureWageRate() => $_ensure(5);
+  $4.Decimal ensureWageRate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $2.Decimal get insWage => $_getN(6);
+  $4.Decimal get insWage => $_getN(6);
   @$pb.TagNumber(7)
-  set insWage($2.Decimal v) { setField(7, v); }
+  set insWage($4.Decimal v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasInsWage() => $_has(6);
   @$pb.TagNumber(7)
   void clearInsWage() => clearField(7);
   @$pb.TagNumber(7)
-  $2.Decimal ensureInsWage() => $_ensure(6);
+  $4.Decimal ensureInsWage() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $2.Decimal get pieceworkWage => $_getN(7);
+  $4.Decimal get pieceworkWage => $_getN(7);
   @$pb.TagNumber(8)
-  set pieceworkWage($2.Decimal v) { setField(8, v); }
+  set pieceworkWage($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasPieceworkWage() => $_has(7);
   @$pb.TagNumber(8)
   void clearPieceworkWage() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensurePieceworkWage() => $_ensure(7);
+  $4.Decimal ensurePieceworkWage() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Decimal get pieceworkWageRate => $_getN(8);
+  $4.Decimal get pieceworkWageRate => $_getN(8);
   @$pb.TagNumber(9)
-  set pieceworkWageRate($2.Decimal v) { setField(9, v); }
+  set pieceworkWageRate($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasPieceworkWageRate() => $_has(8);
   @$pb.TagNumber(9)
   void clearPieceworkWageRate() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensurePieceworkWageRate() => $_ensure(8);
+  $4.Decimal ensurePieceworkWageRate() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get insStartDate => $_getN(9);
+  $5.Timestamp get insStartDate => $_getN(9);
   @$pb.TagNumber(10)
-  set insStartDate($3.Timestamp v) { setField(10, v); }
+  set insStartDate($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasInsStartDate() => $_has(9);
   @$pb.TagNumber(10)
   void clearInsStartDate() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureInsStartDate() => $_ensure(9);
+  $5.Timestamp ensureInsStartDate() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.String get accID => $_getSZ(10);
@@ -2051,15 +2164,15 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
   void clearTaxType() => clearField(20);
 
   @$pb.TagNumber(21)
-  $3.Timestamp get contractDate => $_getN(20);
+  $5.Timestamp get contractDate => $_getN(20);
   @$pb.TagNumber(21)
-  set contractDate($3.Timestamp v) { setField(21, v); }
+  set contractDate($5.Timestamp v) { setField(21, v); }
   @$pb.TagNumber(21)
   $core.bool hasContractDate() => $_has(20);
   @$pb.TagNumber(21)
   void clearContractDate() => clearField(21);
   @$pb.TagNumber(21)
-  $3.Timestamp ensureContractDate() => $_ensure(20);
+  $5.Timestamp ensureContractDate() => $_ensure(20);
 
   @$pb.TagNumber(22)
   $core.bool get isRegular => $_getBF(21);
@@ -2080,15 +2193,15 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
   void clearIsUsed() => clearField(23);
 
   @$pb.TagNumber(24)
-  $3.Timestamp get startDate => $_getN(23);
+  $5.Timestamp get startDate => $_getN(23);
   @$pb.TagNumber(24)
-  set startDate($3.Timestamp v) { setField(24, v); }
+  set startDate($5.Timestamp v) { setField(24, v); }
   @$pb.TagNumber(24)
   $core.bool hasStartDate() => $_has(23);
   @$pb.TagNumber(24)
   void clearStartDate() => clearField(24);
   @$pb.TagNumber(24)
-  $3.Timestamp ensureStartDate() => $_ensure(23);
+  $5.Timestamp ensureStartDate() => $_ensure(23);
 
   @$pb.TagNumber(25)
   $core.int get updMode => $_getIZ(24);
@@ -2100,15 +2213,15 @@ class grpcWageMasterModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(25);
 
   @$pb.TagNumber(26)
-  $3.Timestamp get updDateTime => $_getN(25);
+  $5.Timestamp get updDateTime => $_getN(25);
   @$pb.TagNumber(26)
-  set updDateTime($3.Timestamp v) { setField(26, v); }
+  set updDateTime($5.Timestamp v) { setField(26, v); }
   @$pb.TagNumber(26)
   $core.bool hasUpdDateTime() => $_has(25);
   @$pb.TagNumber(26)
   void clearUpdDateTime() => clearField(26);
   @$pb.TagNumber(26)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(25);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(25);
 }
 
 /// >>> End generated WageMaster message
@@ -2420,7 +2533,7 @@ class grpcWorkingCalendarModel extends $pb.GeneratedMessage {
     $core.String? workingDate,
     $core.bool? isWorking,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -2453,7 +2566,7 @@ class grpcWorkingCalendarModel extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'WorkingDate', protoName: 'WorkingDate')
     ..aOB(4, _omitFieldNames ? '' : 'IsWorking', protoName: 'IsWorking')
     ..a<$core.int>(5, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -2524,15 +2637,15 @@ class grpcWorkingCalendarModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get updDateTime => $_getN(5);
+  $5.Timestamp get updDateTime => $_getN(5);
   @$pb.TagNumber(6)
-  set updDateTime($3.Timestamp v) { setField(6, v); }
+  set updDateTime($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasUpdDateTime() => $_has(5);
   @$pb.TagNumber(6)
   void clearUpdDateTime() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(5);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(5);
 }
 
 /// >>> End generated WorkingCalendar message
@@ -2543,9 +2656,9 @@ class grpcStaffAllowanceModel extends $pb.GeneratedMessage {
     $core.String? staffID,
     $core.String? allowanceCode,
     $core.String? allowanceName,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
-    $2.Decimal? amountN,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
+    $4.Decimal? amountN,
     $core.bool? isTax,
   }) {
     final $result = create();
@@ -2584,9 +2697,9 @@ class grpcStaffAllowanceModel extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
     ..aOS(3, _omitFieldNames ? '' : 'AllowanceCode', protoName: 'AllowanceCode')
     ..aOS(4, _omitFieldNames ? '' : 'AllowanceName', protoName: 'AllowanceName')
-    ..aOM<$3.Timestamp>(5, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$2.Decimal>(7, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $2.Decimal.create)
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$4.Decimal>(7, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $4.Decimal.create)
     ..aOB(8, _omitFieldNames ? '' : 'IsTax', protoName: 'IsTax')
     ..hasRequiredFields = false
   ;
@@ -2649,37 +2762,37 @@ class grpcStaffAllowanceModel extends $pb.GeneratedMessage {
   void clearAllowanceName() => clearField(4);
 
   @$pb.TagNumber(5)
-  $3.Timestamp get fromDate => $_getN(4);
+  $5.Timestamp get fromDate => $_getN(4);
   @$pb.TagNumber(5)
-  set fromDate($3.Timestamp v) { setField(5, v); }
+  set fromDate($5.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasFromDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearFromDate() => clearField(5);
   @$pb.TagNumber(5)
-  $3.Timestamp ensureFromDate() => $_ensure(4);
+  $5.Timestamp ensureFromDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get toDate => $_getN(5);
+  $5.Timestamp get toDate => $_getN(5);
   @$pb.TagNumber(6)
-  set toDate($3.Timestamp v) { setField(6, v); }
+  set toDate($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasToDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearToDate() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureToDate() => $_ensure(5);
+  $5.Timestamp ensureToDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $2.Decimal get amountN => $_getN(6);
+  $4.Decimal get amountN => $_getN(6);
   @$pb.TagNumber(7)
-  set amountN($2.Decimal v) { setField(7, v); }
+  set amountN($4.Decimal v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasAmountN() => $_has(6);
   @$pb.TagNumber(7)
   void clearAmountN() => clearField(7);
   @$pb.TagNumber(7)
-  $2.Decimal ensureAmountN() => $_ensure(6);
+  $4.Decimal ensureAmountN() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isTax => $_getBF(7);
@@ -2919,11 +3032,11 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
     $core.int? lineNo,
     $core.String? allowanceCode,
     $core.String? allowanceName,
-    $3.Timestamp? startDate,
-    $2.Decimal? amountN,
+    $5.Timestamp? startDate,
+    $4.Decimal? amountN,
     $core.bool? isTax,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -2964,11 +3077,11 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'LineNo', $pb.PbFieldType.O3, protoName: 'LineNo')
     ..aOS(3, _omitFieldNames ? '' : 'AllowanceCode', protoName: 'AllowanceCode')
     ..aOS(4, _omitFieldNames ? '' : 'AllowanceName', protoName: 'AllowanceName')
-    ..aOM<$3.Timestamp>(5, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$2.Decimal>(6, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $2.Decimal.create)
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $4.Decimal.create)
     ..aOB(7, _omitFieldNames ? '' : 'IsTax', protoName: 'IsTax')
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -3030,26 +3143,26 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
   void clearAllowanceName() => clearField(4);
 
   @$pb.TagNumber(5)
-  $3.Timestamp get startDate => $_getN(4);
+  $5.Timestamp get startDate => $_getN(4);
   @$pb.TagNumber(5)
-  set startDate($3.Timestamp v) { setField(5, v); }
+  set startDate($5.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearStartDate() => clearField(5);
   @$pb.TagNumber(5)
-  $3.Timestamp ensureStartDate() => $_ensure(4);
+  $5.Timestamp ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $2.Decimal get amountN => $_getN(5);
+  $4.Decimal get amountN => $_getN(5);
   @$pb.TagNumber(6)
-  set amountN($2.Decimal v) { setField(6, v); }
+  set amountN($4.Decimal v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasAmountN() => $_has(5);
   @$pb.TagNumber(6)
   void clearAmountN() => clearField(6);
   @$pb.TagNumber(6)
-  $2.Decimal ensureAmountN() => $_ensure(5);
+  $4.Decimal ensureAmountN() => $_ensure(5);
 
   @$pb.TagNumber(7)
   $core.bool get isTax => $_getBF(6);
@@ -3070,15 +3183,15 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(8);
 
   @$pb.TagNumber(9)
-  $3.Timestamp get updDateTime => $_getN(8);
+  $5.Timestamp get updDateTime => $_getN(8);
   @$pb.TagNumber(9)
-  set updDateTime($3.Timestamp v) { setField(9, v); }
+  set updDateTime($5.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasUpdDateTime() => $_has(8);
   @$pb.TagNumber(9)
   void clearUpdDateTime() => clearField(9);
   @$pb.TagNumber(9)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(8);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(8);
 }
 
 /// >>> End generated AllowanceMaster message
@@ -3307,12 +3420,12 @@ class grpcTaxMasterModel extends $pb.GeneratedMessage {
   factory grpcTaxMasterModel({
     $core.String? iD,
     $core.String? taxCode,
-    $2.Decimal? fromSalary,
-    $2.Decimal? toSalary,
-    $2.Decimal? taxRate,
-    $2.Decimal? reduceSalary,
+    $4.Decimal? fromSalary,
+    $4.Decimal? toSalary,
+    $4.Decimal? taxRate,
+    $4.Decimal? reduceSalary,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -3348,12 +3461,12 @@ class grpcTaxMasterModel extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcTaxMasterModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'TaxCode', protoName: 'TaxCode')
-    ..aOM<$2.Decimal>(3, _omitFieldNames ? '' : 'FromSalary', protoName: 'FromSalary', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(4, _omitFieldNames ? '' : 'ToSalary', protoName: 'ToSalary', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(5, _omitFieldNames ? '' : 'TaxRate', protoName: 'TaxRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(6, _omitFieldNames ? '' : 'ReduceSalary', protoName: 'ReduceSalary', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(3, _omitFieldNames ? '' : 'FromSalary', protoName: 'FromSalary', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(4, _omitFieldNames ? '' : 'ToSalary', protoName: 'ToSalary', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(5, _omitFieldNames ? '' : 'TaxRate', protoName: 'TaxRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'ReduceSalary', protoName: 'ReduceSalary', subBuilder: $4.Decimal.create)
     ..a<$core.int>(7, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(8, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(8, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -3397,48 +3510,48 @@ class grpcTaxMasterModel extends $pb.GeneratedMessage {
   void clearTaxCode() => clearField(2);
 
   @$pb.TagNumber(3)
-  $2.Decimal get fromSalary => $_getN(2);
+  $4.Decimal get fromSalary => $_getN(2);
   @$pb.TagNumber(3)
-  set fromSalary($2.Decimal v) { setField(3, v); }
+  set fromSalary($4.Decimal v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromSalary() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromSalary() => clearField(3);
   @$pb.TagNumber(3)
-  $2.Decimal ensureFromSalary() => $_ensure(2);
+  $4.Decimal ensureFromSalary() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $2.Decimal get toSalary => $_getN(3);
+  $4.Decimal get toSalary => $_getN(3);
   @$pb.TagNumber(4)
-  set toSalary($2.Decimal v) { setField(4, v); }
+  set toSalary($4.Decimal v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasToSalary() => $_has(3);
   @$pb.TagNumber(4)
   void clearToSalary() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Decimal ensureToSalary() => $_ensure(3);
+  $4.Decimal ensureToSalary() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $2.Decimal get taxRate => $_getN(4);
+  $4.Decimal get taxRate => $_getN(4);
   @$pb.TagNumber(5)
-  set taxRate($2.Decimal v) { setField(5, v); }
+  set taxRate($4.Decimal v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasTaxRate() => $_has(4);
   @$pb.TagNumber(5)
   void clearTaxRate() => clearField(5);
   @$pb.TagNumber(5)
-  $2.Decimal ensureTaxRate() => $_ensure(4);
+  $4.Decimal ensureTaxRate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $2.Decimal get reduceSalary => $_getN(5);
+  $4.Decimal get reduceSalary => $_getN(5);
   @$pb.TagNumber(6)
-  set reduceSalary($2.Decimal v) { setField(6, v); }
+  set reduceSalary($4.Decimal v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasReduceSalary() => $_has(5);
   @$pb.TagNumber(6)
   void clearReduceSalary() => clearField(6);
   @$pb.TagNumber(6)
-  $2.Decimal ensureReduceSalary() => $_ensure(5);
+  $4.Decimal ensureReduceSalary() => $_ensure(5);
 
   @$pb.TagNumber(7)
   $core.int get updMode => $_getIZ(6);
@@ -3450,15 +3563,15 @@ class grpcTaxMasterModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(7);
 
   @$pb.TagNumber(8)
-  $3.Timestamp get updDateTime => $_getN(7);
+  $5.Timestamp get updDateTime => $_getN(7);
   @$pb.TagNumber(8)
-  set updDateTime($3.Timestamp v) { setField(8, v); }
+  set updDateTime($5.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasUpdDateTime() => $_has(7);
   @$pb.TagNumber(8)
   void clearUpdDateTime() => clearField(8);
   @$pb.TagNumber(8)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(7);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(7);
 }
 
 /// >>> End generated TaxMaster message
@@ -3466,7 +3579,7 @@ class grpcTaxMasterModel extends $pb.GeneratedMessage {
 class GetSalaryMasterRecord_Request extends $pb.GeneratedMessage {
   factory GetSalaryMasterRecord_Request({
     $0.UserCredential? credential,
-    $3.Timestamp? startDate,
+    $5.Timestamp? startDate,
     $core.bool? isMatch,
   }) {
     final $result = create();
@@ -3487,7 +3600,7 @@ class GetSalaryMasterRecord_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSalaryMasterRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOM<$3.Timestamp>(2, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
     ..aOB(3, _omitFieldNames ? '' : 'IsMatch', protoName: 'IsMatch')
     ..hasRequiredFields = false
   ;
@@ -3525,15 +3638,15 @@ class GetSalaryMasterRecord_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $3.Timestamp get startDate => $_getN(1);
+  $5.Timestamp get startDate => $_getN(1);
   @$pb.TagNumber(2)
-  set startDate($3.Timestamp v) { setField(2, v); }
+  set startDate($5.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasStartDate() => $_has(1);
   @$pb.TagNumber(2)
   void clearStartDate() => clearField(2);
   @$pb.TagNumber(2)
-  $3.Timestamp ensureStartDate() => $_ensure(1);
+  $5.Timestamp ensureStartDate() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.bool get isMatch => $_getBF(2);
@@ -3696,38 +3809,39 @@ class SaveSalaryMaster_Request extends $pb.GeneratedMessage {
 class grpcSalaryMasterModel extends $pb.GeneratedMessage {
   factory grpcSalaryMasterModel({
     $core.String? iD,
-    $3.Timestamp? startDate,
+    $5.Timestamp? startDate,
     $core.String? accID,
+    $core.String? accObjectID,
     $core.String? socialInsAccID,
     $core.String? healthInsAccID,
     $core.String? unemploymentInsAccID,
     $core.String? tradeUnionAccID,
     $core.String? personalIncTaxAccID,
-    $2.Decimal? socialInsRate,
-    $2.Decimal? healthInsRate,
-    $2.Decimal? unemploymentInsRate,
-    $2.Decimal? tradeUnionRate,
-    $2.Decimal? socialInsCoRate,
-    $2.Decimal? healthInsCoRate,
-    $2.Decimal? unemploymentInsCoRate,
-    $2.Decimal? tradeUnionCoRate,
-    $2.Decimal? deductAmountN,
-    $2.Decimal? deductExtAmountN,
-    $2.Decimal? overtimeRate,
-    $2.Decimal? dayOffRate,
-    $2.Decimal? holidaysRate,
-    $2.Decimal? overnightRate,
-    $2.Decimal? stopWorkingRate,
-    $2.Decimal? advanceRate,
-    $2.Decimal? advanceAmountN,
-    $2.Decimal? stdWrkHours,
-    $2.Decimal? produceStdWrkHours,
-    $2.Decimal? daytimeRate,
-    $2.Decimal? overnightExRate,
-    $2.Decimal? overtimeExRate,
-    $2.Decimal? minimumWage,
+    $4.Decimal? socialInsRate,
+    $4.Decimal? healthInsRate,
+    $4.Decimal? unemploymentInsRate,
+    $4.Decimal? tradeUnionRate,
+    $4.Decimal? socialInsCoRate,
+    $4.Decimal? healthInsCoRate,
+    $4.Decimal? unemploymentInsCoRate,
+    $4.Decimal? tradeUnionCoRate,
+    $4.Decimal? deductAmountN,
+    $4.Decimal? deductExtAmountN,
+    $4.Decimal? overtimeRate,
+    $4.Decimal? dayOffRate,
+    $4.Decimal? holidaysRate,
+    $4.Decimal? overnightRate,
+    $4.Decimal? stopWorkingRate,
+    $4.Decimal? advanceRate,
+    $4.Decimal? advanceAmountN,
+    $4.Decimal? stdWrkHours,
+    $4.Decimal? produceStdWrkHours,
+    $4.Decimal? daytimeRate,
+    $4.Decimal? overnightExRate,
+    $4.Decimal? overtimeExRate,
+    $4.Decimal? minimumWage,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -3738,6 +3852,9 @@ class grpcSalaryMasterModel extends $pb.GeneratedMessage {
     }
     if (accID != null) {
       $result.accID = accID;
+    }
+    if (accObjectID != null) {
+      $result.accObjectID = accObjectID;
     }
     if (socialInsAccID != null) {
       $result.socialInsAccID = socialInsAccID;
@@ -3837,38 +3954,39 @@ class grpcSalaryMasterModel extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcSalaryMasterModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOM<$3.Timestamp>(2, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(2, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
     ..aOS(3, _omitFieldNames ? '' : 'AccID', protoName: 'AccID')
-    ..aOS(4, _omitFieldNames ? '' : 'SocialInsAccID', protoName: 'SocialInsAccID')
-    ..aOS(5, _omitFieldNames ? '' : 'HealthInsAccID', protoName: 'HealthInsAccID')
-    ..aOS(6, _omitFieldNames ? '' : 'UnemploymentInsAccID', protoName: 'UnemploymentInsAccID')
-    ..aOS(7, _omitFieldNames ? '' : 'TradeUnionAccID', protoName: 'TradeUnionAccID')
-    ..aOS(8, _omitFieldNames ? '' : 'PersonalIncTaxAccID', protoName: 'PersonalIncTaxAccID')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'SocialInsRate', protoName: 'SocialInsRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'HealthInsRate', protoName: 'HealthInsRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'UnemploymentInsRate', protoName: 'UnemploymentInsRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(12, _omitFieldNames ? '' : 'TradeUnionRate', protoName: 'TradeUnionRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(13, _omitFieldNames ? '' : 'SocialInsCoRate', protoName: 'SocialInsCoRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(14, _omitFieldNames ? '' : 'HealthInsCoRate', protoName: 'HealthInsCoRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(15, _omitFieldNames ? '' : 'UnemploymentInsCoRate', protoName: 'UnemploymentInsCoRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(16, _omitFieldNames ? '' : 'TradeUnionCoRate', protoName: 'TradeUnionCoRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(17, _omitFieldNames ? '' : 'DeductAmountN', protoName: 'DeductAmountN', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(18, _omitFieldNames ? '' : 'DeductExtAmountN', protoName: 'DeductExtAmountN', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(19, _omitFieldNames ? '' : 'OvertimeRate', protoName: 'OvertimeRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(20, _omitFieldNames ? '' : 'DayOffRate', protoName: 'DayOffRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(21, _omitFieldNames ? '' : 'HolidaysRate', protoName: 'HolidaysRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(22, _omitFieldNames ? '' : 'OvernightRate', protoName: 'OvernightRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(23, _omitFieldNames ? '' : 'StopWorkingRate', protoName: 'StopWorkingRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(24, _omitFieldNames ? '' : 'AdvanceRate', protoName: 'AdvanceRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(25, _omitFieldNames ? '' : 'AdvanceAmountN', protoName: 'AdvanceAmountN', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(26, _omitFieldNames ? '' : 'StdWrkHours', protoName: 'StdWrkHours', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(27, _omitFieldNames ? '' : 'ProduceStdWrkHours', protoName: 'ProduceStdWrkHours', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(28, _omitFieldNames ? '' : 'DaytimeRate', protoName: 'DaytimeRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(29, _omitFieldNames ? '' : 'OvernightExRate', protoName: 'OvernightExRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(30, _omitFieldNames ? '' : 'OvertimeExRate', protoName: 'OvertimeExRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(31, _omitFieldNames ? '' : 'MinimumWage', protoName: 'MinimumWage', subBuilder: $2.Decimal.create)
-    ..a<$core.int>(32, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(33, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOS(4, _omitFieldNames ? '' : 'AccObjectID', protoName: 'AccObjectID')
+    ..aOS(5, _omitFieldNames ? '' : 'SocialInsAccID', protoName: 'SocialInsAccID')
+    ..aOS(6, _omitFieldNames ? '' : 'HealthInsAccID', protoName: 'HealthInsAccID')
+    ..aOS(7, _omitFieldNames ? '' : 'UnemploymentInsAccID', protoName: 'UnemploymentInsAccID')
+    ..aOS(8, _omitFieldNames ? '' : 'TradeUnionAccID', protoName: 'TradeUnionAccID')
+    ..aOS(9, _omitFieldNames ? '' : 'PersonalIncTaxAccID', protoName: 'PersonalIncTaxAccID')
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'SocialInsRate', protoName: 'SocialInsRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'HealthInsRate', protoName: 'HealthInsRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(12, _omitFieldNames ? '' : 'UnemploymentInsRate', protoName: 'UnemploymentInsRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(13, _omitFieldNames ? '' : 'TradeUnionRate', protoName: 'TradeUnionRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(14, _omitFieldNames ? '' : 'SocialInsCoRate', protoName: 'SocialInsCoRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(15, _omitFieldNames ? '' : 'HealthInsCoRate', protoName: 'HealthInsCoRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(16, _omitFieldNames ? '' : 'UnemploymentInsCoRate', protoName: 'UnemploymentInsCoRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(17, _omitFieldNames ? '' : 'TradeUnionCoRate', protoName: 'TradeUnionCoRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(18, _omitFieldNames ? '' : 'DeductAmountN', protoName: 'DeductAmountN', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(19, _omitFieldNames ? '' : 'DeductExtAmountN', protoName: 'DeductExtAmountN', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(20, _omitFieldNames ? '' : 'OvertimeRate', protoName: 'OvertimeRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(21, _omitFieldNames ? '' : 'DayOffRate', protoName: 'DayOffRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(22, _omitFieldNames ? '' : 'HolidaysRate', protoName: 'HolidaysRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(23, _omitFieldNames ? '' : 'OvernightRate', protoName: 'OvernightRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(24, _omitFieldNames ? '' : 'StopWorkingRate', protoName: 'StopWorkingRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(25, _omitFieldNames ? '' : 'AdvanceRate', protoName: 'AdvanceRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(26, _omitFieldNames ? '' : 'AdvanceAmountN', protoName: 'AdvanceAmountN', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(27, _omitFieldNames ? '' : 'StdWrkHours', protoName: 'StdWrkHours', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(28, _omitFieldNames ? '' : 'ProduceStdWrkHours', protoName: 'ProduceStdWrkHours', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(29, _omitFieldNames ? '' : 'DaytimeRate', protoName: 'DaytimeRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(30, _omitFieldNames ? '' : 'OvernightExRate', protoName: 'OvernightExRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(31, _omitFieldNames ? '' : 'OvertimeExRate', protoName: 'OvertimeExRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(32, _omitFieldNames ? '' : 'MinimumWage', protoName: 'MinimumWage', subBuilder: $4.Decimal.create)
+    ..a<$core.int>(33, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOM<$5.Timestamp>(34, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -3903,15 +4021,15 @@ class grpcSalaryMasterModel extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $3.Timestamp get startDate => $_getN(1);
+  $5.Timestamp get startDate => $_getN(1);
   @$pb.TagNumber(2)
-  set startDate($3.Timestamp v) { setField(2, v); }
+  set startDate($5.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasStartDate() => $_has(1);
   @$pb.TagNumber(2)
   void clearStartDate() => clearField(2);
   @$pb.TagNumber(2)
-  $3.Timestamp ensureStartDate() => $_ensure(1);
+  $5.Timestamp ensureStartDate() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get accID => $_getSZ(2);
@@ -3923,322 +4041,331 @@ class grpcSalaryMasterModel extends $pb.GeneratedMessage {
   void clearAccID() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get socialInsAccID => $_getSZ(3);
+  $core.String get accObjectID => $_getSZ(3);
   @$pb.TagNumber(4)
-  set socialInsAccID($core.String v) { $_setString(3, v); }
+  set accObjectID($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasSocialInsAccID() => $_has(3);
+  $core.bool hasAccObjectID() => $_has(3);
   @$pb.TagNumber(4)
-  void clearSocialInsAccID() => clearField(4);
+  void clearAccObjectID() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get healthInsAccID => $_getSZ(4);
+  $core.String get socialInsAccID => $_getSZ(4);
   @$pb.TagNumber(5)
-  set healthInsAccID($core.String v) { $_setString(4, v); }
+  set socialInsAccID($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasHealthInsAccID() => $_has(4);
+  $core.bool hasSocialInsAccID() => $_has(4);
   @$pb.TagNumber(5)
-  void clearHealthInsAccID() => clearField(5);
+  void clearSocialInsAccID() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get unemploymentInsAccID => $_getSZ(5);
+  $core.String get healthInsAccID => $_getSZ(5);
   @$pb.TagNumber(6)
-  set unemploymentInsAccID($core.String v) { $_setString(5, v); }
+  set healthInsAccID($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasUnemploymentInsAccID() => $_has(5);
+  $core.bool hasHealthInsAccID() => $_has(5);
   @$pb.TagNumber(6)
-  void clearUnemploymentInsAccID() => clearField(6);
+  void clearHealthInsAccID() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get tradeUnionAccID => $_getSZ(6);
+  $core.String get unemploymentInsAccID => $_getSZ(6);
   @$pb.TagNumber(7)
-  set tradeUnionAccID($core.String v) { $_setString(6, v); }
+  set unemploymentInsAccID($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasTradeUnionAccID() => $_has(6);
+  $core.bool hasUnemploymentInsAccID() => $_has(6);
   @$pb.TagNumber(7)
-  void clearTradeUnionAccID() => clearField(7);
+  void clearUnemploymentInsAccID() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get personalIncTaxAccID => $_getSZ(7);
+  $core.String get tradeUnionAccID => $_getSZ(7);
   @$pb.TagNumber(8)
-  set personalIncTaxAccID($core.String v) { $_setString(7, v); }
+  set tradeUnionAccID($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasPersonalIncTaxAccID() => $_has(7);
+  $core.bool hasTradeUnionAccID() => $_has(7);
   @$pb.TagNumber(8)
-  void clearPersonalIncTaxAccID() => clearField(8);
+  void clearTradeUnionAccID() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get socialInsRate => $_getN(8);
+  $core.String get personalIncTaxAccID => $_getSZ(8);
   @$pb.TagNumber(9)
-  set socialInsRate($2.Decimal v) { setField(9, v); }
+  set personalIncTaxAccID($core.String v) { $_setString(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasSocialInsRate() => $_has(8);
+  $core.bool hasPersonalIncTaxAccID() => $_has(8);
   @$pb.TagNumber(9)
-  void clearSocialInsRate() => clearField(9);
-  @$pb.TagNumber(9)
-  $2.Decimal ensureSocialInsRate() => $_ensure(8);
+  void clearPersonalIncTaxAccID() => clearField(9);
 
   @$pb.TagNumber(10)
-  $2.Decimal get healthInsRate => $_getN(9);
+  $4.Decimal get socialInsRate => $_getN(9);
   @$pb.TagNumber(10)
-  set healthInsRate($2.Decimal v) { setField(10, v); }
+  set socialInsRate($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasHealthInsRate() => $_has(9);
+  $core.bool hasSocialInsRate() => $_has(9);
   @$pb.TagNumber(10)
-  void clearHealthInsRate() => clearField(10);
+  void clearSocialInsRate() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureHealthInsRate() => $_ensure(9);
+  $4.Decimal ensureSocialInsRate() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get unemploymentInsRate => $_getN(10);
+  $4.Decimal get healthInsRate => $_getN(10);
   @$pb.TagNumber(11)
-  set unemploymentInsRate($2.Decimal v) { setField(11, v); }
+  set healthInsRate($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
-  $core.bool hasUnemploymentInsRate() => $_has(10);
+  $core.bool hasHealthInsRate() => $_has(10);
   @$pb.TagNumber(11)
-  void clearUnemploymentInsRate() => clearField(11);
+  void clearHealthInsRate() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensureUnemploymentInsRate() => $_ensure(10);
+  $4.Decimal ensureHealthInsRate() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $2.Decimal get tradeUnionRate => $_getN(11);
+  $4.Decimal get unemploymentInsRate => $_getN(11);
   @$pb.TagNumber(12)
-  set tradeUnionRate($2.Decimal v) { setField(12, v); }
+  set unemploymentInsRate($4.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
-  $core.bool hasTradeUnionRate() => $_has(11);
+  $core.bool hasUnemploymentInsRate() => $_has(11);
   @$pb.TagNumber(12)
-  void clearTradeUnionRate() => clearField(12);
+  void clearUnemploymentInsRate() => clearField(12);
   @$pb.TagNumber(12)
-  $2.Decimal ensureTradeUnionRate() => $_ensure(11);
+  $4.Decimal ensureUnemploymentInsRate() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $2.Decimal get socialInsCoRate => $_getN(12);
+  $4.Decimal get tradeUnionRate => $_getN(12);
   @$pb.TagNumber(13)
-  set socialInsCoRate($2.Decimal v) { setField(13, v); }
+  set tradeUnionRate($4.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasSocialInsCoRate() => $_has(12);
+  $core.bool hasTradeUnionRate() => $_has(12);
   @$pb.TagNumber(13)
-  void clearSocialInsCoRate() => clearField(13);
+  void clearTradeUnionRate() => clearField(13);
   @$pb.TagNumber(13)
-  $2.Decimal ensureSocialInsCoRate() => $_ensure(12);
+  $4.Decimal ensureTradeUnionRate() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $2.Decimal get healthInsCoRate => $_getN(13);
+  $4.Decimal get socialInsCoRate => $_getN(13);
   @$pb.TagNumber(14)
-  set healthInsCoRate($2.Decimal v) { setField(14, v); }
+  set socialInsCoRate($4.Decimal v) { setField(14, v); }
   @$pb.TagNumber(14)
-  $core.bool hasHealthInsCoRate() => $_has(13);
+  $core.bool hasSocialInsCoRate() => $_has(13);
   @$pb.TagNumber(14)
-  void clearHealthInsCoRate() => clearField(14);
+  void clearSocialInsCoRate() => clearField(14);
   @$pb.TagNumber(14)
-  $2.Decimal ensureHealthInsCoRate() => $_ensure(13);
+  $4.Decimal ensureSocialInsCoRate() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $2.Decimal get unemploymentInsCoRate => $_getN(14);
+  $4.Decimal get healthInsCoRate => $_getN(14);
   @$pb.TagNumber(15)
-  set unemploymentInsCoRate($2.Decimal v) { setField(15, v); }
+  set healthInsCoRate($4.Decimal v) { setField(15, v); }
   @$pb.TagNumber(15)
-  $core.bool hasUnemploymentInsCoRate() => $_has(14);
+  $core.bool hasHealthInsCoRate() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUnemploymentInsCoRate() => clearField(15);
+  void clearHealthInsCoRate() => clearField(15);
   @$pb.TagNumber(15)
-  $2.Decimal ensureUnemploymentInsCoRate() => $_ensure(14);
+  $4.Decimal ensureHealthInsCoRate() => $_ensure(14);
 
   @$pb.TagNumber(16)
-  $2.Decimal get tradeUnionCoRate => $_getN(15);
+  $4.Decimal get unemploymentInsCoRate => $_getN(15);
   @$pb.TagNumber(16)
-  set tradeUnionCoRate($2.Decimal v) { setField(16, v); }
+  set unemploymentInsCoRate($4.Decimal v) { setField(16, v); }
   @$pb.TagNumber(16)
-  $core.bool hasTradeUnionCoRate() => $_has(15);
+  $core.bool hasUnemploymentInsCoRate() => $_has(15);
   @$pb.TagNumber(16)
-  void clearTradeUnionCoRate() => clearField(16);
+  void clearUnemploymentInsCoRate() => clearField(16);
   @$pb.TagNumber(16)
-  $2.Decimal ensureTradeUnionCoRate() => $_ensure(15);
+  $4.Decimal ensureUnemploymentInsCoRate() => $_ensure(15);
 
   @$pb.TagNumber(17)
-  $2.Decimal get deductAmountN => $_getN(16);
+  $4.Decimal get tradeUnionCoRate => $_getN(16);
   @$pb.TagNumber(17)
-  set deductAmountN($2.Decimal v) { setField(17, v); }
+  set tradeUnionCoRate($4.Decimal v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasDeductAmountN() => $_has(16);
+  $core.bool hasTradeUnionCoRate() => $_has(16);
   @$pb.TagNumber(17)
-  void clearDeductAmountN() => clearField(17);
+  void clearTradeUnionCoRate() => clearField(17);
   @$pb.TagNumber(17)
-  $2.Decimal ensureDeductAmountN() => $_ensure(16);
+  $4.Decimal ensureTradeUnionCoRate() => $_ensure(16);
 
   @$pb.TagNumber(18)
-  $2.Decimal get deductExtAmountN => $_getN(17);
+  $4.Decimal get deductAmountN => $_getN(17);
   @$pb.TagNumber(18)
-  set deductExtAmountN($2.Decimal v) { setField(18, v); }
+  set deductAmountN($4.Decimal v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasDeductExtAmountN() => $_has(17);
+  $core.bool hasDeductAmountN() => $_has(17);
   @$pb.TagNumber(18)
-  void clearDeductExtAmountN() => clearField(18);
+  void clearDeductAmountN() => clearField(18);
   @$pb.TagNumber(18)
-  $2.Decimal ensureDeductExtAmountN() => $_ensure(17);
+  $4.Decimal ensureDeductAmountN() => $_ensure(17);
 
   @$pb.TagNumber(19)
-  $2.Decimal get overtimeRate => $_getN(18);
+  $4.Decimal get deductExtAmountN => $_getN(18);
   @$pb.TagNumber(19)
-  set overtimeRate($2.Decimal v) { setField(19, v); }
+  set deductExtAmountN($4.Decimal v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasOvertimeRate() => $_has(18);
+  $core.bool hasDeductExtAmountN() => $_has(18);
   @$pb.TagNumber(19)
-  void clearOvertimeRate() => clearField(19);
+  void clearDeductExtAmountN() => clearField(19);
   @$pb.TagNumber(19)
-  $2.Decimal ensureOvertimeRate() => $_ensure(18);
+  $4.Decimal ensureDeductExtAmountN() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $2.Decimal get dayOffRate => $_getN(19);
+  $4.Decimal get overtimeRate => $_getN(19);
   @$pb.TagNumber(20)
-  set dayOffRate($2.Decimal v) { setField(20, v); }
+  set overtimeRate($4.Decimal v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasDayOffRate() => $_has(19);
+  $core.bool hasOvertimeRate() => $_has(19);
   @$pb.TagNumber(20)
-  void clearDayOffRate() => clearField(20);
+  void clearOvertimeRate() => clearField(20);
   @$pb.TagNumber(20)
-  $2.Decimal ensureDayOffRate() => $_ensure(19);
+  $4.Decimal ensureOvertimeRate() => $_ensure(19);
 
   @$pb.TagNumber(21)
-  $2.Decimal get holidaysRate => $_getN(20);
+  $4.Decimal get dayOffRate => $_getN(20);
   @$pb.TagNumber(21)
-  set holidaysRate($2.Decimal v) { setField(21, v); }
+  set dayOffRate($4.Decimal v) { setField(21, v); }
   @$pb.TagNumber(21)
-  $core.bool hasHolidaysRate() => $_has(20);
+  $core.bool hasDayOffRate() => $_has(20);
   @$pb.TagNumber(21)
-  void clearHolidaysRate() => clearField(21);
+  void clearDayOffRate() => clearField(21);
   @$pb.TagNumber(21)
-  $2.Decimal ensureHolidaysRate() => $_ensure(20);
+  $4.Decimal ensureDayOffRate() => $_ensure(20);
 
   @$pb.TagNumber(22)
-  $2.Decimal get overnightRate => $_getN(21);
+  $4.Decimal get holidaysRate => $_getN(21);
   @$pb.TagNumber(22)
-  set overnightRate($2.Decimal v) { setField(22, v); }
+  set holidaysRate($4.Decimal v) { setField(22, v); }
   @$pb.TagNumber(22)
-  $core.bool hasOvernightRate() => $_has(21);
+  $core.bool hasHolidaysRate() => $_has(21);
   @$pb.TagNumber(22)
-  void clearOvernightRate() => clearField(22);
+  void clearHolidaysRate() => clearField(22);
   @$pb.TagNumber(22)
-  $2.Decimal ensureOvernightRate() => $_ensure(21);
+  $4.Decimal ensureHolidaysRate() => $_ensure(21);
 
   @$pb.TagNumber(23)
-  $2.Decimal get stopWorkingRate => $_getN(22);
+  $4.Decimal get overnightRate => $_getN(22);
   @$pb.TagNumber(23)
-  set stopWorkingRate($2.Decimal v) { setField(23, v); }
+  set overnightRate($4.Decimal v) { setField(23, v); }
   @$pb.TagNumber(23)
-  $core.bool hasStopWorkingRate() => $_has(22);
+  $core.bool hasOvernightRate() => $_has(22);
   @$pb.TagNumber(23)
-  void clearStopWorkingRate() => clearField(23);
+  void clearOvernightRate() => clearField(23);
   @$pb.TagNumber(23)
-  $2.Decimal ensureStopWorkingRate() => $_ensure(22);
+  $4.Decimal ensureOvernightRate() => $_ensure(22);
 
   @$pb.TagNumber(24)
-  $2.Decimal get advanceRate => $_getN(23);
+  $4.Decimal get stopWorkingRate => $_getN(23);
   @$pb.TagNumber(24)
-  set advanceRate($2.Decimal v) { setField(24, v); }
+  set stopWorkingRate($4.Decimal v) { setField(24, v); }
   @$pb.TagNumber(24)
-  $core.bool hasAdvanceRate() => $_has(23);
+  $core.bool hasStopWorkingRate() => $_has(23);
   @$pb.TagNumber(24)
-  void clearAdvanceRate() => clearField(24);
+  void clearStopWorkingRate() => clearField(24);
   @$pb.TagNumber(24)
-  $2.Decimal ensureAdvanceRate() => $_ensure(23);
+  $4.Decimal ensureStopWorkingRate() => $_ensure(23);
 
   @$pb.TagNumber(25)
-  $2.Decimal get advanceAmountN => $_getN(24);
+  $4.Decimal get advanceRate => $_getN(24);
   @$pb.TagNumber(25)
-  set advanceAmountN($2.Decimal v) { setField(25, v); }
+  set advanceRate($4.Decimal v) { setField(25, v); }
   @$pb.TagNumber(25)
-  $core.bool hasAdvanceAmountN() => $_has(24);
+  $core.bool hasAdvanceRate() => $_has(24);
   @$pb.TagNumber(25)
-  void clearAdvanceAmountN() => clearField(25);
+  void clearAdvanceRate() => clearField(25);
   @$pb.TagNumber(25)
-  $2.Decimal ensureAdvanceAmountN() => $_ensure(24);
+  $4.Decimal ensureAdvanceRate() => $_ensure(24);
 
   @$pb.TagNumber(26)
-  $2.Decimal get stdWrkHours => $_getN(25);
+  $4.Decimal get advanceAmountN => $_getN(25);
   @$pb.TagNumber(26)
-  set stdWrkHours($2.Decimal v) { setField(26, v); }
+  set advanceAmountN($4.Decimal v) { setField(26, v); }
   @$pb.TagNumber(26)
-  $core.bool hasStdWrkHours() => $_has(25);
+  $core.bool hasAdvanceAmountN() => $_has(25);
   @$pb.TagNumber(26)
-  void clearStdWrkHours() => clearField(26);
+  void clearAdvanceAmountN() => clearField(26);
   @$pb.TagNumber(26)
-  $2.Decimal ensureStdWrkHours() => $_ensure(25);
+  $4.Decimal ensureAdvanceAmountN() => $_ensure(25);
 
   @$pb.TagNumber(27)
-  $2.Decimal get produceStdWrkHours => $_getN(26);
+  $4.Decimal get stdWrkHours => $_getN(26);
   @$pb.TagNumber(27)
-  set produceStdWrkHours($2.Decimal v) { setField(27, v); }
+  set stdWrkHours($4.Decimal v) { setField(27, v); }
   @$pb.TagNumber(27)
-  $core.bool hasProduceStdWrkHours() => $_has(26);
+  $core.bool hasStdWrkHours() => $_has(26);
   @$pb.TagNumber(27)
-  void clearProduceStdWrkHours() => clearField(27);
+  void clearStdWrkHours() => clearField(27);
   @$pb.TagNumber(27)
-  $2.Decimal ensureProduceStdWrkHours() => $_ensure(26);
+  $4.Decimal ensureStdWrkHours() => $_ensure(26);
 
   @$pb.TagNumber(28)
-  $2.Decimal get daytimeRate => $_getN(27);
+  $4.Decimal get produceStdWrkHours => $_getN(27);
   @$pb.TagNumber(28)
-  set daytimeRate($2.Decimal v) { setField(28, v); }
+  set produceStdWrkHours($4.Decimal v) { setField(28, v); }
   @$pb.TagNumber(28)
-  $core.bool hasDaytimeRate() => $_has(27);
+  $core.bool hasProduceStdWrkHours() => $_has(27);
   @$pb.TagNumber(28)
-  void clearDaytimeRate() => clearField(28);
+  void clearProduceStdWrkHours() => clearField(28);
   @$pb.TagNumber(28)
-  $2.Decimal ensureDaytimeRate() => $_ensure(27);
+  $4.Decimal ensureProduceStdWrkHours() => $_ensure(27);
 
   @$pb.TagNumber(29)
-  $2.Decimal get overnightExRate => $_getN(28);
+  $4.Decimal get daytimeRate => $_getN(28);
   @$pb.TagNumber(29)
-  set overnightExRate($2.Decimal v) { setField(29, v); }
+  set daytimeRate($4.Decimal v) { setField(29, v); }
   @$pb.TagNumber(29)
-  $core.bool hasOvernightExRate() => $_has(28);
+  $core.bool hasDaytimeRate() => $_has(28);
   @$pb.TagNumber(29)
-  void clearOvernightExRate() => clearField(29);
+  void clearDaytimeRate() => clearField(29);
   @$pb.TagNumber(29)
-  $2.Decimal ensureOvernightExRate() => $_ensure(28);
+  $4.Decimal ensureDaytimeRate() => $_ensure(28);
 
   @$pb.TagNumber(30)
-  $2.Decimal get overtimeExRate => $_getN(29);
+  $4.Decimal get overnightExRate => $_getN(29);
   @$pb.TagNumber(30)
-  set overtimeExRate($2.Decimal v) { setField(30, v); }
+  set overnightExRate($4.Decimal v) { setField(30, v); }
   @$pb.TagNumber(30)
-  $core.bool hasOvertimeExRate() => $_has(29);
+  $core.bool hasOvernightExRate() => $_has(29);
   @$pb.TagNumber(30)
-  void clearOvertimeExRate() => clearField(30);
+  void clearOvernightExRate() => clearField(30);
   @$pb.TagNumber(30)
-  $2.Decimal ensureOvertimeExRate() => $_ensure(29);
+  $4.Decimal ensureOvernightExRate() => $_ensure(29);
 
   @$pb.TagNumber(31)
-  $2.Decimal get minimumWage => $_getN(30);
+  $4.Decimal get overtimeExRate => $_getN(30);
   @$pb.TagNumber(31)
-  set minimumWage($2.Decimal v) { setField(31, v); }
+  set overtimeExRate($4.Decimal v) { setField(31, v); }
   @$pb.TagNumber(31)
-  $core.bool hasMinimumWage() => $_has(30);
+  $core.bool hasOvertimeExRate() => $_has(30);
   @$pb.TagNumber(31)
-  void clearMinimumWage() => clearField(31);
+  void clearOvertimeExRate() => clearField(31);
   @$pb.TagNumber(31)
-  $2.Decimal ensureMinimumWage() => $_ensure(30);
+  $4.Decimal ensureOvertimeExRate() => $_ensure(30);
 
   @$pb.TagNumber(32)
-  $core.int get updMode => $_getIZ(31);
+  $4.Decimal get minimumWage => $_getN(31);
   @$pb.TagNumber(32)
-  set updMode($core.int v) { $_setSignedInt32(31, v); }
+  set minimumWage($4.Decimal v) { setField(32, v); }
   @$pb.TagNumber(32)
-  $core.bool hasUpdMode() => $_has(31);
+  $core.bool hasMinimumWage() => $_has(31);
   @$pb.TagNumber(32)
-  void clearUpdMode() => clearField(32);
+  void clearMinimumWage() => clearField(32);
+  @$pb.TagNumber(32)
+  $4.Decimal ensureMinimumWage() => $_ensure(31);
 
   @$pb.TagNumber(33)
-  $3.Timestamp get updDateTime => $_getN(32);
+  $core.int get updMode => $_getIZ(32);
   @$pb.TagNumber(33)
-  set updDateTime($3.Timestamp v) { setField(33, v); }
+  set updMode($core.int v) { $_setSignedInt32(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasUpdDateTime() => $_has(32);
+  $core.bool hasUpdMode() => $_has(32);
   @$pb.TagNumber(33)
-  void clearUpdDateTime() => clearField(33);
-  @$pb.TagNumber(33)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(32);
+  void clearUpdMode() => clearField(33);
+
+  @$pb.TagNumber(34)
+  $5.Timestamp get updDateTime => $_getN(33);
+  @$pb.TagNumber(34)
+  set updDateTime($5.Timestamp v) { setField(34, v); }
+  @$pb.TagNumber(34)
+  $core.bool hasUpdDateTime() => $_has(33);
+  @$pb.TagNumber(34)
+  void clearUpdDateTime() => clearField(34);
+  @$pb.TagNumber(34)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(33);
 }
 
 /// >>> End generated SalaryMaster message
@@ -4697,7 +4824,7 @@ class grpcAddressMasterModel extends $pb.GeneratedMessage {
     $core.String? recordNo,
     $core.String? parentRecordNo,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -4754,7 +4881,7 @@ class grpcAddressMasterModel extends $pb.GeneratedMessage {
     ..aOS(9, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..aOS(10, _omitFieldNames ? '' : 'ParentRecordNo', protoName: 'ParentRecordNo')
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -4879,15 +5006,15 @@ class grpcAddressMasterModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(11);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get updDateTime => $_getN(11);
+  $5.Timestamp get updDateTime => $_getN(11);
   @$pb.TagNumber(12)
-  set updDateTime($3.Timestamp v) { setField(12, v); }
+  set updDateTime($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasUpdDateTime() => $_has(11);
   @$pb.TagNumber(12)
   void clearUpdDateTime() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(11);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(11);
 }
 
 /// >>> End generated AddressMaster message
@@ -5122,7 +5249,7 @@ class grpcProductKindModel extends $pb.GeneratedMessage {
     $core.String? revenueAccID,
     $core.String? feeAccID,
     $core.int? updMode,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -5167,7 +5294,7 @@ class grpcProductKindModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'RevenueAccID', protoName: 'RevenueAccID')
     ..aOS(7, _omitFieldNames ? '' : 'FeeAccID', protoName: 'FeeAccID')
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$3.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -5265,15 +5392,15 @@ class grpcProductKindModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(8);
 
   @$pb.TagNumber(9)
-  $3.Timestamp get updDateTime => $_getN(8);
+  $5.Timestamp get updDateTime => $_getN(8);
   @$pb.TagNumber(9)
-  set updDateTime($3.Timestamp v) { setField(9, v); }
+  set updDateTime($5.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasUpdDateTime() => $_has(8);
   @$pb.TagNumber(9)
   void clearUpdDateTime() => clearField(9);
   @$pb.TagNumber(9)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(8);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(8);
 }
 
 /// >>> End generated ProductKind message
@@ -5674,7 +5801,7 @@ class grpcVoucherMasterModel extends $pb.GeneratedMessage {
     $core.String? prefix,
     $core.String? subfix,
     $core.String? notes,
-    $3.Timestamp? modifiedOn,
+    $5.Timestamp? modifiedOn,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -5731,7 +5858,7 @@ class grpcVoucherMasterModel extends $pb.GeneratedMessage {
     ..aOS(8, _omitFieldNames ? '' : 'Prefix', protoName: 'Prefix')
     ..aOS(9, _omitFieldNames ? '' : 'Subfix', protoName: 'Subfix')
     ..aOS(10, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'ModifiedOn', protoName: 'ModifiedOn', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -5848,15 +5975,15 @@ class grpcVoucherMasterModel extends $pb.GeneratedMessage {
   void clearNotes() => clearField(10);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get modifiedOn => $_getN(10);
+  $5.Timestamp get modifiedOn => $_getN(10);
   @$pb.TagNumber(11)
-  set modifiedOn($3.Timestamp v) { setField(11, v); }
+  set modifiedOn($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasModifiedOn() => $_has(10);
   @$pb.TagNumber(11)
   void clearModifiedOn() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureModifiedOn() => $_ensure(10);
+  $5.Timestamp ensureModifiedOn() => $_ensure(10);
 
   @$pb.TagNumber(12)
   $core.int get updMode => $_getIZ(11);
@@ -6182,7 +6309,7 @@ class grpcTransactionSettingModel extends $pb.GeneratedMessage {
     $core.String? notes,
     $core.int? updMode,
     $core.int? updCount,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -6235,7 +6362,7 @@ class grpcTransactionSettingModel extends $pb.GeneratedMessage {
     ..aOS(8, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
     ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(10, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -6351,15 +6478,15 @@ class grpcTransactionSettingModel extends $pb.GeneratedMessage {
   void clearUpdCount() => clearField(10);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get updDateTime => $_getN(10);
+  $5.Timestamp get updDateTime => $_getN(10);
   @$pb.TagNumber(11)
-  set updDateTime($3.Timestamp v) { setField(11, v); }
+  set updDateTime($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasUpdDateTime() => $_has(10);
   @$pb.TagNumber(11)
   void clearUpdDateTime() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(10);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(10);
 }
 
 /// >>> End generated TransactionSetting message
@@ -6439,8 +6566,8 @@ class GetVendorContractPriceRecord_Request extends $pb.GeneratedMessage {
     $core.String? currencyCode,
     $core.String? productCode,
     $core.String? unitCode,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.String? iD,
   }) {
     final $result = create();
@@ -6480,8 +6607,8 @@ class GetVendorContractPriceRecord_Request extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
     ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
     ..aOS(5, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..aOS(8, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..hasRequiredFields = false
   ;
@@ -6555,26 +6682,26 @@ class GetVendorContractPriceRecord_Request extends $pb.GeneratedMessage {
   void clearUnitCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get fromDate => $_getN(5);
+  $5.Timestamp get fromDate => $_getN(5);
   @$pb.TagNumber(6)
-  set fromDate($3.Timestamp v) { setField(6, v); }
+  set fromDate($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasFromDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearFromDate() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureFromDate() => $_ensure(5);
+  $5.Timestamp ensureFromDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $3.Timestamp get toDate => $_getN(6);
+  $5.Timestamp get toDate => $_getN(6);
   @$pb.TagNumber(7)
-  set toDate($3.Timestamp v) { setField(7, v); }
+  set toDate($5.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasToDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearToDate() => clearField(7);
   @$pb.TagNumber(7)
-  $3.Timestamp ensureToDate() => $_ensure(6);
+  $5.Timestamp ensureToDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.String get iD => $_getSZ(7);
@@ -6856,15 +6983,15 @@ class grpcVendorContractPriceModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? packingQty,
-    $2.Decimal? contractUnitPrice,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $4.Decimal? packingQty,
+    $4.Decimal? contractUnitPrice,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -6933,15 +7060,15 @@ class grpcVendorContractPriceModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(7, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'ContractUnitPrice', protoName: 'ContractUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'ContractUnitPrice', protoName: 'ContractUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(13, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(14, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(15, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(16, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(17, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(17, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -7039,48 +7166,48 @@ class grpcVendorContractPriceModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get packingQty => $_getN(8);
+  $4.Decimal get packingQty => $_getN(8);
   @$pb.TagNumber(9)
-  set packingQty($2.Decimal v) { setField(9, v); }
+  set packingQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasPackingQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearPackingQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensurePackingQty() => $_ensure(8);
+  $4.Decimal ensurePackingQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get contractUnitPrice => $_getN(9);
+  $4.Decimal get contractUnitPrice => $_getN(9);
   @$pb.TagNumber(10)
-  set contractUnitPrice($2.Decimal v) { setField(10, v); }
+  set contractUnitPrice($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasContractUnitPrice() => $_has(9);
   @$pb.TagNumber(10)
   void clearContractUnitPrice() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureContractUnitPrice() => $_ensure(9);
+  $4.Decimal ensureContractUnitPrice() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get fromDate => $_getN(10);
+  $5.Timestamp get fromDate => $_getN(10);
   @$pb.TagNumber(11)
-  set fromDate($3.Timestamp v) { setField(11, v); }
+  set fromDate($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasFromDate() => $_has(10);
   @$pb.TagNumber(11)
   void clearFromDate() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureFromDate() => $_ensure(10);
+  $5.Timestamp ensureFromDate() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get toDate => $_getN(11);
+  $5.Timestamp get toDate => $_getN(11);
   @$pb.TagNumber(12)
-  set toDate($3.Timestamp v) { setField(12, v); }
+  set toDate($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasToDate() => $_has(11);
   @$pb.TagNumber(12)
   void clearToDate() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureToDate() => $_ensure(11);
+  $5.Timestamp ensureToDate() => $_ensure(11);
 
   @$pb.TagNumber(13)
   $core.int get updMode => $_getIZ(12);
@@ -7119,15 +7246,15 @@ class grpcVendorContractPriceModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(16);
 
   @$pb.TagNumber(17)
-  $3.Timestamp get updDateTime => $_getN(16);
+  $5.Timestamp get updDateTime => $_getN(16);
   @$pb.TagNumber(17)
-  set updDateTime($3.Timestamp v) { setField(17, v); }
+  set updDateTime($5.Timestamp v) { setField(17, v); }
   @$pb.TagNumber(17)
   $core.bool hasUpdDateTime() => $_has(16);
   @$pb.TagNumber(17)
   void clearUpdDateTime() => clearField(17);
   @$pb.TagNumber(17)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(16);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(16);
 }
 
 /// >>> End generated VendorContractPrice message
@@ -7441,14 +7568,14 @@ class grpcPromotionGiftModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? packingQty,
-    $2.Decimal? giftQty,
-    $2.Decimal? unitPrice,
+    $4.Decimal? packingQty,
+    $4.Decimal? giftQty,
+    $4.Decimal? unitPrice,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -7510,14 +7637,14 @@ class grpcPromotionGiftModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(6, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(7, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'GiftQty', protoName: 'GiftQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'UnitPrice', protoName: 'UnitPrice', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'GiftQty', protoName: 'GiftQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'UnitPrice', protoName: 'UnitPrice', subBuilder: $4.Decimal.create)
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(13, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(14, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -7606,37 +7733,37 @@ class grpcPromotionGiftModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get packingQty => $_getN(7);
+  $4.Decimal get packingQty => $_getN(7);
   @$pb.TagNumber(8)
-  set packingQty($2.Decimal v) { setField(8, v); }
+  set packingQty($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasPackingQty() => $_has(7);
   @$pb.TagNumber(8)
   void clearPackingQty() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensurePackingQty() => $_ensure(7);
+  $4.Decimal ensurePackingQty() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Decimal get giftQty => $_getN(8);
+  $4.Decimal get giftQty => $_getN(8);
   @$pb.TagNumber(9)
-  set giftQty($2.Decimal v) { setField(9, v); }
+  set giftQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasGiftQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearGiftQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensureGiftQty() => $_ensure(8);
+  $4.Decimal ensureGiftQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get unitPrice => $_getN(9);
+  $4.Decimal get unitPrice => $_getN(9);
   @$pb.TagNumber(10)
-  set unitPrice($2.Decimal v) { setField(10, v); }
+  set unitPrice($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasUnitPrice() => $_has(9);
   @$pb.TagNumber(10)
   void clearUnitPrice() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureUnitPrice() => $_ensure(9);
+  $4.Decimal ensureUnitPrice() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.int get updMode => $_getIZ(10);
@@ -7675,15 +7802,15 @@ class grpcPromotionGiftModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(14);
 
   @$pb.TagNumber(15)
-  $3.Timestamp get updDateTime => $_getN(14);
+  $5.Timestamp get updDateTime => $_getN(14);
   @$pb.TagNumber(15)
-  set updDateTime($3.Timestamp v) { setField(15, v); }
+  set updDateTime($5.Timestamp v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasUpdDateTime() => $_has(14);
   @$pb.TagNumber(15)
   void clearUpdDateTime() => clearField(15);
   @$pb.TagNumber(15)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(14);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(14);
 }
 
 /// >>> End generated PromotionGift message
@@ -7998,17 +8125,17 @@ class grpcPromotionDetailModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? packingQty,
-    $2.Decimal? billQty,
-    $2.Decimal? billRevenue,
-    $2.Decimal? discountRate,
-    $2.Decimal? discountAmount,
+    $4.Decimal? packingQty,
+    $4.Decimal? billQty,
+    $4.Decimal? billRevenue,
+    $4.Decimal? discountRate,
+    $4.Decimal? discountAmount,
     $core.String? giftRecordNo,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -8083,17 +8210,17 @@ class grpcPromotionDetailModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(7, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'BillQty', protoName: 'BillQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'BillRevenue', protoName: 'BillRevenue', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(12, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(13, _omitFieldNames ? '' : 'DiscountAmount', protoName: 'DiscountAmount', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'BillQty', protoName: 'BillQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'BillRevenue', protoName: 'BillRevenue', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(12, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(13, _omitFieldNames ? '' : 'DiscountAmount', protoName: 'DiscountAmount', subBuilder: $4.Decimal.create)
     ..aOS(14, _omitFieldNames ? '' : 'GiftRecordNo', protoName: 'GiftRecordNo')
     ..a<$core.int>(15, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(16, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(17, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(18, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(19, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(19, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -8191,59 +8318,59 @@ class grpcPromotionDetailModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get packingQty => $_getN(8);
+  $4.Decimal get packingQty => $_getN(8);
   @$pb.TagNumber(9)
-  set packingQty($2.Decimal v) { setField(9, v); }
+  set packingQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasPackingQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearPackingQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensurePackingQty() => $_ensure(8);
+  $4.Decimal ensurePackingQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get billQty => $_getN(9);
+  $4.Decimal get billQty => $_getN(9);
   @$pb.TagNumber(10)
-  set billQty($2.Decimal v) { setField(10, v); }
+  set billQty($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasBillQty() => $_has(9);
   @$pb.TagNumber(10)
   void clearBillQty() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureBillQty() => $_ensure(9);
+  $4.Decimal ensureBillQty() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get billRevenue => $_getN(10);
+  $4.Decimal get billRevenue => $_getN(10);
   @$pb.TagNumber(11)
-  set billRevenue($2.Decimal v) { setField(11, v); }
+  set billRevenue($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasBillRevenue() => $_has(10);
   @$pb.TagNumber(11)
   void clearBillRevenue() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensureBillRevenue() => $_ensure(10);
+  $4.Decimal ensureBillRevenue() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $2.Decimal get discountRate => $_getN(11);
+  $4.Decimal get discountRate => $_getN(11);
   @$pb.TagNumber(12)
-  set discountRate($2.Decimal v) { setField(12, v); }
+  set discountRate($4.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasDiscountRate() => $_has(11);
   @$pb.TagNumber(12)
   void clearDiscountRate() => clearField(12);
   @$pb.TagNumber(12)
-  $2.Decimal ensureDiscountRate() => $_ensure(11);
+  $4.Decimal ensureDiscountRate() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $2.Decimal get discountAmount => $_getN(12);
+  $4.Decimal get discountAmount => $_getN(12);
   @$pb.TagNumber(13)
-  set discountAmount($2.Decimal v) { setField(13, v); }
+  set discountAmount($4.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasDiscountAmount() => $_has(12);
   @$pb.TagNumber(13)
   void clearDiscountAmount() => clearField(13);
   @$pb.TagNumber(13)
-  $2.Decimal ensureDiscountAmount() => $_ensure(12);
+  $4.Decimal ensureDiscountAmount() => $_ensure(12);
 
   @$pb.TagNumber(14)
   $core.String get giftRecordNo => $_getSZ(13);
@@ -8291,15 +8418,15 @@ class grpcPromotionDetailModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(18);
 
   @$pb.TagNumber(19)
-  $3.Timestamp get updDateTime => $_getN(18);
+  $5.Timestamp get updDateTime => $_getN(18);
   @$pb.TagNumber(19)
-  set updDateTime($3.Timestamp v) { setField(19, v); }
+  set updDateTime($5.Timestamp v) { setField(19, v); }
   @$pb.TagNumber(19)
   $core.bool hasUpdDateTime() => $_has(18);
   @$pb.TagNumber(19)
   void clearUpdDateTime() => clearField(19);
   @$pb.TagNumber(19)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(18);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(18);
 }
 
 /// >>> End generated PromotionDetail message
@@ -8376,8 +8503,8 @@ class GetPromotionHeaderRecord_Request extends $pb.GeneratedMessage {
   factory GetPromotionHeaderRecord_Request({
     $0.UserCredential? credential,
     $core.String? promoNo,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.String? iD,
   }) {
     final $result = create();
@@ -8405,8 +8532,8 @@ class GetPromotionHeaderRecord_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPromotionHeaderRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
     ..aOS(2, _omitFieldNames ? '' : 'PromoNo', protoName: 'PromoNo')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..hasRequiredFields = false
   ;
@@ -8453,26 +8580,26 @@ class GetPromotionHeaderRecord_Request extends $pb.GeneratedMessage {
   void clearPromoNo() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get fromDate => $_getN(2);
+  $5.Timestamp get fromDate => $_getN(2);
   @$pb.TagNumber(3)
-  set fromDate($3.Timestamp v) { setField(3, v); }
+  set fromDate($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureFromDate() => $_ensure(2);
+  $5.Timestamp ensureFromDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $3.Timestamp get toDate => $_getN(3);
+  $5.Timestamp get toDate => $_getN(3);
   @$pb.TagNumber(4)
-  set toDate($3.Timestamp v) { setField(4, v); }
+  set toDate($5.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasToDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearToDate() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Timestamp ensureToDate() => $_ensure(3);
+  $5.Timestamp ensureToDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get iD => $_getSZ(4);
@@ -8641,14 +8768,14 @@ class grpcPromotionHeaderModel extends $pb.GeneratedMessage {
     $core.String? iD,
     $core.String? promoNo,
     $core.String? promoTitle,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.String? recordNo,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -8694,14 +8821,14 @@ class grpcPromotionHeaderModel extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'PromoNo', protoName: 'PromoNo')
     ..aOS(3, _omitFieldNames ? '' : 'PromoTitle', protoName: 'PromoTitle')
-    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(5, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(4, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..aOS(6, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..a<$core.int>(7, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(9, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(10, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -8754,26 +8881,26 @@ class grpcPromotionHeaderModel extends $pb.GeneratedMessage {
   void clearPromoTitle() => clearField(3);
 
   @$pb.TagNumber(4)
-  $3.Timestamp get fromDate => $_getN(3);
+  $5.Timestamp get fromDate => $_getN(3);
   @$pb.TagNumber(4)
-  set fromDate($3.Timestamp v) { setField(4, v); }
+  set fromDate($5.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasFromDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearFromDate() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Timestamp ensureFromDate() => $_ensure(3);
+  $5.Timestamp ensureFromDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $3.Timestamp get toDate => $_getN(4);
+  $5.Timestamp get toDate => $_getN(4);
   @$pb.TagNumber(5)
-  set toDate($3.Timestamp v) { setField(5, v); }
+  set toDate($5.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasToDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearToDate() => clearField(5);
   @$pb.TagNumber(5)
-  $3.Timestamp ensureToDate() => $_ensure(4);
+  $5.Timestamp ensureToDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
   $core.String get recordNo => $_getSZ(5);
@@ -8821,15 +8948,15 @@ class grpcPromotionHeaderModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(10);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get updDateTime => $_getN(10);
+  $5.Timestamp get updDateTime => $_getN(10);
   @$pb.TagNumber(11)
-  set updDateTime($3.Timestamp v) { setField(11, v); }
+  set updDateTime($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasUpdDateTime() => $_has(10);
   @$pb.TagNumber(11)
   void clearUpdDateTime() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(10);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(10);
 }
 
 /// >>> End generated PromotionHeader message
@@ -9205,13 +9332,13 @@ class grpcExchangeRateModel extends $pb.GeneratedMessage {
     $core.String? iD,
     $core.String? scrCurrencyCode,
     $core.String? destCurrencyCode,
-    $2.Decimal? exchangeRate,
+    $4.Decimal? exchangeRate,
     $core.String? notes,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -9254,13 +9381,13 @@ class grpcExchangeRateModel extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'ScrCurrencyCode', protoName: 'ScrCurrencyCode')
     ..aOS(3, _omitFieldNames ? '' : 'DestCurrencyCode', protoName: 'DestCurrencyCode')
-    ..aOM<$2.Decimal>(4, _omitFieldNames ? '' : 'ExchangeRate', protoName: 'ExchangeRate', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(4, _omitFieldNames ? '' : 'ExchangeRate', protoName: 'ExchangeRate', subBuilder: $4.Decimal.create)
     ..aOS(5, _omitFieldNames ? '' : 'Notes', protoName: 'Notes')
     ..a<$core.int>(6, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(7, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(8, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(9, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -9313,15 +9440,15 @@ class grpcExchangeRateModel extends $pb.GeneratedMessage {
   void clearDestCurrencyCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $2.Decimal get exchangeRate => $_getN(3);
+  $4.Decimal get exchangeRate => $_getN(3);
   @$pb.TagNumber(4)
-  set exchangeRate($2.Decimal v) { setField(4, v); }
+  set exchangeRate($4.Decimal v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasExchangeRate() => $_has(3);
   @$pb.TagNumber(4)
   void clearExchangeRate() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Decimal ensureExchangeRate() => $_ensure(3);
+  $4.Decimal ensureExchangeRate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get notes => $_getSZ(4);
@@ -9369,15 +9496,15 @@ class grpcExchangeRateModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(9);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get updDateTime => $_getN(9);
+  $5.Timestamp get updDateTime => $_getN(9);
   @$pb.TagNumber(10)
-  set updDateTime($3.Timestamp v) { setField(10, v); }
+  set updDateTime($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasUpdDateTime() => $_has(9);
   @$pb.TagNumber(10)
   void clearUpdDateTime() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(9);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(9);
 }
 
 /// >>> End generated ExchangeRate message
@@ -9614,7 +9741,7 @@ class grpcCurrencyModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -9667,7 +9794,7 @@ class grpcCurrencyModel extends $pb.GeneratedMessage {
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(9, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(10, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -9783,15 +9910,15 @@ class grpcCurrencyModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(10);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get updDateTime => $_getN(10);
+  $5.Timestamp get updDateTime => $_getN(10);
   @$pb.TagNumber(11)
-  set updDateTime($3.Timestamp v) { setField(11, v); }
+  set updDateTime($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasUpdDateTime() => $_has(10);
   @$pb.TagNumber(11)
   void clearUpdDateTime() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(10);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(10);
 }
 
 /// >>> End generated Currency message
@@ -10111,13 +10238,13 @@ class grpcDeliveryPlaceModel extends $pb.GeneratedMessage {
     $core.String? classCode2,
     $core.String? classCode3,
     $core.String? transportComID,
-    $2.Decimal? distance,
+    $4.Decimal? distance,
     $core.int? deliveryLT,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -10200,13 +10327,13 @@ class grpcDeliveryPlaceModel extends $pb.GeneratedMessage {
     ..aOS(11, _omitFieldNames ? '' : 'ClassCode2', protoName: 'ClassCode2')
     ..aOS(12, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
     ..aOS(13, _omitFieldNames ? '' : 'TransportComID', protoName: 'TransportComID')
-    ..aOM<$2.Decimal>(14, _omitFieldNames ? '' : 'Distance', protoName: 'Distance', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(14, _omitFieldNames ? '' : 'Distance', protoName: 'Distance', subBuilder: $4.Decimal.create)
     ..a<$core.int>(15, _omitFieldNames ? '' : 'DeliveryLT', $pb.PbFieldType.O3, protoName: 'DeliveryLT')
     ..a<$core.int>(16, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(17, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(18, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(19, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(20, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(20, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -10349,15 +10476,15 @@ class grpcDeliveryPlaceModel extends $pb.GeneratedMessage {
   void clearTransportComID() => clearField(13);
 
   @$pb.TagNumber(14)
-  $2.Decimal get distance => $_getN(13);
+  $4.Decimal get distance => $_getN(13);
   @$pb.TagNumber(14)
-  set distance($2.Decimal v) { setField(14, v); }
+  set distance($4.Decimal v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasDistance() => $_has(13);
   @$pb.TagNumber(14)
   void clearDistance() => clearField(14);
   @$pb.TagNumber(14)
-  $2.Decimal ensureDistance() => $_ensure(13);
+  $4.Decimal ensureDistance() => $_ensure(13);
 
   @$pb.TagNumber(15)
   $core.int get deliveryLT => $_getIZ(14);
@@ -10405,15 +10532,15 @@ class grpcDeliveryPlaceModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(19);
 
   @$pb.TagNumber(20)
-  $3.Timestamp get updDateTime => $_getN(19);
+  $5.Timestamp get updDateTime => $_getN(19);
   @$pb.TagNumber(20)
-  set updDateTime($3.Timestamp v) { setField(20, v); }
+  set updDateTime($5.Timestamp v) { setField(20, v); }
   @$pb.TagNumber(20)
   $core.bool hasUpdDateTime() => $_has(19);
   @$pb.TagNumber(20)
   void clearUpdDateTime() => clearField(20);
   @$pb.TagNumber(20)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(19);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(19);
 }
 
 /// >>> End generated DeliveryPlace message
@@ -10819,13 +10946,13 @@ class grpcStdFeeDevideModel extends $pb.GeneratedMessage {
     $core.String? feeItemCode,
     $core.String? lineCode,
     $core.String? lineName,
-    $2.Decimal? directFeeRate,
-    $2.Decimal? inDirectFeeRate,
+    $4.Decimal? directFeeRate,
+    $4.Decimal? inDirectFeeRate,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -10876,13 +11003,13 @@ class grpcStdFeeDevideModel extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'FeeItemCode', protoName: 'FeeItemCode')
     ..aOS(4, _omitFieldNames ? '' : 'LineCode', protoName: 'LineCode')
     ..aOS(5, _omitFieldNames ? '' : 'LineName', protoName: 'LineName')
-    ..aOM<$2.Decimal>(6, _omitFieldNames ? '' : 'DirectFeeRate', protoName: 'DirectFeeRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(7, _omitFieldNames ? '' : 'InDirectFeeRate', protoName: 'InDirectFeeRate', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'DirectFeeRate', protoName: 'DirectFeeRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(7, _omitFieldNames ? '' : 'InDirectFeeRate', protoName: 'InDirectFeeRate', subBuilder: $4.Decimal.create)
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(10, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(11, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -10953,26 +11080,26 @@ class grpcStdFeeDevideModel extends $pb.GeneratedMessage {
   void clearLineName() => clearField(5);
 
   @$pb.TagNumber(6)
-  $2.Decimal get directFeeRate => $_getN(5);
+  $4.Decimal get directFeeRate => $_getN(5);
   @$pb.TagNumber(6)
-  set directFeeRate($2.Decimal v) { setField(6, v); }
+  set directFeeRate($4.Decimal v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasDirectFeeRate() => $_has(5);
   @$pb.TagNumber(6)
   void clearDirectFeeRate() => clearField(6);
   @$pb.TagNumber(6)
-  $2.Decimal ensureDirectFeeRate() => $_ensure(5);
+  $4.Decimal ensureDirectFeeRate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $2.Decimal get inDirectFeeRate => $_getN(6);
+  $4.Decimal get inDirectFeeRate => $_getN(6);
   @$pb.TagNumber(7)
-  set inDirectFeeRate($2.Decimal v) { setField(7, v); }
+  set inDirectFeeRate($4.Decimal v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasInDirectFeeRate() => $_has(6);
   @$pb.TagNumber(7)
   void clearInDirectFeeRate() => clearField(7);
   @$pb.TagNumber(7)
-  $2.Decimal ensureInDirectFeeRate() => $_ensure(6);
+  $4.Decimal ensureInDirectFeeRate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.int get updMode => $_getIZ(7);
@@ -11011,446 +11138,18 @@ class grpcStdFeeDevideModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(11);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get updDateTime => $_getN(11);
+  $5.Timestamp get updDateTime => $_getN(11);
   @$pb.TagNumber(12)
-  set updDateTime($3.Timestamp v) { setField(12, v); }
+  set updDateTime($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasUpdDateTime() => $_has(11);
   @$pb.TagNumber(12)
   void clearUpdDateTime() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(11);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(11);
 }
 
 /// >>> End generated StdFeeDevide message
-/// >>> Start generated FeeItem message
-class SaveFeeItem_Request extends $pb.GeneratedMessage {
-  factory SaveFeeItem_Request({
-    $0.UserCredential? credential,
-    grpcFeeItemModel? record,
-  }) {
-    final $result = create();
-    if (credential != null) {
-      $result.credential = credential;
-    }
-    if (record != null) {
-      $result.record = record;
-    }
-    return $result;
-  }
-  SaveFeeItem_Request._() : super();
-  factory SaveFeeItem_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SaveFeeItem_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaveFeeItem_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
-    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOM<grpcFeeItemModel>(2, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcFeeItemModel.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  SaveFeeItem_Request clone() => SaveFeeItem_Request()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  SaveFeeItem_Request copyWith(void Function(SaveFeeItem_Request) updates) => super.copyWith((message) => updates(message as SaveFeeItem_Request)) as SaveFeeItem_Request;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static SaveFeeItem_Request create() => SaveFeeItem_Request._();
-  SaveFeeItem_Request createEmptyInstance() => create();
-  static $pb.PbList<SaveFeeItem_Request> createRepeated() => $pb.PbList<SaveFeeItem_Request>();
-  @$core.pragma('dart2js:noInline')
-  static SaveFeeItem_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SaveFeeItem_Request>(create);
-  static SaveFeeItem_Request? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $0.UserCredential get credential => $_getN(0);
-  @$pb.TagNumber(1)
-  set credential($0.UserCredential v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCredential() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCredential() => clearField(1);
-  @$pb.TagNumber(1)
-  $0.UserCredential ensureCredential() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  grpcFeeItemModel get record => $_getN(1);
-  @$pb.TagNumber(2)
-  set record(grpcFeeItemModel v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasRecord() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearRecord() => clearField(2);
-  @$pb.TagNumber(2)
-  grpcFeeItemModel ensureRecord() => $_ensure(1);
-}
-
-class GetFeeItemRecord_Response extends $pb.GeneratedMessage {
-  factory GetFeeItemRecord_Response({
-    $core.int? returnCode,
-    $core.String? msgCode,
-    grpcFeeItemModel? record,
-  }) {
-    final $result = create();
-    if (returnCode != null) {
-      $result.returnCode = returnCode;
-    }
-    if (msgCode != null) {
-      $result.msgCode = msgCode;
-    }
-    if (record != null) {
-      $result.record = record;
-    }
-    return $result;
-  }
-  GetFeeItemRecord_Response._() : super();
-  factory GetFeeItemRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetFeeItemRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetFeeItemRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
-    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
-    ..aOM<grpcFeeItemModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcFeeItemModel.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetFeeItemRecord_Response clone() => GetFeeItemRecord_Response()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetFeeItemRecord_Response copyWith(void Function(GetFeeItemRecord_Response) updates) => super.copyWith((message) => updates(message as GetFeeItemRecord_Response)) as GetFeeItemRecord_Response;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetFeeItemRecord_Response create() => GetFeeItemRecord_Response._();
-  GetFeeItemRecord_Response createEmptyInstance() => create();
-  static $pb.PbList<GetFeeItemRecord_Response> createRepeated() => $pb.PbList<GetFeeItemRecord_Response>();
-  @$core.pragma('dart2js:noInline')
-  static GetFeeItemRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetFeeItemRecord_Response>(create);
-  static GetFeeItemRecord_Response? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get returnCode => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set returnCode($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasReturnCode() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearReturnCode() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get msgCode => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set msgCode($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasMsgCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearMsgCode() => clearField(2);
-
-  @$pb.TagNumber(3)
-  grpcFeeItemModel get record => $_getN(2);
-  @$pb.TagNumber(3)
-  set record(grpcFeeItemModel v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasRecord() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearRecord() => clearField(3);
-  @$pb.TagNumber(3)
-  grpcFeeItemModel ensureRecord() => $_ensure(2);
-}
-
-class GetFeeItem_Response extends $pb.GeneratedMessage {
-  factory GetFeeItem_Response({
-    $core.int? returnCode,
-    $core.String? msgCode,
-    $core.Iterable<grpcFeeItemModel>? records,
-  }) {
-    final $result = create();
-    if (returnCode != null) {
-      $result.returnCode = returnCode;
-    }
-    if (msgCode != null) {
-      $result.msgCode = msgCode;
-    }
-    if (records != null) {
-      $result.records.addAll(records);
-    }
-    return $result;
-  }
-  GetFeeItem_Response._() : super();
-  factory GetFeeItem_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetFeeItem_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetFeeItem_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
-    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
-    ..pc<grpcFeeItemModel>(3, _omitFieldNames ? '' : 'Records', $pb.PbFieldType.PM, protoName: 'Records', subBuilder: grpcFeeItemModel.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetFeeItem_Response clone() => GetFeeItem_Response()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetFeeItem_Response copyWith(void Function(GetFeeItem_Response) updates) => super.copyWith((message) => updates(message as GetFeeItem_Response)) as GetFeeItem_Response;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetFeeItem_Response create() => GetFeeItem_Response._();
-  GetFeeItem_Response createEmptyInstance() => create();
-  static $pb.PbList<GetFeeItem_Response> createRepeated() => $pb.PbList<GetFeeItem_Response>();
-  @$core.pragma('dart2js:noInline')
-  static GetFeeItem_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetFeeItem_Response>(create);
-  static GetFeeItem_Response? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get returnCode => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set returnCode($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasReturnCode() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearReturnCode() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get msgCode => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set msgCode($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasMsgCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearMsgCode() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.List<grpcFeeItemModel> get records => $_getList(2);
-}
-
-class grpcFeeItemModel extends $pb.GeneratedMessage {
-  factory grpcFeeItemModel({
-    $core.String? iD,
-    $core.String? feeItemCode,
-    $core.String? feeItemName,
-    $core.bool? isProduceFee,
-    $core.bool? isLaborFee,
-    $core.int? directFeeType,
-    $core.int? inDirectFeeType,
-    $core.int? updMode,
-    $core.int? updCount,
-    $core.String? updTransactionID,
-    $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
-  }) {
-    final $result = create();
-    if (iD != null) {
-      $result.iD = iD;
-    }
-    if (feeItemCode != null) {
-      $result.feeItemCode = feeItemCode;
-    }
-    if (feeItemName != null) {
-      $result.feeItemName = feeItemName;
-    }
-    if (isProduceFee != null) {
-      $result.isProduceFee = isProduceFee;
-    }
-    if (isLaborFee != null) {
-      $result.isLaborFee = isLaborFee;
-    }
-    if (directFeeType != null) {
-      $result.directFeeType = directFeeType;
-    }
-    if (inDirectFeeType != null) {
-      $result.inDirectFeeType = inDirectFeeType;
-    }
-    if (updMode != null) {
-      $result.updMode = updMode;
-    }
-    if (updCount != null) {
-      $result.updCount = updCount;
-    }
-    if (updTransactionID != null) {
-      $result.updTransactionID = updTransactionID;
-    }
-    if (updAccountID != null) {
-      $result.updAccountID = updAccountID;
-    }
-    if (updDateTime != null) {
-      $result.updDateTime = updDateTime;
-    }
-    return $result;
-  }
-  grpcFeeItemModel._() : super();
-  factory grpcFeeItemModel.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory grpcFeeItemModel.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcFeeItemModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOS(2, _omitFieldNames ? '' : 'FeeItemCode', protoName: 'FeeItemCode')
-    ..aOS(3, _omitFieldNames ? '' : 'FeeItemName', protoName: 'FeeItemName')
-    ..aOB(4, _omitFieldNames ? '' : 'IsProduceFee', protoName: 'IsProduceFee')
-    ..aOB(5, _omitFieldNames ? '' : 'IsLaborFee', protoName: 'IsLaborFee')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'DirectFeeType', $pb.PbFieldType.O3, protoName: 'DirectFeeType')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'InDirectFeeType', $pb.PbFieldType.O3, protoName: 'InDirectFeeType')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(10, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(11, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  grpcFeeItemModel clone() => grpcFeeItemModel()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  grpcFeeItemModel copyWith(void Function(grpcFeeItemModel) updates) => super.copyWith((message) => updates(message as grpcFeeItemModel)) as grpcFeeItemModel;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static grpcFeeItemModel create() => grpcFeeItemModel._();
-  grpcFeeItemModel createEmptyInstance() => create();
-  static $pb.PbList<grpcFeeItemModel> createRepeated() => $pb.PbList<grpcFeeItemModel>();
-  @$core.pragma('dart2js:noInline')
-  static grpcFeeItemModel getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<grpcFeeItemModel>(create);
-  static grpcFeeItemModel? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get iD => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set iD($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasID() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearID() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get feeItemCode => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set feeItemCode($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasFeeItemCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearFeeItemCode() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get feeItemName => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set feeItemName($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasFeeItemName() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearFeeItemName() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.bool get isProduceFee => $_getBF(3);
-  @$pb.TagNumber(4)
-  set isProduceFee($core.bool v) { $_setBool(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasIsProduceFee() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearIsProduceFee() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.bool get isLaborFee => $_getBF(4);
-  @$pb.TagNumber(5)
-  set isLaborFee($core.bool v) { $_setBool(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasIsLaborFee() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearIsLaborFee() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.int get directFeeType => $_getIZ(5);
-  @$pb.TagNumber(6)
-  set directFeeType($core.int v) { $_setSignedInt32(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasDirectFeeType() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearDirectFeeType() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.int get inDirectFeeType => $_getIZ(6);
-  @$pb.TagNumber(7)
-  set inDirectFeeType($core.int v) { $_setSignedInt32(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasInDirectFeeType() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearInDirectFeeType() => clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.int get updMode => $_getIZ(7);
-  @$pb.TagNumber(8)
-  set updMode($core.int v) { $_setSignedInt32(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasUpdMode() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearUpdMode() => clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.int get updCount => $_getIZ(8);
-  @$pb.TagNumber(9)
-  set updCount($core.int v) { $_setSignedInt32(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasUpdCount() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearUpdCount() => clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.String get updTransactionID => $_getSZ(9);
-  @$pb.TagNumber(10)
-  set updTransactionID($core.String v) { $_setString(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasUpdTransactionID() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearUpdTransactionID() => clearField(10);
-
-  @$pb.TagNumber(11)
-  $core.String get updAccountID => $_getSZ(10);
-  @$pb.TagNumber(11)
-  set updAccountID($core.String v) { $_setString(10, v); }
-  @$pb.TagNumber(11)
-  $core.bool hasUpdAccountID() => $_has(10);
-  @$pb.TagNumber(11)
-  void clearUpdAccountID() => clearField(11);
-
-  @$pb.TagNumber(12)
-  $3.Timestamp get updDateTime => $_getN(11);
-  @$pb.TagNumber(12)
-  set updDateTime($3.Timestamp v) { setField(12, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasUpdDateTime() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearUpdDateTime() => clearField(12);
-  @$pb.TagNumber(12)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(11);
-}
-
-/// >>> End generated FeeItem message
 /// >>> Start generated StdLabor message
 class SaveStdLabor_Request extends $pb.GeneratedMessage {
   factory SaveStdLabor_Request({
@@ -11761,15 +11460,15 @@ class grpcStdLaborModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? produceQty,
-    $2.Decimal? officalStaffQty,
-    $2.Decimal? tmpStaffQty,
-    $2.Decimal? partTimeStaffQty,
+    $4.Decimal? produceQty,
+    $4.Decimal? officalStaffQty,
+    $4.Decimal? tmpStaffQty,
+    $4.Decimal? partTimeStaffQty,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -11834,15 +11533,15 @@ class grpcStdLaborModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(6, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(7, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'ProduceQty', protoName: 'ProduceQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'OfficalStaffQty', protoName: 'OfficalStaffQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'TmpStaffQty', protoName: 'TmpStaffQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'PartTimeStaffQty', protoName: 'PartTimeStaffQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'ProduceQty', protoName: 'ProduceQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'OfficalStaffQty', protoName: 'OfficalStaffQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'TmpStaffQty', protoName: 'TmpStaffQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'PartTimeStaffQty', protoName: 'PartTimeStaffQty', subBuilder: $4.Decimal.create)
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(13, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(14, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(15, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -11931,48 +11630,48 @@ class grpcStdLaborModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get produceQty => $_getN(7);
+  $4.Decimal get produceQty => $_getN(7);
   @$pb.TagNumber(8)
-  set produceQty($2.Decimal v) { setField(8, v); }
+  set produceQty($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasProduceQty() => $_has(7);
   @$pb.TagNumber(8)
   void clearProduceQty() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensureProduceQty() => $_ensure(7);
+  $4.Decimal ensureProduceQty() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Decimal get officalStaffQty => $_getN(8);
+  $4.Decimal get officalStaffQty => $_getN(8);
   @$pb.TagNumber(9)
-  set officalStaffQty($2.Decimal v) { setField(9, v); }
+  set officalStaffQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasOfficalStaffQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearOfficalStaffQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensureOfficalStaffQty() => $_ensure(8);
+  $4.Decimal ensureOfficalStaffQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get tmpStaffQty => $_getN(9);
+  $4.Decimal get tmpStaffQty => $_getN(9);
   @$pb.TagNumber(10)
-  set tmpStaffQty($2.Decimal v) { setField(10, v); }
+  set tmpStaffQty($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasTmpStaffQty() => $_has(9);
   @$pb.TagNumber(10)
   void clearTmpStaffQty() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureTmpStaffQty() => $_ensure(9);
+  $4.Decimal ensureTmpStaffQty() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get partTimeStaffQty => $_getN(10);
+  $4.Decimal get partTimeStaffQty => $_getN(10);
   @$pb.TagNumber(11)
-  set partTimeStaffQty($2.Decimal v) { setField(11, v); }
+  set partTimeStaffQty($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasPartTimeStaffQty() => $_has(10);
   @$pb.TagNumber(11)
   void clearPartTimeStaffQty() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensurePartTimeStaffQty() => $_ensure(10);
+  $4.Decimal ensurePartTimeStaffQty() => $_ensure(10);
 
   @$pb.TagNumber(12)
   $core.int get updMode => $_getIZ(11);
@@ -12011,15 +11710,15 @@ class grpcStdLaborModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(15);
 
   @$pb.TagNumber(16)
-  $3.Timestamp get updDateTime => $_getN(15);
+  $5.Timestamp get updDateTime => $_getN(15);
   @$pb.TagNumber(16)
-  set updDateTime($3.Timestamp v) { setField(16, v); }
+  set updDateTime($5.Timestamp v) { setField(16, v); }
   @$pb.TagNumber(16)
   $core.bool hasUpdDateTime() => $_has(15);
   @$pb.TagNumber(16)
   void clearUpdDateTime() => clearField(16);
   @$pb.TagNumber(16)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(15);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(15);
 }
 
 /// >>> End generated StdLabor message
@@ -12095,16 +11794,19 @@ class SavePriceList_Request extends $pb.GeneratedMessage {
 class GetPriceListRecord_Request extends $pb.GeneratedMessage {
   factory GetPriceListRecord_Request({
     $0.UserCredential? credential,
+    $core.int? taxFlag,
     $core.String? currencyCode,
     $core.String? productCode,
     $core.String? unitCode,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
-    $core.String? iD,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
   }) {
     final $result = create();
     if (credential != null) {
       $result.credential = credential;
+    }
+    if (taxFlag != null) {
+      $result.taxFlag = taxFlag;
     }
     if (currencyCode != null) {
       $result.currencyCode = currencyCode;
@@ -12121,9 +11823,6 @@ class GetPriceListRecord_Request extends $pb.GeneratedMessage {
     if (toDate != null) {
       $result.toDate = toDate;
     }
-    if (iD != null) {
-      $result.iD = iD;
-    }
     return $result;
   }
   GetPriceListRecord_Request._() : super();
@@ -12132,12 +11831,12 @@ class GetPriceListRecord_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPriceListRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
-    ..aOS(3, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(4, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOM<$3.Timestamp>(5, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
-    ..aOS(7, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
+    ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
+    ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(5, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -12174,62 +11873,62 @@ class GetPriceListRecord_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get currencyCode => $_getSZ(1);
+  $core.int get taxFlag => $_getIZ(1);
   @$pb.TagNumber(2)
-  set currencyCode($core.String v) { $_setString(1, v); }
+  set taxFlag($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCurrencyCode() => $_has(1);
+  $core.bool hasTaxFlag() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrencyCode() => clearField(2);
+  void clearTaxFlag() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get productCode => $_getSZ(2);
+  $core.String get currencyCode => $_getSZ(2);
   @$pb.TagNumber(3)
-  set productCode($core.String v) { $_setString(2, v); }
+  set currencyCode($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasProductCode() => $_has(2);
+  $core.bool hasCurrencyCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearProductCode() => clearField(3);
+  void clearCurrencyCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get unitCode => $_getSZ(3);
+  $core.String get productCode => $_getSZ(3);
   @$pb.TagNumber(4)
-  set unitCode($core.String v) { $_setString(3, v); }
+  set productCode($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasUnitCode() => $_has(3);
+  $core.bool hasProductCode() => $_has(3);
   @$pb.TagNumber(4)
-  void clearUnitCode() => clearField(4);
+  void clearProductCode() => clearField(4);
 
   @$pb.TagNumber(5)
-  $3.Timestamp get fromDate => $_getN(4);
+  $core.String get unitCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set fromDate($3.Timestamp v) { setField(5, v); }
+  set unitCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasFromDate() => $_has(4);
+  $core.bool hasUnitCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearFromDate() => clearField(5);
-  @$pb.TagNumber(5)
-  $3.Timestamp ensureFromDate() => $_ensure(4);
+  void clearUnitCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get toDate => $_getN(5);
+  $5.Timestamp get fromDate => $_getN(5);
   @$pb.TagNumber(6)
-  set toDate($3.Timestamp v) { setField(6, v); }
+  set fromDate($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
-  $core.bool hasToDate() => $_has(5);
+  $core.bool hasFromDate() => $_has(5);
   @$pb.TagNumber(6)
-  void clearToDate() => clearField(6);
+  void clearFromDate() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureToDate() => $_ensure(5);
+  $5.Timestamp ensureFromDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $core.String get iD => $_getSZ(6);
+  $5.Timestamp get toDate => $_getN(6);
   @$pb.TagNumber(7)
-  set iD($core.String v) { $_setString(6, v); }
+  set toDate($5.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
-  $core.bool hasID() => $_has(6);
+  $core.bool hasToDate() => $_has(6);
   @$pb.TagNumber(7)
-  void clearID() => clearField(7);
+  void clearToDate() => clearField(7);
+  @$pb.TagNumber(7)
+  $5.Timestamp ensureToDate() => $_ensure(6);
 }
 
 class GetPriceListRecord_Response extends $pb.GeneratedMessage {
@@ -12315,6 +12014,7 @@ class GetPriceListRecord_Response extends $pb.GeneratedMessage {
 class GetPriceList_Request extends $pb.GeneratedMessage {
   factory GetPriceList_Request({
     $0.UserCredential? credential,
+    $core.int? taxFlag,
     $core.String? currencyCode,
     $core.int? productKind,
     $core.String? productCode,
@@ -12323,6 +12023,9 @@ class GetPriceList_Request extends $pb.GeneratedMessage {
     final $result = create();
     if (credential != null) {
       $result.credential = credential;
+    }
+    if (taxFlag != null) {
+      $result.taxFlag = taxFlag;
     }
     if (currencyCode != null) {
       $result.currencyCode = currencyCode;
@@ -12344,10 +12047,11 @@ class GetPriceList_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPriceList_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
-    ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'State', $pb.PbFieldType.O3, protoName: 'State')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
+    ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
+    ..aOS(5, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'State', $pb.PbFieldType.O3, protoName: 'State')
     ..hasRequiredFields = false
   ;
 
@@ -12384,40 +12088,49 @@ class GetPriceList_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get currencyCode => $_getSZ(1);
+  $core.int get taxFlag => $_getIZ(1);
   @$pb.TagNumber(2)
-  set currencyCode($core.String v) { $_setString(1, v); }
+  set taxFlag($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCurrencyCode() => $_has(1);
+  $core.bool hasTaxFlag() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrencyCode() => clearField(2);
+  void clearTaxFlag() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get productKind => $_getIZ(2);
+  $core.String get currencyCode => $_getSZ(2);
   @$pb.TagNumber(3)
-  set productKind($core.int v) { $_setSignedInt32(2, v); }
+  set currencyCode($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasProductKind() => $_has(2);
+  $core.bool hasCurrencyCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearProductKind() => clearField(3);
+  void clearCurrencyCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get productCode => $_getSZ(3);
+  $core.int get productKind => $_getIZ(3);
   @$pb.TagNumber(4)
-  set productCode($core.String v) { $_setString(3, v); }
+  set productKind($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasProductCode() => $_has(3);
+  $core.bool hasProductKind() => $_has(3);
   @$pb.TagNumber(4)
-  void clearProductCode() => clearField(4);
+  void clearProductKind() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.int get state => $_getIZ(4);
+  $core.String get productCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set state($core.int v) { $_setSignedInt32(4, v); }
+  set productCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasState() => $_has(4);
+  $core.bool hasProductCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearState() => clearField(5);
+  void clearProductCode() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get state => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set state($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasState() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearState() => clearField(6);
 }
 
 class GetPriceList_Response extends $pb.GeneratedMessage {
@@ -12492,103 +12205,10 @@ class GetPriceList_Response extends $pb.GeneratedMessage {
   $core.List<grpcPriceListModel> get records => $_getList(2);
 }
 
-class GetPrice_Request extends $pb.GeneratedMessage {
-  factory GetPrice_Request({
-    $0.UserCredential? credential,
-    $core.String? currencyCode,
-    $core.String? productCode,
-    $core.String? unitCode,
-  }) {
-    final $result = create();
-    if (credential != null) {
-      $result.credential = credential;
-    }
-    if (currencyCode != null) {
-      $result.currencyCode = currencyCode;
-    }
-    if (productCode != null) {
-      $result.productCode = productCode;
-    }
-    if (unitCode != null) {
-      $result.unitCode = unitCode;
-    }
-    return $result;
-  }
-  GetPrice_Request._() : super();
-  factory GetPrice_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetPrice_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPrice_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
-    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
-    ..aOS(3, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(4, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetPrice_Request clone() => GetPrice_Request()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetPrice_Request copyWith(void Function(GetPrice_Request) updates) => super.copyWith((message) => updates(message as GetPrice_Request)) as GetPrice_Request;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetPrice_Request create() => GetPrice_Request._();
-  GetPrice_Request createEmptyInstance() => create();
-  static $pb.PbList<GetPrice_Request> createRepeated() => $pb.PbList<GetPrice_Request>();
-  @$core.pragma('dart2js:noInline')
-  static GetPrice_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetPrice_Request>(create);
-  static GetPrice_Request? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $0.UserCredential get credential => $_getN(0);
-  @$pb.TagNumber(1)
-  set credential($0.UserCredential v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCredential() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCredential() => clearField(1);
-  @$pb.TagNumber(1)
-  $0.UserCredential ensureCredential() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.String get currencyCode => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set currencyCode($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasCurrencyCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearCurrencyCode() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get productCode => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set productCode($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasProductCode() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearProductCode() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get unitCode => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set unitCode($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasUnitCode() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearUnitCode() => clearField(4);
-}
-
 class grpcPriceListModel extends $pb.GeneratedMessage {
   factory grpcPriceListModel({
     $core.String? iD,
+    $core.int? taxFlag,
     $core.String? currencyCode,
     $core.int? productKind,
     $core.String? productCode,
@@ -12596,22 +12216,28 @@ class grpcPriceListModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? packingQty,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
-    $2.Decimal? costUnitPrice,
-    $2.Decimal? endUserUnitPrice,
-    $2.Decimal? resellerUnitPrice,
-    $2.Decimal? partnerUnitPrice,
+    $4.Decimal? packingQty,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
+    $4.Decimal? costUnitPrice,
+    $4.Decimal? endUserUnitPrice,
+    $4.Decimal? resellerUnitPrice,
+    $4.Decimal? partnerUnitPrice,
+    $4.Decimal? minEndUserUnitPrice,
+    $4.Decimal? minResellerUnitPrice,
+    $4.Decimal? minPartnerUnitPrice,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
       $result.iD = iD;
+    }
+    if (taxFlag != null) {
+      $result.taxFlag = taxFlag;
     }
     if (currencyCode != null) {
       $result.currencyCode = currencyCode;
@@ -12655,6 +12281,15 @@ class grpcPriceListModel extends $pb.GeneratedMessage {
     if (partnerUnitPrice != null) {
       $result.partnerUnitPrice = partnerUnitPrice;
     }
+    if (minEndUserUnitPrice != null) {
+      $result.minEndUserUnitPrice = minEndUserUnitPrice;
+    }
+    if (minResellerUnitPrice != null) {
+      $result.minResellerUnitPrice = minResellerUnitPrice;
+    }
+    if (minPartnerUnitPrice != null) {
+      $result.minPartnerUnitPrice = minPartnerUnitPrice;
+    }
     if (updMode != null) {
       $result.updMode = updMode;
     }
@@ -12678,25 +12313,29 @@ class grpcPriceListModel extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'grpcPriceListModel', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
-    ..aOS(2, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
-    ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
-    ..aOS(5, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
-    ..aOS(6, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
-    ..aOS(7, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOS(8, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$2.Decimal>(12, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(13, _omitFieldNames ? '' : 'EndUserUnitPrice', protoName: 'EndUserUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(14, _omitFieldNames ? '' : 'ResellerUnitPrice', protoName: 'ResellerUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(15, _omitFieldNames ? '' : 'PartnerUnitPrice', protoName: 'PartnerUnitPrice', subBuilder: $2.Decimal.create)
-    ..a<$core.int>(16, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(17, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(18, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(19, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(20, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
+    ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
+    ..aOS(5, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
+    ..aOS(6, _omitFieldNames ? '' : 'ProductName', protoName: 'ProductName')
+    ..aOS(7, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
+    ..aOS(8, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
+    ..aOS(9, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$4.Decimal>(13, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(14, _omitFieldNames ? '' : 'EndUserUnitPrice', protoName: 'EndUserUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(15, _omitFieldNames ? '' : 'ResellerUnitPrice', protoName: 'ResellerUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(16, _omitFieldNames ? '' : 'PartnerUnitPrice', protoName: 'PartnerUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(17, _omitFieldNames ? '' : 'MinEndUserUnitPrice', protoName: 'MinEndUserUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(18, _omitFieldNames ? '' : 'MinResellerUnitPrice', protoName: 'MinResellerUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(19, _omitFieldNames ? '' : 'MinPartnerUnitPrice', protoName: 'MinPartnerUnitPrice', subBuilder: $4.Decimal.create)
+    ..a<$core.int>(20, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(21, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(22, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(23, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$5.Timestamp>(24, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -12731,191 +12370,233 @@ class grpcPriceListModel extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get currencyCode => $_getSZ(1);
+  $core.int get taxFlag => $_getIZ(1);
   @$pb.TagNumber(2)
-  set currencyCode($core.String v) { $_setString(1, v); }
+  set taxFlag($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCurrencyCode() => $_has(1);
+  $core.bool hasTaxFlag() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrencyCode() => clearField(2);
+  void clearTaxFlag() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get productKind => $_getIZ(2);
+  $core.String get currencyCode => $_getSZ(2);
   @$pb.TagNumber(3)
-  set productKind($core.int v) { $_setSignedInt32(2, v); }
+  set currencyCode($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasProductKind() => $_has(2);
+  $core.bool hasCurrencyCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearProductKind() => clearField(3);
+  void clearCurrencyCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get productCode => $_getSZ(3);
+  $core.int get productKind => $_getIZ(3);
   @$pb.TagNumber(4)
-  set productCode($core.String v) { $_setString(3, v); }
+  set productKind($core.int v) { $_setSignedInt32(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasProductCode() => $_has(3);
+  $core.bool hasProductKind() => $_has(3);
   @$pb.TagNumber(4)
-  void clearProductCode() => clearField(4);
+  void clearProductKind() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get productName => $_getSZ(4);
+  $core.String get productCode => $_getSZ(4);
   @$pb.TagNumber(5)
-  set productName($core.String v) { $_setString(4, v); }
+  set productCode($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasProductName() => $_has(4);
+  $core.bool hasProductCode() => $_has(4);
   @$pb.TagNumber(5)
-  void clearProductName() => clearField(5);
+  void clearProductCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get specification => $_getSZ(5);
+  $core.String get productName => $_getSZ(5);
   @$pb.TagNumber(6)
-  set specification($core.String v) { $_setString(5, v); }
+  set productName($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasSpecification() => $_has(5);
+  $core.bool hasProductName() => $_has(5);
   @$pb.TagNumber(6)
-  void clearSpecification() => clearField(6);
+  void clearProductName() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get unitCode => $_getSZ(6);
+  $core.String get specification => $_getSZ(6);
   @$pb.TagNumber(7)
-  set unitCode($core.String v) { $_setString(6, v); }
+  set specification($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasUnitCode() => $_has(6);
+  $core.bool hasSpecification() => $_has(6);
   @$pb.TagNumber(7)
-  void clearUnitCode() => clearField(7);
+  void clearSpecification() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get unitName => $_getSZ(7);
+  $core.String get unitCode => $_getSZ(7);
   @$pb.TagNumber(8)
-  set unitName($core.String v) { $_setString(7, v); }
+  set unitCode($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasUnitName() => $_has(7);
+  $core.bool hasUnitCode() => $_has(7);
   @$pb.TagNumber(8)
-  void clearUnitName() => clearField(8);
+  void clearUnitCode() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get packingQty => $_getN(8);
+  $core.String get unitName => $_getSZ(8);
   @$pb.TagNumber(9)
-  set packingQty($2.Decimal v) { setField(9, v); }
+  set unitName($core.String v) { $_setString(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasPackingQty() => $_has(8);
+  $core.bool hasUnitName() => $_has(8);
   @$pb.TagNumber(9)
-  void clearPackingQty() => clearField(9);
-  @$pb.TagNumber(9)
-  $2.Decimal ensurePackingQty() => $_ensure(8);
+  void clearUnitName() => clearField(9);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get fromDate => $_getN(9);
+  $4.Decimal get packingQty => $_getN(9);
   @$pb.TagNumber(10)
-  set fromDate($3.Timestamp v) { setField(10, v); }
+  set packingQty($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasFromDate() => $_has(9);
+  $core.bool hasPackingQty() => $_has(9);
   @$pb.TagNumber(10)
-  void clearFromDate() => clearField(10);
+  void clearPackingQty() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureFromDate() => $_ensure(9);
+  $4.Decimal ensurePackingQty() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get toDate => $_getN(10);
+  $5.Timestamp get fromDate => $_getN(10);
   @$pb.TagNumber(11)
-  set toDate($3.Timestamp v) { setField(11, v); }
+  set fromDate($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
-  $core.bool hasToDate() => $_has(10);
+  $core.bool hasFromDate() => $_has(10);
   @$pb.TagNumber(11)
-  void clearToDate() => clearField(11);
+  void clearFromDate() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureToDate() => $_ensure(10);
+  $5.Timestamp ensureFromDate() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $2.Decimal get costUnitPrice => $_getN(11);
+  $5.Timestamp get toDate => $_getN(11);
   @$pb.TagNumber(12)
-  set costUnitPrice($2.Decimal v) { setField(12, v); }
+  set toDate($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
-  $core.bool hasCostUnitPrice() => $_has(11);
+  $core.bool hasToDate() => $_has(11);
   @$pb.TagNumber(12)
-  void clearCostUnitPrice() => clearField(12);
+  void clearToDate() => clearField(12);
   @$pb.TagNumber(12)
-  $2.Decimal ensureCostUnitPrice() => $_ensure(11);
+  $5.Timestamp ensureToDate() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $2.Decimal get endUserUnitPrice => $_getN(12);
+  $4.Decimal get costUnitPrice => $_getN(12);
   @$pb.TagNumber(13)
-  set endUserUnitPrice($2.Decimal v) { setField(13, v); }
+  set costUnitPrice($4.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasEndUserUnitPrice() => $_has(12);
+  $core.bool hasCostUnitPrice() => $_has(12);
   @$pb.TagNumber(13)
-  void clearEndUserUnitPrice() => clearField(13);
+  void clearCostUnitPrice() => clearField(13);
   @$pb.TagNumber(13)
-  $2.Decimal ensureEndUserUnitPrice() => $_ensure(12);
+  $4.Decimal ensureCostUnitPrice() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $2.Decimal get resellerUnitPrice => $_getN(13);
+  $4.Decimal get endUserUnitPrice => $_getN(13);
   @$pb.TagNumber(14)
-  set resellerUnitPrice($2.Decimal v) { setField(14, v); }
+  set endUserUnitPrice($4.Decimal v) { setField(14, v); }
   @$pb.TagNumber(14)
-  $core.bool hasResellerUnitPrice() => $_has(13);
+  $core.bool hasEndUserUnitPrice() => $_has(13);
   @$pb.TagNumber(14)
-  void clearResellerUnitPrice() => clearField(14);
+  void clearEndUserUnitPrice() => clearField(14);
   @$pb.TagNumber(14)
-  $2.Decimal ensureResellerUnitPrice() => $_ensure(13);
+  $4.Decimal ensureEndUserUnitPrice() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $2.Decimal get partnerUnitPrice => $_getN(14);
+  $4.Decimal get resellerUnitPrice => $_getN(14);
   @$pb.TagNumber(15)
-  set partnerUnitPrice($2.Decimal v) { setField(15, v); }
+  set resellerUnitPrice($4.Decimal v) { setField(15, v); }
   @$pb.TagNumber(15)
-  $core.bool hasPartnerUnitPrice() => $_has(14);
+  $core.bool hasResellerUnitPrice() => $_has(14);
   @$pb.TagNumber(15)
-  void clearPartnerUnitPrice() => clearField(15);
+  void clearResellerUnitPrice() => clearField(15);
   @$pb.TagNumber(15)
-  $2.Decimal ensurePartnerUnitPrice() => $_ensure(14);
+  $4.Decimal ensureResellerUnitPrice() => $_ensure(14);
 
   @$pb.TagNumber(16)
-  $core.int get updMode => $_getIZ(15);
+  $4.Decimal get partnerUnitPrice => $_getN(15);
   @$pb.TagNumber(16)
-  set updMode($core.int v) { $_setSignedInt32(15, v); }
+  set partnerUnitPrice($4.Decimal v) { setField(16, v); }
   @$pb.TagNumber(16)
-  $core.bool hasUpdMode() => $_has(15);
+  $core.bool hasPartnerUnitPrice() => $_has(15);
   @$pb.TagNumber(16)
-  void clearUpdMode() => clearField(16);
+  void clearPartnerUnitPrice() => clearField(16);
+  @$pb.TagNumber(16)
+  $4.Decimal ensurePartnerUnitPrice() => $_ensure(15);
 
   @$pb.TagNumber(17)
-  $core.int get updCount => $_getIZ(16);
+  $4.Decimal get minEndUserUnitPrice => $_getN(16);
   @$pb.TagNumber(17)
-  set updCount($core.int v) { $_setSignedInt32(16, v); }
+  set minEndUserUnitPrice($4.Decimal v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasUpdCount() => $_has(16);
+  $core.bool hasMinEndUserUnitPrice() => $_has(16);
   @$pb.TagNumber(17)
-  void clearUpdCount() => clearField(17);
+  void clearMinEndUserUnitPrice() => clearField(17);
+  @$pb.TagNumber(17)
+  $4.Decimal ensureMinEndUserUnitPrice() => $_ensure(16);
 
   @$pb.TagNumber(18)
-  $core.String get updTransactionID => $_getSZ(17);
+  $4.Decimal get minResellerUnitPrice => $_getN(17);
   @$pb.TagNumber(18)
-  set updTransactionID($core.String v) { $_setString(17, v); }
+  set minResellerUnitPrice($4.Decimal v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasUpdTransactionID() => $_has(17);
+  $core.bool hasMinResellerUnitPrice() => $_has(17);
   @$pb.TagNumber(18)
-  void clearUpdTransactionID() => clearField(18);
+  void clearMinResellerUnitPrice() => clearField(18);
+  @$pb.TagNumber(18)
+  $4.Decimal ensureMinResellerUnitPrice() => $_ensure(17);
 
   @$pb.TagNumber(19)
-  $core.String get updAccountID => $_getSZ(18);
+  $4.Decimal get minPartnerUnitPrice => $_getN(18);
   @$pb.TagNumber(19)
-  set updAccountID($core.String v) { $_setString(18, v); }
+  set minPartnerUnitPrice($4.Decimal v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasUpdAccountID() => $_has(18);
+  $core.bool hasMinPartnerUnitPrice() => $_has(18);
   @$pb.TagNumber(19)
-  void clearUpdAccountID() => clearField(19);
+  void clearMinPartnerUnitPrice() => clearField(19);
+  @$pb.TagNumber(19)
+  $4.Decimal ensureMinPartnerUnitPrice() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $3.Timestamp get updDateTime => $_getN(19);
+  $core.int get updMode => $_getIZ(19);
   @$pb.TagNumber(20)
-  set updDateTime($3.Timestamp v) { setField(20, v); }
+  set updMode($core.int v) { $_setSignedInt32(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasUpdDateTime() => $_has(19);
+  $core.bool hasUpdMode() => $_has(19);
   @$pb.TagNumber(20)
-  void clearUpdDateTime() => clearField(20);
-  @$pb.TagNumber(20)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(19);
+  void clearUpdMode() => clearField(20);
+
+  @$pb.TagNumber(21)
+  $core.int get updCount => $_getIZ(20);
+  @$pb.TagNumber(21)
+  set updCount($core.int v) { $_setSignedInt32(20, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasUpdCount() => $_has(20);
+  @$pb.TagNumber(21)
+  void clearUpdCount() => clearField(21);
+
+  @$pb.TagNumber(22)
+  $core.String get updTransactionID => $_getSZ(21);
+  @$pb.TagNumber(22)
+  set updTransactionID($core.String v) { $_setString(21, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasUpdTransactionID() => $_has(21);
+  @$pb.TagNumber(22)
+  void clearUpdTransactionID() => clearField(22);
+
+  @$pb.TagNumber(23)
+  $core.String get updAccountID => $_getSZ(22);
+  @$pb.TagNumber(23)
+  set updAccountID($core.String v) { $_setString(22, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasUpdAccountID() => $_has(22);
+  @$pb.TagNumber(23)
+  void clearUpdAccountID() => clearField(23);
+
+  @$pb.TagNumber(24)
+  $5.Timestamp get updDateTime => $_getN(23);
+  @$pb.TagNumber(24)
+  set updDateTime($5.Timestamp v) { setField(24, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasUpdDateTime() => $_has(23);
+  @$pb.TagNumber(24)
+  void clearUpdDateTime() => clearField(24);
+  @$pb.TagNumber(24)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(23);
 }
 
 /// >>> End generated PriceList message
@@ -12992,8 +12673,8 @@ class GetRankDiscountRecord_Request extends $pb.GeneratedMessage {
   factory GetRankDiscountRecord_Request({
     $0.UserCredential? credential,
     $core.String? rankCode,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.String? iD,
   }) {
     final $result = create();
@@ -13021,8 +12702,8 @@ class GetRankDiscountRecord_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRankDiscountRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
     ..aOS(2, _omitFieldNames ? '' : 'RankCode', protoName: 'RankCode')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..hasRequiredFields = false
   ;
@@ -13069,26 +12750,26 @@ class GetRankDiscountRecord_Request extends $pb.GeneratedMessage {
   void clearRankCode() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get fromDate => $_getN(2);
+  $5.Timestamp get fromDate => $_getN(2);
   @$pb.TagNumber(3)
-  set fromDate($3.Timestamp v) { setField(3, v); }
+  set fromDate($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureFromDate() => $_ensure(2);
+  $5.Timestamp ensureFromDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $3.Timestamp get toDate => $_getN(3);
+  $5.Timestamp get toDate => $_getN(3);
   @$pb.TagNumber(4)
-  set toDate($3.Timestamp v) { setField(4, v); }
+  set toDate($5.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasToDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearToDate() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Timestamp ensureToDate() => $_ensure(3);
+  $5.Timestamp ensureToDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get iD => $_getSZ(4);
@@ -13258,14 +12939,14 @@ class grpcRankDiscountModel extends $pb.GeneratedMessage {
     $core.int? priceType,
     $core.String? rankCode,
     $core.String? description,
-    $2.Decimal? discountRate,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $4.Decimal? discountRate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -13315,14 +12996,14 @@ class grpcRankDiscountModel extends $pb.GeneratedMessage {
     ..a<$core.int>(2, _omitFieldNames ? '' : 'PriceType', $pb.PbFieldType.O3, protoName: 'PriceType')
     ..aOS(3, _omitFieldNames ? '' : 'RankCode', protoName: 'RankCode')
     ..aOS(4, _omitFieldNames ? '' : 'Description', protoName: 'Description')
-    ..aOM<$2.Decimal>(5, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(5, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(10, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(11, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -13384,37 +13065,37 @@ class grpcRankDiscountModel extends $pb.GeneratedMessage {
   void clearDescription() => clearField(4);
 
   @$pb.TagNumber(5)
-  $2.Decimal get discountRate => $_getN(4);
+  $4.Decimal get discountRate => $_getN(4);
   @$pb.TagNumber(5)
-  set discountRate($2.Decimal v) { setField(5, v); }
+  set discountRate($4.Decimal v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasDiscountRate() => $_has(4);
   @$pb.TagNumber(5)
   void clearDiscountRate() => clearField(5);
   @$pb.TagNumber(5)
-  $2.Decimal ensureDiscountRate() => $_ensure(4);
+  $4.Decimal ensureDiscountRate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get fromDate => $_getN(5);
+  $5.Timestamp get fromDate => $_getN(5);
   @$pb.TagNumber(6)
-  set fromDate($3.Timestamp v) { setField(6, v); }
+  set fromDate($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasFromDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearFromDate() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureFromDate() => $_ensure(5);
+  $5.Timestamp ensureFromDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $3.Timestamp get toDate => $_getN(6);
+  $5.Timestamp get toDate => $_getN(6);
   @$pb.TagNumber(7)
-  set toDate($3.Timestamp v) { setField(7, v); }
+  set toDate($5.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasToDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearToDate() => clearField(7);
   @$pb.TagNumber(7)
-  $3.Timestamp ensureToDate() => $_ensure(6);
+  $5.Timestamp ensureToDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.int get updMode => $_getIZ(7);
@@ -13453,15 +13134,15 @@ class grpcRankDiscountModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(11);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get updDateTime => $_getN(11);
+  $5.Timestamp get updDateTime => $_getN(11);
   @$pb.TagNumber(12)
-  set updDateTime($3.Timestamp v) { setField(12, v); }
+  set updDateTime($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasUpdDateTime() => $_has(11);
   @$pb.TagNumber(12)
   void clearUpdDateTime() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(11);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(11);
 }
 
 /// >>> End generated RankDiscount message
@@ -13808,6 +13489,114 @@ class GetVendor_Response extends $pb.GeneratedMessage {
   $core.List<grpcVendorModel> get records => $_getList(2);
 }
 
+class UpdateVendorContact_Request extends $pb.GeneratedMessage {
+  factory UpdateVendorContact_Request({
+    $0.UserCredential? credential,
+    $core.String? vendorID,
+    $core.String? contactPerson,
+    $core.String? contactPhone,
+    $core.String? contactEmail,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (vendorID != null) {
+      $result.vendorID = vendorID;
+    }
+    if (contactPerson != null) {
+      $result.contactPerson = contactPerson;
+    }
+    if (contactPhone != null) {
+      $result.contactPhone = contactPhone;
+    }
+    if (contactEmail != null) {
+      $result.contactEmail = contactEmail;
+    }
+    return $result;
+  }
+  UpdateVendorContact_Request._() : super();
+  factory UpdateVendorContact_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateVendorContact_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateVendorContact_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'VendorID', protoName: 'VendorID')
+    ..aOS(3, _omitFieldNames ? '' : 'ContactPerson', protoName: 'ContactPerson')
+    ..aOS(4, _omitFieldNames ? '' : 'ContactPhone', protoName: 'ContactPhone')
+    ..aOS(5, _omitFieldNames ? '' : 'ContactEmail', protoName: 'ContactEmail')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateVendorContact_Request clone() => UpdateVendorContact_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateVendorContact_Request copyWith(void Function(UpdateVendorContact_Request) updates) => super.copyWith((message) => updates(message as UpdateVendorContact_Request)) as UpdateVendorContact_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateVendorContact_Request create() => UpdateVendorContact_Request._();
+  UpdateVendorContact_Request createEmptyInstance() => create();
+  static $pb.PbList<UpdateVendorContact_Request> createRepeated() => $pb.PbList<UpdateVendorContact_Request>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateVendorContact_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateVendorContact_Request>(create);
+  static UpdateVendorContact_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get vendorID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set vendorID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasVendorID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearVendorID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get contactPerson => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set contactPerson($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasContactPerson() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearContactPerson() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get contactPhone => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set contactPhone($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasContactPhone() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearContactPhone() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get contactEmail => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set contactEmail($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasContactEmail() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearContactEmail() => clearField(5);
+}
+
 class grpcVendorModel extends $pb.GeneratedMessage {
   factory grpcVendorModel({
     $core.String? iD,
@@ -13829,7 +13618,7 @@ class grpcVendorModel extends $pb.GeneratedMessage {
     $core.String? classCode3,
     $core.String? picID,
     $core.String? purchaseDeptCode,
-    $3.Timestamp? lastPurchaseDate,
+    $5.Timestamp? lastPurchaseDate,
     $core.int? shipLeadTime,
     $core.int? importLeadTime,
     $core.int? taxFlag,
@@ -13843,7 +13632,7 @@ class grpcVendorModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -13974,7 +13763,7 @@ class grpcVendorModel extends $pb.GeneratedMessage {
     ..aOS(17, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
     ..aOS(18, _omitFieldNames ? '' : 'PicID', protoName: 'PicID')
     ..aOS(19, _omitFieldNames ? '' : 'PurchaseDeptCode', protoName: 'PurchaseDeptCode')
-    ..aOM<$3.Timestamp>(20, _omitFieldNames ? '' : 'LastPurchaseDate', protoName: 'LastPurchaseDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(20, _omitFieldNames ? '' : 'LastPurchaseDate', protoName: 'LastPurchaseDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(21, _omitFieldNames ? '' : 'ShipLeadTime', $pb.PbFieldType.O3, protoName: 'ShipLeadTime')
     ..a<$core.int>(22, _omitFieldNames ? '' : 'ImportLeadTime', $pb.PbFieldType.O3, protoName: 'ImportLeadTime')
     ..a<$core.int>(23, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
@@ -13988,7 +13777,7 @@ class grpcVendorModel extends $pb.GeneratedMessage {
     ..a<$core.int>(31, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(32, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(33, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(34, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(34, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -14185,15 +13974,15 @@ class grpcVendorModel extends $pb.GeneratedMessage {
   void clearPurchaseDeptCode() => clearField(19);
 
   @$pb.TagNumber(20)
-  $3.Timestamp get lastPurchaseDate => $_getN(19);
+  $5.Timestamp get lastPurchaseDate => $_getN(19);
   @$pb.TagNumber(20)
-  set lastPurchaseDate($3.Timestamp v) { setField(20, v); }
+  set lastPurchaseDate($5.Timestamp v) { setField(20, v); }
   @$pb.TagNumber(20)
   $core.bool hasLastPurchaseDate() => $_has(19);
   @$pb.TagNumber(20)
   void clearLastPurchaseDate() => clearField(20);
   @$pb.TagNumber(20)
-  $3.Timestamp ensureLastPurchaseDate() => $_ensure(19);
+  $5.Timestamp ensureLastPurchaseDate() => $_ensure(19);
 
   @$pb.TagNumber(21)
   $core.int get shipLeadTime => $_getIZ(20);
@@ -14307,15 +14096,15 @@ class grpcVendorModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(33);
 
   @$pb.TagNumber(34)
-  $3.Timestamp get updDateTime => $_getN(33);
+  $5.Timestamp get updDateTime => $_getN(33);
   @$pb.TagNumber(34)
-  set updDateTime($3.Timestamp v) { setField(34, v); }
+  set updDateTime($5.Timestamp v) { setField(34, v); }
   @$pb.TagNumber(34)
   $core.bool hasUpdDateTime() => $_has(33);
   @$pb.TagNumber(34)
   void clearUpdDateTime() => clearField(34);
   @$pb.TagNumber(34)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(33);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(33);
 }
 
 /// >>> End generated Vendor message
@@ -14392,8 +14181,8 @@ class GetCustomerRankRecord_Request extends $pb.GeneratedMessage {
   factory GetCustomerRankRecord_Request({
     $0.UserCredential? credential,
     $core.String? customerID,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.String? iD,
   }) {
     final $result = create();
@@ -14421,8 +14210,8 @@ class GetCustomerRankRecord_Request extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCustomerRankRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
     ..aOS(2, _omitFieldNames ? '' : 'CustomerID', protoName: 'CustomerID')
-    ..aOM<$3.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(4, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..aOS(5, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..hasRequiredFields = false
   ;
@@ -14469,26 +14258,26 @@ class GetCustomerRankRecord_Request extends $pb.GeneratedMessage {
   void clearCustomerID() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Timestamp get fromDate => $_getN(2);
+  $5.Timestamp get fromDate => $_getN(2);
   @$pb.TagNumber(3)
-  set fromDate($3.Timestamp v) { setField(3, v); }
+  set fromDate($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasFromDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearFromDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Timestamp ensureFromDate() => $_ensure(2);
+  $5.Timestamp ensureFromDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $3.Timestamp get toDate => $_getN(3);
+  $5.Timestamp get toDate => $_getN(3);
   @$pb.TagNumber(4)
-  set toDate($3.Timestamp v) { setField(4, v); }
+  set toDate($5.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasToDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearToDate() => clearField(4);
   @$pb.TagNumber(4)
-  $3.Timestamp ensureToDate() => $_ensure(3);
+  $5.Timestamp ensureToDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get iD => $_getSZ(4);
@@ -14740,15 +14529,15 @@ class grpcCustomerRankModel extends $pb.GeneratedMessage {
     $core.int? priceType,
     $core.String? rankCode,
     $core.String? description,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
-    $2.Decimal? thisYearRevenue,
-    $2.Decimal? lastYearRevenue,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
+    $4.Decimal? thisYearRevenue,
+    $4.Decimal? lastYearRevenue,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -14809,15 +14598,15 @@ class grpcCustomerRankModel extends $pb.GeneratedMessage {
     ..a<$core.int>(4, _omitFieldNames ? '' : 'PriceType', $pb.PbFieldType.O3, protoName: 'PriceType')
     ..aOS(5, _omitFieldNames ? '' : 'RankCode', protoName: 'RankCode')
     ..aOS(6, _omitFieldNames ? '' : 'Description', protoName: 'Description')
-    ..aOM<$3.Timestamp>(7, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(8, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'ThisYearRevenue', protoName: 'ThisYearRevenue', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'LastYearRevenue', protoName: 'LastYearRevenue', subBuilder: $2.Decimal.create)
+    ..aOM<$5.Timestamp>(7, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(8, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'ThisYearRevenue', protoName: 'ThisYearRevenue', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'LastYearRevenue', protoName: 'LastYearRevenue', subBuilder: $4.Decimal.create)
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(13, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(14, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -14897,48 +14686,48 @@ class grpcCustomerRankModel extends $pb.GeneratedMessage {
   void clearDescription() => clearField(6);
 
   @$pb.TagNumber(7)
-  $3.Timestamp get fromDate => $_getN(6);
+  $5.Timestamp get fromDate => $_getN(6);
   @$pb.TagNumber(7)
-  set fromDate($3.Timestamp v) { setField(7, v); }
+  set fromDate($5.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasFromDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearFromDate() => clearField(7);
   @$pb.TagNumber(7)
-  $3.Timestamp ensureFromDate() => $_ensure(6);
+  $5.Timestamp ensureFromDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $3.Timestamp get toDate => $_getN(7);
+  $5.Timestamp get toDate => $_getN(7);
   @$pb.TagNumber(8)
-  set toDate($3.Timestamp v) { setField(8, v); }
+  set toDate($5.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasToDate() => $_has(7);
   @$pb.TagNumber(8)
   void clearToDate() => clearField(8);
   @$pb.TagNumber(8)
-  $3.Timestamp ensureToDate() => $_ensure(7);
+  $5.Timestamp ensureToDate() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Decimal get thisYearRevenue => $_getN(8);
+  $4.Decimal get thisYearRevenue => $_getN(8);
   @$pb.TagNumber(9)
-  set thisYearRevenue($2.Decimal v) { setField(9, v); }
+  set thisYearRevenue($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasThisYearRevenue() => $_has(8);
   @$pb.TagNumber(9)
   void clearThisYearRevenue() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensureThisYearRevenue() => $_ensure(8);
+  $4.Decimal ensureThisYearRevenue() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get lastYearRevenue => $_getN(9);
+  $4.Decimal get lastYearRevenue => $_getN(9);
   @$pb.TagNumber(10)
-  set lastYearRevenue($2.Decimal v) { setField(10, v); }
+  set lastYearRevenue($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasLastYearRevenue() => $_has(9);
   @$pb.TagNumber(10)
   void clearLastYearRevenue() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureLastYearRevenue() => $_ensure(9);
+  $4.Decimal ensureLastYearRevenue() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.int get updMode => $_getIZ(10);
@@ -14977,15 +14766,15 @@ class grpcCustomerRankModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(14);
 
   @$pb.TagNumber(15)
-  $3.Timestamp get updDateTime => $_getN(14);
+  $5.Timestamp get updDateTime => $_getN(14);
   @$pb.TagNumber(15)
-  set updDateTime($3.Timestamp v) { setField(15, v); }
+  set updDateTime($5.Timestamp v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasUpdDateTime() => $_has(14);
   @$pb.TagNumber(15)
   void clearUpdDateTime() => clearField(15);
   @$pb.TagNumber(15)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(14);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(14);
 }
 
 /// >>> End generated CustomerRank message
@@ -15382,12 +15171,12 @@ class grpcCustomerProductModel extends $pb.GeneratedMessage {
     $core.String? cusSpecification,
     $core.String? cusUnitCode,
     $core.String? cusUnitName,
-    $2.Decimal? cusPackingQty,
+    $4.Decimal? cusPackingQty,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -15455,12 +15244,12 @@ class grpcCustomerProductModel extends $pb.GeneratedMessage {
     ..aOS(8, _omitFieldNames ? '' : 'CusSpecification', protoName: 'CusSpecification')
     ..aOS(9, _omitFieldNames ? '' : 'CusUnitCode', protoName: 'CusUnitCode')
     ..aOS(10, _omitFieldNames ? '' : 'CusUnitName', protoName: 'CusUnitName')
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'CusPackingQty', protoName: 'CusPackingQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'CusPackingQty', protoName: 'CusPackingQty', subBuilder: $4.Decimal.create)
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(13, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(14, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(15, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(16, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -15576,15 +15365,15 @@ class grpcCustomerProductModel extends $pb.GeneratedMessage {
   void clearCusUnitName() => clearField(10);
 
   @$pb.TagNumber(11)
-  $2.Decimal get cusPackingQty => $_getN(10);
+  $4.Decimal get cusPackingQty => $_getN(10);
   @$pb.TagNumber(11)
-  set cusPackingQty($2.Decimal v) { setField(11, v); }
+  set cusPackingQty($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasCusPackingQty() => $_has(10);
   @$pb.TagNumber(11)
   void clearCusPackingQty() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensureCusPackingQty() => $_ensure(10);
+  $4.Decimal ensureCusPackingQty() => $_ensure(10);
 
   @$pb.TagNumber(12)
   $core.int get updMode => $_getIZ(11);
@@ -15623,15 +15412,15 @@ class grpcCustomerProductModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(15);
 
   @$pb.TagNumber(16)
-  $3.Timestamp get updDateTime => $_getN(15);
+  $5.Timestamp get updDateTime => $_getN(15);
   @$pb.TagNumber(16)
-  set updDateTime($3.Timestamp v) { setField(16, v); }
+  set updDateTime($5.Timestamp v) { setField(16, v); }
   @$pb.TagNumber(16)
   $core.bool hasUpdDateTime() => $_has(15);
   @$pb.TagNumber(16)
   void clearUpdDateTime() => clearField(16);
   @$pb.TagNumber(16)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(15);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(15);
 }
 
 /// >>> End generated CustomerProduct message
@@ -16022,13 +15811,13 @@ class grpcSetProductModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? compQty,
-    $2.Decimal? setQty,
+    $4.Decimal? compQty,
+    $4.Decimal? setQty,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -16091,13 +15880,13 @@ class grpcSetProductModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(7, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'CompQty', protoName: 'CompQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'SetQty', protoName: 'SetQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'CompQty', protoName: 'CompQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'SetQty', protoName: 'SetQty', subBuilder: $4.Decimal.create)
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(13, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(14, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(15, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -16195,26 +15984,26 @@ class grpcSetProductModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get compQty => $_getN(8);
+  $4.Decimal get compQty => $_getN(8);
   @$pb.TagNumber(9)
-  set compQty($2.Decimal v) { setField(9, v); }
+  set compQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasCompQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearCompQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensureCompQty() => $_ensure(8);
+  $4.Decimal ensureCompQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get setQty => $_getN(9);
+  $4.Decimal get setQty => $_getN(9);
   @$pb.TagNumber(10)
-  set setQty($2.Decimal v) { setField(10, v); }
+  set setQty($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasSetQty() => $_has(9);
   @$pb.TagNumber(10)
   void clearSetQty() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureSetQty() => $_ensure(9);
+  $4.Decimal ensureSetQty() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.int get updMode => $_getIZ(10);
@@ -16253,15 +16042,15 @@ class grpcSetProductModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(14);
 
   @$pb.TagNumber(15)
-  $3.Timestamp get updDateTime => $_getN(14);
+  $5.Timestamp get updDateTime => $_getN(14);
   @$pb.TagNumber(15)
-  set updDateTime($3.Timestamp v) { setField(15, v); }
+  set updDateTime($5.Timestamp v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasUpdDateTime() => $_has(14);
   @$pb.TagNumber(15)
   void clearUpdDateTime() => clearField(15);
   @$pb.TagNumber(15)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(14);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(14);
 }
 
 /// >>> End generated SetProduct message
@@ -16583,9 +16372,9 @@ class grpcProductPropertyModel extends $pb.GeneratedMessage {
     $core.String? fieldName,
     $core.String? dataType,
     $core.String? stringValue,
-    $2.Decimal? doubleValue,
+    $4.Decimal? doubleValue,
     $core.bool? boolValue,
-    $3.Timestamp? dateValue,
+    $5.Timestamp? dateValue,
     $core.String? recordNo,
     $core.int? updMode,
   }) {
@@ -16640,9 +16429,9 @@ class grpcProductPropertyModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'FieldName', protoName: 'FieldName')
     ..aOS(6, _omitFieldNames ? '' : 'DataType', protoName: 'DataType')
     ..aOS(7, _omitFieldNames ? '' : 'StringValue', protoName: 'StringValue')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue', protoName: 'DoubleValue', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue', protoName: 'DoubleValue', subBuilder: $4.Decimal.create)
     ..aOB(9, _omitFieldNames ? '' : 'BoolValue', protoName: 'BoolValue')
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $5.Timestamp.create)
     ..aOS(11, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
@@ -16733,15 +16522,15 @@ class grpcProductPropertyModel extends $pb.GeneratedMessage {
   void clearStringValue() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get doubleValue => $_getN(7);
+  $4.Decimal get doubleValue => $_getN(7);
   @$pb.TagNumber(8)
-  set doubleValue($2.Decimal v) { setField(8, v); }
+  set doubleValue($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasDoubleValue() => $_has(7);
   @$pb.TagNumber(8)
   void clearDoubleValue() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensureDoubleValue() => $_ensure(7);
+  $4.Decimal ensureDoubleValue() => $_ensure(7);
 
   @$pb.TagNumber(9)
   $core.bool get boolValue => $_getBF(8);
@@ -16753,15 +16542,15 @@ class grpcProductPropertyModel extends $pb.GeneratedMessage {
   void clearBoolValue() => clearField(9);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get dateValue => $_getN(9);
+  $5.Timestamp get dateValue => $_getN(9);
   @$pb.TagNumber(10)
-  set dateValue($3.Timestamp v) { setField(10, v); }
+  set dateValue($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasDateValue() => $_has(9);
   @$pb.TagNumber(10)
   void clearDateValue() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureDateValue() => $_ensure(9);
+  $5.Timestamp ensureDateValue() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.String get recordNo => $_getSZ(10);
@@ -17007,7 +16796,7 @@ class GetProduct_Response extends $pb.GeneratedMessage {
 class UpdateProduct_Request extends $pb.GeneratedMessage {
   factory UpdateProduct_Request({
     $0.UserCredential? credential,
-    $2.Decimal? updateSign,
+    $4.Decimal? updateSign,
     grpcProductModel? record,
   }) {
     final $result = create();
@@ -17028,7 +16817,7 @@ class UpdateProduct_Request extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateProduct_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcMasterService'), createEmptyInstance: create)
     ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOM<$2.Decimal>(2, _omitFieldNames ? '' : 'UpdateSign', protoName: 'UpdateSign', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(2, _omitFieldNames ? '' : 'UpdateSign', protoName: 'UpdateSign', subBuilder: $4.Decimal.create)
     ..aOM<grpcProductModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcProductModel.create)
     ..hasRequiredFields = false
   ;
@@ -17066,15 +16855,15 @@ class UpdateProduct_Request extends $pb.GeneratedMessage {
   $0.UserCredential ensureCredential() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $2.Decimal get updateSign => $_getN(1);
+  $4.Decimal get updateSign => $_getN(1);
   @$pb.TagNumber(2)
-  set updateSign($2.Decimal v) { setField(2, v); }
+  set updateSign($4.Decimal v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasUpdateSign() => $_has(1);
   @$pb.TagNumber(2)
   void clearUpdateSign() => clearField(2);
   @$pb.TagNumber(2)
-  $2.Decimal ensureUpdateSign() => $_ensure(1);
+  $4.Decimal ensureUpdateSign() => $_ensure(1);
 
   @$pb.TagNumber(3)
   grpcProductModel get record => $_getN(2);
@@ -17104,15 +16893,15 @@ class grpcProductModel extends $pb.GeneratedMessage {
     $core.String? unitName2,
     $core.String? unitCode3,
     $core.String? unitName3,
-    $2.Decimal? packingQty1,
-    $2.Decimal? packingQty2,
-    $2.Decimal? packingQty3,
+    $4.Decimal? packingQty1,
+    $4.Decimal? packingQty2,
+    $4.Decimal? packingQty3,
     $core.String? purchaseUnitCode,
     $core.String? purchaseUnitName,
-    $2.Decimal? purchasePackingQty,
+    $4.Decimal? purchasePackingQty,
     $core.String? saleUnitCode,
     $core.String? saleUnitName,
-    $2.Decimal? salePackingQty,
+    $4.Decimal? salePackingQty,
     $core.int? productKind,
     $core.bool? isSetProduct,
     $core.bool? canChangeName,
@@ -17121,12 +16910,12 @@ class grpcProductModel extends $pb.GeneratedMessage {
     $core.int? produceLT,
     $core.String? colorCode,
     $core.String? sizeCode,
-    $2.Decimal? weight,
-    $2.Decimal? volume,
-    $3.Timestamp? insideEffectFromDate,
-    $3.Timestamp? insideEffectToDate,
-    $3.Timestamp? outsideEffectFromDate,
-    $3.Timestamp? outsideEffectToDate,
+    $4.Decimal? weight,
+    $4.Decimal? volume,
+    $5.Timestamp? insideEffectFromDate,
+    $5.Timestamp? insideEffectToDate,
+    $5.Timestamp? outsideEffectFromDate,
+    $5.Timestamp? outsideEffectToDate,
     $core.bool? isStock,
     $core.bool? isLOT,
     $core.String? dateType,
@@ -17136,14 +16925,14 @@ class grpcProductModel extends $pb.GeneratedMessage {
     $core.int? produceFlag,
     $core.bool? isKeepStock,
     $core.int? keepStockPeriod,
-    $3.Timestamp? lastPurchaseDate,
-    $3.Timestamp? lastSaleDate,
+    $5.Timestamp? lastPurchaseDate,
+    $5.Timestamp? lastSaleDate,
     $core.int? taxFlag,
     $core.int? purchaseTaxFlag,
-    $2.Decimal? vATRate,
-    $2.Decimal? importTaxRate,
-    $2.Decimal? exciseTaxRate,
-    $2.Decimal? envTaxRate,
+    $4.Decimal? vATRate,
+    $4.Decimal? importTaxRate,
+    $4.Decimal? exciseTaxRate,
+    $4.Decimal? envTaxRate,
     $core.String? classCode1,
     $core.String? classCode2,
     $core.String? classCode3,
@@ -17154,24 +16943,24 @@ class grpcProductModel extends $pb.GeneratedMessage {
     $core.String? makerID,
     $core.int? costCalFlag,
     $core.int? invCostCalFlag,
-    $2.Decimal? costUnitPrice,
-    $2.Decimal? costUnitPriceEx,
-    $2.Decimal? matCost,
-    $2.Decimal? laborCost,
-    $2.Decimal? feeCost,
-    $2.Decimal? matMainCost,
-    $2.Decimal? matSubCost,
-    $2.Decimal? componentCost,
-    $2.Decimal? otherCost,
-    $2.Decimal? semiProdCost,
-    $2.Decimal? directLaborCost,
-    $2.Decimal? inDirectLaborCost,
-    $2.Decimal? fixedLaborCost,
-    $2.Decimal? varLaborCost,
-    $2.Decimal? directFeeCost,
-    $2.Decimal? inDirectFeeCost,
-    $2.Decimal? fixedFeeCost,
-    $2.Decimal? varFeeCost,
+    $4.Decimal? costUnitPrice,
+    $4.Decimal? costUnitPriceEx,
+    $4.Decimal? matCost,
+    $4.Decimal? laborCost,
+    $4.Decimal? feeCost,
+    $4.Decimal? matMainCost,
+    $4.Decimal? matSubCost,
+    $4.Decimal? componentCost,
+    $4.Decimal? otherCost,
+    $4.Decimal? semiProdCost,
+    $4.Decimal? directLaborCost,
+    $4.Decimal? inDirectLaborCost,
+    $4.Decimal? fixedLaborCost,
+    $4.Decimal? varLaborCost,
+    $4.Decimal? directFeeCost,
+    $4.Decimal? inDirectFeeCost,
+    $4.Decimal? fixedFeeCost,
+    $4.Decimal? varFeeCost,
     $core.String? stockAccID,
     $core.String? revenueAccID,
     $core.String? feeAccID,
@@ -17180,7 +16969,7 @@ class grpcProductModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
     $core.String? recordNo,
   }) {
     final $result = create();
@@ -17481,15 +17270,15 @@ class grpcProductModel extends $pb.GeneratedMessage {
     ..aOS(12, _omitFieldNames ? '' : 'UnitName2', protoName: 'UnitName2')
     ..aOS(13, _omitFieldNames ? '' : 'UnitCode3', protoName: 'UnitCode3')
     ..aOS(14, _omitFieldNames ? '' : 'UnitName3', protoName: 'UnitName3')
-    ..aOM<$2.Decimal>(15, _omitFieldNames ? '' : 'PackingQty1', protoName: 'PackingQty1', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(16, _omitFieldNames ? '' : 'PackingQty2', protoName: 'PackingQty2', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(17, _omitFieldNames ? '' : 'PackingQty3', protoName: 'PackingQty3', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(15, _omitFieldNames ? '' : 'PackingQty1', protoName: 'PackingQty1', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(16, _omitFieldNames ? '' : 'PackingQty2', protoName: 'PackingQty2', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(17, _omitFieldNames ? '' : 'PackingQty3', protoName: 'PackingQty3', subBuilder: $4.Decimal.create)
     ..aOS(18, _omitFieldNames ? '' : 'PurchaseUnitCode', protoName: 'PurchaseUnitCode')
     ..aOS(19, _omitFieldNames ? '' : 'PurchaseUnitName', protoName: 'PurchaseUnitName')
-    ..aOM<$2.Decimal>(20, _omitFieldNames ? '' : 'PurchasePackingQty', protoName: 'PurchasePackingQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(20, _omitFieldNames ? '' : 'PurchasePackingQty', protoName: 'PurchasePackingQty', subBuilder: $4.Decimal.create)
     ..aOS(21, _omitFieldNames ? '' : 'SaleUnitCode', protoName: 'SaleUnitCode')
     ..aOS(22, _omitFieldNames ? '' : 'SaleUnitName', protoName: 'SaleUnitName')
-    ..aOM<$2.Decimal>(23, _omitFieldNames ? '' : 'SalePackingQty', protoName: 'SalePackingQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(23, _omitFieldNames ? '' : 'SalePackingQty', protoName: 'SalePackingQty', subBuilder: $4.Decimal.create)
     ..a<$core.int>(24, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
     ..aOB(25, _omitFieldNames ? '' : 'IsSetProduct', protoName: 'IsSetProduct')
     ..aOB(26, _omitFieldNames ? '' : 'CanChangeName', protoName: 'CanChangeName')
@@ -17498,12 +17287,12 @@ class grpcProductModel extends $pb.GeneratedMessage {
     ..a<$core.int>(29, _omitFieldNames ? '' : 'ProduceLT', $pb.PbFieldType.O3, protoName: 'ProduceLT')
     ..aOS(30, _omitFieldNames ? '' : 'ColorCode', protoName: 'ColorCode')
     ..aOS(31, _omitFieldNames ? '' : 'SizeCode', protoName: 'SizeCode')
-    ..aOM<$2.Decimal>(32, _omitFieldNames ? '' : 'Weight', protoName: 'Weight', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(33, _omitFieldNames ? '' : 'Volume', protoName: 'Volume', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(34, _omitFieldNames ? '' : 'InsideEffectFromDate', protoName: 'InsideEffectFromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(35, _omitFieldNames ? '' : 'InsideEffectToDate', protoName: 'InsideEffectToDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(36, _omitFieldNames ? '' : 'OutsideEffectFromDate', protoName: 'OutsideEffectFromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(37, _omitFieldNames ? '' : 'OutsideEffectToDate', protoName: 'OutsideEffectToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(32, _omitFieldNames ? '' : 'Weight', protoName: 'Weight', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(33, _omitFieldNames ? '' : 'Volume', protoName: 'Volume', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(34, _omitFieldNames ? '' : 'InsideEffectFromDate', protoName: 'InsideEffectFromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(35, _omitFieldNames ? '' : 'InsideEffectToDate', protoName: 'InsideEffectToDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(36, _omitFieldNames ? '' : 'OutsideEffectFromDate', protoName: 'OutsideEffectFromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(37, _omitFieldNames ? '' : 'OutsideEffectToDate', protoName: 'OutsideEffectToDate', subBuilder: $5.Timestamp.create)
     ..aOB(38, _omitFieldNames ? '' : 'IsStock', protoName: 'IsStock')
     ..aOB(39, _omitFieldNames ? '' : 'IsLOT', protoName: 'IsLOT')
     ..aOS(40, _omitFieldNames ? '' : 'DateType', protoName: 'DateType')
@@ -17513,14 +17302,14 @@ class grpcProductModel extends $pb.GeneratedMessage {
     ..a<$core.int>(44, _omitFieldNames ? '' : 'ProduceFlag', $pb.PbFieldType.O3, protoName: 'ProduceFlag')
     ..aOB(45, _omitFieldNames ? '' : 'IsKeepStock', protoName: 'IsKeepStock')
     ..a<$core.int>(46, _omitFieldNames ? '' : 'KeepStockPeriod', $pb.PbFieldType.O3, protoName: 'KeepStockPeriod')
-    ..aOM<$3.Timestamp>(47, _omitFieldNames ? '' : 'LastPurchaseDate', protoName: 'LastPurchaseDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(48, _omitFieldNames ? '' : 'LastSaleDate', protoName: 'LastSaleDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(47, _omitFieldNames ? '' : 'LastPurchaseDate', protoName: 'LastPurchaseDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(48, _omitFieldNames ? '' : 'LastSaleDate', protoName: 'LastSaleDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(49, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
     ..a<$core.int>(50, _omitFieldNames ? '' : 'PurchaseTaxFlag', $pb.PbFieldType.O3, protoName: 'PurchaseTaxFlag')
-    ..aOM<$2.Decimal>(51, _omitFieldNames ? '' : 'VATRate', protoName: 'VATRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(52, _omitFieldNames ? '' : 'ImportTaxRate', protoName: 'ImportTaxRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(53, _omitFieldNames ? '' : 'ExciseTaxRate', protoName: 'ExciseTaxRate', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(54, _omitFieldNames ? '' : 'EnvTaxRate', protoName: 'EnvTaxRate', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(51, _omitFieldNames ? '' : 'VATRate', protoName: 'VATRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(52, _omitFieldNames ? '' : 'ImportTaxRate', protoName: 'ImportTaxRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(53, _omitFieldNames ? '' : 'ExciseTaxRate', protoName: 'ExciseTaxRate', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(54, _omitFieldNames ? '' : 'EnvTaxRate', protoName: 'EnvTaxRate', subBuilder: $4.Decimal.create)
     ..aOS(55, _omitFieldNames ? '' : 'ClassCode1', protoName: 'ClassCode1')
     ..aOS(56, _omitFieldNames ? '' : 'ClassCode2', protoName: 'ClassCode2')
     ..aOS(57, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
@@ -17531,24 +17320,24 @@ class grpcProductModel extends $pb.GeneratedMessage {
     ..aOS(62, _omitFieldNames ? '' : 'MakerID', protoName: 'MakerID')
     ..a<$core.int>(63, _omitFieldNames ? '' : 'CostCalFlag', $pb.PbFieldType.O3, protoName: 'CostCalFlag')
     ..a<$core.int>(64, _omitFieldNames ? '' : 'InvCostCalFlag', $pb.PbFieldType.O3, protoName: 'InvCostCalFlag')
-    ..aOM<$2.Decimal>(65, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(66, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(67, _omitFieldNames ? '' : 'MatCost', protoName: 'MatCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(68, _omitFieldNames ? '' : 'LaborCost', protoName: 'LaborCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(69, _omitFieldNames ? '' : 'FeeCost', protoName: 'FeeCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(70, _omitFieldNames ? '' : 'MatMainCost', protoName: 'MatMainCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(71, _omitFieldNames ? '' : 'MatSubCost', protoName: 'MatSubCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(72, _omitFieldNames ? '' : 'ComponentCost', protoName: 'ComponentCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(73, _omitFieldNames ? '' : 'OtherCost', protoName: 'OtherCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(74, _omitFieldNames ? '' : 'SemiProdCost', protoName: 'SemiProdCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(75, _omitFieldNames ? '' : 'DirectLaborCost', protoName: 'DirectLaborCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(76, _omitFieldNames ? '' : 'InDirectLaborCost', protoName: 'InDirectLaborCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(77, _omitFieldNames ? '' : 'FixedLaborCost', protoName: 'FixedLaborCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(78, _omitFieldNames ? '' : 'VarLaborCost', protoName: 'VarLaborCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(79, _omitFieldNames ? '' : 'DirectFeeCost', protoName: 'DirectFeeCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(80, _omitFieldNames ? '' : 'InDirectFeeCost', protoName: 'InDirectFeeCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(81, _omitFieldNames ? '' : 'FixedFeeCost', protoName: 'FixedFeeCost', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(82, _omitFieldNames ? '' : 'VarFeeCost', protoName: 'VarFeeCost', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(65, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(66, _omitFieldNames ? '' : 'CostUnitPriceEx', protoName: 'CostUnitPriceEx', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(67, _omitFieldNames ? '' : 'MatCost', protoName: 'MatCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(68, _omitFieldNames ? '' : 'LaborCost', protoName: 'LaborCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(69, _omitFieldNames ? '' : 'FeeCost', protoName: 'FeeCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(70, _omitFieldNames ? '' : 'MatMainCost', protoName: 'MatMainCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(71, _omitFieldNames ? '' : 'MatSubCost', protoName: 'MatSubCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(72, _omitFieldNames ? '' : 'ComponentCost', protoName: 'ComponentCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(73, _omitFieldNames ? '' : 'OtherCost', protoName: 'OtherCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(74, _omitFieldNames ? '' : 'SemiProdCost', protoName: 'SemiProdCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(75, _omitFieldNames ? '' : 'DirectLaborCost', protoName: 'DirectLaborCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(76, _omitFieldNames ? '' : 'InDirectLaborCost', protoName: 'InDirectLaborCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(77, _omitFieldNames ? '' : 'FixedLaborCost', protoName: 'FixedLaborCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(78, _omitFieldNames ? '' : 'VarLaborCost', protoName: 'VarLaborCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(79, _omitFieldNames ? '' : 'DirectFeeCost', protoName: 'DirectFeeCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(80, _omitFieldNames ? '' : 'InDirectFeeCost', protoName: 'InDirectFeeCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(81, _omitFieldNames ? '' : 'FixedFeeCost', protoName: 'FixedFeeCost', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(82, _omitFieldNames ? '' : 'VarFeeCost', protoName: 'VarFeeCost', subBuilder: $4.Decimal.create)
     ..aOS(83, _omitFieldNames ? '' : 'StockAccID', protoName: 'StockAccID')
     ..aOS(84, _omitFieldNames ? '' : 'RevenueAccID', protoName: 'RevenueAccID')
     ..aOS(85, _omitFieldNames ? '' : 'FeeAccID', protoName: 'FeeAccID')
@@ -17557,7 +17346,7 @@ class grpcProductModel extends $pb.GeneratedMessage {
     ..a<$core.int>(88, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(89, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(90, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(91, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(91, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..aOS(92, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..hasRequiredFields = false
   ;
@@ -17710,37 +17499,37 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearUnitName3() => clearField(14);
 
   @$pb.TagNumber(15)
-  $2.Decimal get packingQty1 => $_getN(14);
+  $4.Decimal get packingQty1 => $_getN(14);
   @$pb.TagNumber(15)
-  set packingQty1($2.Decimal v) { setField(15, v); }
+  set packingQty1($4.Decimal v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasPackingQty1() => $_has(14);
   @$pb.TagNumber(15)
   void clearPackingQty1() => clearField(15);
   @$pb.TagNumber(15)
-  $2.Decimal ensurePackingQty1() => $_ensure(14);
+  $4.Decimal ensurePackingQty1() => $_ensure(14);
 
   @$pb.TagNumber(16)
-  $2.Decimal get packingQty2 => $_getN(15);
+  $4.Decimal get packingQty2 => $_getN(15);
   @$pb.TagNumber(16)
-  set packingQty2($2.Decimal v) { setField(16, v); }
+  set packingQty2($4.Decimal v) { setField(16, v); }
   @$pb.TagNumber(16)
   $core.bool hasPackingQty2() => $_has(15);
   @$pb.TagNumber(16)
   void clearPackingQty2() => clearField(16);
   @$pb.TagNumber(16)
-  $2.Decimal ensurePackingQty2() => $_ensure(15);
+  $4.Decimal ensurePackingQty2() => $_ensure(15);
 
   @$pb.TagNumber(17)
-  $2.Decimal get packingQty3 => $_getN(16);
+  $4.Decimal get packingQty3 => $_getN(16);
   @$pb.TagNumber(17)
-  set packingQty3($2.Decimal v) { setField(17, v); }
+  set packingQty3($4.Decimal v) { setField(17, v); }
   @$pb.TagNumber(17)
   $core.bool hasPackingQty3() => $_has(16);
   @$pb.TagNumber(17)
   void clearPackingQty3() => clearField(17);
   @$pb.TagNumber(17)
-  $2.Decimal ensurePackingQty3() => $_ensure(16);
+  $4.Decimal ensurePackingQty3() => $_ensure(16);
 
   @$pb.TagNumber(18)
   $core.String get purchaseUnitCode => $_getSZ(17);
@@ -17761,15 +17550,15 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearPurchaseUnitName() => clearField(19);
 
   @$pb.TagNumber(20)
-  $2.Decimal get purchasePackingQty => $_getN(19);
+  $4.Decimal get purchasePackingQty => $_getN(19);
   @$pb.TagNumber(20)
-  set purchasePackingQty($2.Decimal v) { setField(20, v); }
+  set purchasePackingQty($4.Decimal v) { setField(20, v); }
   @$pb.TagNumber(20)
   $core.bool hasPurchasePackingQty() => $_has(19);
   @$pb.TagNumber(20)
   void clearPurchasePackingQty() => clearField(20);
   @$pb.TagNumber(20)
-  $2.Decimal ensurePurchasePackingQty() => $_ensure(19);
+  $4.Decimal ensurePurchasePackingQty() => $_ensure(19);
 
   @$pb.TagNumber(21)
   $core.String get saleUnitCode => $_getSZ(20);
@@ -17790,15 +17579,15 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearSaleUnitName() => clearField(22);
 
   @$pb.TagNumber(23)
-  $2.Decimal get salePackingQty => $_getN(22);
+  $4.Decimal get salePackingQty => $_getN(22);
   @$pb.TagNumber(23)
-  set salePackingQty($2.Decimal v) { setField(23, v); }
+  set salePackingQty($4.Decimal v) { setField(23, v); }
   @$pb.TagNumber(23)
   $core.bool hasSalePackingQty() => $_has(22);
   @$pb.TagNumber(23)
   void clearSalePackingQty() => clearField(23);
   @$pb.TagNumber(23)
-  $2.Decimal ensureSalePackingQty() => $_ensure(22);
+  $4.Decimal ensureSalePackingQty() => $_ensure(22);
 
   @$pb.TagNumber(24)
   $core.int get productKind => $_getIZ(23);
@@ -17873,70 +17662,70 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearSizeCode() => clearField(31);
 
   @$pb.TagNumber(32)
-  $2.Decimal get weight => $_getN(31);
+  $4.Decimal get weight => $_getN(31);
   @$pb.TagNumber(32)
-  set weight($2.Decimal v) { setField(32, v); }
+  set weight($4.Decimal v) { setField(32, v); }
   @$pb.TagNumber(32)
   $core.bool hasWeight() => $_has(31);
   @$pb.TagNumber(32)
   void clearWeight() => clearField(32);
   @$pb.TagNumber(32)
-  $2.Decimal ensureWeight() => $_ensure(31);
+  $4.Decimal ensureWeight() => $_ensure(31);
 
   @$pb.TagNumber(33)
-  $2.Decimal get volume => $_getN(32);
+  $4.Decimal get volume => $_getN(32);
   @$pb.TagNumber(33)
-  set volume($2.Decimal v) { setField(33, v); }
+  set volume($4.Decimal v) { setField(33, v); }
   @$pb.TagNumber(33)
   $core.bool hasVolume() => $_has(32);
   @$pb.TagNumber(33)
   void clearVolume() => clearField(33);
   @$pb.TagNumber(33)
-  $2.Decimal ensureVolume() => $_ensure(32);
+  $4.Decimal ensureVolume() => $_ensure(32);
 
   @$pb.TagNumber(34)
-  $3.Timestamp get insideEffectFromDate => $_getN(33);
+  $5.Timestamp get insideEffectFromDate => $_getN(33);
   @$pb.TagNumber(34)
-  set insideEffectFromDate($3.Timestamp v) { setField(34, v); }
+  set insideEffectFromDate($5.Timestamp v) { setField(34, v); }
   @$pb.TagNumber(34)
   $core.bool hasInsideEffectFromDate() => $_has(33);
   @$pb.TagNumber(34)
   void clearInsideEffectFromDate() => clearField(34);
   @$pb.TagNumber(34)
-  $3.Timestamp ensureInsideEffectFromDate() => $_ensure(33);
+  $5.Timestamp ensureInsideEffectFromDate() => $_ensure(33);
 
   @$pb.TagNumber(35)
-  $3.Timestamp get insideEffectToDate => $_getN(34);
+  $5.Timestamp get insideEffectToDate => $_getN(34);
   @$pb.TagNumber(35)
-  set insideEffectToDate($3.Timestamp v) { setField(35, v); }
+  set insideEffectToDate($5.Timestamp v) { setField(35, v); }
   @$pb.TagNumber(35)
   $core.bool hasInsideEffectToDate() => $_has(34);
   @$pb.TagNumber(35)
   void clearInsideEffectToDate() => clearField(35);
   @$pb.TagNumber(35)
-  $3.Timestamp ensureInsideEffectToDate() => $_ensure(34);
+  $5.Timestamp ensureInsideEffectToDate() => $_ensure(34);
 
   @$pb.TagNumber(36)
-  $3.Timestamp get outsideEffectFromDate => $_getN(35);
+  $5.Timestamp get outsideEffectFromDate => $_getN(35);
   @$pb.TagNumber(36)
-  set outsideEffectFromDate($3.Timestamp v) { setField(36, v); }
+  set outsideEffectFromDate($5.Timestamp v) { setField(36, v); }
   @$pb.TagNumber(36)
   $core.bool hasOutsideEffectFromDate() => $_has(35);
   @$pb.TagNumber(36)
   void clearOutsideEffectFromDate() => clearField(36);
   @$pb.TagNumber(36)
-  $3.Timestamp ensureOutsideEffectFromDate() => $_ensure(35);
+  $5.Timestamp ensureOutsideEffectFromDate() => $_ensure(35);
 
   @$pb.TagNumber(37)
-  $3.Timestamp get outsideEffectToDate => $_getN(36);
+  $5.Timestamp get outsideEffectToDate => $_getN(36);
   @$pb.TagNumber(37)
-  set outsideEffectToDate($3.Timestamp v) { setField(37, v); }
+  set outsideEffectToDate($5.Timestamp v) { setField(37, v); }
   @$pb.TagNumber(37)
   $core.bool hasOutsideEffectToDate() => $_has(36);
   @$pb.TagNumber(37)
   void clearOutsideEffectToDate() => clearField(37);
   @$pb.TagNumber(37)
-  $3.Timestamp ensureOutsideEffectToDate() => $_ensure(36);
+  $5.Timestamp ensureOutsideEffectToDate() => $_ensure(36);
 
   @$pb.TagNumber(38)
   $core.bool get isStock => $_getBF(37);
@@ -18020,26 +17809,26 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearKeepStockPeriod() => clearField(46);
 
   @$pb.TagNumber(47)
-  $3.Timestamp get lastPurchaseDate => $_getN(46);
+  $5.Timestamp get lastPurchaseDate => $_getN(46);
   @$pb.TagNumber(47)
-  set lastPurchaseDate($3.Timestamp v) { setField(47, v); }
+  set lastPurchaseDate($5.Timestamp v) { setField(47, v); }
   @$pb.TagNumber(47)
   $core.bool hasLastPurchaseDate() => $_has(46);
   @$pb.TagNumber(47)
   void clearLastPurchaseDate() => clearField(47);
   @$pb.TagNumber(47)
-  $3.Timestamp ensureLastPurchaseDate() => $_ensure(46);
+  $5.Timestamp ensureLastPurchaseDate() => $_ensure(46);
 
   @$pb.TagNumber(48)
-  $3.Timestamp get lastSaleDate => $_getN(47);
+  $5.Timestamp get lastSaleDate => $_getN(47);
   @$pb.TagNumber(48)
-  set lastSaleDate($3.Timestamp v) { setField(48, v); }
+  set lastSaleDate($5.Timestamp v) { setField(48, v); }
   @$pb.TagNumber(48)
   $core.bool hasLastSaleDate() => $_has(47);
   @$pb.TagNumber(48)
   void clearLastSaleDate() => clearField(48);
   @$pb.TagNumber(48)
-  $3.Timestamp ensureLastSaleDate() => $_ensure(47);
+  $5.Timestamp ensureLastSaleDate() => $_ensure(47);
 
   @$pb.TagNumber(49)
   $core.int get taxFlag => $_getIZ(48);
@@ -18060,48 +17849,48 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearPurchaseTaxFlag() => clearField(50);
 
   @$pb.TagNumber(51)
-  $2.Decimal get vATRate => $_getN(50);
+  $4.Decimal get vATRate => $_getN(50);
   @$pb.TagNumber(51)
-  set vATRate($2.Decimal v) { setField(51, v); }
+  set vATRate($4.Decimal v) { setField(51, v); }
   @$pb.TagNumber(51)
   $core.bool hasVATRate() => $_has(50);
   @$pb.TagNumber(51)
   void clearVATRate() => clearField(51);
   @$pb.TagNumber(51)
-  $2.Decimal ensureVATRate() => $_ensure(50);
+  $4.Decimal ensureVATRate() => $_ensure(50);
 
   @$pb.TagNumber(52)
-  $2.Decimal get importTaxRate => $_getN(51);
+  $4.Decimal get importTaxRate => $_getN(51);
   @$pb.TagNumber(52)
-  set importTaxRate($2.Decimal v) { setField(52, v); }
+  set importTaxRate($4.Decimal v) { setField(52, v); }
   @$pb.TagNumber(52)
   $core.bool hasImportTaxRate() => $_has(51);
   @$pb.TagNumber(52)
   void clearImportTaxRate() => clearField(52);
   @$pb.TagNumber(52)
-  $2.Decimal ensureImportTaxRate() => $_ensure(51);
+  $4.Decimal ensureImportTaxRate() => $_ensure(51);
 
   @$pb.TagNumber(53)
-  $2.Decimal get exciseTaxRate => $_getN(52);
+  $4.Decimal get exciseTaxRate => $_getN(52);
   @$pb.TagNumber(53)
-  set exciseTaxRate($2.Decimal v) { setField(53, v); }
+  set exciseTaxRate($4.Decimal v) { setField(53, v); }
   @$pb.TagNumber(53)
   $core.bool hasExciseTaxRate() => $_has(52);
   @$pb.TagNumber(53)
   void clearExciseTaxRate() => clearField(53);
   @$pb.TagNumber(53)
-  $2.Decimal ensureExciseTaxRate() => $_ensure(52);
+  $4.Decimal ensureExciseTaxRate() => $_ensure(52);
 
   @$pb.TagNumber(54)
-  $2.Decimal get envTaxRate => $_getN(53);
+  $4.Decimal get envTaxRate => $_getN(53);
   @$pb.TagNumber(54)
-  set envTaxRate($2.Decimal v) { setField(54, v); }
+  set envTaxRate($4.Decimal v) { setField(54, v); }
   @$pb.TagNumber(54)
   $core.bool hasEnvTaxRate() => $_has(53);
   @$pb.TagNumber(54)
   void clearEnvTaxRate() => clearField(54);
   @$pb.TagNumber(54)
-  $2.Decimal ensureEnvTaxRate() => $_ensure(53);
+  $4.Decimal ensureEnvTaxRate() => $_ensure(53);
 
   @$pb.TagNumber(55)
   $core.String get classCode1 => $_getSZ(54);
@@ -18194,202 +17983,202 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearInvCostCalFlag() => clearField(64);
 
   @$pb.TagNumber(65)
-  $2.Decimal get costUnitPrice => $_getN(64);
+  $4.Decimal get costUnitPrice => $_getN(64);
   @$pb.TagNumber(65)
-  set costUnitPrice($2.Decimal v) { setField(65, v); }
+  set costUnitPrice($4.Decimal v) { setField(65, v); }
   @$pb.TagNumber(65)
   $core.bool hasCostUnitPrice() => $_has(64);
   @$pb.TagNumber(65)
   void clearCostUnitPrice() => clearField(65);
   @$pb.TagNumber(65)
-  $2.Decimal ensureCostUnitPrice() => $_ensure(64);
+  $4.Decimal ensureCostUnitPrice() => $_ensure(64);
 
   @$pb.TagNumber(66)
-  $2.Decimal get costUnitPriceEx => $_getN(65);
+  $4.Decimal get costUnitPriceEx => $_getN(65);
   @$pb.TagNumber(66)
-  set costUnitPriceEx($2.Decimal v) { setField(66, v); }
+  set costUnitPriceEx($4.Decimal v) { setField(66, v); }
   @$pb.TagNumber(66)
   $core.bool hasCostUnitPriceEx() => $_has(65);
   @$pb.TagNumber(66)
   void clearCostUnitPriceEx() => clearField(66);
   @$pb.TagNumber(66)
-  $2.Decimal ensureCostUnitPriceEx() => $_ensure(65);
+  $4.Decimal ensureCostUnitPriceEx() => $_ensure(65);
 
   @$pb.TagNumber(67)
-  $2.Decimal get matCost => $_getN(66);
+  $4.Decimal get matCost => $_getN(66);
   @$pb.TagNumber(67)
-  set matCost($2.Decimal v) { setField(67, v); }
+  set matCost($4.Decimal v) { setField(67, v); }
   @$pb.TagNumber(67)
   $core.bool hasMatCost() => $_has(66);
   @$pb.TagNumber(67)
   void clearMatCost() => clearField(67);
   @$pb.TagNumber(67)
-  $2.Decimal ensureMatCost() => $_ensure(66);
+  $4.Decimal ensureMatCost() => $_ensure(66);
 
   @$pb.TagNumber(68)
-  $2.Decimal get laborCost => $_getN(67);
+  $4.Decimal get laborCost => $_getN(67);
   @$pb.TagNumber(68)
-  set laborCost($2.Decimal v) { setField(68, v); }
+  set laborCost($4.Decimal v) { setField(68, v); }
   @$pb.TagNumber(68)
   $core.bool hasLaborCost() => $_has(67);
   @$pb.TagNumber(68)
   void clearLaborCost() => clearField(68);
   @$pb.TagNumber(68)
-  $2.Decimal ensureLaborCost() => $_ensure(67);
+  $4.Decimal ensureLaborCost() => $_ensure(67);
 
   @$pb.TagNumber(69)
-  $2.Decimal get feeCost => $_getN(68);
+  $4.Decimal get feeCost => $_getN(68);
   @$pb.TagNumber(69)
-  set feeCost($2.Decimal v) { setField(69, v); }
+  set feeCost($4.Decimal v) { setField(69, v); }
   @$pb.TagNumber(69)
   $core.bool hasFeeCost() => $_has(68);
   @$pb.TagNumber(69)
   void clearFeeCost() => clearField(69);
   @$pb.TagNumber(69)
-  $2.Decimal ensureFeeCost() => $_ensure(68);
+  $4.Decimal ensureFeeCost() => $_ensure(68);
 
   @$pb.TagNumber(70)
-  $2.Decimal get matMainCost => $_getN(69);
+  $4.Decimal get matMainCost => $_getN(69);
   @$pb.TagNumber(70)
-  set matMainCost($2.Decimal v) { setField(70, v); }
+  set matMainCost($4.Decimal v) { setField(70, v); }
   @$pb.TagNumber(70)
   $core.bool hasMatMainCost() => $_has(69);
   @$pb.TagNumber(70)
   void clearMatMainCost() => clearField(70);
   @$pb.TagNumber(70)
-  $2.Decimal ensureMatMainCost() => $_ensure(69);
+  $4.Decimal ensureMatMainCost() => $_ensure(69);
 
   @$pb.TagNumber(71)
-  $2.Decimal get matSubCost => $_getN(70);
+  $4.Decimal get matSubCost => $_getN(70);
   @$pb.TagNumber(71)
-  set matSubCost($2.Decimal v) { setField(71, v); }
+  set matSubCost($4.Decimal v) { setField(71, v); }
   @$pb.TagNumber(71)
   $core.bool hasMatSubCost() => $_has(70);
   @$pb.TagNumber(71)
   void clearMatSubCost() => clearField(71);
   @$pb.TagNumber(71)
-  $2.Decimal ensureMatSubCost() => $_ensure(70);
+  $4.Decimal ensureMatSubCost() => $_ensure(70);
 
   @$pb.TagNumber(72)
-  $2.Decimal get componentCost => $_getN(71);
+  $4.Decimal get componentCost => $_getN(71);
   @$pb.TagNumber(72)
-  set componentCost($2.Decimal v) { setField(72, v); }
+  set componentCost($4.Decimal v) { setField(72, v); }
   @$pb.TagNumber(72)
   $core.bool hasComponentCost() => $_has(71);
   @$pb.TagNumber(72)
   void clearComponentCost() => clearField(72);
   @$pb.TagNumber(72)
-  $2.Decimal ensureComponentCost() => $_ensure(71);
+  $4.Decimal ensureComponentCost() => $_ensure(71);
 
   @$pb.TagNumber(73)
-  $2.Decimal get otherCost => $_getN(72);
+  $4.Decimal get otherCost => $_getN(72);
   @$pb.TagNumber(73)
-  set otherCost($2.Decimal v) { setField(73, v); }
+  set otherCost($4.Decimal v) { setField(73, v); }
   @$pb.TagNumber(73)
   $core.bool hasOtherCost() => $_has(72);
   @$pb.TagNumber(73)
   void clearOtherCost() => clearField(73);
   @$pb.TagNumber(73)
-  $2.Decimal ensureOtherCost() => $_ensure(72);
+  $4.Decimal ensureOtherCost() => $_ensure(72);
 
   @$pb.TagNumber(74)
-  $2.Decimal get semiProdCost => $_getN(73);
+  $4.Decimal get semiProdCost => $_getN(73);
   @$pb.TagNumber(74)
-  set semiProdCost($2.Decimal v) { setField(74, v); }
+  set semiProdCost($4.Decimal v) { setField(74, v); }
   @$pb.TagNumber(74)
   $core.bool hasSemiProdCost() => $_has(73);
   @$pb.TagNumber(74)
   void clearSemiProdCost() => clearField(74);
   @$pb.TagNumber(74)
-  $2.Decimal ensureSemiProdCost() => $_ensure(73);
+  $4.Decimal ensureSemiProdCost() => $_ensure(73);
 
   @$pb.TagNumber(75)
-  $2.Decimal get directLaborCost => $_getN(74);
+  $4.Decimal get directLaborCost => $_getN(74);
   @$pb.TagNumber(75)
-  set directLaborCost($2.Decimal v) { setField(75, v); }
+  set directLaborCost($4.Decimal v) { setField(75, v); }
   @$pb.TagNumber(75)
   $core.bool hasDirectLaborCost() => $_has(74);
   @$pb.TagNumber(75)
   void clearDirectLaborCost() => clearField(75);
   @$pb.TagNumber(75)
-  $2.Decimal ensureDirectLaborCost() => $_ensure(74);
+  $4.Decimal ensureDirectLaborCost() => $_ensure(74);
 
   @$pb.TagNumber(76)
-  $2.Decimal get inDirectLaborCost => $_getN(75);
+  $4.Decimal get inDirectLaborCost => $_getN(75);
   @$pb.TagNumber(76)
-  set inDirectLaborCost($2.Decimal v) { setField(76, v); }
+  set inDirectLaborCost($4.Decimal v) { setField(76, v); }
   @$pb.TagNumber(76)
   $core.bool hasInDirectLaborCost() => $_has(75);
   @$pb.TagNumber(76)
   void clearInDirectLaborCost() => clearField(76);
   @$pb.TagNumber(76)
-  $2.Decimal ensureInDirectLaborCost() => $_ensure(75);
+  $4.Decimal ensureInDirectLaborCost() => $_ensure(75);
 
   @$pb.TagNumber(77)
-  $2.Decimal get fixedLaborCost => $_getN(76);
+  $4.Decimal get fixedLaborCost => $_getN(76);
   @$pb.TagNumber(77)
-  set fixedLaborCost($2.Decimal v) { setField(77, v); }
+  set fixedLaborCost($4.Decimal v) { setField(77, v); }
   @$pb.TagNumber(77)
   $core.bool hasFixedLaborCost() => $_has(76);
   @$pb.TagNumber(77)
   void clearFixedLaborCost() => clearField(77);
   @$pb.TagNumber(77)
-  $2.Decimal ensureFixedLaborCost() => $_ensure(76);
+  $4.Decimal ensureFixedLaborCost() => $_ensure(76);
 
   @$pb.TagNumber(78)
-  $2.Decimal get varLaborCost => $_getN(77);
+  $4.Decimal get varLaborCost => $_getN(77);
   @$pb.TagNumber(78)
-  set varLaborCost($2.Decimal v) { setField(78, v); }
+  set varLaborCost($4.Decimal v) { setField(78, v); }
   @$pb.TagNumber(78)
   $core.bool hasVarLaborCost() => $_has(77);
   @$pb.TagNumber(78)
   void clearVarLaborCost() => clearField(78);
   @$pb.TagNumber(78)
-  $2.Decimal ensureVarLaborCost() => $_ensure(77);
+  $4.Decimal ensureVarLaborCost() => $_ensure(77);
 
   @$pb.TagNumber(79)
-  $2.Decimal get directFeeCost => $_getN(78);
+  $4.Decimal get directFeeCost => $_getN(78);
   @$pb.TagNumber(79)
-  set directFeeCost($2.Decimal v) { setField(79, v); }
+  set directFeeCost($4.Decimal v) { setField(79, v); }
   @$pb.TagNumber(79)
   $core.bool hasDirectFeeCost() => $_has(78);
   @$pb.TagNumber(79)
   void clearDirectFeeCost() => clearField(79);
   @$pb.TagNumber(79)
-  $2.Decimal ensureDirectFeeCost() => $_ensure(78);
+  $4.Decimal ensureDirectFeeCost() => $_ensure(78);
 
   @$pb.TagNumber(80)
-  $2.Decimal get inDirectFeeCost => $_getN(79);
+  $4.Decimal get inDirectFeeCost => $_getN(79);
   @$pb.TagNumber(80)
-  set inDirectFeeCost($2.Decimal v) { setField(80, v); }
+  set inDirectFeeCost($4.Decimal v) { setField(80, v); }
   @$pb.TagNumber(80)
   $core.bool hasInDirectFeeCost() => $_has(79);
   @$pb.TagNumber(80)
   void clearInDirectFeeCost() => clearField(80);
   @$pb.TagNumber(80)
-  $2.Decimal ensureInDirectFeeCost() => $_ensure(79);
+  $4.Decimal ensureInDirectFeeCost() => $_ensure(79);
 
   @$pb.TagNumber(81)
-  $2.Decimal get fixedFeeCost => $_getN(80);
+  $4.Decimal get fixedFeeCost => $_getN(80);
   @$pb.TagNumber(81)
-  set fixedFeeCost($2.Decimal v) { setField(81, v); }
+  set fixedFeeCost($4.Decimal v) { setField(81, v); }
   @$pb.TagNumber(81)
   $core.bool hasFixedFeeCost() => $_has(80);
   @$pb.TagNumber(81)
   void clearFixedFeeCost() => clearField(81);
   @$pb.TagNumber(81)
-  $2.Decimal ensureFixedFeeCost() => $_ensure(80);
+  $4.Decimal ensureFixedFeeCost() => $_ensure(80);
 
   @$pb.TagNumber(82)
-  $2.Decimal get varFeeCost => $_getN(81);
+  $4.Decimal get varFeeCost => $_getN(81);
   @$pb.TagNumber(82)
-  set varFeeCost($2.Decimal v) { setField(82, v); }
+  set varFeeCost($4.Decimal v) { setField(82, v); }
   @$pb.TagNumber(82)
   $core.bool hasVarFeeCost() => $_has(81);
   @$pb.TagNumber(82)
   void clearVarFeeCost() => clearField(82);
   @$pb.TagNumber(82)
-  $2.Decimal ensureVarFeeCost() => $_ensure(81);
+  $4.Decimal ensureVarFeeCost() => $_ensure(81);
 
   @$pb.TagNumber(83)
   $core.String get stockAccID => $_getSZ(82);
@@ -18464,15 +18253,15 @@ class grpcProductModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(90);
 
   @$pb.TagNumber(91)
-  $3.Timestamp get updDateTime => $_getN(90);
+  $5.Timestamp get updDateTime => $_getN(90);
   @$pb.TagNumber(91)
-  set updDateTime($3.Timestamp v) { setField(91, v); }
+  set updDateTime($5.Timestamp v) { setField(91, v); }
   @$pb.TagNumber(91)
   $core.bool hasUpdDateTime() => $_has(90);
   @$pb.TagNumber(91)
   void clearUpdDateTime() => clearField(91);
   @$pb.TagNumber(91)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(90);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(90);
 
   @$pb.TagNumber(92)
   $core.String get recordNo => $_getSZ(91);
@@ -18884,9 +18673,9 @@ class grpcSelectProductModel extends $pb.GeneratedMessage {
     $core.String? unitName1,
     $core.String? unitName2,
     $core.String? unitName3,
-    $2.Decimal? packingQty1,
-    $2.Decimal? packingQty2,
-    $2.Decimal? packingQty3,
+    $4.Decimal? packingQty1,
+    $4.Decimal? packingQty2,
+    $4.Decimal? packingQty3,
     $core.String? vendorID,
     $core.int? productKind,
     $core.String? productKindName,
@@ -18989,9 +18778,9 @@ class grpcSelectProductModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'UnitName1', protoName: 'UnitName1')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName2', protoName: 'UnitName2')
     ..aOS(9, _omitFieldNames ? '' : 'UnitName3', protoName: 'UnitName3')
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'PackingQty1', protoName: 'PackingQty1', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'PackingQty2', protoName: 'PackingQty2', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(12, _omitFieldNames ? '' : 'PackingQty3', protoName: 'PackingQty3', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'PackingQty1', protoName: 'PackingQty1', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'PackingQty2', protoName: 'PackingQty2', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(12, _omitFieldNames ? '' : 'PackingQty3', protoName: 'PackingQty3', subBuilder: $4.Decimal.create)
     ..aOS(13, _omitFieldNames ? '' : 'VendorID', protoName: 'VendorID')
     ..a<$core.int>(14, _omitFieldNames ? '' : 'ProductKind', $pb.PbFieldType.O3, protoName: 'ProductKind')
     ..aOS(15, _omitFieldNames ? '' : 'ProductKindName', protoName: 'ProductKindName')
@@ -19110,37 +18899,37 @@ class grpcSelectProductModel extends $pb.GeneratedMessage {
   void clearUnitName3() => clearField(9);
 
   @$pb.TagNumber(10)
-  $2.Decimal get packingQty1 => $_getN(9);
+  $4.Decimal get packingQty1 => $_getN(9);
   @$pb.TagNumber(10)
-  set packingQty1($2.Decimal v) { setField(10, v); }
+  set packingQty1($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasPackingQty1() => $_has(9);
   @$pb.TagNumber(10)
   void clearPackingQty1() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensurePackingQty1() => $_ensure(9);
+  $4.Decimal ensurePackingQty1() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get packingQty2 => $_getN(10);
+  $4.Decimal get packingQty2 => $_getN(10);
   @$pb.TagNumber(11)
-  set packingQty2($2.Decimal v) { setField(11, v); }
+  set packingQty2($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasPackingQty2() => $_has(10);
   @$pb.TagNumber(11)
   void clearPackingQty2() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensurePackingQty2() => $_ensure(10);
+  $4.Decimal ensurePackingQty2() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $2.Decimal get packingQty3 => $_getN(11);
+  $4.Decimal get packingQty3 => $_getN(11);
   @$pb.TagNumber(12)
-  set packingQty3($2.Decimal v) { setField(12, v); }
+  set packingQty3($4.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasPackingQty3() => $_has(11);
   @$pb.TagNumber(12)
   void clearPackingQty3() => clearField(12);
   @$pb.TagNumber(12)
-  $2.Decimal ensurePackingQty3() => $_ensure(11);
+  $4.Decimal ensurePackingQty3() => $_ensure(11);
 
   @$pb.TagNumber(13)
   $core.String get vendorID => $_getSZ(12);
@@ -19262,7 +19051,7 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
     $core.String? unitName1,
     $core.String? unitName2,
     $core.String? unitName3,
-    $2.Decimal? vATRate,
+    $4.Decimal? vATRate,
     $core.String? taxFlagName,
     $core.String? vendorID,
     $core.String? makerID,
@@ -19271,7 +19060,7 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
     $core.String? className3,
     $core.String? iD,
     $core.int? updMode,
-    $2.Decimal? costUnitPrice,
+    $4.Decimal? costUnitPrice,
     $core.String? stockAccID,
   }) {
     final $result = create();
@@ -19351,7 +19140,7 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'UnitName1', protoName: 'UnitName1')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName2', protoName: 'UnitName2')
     ..aOS(9, _omitFieldNames ? '' : 'UnitName3', protoName: 'UnitName3')
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'VATRate', protoName: 'VATRate', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'VATRate', protoName: 'VATRate', subBuilder: $4.Decimal.create)
     ..aOS(11, _omitFieldNames ? '' : 'TaxFlagName', protoName: 'TaxFlagName')
     ..aOS(12, _omitFieldNames ? '' : 'VendorID', protoName: 'VendorID')
     ..aOS(13, _omitFieldNames ? '' : 'MakerID', protoName: 'MakerID')
@@ -19360,7 +19149,7 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
     ..aOS(16, _omitFieldNames ? '' : 'ClassName3', protoName: 'ClassName3')
     ..aOS(17, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..a<$core.int>(18, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$2.Decimal>(19, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(19, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $4.Decimal.create)
     ..aOS(20, _omitFieldNames ? '' : 'StockAccID', protoName: 'StockAccID')
     ..hasRequiredFields = false
   ;
@@ -19468,15 +19257,15 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
   void clearUnitName3() => clearField(9);
 
   @$pb.TagNumber(10)
-  $2.Decimal get vATRate => $_getN(9);
+  $4.Decimal get vATRate => $_getN(9);
   @$pb.TagNumber(10)
-  set vATRate($2.Decimal v) { setField(10, v); }
+  set vATRate($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasVATRate() => $_has(9);
   @$pb.TagNumber(10)
   void clearVATRate() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureVATRate() => $_ensure(9);
+  $4.Decimal ensureVATRate() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.String get taxFlagName => $_getSZ(10);
@@ -19551,15 +19340,15 @@ class grpcSearchProductModel extends $pb.GeneratedMessage {
   void clearUpdMode() => clearField(18);
 
   @$pb.TagNumber(19)
-  $2.Decimal get costUnitPrice => $_getN(18);
+  $4.Decimal get costUnitPrice => $_getN(18);
   @$pb.TagNumber(19)
-  set costUnitPrice($2.Decimal v) { setField(19, v); }
+  set costUnitPrice($4.Decimal v) { setField(19, v); }
   @$pb.TagNumber(19)
   $core.bool hasCostUnitPrice() => $_has(18);
   @$pb.TagNumber(19)
   void clearCostUnitPrice() => clearField(19);
   @$pb.TagNumber(19)
-  $2.Decimal ensureCostUnitPrice() => $_ensure(18);
+  $4.Decimal ensureCostUnitPrice() => $_ensure(18);
 
   @$pb.TagNumber(20)
   $core.String get stockAccID => $_getSZ(19);
@@ -19889,9 +19678,9 @@ class grpcCustomerPropertyModel extends $pb.GeneratedMessage {
     $core.String? fieldName,
     $core.String? dataType,
     $core.String? stringValue,
-    $2.Decimal? doubleValue,
+    $4.Decimal? doubleValue,
     $core.bool? boolValue,
-    $3.Timestamp? dateValue,
+    $5.Timestamp? dateValue,
     $core.int? updMode,
     $core.String? recordNo,
   }) {
@@ -19946,9 +19735,9 @@ class grpcCustomerPropertyModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'FieldName', protoName: 'FieldName')
     ..aOS(6, _omitFieldNames ? '' : 'DataType', protoName: 'DataType')
     ..aOS(7, _omitFieldNames ? '' : 'StringValue', protoName: 'StringValue')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue', protoName: 'DoubleValue', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue', protoName: 'DoubleValue', subBuilder: $4.Decimal.create)
     ..aOB(9, _omitFieldNames ? '' : 'BoolValue', protoName: 'BoolValue')
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'DateValue', protoName: 'DateValue', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..aOS(12, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..hasRequiredFields = false
@@ -20039,15 +19828,15 @@ class grpcCustomerPropertyModel extends $pb.GeneratedMessage {
   void clearStringValue() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get doubleValue => $_getN(7);
+  $4.Decimal get doubleValue => $_getN(7);
   @$pb.TagNumber(8)
-  set doubleValue($2.Decimal v) { setField(8, v); }
+  set doubleValue($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasDoubleValue() => $_has(7);
   @$pb.TagNumber(8)
   void clearDoubleValue() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensureDoubleValue() => $_ensure(7);
+  $4.Decimal ensureDoubleValue() => $_ensure(7);
 
   @$pb.TagNumber(9)
   $core.bool get boolValue => $_getBF(8);
@@ -20059,15 +19848,15 @@ class grpcCustomerPropertyModel extends $pb.GeneratedMessage {
   void clearBoolValue() => clearField(9);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get dateValue => $_getN(9);
+  $5.Timestamp get dateValue => $_getN(9);
   @$pb.TagNumber(10)
-  set dateValue($3.Timestamp v) { setField(10, v); }
+  set dateValue($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasDateValue() => $_has(9);
   @$pb.TagNumber(10)
   void clearDateValue() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureDateValue() => $_ensure(9);
+  $5.Timestamp ensureDateValue() => $_ensure(9);
 
   @$pb.TagNumber(11)
   $core.int get updMode => $_getIZ(10);
@@ -20437,7 +20226,7 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     $core.String? payCustomerID,
     $core.int? priceType,
     $core.String? rankCode,
-    $3.Timestamp? lastSaleDate,
+    $5.Timestamp? lastSaleDate,
     $core.String? classCode1,
     $core.String? classCode2,
     $core.String? classCode3,
@@ -20446,11 +20235,11 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     $core.String? deliClassCode3,
     $core.String? saleDeptCode,
     $core.String? picID,
-    $2.Decimal? creditLimit,
+    $4.Decimal? creditLimit,
     $core.int? taxFlag,
     $core.int? deliveryLT,
     $core.String? transportComID,
-    $2.Decimal? distance,
+    $4.Decimal? distance,
     $core.String? comTaxCode,
     $core.String? invContactPerson,
     $core.String? invPhone,
@@ -20462,7 +20251,7 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
     $core.String? recordNo,
     $core.bool? enabled,
   }) {
@@ -20626,7 +20415,7 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     ..aOS(15, _omitFieldNames ? '' : 'PayCustomerID', protoName: 'PayCustomerID')
     ..a<$core.int>(16, _omitFieldNames ? '' : 'PriceType', $pb.PbFieldType.O3, protoName: 'PriceType')
     ..aOS(17, _omitFieldNames ? '' : 'RankCode', protoName: 'RankCode')
-    ..aOM<$3.Timestamp>(18, _omitFieldNames ? '' : 'LastSaleDate', protoName: 'LastSaleDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(18, _omitFieldNames ? '' : 'LastSaleDate', protoName: 'LastSaleDate', subBuilder: $5.Timestamp.create)
     ..aOS(19, _omitFieldNames ? '' : 'ClassCode1', protoName: 'ClassCode1')
     ..aOS(20, _omitFieldNames ? '' : 'ClassCode2', protoName: 'ClassCode2')
     ..aOS(21, _omitFieldNames ? '' : 'ClassCode3', protoName: 'ClassCode3')
@@ -20635,11 +20424,11 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     ..aOS(24, _omitFieldNames ? '' : 'DeliClassCode3', protoName: 'DeliClassCode3')
     ..aOS(25, _omitFieldNames ? '' : 'SaleDeptCode', protoName: 'SaleDeptCode')
     ..aOS(26, _omitFieldNames ? '' : 'PicID', protoName: 'PicID')
-    ..aOM<$2.Decimal>(27, _omitFieldNames ? '' : 'CreditLimit', protoName: 'CreditLimit', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(27, _omitFieldNames ? '' : 'CreditLimit', protoName: 'CreditLimit', subBuilder: $4.Decimal.create)
     ..a<$core.int>(28, _omitFieldNames ? '' : 'TaxFlag', $pb.PbFieldType.O3, protoName: 'TaxFlag')
     ..a<$core.int>(29, _omitFieldNames ? '' : 'DeliveryLT', $pb.PbFieldType.O3, protoName: 'DeliveryLT')
     ..aOS(30, _omitFieldNames ? '' : 'TransportComID', protoName: 'TransportComID')
-    ..aOM<$2.Decimal>(31, _omitFieldNames ? '' : 'Distance', protoName: 'Distance', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(31, _omitFieldNames ? '' : 'Distance', protoName: 'Distance', subBuilder: $4.Decimal.create)
     ..aOS(32, _omitFieldNames ? '' : 'ComTaxCode', protoName: 'ComTaxCode')
     ..aOS(33, _omitFieldNames ? '' : 'InvContactPerson', protoName: 'InvContactPerson')
     ..aOS(34, _omitFieldNames ? '' : 'InvPhone', protoName: 'InvPhone')
@@ -20651,7 +20440,7 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
     ..a<$core.int>(40, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(41, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(42, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(43, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(43, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..aOS(44, _omitFieldNames ? '' : 'RecordNo', protoName: 'RecordNo')
     ..aOB(45, _omitFieldNames ? '' : 'Enabled', protoName: 'Enabled')
     ..hasRequiredFields = false
@@ -20832,15 +20621,15 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
   void clearRankCode() => clearField(17);
 
   @$pb.TagNumber(18)
-  $3.Timestamp get lastSaleDate => $_getN(17);
+  $5.Timestamp get lastSaleDate => $_getN(17);
   @$pb.TagNumber(18)
-  set lastSaleDate($3.Timestamp v) { setField(18, v); }
+  set lastSaleDate($5.Timestamp v) { setField(18, v); }
   @$pb.TagNumber(18)
   $core.bool hasLastSaleDate() => $_has(17);
   @$pb.TagNumber(18)
   void clearLastSaleDate() => clearField(18);
   @$pb.TagNumber(18)
-  $3.Timestamp ensureLastSaleDate() => $_ensure(17);
+  $5.Timestamp ensureLastSaleDate() => $_ensure(17);
 
   @$pb.TagNumber(19)
   $core.String get classCode1 => $_getSZ(18);
@@ -20915,15 +20704,15 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
   void clearPicID() => clearField(26);
 
   @$pb.TagNumber(27)
-  $2.Decimal get creditLimit => $_getN(26);
+  $4.Decimal get creditLimit => $_getN(26);
   @$pb.TagNumber(27)
-  set creditLimit($2.Decimal v) { setField(27, v); }
+  set creditLimit($4.Decimal v) { setField(27, v); }
   @$pb.TagNumber(27)
   $core.bool hasCreditLimit() => $_has(26);
   @$pb.TagNumber(27)
   void clearCreditLimit() => clearField(27);
   @$pb.TagNumber(27)
-  $2.Decimal ensureCreditLimit() => $_ensure(26);
+  $4.Decimal ensureCreditLimit() => $_ensure(26);
 
   @$pb.TagNumber(28)
   $core.int get taxFlag => $_getIZ(27);
@@ -20953,15 +20742,15 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
   void clearTransportComID() => clearField(30);
 
   @$pb.TagNumber(31)
-  $2.Decimal get distance => $_getN(30);
+  $4.Decimal get distance => $_getN(30);
   @$pb.TagNumber(31)
-  set distance($2.Decimal v) { setField(31, v); }
+  set distance($4.Decimal v) { setField(31, v); }
   @$pb.TagNumber(31)
   $core.bool hasDistance() => $_has(30);
   @$pb.TagNumber(31)
   void clearDistance() => clearField(31);
   @$pb.TagNumber(31)
-  $2.Decimal ensureDistance() => $_ensure(30);
+  $4.Decimal ensureDistance() => $_ensure(30);
 
   @$pb.TagNumber(32)
   $core.String get comTaxCode => $_getSZ(31);
@@ -21057,15 +20846,15 @@ class grpcCustomerModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(42);
 
   @$pb.TagNumber(43)
-  $3.Timestamp get updDateTime => $_getN(42);
+  $5.Timestamp get updDateTime => $_getN(42);
   @$pb.TagNumber(43)
-  set updDateTime($3.Timestamp v) { setField(43, v); }
+  set updDateTime($5.Timestamp v) { setField(43, v); }
   @$pb.TagNumber(43)
   $core.bool hasUpdDateTime() => $_has(42);
   @$pb.TagNumber(43)
   void clearUpdDateTime() => clearField(43);
   @$pb.TagNumber(43)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(42);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(42);
 
   @$pb.TagNumber(44)
   $core.String get recordNo => $_getSZ(43);
@@ -21163,9 +20952,8 @@ class GetCustomerContractPriceRecord_Request extends $pb.GeneratedMessage {
     $core.String? currencyCode,
     $core.String? productCode,
     $core.String? unitCode,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
-    $core.String? iD,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
   }) {
     final $result = create();
     if (credential != null) {
@@ -21189,9 +20977,6 @@ class GetCustomerContractPriceRecord_Request extends $pb.GeneratedMessage {
     if (toDate != null) {
       $result.toDate = toDate;
     }
-    if (iD != null) {
-      $result.iD = iD;
-    }
     return $result;
   }
   GetCustomerContractPriceRecord_Request._() : super();
@@ -21204,9 +20989,8 @@ class GetCustomerContractPriceRecord_Request extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'CurrencyCode', protoName: 'CurrencyCode')
     ..aOS(4, _omitFieldNames ? '' : 'ProductCode', protoName: 'ProductCode')
     ..aOS(5, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
-    ..aOM<$3.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
-    ..aOS(8, _omitFieldNames ? '' : 'ID', protoName: 'ID')
+    ..aOM<$5.Timestamp>(6, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(7, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -21279,35 +21063,26 @@ class GetCustomerContractPriceRecord_Request extends $pb.GeneratedMessage {
   void clearUnitCode() => clearField(5);
 
   @$pb.TagNumber(6)
-  $3.Timestamp get fromDate => $_getN(5);
+  $5.Timestamp get fromDate => $_getN(5);
   @$pb.TagNumber(6)
-  set fromDate($3.Timestamp v) { setField(6, v); }
+  set fromDate($5.Timestamp v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasFromDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearFromDate() => clearField(6);
   @$pb.TagNumber(6)
-  $3.Timestamp ensureFromDate() => $_ensure(5);
+  $5.Timestamp ensureFromDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $3.Timestamp get toDate => $_getN(6);
+  $5.Timestamp get toDate => $_getN(6);
   @$pb.TagNumber(7)
-  set toDate($3.Timestamp v) { setField(7, v); }
+  set toDate($5.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasToDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearToDate() => clearField(7);
   @$pb.TagNumber(7)
-  $3.Timestamp ensureToDate() => $_ensure(6);
-
-  @$pb.TagNumber(8)
-  $core.String get iD => $_getSZ(7);
-  @$pb.TagNumber(8)
-  set iD($core.String v) { $_setString(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasID() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearID() => clearField(8);
+  $5.Timestamp ensureToDate() => $_ensure(6);
 }
 
 class GetCustomerContractPriceRecord_Response extends $pb.GeneratedMessage {
@@ -21580,18 +21355,18 @@ class grpcCustomerContractPriceModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? unitCode,
     $core.String? unitName,
-    $2.Decimal? packingQty,
-    $2.Decimal? costUnitPrice,
-    $2.Decimal? saleUnitPrice,
-    $2.Decimal? contractUnitPrice,
-    $2.Decimal? discountRate,
-    $3.Timestamp? fromDate,
-    $3.Timestamp? toDate,
+    $4.Decimal? packingQty,
+    $4.Decimal? costUnitPrice,
+    $4.Decimal? saleUnitPrice,
+    $4.Decimal? contractUnitPrice,
+    $4.Decimal? discountRate,
+    $5.Timestamp? fromDate,
+    $5.Timestamp? toDate,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -21669,18 +21444,18 @@ class grpcCustomerContractPriceModel extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(7, _omitFieldNames ? '' : 'UnitCode', protoName: 'UnitCode')
     ..aOS(8, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(10, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(11, _omitFieldNames ? '' : 'SaleUnitPrice', protoName: 'SaleUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(12, _omitFieldNames ? '' : 'ContractUnitPrice', protoName: 'ContractUnitPrice', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(13, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(14, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(15, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'PackingQty', protoName: 'PackingQty', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(10, _omitFieldNames ? '' : 'CostUnitPrice', protoName: 'CostUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(11, _omitFieldNames ? '' : 'SaleUnitPrice', protoName: 'SaleUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(12, _omitFieldNames ? '' : 'ContractUnitPrice', protoName: 'ContractUnitPrice', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(13, _omitFieldNames ? '' : 'DiscountRate', protoName: 'DiscountRate', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(14, _omitFieldNames ? '' : 'FromDate', protoName: 'FromDate', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(15, _omitFieldNames ? '' : 'ToDate', protoName: 'ToDate', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(16, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(17, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(18, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(19, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(20, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(20, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -21778,81 +21553,81 @@ class grpcCustomerContractPriceModel extends $pb.GeneratedMessage {
   void clearUnitName() => clearField(8);
 
   @$pb.TagNumber(9)
-  $2.Decimal get packingQty => $_getN(8);
+  $4.Decimal get packingQty => $_getN(8);
   @$pb.TagNumber(9)
-  set packingQty($2.Decimal v) { setField(9, v); }
+  set packingQty($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasPackingQty() => $_has(8);
   @$pb.TagNumber(9)
   void clearPackingQty() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensurePackingQty() => $_ensure(8);
+  $4.Decimal ensurePackingQty() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $2.Decimal get costUnitPrice => $_getN(9);
+  $4.Decimal get costUnitPrice => $_getN(9);
   @$pb.TagNumber(10)
-  set costUnitPrice($2.Decimal v) { setField(10, v); }
+  set costUnitPrice($4.Decimal v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasCostUnitPrice() => $_has(9);
   @$pb.TagNumber(10)
   void clearCostUnitPrice() => clearField(10);
   @$pb.TagNumber(10)
-  $2.Decimal ensureCostUnitPrice() => $_ensure(9);
+  $4.Decimal ensureCostUnitPrice() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $2.Decimal get saleUnitPrice => $_getN(10);
+  $4.Decimal get saleUnitPrice => $_getN(10);
   @$pb.TagNumber(11)
-  set saleUnitPrice($2.Decimal v) { setField(11, v); }
+  set saleUnitPrice($4.Decimal v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasSaleUnitPrice() => $_has(10);
   @$pb.TagNumber(11)
   void clearSaleUnitPrice() => clearField(11);
   @$pb.TagNumber(11)
-  $2.Decimal ensureSaleUnitPrice() => $_ensure(10);
+  $4.Decimal ensureSaleUnitPrice() => $_ensure(10);
 
   @$pb.TagNumber(12)
-  $2.Decimal get contractUnitPrice => $_getN(11);
+  $4.Decimal get contractUnitPrice => $_getN(11);
   @$pb.TagNumber(12)
-  set contractUnitPrice($2.Decimal v) { setField(12, v); }
+  set contractUnitPrice($4.Decimal v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasContractUnitPrice() => $_has(11);
   @$pb.TagNumber(12)
   void clearContractUnitPrice() => clearField(12);
   @$pb.TagNumber(12)
-  $2.Decimal ensureContractUnitPrice() => $_ensure(11);
+  $4.Decimal ensureContractUnitPrice() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  $2.Decimal get discountRate => $_getN(12);
+  $4.Decimal get discountRate => $_getN(12);
   @$pb.TagNumber(13)
-  set discountRate($2.Decimal v) { setField(13, v); }
+  set discountRate($4.Decimal v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasDiscountRate() => $_has(12);
   @$pb.TagNumber(13)
   void clearDiscountRate() => clearField(13);
   @$pb.TagNumber(13)
-  $2.Decimal ensureDiscountRate() => $_ensure(12);
+  $4.Decimal ensureDiscountRate() => $_ensure(12);
 
   @$pb.TagNumber(14)
-  $3.Timestamp get fromDate => $_getN(13);
+  $5.Timestamp get fromDate => $_getN(13);
   @$pb.TagNumber(14)
-  set fromDate($3.Timestamp v) { setField(14, v); }
+  set fromDate($5.Timestamp v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasFromDate() => $_has(13);
   @$pb.TagNumber(14)
   void clearFromDate() => clearField(14);
   @$pb.TagNumber(14)
-  $3.Timestamp ensureFromDate() => $_ensure(13);
+  $5.Timestamp ensureFromDate() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $3.Timestamp get toDate => $_getN(14);
+  $5.Timestamp get toDate => $_getN(14);
   @$pb.TagNumber(15)
-  set toDate($3.Timestamp v) { setField(15, v); }
+  set toDate($5.Timestamp v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasToDate() => $_has(14);
   @$pb.TagNumber(15)
   void clearToDate() => clearField(15);
   @$pb.TagNumber(15)
-  $3.Timestamp ensureToDate() => $_ensure(14);
+  $5.Timestamp ensureToDate() => $_ensure(14);
 
   @$pb.TagNumber(16)
   $core.int get updMode => $_getIZ(15);
@@ -21891,15 +21666,15 @@ class grpcCustomerContractPriceModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(19);
 
   @$pb.TagNumber(20)
-  $3.Timestamp get updDateTime => $_getN(19);
+  $5.Timestamp get updDateTime => $_getN(19);
   @$pb.TagNumber(20)
-  set updDateTime($3.Timestamp v) { setField(20, v); }
+  set updDateTime($5.Timestamp v) { setField(20, v); }
   @$pb.TagNumber(20)
   $core.bool hasUpdDateTime() => $_has(19);
   @$pb.TagNumber(20)
   void clearUpdDateTime() => clearField(20);
   @$pb.TagNumber(20)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(19);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(19);
 }
 
 /// >>> End generated CustomerContractPrice message
@@ -22213,11 +21988,11 @@ class grpcInventorySettingModel extends $pb.GeneratedMessage {
     $core.String? specification,
     $core.String? fixedStockCheckingNo,
     $core.String? fixedShelfNo,
-    $2.Decimal? minStockQty,
+    $4.Decimal? minStockQty,
     $core.String? unitName,
     $core.int? updMode,
     $core.int? updCount,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -22270,11 +22045,11 @@ class grpcInventorySettingModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'Specification', protoName: 'Specification')
     ..aOS(6, _omitFieldNames ? '' : 'FixedStockCheckingNo', protoName: 'FixedStockCheckingNo')
     ..aOS(7, _omitFieldNames ? '' : 'FixedShelfNo', protoName: 'FixedShelfNo')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'MinStockQty', protoName: 'MinStockQty', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'MinStockQty', protoName: 'MinStockQty', subBuilder: $4.Decimal.create)
     ..aOS(9, _omitFieldNames ? '' : 'UnitName', protoName: 'UnitName')
     ..a<$core.int>(10, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOM<$3.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(12, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -22363,15 +22138,15 @@ class grpcInventorySettingModel extends $pb.GeneratedMessage {
   void clearFixedShelfNo() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get minStockQty => $_getN(7);
+  $4.Decimal get minStockQty => $_getN(7);
   @$pb.TagNumber(8)
-  set minStockQty($2.Decimal v) { setField(8, v); }
+  set minStockQty($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasMinStockQty() => $_has(7);
   @$pb.TagNumber(8)
   void clearMinStockQty() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensureMinStockQty() => $_ensure(7);
+  $4.Decimal ensureMinStockQty() => $_ensure(7);
 
   @$pb.TagNumber(9)
   $core.String get unitName => $_getSZ(8);
@@ -22401,15 +22176,15 @@ class grpcInventorySettingModel extends $pb.GeneratedMessage {
   void clearUpdCount() => clearField(11);
 
   @$pb.TagNumber(12)
-  $3.Timestamp get updDateTime => $_getN(11);
+  $5.Timestamp get updDateTime => $_getN(11);
   @$pb.TagNumber(12)
-  set updDateTime($3.Timestamp v) { setField(12, v); }
+  set updDateTime($5.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasUpdDateTime() => $_has(11);
   @$pb.TagNumber(12)
   void clearUpdDateTime() => clearField(12);
   @$pb.TagNumber(12)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(11);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(11);
 }
 
 /// >>> End generated InventorySetting message
@@ -22649,7 +22424,7 @@ class grpcInventoryModel extends $pb.GeneratedMessage {
     $core.int? updCount,
     $core.String? updTransactionID,
     $core.String? updAccountID,
-    $3.Timestamp? updDateTime,
+    $5.Timestamp? updDateTime,
   }) {
     final $result = create();
     if (iD != null) {
@@ -22714,7 +22489,7 @@ class grpcInventoryModel extends $pb.GeneratedMessage {
     ..a<$core.int>(11, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
     ..aOS(12, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
     ..aOS(13, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$3.Timestamp>(14, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $3.Timestamp.create)
+    ..aOM<$5.Timestamp>(14, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -22857,15 +22632,15 @@ class grpcInventoryModel extends $pb.GeneratedMessage {
   void clearUpdAccountID() => clearField(13);
 
   @$pb.TagNumber(14)
-  $3.Timestamp get updDateTime => $_getN(13);
+  $5.Timestamp get updDateTime => $_getN(13);
   @$pb.TagNumber(14)
-  set updDateTime($3.Timestamp v) { setField(14, v); }
+  set updDateTime($5.Timestamp v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasUpdDateTime() => $_has(13);
   @$pb.TagNumber(14)
   void clearUpdDateTime() => clearField(14);
   @$pb.TagNumber(14)
-  $3.Timestamp ensureUpdDateTime() => $_ensure(13);
+  $5.Timestamp ensureUpdDateTime() => $_ensure(13);
 }
 
 /// >>> End generated Inventory message
@@ -23175,7 +22950,7 @@ class grpcUnitConvertModel extends $pb.GeneratedMessage {
     $core.String? iD,
     $core.String? srcUnitCode,
     $core.String? destUnitCode,
-    $2.Decimal? convertRate,
+    $4.Decimal? convertRate,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -23204,7 +22979,7 @@ class grpcUnitConvertModel extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'ID', protoName: 'ID')
     ..aOS(2, _omitFieldNames ? '' : 'SrcUnitCode', protoName: 'SrcUnitCode')
     ..aOS(3, _omitFieldNames ? '' : 'DestUnitCode', protoName: 'DestUnitCode')
-    ..aOM<$2.Decimal>(4, _omitFieldNames ? '' : 'ConvertRate', protoName: 'ConvertRate', subBuilder: $2.Decimal.create)
+    ..aOM<$4.Decimal>(4, _omitFieldNames ? '' : 'ConvertRate', protoName: 'ConvertRate', subBuilder: $4.Decimal.create)
     ..a<$core.int>(5, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -23258,15 +23033,15 @@ class grpcUnitConvertModel extends $pb.GeneratedMessage {
   void clearDestUnitCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $2.Decimal get convertRate => $_getN(3);
+  $4.Decimal get convertRate => $_getN(3);
   @$pb.TagNumber(4)
-  set convertRate($2.Decimal v) { setField(4, v); }
+  set convertRate($4.Decimal v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasConvertRate() => $_has(3);
   @$pb.TagNumber(4)
   void clearConvertRate() => clearField(4);
   @$pb.TagNumber(4)
-  $2.Decimal ensureConvertRate() => $_ensure(3);
+  $4.Decimal ensureConvertRate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.int get updMode => $_getIZ(4);
@@ -23917,10 +23692,10 @@ class grpcItemModel extends $pb.GeneratedMessage {
     $core.String? itemName,
     $core.String? stringValue1,
     $core.String? stringValue2,
-    $2.Decimal? doubleValue1,
-    $2.Decimal? doubleValue2,
-    $3.Timestamp? dateValue1,
-    $3.Timestamp? dateValue2,
+    $4.Decimal? doubleValue1,
+    $4.Decimal? doubleValue2,
+    $5.Timestamp? dateValue1,
+    $5.Timestamp? dateValue2,
     $core.int? updMode,
   }) {
     final $result = create();
@@ -23974,10 +23749,10 @@ class grpcItemModel extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'ItemName', protoName: 'ItemName')
     ..aOS(6, _omitFieldNames ? '' : 'StringValue1', protoName: 'StringValue1')
     ..aOS(7, _omitFieldNames ? '' : 'StringValue2', protoName: 'StringValue2')
-    ..aOM<$2.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue1', protoName: 'DoubleValue1', subBuilder: $2.Decimal.create)
-    ..aOM<$2.Decimal>(9, _omitFieldNames ? '' : 'DoubleValue2', protoName: 'DoubleValue2', subBuilder: $2.Decimal.create)
-    ..aOM<$3.Timestamp>(10, _omitFieldNames ? '' : 'DateValue1', protoName: 'DateValue1', subBuilder: $3.Timestamp.create)
-    ..aOM<$3.Timestamp>(11, _omitFieldNames ? '' : 'DateValue2', protoName: 'DateValue2', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Decimal>(8, _omitFieldNames ? '' : 'DoubleValue1', protoName: 'DoubleValue1', subBuilder: $4.Decimal.create)
+    ..aOM<$4.Decimal>(9, _omitFieldNames ? '' : 'DoubleValue2', protoName: 'DoubleValue2', subBuilder: $4.Decimal.create)
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'DateValue1', protoName: 'DateValue1', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(11, _omitFieldNames ? '' : 'DateValue2', protoName: 'DateValue2', subBuilder: $5.Timestamp.create)
     ..a<$core.int>(12, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
     ..hasRequiredFields = false
   ;
@@ -24067,48 +23842,48 @@ class grpcItemModel extends $pb.GeneratedMessage {
   void clearStringValue2() => clearField(7);
 
   @$pb.TagNumber(8)
-  $2.Decimal get doubleValue1 => $_getN(7);
+  $4.Decimal get doubleValue1 => $_getN(7);
   @$pb.TagNumber(8)
-  set doubleValue1($2.Decimal v) { setField(8, v); }
+  set doubleValue1($4.Decimal v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasDoubleValue1() => $_has(7);
   @$pb.TagNumber(8)
   void clearDoubleValue1() => clearField(8);
   @$pb.TagNumber(8)
-  $2.Decimal ensureDoubleValue1() => $_ensure(7);
+  $4.Decimal ensureDoubleValue1() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $2.Decimal get doubleValue2 => $_getN(8);
+  $4.Decimal get doubleValue2 => $_getN(8);
   @$pb.TagNumber(9)
-  set doubleValue2($2.Decimal v) { setField(9, v); }
+  set doubleValue2($4.Decimal v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasDoubleValue2() => $_has(8);
   @$pb.TagNumber(9)
   void clearDoubleValue2() => clearField(9);
   @$pb.TagNumber(9)
-  $2.Decimal ensureDoubleValue2() => $_ensure(8);
+  $4.Decimal ensureDoubleValue2() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $3.Timestamp get dateValue1 => $_getN(9);
+  $5.Timestamp get dateValue1 => $_getN(9);
   @$pb.TagNumber(10)
-  set dateValue1($3.Timestamp v) { setField(10, v); }
+  set dateValue1($5.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasDateValue1() => $_has(9);
   @$pb.TagNumber(10)
   void clearDateValue1() => clearField(10);
   @$pb.TagNumber(10)
-  $3.Timestamp ensureDateValue1() => $_ensure(9);
+  $5.Timestamp ensureDateValue1() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $3.Timestamp get dateValue2 => $_getN(10);
+  $5.Timestamp get dateValue2 => $_getN(10);
   @$pb.TagNumber(11)
-  set dateValue2($3.Timestamp v) { setField(11, v); }
+  set dateValue2($5.Timestamp v) { setField(11, v); }
   @$pb.TagNumber(11)
   $core.bool hasDateValue2() => $_has(10);
   @$pb.TagNumber(11)
   void clearDateValue2() => clearField(11);
   @$pb.TagNumber(11)
-  $3.Timestamp ensureDateValue2() => $_ensure(10);
+  $5.Timestamp ensureDateValue2() => $_ensure(10);
 
   @$pb.TagNumber(12)
   $core.int get updMode => $_getIZ(11);

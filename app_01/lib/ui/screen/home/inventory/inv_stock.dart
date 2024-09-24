@@ -5,11 +5,14 @@ import 'package:app_01/bloc/master/bloc.dart';
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
+import 'package:app_01/ui/common/ic_inventory_search.dart';
+import 'package:app_01/ui/common/ic_product_v2_search.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/common/common.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stocklot.dart';
 import 'package:dio/dio.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -33,8 +36,12 @@ class _InvStockPageState extends State<InvStockPage> {
   List<grpcSelectProductModel> _productSlistData = [
     new grpcSelectProductModel()
   ];
-  String _valScroll1 = "";
-  String _valScroll2 = "";
+  // String _valScroll1 = "";
+  // String _valScroll2 = "";
+  SingleValueDropDownController _cntProduct = SingleValueDropDownController(
+      data: DropDownValueModel(name: "", value: ""));
+  SingleValueDropDownController _cntInventory = SingleValueDropDownController(
+      data: DropDownValueModel(name: "", value: ""));
 
   @override
   void initState() {
@@ -65,26 +72,38 @@ class _InvStockPageState extends State<InvStockPage> {
               child: _globalWidget.createDetailWidget(
                   title: 'Xem tồn kho', desc: ''),
             ),
-            IC_Inventory(
+            IC_Inventory_Search(
               validate: null,
               inventorySlistData: _inventorySlistData,
-              valScroll: _valScroll1,
-              onChanged: (String? value) {
-                setState(() {
-                  _valScroll1 = value!;
-                });
-              },
+              controller: _cntInventory,
+              onChanged: (value) {},
             ),
-            IC_Product_V2(
+            // IC_Inventory(
+            //   validate: null,
+            //   inventorySlistData: _inventorySlistData,
+            //   valScroll: _valScroll1,
+            //   onChanged: (String? value) {
+            //     setState(() {
+            //       _valScroll1 = value!;
+            //     });
+            //   },
+            // ),
+            IC_Product_V2_Search(
               validate: null,
               productSlistData: _productSlistData,
-              valScroll: _valScroll2,
-              onChanged: (String? value) {
-                setState(() {
-                  _valScroll2 = value!;
-                });
-              },
+              controller: _cntProduct,
+              onChanged: (value) {},
             ),
+            // IC_Product_V2(
+            //   validate: null,
+            //   productSlistData: _productSlistData,
+            //   valScroll: _valScroll2,
+            //   onChanged: (String? value) {
+            //     setState(() {
+            //       _valScroll2 = value!;
+            //     });
+            //   },
+            // ),
             Container(
                 child: Wrap(
               spacing: 16,
@@ -94,7 +113,8 @@ class _InvStockPageState extends State<InvStockPage> {
                     onPressed: () {
                       _inventoryData.clear();
                       _inventoryBloc.add(GetInventory(
-                          invCode: _valScroll1, productCode: _valScroll2));
+                          invCode: _cntInventory.dropDownValue?.value,
+                          productCode: _cntProduct.dropDownValue?.value));
                     }),
                 // _globalWidget.createButton(
                 //     buttonName: 'Add Data',
@@ -252,8 +272,8 @@ class _InvStockPageState extends State<InvStockPage> {
             SizedBox(width: 12),
             GestureDetector(
                 onTap: () {
-                  _valScroll1 = "";
-                  _valScroll2 = "";
+                  // _valScroll1 = "";
+                  // _valScroll2 = "";
                   Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -108,7 +108,9 @@ class GlobalWidget {
       {required BuildContext context,
       required String title,
       required StatefulWidget page}) {
-    Color _color = _getColor();
+    Color _color = PRIMARY_COLOR;
+    //get random color
+    //Color _color = _getColor();
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -368,7 +370,10 @@ class GlobalWidget {
     }
   }
 
-  Widget buildButtonConfirm(context, {required Function onTap}) {
+  Widget buildButtonConfirm(context,
+      {required Function onTap,
+      required String textButtonConfirm,
+      required String textButtonBack}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -381,7 +386,7 @@ class GlobalWidget {
               height: kToolbarHeight,
               color: ASSENT_COLOR,
               child: Center(
-                  child: Text('Hủy',
+                  child: Text(textButtonBack,
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -396,7 +401,7 @@ class GlobalWidget {
               height: kToolbarHeight,
               color: PRIMARY_COLOR,
               child: Center(
-                  child: Text('Xác nhận',
+                  child: Text(textButtonConfirm,
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,

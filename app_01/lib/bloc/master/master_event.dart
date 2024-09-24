@@ -20,6 +20,11 @@ class GetProductRecord extends MasterEvent {
   final String productCode;
   GetProductRecord({required this.productCode});
 }
+
+class GetProductRecordInit extends MasterEvent {
+  final String productCode;
+  GetProductRecordInit({required this.productCode});
+}
 // class AddMaster extends MasterEvent {
 //   final String sessionId;
 //   final String MasterName,

@@ -50,3 +50,6 @@ const String Master = "Master";
 const String Inventory = "Inventory";
 //
 const String REQUIRED = "Bắt buộc nhập";
+const String TEXTBUTTONCONFIRM = "Xác nhận";
+const String TEXTBUTTONBACK = "Trở lại";
+const String TEXTBUTTONAPPROVE = "Duyệt";

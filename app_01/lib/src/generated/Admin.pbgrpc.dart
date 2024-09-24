@@ -26,6 +26,10 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/SubcribeEvents',
       ($0.SubcribeEvents_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$rebuildSummary = $grpc.ClientMethod<$1.RebuildSummary_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/RebuildSummary',
+      ($1.RebuildSummary_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$testDecimal = $grpc.ClientMethod<$1.TestDecimal_Request, $1.TestDecimal_Response>(
       '/grpcAdminService.grpcAdminService/TestDecimal',
       ($1.TestDecimal_Request value) => value.writeToBuffer(),
@@ -126,6 +130,10 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/SaveScreenImage',
       ($1.SaveScreenImage_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$copyScreenFunction = $grpc.ClientMethod<$1.CopyScreenFunction_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/CopyScreenFunction',
+      ($1.CopyScreenFunction_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$getScreenFunction = $grpc.ClientMethod<$0.String_Request, $1.GetScreenFunction_Response>(
       '/grpcAdminService.grpcAdminService/GetScreenFunction',
       ($0.String_Request value) => value.writeToBuffer(),
@@ -142,6 +150,14 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/SaveScreenItem',
       ($1.SaveScreenItem_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$copyScreenItem = $grpc.ClientMethod<$1.CopyScreenItem_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/CopyScreenItem',
+      ($1.CopyScreenItem_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$copyCRUDTable = $grpc.ClientMethod<$1.CopyCRUDTable_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/CopyCRUDTable',
+      ($1.CopyCRUDTable_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$getCRUDTable = $grpc.ClientMethod<$0.String_Request, $1.GetCRUDTable_Response>(
       '/grpcAdminService.grpcAdminService/GetCRUDTable',
       ($0.String_Request value) => value.writeToBuffer(),
@@ -178,6 +194,54 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/ImportClassificationMaster',
       ($1.ImportClassificationMaster_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$getMonthClosingTable = $grpc.ClientMethod<$0.Date_Request, $1.GetMonthClosingTable_Response>(
+      '/grpcAdminService.grpcAdminService/GetMonthClosingTable',
+      ($0.Date_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMonthClosingTable_Response.fromBuffer(value));
+  static final _$monthClosing = $grpc.ClientMethod<$1.MonthClosing_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/MonthClosing',
+      ($1.MonthClosing_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$monthUnClosing = $grpc.ClientMethod<$0.Date_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/MonthUnClosing',
+      ($0.Date_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
+  static final _$saveMenuSubGroup = $grpc.ClientMethod<$1.SaveMenuSubGroup_Request, $0.String_Response>(
+      '/grpcAdminService.grpcAdminService/SaveMenuSubGroup',
+      ($1.SaveMenuSubGroup_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getMenuSubGroupRecord = $grpc.ClientMethod<$1.GetMenuSubGroupRecord_Request, $1.GetMenuSubGroupRecord_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuSubGroupRecord',
+      ($1.GetMenuSubGroupRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuSubGroupRecord_Response.fromBuffer(value));
+  static final _$getMenuSubGroup = $grpc.ClientMethod<$1.GetMenuSubGroup_Request, $1.GetMenuSubGroup_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuSubGroup',
+      ($1.GetMenuSubGroup_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuSubGroup_Response.fromBuffer(value));
+  static final _$saveMenuItem = $grpc.ClientMethod<$1.SaveMenuItem_Request, $0.String_Response>(
+      '/grpcAdminService.grpcAdminService/SaveMenuItem',
+      ($1.SaveMenuItem_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getMenuItem = $grpc.ClientMethod<$1.GetMenuItem_Request, $1.GetMenuItem_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuItem',
+      ($1.GetMenuItem_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuItem_Response.fromBuffer(value));
+  static final _$getMenuItemRecord = $grpc.ClientMethod<$1.GetMenuItemRecord_Request, $1.GetMenuItemRecord_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuItemRecord',
+      ($1.GetMenuItemRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuItemRecord_Response.fromBuffer(value));
+  static final _$saveMenuGroup = $grpc.ClientMethod<$1.SaveMenuGroup_Request, $0.String_Response>(
+      '/grpcAdminService.grpcAdminService/SaveMenuGroup',
+      ($1.SaveMenuGroup_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
+  static final _$getMenuGroup = $grpc.ClientMethod<$0.String_Request, $1.GetMenuGroup_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuGroup',
+      ($0.String_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuGroup_Response.fromBuffer(value));
+  static final _$getMenuGroupRecord = $grpc.ClientMethod<$1.GetMenuGroupRecord_Request, $1.GetMenuGroupRecord_Response>(
+      '/grpcAdminService.grpcAdminService/GetMenuGroupRecord',
+      ($1.GetMenuGroupRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetMenuGroupRecord_Response.fromBuffer(value));
   static final _$saveScreenDeployment = $grpc.ClientMethod<$1.SaveScreenDeployment_Request, $0.String_Response>(
       '/grpcAdminService.grpcAdminService/SaveScreenDeployment',
       ($1.SaveScreenDeployment_Request value) => value.writeToBuffer(),
@@ -206,9 +270,13 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/GetRoleDetailRecord',
       ($1.GetRoleDetailRecord_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Response.fromBuffer(value));
-  static final _$getRoleDetail = $grpc.ClientMethod<$0.String_Request, $1.GetRoleDetail_Response>(
+  static final _$getRoleDetail = $grpc.ClientMethod<$1.GetRoleDetail_Request, $1.GetRoleDetail_Response>(
       '/grpcAdminService.grpcAdminService/GetRoleDetail',
-      ($0.String_Request value) => value.writeToBuffer(),
+      ($1.GetRoleDetail_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetRoleDetail_Response.fromBuffer(value));
+  static final _$getAutSceenList = $grpc.ClientMethod<$1.GetAutSceenList_Request, $1.GetRoleDetail_Response>(
+      '/grpcAdminService.grpcAdminService/GetAutSceenList',
+      ($1.GetAutSceenList_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetRoleDetail_Response.fromBuffer(value));
   static final _$saveRole = $grpc.ClientMethod<$1.SaveRole_Request, $0.String_Response>(
       '/grpcAdminService.grpcAdminService/SaveRole',
@@ -329,6 +397,10 @@ class grpcAdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$subcribeEvents, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.Empty_Response> rebuildSummary($1.RebuildSummary_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$rebuildSummary, request, options: options);
+  }
+
   $grpc.ResponseFuture<$1.TestDecimal_Response> testDecimal($1.TestDecimal_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$testDecimal, request, options: options);
   }
@@ -429,6 +501,10 @@ class grpcAdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$saveScreenImage, request, options: options);
   }
 
+  $grpc.ResponseFuture<$0.Empty_Response> copyScreenFunction($1.CopyScreenFunction_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$copyScreenFunction, request, options: options);
+  }
+
   $grpc.ResponseFuture<$1.GetScreenFunction_Response> getScreenFunction($0.String_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getScreenFunction, request, options: options);
   }
@@ -443,6 +519,14 @@ class grpcAdminServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.String_Response> saveScreenItem($1.SaveScreenItem_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$saveScreenItem, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> copyScreenItem($1.CopyScreenItem_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$copyScreenItem, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> copyCRUDTable($1.CopyCRUDTable_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$copyCRUDTable, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.GetCRUDTable_Response> getCRUDTable($0.String_Request request, {$grpc.CallOptions? options}) {
@@ -481,6 +565,54 @@ class grpcAdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$importClassificationMaster, request, options: options);
   }
 
+  $grpc.ResponseFuture<$1.GetMonthClosingTable_Response> getMonthClosingTable($0.Date_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMonthClosingTable, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> monthClosing($1.MonthClosing_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$monthClosing, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> monthUnClosing($0.Date_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$monthUnClosing, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveMenuSubGroup($1.SaveMenuSubGroup_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveMenuSubGroup, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuSubGroupRecord_Response> getMenuSubGroupRecord($1.GetMenuSubGroupRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuSubGroupRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuSubGroup_Response> getMenuSubGroup($1.GetMenuSubGroup_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuSubGroup, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveMenuItem($1.SaveMenuItem_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveMenuItem, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuItem_Response> getMenuItem($1.GetMenuItem_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuItem, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuItemRecord_Response> getMenuItemRecord($1.GetMenuItemRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuItemRecord, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.String_Response> saveMenuGroup($1.SaveMenuGroup_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$saveMenuGroup, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuGroup_Response> getMenuGroup($0.String_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuGroup, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetMenuGroupRecord_Response> getMenuGroupRecord($1.GetMenuGroupRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getMenuGroupRecord, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.String_Response> saveScreenDeployment($1.SaveScreenDeployment_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$saveScreenDeployment, request, options: options);
   }
@@ -509,8 +641,12 @@ class grpcAdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getRoleDetailRecord, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetRoleDetail_Response> getRoleDetail($0.String_Request request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetRoleDetail_Response> getRoleDetail($1.GetRoleDetail_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getRoleDetail, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetRoleDetail_Response> getAutSceenList($1.GetAutSceenList_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAutSceenList, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveRole($1.SaveRole_Request request, {$grpc.CallOptions? options}) {
@@ -633,6 +769,13 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         false,
         ($core.List<$core.int> value) => $0.SubcribeEvents_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.RebuildSummary_Request, $0.Empty_Response>(
+        'RebuildSummary',
+        rebuildSummary_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.RebuildSummary_Request.fromBuffer(value),
         ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.TestDecimal_Request, $1.TestDecimal_Response>(
         'TestDecimal',
@@ -809,6 +952,13 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.SaveScreenImage_Request.fromBuffer(value),
         ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CopyScreenFunction_Request, $0.Empty_Response>(
+        'CopyScreenFunction',
+        copyScreenFunction_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.CopyScreenFunction_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetScreenFunction_Response>(
         'GetScreenFunction',
         getScreenFunction_Pre,
@@ -837,6 +987,20 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.SaveScreenItem_Request.fromBuffer(value),
         ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CopyScreenItem_Request, $0.Empty_Response>(
+        'CopyScreenItem',
+        copyScreenItem_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.CopyScreenItem_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CopyCRUDTable_Request, $0.Empty_Response>(
+        'CopyCRUDTable',
+        copyCRUDTable_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.CopyCRUDTable_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetCRUDTable_Response>(
         'GetCRUDTable',
         getCRUDTable_Pre,
@@ -900,6 +1064,90 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.ImportClassificationMaster_Request.fromBuffer(value),
         ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Date_Request, $1.GetMonthClosingTable_Response>(
+        'GetMonthClosingTable',
+        getMonthClosingTable_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Date_Request.fromBuffer(value),
+        ($1.GetMonthClosingTable_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.MonthClosing_Request, $0.Empty_Response>(
+        'MonthClosing',
+        monthClosing_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.MonthClosing_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Date_Request, $0.Empty_Response>(
+        'MonthUnClosing',
+        monthUnClosing_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Date_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveMenuSubGroup_Request, $0.String_Response>(
+        'SaveMenuSubGroup',
+        saveMenuSubGroup_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveMenuSubGroup_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetMenuSubGroupRecord_Request, $1.GetMenuSubGroupRecord_Response>(
+        'GetMenuSubGroupRecord',
+        getMenuSubGroupRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetMenuSubGroupRecord_Request.fromBuffer(value),
+        ($1.GetMenuSubGroupRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetMenuSubGroup_Request, $1.GetMenuSubGroup_Response>(
+        'GetMenuSubGroup',
+        getMenuSubGroup_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetMenuSubGroup_Request.fromBuffer(value),
+        ($1.GetMenuSubGroup_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveMenuItem_Request, $0.String_Response>(
+        'SaveMenuItem',
+        saveMenuItem_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveMenuItem_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetMenuItem_Request, $1.GetMenuItem_Response>(
+        'GetMenuItem',
+        getMenuItem_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetMenuItem_Request.fromBuffer(value),
+        ($1.GetMenuItem_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetMenuItemRecord_Request, $1.GetMenuItemRecord_Response>(
+        'GetMenuItemRecord',
+        getMenuItemRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetMenuItemRecord_Request.fromBuffer(value),
+        ($1.GetMenuItemRecord_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.SaveMenuGroup_Request, $0.String_Response>(
+        'SaveMenuGroup',
+        saveMenuGroup_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.SaveMenuGroup_Request.fromBuffer(value),
+        ($0.String_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetMenuGroup_Response>(
+        'GetMenuGroup',
+        getMenuGroup_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($1.GetMenuGroup_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetMenuGroupRecord_Request, $1.GetMenuGroupRecord_Response>(
+        'GetMenuGroupRecord',
+        getMenuGroupRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetMenuGroupRecord_Request.fromBuffer(value),
+        ($1.GetMenuGroupRecord_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveScreenDeployment_Request, $0.String_Response>(
         'SaveScreenDeployment',
         saveScreenDeployment_Pre,
@@ -949,12 +1197,19 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Request.fromBuffer(value),
         ($1.GetRoleDetailRecord_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.String_Request, $1.GetRoleDetail_Response>(
+    $addMethod($grpc.ServiceMethod<$1.GetRoleDetail_Request, $1.GetRoleDetail_Response>(
         'GetRoleDetail',
         getRoleDetail_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.String_Request.fromBuffer(value),
+        ($core.List<$core.int> value) => $1.GetRoleDetail_Request.fromBuffer(value),
+        ($1.GetRoleDetail_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetAutSceenList_Request, $1.GetRoleDetail_Response>(
+        'GetAutSceenList',
+        getAutSceenList_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetAutSceenList_Request.fromBuffer(value),
         ($1.GetRoleDetail_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveRole_Request, $0.String_Response>(
         'SaveRole',
@@ -1151,6 +1406,10 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return subcribeEvents(call, await request);
   }
 
+  $async.Future<$0.Empty_Response> rebuildSummary_Pre($grpc.ServiceCall call, $async.Future<$1.RebuildSummary_Request> request) async {
+    return rebuildSummary(call, await request);
+  }
+
   $async.Future<$1.TestDecimal_Response> testDecimal_Pre($grpc.ServiceCall call, $async.Future<$1.TestDecimal_Request> request) async {
     return testDecimal(call, await request);
   }
@@ -1251,6 +1510,10 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return saveScreenImage(call, await request);
   }
 
+  $async.Future<$0.Empty_Response> copyScreenFunction_Pre($grpc.ServiceCall call, $async.Future<$1.CopyScreenFunction_Request> request) async {
+    return copyScreenFunction(call, await request);
+  }
+
   $async.Future<$1.GetScreenFunction_Response> getScreenFunction_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
     return getScreenFunction(call, await request);
   }
@@ -1265,6 +1528,14 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
 
   $async.Future<$0.String_Response> saveScreenItem_Pre($grpc.ServiceCall call, $async.Future<$1.SaveScreenItem_Request> request) async {
     return saveScreenItem(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> copyScreenItem_Pre($grpc.ServiceCall call, $async.Future<$1.CopyScreenItem_Request> request) async {
+    return copyScreenItem(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> copyCRUDTable_Pre($grpc.ServiceCall call, $async.Future<$1.CopyCRUDTable_Request> request) async {
+    return copyCRUDTable(call, await request);
   }
 
   $async.Future<$1.GetCRUDTable_Response> getCRUDTable_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
@@ -1303,6 +1574,54 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return importClassificationMaster(call, await request);
   }
 
+  $async.Future<$1.GetMonthClosingTable_Response> getMonthClosingTable_Pre($grpc.ServiceCall call, $async.Future<$0.Date_Request> request) async {
+    return getMonthClosingTable(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> monthClosing_Pre($grpc.ServiceCall call, $async.Future<$1.MonthClosing_Request> request) async {
+    return monthClosing(call, await request);
+  }
+
+  $async.Future<$0.Empty_Response> monthUnClosing_Pre($grpc.ServiceCall call, $async.Future<$0.Date_Request> request) async {
+    return monthUnClosing(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveMenuSubGroup_Pre($grpc.ServiceCall call, $async.Future<$1.SaveMenuSubGroup_Request> request) async {
+    return saveMenuSubGroup(call, await request);
+  }
+
+  $async.Future<$1.GetMenuSubGroupRecord_Response> getMenuSubGroupRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetMenuSubGroupRecord_Request> request) async {
+    return getMenuSubGroupRecord(call, await request);
+  }
+
+  $async.Future<$1.GetMenuSubGroup_Response> getMenuSubGroup_Pre($grpc.ServiceCall call, $async.Future<$1.GetMenuSubGroup_Request> request) async {
+    return getMenuSubGroup(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveMenuItem_Pre($grpc.ServiceCall call, $async.Future<$1.SaveMenuItem_Request> request) async {
+    return saveMenuItem(call, await request);
+  }
+
+  $async.Future<$1.GetMenuItem_Response> getMenuItem_Pre($grpc.ServiceCall call, $async.Future<$1.GetMenuItem_Request> request) async {
+    return getMenuItem(call, await request);
+  }
+
+  $async.Future<$1.GetMenuItemRecord_Response> getMenuItemRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetMenuItemRecord_Request> request) async {
+    return getMenuItemRecord(call, await request);
+  }
+
+  $async.Future<$0.String_Response> saveMenuGroup_Pre($grpc.ServiceCall call, $async.Future<$1.SaveMenuGroup_Request> request) async {
+    return saveMenuGroup(call, await request);
+  }
+
+  $async.Future<$1.GetMenuGroup_Response> getMenuGroup_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+    return getMenuGroup(call, await request);
+  }
+
+  $async.Future<$1.GetMenuGroupRecord_Response> getMenuGroupRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetMenuGroupRecord_Request> request) async {
+    return getMenuGroupRecord(call, await request);
+  }
+
   $async.Future<$0.String_Response> saveScreenDeployment_Pre($grpc.ServiceCall call, $async.Future<$1.SaveScreenDeployment_Request> request) async {
     return saveScreenDeployment(call, await request);
   }
@@ -1331,8 +1650,12 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return getRoleDetailRecord(call, await request);
   }
 
-  $async.Future<$1.GetRoleDetail_Response> getRoleDetail_Pre($grpc.ServiceCall call, $async.Future<$0.String_Request> request) async {
+  $async.Future<$1.GetRoleDetail_Response> getRoleDetail_Pre($grpc.ServiceCall call, $async.Future<$1.GetRoleDetail_Request> request) async {
     return getRoleDetail(call, await request);
+  }
+
+  $async.Future<$1.GetRoleDetail_Response> getAutSceenList_Pre($grpc.ServiceCall call, $async.Future<$1.GetAutSceenList_Request> request) async {
+    return getAutSceenList(call, await request);
   }
 
   $async.Future<$0.String_Response> saveRole_Pre($grpc.ServiceCall call, $async.Future<$1.SaveRole_Request> request) async {
@@ -1444,6 +1767,7 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   }
 
   $async.Future<$0.Empty_Response> subcribeEvents($grpc.ServiceCall call, $0.SubcribeEvents_Request request);
+  $async.Future<$0.Empty_Response> rebuildSummary($grpc.ServiceCall call, $1.RebuildSummary_Request request);
   $async.Future<$1.TestDecimal_Response> testDecimal($grpc.ServiceCall call, $1.TestDecimal_Request request);
   $async.Future<$0.Empty_Response> publicEvents($grpc.ServiceCall call, $1.PublicEvents_Request request);
   $async.Future<$1.GetServiceList_Response> getServiceList($grpc.ServiceCall call, $0.String_Request request);
@@ -1469,10 +1793,13 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$1.GetScreenImage_Response> getScreenImage($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.Int_Response> getScreenImageCount($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveScreenImage($grpc.ServiceCall call, $1.SaveScreenImage_Request request);
+  $async.Future<$0.Empty_Response> copyScreenFunction($grpc.ServiceCall call, $1.CopyScreenFunction_Request request);
   $async.Future<$1.GetScreenFunction_Response> getScreenFunction($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveScreenFunction($grpc.ServiceCall call, $1.SaveScreenFunction_Request request);
   $async.Future<$1.GetScreenItem_Response> getScreenItem($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveScreenItem($grpc.ServiceCall call, $1.SaveScreenItem_Request request);
+  $async.Future<$0.Empty_Response> copyScreenItem($grpc.ServiceCall call, $1.CopyScreenItem_Request request);
+  $async.Future<$0.Empty_Response> copyCRUDTable($grpc.ServiceCall call, $1.CopyCRUDTable_Request request);
   $async.Future<$1.GetCRUDTable_Response> getCRUDTable($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.String_Response> saveCRUDTable($grpc.ServiceCall call, $1.SaveCRUDTable_Request request);
   $async.Future<$1.GetCRUDDetail_Response> getCRUDDetail($grpc.ServiceCall call, $0.String_Request request);
@@ -1482,6 +1809,18 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveIC($grpc.ServiceCall call, $1.SaveIC_Request request);
   $async.Future<$1.GetMRUList_Response> getMRUList($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$0.Empty_Response> importClassificationMaster($grpc.ServiceCall call, $1.ImportClassificationMaster_Request request);
+  $async.Future<$1.GetMonthClosingTable_Response> getMonthClosingTable($grpc.ServiceCall call, $0.Date_Request request);
+  $async.Future<$0.Empty_Response> monthClosing($grpc.ServiceCall call, $1.MonthClosing_Request request);
+  $async.Future<$0.Empty_Response> monthUnClosing($grpc.ServiceCall call, $0.Date_Request request);
+  $async.Future<$0.String_Response> saveMenuSubGroup($grpc.ServiceCall call, $1.SaveMenuSubGroup_Request request);
+  $async.Future<$1.GetMenuSubGroupRecord_Response> getMenuSubGroupRecord($grpc.ServiceCall call, $1.GetMenuSubGroupRecord_Request request);
+  $async.Future<$1.GetMenuSubGroup_Response> getMenuSubGroup($grpc.ServiceCall call, $1.GetMenuSubGroup_Request request);
+  $async.Future<$0.String_Response> saveMenuItem($grpc.ServiceCall call, $1.SaveMenuItem_Request request);
+  $async.Future<$1.GetMenuItem_Response> getMenuItem($grpc.ServiceCall call, $1.GetMenuItem_Request request);
+  $async.Future<$1.GetMenuItemRecord_Response> getMenuItemRecord($grpc.ServiceCall call, $1.GetMenuItemRecord_Request request);
+  $async.Future<$0.String_Response> saveMenuGroup($grpc.ServiceCall call, $1.SaveMenuGroup_Request request);
+  $async.Future<$1.GetMenuGroup_Response> getMenuGroup($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetMenuGroupRecord_Response> getMenuGroupRecord($grpc.ServiceCall call, $1.GetMenuGroupRecord_Request request);
   $async.Future<$0.String_Response> saveScreenDeployment($grpc.ServiceCall call, $1.SaveScreenDeployment_Request request);
   $async.Future<$1.GetScreenDeploymentRecord_Response> getScreenDeploymentRecord($grpc.ServiceCall call, $1.GetScreenDeploymentRecord_Request request);
   $async.Future<$1.GetScreenDeployment_Response> getScreenDeployment($grpc.ServiceCall call, $0.String_Request request);
@@ -1489,7 +1828,8 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$1.DownloadScreenFile_Response> downloadScreenFile($grpc.ServiceCall call, $1.DownloadScreenFile_Request request);
   $async.Future<$0.String_Response> saveRoleDetail($grpc.ServiceCall call, $1.SaveRoleDetail_Request request);
   $async.Future<$1.GetRoleDetailRecord_Response> getRoleDetailRecord($grpc.ServiceCall call, $1.GetRoleDetailRecord_Request request);
-  $async.Future<$1.GetRoleDetail_Response> getRoleDetail($grpc.ServiceCall call, $0.String_Request request);
+  $async.Future<$1.GetRoleDetail_Response> getRoleDetail($grpc.ServiceCall call, $1.GetRoleDetail_Request request);
+  $async.Future<$1.GetRoleDetail_Response> getAutSceenList($grpc.ServiceCall call, $1.GetAutSceenList_Request request);
   $async.Future<$0.String_Response> saveRole($grpc.ServiceCall call, $1.SaveRole_Request request);
   $async.Future<$1.GetRoleRecord_Response> getRoleRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetRole_Response> getRole($grpc.ServiceCall call, $0.Empty_Request request);

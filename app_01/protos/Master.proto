@@ -20,6 +20,8 @@ service grpcMasterService {
     //Product
     rpc GetSelectProduct (GetSelectProduct_Request) returns (GetSelectProduct_Response);
     rpc SearchProduct (SearchProduct_Request) returns (SearchProduct_Response);
+    //WageMaster
+    rpc UpdateDeptFromStaffToWage (UpdateDeptFromStaffToWage_Request) returns (grpcCommonMessages.Empty_Response);
     
     //>>> Start new generated rpc position
     //>>> Start generated WorkingTimeMaster rpc
@@ -119,11 +121,6 @@ service grpcMasterService {
     rpc GetStdFeeDevideRecord (GetStdFeeDevideRecord_Request) returns (GetStdFeeDevideRecord_Response);
     rpc GetStdFeeDevide (GetStdFeeDevide_Request) returns (GetStdFeeDevide_Response);
     //>>> End generated StdFeeDevide rpc
-    //>>> Start generated FeeItem rpc
-    rpc SaveFeeItem (SaveFeeItem_Request) returns (grpcCommonMessages.String_Response);
-    rpc GetFeeItemRecord (grpcCommonMessages.String_Request) returns (GetFeeItemRecord_Response);
-    rpc GetFeeItem (grpcCommonMessages.Empty_Request) returns (GetFeeItem_Response);
-    //>>> End generated FeeItem rpc
     //>>> Start generated StdLabor rpc
     rpc SaveStdLabor (SaveStdLabor_Request) returns (grpcCommonMessages.String_Response);
     rpc GetStdLaborRecord (GetStdLaborRecord_Request) returns (GetStdLaborRecord_Response);
@@ -133,7 +130,6 @@ service grpcMasterService {
     rpc SavePriceList (SavePriceList_Request) returns (grpcCommonMessages.String_Response);
     rpc GetPriceListRecord (GetPriceListRecord_Request) returns (GetPriceListRecord_Response);
     rpc GetPriceList (GetPriceList_Request) returns (GetPriceList_Response);
-    rpc GetPrice (GetPrice_Request) returns (GetPriceListRecord_Response);
     //>>> End generated PriceList rpc
     //>>> Start generated RankDiscount rpc
     rpc SaveRankDiscount (SaveRankDiscount_Request) returns (grpcCommonMessages.String_Response);
@@ -146,6 +142,7 @@ service grpcMasterService {
     rpc GetVendor (GetVendor_Request) returns (GetVendor_Response);
     rpc GetFactory (grpcCommonMessages.Empty_Request) returns (GetVendor_Response);
     rpc GetSlistVendor (grpcCommonMessages.Empty_Request) returns (GetVendor_Response);
+    rpc UpdateVendorContact (UpdateVendorContact_Request) returns (grpcCommonMessages.Empty_Response);
     //>>> End generated Vendor rpc
     //>>> Start generated CustomerRank rpc
     rpc SaveCustomerRank (SaveCustomerRank_Request) returns (grpcCommonMessages.String_Response);
@@ -238,11 +235,12 @@ message GetSalePrice_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    string CurrencyCode = 2;
-    string ProductCode = 3;
-    string UnitCode = 4;
-    string CustomerID = 5;
-    bool IsPromotion = 6;
+    int32 TaxFlag = 2;
+    string CurrencyCode = 3;
+    string ProductCode = 4;
+    string UnitCode = 5;
+    string CustomerID = 6;
+    bool IsPromotion = 7;
 }
 message GetSalePrice_Response 
 {
@@ -253,8 +251,9 @@ message GetSalePrice_Response
     string RankCode = 4;
     CustomTypes.Decimal StdUnitPrice = 5;
     CustomTypes.Decimal UnitPrice = 6;
-    CustomTypes.Decimal DiscountRate = 7;
-    int32 PriceSourceFlag = 8;
+    CustomTypes.Decimal AprUnitPrice = 7;
+    CustomTypes.Decimal DiscountRate = 8;
+    int32 PriceSourceFlag = 9;
 }
 message CommitVoucherNo_Request {
     grpcCommonMessages.UserCredential Credential = 1;
@@ -295,6 +294,16 @@ message grpcSettingMasterModel
     google.protobuf.Timestamp DateValue2 = 13;
     bool BoolValue = 14;
     int32 UpdMode = 15;
+}
+//=================================================
+// WageMaster
+//=================================================
+message UpdateDeptFromStaffToWage_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string StaffID = 2;
+    string DeptCode = 3;
 }
 //>>> Start new generated message position
 //>>> Start generated WorkingTimeMaster message
@@ -544,36 +553,37 @@ message grpcSalaryMasterModel
     string ID = 1;
     google.protobuf.Timestamp StartDate = 2;
     string AccID = 3;
-    string SocialInsAccID = 4;
-    string HealthInsAccID = 5;
-    string UnemploymentInsAccID = 6;
-    string TradeUnionAccID = 7;
-    string PersonalIncTaxAccID = 8;
-    CustomTypes.Decimal SocialInsRate = 9;
-    CustomTypes.Decimal HealthInsRate = 10;
-    CustomTypes.Decimal UnemploymentInsRate = 11;
-    CustomTypes.Decimal TradeUnionRate = 12;
-    CustomTypes.Decimal SocialInsCoRate = 13;
-    CustomTypes.Decimal HealthInsCoRate = 14;
-    CustomTypes.Decimal UnemploymentInsCoRate = 15;
-    CustomTypes.Decimal TradeUnionCoRate = 16;
-    CustomTypes.Decimal DeductAmountN = 17;
-    CustomTypes.Decimal DeductExtAmountN = 18;
-    CustomTypes.Decimal OvertimeRate = 19;
-    CustomTypes.Decimal DayOffRate = 20;
-    CustomTypes.Decimal HolidaysRate = 21;
-    CustomTypes.Decimal OvernightRate = 22;
-    CustomTypes.Decimal StopWorkingRate = 23;
-    CustomTypes.Decimal AdvanceRate = 24;
-    CustomTypes.Decimal AdvanceAmountN = 25;
-    CustomTypes.Decimal StdWrkHours = 26;
-    CustomTypes.Decimal ProduceStdWrkHours = 27;
-    CustomTypes.Decimal DaytimeRate = 28;
-    CustomTypes.Decimal OvernightExRate = 29;
-    CustomTypes.Decimal OvertimeExRate = 30;
-    CustomTypes.Decimal MinimumWage = 31;
-    int32 UpdMode = 32;
-    google.protobuf.Timestamp UpdDateTime = 33;
+    string AccObjectID = 4;
+    string SocialInsAccID = 5;
+    string HealthInsAccID = 6;
+    string UnemploymentInsAccID = 7;
+    string TradeUnionAccID = 8;
+    string PersonalIncTaxAccID = 9;
+    CustomTypes.Decimal SocialInsRate = 10;
+    CustomTypes.Decimal HealthInsRate = 11;
+    CustomTypes.Decimal UnemploymentInsRate = 12;
+    CustomTypes.Decimal TradeUnionRate = 13;
+    CustomTypes.Decimal SocialInsCoRate = 14;
+    CustomTypes.Decimal HealthInsCoRate = 15;
+    CustomTypes.Decimal UnemploymentInsCoRate = 16;
+    CustomTypes.Decimal TradeUnionCoRate = 17;
+    CustomTypes.Decimal DeductAmountN = 18;
+    CustomTypes.Decimal DeductExtAmountN = 19;
+    CustomTypes.Decimal OvertimeRate = 20;
+    CustomTypes.Decimal DayOffRate = 21;
+    CustomTypes.Decimal HolidaysRate = 22;
+    CustomTypes.Decimal OvernightRate = 23;
+    CustomTypes.Decimal StopWorkingRate = 24;
+    CustomTypes.Decimal AdvanceRate = 25;
+    CustomTypes.Decimal AdvanceAmountN = 26;
+    CustomTypes.Decimal StdWrkHours = 27;
+    CustomTypes.Decimal ProduceStdWrkHours = 28;
+    CustomTypes.Decimal DaytimeRate = 29;
+    CustomTypes.Decimal OvernightExRate = 30;
+    CustomTypes.Decimal OvertimeExRate = 31;
+    CustomTypes.Decimal MinimumWage = 32;
+    int32 UpdMode = 33;
+    google.protobuf.Timestamp UpdDateTime = 34;
 }
 //>>> End generated SalaryMaster message
 //>>> Start generated AddressMaster message
@@ -1156,43 +1166,6 @@ message grpcStdFeeDevideModel
     google.protobuf.Timestamp UpdDateTime = 12;
 }
 //>>> End generated StdFeeDevide message
-//>>> Start generated FeeItem message
-message SaveFeeItem_Request
-{
-    grpcCommonMessages.UserCredential Credential = 1;
-    //
-    grpcFeeItemModel Record = 2;
-}
-message GetFeeItemRecord_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    grpcFeeItemModel Record = 3;
-}
-message GetFeeItem_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    repeated grpcFeeItemModel Records = 3;
-}
-message grpcFeeItemModel
-{
-    string ID = 1;
-    string FeeItemCode = 2;
-    string FeeItemName = 3;
-    bool IsProduceFee = 4;
-    bool IsLaborFee = 5;
-    int32 DirectFeeType = 6;
-    int32 InDirectFeeType = 7;
-    int32 UpdMode = 8;
-    int32 UpdCount = 9;
-    string UpdTransactionID = 10;
-    string UpdAccountID = 11;
-    google.protobuf.Timestamp UpdDateTime = 12;
-}
-//>>> End generated FeeItem message
 //>>> Start generated StdLabor message
 message SaveStdLabor_Request
 {
@@ -1252,12 +1225,12 @@ message GetPriceListRecord_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    string CurrencyCode = 2;
-     string ProductCode = 3;
-     string UnitCode = 4;
-    google.protobuf.Timestamp FromDate = 5;
-    google.protobuf.Timestamp ToDate = 6;
-    string ID = 7;
+    int32 TaxFlag = 2;
+    string CurrencyCode = 3;
+     string ProductCode = 4;
+     string UnitCode = 5;
+    google.protobuf.Timestamp FromDate = 6;
+    google.protobuf.Timestamp ToDate = 7;
 }
 message GetPriceListRecord_Response
 {
@@ -1270,10 +1243,11 @@ message GetPriceList_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    string CurrencyCode = 2;
-     int32 ProductKind = 3;
-    string ProductCode = 4;
-     int32 State = 5;
+    int32 TaxFlag = 2;
+    string CurrencyCode = 3;
+     int32 ProductKind = 4;
+    string ProductCode = 5;
+     int32 State = 6;
 }
 message GetPriceList_Response
 {
@@ -1282,36 +1256,32 @@ message GetPriceList_Response
     //
     repeated grpcPriceListModel Records = 3;
 }
-message GetPrice_Request
-{
-    grpcCommonMessages.UserCredential Credential = 1;
-    //
-    string CurrencyCode = 2;
-     string ProductCode = 3;
-     string UnitCode = 4;
-}
 message grpcPriceListModel
 {
     string ID = 1;
-    string CurrencyCode = 2;
-    int32 ProductKind = 3;
-    string ProductCode = 4;
-    string ProductName = 5;
-    string Specification = 6;
-    string UnitCode = 7;
-    string UnitName = 8;
-    CustomTypes.Decimal PackingQty = 9;
-    google.protobuf.Timestamp FromDate = 10;
-    google.protobuf.Timestamp ToDate = 11;
-    CustomTypes.Decimal CostUnitPrice = 12;
-    CustomTypes.Decimal EndUserUnitPrice = 13;
-    CustomTypes.Decimal ResellerUnitPrice = 14;
-    CustomTypes.Decimal PartnerUnitPrice = 15;
-    int32 UpdMode = 16;
-    int32 UpdCount = 17;
-    string UpdTransactionID = 18;
-    string UpdAccountID = 19;
-    google.protobuf.Timestamp UpdDateTime = 20;
+    int32 TaxFlag = 2;
+    string CurrencyCode = 3;
+    int32 ProductKind = 4;
+    string ProductCode = 5;
+    string ProductName = 6;
+    string Specification = 7;
+    string UnitCode = 8;
+    string UnitName = 9;
+    CustomTypes.Decimal PackingQty = 10;
+    google.protobuf.Timestamp FromDate = 11;
+    google.protobuf.Timestamp ToDate = 12;
+    CustomTypes.Decimal CostUnitPrice = 13;
+    CustomTypes.Decimal EndUserUnitPrice = 14;
+    CustomTypes.Decimal ResellerUnitPrice = 15;
+    CustomTypes.Decimal PartnerUnitPrice = 16;
+    CustomTypes.Decimal MinEndUserUnitPrice = 17;
+    CustomTypes.Decimal MinResellerUnitPrice = 18;
+    CustomTypes.Decimal MinPartnerUnitPrice = 19;
+    int32 UpdMode = 20;
+    int32 UpdCount = 21;
+    string UpdTransactionID = 22;
+    string UpdAccountID = 23;
+    google.protobuf.Timestamp UpdDateTime = 24;
 }
 //>>> End generated PriceList message
 //>>> Start generated RankDiscount message
@@ -1390,6 +1360,15 @@ message GetVendor_Response
     string MsgCode = 2;
     //
     repeated grpcVendorModel Records = 3;
+}
+message UpdateVendorContact_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string VendorID = 2;
+    string ContactPerson = 3;
+    string ContactPhone = 4;
+    string ContactEmail = 5;
 }
 message grpcVendorModel
 {
@@ -1991,7 +1970,6 @@ message GetCustomerContractPriceRecord_Request
     string UnitCode = 5;
     google.protobuf.Timestamp FromDate = 6;
     google.protobuf.Timestamp ToDate = 7;
-    string ID = 8;
 }
 message GetCustomerContractPriceRecord_Response
 {

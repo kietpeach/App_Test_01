@@ -10,6 +10,11 @@ class AddProductSuccess extends AddProductState {
   AddProductSuccess(this.ProductDetail);
 }
 
+class EditProductSuccess extends AddProductState {
+  final grpcInvOutReqDetailModel ProductDetail;
+  EditProductSuccess(this.ProductDetail);
+}
+
 class DeleteProductSuccess extends AddProductState {
   final grpcInvOutReqDetailModel ProductDetail;
   DeleteProductSuccess(this.ProductDetail);

@@ -10,6 +10,7 @@ class MasterBloc extends Bloc<MasterEvent, MasterState> {
     on<GetProductMaster>(_getProductMaster);
     on<GetVoucherNo>(_getVoucherNo);
     on<GetProductRecord>(_getProductRecord);
+    on<GetProductRecordInit>(_getProductRecordInit);
     // on<AddMaster>(_addMaster);
     // on<EditMaster>(_editMaster);
     // on<DeleteMaster>(_deleteMaster);
@@ -62,6 +63,20 @@ void _getProductRecord(
     GetProductRecord_Response data =
         await MasterService.getProductRecord(event.productCode);
     emit(GetProductRecordSuccess(ProductRecordData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetMasterError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _getProductRecordInit(
+    GetProductRecordInit event, Emitter<MasterState> emit) async {
+  emit(GetMasterWaiting());
+  try {
+    GetProductRecord_Response data =
+        await MasterService.getProductRecord(event.productCode);
+    emit(GetProductRecordInitSuccess(ProductRecordData: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetMasterError(errorMessage: ex.toString()));

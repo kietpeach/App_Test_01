@@ -89,20 +89,20 @@ final $typed_data.Uint8List int_RequestDescriptor = $convert.base64Decode(
     'CgtJbnRfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW1vbk1lc3NhZ2VzLl'
     'VzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhoKCEludFZhbHVlGAIgASgFUghJbnRWYWx1ZQ==');
 
-@$core.Deprecated('Use double_RequestDescriptor instead')
-const Double_Request$json = {
-  '1': 'Double_Request',
+@$core.Deprecated('Use decimal_RequestDescriptor instead')
+const Decimal_Request$json = {
+  '1': 'Decimal_Request',
   '2': [
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'DoubleValue', '3': 2, '4': 1, '5': 1, '10': 'DoubleValue'},
+    {'1': 'DecimalValue', '3': 2, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DecimalValue'},
   ],
 };
 
-/// Descriptor for `Double_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List double_RequestDescriptor = $convert.base64Decode(
-    'Cg5Eb3VibGVfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3JwY0NvbW1vbk1lc3NhZ2'
-    'VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiAKC0RvdWJsZVZhbHVlGAIgASgBUgtEb3Vi'
-    'bGVWYWx1ZQ==');
+/// Descriptor for `Decimal_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List decimal_RequestDescriptor = $convert.base64Decode(
+    'Cg9EZWNpbWFsX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycGNDb21tb25NZXNzYW'
+    'dlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBI4CgxEZWNpbWFsVmFsdWUYAiABKAsyFC5D'
+    'dXN0b21UeXBlcy5EZWNpbWFsUgxEZWNpbWFsVmFsdWU=');
 
 @$core.Deprecated('Use bool_RequestDescriptor instead')
 const Bool_Request$json = {
@@ -178,20 +178,21 @@ final $typed_data.Uint8List int_ResponseDescriptor = $convert.base64Decode(
     'CgxJbnRfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ29kZRIYCgdNc2dDb2'
     'RlGAIgASgJUgdNc2dDb2RlEhoKCEludFZhbHVlGAMgASgFUghJbnRWYWx1ZQ==');
 
-@$core.Deprecated('Use double_ResponseDescriptor instead')
-const Double_Response$json = {
-  '1': 'Double_Response',
+@$core.Deprecated('Use decimal_ResponseDescriptor instead')
+const Decimal_Response$json = {
+  '1': 'Decimal_Response',
   '2': [
     {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
     {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
-    {'1': 'DoubleValue', '3': 3, '4': 1, '5': 1, '10': 'DoubleValue'},
+    {'1': 'DecimalValue', '3': 3, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DecimalValue'},
   ],
 };
 
-/// Descriptor for `Double_Response`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List double_ResponseDescriptor = $convert.base64Decode(
-    'Cg9Eb3VibGVfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ29kZRIYCgdNc2'
-    'dDb2RlGAIgASgJUgdNc2dDb2RlEiAKC0RvdWJsZVZhbHVlGAMgASgBUgtEb3VibGVWYWx1ZQ==');
+/// Descriptor for `Decimal_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List decimal_ResponseDescriptor = $convert.base64Decode(
+    'ChBEZWNpbWFsX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldHVybkNvZGUSGAoHTX'
+    'NnQ29kZRgCIAEoCVIHTXNnQ29kZRI4CgxEZWNpbWFsVmFsdWUYAyABKAsyFC5DdXN0b21UeXBl'
+    'cy5EZWNpbWFsUgxEZWNpbWFsVmFsdWU=');
 
 @$core.Deprecated('Use bool_ResponseDescriptor instead')
 const Bool_Response$json = {

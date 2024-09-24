@@ -48,6 +48,11 @@ class SaveVoucherInvOutSuccess extends InventoryState {
   SaveVoucherInvOutSuccess({required this.Response});
 }
 
+// class GetStockSumRecordSuccess extends InventoryState {
+//   final GetStockSumRecord_Response StockSumRecordData;
+//   GetStockSumRecordSuccess({required this.StockSumRecordData});
+// }
+
 // general
 class InventoryErrorValidation extends InventoryState {
   final String errorMessage;

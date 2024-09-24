@@ -22,6 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:convert/convert.dart';
 import 'package:app_01/src/generated/CustomDatatype.pb.dart';
+import 'package:objectid/objectid.dart';
 
 class BarcodeScannerInvOutPage extends StatefulWidget {
   final String invOutNo;
@@ -101,7 +102,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     if (!mounted) return;
 
     setState(() {
-      _scanBarcode = 'TS_TRANCHAU1/LOT1/20240704/1';
+      _scanBarcode = barcodeScanRes;
     });
     final splitted = _scanBarcode.split('/');
     _productCode = splitted[0];
@@ -293,7 +294,9 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                   msg: 'SL xuất không hợp lệ hoặc vượt quá SL yêu cầu!',
                   toastLength: Toast.LENGTH_LONG);
             }
-          }),
+          },
+              textButtonConfirm: TEXTBUTTONCONFIRM,
+              textButtonBack: TEXTBUTTONBACK),
         ),
       ),
     );
@@ -448,6 +451,8 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     var userInfo = AdminService.getUserInfo();
     _invOutHeaderModel.staffID = userInfo.staffID;
     _invOutHeaderModel.deptCode = userInfo.deptCode;
+    _invOutHeaderModel.updAccountID = userInfo.staffID;
+    _invOutHeaderModel.updTransactionID = ObjectId().hexString;
 
     //Detail
     //coppy From Header
