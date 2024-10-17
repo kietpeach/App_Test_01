@@ -105,6 +105,23 @@ class InventoryService {
     return res.records;
   }
 
+  Future<List<grpcInvInReqSlistModel>> getSlistInvInReq() async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    GetSlistInvInReq_Response res = new GetSlistInvInReq_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.getSlistInvInReq(String_Request());
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.records;
+  }
+
   Future<GetVoucherInvOutReq_Response> getVoucherInvOutReq(
       String voucherNo) async {
     if (host == null) {
@@ -116,6 +133,25 @@ class InventoryService {
     try {
       res = await stub
           .getVoucherInvOutReq(String_Request(stringValue: voucherNo));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
+
+  Future<GetVoucherInvInReq_Response> getVoucherInvInReq(
+      String voucherNo) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    GetVoucherInvInReq_Response res = new GetVoucherInvInReq_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res =
+          await stub.getVoucherInvInReq(String_Request(stringValue: voucherNo));
     } catch (e) {
       print('Caught error: $e');
     } finally {
@@ -144,6 +180,26 @@ class InventoryService {
     return res;
   }
 
+  Future<String_Response> saveVoucherInvInReq(
+      grpcInvInReqHeaderModel headerModel,
+      List<grpcInvInReqDetailModel> detailModel) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    String_Response res = new String_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.saveVoucherInvInReq(SaveVoucherInvInReq_Request(
+          header: headerModel, details: detailModel));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
+
   Future<String_Response> saveVoucherInvOut(grpcInvOutHeaderModel headerModel,
       List<grpcInvOutDetailModel> detailModel) async {
     if (host == null) {
@@ -155,6 +211,25 @@ class InventoryService {
     try {
       res = await stub.saveVoucherInvOut(
           SaveVoucherInvOut_Request(header: headerModel, details: detailModel));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
+
+  Future<String_Response> saveVoucherInvIn(grpcInvInHeaderModel headerModel,
+      List<grpcInvInDetailModel> detailModel) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    String_Response res = new String_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.saveVoucherInvIn(
+          SaveVoucherInvIn_Request(header: headerModel, details: detailModel));
     } catch (e) {
       print('Caught error: $e');
     } finally {

@@ -12,8 +12,7 @@ import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out_req_slist.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,25 +23,25 @@ import 'package:convert/convert.dart';
 import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:objectid/objectid.dart';
 
-class BarcodeScannerInvOutPage extends StatefulWidget {
-  final String invOutNo;
+class BarcodeScannerInvInPage extends StatefulWidget {
+  final String invInNo;
   final String reqQty;
-  final grpcInvOutReqHeaderModel headerModel;
-  final grpcInvOutReqDetailModel detailModel;
-  const BarcodeScannerInvOutPage(
+  final grpcInvInReqHeaderModel headerModel;
+  final grpcInvInReqDetailModel detailModel;
+  const BarcodeScannerInvInPage(
       {Key? key,
-      required this.invOutNo,
+      required this.invInNo,
       required this.reqQty,
       required this.headerModel,
       required this.detailModel})
       : super(key: key);
 
   @override
-  _BarcodeScannerInvOutPageState createState() =>
-      _BarcodeScannerInvOutPageState();
+  _BarcodeScannerInvInPageState createState() =>
+      _BarcodeScannerInvInPageState();
 }
 
-class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
+class _BarcodeScannerInvInPageState extends State<BarcodeScannerInvInPage> {
   // initialize global widget
   final _globalWidget = GlobalWidget();
   final _globalFunction = GlobalFunction();
@@ -54,10 +53,10 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
   //
   List<LotModel> _listLOT = [LotModel()];
   //Header data
-  grpcInvOutHeaderModel _invOutHeaderModel = new grpcInvOutHeaderModel();
+  grpcInvInHeaderModel _invInHeaderModel = new grpcInvInHeaderModel();
   //Detail data
-  List<grpcInvOutDetailModel> _listInvOutDetailModel = [
-    new grpcInvOutDetailModel()
+  List<grpcInvInDetailModel> _listInvInDetailModel = [
+    new grpcInvInDetailModel()
   ];
   //Product master data
   GetProductRecord_Response _productRecord = new GetProductRecord_Response();
@@ -67,8 +66,8 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
   String _lOT = '';
   String _date = '';
   String _qty = '';
-  //SL xuất
-  int _invOutQty = 0;
+  //SL nhập
+  int _invInQty = 0;
 
   Color _color1 = Color(0xFF07ac12);
   Color _color2 = Color(0xff777777);
@@ -120,9 +119,9 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     }
     if (_productCode.isNotEmpty &&
         _productCode == widget.detailModel.productCode &&
-        _invOutQty < int.parse(widget.reqQty)) {
-      _invOutQty = _invOutQty + int.parse(_qty);
-      if (_invOutQty == int.parse(_qty)) {
+        _invInQty < int.parse(widget.reqQty)) {
+      _invInQty = _invInQty + int.parse(_qty);
+      if (_invInQty == int.parse(_qty)) {
         _listLOT.first.lot = _lOT;
         _listLOT.first.date = _date;
         _listLOT.first.qty = int.parse(_qty);
@@ -147,7 +146,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     }
     return BlocListener<InventoryBloc, InventoryState>(
       listener: (context, state) {
-        if (state is SaveVoucherInvOutSuccess) {
+        if (state is SaveVoucherInvInSuccess) {
           Navigator.pop(context);
           Navigator.pop(context);
           Navigator.pop(context);
@@ -156,9 +155,9 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
               context,
               MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      InvOutPage(voucherNo: _invOutHeaderModel.invOutReqNo)));
+                      InvInPage(voucherNo: _invInHeaderModel.invInReqNo)));
           Fluttertoast.showToast(
-              msg: 'Xuất kho thành công, số xuất kho: ' +
+              msg: 'Nhập kho thành công, số nhập kho: ' +
                   state.Response.stringValue,
               toastLength: Toast.LENGTH_LONG);
         }
@@ -225,7 +224,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                 height: 24,
               ),
               Text(
-                'Số lượng yêu cầu xuất',
+                'Số lượng yêu cầu nhập',
                 style: TextStyle(
                     fontSize: 15,
                     color: _color2,
@@ -287,11 +286,11 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
             }
           },
           child: _globalWidget.buildButtonConfirm(context, onTap: () {
-            if (_invOutQty != 0 && _invOutQty <= int.parse(widget.reqQty)) {
+            if (_invInQty != 0 && _invInQty <= int.parse(widget.reqQty)) {
               _showPopupConfirm();
             } else {
               Fluttertoast.showToast(
-                  msg: 'SL xuất không hợp lệ hoặc vượt quá SL yêu cầu!',
+                  msg: 'SL nhập không hợp lệ hoặc vượt quá SL yêu cầu!',
                   toastLength: Toast.LENGTH_LONG);
             }
           },
@@ -330,7 +329,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                       _listLOT.forEach((element) {
                         sum += element.qty;
                       });
-                      _invOutQty = sum;
+                      _invInQty = sum;
                     },
                     keyboardType: TextInputType.number,
                     style: TextStyle(
@@ -338,7 +337,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                         color: Colors.grey[600],
                         fontWeight: FontWeight.w400),
                     decoration: InputDecoration(
-                      labelText: 'Nhập số lượng xuất',
+                      labelText: 'Nhập số lượng nhập',
                       labelStyle: TextStyle(color: _color2),
                     ),
                   ),
@@ -367,7 +366,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                   TextField(
                     controller: _qtyLot[index],
                     onChanged: (value) {
-                      _invOutQty = int.parse(value);
+                      _invInQty = int.parse(value);
                     },
                     keyboardType: TextInputType.number,
                     style: TextStyle(
@@ -375,7 +374,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                         color: Colors.grey[600],
                         fontWeight: FontWeight.w400),
                     decoration: InputDecoration(
-                      labelText: 'Nhập số lượng xuất',
+                      labelText: 'Nhập số lượng nhập',
                       labelStyle: TextStyle(color: _color2),
                     ),
                   ),
@@ -398,9 +397,9 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     Widget continueButton = TextButton(
         onPressed: () {
           copyPropertiesData();
-          _inventoryBloc.add(SaveVoucherInvOut(
-              headerModel: _invOutHeaderModel,
-              detailModel: _listInvOutDetailModel));
+          _inventoryBloc.add(SaveVoucherInvIn(
+              headerModel: _invInHeaderModel,
+              detailModel: _listInvInDetailModel));
         },
         child: Text('Có', style: TextStyle(color: SOFT_BLUE)));
 
@@ -410,11 +409,11 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
         borderRadius: BorderRadius.circular(10),
       ),
       title: Text(
-        'Xuất kho',
+        'Nhập kho',
         style: TextStyle(fontSize: 18),
       ),
       content: Text(
-          'Bạn chắc chắn muốn xuất kho sản phẩm ' +
+          'Bạn chắc chắn muốn nhập kho sản phẩm ' +
               widget.detailModel.productCode +
               ' ?',
           style: TextStyle(fontSize: 13)),
@@ -434,63 +433,67 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
 
   void copyPropertiesData() {
     //Header
-    _invOutHeaderModel.invOutNo = widget.invOutNo;
-    _invOutHeaderModel.invOutDate = Timestamp.fromDateTime(DateTime.now());
+    _invInHeaderModel.invInNo = widget.invInNo;
+    _invInHeaderModel.invInDate = Timestamp.fromDateTime(DateTime.now());
 
-    _invOutHeaderModel.updMode = MyConstant.UpdMode_Addnew;
-    _invOutHeaderModel.invOutReqNo = widget.headerModel.invOutReqNo;
-    _invOutHeaderModel.invOutProcDate = widget.headerModel.invOutProcDate;
-    _invOutHeaderModel.outInvCode = widget.headerModel.outInvCode;
-    _invOutHeaderModel.outInvName = widget.headerModel.outInvName;
-    _invOutHeaderModel.reason = widget.headerModel.reason;
-    _invOutHeaderModel.reqNotes = widget.headerModel.reqNotes;
-    _invOutHeaderModel.reqStaffID = widget.headerModel.reqStaffID;
-    _invOutHeaderModel.invAccType = widget.headerModel.invAccType;
-    _invOutHeaderModel.refUpdCount = widget.headerModel.updCount;
-    _invOutHeaderModel.invDeptCode = widget.headerModel.invDeptCode;
+    _invInHeaderModel.updMode = MyConstant.UpdMode_Addnew;
+    _invInHeaderModel.invInReqNo = widget.headerModel.invInReqNo;
+    _invInHeaderModel.invInProcDate = widget.headerModel.invInProcDate;
+    _invInHeaderModel.inInvCode = widget.headerModel.inInvCode;
+    _invInHeaderModel.inInvName = widget.headerModel.inInvName;
+    _invInHeaderModel.reason = widget.headerModel.reason;
+    _invInHeaderModel.reqNotes = widget.headerModel.reqNotes;
+    _invInHeaderModel.reqStaffID = widget.headerModel.reqStaffID;
+    _invInHeaderModel.invAccType = widget.headerModel.invAccType;
+    _invInHeaderModel.refUpdCount = widget.headerModel.updCount;
+    _invInHeaderModel.invDeptCode = widget.headerModel.invDeptCode;
     var userInfo = AdminService.getUserInfo();
-    _invOutHeaderModel.staffID = userInfo.staffID;
-    _invOutHeaderModel.deptCode = userInfo.deptCode;
-    _invOutHeaderModel.updAccountID = userInfo.staffID;
-    _invOutHeaderModel.updTransactionID = ObjectId().hexString;
+    _invInHeaderModel.staffID = userInfo.staffID;
+    _invInHeaderModel.deptCode = userInfo.deptCode;
+    _invInHeaderModel.updAccountID = userInfo.staffID;
+    _invInHeaderModel.updTransactionID = ObjectId().hexString;
 
     //Detail
     //coppy From Header
-    _listInvOutDetailModel.first.staffID = _invOutHeaderModel.staffID;
-    _listInvOutDetailModel.first.deptCode = _invOutHeaderModel.deptCode;
-    _listInvOutDetailModel.first.invDeptCode = _invOutHeaderModel.invDeptCode;
-    _listInvOutDetailModel.first.invOutDate = _invOutHeaderModel.invOutDate;
-    _listInvOutDetailModel.first.outInvCode = _invOutHeaderModel.outInvCode;
-    _listInvOutDetailModel.first.reason = _invOutHeaderModel.reason;
-    _listInvOutDetailModel.first.invAccType = _invOutHeaderModel.invAccType;
+    _listInvInDetailModel.first.staffID = _invInHeaderModel.staffID;
+    _listInvInDetailModel.first.deptCode = _invInHeaderModel.deptCode;
+    _listInvInDetailModel.first.invDeptCode = _invInHeaderModel.invDeptCode;
+    _listInvInDetailModel.first.invInDate = _invInHeaderModel.invInDate;
+    _listInvInDetailModel.first.inInvCode = _invInHeaderModel.inInvCode;
+    _listInvInDetailModel.first.reason = _invInHeaderModel.reason;
+    _listInvInDetailModel.first.invAccType = _invInHeaderModel.invAccType;
     //
-    _listInvOutDetailModel.first.lineNo = widget.detailModel.lineNo;
-    _listInvOutDetailModel.first.productCode = widget.detailModel.productCode;
-    _listInvOutDetailModel.first.productName = widget.detailModel.productName;
-    _listInvOutDetailModel.first.specification =
+    _listInvInDetailModel.first.lineNo = widget.detailModel.lineNo;
+    _listInvInDetailModel.first.productCode = widget.detailModel.productCode;
+    _listInvInDetailModel.first.productName = widget.detailModel.productName;
+    _listInvInDetailModel.first.specification =
         widget.detailModel.specification;
-    _listInvOutDetailModel.first.unitName = widget.detailModel.unitName;
-    _listInvOutDetailModel.first.unitCode = widget.detailModel.unitCode;
-    _listInvOutDetailModel.first.packingQty = widget.detailModel.packingQty;
-    _listInvOutDetailModel.first.caseQty = widget.detailModel.caseQty;
-    _listInvOutDetailModel.first.reqQty = widget.detailModel.reqQty;
-    _listInvOutDetailModel.first.recordNo = widget.detailModel.recordNo;
-    Int64? intNumber = Int64(_invOutQty);
-    _listInvOutDetailModel.first.inOutQty = new Decimal(units: intNumber);
-    _listInvOutDetailModel.first.lotID = _listLOT[0].lot;
-    _listInvOutDetailModel.first.dateType = _productRecord.record.dateType;
-    _listInvOutDetailModel.first.isLOT = _productRecord.record.isLOT;
+    //Quy đổi sl đơn vị nhỏ nhất
+    _listInvInDetailModel.first.unitName = _productRecord.record.unitName1;
+    _listInvInDetailModel.first.unitCode = _productRecord.record.unitCode1;
+    _listInvInDetailModel.first.packingQty = _productRecord.record.packingQty1;
+    //
+    _listInvInDetailModel.first.reqQty =
+        new Decimal(units: Int64(int.parse(widget.reqQty)));
+    Int64? intNumber = Int64(_invInQty);
+    _listInvInDetailModel.first.caseQty = new Decimal(units: intNumber);
+    _listInvInDetailModel.first.inOutQty = new Decimal(
+        units: _listInvInDetailModel.first.caseQty.units *
+            _productRecord.record.packingQty1.units);
+    _listInvInDetailModel.first.recordNo = widget.detailModel.recordNo;
+    _listInvInDetailModel.first.lotID = _listLOT[0].lot;
+    _listInvInDetailModel.first.dateType = _productRecord.record.dateType;
+    _listInvInDetailModel.first.isLOT = _productRecord.record.isLOT;
     if (_productRecord.record.isLOT) {
-      _listInvOutDetailModel.first.warPeriod = _productRecord.record.warPeriod;
-      _listInvOutDetailModel.first.periodFlag =
-          _productRecord.record.periodFlag;
+      _listInvInDetailModel.first.warPeriod = _productRecord.record.warPeriod;
+      _listInvInDetailModel.first.periodFlag = _productRecord.record.periodFlag;
       var dateTime =
           FixedDateTimeFormatter('YYYYMMDD').decode(_listLOT[0].date);
-      _listInvOutDetailModel.first.lotDate =
+      _listInvInDetailModel.first.lotDate =
           Timestamp.fromDateTime(_globalFunction.startOfDay(dateTime));
-      _listInvOutDetailModel.first.lotNotes;
+      _listInvInDetailModel.first.lotNotes;
       if (_listLOT.length > 1) {
-        _listInvOutDetailModel.first.isMultiLOT = true;
+        _listInvInDetailModel.first.isMultiLOT = true;
         _listLOT.asMap().forEach((index, value) => value.lineNo = index + 1);
         for (var item in _listLOT) {
           grpcLotDetailModel lotDetailModel = new grpcLotDetailModel();
@@ -507,7 +510,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
                   FixedDateTimeFormatter('YYYYMMDD').decode(item.date)));
           lotDetailModel.warPeriod = _productRecord.record.warPeriod;
           lotDetailModel.periodFlag = _productRecord.record.periodFlag;
-          _listInvOutDetailModel.first.lotDetails.add(lotDetailModel);
+          _listInvInDetailModel.first.lotDetails.add(lotDetailModel);
         }
       } else {
         grpcLotDetailModel lotDetailModel = new grpcLotDetailModel();
@@ -523,7 +526,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
             Timestamp.fromDateTime(_globalFunction.startOfDay(dateTime));
         lotDetailModel.warPeriod = _productRecord.record.warPeriod;
         lotDetailModel.periodFlag = _productRecord.record.periodFlag;
-        _listInvOutDetailModel.first.lotDetails.add(lotDetailModel);
+        _listInvInDetailModel.first.lotDetails.add(lotDetailModel);
       }
     }
   }

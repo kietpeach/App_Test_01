@@ -10,9 +10,13 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
     on<GetInventory>(_getInventory);
     on<GetStockLOT>(_getStockLOT);
     on<GetSlistInvOutReq>(_getSlistInvOutReq);
+    on<GetSlistInvInReq>(_getSlistInvInReq);
     on<GetVoucherInvOutReq>(_getVoucherInvOutReq);
+    on<GetVoucherInvInReq>(_getVoucherInvInReq);
     on<SaveVoucherInvOutReq>(_saveVoucherInvOutReq);
+    on<SaveVoucherInvInReq>(_saveVoucherInvInReq);
     on<SaveVoucherInvOut>(_saveVoucherInvOut);
+    on<SaveVoucherInvIn>(_saveVoucherInvIn);
     //on<GetStockSumRecord>(_getStockSumRecord);
   }
 }
@@ -62,6 +66,21 @@ void _getSlistInvOutReq(
   }
 }
 
+void _getSlistInvInReq(
+    GetSlistInvInReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    List<grpcInvInReqSlistModel> data = await _inventory.getSlistInvInReq();
+    emit(GetSlistInvInReqSuccess(InvInReqSlistData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
 void _getVoucherInvOutReq(
     GetVoucherInvOutReq event, Emitter<InventoryState> emit) async {
   InventoryService _inventory = InventoryService();
@@ -71,6 +90,22 @@ void _getVoucherInvOutReq(
     GetVoucherInvOutReq_Response data =
         await _inventory.getVoucherInvOutReq(event.voucherNo);
     emit(GetVoucherInvOutReqSuccess(InvOutReqData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _getVoucherInvInReq(
+    GetVoucherInvInReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    GetVoucherInvInReq_Response data =
+        await _inventory.getVoucherInvInReq(event.voucherNo);
+    emit(GetVoucherInvInReqSuccess(InvInReqData: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetInventoryError(errorMessage: ex.toString()));
@@ -94,6 +129,22 @@ void _saveVoucherInvOutReq(
   }
 }
 
+void _saveVoucherInvInReq(
+    SaveVoucherInvInReq event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    String_Response data = await _inventory.saveVoucherInvInReq(
+        event.headerModel, event.detailModel);
+    emit(SaveVoucherInvInReqSuccess(Response: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
 void _saveVoucherInvOut(
     SaveVoucherInvOut event, Emitter<InventoryState> emit) async {
   InventoryService _inventory = InventoryService();
@@ -103,6 +154,22 @@ void _saveVoucherInvOut(
     String_Response data = await _inventory.saveVoucherInvOut(
         event.headerModel, event.detailModel);
     emit(SaveVoucherInvOutSuccess(Response: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _saveVoucherInvIn(
+    SaveVoucherInvIn event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    String_Response data =
+        await _inventory.saveVoucherInvIn(event.headerModel, event.detailModel);
+    emit(SaveVoucherInvInSuccess(Response: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetInventoryError(errorMessage: ex.toString()));

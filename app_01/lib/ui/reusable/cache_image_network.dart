@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-CachedNetworkImage buildCacheNetworkImage({double? width, double? height, url, plColor, imageColor}){
-  if(width == 0 && height == 0){
+CachedNetworkImage buildCacheNetworkImage(
+    {double? width, double? height, url, plColor, imageColor}) {
+  if (width == 0 && height == 0) {
     return CachedNetworkImage(
       placeholder: (context, url) {
         return Container(
-          color: plColor==null?Colors.grey[200]:plColor,
+          color: plColor == null ? Colors.grey[200] : plColor,
         );
       },
       errorWidget: (context, url, error) {
@@ -16,14 +17,14 @@ CachedNetworkImage buildCacheNetworkImage({double? width, double? height, url, p
       },
       imageUrl: url,
       fit: BoxFit.cover,
-      color: imageColor==null?null:imageColor,
+      color: imageColor == null ? null : imageColor,
     );
-  } else if(height == 0){
+  } else if (height == 0) {
     return CachedNetworkImage(
       placeholder: (context, url) {
         return Container(
           width: width,
-          color: plColor==null?Colors.grey[200]:plColor,
+          color: plColor == null ? Colors.grey[200] : plColor,
         );
       },
       errorWidget: (context, url, error) {
@@ -35,7 +36,7 @@ CachedNetworkImage buildCacheNetworkImage({double? width, double? height, url, p
       imageUrl: url,
       fit: BoxFit.cover,
       width: width,
-      color: imageColor==null?null:imageColor,
+      color: imageColor == null ? null : imageColor,
     );
   } else {
     return CachedNetworkImage(
@@ -49,7 +50,7 @@ CachedNetworkImage buildCacheNetworkImage({double? width, double? height, url, p
       fit: BoxFit.cover,
       width: width,
       height: height,
-      color: imageColor==null?null:imageColor,
+      color: imageColor == null ? null : imageColor,
     );
   }
 }

@@ -11207,6 +11207,7 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     $core.List<$core.int>? iconF10,
     $core.List<$core.int>? iconF11,
     $core.List<$core.int>? iconF12,
+    $core.bool? selected,
     $core.int? updMode,
     $core.int? updCount,
     $core.String? updTransactionID,
@@ -11349,6 +11350,9 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     if (iconF12 != null) {
       $result.iconF12 = iconF12;
     }
+    if (selected != null) {
+      $result.selected = selected;
+    }
     if (updMode != null) {
       $result.updMode = updMode;
     }
@@ -11416,11 +11420,12 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     ..a<$core.List<$core.int>>(43, _omitFieldNames ? '' : 'IconF10', $pb.PbFieldType.OY, protoName: 'IconF10')
     ..a<$core.List<$core.int>>(44, _omitFieldNames ? '' : 'IconF11', $pb.PbFieldType.OY, protoName: 'IconF11')
     ..a<$core.List<$core.int>>(45, _omitFieldNames ? '' : 'IconF12', $pb.PbFieldType.OY, protoName: 'IconF12')
-    ..a<$core.int>(46, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(47, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(48, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(49, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$5.Timestamp>(50, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
+    ..aOB(46, _omitFieldNames ? '' : 'Selected', protoName: 'Selected')
+    ..a<$core.int>(47, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(48, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(49, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(50, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$5.Timestamp>(51, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -11851,51 +11856,60 @@ class grpcScreenModel extends $pb.GeneratedMessage {
   void clearIconF12() => clearField(45);
 
   @$pb.TagNumber(46)
-  $core.int get updMode => $_getIZ(45);
+  $core.bool get selected => $_getBF(45);
   @$pb.TagNumber(46)
-  set updMode($core.int v) { $_setSignedInt32(45, v); }
+  set selected($core.bool v) { $_setBool(45, v); }
   @$pb.TagNumber(46)
-  $core.bool hasUpdMode() => $_has(45);
+  $core.bool hasSelected() => $_has(45);
   @$pb.TagNumber(46)
-  void clearUpdMode() => clearField(46);
+  void clearSelected() => clearField(46);
 
   @$pb.TagNumber(47)
-  $core.int get updCount => $_getIZ(46);
+  $core.int get updMode => $_getIZ(46);
   @$pb.TagNumber(47)
-  set updCount($core.int v) { $_setSignedInt32(46, v); }
+  set updMode($core.int v) { $_setSignedInt32(46, v); }
   @$pb.TagNumber(47)
-  $core.bool hasUpdCount() => $_has(46);
+  $core.bool hasUpdMode() => $_has(46);
   @$pb.TagNumber(47)
-  void clearUpdCount() => clearField(47);
+  void clearUpdMode() => clearField(47);
 
   @$pb.TagNumber(48)
-  $core.String get updTransactionID => $_getSZ(47);
+  $core.int get updCount => $_getIZ(47);
   @$pb.TagNumber(48)
-  set updTransactionID($core.String v) { $_setString(47, v); }
+  set updCount($core.int v) { $_setSignedInt32(47, v); }
   @$pb.TagNumber(48)
-  $core.bool hasUpdTransactionID() => $_has(47);
+  $core.bool hasUpdCount() => $_has(47);
   @$pb.TagNumber(48)
-  void clearUpdTransactionID() => clearField(48);
+  void clearUpdCount() => clearField(48);
 
   @$pb.TagNumber(49)
-  $core.String get updAccountID => $_getSZ(48);
+  $core.String get updTransactionID => $_getSZ(48);
   @$pb.TagNumber(49)
-  set updAccountID($core.String v) { $_setString(48, v); }
+  set updTransactionID($core.String v) { $_setString(48, v); }
   @$pb.TagNumber(49)
-  $core.bool hasUpdAccountID() => $_has(48);
+  $core.bool hasUpdTransactionID() => $_has(48);
   @$pb.TagNumber(49)
-  void clearUpdAccountID() => clearField(49);
+  void clearUpdTransactionID() => clearField(49);
 
   @$pb.TagNumber(50)
-  $5.Timestamp get updDateTime => $_getN(49);
+  $core.String get updAccountID => $_getSZ(49);
   @$pb.TagNumber(50)
-  set updDateTime($5.Timestamp v) { setField(50, v); }
+  set updAccountID($core.String v) { $_setString(49, v); }
   @$pb.TagNumber(50)
-  $core.bool hasUpdDateTime() => $_has(49);
+  $core.bool hasUpdAccountID() => $_has(49);
   @$pb.TagNumber(50)
-  void clearUpdDateTime() => clearField(50);
-  @$pb.TagNumber(50)
-  $5.Timestamp ensureUpdDateTime() => $_ensure(49);
+  void clearUpdAccountID() => clearField(50);
+
+  @$pb.TagNumber(51)
+  $5.Timestamp get updDateTime => $_getN(50);
+  @$pb.TagNumber(51)
+  set updDateTime($5.Timestamp v) { setField(51, v); }
+  @$pb.TagNumber(51)
+  $core.bool hasUpdDateTime() => $_has(50);
+  @$pb.TagNumber(51)
+  void clearUpdDateTime() => clearField(51);
+  @$pb.TagNumber(51)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(50);
 }
 
 /// >>> End generated Screen message

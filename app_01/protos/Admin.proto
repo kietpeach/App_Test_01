@@ -119,6 +119,7 @@ service grpcAdminService {
     rpc SaveScreen (SaveScreen_Request) returns (grpcCommonMessages.String_Response);
     rpc GetScreenRecord (grpcCommonMessages.String_Request) returns (GetScreenRecord_Response);
     rpc GetScreen (grpcCommonMessages.Empty_Request) returns (GetScreen_Response);
+    rpc UpdateSelFromMenu (grpcCommonMessages.Empty_Request) returns (grpcCommonMessages.Empty_Response);
     //>>> End generated Screen rpc
     rpc ImportScreen (ImportScreen_Request) returns (grpcCommonMessages.Empty_Response);
     //>>> Start generated UserAccount rpc
@@ -1138,11 +1139,12 @@ message grpcScreenModel
     bytes IconF10 = 43;
     bytes IconF11 = 44;
     bytes IconF12 = 45;
-    int32 UpdMode = 46;
-    int32 UpdCount = 47;
-    string UpdTransactionID = 48;
-    string UpdAccountID = 49;
-    google.protobuf.Timestamp UpdDateTime = 50;
+    bool Selected = 46;
+    int32 UpdMode = 47;
+    int32 UpdCount = 48;
+    string UpdTransactionID = 49;
+    string UpdAccountID = 50;
+    google.protobuf.Timestamp UpdDateTime = 51;
 }
 //>>> End generated Screen message
 message ImportScreen_Request {

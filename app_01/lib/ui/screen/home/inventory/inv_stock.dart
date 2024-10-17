@@ -9,7 +9,6 @@ import 'package:app_01/ui/common/ic_inventory_search.dart';
 import 'package:app_01/ui/common/ic_product_v2_search.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/common/common.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stocklot.dart';
 import 'package:dio/dio.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
@@ -36,6 +35,7 @@ class _InvStockPageState extends State<InvStockPage> {
   List<grpcSelectProductModel> _productSlistData = [
     new grpcSelectProductModel()
   ];
+  final TextEditingController productController = TextEditingController();
   // String _valScroll1 = "";
   // String _valScroll2 = "";
   SingleValueDropDownController _cntProduct = SingleValueDropDownController(
@@ -54,7 +54,6 @@ class _InvStockPageState extends State<InvStockPage> {
 
   @override
   void dispose() {
-    apiToken.cancel("cancelled"); // cancel fetch data from API
     super.dispose();
   }
 
@@ -76,7 +75,7 @@ class _InvStockPageState extends State<InvStockPage> {
               validate: null,
               inventorySlistData: _inventorySlistData,
               controller: _cntInventory,
-              onChanged: (value) {},
+              onChanged: (value1) {},
             ),
             // IC_Inventory(
             //   validate: null,
@@ -92,8 +91,9 @@ class _InvStockPageState extends State<InvStockPage> {
               validate: null,
               productSlistData: _productSlistData,
               controller: _cntProduct,
-              onChanged: (value) {},
+              onChanged: (value2) {},
             ),
+
             // IC_Product_V2(
             //   validate: null,
             //   productSlistData: _productSlistData,
@@ -104,6 +104,7 @@ class _InvStockPageState extends State<InvStockPage> {
             //     });
             //   },
             // ),
+
             Container(
                 child: Wrap(
               spacing: 16,
@@ -231,6 +232,8 @@ class _InvStockPageState extends State<InvStockPage> {
   Widget _buildInventoryCard(index) {
     String productName = _globalFunction.GetProductName(
         _productSlistData, _inventoryData[index].productCode);
+    String invName = _globalFunction.GetInvName(
+        _inventorySlistData, _inventoryData[index].invCode);
     return Card(
       elevation: 0.5,
       child: Container(
@@ -265,6 +268,11 @@ class _InvStockPageState extends State<InvStockPage> {
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey[600],
+                          fontWeight: FontWeight.w400)),
+                  Text("Kho: " + invName,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[600],
                           fontWeight: FontWeight.w400))
                 ],
               ),
@@ -286,59 +294,9 @@ class _InvStockPageState extends State<InvStockPage> {
                 child:
                     Icon(Icons.inventory, size: 24, color: Colors.grey[700])),
             SizedBox(width: 8),
-            // GestureDetector(
-            //     onTap: () {
-            //       _showPopupDelete(index);
-            //     },
-            //     child: Icon(Icons.delete, size: 24, color: Colors.grey[700])),
           ],
         ),
       ),
     );
   }
-
-  // void _showPopupDelete(index) {
-  //   // set up the buttons
-  //   Widget cancelButton = TextButton(
-  //       onPressed: () {
-  //         Navigator.pop(context);
-  //       },
-  //       child: Text('No', style: TextStyle(color: SOFT_BLUE)));
-  //   Widget continueButton = TextButton(
-  //       onPressed: () {
-  //         _inventoryBloc.add(DeleteInventory(
-  //             sessionId: '5f0e6bfbafe255.00218389',
-  //             //InventoryId: _inventoryData[index].InventoryId,
-  //             InventoryId: 1,
-  //             index: index,
-  //             apiToken: apiToken));
-  //       },
-  //       child: Text('Yes', style: TextStyle(color: SOFT_BLUE)));
-
-  // set up the AlertDialog
-  //   AlertDialog alert = AlertDialog(
-  //     shape: RoundedRectangleBorder(
-  //       borderRadius: BorderRadius.circular(10),
-  //     ),
-  //     title: Text(
-  //       'Delete ' + _inventoryData[index].InventoryName,
-  //       style: TextStyle(fontSize: 18),
-  //     ),
-  //     content: Text(
-  //         'Are you sure to delete ' + _inventoryData[index].InventoryName + ' ?',
-  //         style: TextStyle(fontSize: 13)),
-  //     actions: [
-  //       cancelButton,
-  //       continueButton,
-  //     ],
-  //   );
-
-  //   // show the dialog
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return alert;
-  //     },
-  //   );
-  //}
 }

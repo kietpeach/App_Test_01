@@ -302,6 +302,10 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/GetScreen',
       ($0.Empty_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetScreen_Response.fromBuffer(value));
+  static final _$updateSelFromMenu = $grpc.ClientMethod<$0.Empty_Request, $0.Empty_Response>(
+      '/grpcAdminService.grpcAdminService/UpdateSelFromMenu',
+      ($0.Empty_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty_Response.fromBuffer(value));
   static final _$importScreen = $grpc.ClientMethod<$1.ImportScreen_Request, $0.Empty_Response>(
       '/grpcAdminService.grpcAdminService/ImportScreen',
       ($1.ImportScreen_Request value) => value.writeToBuffer(),
@@ -671,6 +675,10 @@ class grpcAdminServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetScreen_Response> getScreen($0.Empty_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getScreen, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty_Response> updateSelFromMenu($0.Empty_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateSelFromMenu, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Empty_Response> importScreen($1.ImportScreen_Request request, {$grpc.CallOptions? options}) {
@@ -1253,6 +1261,13 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
         ($1.GetScreen_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty_Request, $0.Empty_Response>(
+        'UpdateSelFromMenu',
+        updateSelFromMenu_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
+        ($0.Empty_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.ImportScreen_Request, $0.Empty_Response>(
         'ImportScreen',
         importScreen_Pre,
@@ -1682,6 +1697,10 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return getScreen(call, await request);
   }
 
+  $async.Future<$0.Empty_Response> updateSelFromMenu_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
+    return updateSelFromMenu(call, await request);
+  }
+
   $async.Future<$0.Empty_Response> importScreen_Pre($grpc.ServiceCall call, $async.Future<$1.ImportScreen_Request> request) async {
     return importScreen(call, await request);
   }
@@ -1836,6 +1855,7 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$0.String_Response> saveScreen($grpc.ServiceCall call, $1.SaveScreen_Request request);
   $async.Future<$1.GetScreenRecord_Response> getScreenRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetScreen_Response> getScreen($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$0.Empty_Response> updateSelFromMenu($grpc.ServiceCall call, $0.Empty_Request request);
   $async.Future<$0.Empty_Response> importScreen($grpc.ServiceCall call, $1.ImportScreen_Request request);
   $async.Future<$0.String_Response> saveUserAccount($grpc.ServiceCall call, $1.SaveUserAccount_Request request);
   $async.Future<$1.GetUserAccountRecord_Response> getUserAccountRecord($grpc.ServiceCall call, $0.String_Request request);

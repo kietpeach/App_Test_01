@@ -2076,11 +2076,12 @@ const grpcScreenModel$json = {
     {'1': 'IconF10', '3': 43, '4': 1, '5': 12, '10': 'IconF10'},
     {'1': 'IconF11', '3': 44, '4': 1, '5': 12, '10': 'IconF11'},
     {'1': 'IconF12', '3': 45, '4': 1, '5': 12, '10': 'IconF12'},
-    {'1': 'UpdMode', '3': 46, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 47, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 48, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 49, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 50, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'Selected', '3': 46, '4': 1, '5': 8, '10': 'Selected'},
+    {'1': 'UpdMode', '3': 47, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 48, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 49, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 50, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 51, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -2107,11 +2108,11 @@ final $typed_data.Uint8List grpcScreenModelDescriptor = $convert.base64Decode(
     'GCUgASgMUgZJY29uRjQSFgoGSWNvbkY1GCYgASgMUgZJY29uRjUSFgoGSWNvbkY2GCcgASgMUg'
     'ZJY29uRjYSFgoGSWNvbkY3GCggASgMUgZJY29uRjcSFgoGSWNvbkY4GCkgASgMUgZJY29uRjgS'
     'FgoGSWNvbkY5GCogASgMUgZJY29uRjkSGAoHSWNvbkYxMBgrIAEoDFIHSWNvbkYxMBIYCgdJY2'
-    '9uRjExGCwgASgMUgdJY29uRjExEhgKB0ljb25GMTIYLSABKAxSB0ljb25GMTISGAoHVXBkTW9k'
-    'ZRguIAEoBVIHVXBkTW9kZRIaCghVcGRDb3VudBgvIAEoBVIIVXBkQ291bnQSKgoQVXBkVHJhbn'
-    'NhY3Rpb25JRBgwIAEoCVIQVXBkVHJhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW50SUQYMSABKAlS'
-    'DFVwZEFjY291bnRJRBI8CgtVcGREYXRlVGltZRgyIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW'
-    '1lc3RhbXBSC1VwZERhdGVUaW1l');
+    '9uRjExGCwgASgMUgdJY29uRjExEhgKB0ljb25GMTIYLSABKAxSB0ljb25GMTISGgoIU2VsZWN0'
+    'ZWQYLiABKAhSCFNlbGVjdGVkEhgKB1VwZE1vZGUYLyABKAVSB1VwZE1vZGUSGgoIVXBkQ291bn'
+    'QYMCABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYMSABKAlSEFVwZFRyYW5zYWN0'
+    'aW9uSUQSIgoMVXBkQWNjb3VudElEGDIgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbW'
+    'UYMyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
 
 @$core.Deprecated('Use importScreen_RequestDescriptor instead')
 const ImportScreen_Request$json = {

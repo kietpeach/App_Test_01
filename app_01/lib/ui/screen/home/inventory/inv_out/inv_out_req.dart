@@ -11,13 +11,12 @@ import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/src/generated/timestamp.pb.dart';
-import 'package:app_01/ui/common/ic_inventory.dart';
 import 'package:app_01/ui/common/ic_inventory_search.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/add_product.dart';
-import 'package:app_01/ui/screen/home/inventory/edit_product.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/add_product.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/edit_product.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,18 +36,16 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
   final _globalFunction = GlobalFunction();
   // validate
   final _formKey = GlobalKey<FormState>();
-
+  //Bloc & Cubit
   late MasterBloc _masterBloc;
   late InventoryBloc _inventoryBloc;
   late AddProductCubit _inventoryCubit;
-
+  // Color
   Color _underlineColor = Color(0xFFCCCCCC);
   Color _mainColor = PRIMARY_COLOR;
   Color _color1 = Color(0xFF515151);
   Color _color2 = Color(0xff777777);
-
-  GetVoucherInvOutReq_Response _invOutReqData =
-      new GetVoucherInvOutReq_Response();
+  //
   GetVoucherNo_Response _voucherNoData = new GetVoucherNo_Response();
   TextEditingController _etInvOutReqNo = TextEditingController();
   TextEditingController _etReason = TextEditingController();
@@ -132,6 +129,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                       }
                     },
                     child: TextField(
+                      readOnly: true,
                       controller: _etInvOutReqNo,
                       keyboardType: TextInputType.text,
                       style: TextStyle(color: _color1),
@@ -341,7 +339,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                 children: [
                   Text(_listInvOutReqDetailModel[index].productName,
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 14,
                           color: BLACK55,
                           fontWeight: FontWeight.w500)),
                   Text(
@@ -482,7 +480,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
         style: TextStyle(fontSize: 18),
       ),
       content: Text(
-          'Bạn chăc chắn muốn xóa ' +
+          'Bạn chắc chắn muốn xóa ' +
               _listInvOutReqDetailModel[index].productName +
               ' ?',
           style: TextStyle(fontSize: 13)),

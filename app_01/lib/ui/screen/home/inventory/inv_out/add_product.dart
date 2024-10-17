@@ -8,34 +8,21 @@ import 'package:app_01/cubit/add_product_cubit.dart';
 import 'package:app_01/src/generated/CustomDatatype.pb.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/ui/common/ic_product_v2.dart';
 import 'package:app_01/ui/common/ic_product_v2_search.dart';
-import 'package:app_01/ui/common/ic_unit.dart';
 import 'package:app_01/ui/common/ic_unit_search.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 
-class EditProductPage extends StatefulWidget {
-  final index;
-  final grpcInvOutReqDetailModel invOutReqDetailModel;
-  final List<grpcSelectProductModel> productSlistData;
-
-  const EditProductPage(
-      {Key? key,
-      this.index,
-      required this.invOutReqDetailModel,
-      required this.productSlistData})
-      : super(key: key);
-
+class AddProductPage extends StatefulWidget {
   @override
-  _EditProductPageState createState() => _EditProductPageState();
+  _AddProductPageState createState() => _AddProductPageState();
 }
 
-class _EditProductPageState extends State<EditProductPage> {
+class _AddProductPageState extends State<AddProductPage> {
   // initialize global widget and global function
   final _globalWidget = GlobalWidget();
   // validate
@@ -53,14 +40,15 @@ class _EditProductPageState extends State<EditProductPage> {
   TextEditingController _etPackingQty = TextEditingController();
   TextEditingController _etCaseQty = TextEditingController();
   TextEditingController _etReqQty = TextEditingController();
-  //IC
+  SingleValueDropDownController _cntProduct = SingleValueDropDownController();
+  SingleValueDropDownController _cntUnit = SingleValueDropDownController();
+  // IC
+  List<grpcSelectProductModel> _productSlistData = [
+    new grpcSelectProductModel()
+  ];
   List<ProductUnitSearchModel> _unitSlistData = [new ProductUnitSearchModel()];
   // Product master data
   GetProductRecord_Response _productRecord = new GetProductRecord_Response();
-  //String _valScrollProduct = "";
-  //String _valScrollUnit = "";
-  SingleValueDropDownController _cntProduct = SingleValueDropDownController();
-  SingleValueDropDownController _cntUnit = SingleValueDropDownController();
   //Detail data
   grpcInvOutReqDetailModel _invOutReqDetailModel = grpcInvOutReqDetailModel();
 
@@ -68,17 +56,7 @@ class _EditProductPageState extends State<EditProductPage> {
   void initState() {
     _inventoryCubit = BlocProvider.of<AddProductCubit>(context);
     _masterBloc = BlocProvider.of<MasterBloc>(context);
-    _masterBloc.add(GetProductRecordInit(
-        productCode: widget.invOutReqDetailModel.productCode));
-    _cntProduct.dropDownValue = DropDownValueModel(
-        name: widget.invOutReqDetailModel.productName,
-        value: widget.invOutReqDetailModel.productCode);
-    _invOutReqDetailModel.productName = widget.invOutReqDetailModel.productName;
-    _etSpecification.text = widget.invOutReqDetailModel.specification;
-    _etPackingQty.text =
-        widget.invOutReqDetailModel.packingQty.units.toString();
-    _etCaseQty.text = widget.invOutReqDetailModel.caseQty.units.toString();
-    _etReqQty.text = widget.invOutReqDetailModel.reqQty.units.toString();
+    _masterBloc.add(GetProductMaster());
     super.initState();
   }
 
@@ -101,68 +79,13 @@ class _EditProductPageState extends State<EditProductPage> {
           child: ListView(
             padding: EdgeInsets.all(16),
             children: [
-              Text('Chỉnh sửa sản phẩm xuất kho',
+              Text('Thêm sản phẩm xuất kho',
                   style: TextStyle(
                       fontSize: 18,
                       color: BLACK21,
                       fontWeight: FontWeight.w500)),
               BlocListener<MasterBloc, MasterState>(
                 listener: (context, state) {
-                  if (state is GetProductRecordInitSuccess) {
-                    _unitSlistData.clear();
-                    //Init data đơn vị cho sản phẩm đc chọn ở IC
-                    //UnitCode1
-                    if (state.ProductRecordData.record.unitCode1.isNotEmpty) {
-                      var productUnitModel = new ProductUnitSearchModel();
-                      productUnitModel.unitName =
-                          state.ProductRecordData.record.unitName1;
-                      productUnitModel.unitCode =
-                          state.ProductRecordData.record.unitCode1;
-                      productUnitModel.packingQty = state
-                          .ProductRecordData.record.packingQty1.units
-                          .toString();
-                      _unitSlistData.add(productUnitModel);
-                    }
-                    //UnitCode2
-                    if (state.ProductRecordData.record.unitCode2.isNotEmpty &&
-                        state.ProductRecordData.record.unitCode2 !=
-                            state.ProductRecordData.record.unitCode1) {
-                      var productUnitModel = new ProductUnitSearchModel();
-                      productUnitModel.unitName =
-                          state.ProductRecordData.record.unitName2;
-                      productUnitModel.unitCode =
-                          state.ProductRecordData.record.unitCode2;
-                      productUnitModel.packingQty = state
-                          .ProductRecordData.record.packingQty2.units
-                          .toString();
-                      _unitSlistData.add(productUnitModel);
-                    }
-                    //UnitCode3
-                    if (state.ProductRecordData.record.unitCode3.isNotEmpty &&
-                        state.ProductRecordData.record.unitCode3 !=
-                            state.ProductRecordData.record.unitCode2 &&
-                        state.ProductRecordData.record.unitCode3 !=
-                            state.ProductRecordData.record.unitCode1) {
-                      var productUnitModel = new ProductUnitSearchModel();
-                      productUnitModel.unitName =
-                          state.ProductRecordData.record.unitName3;
-                      productUnitModel.unitCode =
-                          state.ProductRecordData.record.unitCode3;
-                      productUnitModel.packingQty = state
-                          .ProductRecordData.record.packingQty3.units
-                          .toString();
-                      _unitSlistData.add(productUnitModel);
-                    }
-                    // setState(() {
-                    //   _valScrollUnit = widget.invOutReqDetailModel.unitCode;
-                    // });
-                    setState(() {
-                      _cntUnit = SingleValueDropDownController(
-                          data: DropDownValueModel(
-                              name: widget.invOutReqDetailModel.unitName,
-                              value: widget.invOutReqDetailModel.unitCode));
-                    });
-                  }
                   if (state is GetProductRecordSuccess) {
                     _productRecord = state.ProductRecordData;
                     //Init field when choose ic product
@@ -171,18 +94,17 @@ class _EditProductPageState extends State<EditProductPage> {
                         _productRecord.record.packingQty1.units.toString();
                     _invOutReqDetailModel.unitName =
                         _productRecord.record.unitName1;
-                    _invOutReqDetailModel.productName =
-                        _productRecord.record.productName;
                     // setState(() {
                     //   _valScrollUnit = _productRecord.record.unitCode1;
                     // });
-                    //
                     setState(() {
                       _cntUnit = SingleValueDropDownController(
                           data: DropDownValueModel(
                               name: _productRecord.record.unitName1,
                               value: _productRecord.record.unitCode1));
                     });
+
+                    //
                     _unitSlistData.clear();
                     //Lấy data đơn vị cho sản phẩm đc chọn ở IC
                     //UnitCode1
@@ -192,8 +114,9 @@ class _EditProductPageState extends State<EditProductPage> {
                           _productRecord.record.unitName1;
                       productUnitModel.unitCode =
                           _productRecord.record.unitCode1;
-                      productUnitModel.packingQty =
-                          _productRecord.record.packingQty1.units.toString();
+                      productUnitModel.packingQty = state
+                          .ProductRecordData.record.packingQty1.units
+                          .toString();
                       _unitSlistData.add(productUnitModel);
                     }
                     //UnitCode2
@@ -205,8 +128,9 @@ class _EditProductPageState extends State<EditProductPage> {
                           _productRecord.record.unitName2;
                       productUnitModel.unitCode =
                           _productRecord.record.unitCode2;
-                      productUnitModel.packingQty =
-                          _productRecord.record.packingQty2.units.toString();
+                      productUnitModel.packingQty = state
+                          .ProductRecordData.record.packingQty2.units
+                          .toString();
                       _unitSlistData.add(productUnitModel);
                     }
                     //UnitCode3
@@ -220,77 +144,58 @@ class _EditProductPageState extends State<EditProductPage> {
                           _productRecord.record.unitName3;
                       productUnitModel.unitCode =
                           _productRecord.record.unitCode3;
-                      productUnitModel.packingQty =
-                          _productRecord.record.packingQty3.units.toString();
+                      productUnitModel.packingQty = state
+                          .ProductRecordData.record.packingQty3.units
+                          .toString();
                       _unitSlistData.add(productUnitModel);
                     }
                   }
                 },
-                child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 8),
-                    child: IC_Product_V2_Search(
-                      validate: (value) {
-                        if (value != null && value.isNotEmpty) {
-                          return null;
-                        } else {
-                          return REQUIRED;
-                        }
-                      },
-                      productSlistData: widget.productSlistData,
-                      controller: _cntProduct,
-                      onChanged: (value) {
-                        _etCaseQty.text = '';
-                        _etReqQty.text = '';
-                        //_valScrollUnit = '';
-                        _cntUnit = SingleValueDropDownController(
-                            data: DropDownValueModel(name: "", value: ""));
-                        if (value != null && value.value.isNotEmpty) {
-                          _masterBloc
-                              .add(GetProductRecord(productCode: value.value));
-                        }
-                      },
-                    )
-                    // DropdownButtonFormField(
-                    //   validator: (value) {
-                    //     if (value != null && value.isNotEmpty) {
-                    //       return null;
-                    //     } else {
-                    //       return REQUIRED;
-                    //     }
-                    //   },
-                    //   icon: Icon(Icons.keyboard_arrow_down),
-                    //   decoration: InputDecoration(
-                    //     focusedBorder: UnderlineInputBorder(
-                    //         borderSide:
-                    //             BorderSide(color: PRIMARY_COLOR, width: 2.0)),
-                    //     enabledBorder: UnderlineInputBorder(
-                    //       borderSide: BorderSide(color: Color(0xFFCCCCCC)),
-                    //     ),
-                    //   ),
-                    //   value: _valScrollProduct,
-                    //   items:
-                    //       List.generate(widget.productSlistData.length, (index) {
-                    //     return DropdownMenuItem(
-                    //       child: Text(widget.productSlistData[index].productName),
-                    //       value: widget.productSlistData[index].productCode,
-                    //     );
-                    //   }),
-                    //   onChanged: (String? value) {
-                    //     setState(() {
-                    //       _etCaseQty.text = '';
-                    //       _etReqQty.text = '';
-                    //       _valScrollUnit = '';
-                    //       if (value != null && value.isNotEmpty) {
-                    //         _masterBloc.add(GetProductRecord(productCode: value));
-                    //       }
-                    //       setState(() {
-                    //         _valScrollProduct = value!;
-                    //       });
-                    //     });
-                    //   },
-                    //   isExpanded: true,
-                    // ),
-                    ),
+                // child: IC_Product_V2(
+                //   validate: (value) {
+                //     if (value != null && value.isNotEmpty) {
+                //       return null;
+                //     } else {
+                //       return REQUIRED;
+                //     }
+                //   },
+                //   productSlistData: _productSlistData,
+                //   valScroll: _valScrollProduct,
+                //   onChanged: (String? value) {
+                //     _etCaseQty.text = '';
+                //     _etReqQty.text = '';
+                //     _valScrollUnit = '';
+                //     if (value != null && value.isNotEmpty) {
+                //       _masterBloc.add(GetProductRecord(productCode: value));
+                //     }
+                //     setState(() {
+                //       _valScrollProduct = value!;
+                //     });
+                //     //
+                //   },
+                // ),
+                child: IC_Product_V2_Search(
+                  validate: (value) {
+                    if (value != null && value.isNotEmpty) {
+                      return null;
+                    } else {
+                      return REQUIRED;
+                    }
+                  },
+                  productSlistData: _productSlistData,
+                  controller: _cntProduct,
+                  onChanged: (value) {
+                    _etCaseQty.text = '';
+                    _etReqQty.text = '';
+                    //_valScrollUnit = '';
+                    _cntUnit = SingleValueDropDownController(
+                        data: DropDownValueModel(name: "", value: ""));
+                    if (value != null && value.value.isNotEmpty) {
+                      _masterBloc
+                          .add(GetProductRecord(productCode: value.value));
+                    }
+                  },
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -306,15 +211,40 @@ class _EditProductPageState extends State<EditProductPage> {
                 controller: _cntUnit,
                 unitSlistData: _unitSlistData,
                 onChanged: (value) {
-                  _etCaseQty.text = '';
-                  _etReqQty.text = '';
                   var unit = _unitSlistData
                       .firstWhere((e) => e.unitCode == value.value);
                   _etPackingQty.text = unit.packingQty;
                   _invOutReqDetailModel.unitName = unit.unitName;
-                  //
+                  if (_etCaseQty.text.isNotEmpty) {
+                    _etReqQty.text = (int.parse(_etPackingQty.text) *
+                            int.parse(_etCaseQty.text))
+                        .toString();
+                  }
                 },
               ),
+              //               IC_Unit(
+              //   validate: (value) {
+              //     if (value != null && value.isNotEmpty) {
+              //       return null;
+              //     } else {
+              //       return REQUIRED;
+              //     }
+              //   },
+              //   unitSlistData: _unitSlistData,
+              //   valScroll: _valScrollUnit,
+              //   onChanged: (String? value) {
+              //     _etCaseQty.text = '';
+              //     _etReqQty.text = '';
+              //     var unit =
+              //         _unitSlistData.firstWhere((e) => e.unitCode == value);
+              //     _etPackingQty.text = unit.packingQty;
+              //     _invOutReqDetailModel.unitName = unit.unitName;
+              //     setState(() {
+              //       _valScrollUnit = value!;
+              //     });
+              //     //
+              //   },
+              // ),
               SizedBox(
                 height: 20,
               ),
@@ -323,6 +253,7 @@ class _EditProductPageState extends State<EditProductPage> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      readOnly: true,
                       controller: _etSpecification,
                       keyboardType: TextInputType.text,
                       style: TextStyle(color: _color1),
@@ -415,7 +346,7 @@ class _EditProductPageState extends State<EditProductPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       copyPropertiesData();
-                      _inventoryCubit.editProduct(_invOutReqDetailModel);
+                      _inventoryCubit.addProduct(_invOutReqDetailModel);
                     }
                   }),
             ],
@@ -424,10 +355,11 @@ class _EditProductPageState extends State<EditProductPage> {
   }
 
   void copyPropertiesData() {
-    _invOutReqDetailModel.lineNo = widget.invOutReqDetailModel.lineNo;
     _invOutReqDetailModel.productCode = _cntProduct.dropDownValue?.value;
+    _invOutReqDetailModel.productName = _productRecord.record.productName;
     _invOutReqDetailModel.specification = _etSpecification.text;
     _invOutReqDetailModel.unitCode = _cntUnit.dropDownValue?.value;
+    _invOutReqDetailModel.unitName = _cntUnit.dropDownValue!.name;
     _invOutReqDetailModel.packingQty =
         new Decimal(units: Int64(int.parse(_etPackingQty.text)));
     _invOutReqDetailModel.caseQty =

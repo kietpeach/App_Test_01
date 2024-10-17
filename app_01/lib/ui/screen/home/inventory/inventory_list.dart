@@ -1,9 +1,10 @@
 import 'package:app_01/config/constant.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/barcode_generator.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_scanner_invout.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out_req.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out_req_slist.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req_slist.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stock.dart';
 import 'package:flutter/material.dart';
 
@@ -82,6 +83,14 @@ class _InventoryListPageState extends State<InventoryListPage> {
                 context: context,
                 title: 'Dach sách số yêu cầu xuất kho',
                 page: InvOutReqSlistPage()),
+            _globalWidget.screenDetailList(
+                context: context,
+                title: 'Yêu cầu nhập kho',
+                page: InvInReqPage()),
+            _globalWidget.screenDetailList(
+                context: context,
+                title: 'Dach sách số yêu cầu nhập kho',
+                page: InvInReqSlistPage()),
             _globalWidget.screenDetailList(
                 context: context,
                 title: 'Tạo mã Barcode',

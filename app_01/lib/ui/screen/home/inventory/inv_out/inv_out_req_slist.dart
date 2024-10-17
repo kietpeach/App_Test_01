@@ -5,12 +5,11 @@ import 'package:app_01/config/constant.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out_apr.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_apr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
 
 class InvOutReqSlistPage extends StatefulWidget {
   @override

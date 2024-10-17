@@ -33,9 +33,19 @@ class GetSlistInvOutReqSuccess extends InventoryState {
   GetSlistInvOutReqSuccess({required this.InvOutReqSlistData});
 }
 
+class GetSlistInvInReqSuccess extends InventoryState {
+  final List<grpcInvInReqSlistModel> InvInReqSlistData;
+  GetSlistInvInReqSuccess({required this.InvInReqSlistData});
+}
+
 class GetVoucherInvOutReqSuccess extends InventoryState {
   final GetVoucherInvOutReq_Response InvOutReqData;
   GetVoucherInvOutReqSuccess({required this.InvOutReqData});
+}
+
+class GetVoucherInvInReqSuccess extends InventoryState {
+  final GetVoucherInvInReq_Response InvInReqData;
+  GetVoucherInvInReqSuccess({required this.InvInReqData});
 }
 
 class SaveVoucherInvOutReqSuccess extends InventoryState {
@@ -43,9 +53,19 @@ class SaveVoucherInvOutReqSuccess extends InventoryState {
   SaveVoucherInvOutReqSuccess({required this.Response});
 }
 
+class SaveVoucherInvInReqSuccess extends InventoryState {
+  final String_Response Response;
+  SaveVoucherInvInReqSuccess({required this.Response});
+}
+
 class SaveVoucherInvOutSuccess extends InventoryState {
   final String_Response Response;
   SaveVoucherInvOutSuccess({required this.Response});
+}
+
+class SaveVoucherInvInSuccess extends InventoryState {
+  final String_Response Response;
+  SaveVoucherInvInSuccess({required this.Response});
 }
 
 // class GetStockSumRecordSuccess extends InventoryState {

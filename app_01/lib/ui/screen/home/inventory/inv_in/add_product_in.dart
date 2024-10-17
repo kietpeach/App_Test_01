@@ -17,12 +17,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 
-class AddProductPage extends StatefulWidget {
+class AddProductInPage extends StatefulWidget {
   @override
-  _AddProductPageState createState() => _AddProductPageState();
+  _AddProductInPageState createState() => _AddProductInPageState();
 }
 
-class _AddProductPageState extends State<AddProductPage> {
+class _AddProductInPageState extends State<AddProductInPage> {
   // initialize global widget and global function
   final _globalWidget = GlobalWidget();
   // validate
@@ -50,7 +50,7 @@ class _AddProductPageState extends State<AddProductPage> {
   // Product master data
   GetProductRecord_Response _productRecord = new GetProductRecord_Response();
   //Detail data
-  grpcInvOutReqDetailModel _invOutReqDetailModel = grpcInvOutReqDetailModel();
+  grpcInvInReqDetailModel _invInReqDetailModel = grpcInvInReqDetailModel();
 
   @override
   void initState() {
@@ -79,7 +79,7 @@ class _AddProductPageState extends State<AddProductPage> {
           child: ListView(
             padding: EdgeInsets.all(16),
             children: [
-              Text('Thêm sản phẩm xuất kho',
+              Text('Thêm sản phẩm nhập kho',
                   style: TextStyle(
                       fontSize: 18,
                       color: BLACK21,
@@ -92,7 +92,7 @@ class _AddProductPageState extends State<AddProductPage> {
                     _etSpecification.text = _productRecord.record.specification;
                     _etPackingQty.text =
                         _productRecord.record.packingQty1.units.toString();
-                    _invOutReqDetailModel.unitName =
+                    _invInReqDetailModel.unitName =
                         _productRecord.record.unitName1;
                     // setState(() {
                     //   _valScrollUnit = _productRecord.record.unitCode1;
@@ -211,12 +211,15 @@ class _AddProductPageState extends State<AddProductPage> {
                 controller: _cntUnit,
                 unitSlistData: _unitSlistData,
                 onChanged: (value) {
-                  _etCaseQty.text = '';
-                  _etReqQty.text = '';
                   var unit = _unitSlistData
                       .firstWhere((e) => e.unitCode == value.value);
                   _etPackingQty.text = unit.packingQty;
-                  _invOutReqDetailModel.unitName = unit.unitName;
+                  _invInReqDetailModel.unitName = unit.unitName;
+                  if (_etCaseQty.text.isNotEmpty) {
+                    _etReqQty.text = (int.parse(_etPackingQty.text) *
+                            int.parse(_etCaseQty.text))
+                        .toString();
+                  }
                 },
               ),
               //               IC_Unit(
@@ -235,7 +238,7 @@ class _AddProductPageState extends State<AddProductPage> {
               //     var unit =
               //         _unitSlistData.firstWhere((e) => e.unitCode == value);
               //     _etPackingQty.text = unit.packingQty;
-              //     _invOutReqDetailModel.unitName = unit.unitName;
+              //     _invInReqDetailModel.unitName = unit.unitName;
               //     setState(() {
               //       _valScrollUnit = value!;
               //     });
@@ -250,6 +253,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      readOnly: true,
                       controller: _etSpecification,
                       keyboardType: TextInputType.text,
                       style: TextStyle(color: _color1),
@@ -313,7 +317,7 @@ class _AddProductPageState extends State<AddProductPage> {
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: _underlineColor),
                           ),
-                          labelText: 'Yêu cầu xuất',
+                          labelText: 'Yêu cầu nhập',
                           labelStyle: TextStyle(color: _color2)),
                     ),
                   ),
@@ -342,7 +346,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       copyPropertiesData();
-                      _inventoryCubit.addProduct(_invOutReqDetailModel);
+                      _inventoryCubit.addProductIn(_invInReqDetailModel);
                     }
                   }),
             ],
@@ -351,16 +355,17 @@ class _AddProductPageState extends State<AddProductPage> {
   }
 
   void copyPropertiesData() {
-    _invOutReqDetailModel.productCode = _cntProduct.dropDownValue?.value;
-    _invOutReqDetailModel.productName = _productRecord.record.productName;
-    _invOutReqDetailModel.specification = _etSpecification.text;
-    _invOutReqDetailModel.unitCode = _cntUnit.dropDownValue?.value;
-    _invOutReqDetailModel.packingQty =
+    _invInReqDetailModel.productCode = _cntProduct.dropDownValue?.value;
+    _invInReqDetailModel.productName = _productRecord.record.productName;
+    _invInReqDetailModel.specification = _etSpecification.text;
+    _invInReqDetailModel.unitCode = _cntUnit.dropDownValue?.value;
+    _invInReqDetailModel.unitName = _cntUnit.dropDownValue!.name;
+    _invInReqDetailModel.packingQty =
         new Decimal(units: Int64(int.parse(_etPackingQty.text)));
-    _invOutReqDetailModel.caseQty =
+    _invInReqDetailModel.caseQty =
         new Decimal(units: Int64(int.parse(_etCaseQty.text)));
-    _invOutReqDetailModel.reqQty =
+    _invInReqDetailModel.reqQty =
         new Decimal(units: Int64(int.parse(_etReqQty.text)));
-    _invOutReqDetailModel.updMode = MyConstant.UpdMode_Addnew;
+    _invInReqDetailModel.updMode = MyConstant.UpdMode_Addnew;
   }
 }

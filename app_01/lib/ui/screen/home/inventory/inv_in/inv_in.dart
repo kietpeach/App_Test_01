@@ -9,20 +9,19 @@ import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_scanner_invout.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_in/barcode_scanner_invin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-class InvOutPage extends StatefulWidget {
+class InvInPage extends StatefulWidget {
   final String voucherNo;
-  const InvOutPage({Key? key, required this.voucherNo}) : super(key: key);
+  const InvInPage({Key? key, required this.voucherNo}) : super(key: key);
 
   @override
-  _InvOutPageState createState() => _InvOutPageState();
+  _InvInPageState createState() => _InvInPageState();
 }
 
-class _InvOutPageState extends State<InvOutPage> {
+class _InvInPageState extends State<InvInPage> {
   // initialize global widget
   final _globalWidget = GlobalWidget();
   final _globalFunction = GlobalFunction();
@@ -37,26 +36,25 @@ class _InvOutPageState extends State<InvOutPage> {
   Color _color1 = Color(0xFF515151);
   Color _color2 = Color(0xff777777);
 
-  GetVoucherInvOutReq_Response _invOutReqData =
-      new GetVoucherInvOutReq_Response();
+  GetVoucherInvInReq_Response _invInReqData = new GetVoucherInvInReq_Response();
   GetVoucherNo_Response _voucherNoData = new GetVoucherNo_Response();
-  TextEditingController _etInvOutNo = TextEditingController();
-  TextEditingController _etInvOutReqNo = TextEditingController();
+  TextEditingController _etInvInNo = TextEditingController();
+  TextEditingController _etInvInReqNo = TextEditingController();
 
   @override
   void initState() {
     _masterBloc = BlocProvider.of<MasterBloc>(context);
-    _masterBloc.add(GetVoucherNo(voucherCode: VoucherCode.InvOut));
+    _masterBloc.add(GetVoucherNo(voucherCode: VoucherCode.InvIn));
     _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
-    _inventoryBloc.add(GetVoucherInvOutReq(voucherNo: widget.voucherNo));
+    _inventoryBloc.add(GetVoucherInvInReq(voucherNo: widget.voucherNo));
     _etDate.text = _globalFunction.dateTimeFormatter(DateTime.now());
     super.initState();
   }
 
   @override
   void dispose() {
-    _etInvOutNo.dispose();
-    _etInvOutReqNo.dispose();
+    _etInvInNo.dispose();
+    _etInvInReqNo.dispose();
     super.dispose();
   }
 
@@ -67,15 +65,15 @@ class _InvOutPageState extends State<InvOutPage> {
       appBar: _globalWidget.globalAppBar(),
       body: BlocListener<InventoryBloc, InventoryState>(
         listener: (context, state) {
-          if (state is GetVoucherInvOutReqSuccess) {
-            //_invOutReqData.details.addAll(state.InvOutReqData.details);
-            state.InvOutReqData.details.forEach((element) {
+          if (state is GetVoucherInvInReqSuccess) {
+            //_invInReqData.details.addAll(state.InvInReqData.details);
+            state.InvInReqData.details.forEach((element) {
               if (element.reqQty.units > element.doneQty.units) {
-                _invOutReqData.details.add(element);
+                _invInReqData.details.add(element);
               }
             });
-            _invOutReqData.header = state.InvOutReqData.header;
-            _etInvOutReqNo.text = _invOutReqData.header.invOutReqNo;
+            _invInReqData.header = state.InvInReqData.header;
+            _etInvInReqNo.text = _invInReqData.header.invInReqNo;
           }
         },
         child: BlocBuilder<InventoryBloc, InventoryState>(
@@ -83,7 +81,7 @@ class _InvOutPageState extends State<InvOutPage> {
             return ListView(
               padding: EdgeInsets.all(16),
               children: [
-                Text('Xử lý xuất kho',
+                Text('Xử lý nhập kho',
                     style: TextStyle(
                         fontSize: 18,
                         color: BLACK21,
@@ -92,12 +90,12 @@ class _InvOutPageState extends State<InvOutPage> {
                   listener: (context, state) {
                     if (state is GetVoucherNoSuccess) {
                       _voucherNoData = state.VoucherNoData;
-                      _etInvOutNo.text = _voucherNoData.voucherNo;
+                      _etInvInNo.text = _voucherNoData.voucherNo;
                     }
                   },
                   child: TextField(
                     readOnly: true,
-                    controller: _etInvOutNo,
+                    controller: _etInvInNo,
                     keyboardType: TextInputType.text,
                     style: TextStyle(color: _color1),
                     decoration: InputDecoration(
@@ -107,7 +105,7 @@ class _InvOutPageState extends State<InvOutPage> {
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: _underlineColor),
                       ),
-                      labelText: 'Số xuất kho',
+                      labelText: 'Số nhập kho',
                       labelStyle: TextStyle(color: _color2),
                     ),
                   ),
@@ -131,14 +129,14 @@ class _InvOutPageState extends State<InvOutPage> {
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: _underlineColor),
                       ),
-                      labelText: 'Ngày xuất kho',
+                      labelText: 'Ngày nhập kho',
                       contentPadding: EdgeInsets.only(bottom: 2),
                     ),
                   ),
                 ),
                 TextField(
                   readOnly: true,
-                  controller: _etInvOutReqNo,
+                  controller: _etInvInReqNo,
                   keyboardType: TextInputType.phone,
                   style: TextStyle(color: _color1),
                   decoration: InputDecoration(
@@ -156,7 +154,7 @@ class _InvOutPageState extends State<InvOutPage> {
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('Danh sách sản phẩm xuất kho :',
+                  child: Text('Danh sách sản phẩm nhập kho :',
                       style: TextStyle(
                           fontSize: 18,
                           color: BLACK21,
@@ -184,17 +182,17 @@ class _InvOutPageState extends State<InvOutPage> {
   }
 
   List<DataRow> get _createRows {
-    return _invOutReqData.details.map((e) {
+    return _invInReqData.details.map((e) {
       String reqQty = (e.reqQty.units - e.doneQty.units).toString();
       return DataRow(
         onLongPress: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => BarcodeScannerInvOutPage(
-                        invOutNo: _voucherNoData.voucherNo,
+                  builder: (context) => BarcodeScannerInvInPage(
+                        invInNo: _voucherNoData.voucherNo,
                         reqQty: reqQty,
-                        headerModel: _invOutReqData.header,
+                        headerModel: _invInReqData.header,
                         detailModel: e,
                       )));
         },
@@ -217,7 +215,7 @@ class _InvOutPageState extends State<InvOutPage> {
       DataColumn(label: Text('Đơn vị')),
       DataColumn(label: Text('SLĐG'), numeric: true),
       DataColumn(label: Text('SL yêu cầu'), numeric: true),
-      DataColumn(label: Text('SL xuất'), numeric: true),
+      DataColumn(label: Text('SL nhập'), numeric: true),
     ];
   }
 

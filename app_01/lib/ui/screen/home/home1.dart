@@ -40,14 +40,15 @@ class _Home1PageState extends State<Home1Page> {
   @override
   void initState() {
     userInfo = AdminService.getUserInfo();
-    _bannerData.add(
-        BannerSliderModel(id: 1, image: GLOBAL_URL + '/home_banner/1.jpg'));
-    _bannerData.add(
-        BannerSliderModel(id: 2, image: GLOBAL_URL + '/home_banner/2.jpg'));
+    _bannerData.add(BannerSliderModel(
+        id: 1,
+        image: 'https://www.easternsun.vn/wp-content/uploads/2022/06/erp.png'));
+    // _bannerData.add(
+    //     BannerSliderModel(id: 2, image: GLOBAL_URL + '/home_banner/2.jpg'));
     _bannerData.add(
         BannerSliderModel(id: 3, image: GLOBAL_URL + '/home_banner/3.jpg'));
-    _bannerData.add(
-        BannerSliderModel(id: 4, image: GLOBAL_URL + '/home_banner/4.jpg'));
+    // _bannerData.add(
+    //     BannerSliderModel(id: 4, image: GLOBAL_URL + '/home_banner/4.jpg'));
     _bannerData.add(
         BannerSliderModel(id: 5, image: GLOBAL_URL + '/home_banner/5.jpg'));
 

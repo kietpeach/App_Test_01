@@ -58,8 +58,7 @@ class IC_Inventory_Search extends StatelessWidget {
           controller: _cnt,
           clearOption: false,
           enableSearch: true,
-          searchDecoration:
-              const InputDecoration(hintText: "Tìm kiếm sản phẩm"),
+          searchDecoration: const InputDecoration(hintText: "Tìm kiếm kho"),
           validator: _validate,
           dropDownItemCount: 4,
           dropDownList: List.generate(_inventorySlistData.length, (index) {

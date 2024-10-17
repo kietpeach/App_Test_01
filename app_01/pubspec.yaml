@@ -195,6 +195,11 @@ flutter:
     - assets/images/icon_menu/setting_32.png
     - assets/images/icon_menu/warehouse_32.png
 
+    - assets/images/home_banner/1.png
+    - assets/images/home_banner/2.png
+    - assets/images/home_banner/3.png
+    - assets/images/home_banner/4.png
+
     - assets/lang/en.json
     - assets/lang/id.json
     - assets/lang/ar.json
