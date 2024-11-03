@@ -13,6 +13,7 @@ import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_in/barcode_scanner_invin.dart';
+import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -99,7 +100,7 @@ class _InvInPageState extends State<InvInPage> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => super.widget));
+                    builder: (BuildContext context) => InvInReqSlistPage()));
             Fluttertoast.showToast(
                 msg: 'Yêu cầu thành công: ' + state.Response.stringValue,
                 toastLength: Toast.LENGTH_LONG);
