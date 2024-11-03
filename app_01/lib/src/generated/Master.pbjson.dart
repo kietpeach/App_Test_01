@@ -375,8 +375,9 @@ const grpcWageMasterModel$json = {
     {'1': 'IsRegular', '3': 22, '4': 1, '5': 8, '10': 'IsRegular'},
     {'1': 'IsUsed', '3': 23, '4': 1, '5': 8, '10': 'IsUsed'},
     {'1': 'StartDate', '3': 24, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'StartDate'},
-    {'1': 'UpdMode', '3': 25, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdDateTime', '3': 26, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'AllowanceMasters', '3': 25, '4': 3, '5': 11, '6': '.grpcMasterService.grpcAllowanceMasterModel', '10': 'AllowanceMasters'},
+    {'1': 'UpdMode', '3': 26, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdDateTime', '3': 27, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -398,9 +399,10 @@ final $typed_data.Uint8List grpcWageMasterModelDescriptor = $convert.base64Decod
     'R5cGUSGAoHVGF4VHlwZRgUIAEoBVIHVGF4VHlwZRI+CgxDb250cmFjdERhdGUYFSABKAsyGi5n'
     'b29nbGUucHJvdG9idWYuVGltZXN0YW1wUgxDb250cmFjdERhdGUSHAoJSXNSZWd1bGFyGBYgAS'
     'gIUglJc1JlZ3VsYXISFgoGSXNVc2VkGBcgASgIUgZJc1VzZWQSOAoJU3RhcnREYXRlGBggASgL'
-    'MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJU3RhcnREYXRlEhgKB1VwZE1vZGUYGSABKA'
-    'VSB1VwZE1vZGUSPAoLVXBkRGF0ZVRpbWUYGiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0'
-    'YW1wUgtVcGREYXRlVGltZQ==');
+    'MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJU3RhcnREYXRlElcKEEFsbG93YW5jZU1hc3'
+    'RlcnMYGSADKAsyKy5ncnBjTWFzdGVyU2VydmljZS5ncnBjQWxsb3dhbmNlTWFzdGVyTW9kZWxS'
+    'EEFsbG93YW5jZU1hc3RlcnMSGAoHVXBkTW9kZRgaIAEoBVIHVXBkTW9kZRI8CgtVcGREYXRlVG'
+    'ltZRgbIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1l');
 
 @$core.Deprecated('Use saveWorkingCalendar_RequestDescriptor instead')
 const SaveWorkingCalendar_Request$json = {
@@ -568,9 +570,10 @@ const grpcAllowanceMasterModel$json = {
     {'1': 'AllowanceName', '3': 4, '4': 1, '5': 9, '10': 'AllowanceName'},
     {'1': 'StartDate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'StartDate'},
     {'1': 'AmountN', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AmountN'},
-    {'1': 'IsTax', '3': 7, '4': 1, '5': 8, '10': 'IsTax'},
-    {'1': 'UpdMode', '3': 8, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdDateTime', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'AllowanceType', '3': 7, '4': 1, '5': 5, '10': 'AllowanceType'},
+    {'1': 'IsTax', '3': 8, '4': 1, '5': 8, '10': 'IsTax'},
+    {'1': 'UpdMode', '3': 9, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdDateTime', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -580,9 +583,10 @@ final $typed_data.Uint8List grpcAllowanceMasterModelDescriptor = $convert.base64
     'EoBVIGTGluZU5vEiQKDUFsbG93YW5jZUNvZGUYAyABKAlSDUFsbG93YW5jZUNvZGUSJAoNQWxs'
     'b3dhbmNlTmFtZRgEIAEoCVINQWxsb3dhbmNlTmFtZRI4CglTdGFydERhdGUYBSABKAsyGi5nb2'
     '9nbGUucHJvdG9idWYuVGltZXN0YW1wUglTdGFydERhdGUSLgoHQW1vdW50ThgGIAEoCzIULkN1'
-    'c3RvbVR5cGVzLkRlY2ltYWxSB0Ftb3VudE4SFAoFSXNUYXgYByABKAhSBUlzVGF4EhgKB1VwZE'
-    '1vZGUYCCABKAVSB1VwZE1vZGUSPAoLVXBkRGF0ZVRpbWUYCSABKAsyGi5nb29nbGUucHJvdG9i'
-    'dWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
+    'c3RvbVR5cGVzLkRlY2ltYWxSB0Ftb3VudE4SJAoNQWxsb3dhbmNlVHlwZRgHIAEoBVINQWxsb3'
+    'dhbmNlVHlwZRIUCgVJc1RheBgIIAEoCFIFSXNUYXgSGAoHVXBkTW9kZRgJIAEoBVIHVXBkTW9k'
+    'ZRI8CgtVcGREYXRlVGltZRgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZE'
+    'RhdGVUaW1l');
 
 @$core.Deprecated('Use saveTaxMaster_RequestDescriptor instead')
 const SaveTaxMaster_Request$json = {
@@ -1202,7 +1206,6 @@ const GetVendorContractPriceRecord_Request$json = {
     {'1': 'UnitCode', '3': 5, '4': 1, '5': 9, '10': 'UnitCode'},
     {'1': 'FromDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
     {'1': 'ToDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 8, '4': 1, '5': 9, '10': 'ID'},
   ],
 };
 
@@ -1214,7 +1217,7 @@ final $typed_data.Uint8List getVendorContractPriceRecord_RequestDescriptor = $co
     'NvZGUSIAoLUHJvZHVjdENvZGUYBCABKAlSC1Byb2R1Y3RDb2RlEhoKCFVuaXRDb2RlGAUgASgJ'
     'UghVbml0Q29kZRI2CghGcm9tRGF0ZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbX'
     'BSCEZyb21EYXRlEjIKBlRvRGF0ZRgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBS'
-    'BlRvRGF0ZRIOCgJJRBgIIAEoCVICSUQ=');
+    'BlRvRGF0ZQ==');
 
 @$core.Deprecated('Use getVendorContractPriceRecord_ResponseDescriptor instead')
 const GetVendorContractPriceRecord_Response$json = {
@@ -1540,7 +1543,6 @@ const GetPromotionHeaderRecord_Request$json = {
     {'1': 'PromoNo', '3': 2, '4': 1, '5': 9, '10': 'PromoNo'},
     {'1': 'FromDate', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
     {'1': 'ToDate', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 5, '4': 1, '5': 9, '10': 'ID'},
   ],
 };
 
@@ -1550,7 +1552,7 @@ final $typed_data.Uint8List getPromotionHeaderRecord_RequestDescriptor = $conver
     'IuZ3JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhgKB1Byb21v'
     'Tm8YAiABKAlSB1Byb21vTm8SNgoIRnJvbURhdGUYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVG'
     'ltZXN0YW1wUghGcm9tRGF0ZRIyCgZUb0RhdGUYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt'
-    'ZXN0YW1wUgZUb0RhdGUSDgoCSUQYBSABKAlSAklE');
+    'ZXN0YW1wUgZUb0RhdGU=');
 
 @$core.Deprecated('Use getPromotionHeaderRecord_ResponseDescriptor instead')
 const GetPromotionHeaderRecord_Response$json = {
@@ -2286,7 +2288,6 @@ const GetRankDiscountRecord_Request$json = {
     {'1': 'RankCode', '3': 2, '4': 1, '5': 9, '10': 'RankCode'},
     {'1': 'FromDate', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
     {'1': 'ToDate', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 5, '4': 1, '5': 9, '10': 'ID'},
   ],
 };
 
@@ -2296,7 +2297,7 @@ final $typed_data.Uint8List getRankDiscountRecord_RequestDescriptor = $convert.b
     'JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhoKCFJhbmtDb2Rl'
     'GAIgASgJUghSYW5rQ29kZRI2CghGcm9tRGF0ZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW'
     '1lc3RhbXBSCEZyb21EYXRlEjIKBlRvRGF0ZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l'
-    'c3RhbXBSBlRvRGF0ZRIOCgJJRBgFIAEoCVICSUQ=');
+    'c3RhbXBSBlRvRGF0ZQ==');
 
 @$core.Deprecated('Use getRankDiscountRecord_ResponseDescriptor instead')
 const GetRankDiscountRecord_Response$json = {
@@ -2538,7 +2539,6 @@ const GetCustomerRankRecord_Request$json = {
     {'1': 'CustomerID', '3': 2, '4': 1, '5': 9, '10': 'CustomerID'},
     {'1': 'FromDate', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
     {'1': 'ToDate', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'ID', '3': 5, '4': 1, '5': 9, '10': 'ID'},
   ],
 };
 
@@ -2548,7 +2548,7 @@ final $typed_data.Uint8List getCustomerRankRecord_RequestDescriptor = $convert.b
     'JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEh4KCkN1c3RvbWVy'
     'SUQYAiABKAlSCkN1c3RvbWVySUQSNgoIRnJvbURhdGUYAyABKAsyGi5nb29nbGUucHJvdG9idW'
     'YuVGltZXN0YW1wUghGcm9tRGF0ZRIyCgZUb0RhdGUYBCABKAsyGi5nb29nbGUucHJvdG9idWYu'
-    'VGltZXN0YW1wUgZUb0RhdGUSDgoCSUQYBSABKAlSAklE');
+    'VGltZXN0YW1wUgZUb0RhdGU=');
 
 @$core.Deprecated('Use getCustomerRankRecord_ResponseDescriptor instead')
 const GetCustomerRankRecord_Response$json = {

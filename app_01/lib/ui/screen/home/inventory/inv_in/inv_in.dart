@@ -4,14 +4,19 @@ import 'package:app_01/bloc/master/master_bloc.dart';
 import 'package:app_01/bloc/master/master_event.dart';
 import 'package:app_01/bloc/master/master_state.dart';
 import 'package:app_01/config/constant.dart';
+import 'package:app_01/cubit/add_detail_cubit.dart';
+import 'package:app_01/service/admin.dart';
 import 'package:app_01/src/generated/Inventory.pb.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
+import 'package:app_01/src/generated/timestamp.pb.dart';
 import 'package:app_01/ui/common/my_constant.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
 import 'package:app_01/ui/reusable/global_widget.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_in/barcode_scanner_invin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:objectid/objectid.dart';
 
 class InvInPage extends StatefulWidget {
   final String voucherNo;
@@ -27,10 +32,11 @@ class _InvInPageState extends State<InvInPage> {
   final _globalFunction = GlobalFunction();
   DateTime _selectedDate = DateTime.now(), initialDate = DateTime.now();
   TextEditingController _etDate = TextEditingController();
-
+  //Bloc
   late MasterBloc _masterBloc;
   late InventoryBloc _inventoryBloc;
-
+  //Cubit
+  late AddDetailCubit _addDetailCubit;
   Color _underlineColor = Color(0xFFCCCCCC);
   Color _mainColor = PRIMARY_COLOR;
   Color _color1 = Color(0xFF515151);
@@ -41,8 +47,16 @@ class _InvInPageState extends State<InvInPage> {
   TextEditingController _etInvInNo = TextEditingController();
   TextEditingController _etInvInReqNo = TextEditingController();
 
+  //Header data
+  grpcInvInHeaderModel _invInHeaderModel = new grpcInvInHeaderModel();
+  //Detail data
+  List<grpcInvInDetailModel> _listInvInDetailModel = [];
+  //
+  List<GridModel> listView = [];
+
   @override
   void initState() {
+    _addDetailCubit = BlocProvider.of<AddDetailCubit>(context);
     _masterBloc = BlocProvider.of<MasterBloc>(context);
     _masterBloc.add(GetVoucherNo(voucherCode: VoucherCode.InvIn));
     _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
@@ -70,10 +84,25 @@ class _InvInPageState extends State<InvInPage> {
             state.InvInReqData.details.forEach((element) {
               if (element.reqQty.units > element.doneQty.units) {
                 _invInReqData.details.add(element);
+                var row = new GridModel();
+                row.LineNo = element.lineNo;
+                listView.add(row);
               }
             });
             _invInReqData.header = state.InvInReqData.header;
             _etInvInReqNo.text = _invInReqData.header.invInReqNo;
+            //
+            copyPropertiesData();
+          }
+          if (state is SaveVoucherInvInSuccess) {
+            // Reload lại màn hình khi save voucher thành công
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => super.widget));
+            Fluttertoast.showToast(
+                msg: 'Yêu cầu thành công: ' + state.Response.stringValue,
+                toastLength: Toast.LENGTH_LONG);
           }
         },
         child: BlocBuilder<InventoryBloc, InventoryState>(
@@ -164,9 +193,28 @@ class _InvInPageState extends State<InvInPage> {
                     margin: EdgeInsets.symmetric(vertical: 8),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: DataTable(
-                        columns: _createColumns,
-                        rows: _createRows,
+                      child: BlocListener<AddDetailCubit, AddDetailState>(
+                        listener: (context, state) {
+                          if (state is AddDetailRowInSuccess) {
+                            Navigator.pop(context);
+                            //Remove record & add again after scan
+                            _listInvInDetailModel.removeWhere((element) =>
+                                element.lineNo == state.RowDetail.lineNo);
+                            _listInvInDetailModel.add(state.RowDetail);
+                            var model = listView.firstWhere((element) =>
+                                element.LineNo == state.RowDetail.lineNo);
+                            model.InvInQty =
+                                state.RowDetail.inOutQty.units.toInt();
+                          }
+                        },
+                        child: BlocBuilder<AddDetailCubit, AddDetailState>(
+                          builder: (context, state) {
+                            return DataTable(
+                              columns: _createColumns,
+                              rows: _createRows,
+                            );
+                          },
+                        ),
                       ),
                     )),
               ],
@@ -174,25 +222,49 @@ class _InvInPageState extends State<InvInPage> {
           },
         ),
       ),
-      // bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
-      //   Fluttertoast.showToast(
-      //       msg: 'Click Confirm ', toastLength: Toast.LENGTH_SHORT);
-      // }),
+      bottomSheet: _globalWidget.buildButtonConfirm(context, onTap: () {
+        if (_listInvInDetailModel.length != 0) {
+          _showPopupConfirm();
+        } else {
+          Fluttertoast.showToast(
+              msg: 'Chưa nhập SL', toastLength: Toast.LENGTH_LONG);
+        }
+      }, textButtonConfirm: TEXTBUTTONCONFIRM, textButtonBack: TEXTBUTTONBACK),
     );
   }
 
   List<DataRow> get _createRows {
     return _invInReqData.details.map((e) {
-      String reqQty = (e.reqQty.units - e.doneQty.units).toString();
+      var row = listView.firstWhere((element) => element.LineNo == e.lineNo);
+
+      int reqQty = (e.reqQty.units - e.doneQty.units).toInt();
+      //Scan SL nhập = SL yc
+      if (row.InvInQty == reqQty) {
+        row.IsSeclected = true;
+        row.Color = Colors.green;
+      }
+      //Scan SL nhập < SL yc
+      if (row.InvInQty != 0 && row.InvInQty < reqQty) {
+        row.IsSeclected = true;
+        row.Color = Colors.orange;
+      }
       return DataRow(
+        selected: row.IsSeclected,
+        color: MaterialStateProperty.resolveWith<Color?>(
+            (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return row.Color;
+          }
+          return null; // Use the default value.
+        }),
         onLongPress: () {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => BarcodeScannerInvInPage(
                         invInNo: _voucherNoData.voucherNo,
-                        reqQty: reqQty,
-                        headerModel: _invInReqData.header,
+                        reqQty: reqQty.toString(),
+                        headerModel: _invInHeaderModel,
                         detailModel: e,
                       )));
         },
@@ -201,7 +273,8 @@ class _InvInPageState extends State<InvInPage> {
           DataCell(Text(e.productName)),
           DataCell(Text(e.unitName)),
           DataCell(Text(e.packingQty.units.toString())),
-          DataCell(Text(reqQty)),
+          DataCell(Text(reqQty.toString())),
+          DataCell(Text(row.InvInQty.toString())),
           DataCell(Text(e.doneQty.units.toString())),
         ],
       );
@@ -216,6 +289,7 @@ class _InvInPageState extends State<InvInPage> {
       DataColumn(label: Text('SLĐG'), numeric: true),
       DataColumn(label: Text('SL yêu cầu'), numeric: true),
       DataColumn(label: Text('SL nhập'), numeric: true),
+      DataColumn(label: Text('Thực nhập'), numeric: true),
     ];
   }
 
@@ -247,4 +321,74 @@ class _InvInPageState extends State<InvInPage> {
       });
     }
   }
+
+  void _showPopupConfirm() {
+    // set up the buttons
+    Widget cancelButton = TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text('Không', style: TextStyle(color: SOFT_BLUE)));
+    Widget continueButton = TextButton(
+        onPressed: () {
+          _inventoryBloc.add(SaveVoucherInvIn(
+              headerModel: _invInHeaderModel,
+              detailModel: _listInvInDetailModel));
+        },
+        child: Text('Có', style: TextStyle(color: SOFT_BLUE)));
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      title: Text(
+        'Nhập kho',
+        style: TextStyle(fontSize: 18),
+      ),
+      content: Text('Bạn chắc chắn muốn xử lý nhập kho?',
+          style: TextStyle(fontSize: 13)),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  void copyPropertiesData() {
+    //Header
+    _invInHeaderModel.invInNo = _voucherNoData.voucherNo;
+    _invInHeaderModel.invInDate = Timestamp.fromDateTime(DateTime.now());
+
+    _invInHeaderModel.updMode = MyConstant.UpdMode_Addnew;
+    _invInHeaderModel.invInReqNo = _invInReqData.header.invInReqNo;
+    _invInHeaderModel.invInProcDate = _invInReqData.header.invInProcDate;
+    _invInHeaderModel.inInvCode = _invInReqData.header.inInvCode;
+    _invInHeaderModel.inInvName = _invInReqData.header.inInvName;
+    _invInHeaderModel.reason = _invInReqData.header.reason;
+    _invInHeaderModel.reqNotes = _invInReqData.header.reqNotes;
+    _invInHeaderModel.reqStaffID = _invInReqData.header.reqStaffID;
+    _invInHeaderModel.invAccType = _invInReqData.header.invAccType;
+    _invInHeaderModel.refUpdCount = _invInReqData.header.updCount;
+    _invInHeaderModel.invDeptCode = _invInReqData.header.invDeptCode;
+    var userInfo = AdminService.getUserInfo();
+    _invInHeaderModel.staffID = userInfo.staffID;
+    _invInHeaderModel.deptCode = userInfo.deptCode;
+    _invInHeaderModel.updAccountID = userInfo.staffID;
+    _invInHeaderModel.updTransactionID = ObjectId().hexString;
+  }
+}
+
+class GridModel {
+  int LineNo = 0;
+  bool IsSeclected = false;
+  int InvInQty = 0;
+  MaterialColor Color = Colors.grey;
 }

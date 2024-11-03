@@ -919,9 +919,10 @@ message grpcAllowanceMasterModel
     string AllowanceName = 4;
     google.protobuf.Timestamp StartDate = 5;
     CustomTypes.Decimal AmountN = 6;
-    bool IsTax = 7;
-    int32 UpdMode = 8;
-    google.protobuf.Timestamp UpdDateTime = 9;
+    int32 AllowanceType = 7;
+    bool IsTax = 8;
+    int32 UpdMode = 9;
+    google.protobuf.Timestamp UpdDateTime = 10;
 }
 //>>> End generated AllowanceMaster message
 //>>> Start generated ScreenDeployment message

@@ -9082,6 +9082,7 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
     $core.String? allowanceName,
     $5.Timestamp? startDate,
     $4.Decimal? amountN,
+    $core.int? allowanceType,
     $core.bool? isTax,
     $core.int? updMode,
     $5.Timestamp? updDateTime,
@@ -9105,6 +9106,9 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
     if (amountN != null) {
       $result.amountN = amountN;
     }
+    if (allowanceType != null) {
+      $result.allowanceType = allowanceType;
+    }
     if (isTax != null) {
       $result.isTax = isTax;
     }
@@ -9127,9 +9131,10 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'AllowanceName', protoName: 'AllowanceName')
     ..aOM<$5.Timestamp>(5, _omitFieldNames ? '' : 'StartDate', protoName: 'StartDate', subBuilder: $5.Timestamp.create)
     ..aOM<$4.Decimal>(6, _omitFieldNames ? '' : 'AmountN', protoName: 'AmountN', subBuilder: $4.Decimal.create)
-    ..aOB(7, _omitFieldNames ? '' : 'IsTax', protoName: 'IsTax')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..aOM<$5.Timestamp>(9, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'AllowanceType', $pb.PbFieldType.O3, protoName: 'AllowanceType')
+    ..aOB(8, _omitFieldNames ? '' : 'IsTax', protoName: 'IsTax')
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..aOM<$5.Timestamp>(10, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -9213,33 +9218,42 @@ class grpcAllowanceMasterModel extends $pb.GeneratedMessage {
   $4.Decimal ensureAmountN() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $core.bool get isTax => $_getBF(6);
+  $core.int get allowanceType => $_getIZ(6);
   @$pb.TagNumber(7)
-  set isTax($core.bool v) { $_setBool(6, v); }
+  set allowanceType($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasIsTax() => $_has(6);
+  $core.bool hasAllowanceType() => $_has(6);
   @$pb.TagNumber(7)
-  void clearIsTax() => clearField(7);
+  void clearAllowanceType() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get updMode => $_getIZ(7);
+  $core.bool get isTax => $_getBF(7);
   @$pb.TagNumber(8)
-  set updMode($core.int v) { $_setSignedInt32(7, v); }
+  set isTax($core.bool v) { $_setBool(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasUpdMode() => $_has(7);
+  $core.bool hasIsTax() => $_has(7);
   @$pb.TagNumber(8)
-  void clearUpdMode() => clearField(8);
+  void clearIsTax() => clearField(8);
 
   @$pb.TagNumber(9)
-  $5.Timestamp get updDateTime => $_getN(8);
+  $core.int get updMode => $_getIZ(8);
   @$pb.TagNumber(9)
-  set updDateTime($5.Timestamp v) { setField(9, v); }
+  set updMode($core.int v) { $_setSignedInt32(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasUpdDateTime() => $_has(8);
+  $core.bool hasUpdMode() => $_has(8);
   @$pb.TagNumber(9)
-  void clearUpdDateTime() => clearField(9);
-  @$pb.TagNumber(9)
-  $5.Timestamp ensureUpdDateTime() => $_ensure(8);
+  void clearUpdMode() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $5.Timestamp get updDateTime => $_getN(9);
+  @$pb.TagNumber(10)
+  set updDateTime($5.Timestamp v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasUpdDateTime() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearUpdDateTime() => clearField(10);
+  @$pb.TagNumber(10)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(9);
 }
 
 /// >>> End generated AllowanceMaster message

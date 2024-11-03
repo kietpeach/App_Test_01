@@ -1,6 +1,7 @@
 import 'package:app_01/bloc/inventory/inventory_bloc.dart';
 import 'package:app_01/bloc/inventory/inventory_event.dart';
 import 'package:app_01/bloc/inventory/inventory_state.dart';
+import 'package:app_01/cubit/add_detail_cubit.dart';
 import 'package:app_01/service/admin.dart';
 import 'package:app_01/src/generated/Master.pb.dart';
 import 'package:app_01/ui/reusable/global_function.dart';
@@ -26,7 +27,7 @@ import 'package:objectid/objectid.dart';
 class BarcodeScannerInvOutPage extends StatefulWidget {
   final String invOutNo;
   final String reqQty;
-  final grpcInvOutReqHeaderModel headerModel;
+  final grpcInvOutHeaderModel headerModel;
   final grpcInvOutReqDetailModel detailModel;
   const BarcodeScannerInvOutPage(
       {Key? key,
@@ -48,12 +49,12 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
   //Bloc
   late MasterBloc _masterBloc;
   late InventoryBloc _inventoryBloc;
+  //Cubit
+  late AddDetailCubit _addDetailCubit;
   //TextField controller
   List<TextEditingController> _qtyLot = [TextEditingController()];
   //
   List<LotModel> _listLOT = [LotModel()];
-  //Header data
-  grpcInvOutHeaderModel _invOutHeaderModel = new grpcInvOutHeaderModel();
   //Detail data
   List<grpcInvOutDetailModel> _listInvOutDetailModel = [
     new grpcInvOutDetailModel()
@@ -75,6 +76,7 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
 
   @override
   void initState() {
+    _addDetailCubit = BlocProvider.of<AddDetailCubit>(context);
     _inventoryBloc = BlocProvider.of<InventoryBloc>(context);
     _masterBloc = BlocProvider.of<MasterBloc>(context);
     _masterBloc
@@ -102,6 +104,8 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
 
     setState(() {
       _scanBarcode = barcodeScanRes;
+      //_scanBarcode = 'TS_TRANCHAU1/LOT1/20240704/1';
+      //_scanBarcode = 'TAN_TP_004///1';
     });
     final splitted = _scanBarcode.split('/');
     _productCode = splitted[0];
@@ -144,159 +148,137 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
       Fluttertoast.showToast(
           msg: 'Thành công!', toastLength: Toast.LENGTH_SHORT);
     }
-    return BlocListener<InventoryBloc, InventoryState>(
-      listener: (context, state) {
-        if (state is SaveVoucherInvOutSuccess) {
-          Navigator.pop(context);
-          Navigator.pop(context);
-          Navigator.pop(context);
-          Navigator.pop(context);
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      InvOutPage(voucherNo: _invOutHeaderModel.invOutReqNo)));
-          Fluttertoast.showToast(
-              msg: 'Xuất kho thành công, số xuất kho: ' +
-                  state.Response.stringValue,
-              toastLength: Toast.LENGTH_LONG);
-        }
-      },
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: _globalWidget.globalAppBar(),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: _globalWidget.createDetailWidget(
-                    title: 'QRcode', desc: 'Mã vạch QRcode thông thường'),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 8),
-                // this is the start of example
-                child: _globalWidget.createButton(
-                    buttonName: 'Bắt đầu quét mã',
-                    onPressed: () {
-                      scanBarcodeNormal();
-                    }),
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Text(
-                'Mã sản phẩm',
-                style: TextStyle(
-                    fontSize: 15,
-                    color: _color2,
-                    fontWeight: FontWeight.normal),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.detailModel.productCode,
-                      style: TextStyle(fontSize: 16, color: Colors.black),
-                    ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: _globalWidget.globalAppBar(),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              child: _globalWidget.createDetailWidget(
+                  title: 'QRcode', desc: 'Mã vạch QRcode thông thường'),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 8),
+              // this is the start of example
+              child: _globalWidget.createButton(
+                  buttonName: 'Bắt đầu quét mã',
+                  onPressed: () {
+                    scanBarcodeNormal();
+                  }),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Text(
+              'Mã sản phẩm',
+              style: TextStyle(
+                  fontSize: 15, color: _color2, fontWeight: FontWeight.normal),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.detailModel.productCode,
+                    style: TextStyle(fontSize: 16, color: Colors.black),
                   ),
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     Fluttertoast.showToast(
-                  //         msg: 'Click edit name',
-                  //         toastLength: Toast.LENGTH_SHORT);
-                  //   },
-                  //   child: Text('Edit',
-                  //       style: TextStyle(
-                  //         fontSize: 14,
-                  //         fontWeight: FontWeight.bold,
-                  //         color: _color1,
-                  //       )),
-                  // )
-                ],
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Text(
-                'Số lượng yêu cầu xuất',
-                style: TextStyle(
-                    fontSize: 15,
-                    color: _color2,
-                    fontWeight: FontWeight.normal),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.reqQty,
-                      style: TextStyle(fontSize: 16, color: Colors.black),
-                    ),
+                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Fluttertoast.showToast(
+                //         msg: 'Click edit name',
+                //         toastLength: Toast.LENGTH_SHORT);
+                //   },
+                //   child: Text('Edit',
+                //       style: TextStyle(
+                //         fontSize: 14,
+                //         fontWeight: FontWeight.bold,
+                //         color: _color1,
+                //       )),
+                // )
+              ],
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Text(
+              'Số lượng yêu cầu xuất',
+              style: TextStyle(
+                  fontSize: 15, color: _color2, fontWeight: FontWeight.normal),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.reqQty,
+                    style: TextStyle(fontSize: 16, color: Colors.black),
                   ),
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     Fluttertoast.showToast(
-                  //         msg: 'Click edit name',
-                  //         toastLength: Toast.LENGTH_SHORT);
-                  //   },
-                  //   child: Text('Edit',
-                  //       style: TextStyle(
-                  //         fontSize: 14,
-                  //         fontWeight: FontWeight.bold,
-                  //         color: _color1,
-                  //       )),
-                  // )
-                ],
-              ),
-              ListView.builder(
-                itemCount: _listLOT.length,
-                shrinkWrap: true,
-                primary: false,
-                // Add one more item for progress indicator
-                padding: EdgeInsets.symmetric(vertical: 0),
-                itemBuilder: (BuildContext context, int index) {
-                  if (!_productRecord.record.isLOT && _listLOT.first.qty != 0) {
-                    return _buildInventoryCard(index);
-                  }
-                  if (_productRecord.record.isLOT &&
-                      _listLOT.first.lot.isNotEmpty) {
-                    return _buildInventoryLotCard(index);
-                  }
-                },
-              ),
-              SizedBox(
-                height: 42,
-              ),
-            ],
-          ),
+                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Fluttertoast.showToast(
+                //         msg: 'Click edit name',
+                //         toastLength: Toast.LENGTH_SHORT);
+                //   },
+                //   child: Text('Edit',
+                //       style: TextStyle(
+                //         fontSize: 14,
+                //         fontWeight: FontWeight.bold,
+                //         color: _color1,
+                //       )),
+                // )
+              ],
+            ),
+            ListView.builder(
+              itemCount: _listLOT.length,
+              shrinkWrap: true,
+              primary: false,
+              // Add one more item for progress indicator
+              padding: EdgeInsets.symmetric(vertical: 0),
+              itemBuilder: (BuildContext context, int index) {
+                if (!_productRecord.record.isLOT && _listLOT.first.qty != 0) {
+                  return _buildInventoryCard(index);
+                }
+                if (_productRecord.record.isLOT &&
+                    _listLOT.first.lot.isNotEmpty) {
+                  return _buildInventoryLotCard(index);
+                }
+              },
+            ),
+            SizedBox(
+              height: 42,
+            ),
+          ],
         ),
-        bottomSheet: BlocListener<MasterBloc, MasterState>(
-          listener: (context, state) {
-            if (state is GetProductRecordSuccess) {
-              _productRecord = state.ProductRecordData;
-            }
-          },
-          child: _globalWidget.buildButtonConfirm(context, onTap: () {
-            if (_invOutQty != 0 && _invOutQty <= int.parse(widget.reqQty)) {
-              _showPopupConfirm();
-            } else {
-              Fluttertoast.showToast(
-                  msg: 'SL xuất không hợp lệ hoặc vượt quá SL yêu cầu!',
-                  toastLength: Toast.LENGTH_LONG);
-            }
-          },
-              textButtonConfirm: TEXTBUTTONCONFIRM,
-              textButtonBack: TEXTBUTTONBACK),
-        ),
+      ),
+      bottomSheet: BlocListener<MasterBloc, MasterState>(
+        listener: (context, state) {
+          if (state is GetProductRecordSuccess) {
+            _productRecord = state.ProductRecordData;
+          }
+        },
+        child: _globalWidget.buildButtonConfirm(context, onTap: () {
+          if (_invOutQty != 0 && _invOutQty <= int.parse(widget.reqQty)) {
+            copyPropertiesData();
+            _addDetailCubit.addDetailRowOut(_listInvOutDetailModel.first);
+          } else {
+            Fluttertoast.showToast(
+                msg: 'SL xuất không hợp lệ hoặc vượt quá SL yêu cầu!',
+                toastLength: Toast.LENGTH_LONG);
+          }
+        },
+            textButtonConfirm: TEXTBUTTONCONFIRM,
+            textButtonBack: TEXTBUTTONBACK),
       ),
     );
   }
@@ -387,81 +369,16 @@ class _BarcodeScannerInvOutPageState extends State<BarcodeScannerInvOutPage> {
     );
   }
 
-  void _showPopupConfirm() {
-    // set up the buttons
-    Widget cancelButton = TextButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Text('Không', style: TextStyle(color: SOFT_BLUE)));
-    Widget continueButton = TextButton(
-        onPressed: () {
-          copyPropertiesData();
-          _inventoryBloc.add(SaveVoucherInvOut(
-              headerModel: _invOutHeaderModel,
-              detailModel: _listInvOutDetailModel));
-        },
-        child: Text('Có', style: TextStyle(color: SOFT_BLUE)));
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      title: Text(
-        'Xuất kho',
-        style: TextStyle(fontSize: 18),
-      ),
-      content: Text(
-          'Bạn chắc chắn muốn xuất kho sản phẩm ' +
-              widget.detailModel.productCode +
-              ' ?',
-          style: TextStyle(fontSize: 13)),
-      actions: [
-        cancelButton,
-        continueButton,
-      ],
-    );
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
-
   void copyPropertiesData() {
-    //Header
-    _invOutHeaderModel.invOutNo = widget.invOutNo;
-    _invOutHeaderModel.invOutDate = Timestamp.fromDateTime(DateTime.now());
-
-    _invOutHeaderModel.updMode = MyConstant.UpdMode_Addnew;
-    _invOutHeaderModel.invOutReqNo = widget.headerModel.invOutReqNo;
-    _invOutHeaderModel.invOutProcDate = widget.headerModel.invOutProcDate;
-    _invOutHeaderModel.outInvCode = widget.headerModel.outInvCode;
-    _invOutHeaderModel.outInvName = widget.headerModel.outInvName;
-    _invOutHeaderModel.reason = widget.headerModel.reason;
-    _invOutHeaderModel.reqNotes = widget.headerModel.reqNotes;
-    _invOutHeaderModel.reqStaffID = widget.headerModel.reqStaffID;
-    _invOutHeaderModel.invAccType = widget.headerModel.invAccType;
-    _invOutHeaderModel.refUpdCount = widget.headerModel.updCount;
-    _invOutHeaderModel.invDeptCode = widget.headerModel.invDeptCode;
-    var userInfo = AdminService.getUserInfo();
-    _invOutHeaderModel.staffID = userInfo.staffID;
-    _invOutHeaderModel.deptCode = userInfo.deptCode;
-    _invOutHeaderModel.updAccountID = userInfo.staffID;
-    _invOutHeaderModel.updTransactionID = ObjectId().hexString;
-
     //Detail
     //coppy From Header
-    _listInvOutDetailModel.first.staffID = _invOutHeaderModel.staffID;
-    _listInvOutDetailModel.first.deptCode = _invOutHeaderModel.deptCode;
-    _listInvOutDetailModel.first.invDeptCode = _invOutHeaderModel.invDeptCode;
-    _listInvOutDetailModel.first.invOutDate = _invOutHeaderModel.invOutDate;
-    _listInvOutDetailModel.first.outInvCode = _invOutHeaderModel.outInvCode;
-    _listInvOutDetailModel.first.reason = _invOutHeaderModel.reason;
-    _listInvOutDetailModel.first.invAccType = _invOutHeaderModel.invAccType;
+    _listInvOutDetailModel.first.staffID = widget.headerModel.staffID;
+    _listInvOutDetailModel.first.deptCode = widget.headerModel.deptCode;
+    _listInvOutDetailModel.first.invDeptCode = widget.headerModel.invDeptCode;
+    _listInvOutDetailModel.first.invOutDate = widget.headerModel.invOutDate;
+    _listInvOutDetailModel.first.outInvCode = widget.headerModel.outInvCode;
+    _listInvOutDetailModel.first.reason = widget.headerModel.reason;
+    _listInvOutDetailModel.first.invAccType = widget.headerModel.invAccType;
     //
     _listInvOutDetailModel.first.lineNo = widget.detailModel.lineNo;
     _listInvOutDetailModel.first.productCode = widget.detailModel.productCode;

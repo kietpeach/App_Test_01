@@ -616,13 +616,13 @@ message GetInvTransDetail_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    string FactoryCode = 2;
-    string LineCode = 3;
-    string ProductCode = 4;
-    int32 AccBookType = 5;
-    google.protobuf.Timestamp FromDate = 6;
-    google.protobuf.Timestamp ToDate = 7;
-    int32 InvType = 8;
+    int32 AccBookType = 2;
+    int32 InvType = 3;
+    string FactoryCode = 4;
+    string LineCode = 5;
+    string ProductCode = 6;
+    google.protobuf.Timestamp FromDate = 7;
+    google.protobuf.Timestamp ToDate = 8;
 }
 message GetInvTransDetail_Response
 {
@@ -1101,7 +1101,6 @@ message grpcInvAdjSlistModel
     string InvName = 3;
     string Reason = 4;
 }
-
 //>>> End generated InvAdjHeader message
 //>>> Start generated InvMacHeader message
 message SaveVoucherInvMac_Request

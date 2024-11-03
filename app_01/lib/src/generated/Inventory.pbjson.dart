@@ -954,25 +954,25 @@ const GetInvTransDetail_Request$json = {
   '1': 'GetInvTransDetail_Request',
   '2': [
     {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'FactoryCode', '3': 2, '4': 1, '5': 9, '10': 'FactoryCode'},
-    {'1': 'LineCode', '3': 3, '4': 1, '5': 9, '10': 'LineCode'},
-    {'1': 'ProductCode', '3': 4, '4': 1, '5': 9, '10': 'ProductCode'},
-    {'1': 'AccBookType', '3': 5, '4': 1, '5': 5, '10': 'AccBookType'},
-    {'1': 'FromDate', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
-    {'1': 'ToDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
-    {'1': 'InvType', '3': 8, '4': 1, '5': 5, '10': 'InvType'},
+    {'1': 'AccBookType', '3': 2, '4': 1, '5': 5, '10': 'AccBookType'},
+    {'1': 'InvType', '3': 3, '4': 1, '5': 5, '10': 'InvType'},
+    {'1': 'FactoryCode', '3': 4, '4': 1, '5': 9, '10': 'FactoryCode'},
+    {'1': 'LineCode', '3': 5, '4': 1, '5': 9, '10': 'LineCode'},
+    {'1': 'ProductCode', '3': 6, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'FromDate', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'FromDate'},
+    {'1': 'ToDate', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'ToDate'},
   ],
 };
 
 /// Descriptor for `GetInvTransDetail_Request`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getInvTransDetail_RequestDescriptor = $convert.base64Decode(
     'ChlHZXRJbnZUcmFuc0RldGFpbF9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYASABKAsyIi5ncnBjQ2'
-    '9tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSIAoLRmFjdG9yeUNvZGUY'
-    'AiABKAlSC0ZhY3RvcnlDb2RlEhoKCExpbmVDb2RlGAMgASgJUghMaW5lQ29kZRIgCgtQcm9kdW'
-    'N0Q29kZRgEIAEoCVILUHJvZHVjdENvZGUSIAoLQWNjQm9va1R5cGUYBSABKAVSC0FjY0Jvb2tU'
-    'eXBlEjYKCEZyb21EYXRlGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIIRnJvbU'
-    'RhdGUSMgoGVG9EYXRlGAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIGVG9EYXRl'
-    'EhgKB0ludlR5cGUYCCABKAVSB0ludlR5cGU=');
+    '9tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSIAoLQWNjQm9va1R5cGUY'
+    'AiABKAVSC0FjY0Jvb2tUeXBlEhgKB0ludlR5cGUYAyABKAVSB0ludlR5cGUSIAoLRmFjdG9yeU'
+    'NvZGUYBCABKAlSC0ZhY3RvcnlDb2RlEhoKCExpbmVDb2RlGAUgASgJUghMaW5lQ29kZRIgCgtQ'
+    'cm9kdWN0Q29kZRgGIAEoCVILUHJvZHVjdENvZGUSNgoIRnJvbURhdGUYByABKAsyGi5nb29nbG'
+    'UucHJvdG9idWYuVGltZXN0YW1wUghGcm9tRGF0ZRIyCgZUb0RhdGUYCCABKAsyGi5nb29nbGUu'
+    'cHJvdG9idWYuVGltZXN0YW1wUgZUb0RhdGU=');
 
 @$core.Deprecated('Use getInvTransDetail_ResponseDescriptor instead')
 const GetInvTransDetail_Response$json = {

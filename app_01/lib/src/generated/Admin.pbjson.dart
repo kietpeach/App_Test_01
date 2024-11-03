@@ -1651,9 +1651,10 @@ const grpcAllowanceMasterModel$json = {
     {'1': 'AllowanceName', '3': 4, '4': 1, '5': 9, '10': 'AllowanceName'},
     {'1': 'StartDate', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'StartDate'},
     {'1': 'AmountN', '3': 6, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'AmountN'},
-    {'1': 'IsTax', '3': 7, '4': 1, '5': 8, '10': 'IsTax'},
-    {'1': 'UpdMode', '3': 8, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdDateTime', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'AllowanceType', '3': 7, '4': 1, '5': 5, '10': 'AllowanceType'},
+    {'1': 'IsTax', '3': 8, '4': 1, '5': 8, '10': 'IsTax'},
+    {'1': 'UpdMode', '3': 9, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdDateTime', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -1663,9 +1664,10 @@ final $typed_data.Uint8List grpcAllowanceMasterModelDescriptor = $convert.base64
     'EoBVIGTGluZU5vEiQKDUFsbG93YW5jZUNvZGUYAyABKAlSDUFsbG93YW5jZUNvZGUSJAoNQWxs'
     'b3dhbmNlTmFtZRgEIAEoCVINQWxsb3dhbmNlTmFtZRI4CglTdGFydERhdGUYBSABKAsyGi5nb2'
     '9nbGUucHJvdG9idWYuVGltZXN0YW1wUglTdGFydERhdGUSLgoHQW1vdW50ThgGIAEoCzIULkN1'
-    'c3RvbVR5cGVzLkRlY2ltYWxSB0Ftb3VudE4SFAoFSXNUYXgYByABKAhSBUlzVGF4EhgKB1VwZE'
-    '1vZGUYCCABKAVSB1VwZE1vZGUSPAoLVXBkRGF0ZVRpbWUYCSABKAsyGi5nb29nbGUucHJvdG9i'
-    'dWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
+    'c3RvbVR5cGVzLkRlY2ltYWxSB0Ftb3VudE4SJAoNQWxsb3dhbmNlVHlwZRgHIAEoBVINQWxsb3'
+    'dhbmNlVHlwZRIUCgVJc1RheBgIIAEoCFIFSXNUYXgSGAoHVXBkTW9kZRgJIAEoBVIHVXBkTW9k'
+    'ZRI8CgtVcGREYXRlVGltZRgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZE'
+    'RhdGVUaW1l');
 
 @$core.Deprecated('Use saveScreenDeployment_RequestDescriptor instead')
 const SaveScreenDeployment_Request$json = {
