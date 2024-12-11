@@ -180,6 +180,124 @@ final $typed_data.Uint8List updateDeptFromStaffToWage_RequestDescriptor = $conve
     'IiLmdycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIYCgdTdGFm'
     'ZklEGAIgASgJUgdTdGFmZklEEhoKCERlcHRDb2RlGAMgASgJUghEZXB0Q29kZQ==');
 
+@$core.Deprecated('Use grpcChildComboModelDescriptor instead')
+const grpcChildComboModel$json = {
+  '1': 'grpcChildComboModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 3, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'UnitCode', '3': 4, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 5, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'Specification', '3': 6, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'Quantity', '3': 7, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Quantity'},
+    {'1': 'UnitPrice', '3': 8, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnitPrice'},
+    {'1': 'Amount', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Amount'},
+    {'1': 'Notes', '3': 10, '4': 1, '5': 9, '10': 'Notes'},
+    {'1': 'UpdMode', '3': 11, '4': 1, '5': 5, '10': 'UpdMode'},
+  ],
+};
+
+/// Descriptor for `grpcChildComboModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcChildComboModelDescriptor = $convert.base64Decode(
+    'ChNncnBjQ2hpbGRDb21ib01vZGVsEg4KAklEGAEgASgJUgJJRBIgCgtQcm9kdWN0Q29kZRgCIA'
+    'EoCVILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYAyABKAlSC1Byb2R1Y3ROYW1lEhoKCFVu'
+    'aXRDb2RlGAQgASgJUghVbml0Q29kZRIaCghVbml0TmFtZRgFIAEoCVIIVW5pdE5hbWUSJAoNU3'
+    'BlY2lmaWNhdGlvbhgGIAEoCVINU3BlY2lmaWNhdGlvbhIwCghRdWFudGl0eRgHIAEoCzIULkN1'
+    'c3RvbVR5cGVzLkRlY2ltYWxSCFF1YW50aXR5EjIKCVVuaXRQcmljZRgIIAEoCzIULkN1c3RvbV'
+    'R5cGVzLkRlY2ltYWxSCVVuaXRQcmljZRIsCgZBbW91bnQYCSABKAsyFC5DdXN0b21UeXBlcy5E'
+    'ZWNpbWFsUgZBbW91bnQSFAoFTm90ZXMYCiABKAlSBU5vdGVzEhgKB1VwZE1vZGUYCyABKAVSB1'
+    'VwZE1vZGU=');
+
+@$core.Deprecated('Use saveComboProduct_RequestDescriptor instead')
+const SaveComboProduct_Request$json = {
+  '1': 'SaveComboProduct_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'Record', '3': 2, '4': 1, '5': 11, '6': '.grpcMasterService.grpcComboProductModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `SaveComboProduct_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List saveComboProduct_RequestDescriptor = $convert.base64Decode(
+    'ChhTYXZlQ29tYm9Qcm9kdWN0X1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycGNDb2'
+    '1tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBJACgZSZWNvcmQYAiABKAsy'
+    'KC5ncnBjTWFzdGVyU2VydmljZS5ncnBjQ29tYm9Qcm9kdWN0TW9kZWxSBlJlY29yZA==');
+
+@$core.Deprecated('Use getComboProduct_ResponseDescriptor instead')
+const GetComboProduct_Response$json = {
+  '1': 'GetComboProduct_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Records', '3': 3, '4': 3, '5': 11, '6': '.grpcMasterService.grpcComboProductModel', '10': 'Records'},
+  ],
+};
+
+/// Descriptor for `GetComboProduct_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getComboProduct_ResponseDescriptor = $convert.base64Decode(
+    'ChhHZXRDb21ib1Byb2R1Y3RfUmVzcG9uc2USHgoKUmV0dXJuQ29kZRgBIAEoBVIKUmV0dXJuQ2'
+    '9kZRIYCgdNc2dDb2RlGAIgASgJUgdNc2dDb2RlEkIKB1JlY29yZHMYAyADKAsyKC5ncnBjTWFz'
+    'dGVyU2VydmljZS5ncnBjQ29tYm9Qcm9kdWN0TW9kZWxSB1JlY29yZHM=');
+
+@$core.Deprecated('Use grpcComboProductModelDescriptor instead')
+const grpcComboProductModel$json = {
+  '1': 'grpcComboProductModel',
+  '2': [
+    {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
+    {'1': 'ClassCode1', '3': 2, '4': 1, '5': 9, '10': 'ClassCode1'},
+    {'1': 'ProductCode', '3': 3, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 4, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'UnitCode', '3': 5, '4': 1, '5': 9, '10': 'UnitCode'},
+    {'1': 'UnitName', '3': 6, '4': 1, '5': 9, '10': 'UnitName'},
+    {'1': 'Specification', '3': 7, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'Quantity', '3': 8, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Quantity'},
+    {'1': 'UnitPrice', '3': 9, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'UnitPrice'},
+    {'1': 'Amount', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Amount'},
+    {'1': 'Notes', '3': 11, '4': 1, '5': 9, '10': 'Notes'},
+    {'1': 'Children', '3': 12, '4': 3, '5': 11, '6': '.grpcMasterService.grpcChildComboModel', '10': 'Children'},
+    {'1': 'UpdMode', '3': 13, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 14, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 15, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 16, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 17, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'CrtDateTime', '3': 18, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'CrtDateTime'},
+  ],
+};
+
+/// Descriptor for `grpcComboProductModel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List grpcComboProductModelDescriptor = $convert.base64Decode(
+    'ChVncnBjQ29tYm9Qcm9kdWN0TW9kZWwSDgoCSUQYASABKAlSAklEEh4KCkNsYXNzQ29kZTEYAi'
+    'ABKAlSCkNsYXNzQ29kZTESIAoLUHJvZHVjdENvZGUYAyABKAlSC1Byb2R1Y3RDb2RlEiAKC1By'
+    'b2R1Y3ROYW1lGAQgASgJUgtQcm9kdWN0TmFtZRIaCghVbml0Q29kZRgFIAEoCVIIVW5pdENvZG'
+    'USGgoIVW5pdE5hbWUYBiABKAlSCFVuaXROYW1lEiQKDVNwZWNpZmljYXRpb24YByABKAlSDVNw'
+    'ZWNpZmljYXRpb24SMAoIUXVhbnRpdHkYCCABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUghRdW'
+    'FudGl0eRIyCglVbml0UHJpY2UYCSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUglVbml0UHJp'
+    'Y2USLAoGQW1vdW50GAogASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIGQW1vdW50EhQKBU5vdG'
+    'VzGAsgASgJUgVOb3RlcxJCCghDaGlsZHJlbhgMIAMoCzImLmdycGNNYXN0ZXJTZXJ2aWNlLmdy'
+    'cGNDaGlsZENvbWJvTW9kZWxSCENoaWxkcmVuEhgKB1VwZE1vZGUYDSABKAVSB1VwZE1vZGUSGg'
+    'oIVXBkQ291bnQYDiABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYDyABKAlSEFVw'
+    'ZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGBAgASgJUgxVcGRBY2NvdW50SUQSPAoLVX'
+    'BkRGF0ZVRpbWUYESABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGlt'
+    'ZRI8CgtDcnREYXRlVGltZRgSIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC0NydE'
+    'RhdGVUaW1l');
+
+@$core.Deprecated('Use getSettingMasterRecord_ResponseDescriptor instead')
+const GetSettingMasterRecord_Response$json = {
+  '1': 'GetSettingMasterRecord_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcMasterService.grpcSettingMasterModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `GetSettingMasterRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getSettingMasterRecord_ResponseDescriptor = $convert.base64Decode(
+    'Ch9HZXRTZXR0aW5nTWFzdGVyUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSCl'
+    'JldHVybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRJBCgZSZWNvcmQYAyABKAsyKS5n'
+    'cnBjTWFzdGVyU2VydmljZS5ncnBjU2V0dGluZ01hc3Rlck1vZGVsUgZSZWNvcmQ=');
+
 @$core.Deprecated('Use saveWorkingTimeMaster_RequestDescriptor instead')
 const SaveWorkingTimeMaster_Request$json = {
   '1': 'SaveWorkingTimeMaster_Request',
@@ -819,38 +937,6 @@ final $typed_data.Uint8List getAddressMaster_ResponseDescriptor = $convert.base6
     'NvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRJDCgdSZWNvcmRzGAMgAygLMikuZ3JwY01h'
     'c3RlclNlcnZpY2UuZ3JwY0FkZHJlc3NNYXN0ZXJNb2RlbFIHUmVjb3Jkcw==');
 
-@$core.Deprecated('Use getAddressMasterRecord_RequestDescriptor instead')
-const GetAddressMasterRecord_Request$json = {
-  '1': 'GetAddressMasterRecord_Request',
-  '2': [
-    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'ParentRecordNo', '3': 2, '4': 1, '5': 9, '10': 'ParentRecordNo'},
-    {'1': 'Code', '3': 3, '4': 1, '5': 9, '10': 'Code'},
-  ],
-};
-
-/// Descriptor for `GetAddressMasterRecord_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAddressMasterRecord_RequestDescriptor = $convert.base64Decode(
-    'Ch5HZXRBZGRyZXNzTWFzdGVyUmVjb3JkX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLm'
-    'dycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBImCg5QYXJlbnRS'
-    'ZWNvcmRObxgCIAEoCVIOUGFyZW50UmVjb3JkTm8SEgoEQ29kZRgDIAEoCVIEQ29kZQ==');
-
-@$core.Deprecated('Use getAddressMasterRecord_ResponseDescriptor instead')
-const GetAddressMasterRecord_Response$json = {
-  '1': 'GetAddressMasterRecord_Response',
-  '2': [
-    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
-    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
-    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcMasterService.grpcAddressMasterModel', '10': 'Record'},
-  ],
-};
-
-/// Descriptor for `GetAddressMasterRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAddressMasterRecord_ResponseDescriptor = $convert.base64Decode(
-    'Ch9HZXRBZGRyZXNzTWFzdGVyUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSCl'
-    'JldHVybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRJBCgZSZWNvcmQYAyABKAsyKS5n'
-    'cnBjTWFzdGVyU2VydmljZS5ncnBjQWRkcmVzc01hc3Rlck1vZGVsUgZSZWNvcmQ=');
-
 @$core.Deprecated('Use saveAddressMaster_RequestDescriptor instead')
 const SaveAddressMaster_Request$json = {
   '1': 'SaveAddressMaster_Request',
@@ -881,6 +967,41 @@ final $typed_data.Uint8List saveListAddressMaster_RequestDescriptor = $convert.b
     'JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEkMKB1JlY29yZHMY'
     'AiADKAsyKS5ncnBjTWFzdGVyU2VydmljZS5ncnBjQWRkcmVzc01hc3Rlck1vZGVsUgdSZWNvcm'
     'Rz');
+
+@$core.Deprecated('Use getAddressMasterRecord_RequestDescriptor instead')
+const GetAddressMasterRecord_Request$json = {
+  '1': 'GetAddressMasterRecord_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'ParentRecordNo', '3': 2, '4': 1, '5': 9, '10': 'ParentRecordNo'},
+    {'1': 'Level', '3': 3, '4': 1, '5': 5, '10': 'Level'},
+    {'1': 'ParentCode', '3': 4, '4': 1, '5': 9, '10': 'ParentCode'},
+    {'1': 'Code', '3': 5, '4': 1, '5': 9, '10': 'Code'},
+  ],
+};
+
+/// Descriptor for `GetAddressMasterRecord_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAddressMasterRecord_RequestDescriptor = $convert.base64Decode(
+    'Ch5HZXRBZGRyZXNzTWFzdGVyUmVjb3JkX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLm'
+    'dycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBImCg5QYXJlbnRS'
+    'ZWNvcmRObxgCIAEoCVIOUGFyZW50UmVjb3JkTm8SFAoFTGV2ZWwYAyABKAVSBUxldmVsEh4KCl'
+    'BhcmVudENvZGUYBCABKAlSClBhcmVudENvZGUSEgoEQ29kZRgFIAEoCVIEQ29kZQ==');
+
+@$core.Deprecated('Use getAddressMasterRecord_ResponseDescriptor instead')
+const GetAddressMasterRecord_Response$json = {
+  '1': 'GetAddressMasterRecord_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcMasterService.grpcAddressMasterModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `GetAddressMasterRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAddressMasterRecord_ResponseDescriptor = $convert.base64Decode(
+    'Ch9HZXRBZGRyZXNzTWFzdGVyUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSCl'
+    'JldHVybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRJBCgZSZWNvcmQYAyABKAsyKS5n'
+    'cnBjTWFzdGVyU2VydmljZS5ncnBjQWRkcmVzc01hc3Rlck1vZGVsUgZSZWNvcmQ=');
 
 @$core.Deprecated('Use grpcAddressMasterModelDescriptor instead')
 const grpcAddressMasterModel$json = {
@@ -2450,6 +2571,56 @@ final $typed_data.Uint8List updateVendorContact_RequestDescriptor = $convert.bas
     'xDb250YWN0UGhvbmUYBCABKAlSDENvbnRhY3RQaG9uZRIiCgxDb250YWN0RW1haWwYBSABKAlS'
     'DENvbnRhY3RFbWFpbA==');
 
+@$core.Deprecated('Use checkDuplicatedVendorName_RequestDescriptor instead')
+const CheckDuplicatedVendorName_Request$json = {
+  '1': 'CheckDuplicatedVendorName_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'VendorID', '3': 2, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'VendorName', '3': 3, '4': 1, '5': 9, '10': 'VendorName'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedVendorName_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedVendorName_RequestDescriptor = $convert.base64Decode(
+    'CiFDaGVja0R1cGxpY2F0ZWRWZW5kb3JOYW1lX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCz'
+    'IiLmdycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIaCghWZW5k'
+    'b3JJRBgCIAEoCVIIVmVuZG9ySUQSHgoKVmVuZG9yTmFtZRgDIAEoCVIKVmVuZG9yTmFtZQ==');
+
+@$core.Deprecated('Use checkDuplicatedVendorFullName_RequestDescriptor instead')
+const CheckDuplicatedVendorFullName_Request$json = {
+  '1': 'CheckDuplicatedVendorFullName_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'VendorID', '3': 2, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'VendorFullName', '3': 3, '4': 1, '5': 9, '10': 'VendorFullName'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedVendorFullName_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedVendorFullName_RequestDescriptor = $convert.base64Decode(
+    'CiVDaGVja0R1cGxpY2F0ZWRWZW5kb3JGdWxsTmFtZV9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYAS'
+    'ABKAsyIi5ncnBjQ29tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSGgoI'
+    'VmVuZG9ySUQYAiABKAlSCFZlbmRvcklEEiYKDlZlbmRvckZ1bGxOYW1lGAMgASgJUg5WZW5kb3'
+    'JGdWxsTmFtZQ==');
+
+@$core.Deprecated('Use checkDuplicatedVendorTaxCode_RequestDescriptor instead')
+const CheckDuplicatedVendorTaxCode_Request$json = {
+  '1': 'CheckDuplicatedVendorTaxCode_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'VendorID', '3': 2, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'ComTaxCode', '3': 3, '4': 1, '5': 9, '10': 'ComTaxCode'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedVendorTaxCode_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedVendorTaxCode_RequestDescriptor = $convert.base64Decode(
+    'CiRDaGVja0R1cGxpY2F0ZWRWZW5kb3JUYXhDb2RlX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIA'
+    'EoCzIiLmdycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIaCghW'
+    'ZW5kb3JJRBgCIAEoCVIIVmVuZG9ySUQSHgoKQ29tVGF4Q29kZRgDIAEoCVIKQ29tVGF4Q29kZQ'
+    '==');
+
 @$core.Deprecated('Use grpcVendorModelDescriptor instead')
 const grpcVendorModel$json = {
   '1': 'grpcVendorModel',
@@ -2477,17 +2648,19 @@ const grpcVendorModel$json = {
     {'1': 'ShipLeadTime', '3': 21, '4': 1, '5': 5, '10': 'ShipLeadTime'},
     {'1': 'ImportLeadTime', '3': 22, '4': 1, '5': 5, '10': 'ImportLeadTime'},
     {'1': 'TaxFlag', '3': 23, '4': 1, '5': 5, '10': 'TaxFlag'},
-    {'1': 'IsFactory', '3': 24, '4': 1, '5': 8, '10': 'IsFactory'},
-    {'1': 'ComTaxCode', '3': 25, '4': 1, '5': 9, '10': 'ComTaxCode'},
-    {'1': 'BankAccounts', '3': 26, '4': 3, '5': 11, '6': '.grpcMasterService.grpcBankAccountModel', '10': 'BankAccounts'},
-    {'1': 'Enabled', '3': 27, '4': 1, '5': 8, '10': 'Enabled'},
-    {'1': 'AccID', '3': 28, '4': 1, '5': 9, '10': 'AccID'},
-    {'1': 'POType', '3': 29, '4': 1, '5': 5, '10': 'POType'},
-    {'1': 'UpdMode', '3': 30, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 31, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 32, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 33, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 34, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'AccID', '3': 24, '4': 1, '5': 9, '10': 'AccID'},
+    {'1': 'IsFactory', '3': 25, '4': 1, '5': 8, '10': 'IsFactory'},
+    {'1': 'IsCustomer', '3': 26, '4': 1, '5': 8, '10': 'IsCustomer'},
+    {'1': 'CusAccID', '3': 27, '4': 1, '5': 9, '10': 'CusAccID'},
+    {'1': 'ComTaxCode', '3': 28, '4': 1, '5': 9, '10': 'ComTaxCode'},
+    {'1': 'BankAccounts', '3': 29, '4': 3, '5': 11, '6': '.grpcMasterService.grpcBankAccountModel', '10': 'BankAccounts'},
+    {'1': 'Enabled', '3': 30, '4': 1, '5': 8, '10': 'Enabled'},
+    {'1': 'POType', '3': 31, '4': 1, '5': 5, '10': 'POType'},
+    {'1': 'UpdMode', '3': 32, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 33, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 34, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 35, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 36, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -2507,14 +2680,15 @@ final $typed_data.Uint8List grpcVendorModelDescriptor = $convert.base64Decode(
     'FzdFB1cmNoYXNlRGF0ZRgUIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSEExhc3RQ'
     'dXJjaGFzZURhdGUSIgoMU2hpcExlYWRUaW1lGBUgASgFUgxTaGlwTGVhZFRpbWUSJgoOSW1wb3'
     'J0TGVhZFRpbWUYFiABKAVSDkltcG9ydExlYWRUaW1lEhgKB1RheEZsYWcYFyABKAVSB1RheEZs'
-    'YWcSHAoJSXNGYWN0b3J5GBggASgIUglJc0ZhY3RvcnkSHgoKQ29tVGF4Q29kZRgZIAEoCVIKQ2'
-    '9tVGF4Q29kZRJLCgxCYW5rQWNjb3VudHMYGiADKAsyJy5ncnBjTWFzdGVyU2VydmljZS5ncnBj'
-    'QmFua0FjY291bnRNb2RlbFIMQmFua0FjY291bnRzEhgKB0VuYWJsZWQYGyABKAhSB0VuYWJsZW'
-    'QSFAoFQWNjSUQYHCABKAlSBUFjY0lEEhYKBlBPVHlwZRgdIAEoBVIGUE9UeXBlEhgKB1VwZE1v'
-    'ZGUYHiABKAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYHyABKAVSCFVwZENvdW50EioKEFVwZFRyYW'
-    '5zYWN0aW9uSUQYICABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGCEgASgJ'
-    'UgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYIiABKAsyGi5nb29nbGUucHJvdG9idWYuVG'
-    'ltZXN0YW1wUgtVcGREYXRlVGltZQ==');
+    'YWcSFAoFQWNjSUQYGCABKAlSBUFjY0lEEhwKCUlzRmFjdG9yeRgZIAEoCFIJSXNGYWN0b3J5Eh'
+    '4KCklzQ3VzdG9tZXIYGiABKAhSCklzQ3VzdG9tZXISGgoIQ3VzQWNjSUQYGyABKAlSCEN1c0Fj'
+    'Y0lEEh4KCkNvbVRheENvZGUYHCABKAlSCkNvbVRheENvZGUSSwoMQmFua0FjY291bnRzGB0gAy'
+    'gLMicuZ3JwY01hc3RlclNlcnZpY2UuZ3JwY0JhbmtBY2NvdW50TW9kZWxSDEJhbmtBY2NvdW50'
+    'cxIYCgdFbmFibGVkGB4gASgIUgdFbmFibGVkEhYKBlBPVHlwZRgfIAEoBVIGUE9UeXBlEhgKB1'
+    'VwZE1vZGUYICABKAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYISABKAVSCFVwZENvdW50EioKEFVw'
+    'ZFRyYW5zYWN0aW9uSUQYIiABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGC'
+    'MgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYJCABKAsyGi5nb29nbGUucHJvdG9i'
+    'dWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
 
 @$core.Deprecated('Use saveCustomerRank_RequestDescriptor instead')
 const SaveCustomerRank_Request$json = {
@@ -3029,6 +3203,58 @@ final $typed_data.Uint8List updateProduct_RequestDescriptor = $convert.base64Dec
     'MhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKVXBkYXRlU2lnbhI7CgZSZWNvcmQYAyABKAsyIy5ncn'
     'BjTWFzdGVyU2VydmljZS5ncnBjUHJvZHVjdE1vZGVsUgZSZWNvcmQ=');
 
+@$core.Deprecated('Use checkDuplicatedName_RequestDescriptor instead')
+const CheckDuplicatedName_Request$json = {
+  '1': 'CheckDuplicatedName_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'ProductName', '3': 3, '4': 1, '5': 9, '10': 'ProductName'},
+    {'1': 'ProductFullName', '3': 4, '4': 1, '5': 9, '10': 'ProductFullName'},
+    {'1': 'Specification', '3': 5, '4': 1, '5': 9, '10': 'Specification'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedName_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedName_RequestDescriptor = $convert.base64Decode(
+    'ChtDaGVja0R1cGxpY2F0ZWROYW1lX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
+    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIgCgtQcm9kdWN0Q29k'
+    'ZRgCIAEoCVILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYAyABKAlSC1Byb2R1Y3ROYW1lEi'
+    'gKD1Byb2R1Y3RGdWxsTmFtZRgEIAEoCVIPUHJvZHVjdEZ1bGxOYW1lEiQKDVNwZWNpZmljYXRp'
+    'b24YBSABKAlSDVNwZWNpZmljYXRpb24=');
+
+@$core.Deprecated('Use checkDuplicatedHSCode_RequestDescriptor instead')
+const CheckDuplicatedHSCode_Request$json = {
+  '1': 'CheckDuplicatedHSCode_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'HSCode', '3': 3, '4': 1, '5': 9, '10': 'HSCode'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedHSCode_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedHSCode_RequestDescriptor = $convert.base64Decode(
+    'Ch1DaGVja0R1cGxpY2F0ZWRIU0NvZGVfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgASgLMiIuZ3'
+    'JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEiAKC1Byb2R1Y3RD'
+    'b2RlGAIgASgJUgtQcm9kdWN0Q29kZRIWCgZIU0NvZGUYAyABKAlSBkhTQ29kZQ==');
+
+@$core.Deprecated('Use checkDuplicatedBarCode_RequestDescriptor instead')
+const CheckDuplicatedBarCode_Request$json = {
+  '1': 'CheckDuplicatedBarCode_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
+    {'1': 'BarCode', '3': 3, '4': 1, '5': 9, '10': 'BarCode'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedBarCode_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedBarCode_RequestDescriptor = $convert.base64Decode(
+    'Ch5DaGVja0R1cGxpY2F0ZWRCYXJDb2RlX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLm'
+    'dycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIgCgtQcm9kdWN0'
+    'Q29kZRgCIAEoCVILUHJvZHVjdENvZGUSGAoHQmFyQ29kZRgDIAEoCVIHQmFyQ29kZQ==');
+
 @$core.Deprecated('Use grpcProductModelDescriptor instead')
 const grpcProductModel$json = {
   '1': 'grpcProductModel',
@@ -3036,172 +3262,177 @@ const grpcProductModel$json = {
     {'1': 'ID', '3': 1, '4': 1, '5': 9, '10': 'ID'},
     {'1': 'ProductCode', '3': 2, '4': 1, '5': 9, '10': 'ProductCode'},
     {'1': 'ProductName', '3': 3, '4': 1, '5': 9, '10': 'ProductName'},
-    {'1': 'Specification', '3': 4, '4': 1, '5': 9, '10': 'Specification'},
-    {'1': 'HSCode', '3': 5, '4': 1, '5': 9, '10': 'HSCode'},
-    {'1': 'BarCode', '3': 6, '4': 1, '5': 9, '10': 'BarCode'},
-    {'1': 'QRCode', '3': 7, '4': 1, '5': 9, '10': 'QRCode'},
-    {'1': 'SaleProductCode', '3': 8, '4': 1, '5': 9, '10': 'SaleProductCode'},
-    {'1': 'UnitCode1', '3': 9, '4': 1, '5': 9, '10': 'UnitCode1'},
-    {'1': 'UnitName1', '3': 10, '4': 1, '5': 9, '10': 'UnitName1'},
-    {'1': 'UnitCode2', '3': 11, '4': 1, '5': 9, '10': 'UnitCode2'},
-    {'1': 'UnitName2', '3': 12, '4': 1, '5': 9, '10': 'UnitName2'},
-    {'1': 'UnitCode3', '3': 13, '4': 1, '5': 9, '10': 'UnitCode3'},
-    {'1': 'UnitName3', '3': 14, '4': 1, '5': 9, '10': 'UnitName3'},
-    {'1': 'PackingQty1', '3': 15, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty1'},
-    {'1': 'PackingQty2', '3': 16, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty2'},
-    {'1': 'PackingQty3', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty3'},
-    {'1': 'PurchaseUnitCode', '3': 18, '4': 1, '5': 9, '10': 'PurchaseUnitCode'},
-    {'1': 'PurchaseUnitName', '3': 19, '4': 1, '5': 9, '10': 'PurchaseUnitName'},
-    {'1': 'PurchasePackingQty', '3': 20, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchasePackingQty'},
-    {'1': 'SaleUnitCode', '3': 21, '4': 1, '5': 9, '10': 'SaleUnitCode'},
-    {'1': 'SaleUnitName', '3': 22, '4': 1, '5': 9, '10': 'SaleUnitName'},
-    {'1': 'SalePackingQty', '3': 23, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SalePackingQty'},
-    {'1': 'ProductKind', '3': 24, '4': 1, '5': 5, '10': 'ProductKind'},
-    {'1': 'IsSetProduct', '3': 25, '4': 1, '5': 8, '10': 'IsSetProduct'},
-    {'1': 'CanChangeName', '3': 26, '4': 1, '5': 8, '10': 'CanChangeName'},
-    {'1': 'POLeadTime', '3': 27, '4': 1, '5': 5, '10': 'POLeadTime'},
-    {'1': 'ShipLT', '3': 28, '4': 1, '5': 5, '10': 'ShipLT'},
-    {'1': 'ProduceLT', '3': 29, '4': 1, '5': 5, '10': 'ProduceLT'},
-    {'1': 'ColorCode', '3': 30, '4': 1, '5': 9, '10': 'ColorCode'},
-    {'1': 'SizeCode', '3': 31, '4': 1, '5': 9, '10': 'SizeCode'},
-    {'1': 'Weight', '3': 32, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Weight'},
-    {'1': 'Volume', '3': 33, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Volume'},
-    {'1': 'InsideEffectFromDate', '3': 34, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InsideEffectFromDate'},
-    {'1': 'InsideEffectToDate', '3': 35, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InsideEffectToDate'},
-    {'1': 'OutsideEffectFromDate', '3': 36, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'OutsideEffectFromDate'},
-    {'1': 'OutsideEffectToDate', '3': 37, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'OutsideEffectToDate'},
-    {'1': 'IsStock', '3': 38, '4': 1, '5': 8, '10': 'IsStock'},
-    {'1': 'IsLOT', '3': 39, '4': 1, '5': 8, '10': 'IsLOT'},
-    {'1': 'DateType', '3': 40, '4': 1, '5': 9, '10': 'DateType'},
-    {'1': 'WarPeriod', '3': 41, '4': 1, '5': 5, '10': 'WarPeriod'},
-    {'1': 'PeriodFlag', '3': 42, '4': 1, '5': 5, '10': 'PeriodFlag'},
-    {'1': 'MinWarPeriod', '3': 43, '4': 1, '5': 5, '10': 'MinWarPeriod'},
-    {'1': 'ProduceFlag', '3': 44, '4': 1, '5': 5, '10': 'ProduceFlag'},
-    {'1': 'IsKeepStock', '3': 45, '4': 1, '5': 8, '10': 'IsKeepStock'},
-    {'1': 'KeepStockPeriod', '3': 46, '4': 1, '5': 5, '10': 'KeepStockPeriod'},
-    {'1': 'LastPurchaseDate', '3': 47, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPurchaseDate'},
-    {'1': 'LastSaleDate', '3': 48, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSaleDate'},
-    {'1': 'TaxFlag', '3': 49, '4': 1, '5': 5, '10': 'TaxFlag'},
-    {'1': 'PurchaseTaxFlag', '3': 50, '4': 1, '5': 5, '10': 'PurchaseTaxFlag'},
-    {'1': 'VATRate', '3': 51, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VATRate'},
-    {'1': 'ImportTaxRate', '3': 52, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ImportTaxRate'},
-    {'1': 'ExciseTaxRate', '3': 53, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ExciseTaxRate'},
-    {'1': 'EnvTaxRate', '3': 54, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'EnvTaxRate'},
-    {'1': 'ClassCode1', '3': 55, '4': 1, '5': 9, '10': 'ClassCode1'},
-    {'1': 'ClassCode2', '3': 56, '4': 1, '5': 9, '10': 'ClassCode2'},
-    {'1': 'ClassCode3', '3': 57, '4': 1, '5': 9, '10': 'ClassCode3'},
-    {'1': 'ClassName1', '3': 58, '4': 1, '5': 9, '10': 'ClassName1'},
-    {'1': 'ClassName2', '3': 59, '4': 1, '5': 9, '10': 'ClassName2'},
-    {'1': 'ClassName3', '3': 60, '4': 1, '5': 9, '10': 'ClassName3'},
-    {'1': 'VendorID', '3': 61, '4': 1, '5': 9, '10': 'VendorID'},
-    {'1': 'MakerID', '3': 62, '4': 1, '5': 9, '10': 'MakerID'},
-    {'1': 'CostCalFlag', '3': 63, '4': 1, '5': 5, '10': 'CostCalFlag'},
-    {'1': 'InvCostCalFlag', '3': 64, '4': 1, '5': 5, '10': 'InvCostCalFlag'},
-    {'1': 'CostUnitPrice', '3': 65, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
-    {'1': 'CostUnitPriceEx', '3': 66, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPriceEx'},
-    {'1': 'MatCost', '3': 67, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatCost'},
-    {'1': 'LaborCost', '3': 68, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'LaborCost'},
-    {'1': 'FeeCost', '3': 69, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FeeCost'},
-    {'1': 'MatMainCost', '3': 70, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatMainCost'},
-    {'1': 'MatSubCost', '3': 71, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatSubCost'},
-    {'1': 'ComponentCost', '3': 72, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ComponentCost'},
-    {'1': 'OtherCost', '3': 73, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OtherCost'},
-    {'1': 'SemiProdCost', '3': 74, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SemiProdCost'},
-    {'1': 'DirectLaborCost', '3': 75, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DirectLaborCost'},
-    {'1': 'InDirectLaborCost', '3': 76, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InDirectLaborCost'},
-    {'1': 'FixedLaborCost', '3': 77, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedLaborCost'},
-    {'1': 'VarLaborCost', '3': 78, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VarLaborCost'},
-    {'1': 'DirectFeeCost', '3': 79, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DirectFeeCost'},
-    {'1': 'InDirectFeeCost', '3': 80, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InDirectFeeCost'},
-    {'1': 'FixedFeeCost', '3': 81, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedFeeCost'},
-    {'1': 'VarFeeCost', '3': 82, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VarFeeCost'},
-    {'1': 'StockAccID', '3': 83, '4': 1, '5': 9, '10': 'StockAccID'},
-    {'1': 'RevenueAccID', '3': 84, '4': 1, '5': 9, '10': 'RevenueAccID'},
-    {'1': 'FeeAccID', '3': 85, '4': 1, '5': 9, '10': 'FeeAccID'},
-    {'1': 'Enabled', '3': 86, '4': 1, '5': 8, '10': 'Enabled'},
-    {'1': 'UpdMode', '3': 87, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 88, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 89, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 90, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 91, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'RecordNo', '3': 92, '4': 1, '5': 9, '10': 'RecordNo'},
+    {'1': 'ProductFullName', '3': 4, '4': 1, '5': 9, '10': 'ProductFullName'},
+    {'1': 'ProductNameEN', '3': 5, '4': 1, '5': 9, '10': 'ProductNameEN'},
+    {'1': 'Specification', '3': 6, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'HSCode', '3': 7, '4': 1, '5': 9, '10': 'HSCode'},
+    {'1': 'BarCode', '3': 8, '4': 1, '5': 9, '10': 'BarCode'},
+    {'1': 'QRCode', '3': 9, '4': 1, '5': 9, '10': 'QRCode'},
+    {'1': 'SaleProductCode', '3': 10, '4': 1, '5': 9, '10': 'SaleProductCode'},
+    {'1': 'UnitCode1', '3': 11, '4': 1, '5': 9, '10': 'UnitCode1'},
+    {'1': 'UnitName1', '3': 12, '4': 1, '5': 9, '10': 'UnitName1'},
+    {'1': 'UnitCode2', '3': 13, '4': 1, '5': 9, '10': 'UnitCode2'},
+    {'1': 'UnitName2', '3': 14, '4': 1, '5': 9, '10': 'UnitName2'},
+    {'1': 'UnitCode3', '3': 15, '4': 1, '5': 9, '10': 'UnitCode3'},
+    {'1': 'UnitName3', '3': 16, '4': 1, '5': 9, '10': 'UnitName3'},
+    {'1': 'PackingQty1', '3': 17, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty1'},
+    {'1': 'PackingQty2', '3': 18, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty2'},
+    {'1': 'PackingQty3', '3': 19, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty3'},
+    {'1': 'PurchaseUnitCode', '3': 20, '4': 1, '5': 9, '10': 'PurchaseUnitCode'},
+    {'1': 'PurchaseUnitName', '3': 21, '4': 1, '5': 9, '10': 'PurchaseUnitName'},
+    {'1': 'PurchasePackingQty', '3': 22, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PurchasePackingQty'},
+    {'1': 'SaleUnitCode', '3': 23, '4': 1, '5': 9, '10': 'SaleUnitCode'},
+    {'1': 'SaleUnitName', '3': 24, '4': 1, '5': 9, '10': 'SaleUnitName'},
+    {'1': 'SalePackingQty', '3': 25, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SalePackingQty'},
+    {'1': 'ProductKind', '3': 26, '4': 1, '5': 5, '10': 'ProductKind'},
+    {'1': 'IsSetProduct', '3': 27, '4': 1, '5': 8, '10': 'IsSetProduct'},
+    {'1': 'IsCombo', '3': 28, '4': 1, '5': 8, '10': 'IsCombo'},
+    {'1': 'CanChangeName', '3': 29, '4': 1, '5': 8, '10': 'CanChangeName'},
+    {'1': 'POLeadTime', '3': 30, '4': 1, '5': 5, '10': 'POLeadTime'},
+    {'1': 'ShipLT', '3': 31, '4': 1, '5': 5, '10': 'ShipLT'},
+    {'1': 'ProduceLT', '3': 32, '4': 1, '5': 5, '10': 'ProduceLT'},
+    {'1': 'ColorCode', '3': 33, '4': 1, '5': 9, '10': 'ColorCode'},
+    {'1': 'SizeCode', '3': 34, '4': 1, '5': 9, '10': 'SizeCode'},
+    {'1': 'Weight', '3': 35, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Weight'},
+    {'1': 'Volume', '3': 36, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'Volume'},
+    {'1': 'InsideEffectFromDate', '3': 37, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InsideEffectFromDate'},
+    {'1': 'InsideEffectToDate', '3': 38, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'InsideEffectToDate'},
+    {'1': 'OutsideEffectFromDate', '3': 39, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'OutsideEffectFromDate'},
+    {'1': 'OutsideEffectToDate', '3': 40, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'OutsideEffectToDate'},
+    {'1': 'IsStock', '3': 41, '4': 1, '5': 8, '10': 'IsStock'},
+    {'1': 'IsLOT', '3': 42, '4': 1, '5': 8, '10': 'IsLOT'},
+    {'1': 'DateType', '3': 43, '4': 1, '5': 9, '10': 'DateType'},
+    {'1': 'WarPeriod', '3': 44, '4': 1, '5': 5, '10': 'WarPeriod'},
+    {'1': 'PeriodFlag', '3': 45, '4': 1, '5': 5, '10': 'PeriodFlag'},
+    {'1': 'MinWarPeriod', '3': 46, '4': 1, '5': 5, '10': 'MinWarPeriod'},
+    {'1': 'ProduceFlag', '3': 47, '4': 1, '5': 5, '10': 'ProduceFlag'},
+    {'1': 'IsKeepStock', '3': 48, '4': 1, '5': 8, '10': 'IsKeepStock'},
+    {'1': 'KeepStockPeriod', '3': 49, '4': 1, '5': 5, '10': 'KeepStockPeriod'},
+    {'1': 'LastPurchaseDate', '3': 50, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastPurchaseDate'},
+    {'1': 'LastSaleDate', '3': 51, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'LastSaleDate'},
+    {'1': 'TaxFlag', '3': 52, '4': 1, '5': 5, '10': 'TaxFlag'},
+    {'1': 'PurchaseTaxFlag', '3': 53, '4': 1, '5': 5, '10': 'PurchaseTaxFlag'},
+    {'1': 'VATRate', '3': 54, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VATRate'},
+    {'1': 'ImportTaxRate', '3': 55, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ImportTaxRate'},
+    {'1': 'ExciseTaxRate', '3': 56, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ExciseTaxRate'},
+    {'1': 'EnvTaxRate', '3': 57, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'EnvTaxRate'},
+    {'1': 'ClassCode1', '3': 58, '4': 1, '5': 9, '10': 'ClassCode1'},
+    {'1': 'ClassCode2', '3': 59, '4': 1, '5': 9, '10': 'ClassCode2'},
+    {'1': 'ClassCode3', '3': 60, '4': 1, '5': 9, '10': 'ClassCode3'},
+    {'1': 'ClassName1', '3': 61, '4': 1, '5': 9, '10': 'ClassName1'},
+    {'1': 'ClassName2', '3': 62, '4': 1, '5': 9, '10': 'ClassName2'},
+    {'1': 'ClassName3', '3': 63, '4': 1, '5': 9, '10': 'ClassName3'},
+    {'1': 'VendorID', '3': 64, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'MakerID', '3': 65, '4': 1, '5': 9, '10': 'MakerID'},
+    {'1': 'CostCalFlag', '3': 66, '4': 1, '5': 5, '10': 'CostCalFlag'},
+    {'1': 'InvCostCalFlag', '3': 67, '4': 1, '5': 5, '10': 'InvCostCalFlag'},
+    {'1': 'CostUnitPrice', '3': 68, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPrice'},
+    {'1': 'CostUnitPriceEx', '3': 69, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'CostUnitPriceEx'},
+    {'1': 'MatCost', '3': 70, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatCost'},
+    {'1': 'LaborCost', '3': 71, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'LaborCost'},
+    {'1': 'FeeCost', '3': 72, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FeeCost'},
+    {'1': 'MatMainCost', '3': 73, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatMainCost'},
+    {'1': 'MatSubCost', '3': 74, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'MatSubCost'},
+    {'1': 'ComponentCost', '3': 75, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'ComponentCost'},
+    {'1': 'OtherCost', '3': 76, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'OtherCost'},
+    {'1': 'SemiProdCost', '3': 77, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'SemiProdCost'},
+    {'1': 'DirectLaborCost', '3': 78, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DirectLaborCost'},
+    {'1': 'InDirectLaborCost', '3': 79, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InDirectLaborCost'},
+    {'1': 'FixedLaborCost', '3': 80, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedLaborCost'},
+    {'1': 'VarLaborCost', '3': 81, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VarLaborCost'},
+    {'1': 'DirectFeeCost', '3': 82, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'DirectFeeCost'},
+    {'1': 'InDirectFeeCost', '3': 83, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'InDirectFeeCost'},
+    {'1': 'FixedFeeCost', '3': 84, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'FixedFeeCost'},
+    {'1': 'VarFeeCost', '3': 85, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'VarFeeCost'},
+    {'1': 'StockAccID', '3': 86, '4': 1, '5': 9, '10': 'StockAccID'},
+    {'1': 'RevenueAccID', '3': 87, '4': 1, '5': 9, '10': 'RevenueAccID'},
+    {'1': 'FeeAccID', '3': 88, '4': 1, '5': 9, '10': 'FeeAccID'},
+    {'1': 'Enabled', '3': 89, '4': 1, '5': 8, '10': 'Enabled'},
+    {'1': 'UpdMode', '3': 90, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 91, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 92, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 93, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 94, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'RecordNo', '3': 95, '4': 1, '5': 9, '10': 'RecordNo'},
   ],
 };
 
 /// Descriptor for `grpcProductModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcProductModelDescriptor = $convert.base64Decode(
     'ChBncnBjUHJvZHVjdE1vZGVsEg4KAklEGAEgASgJUgJJRBIgCgtQcm9kdWN0Q29kZRgCIAEoCV'
-    'ILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYAyABKAlSC1Byb2R1Y3ROYW1lEiQKDVNwZWNp'
-    'ZmljYXRpb24YBCABKAlSDVNwZWNpZmljYXRpb24SFgoGSFNDb2RlGAUgASgJUgZIU0NvZGUSGA'
-    'oHQmFyQ29kZRgGIAEoCVIHQmFyQ29kZRIWCgZRUkNvZGUYByABKAlSBlFSQ29kZRIoCg9TYWxl'
-    'UHJvZHVjdENvZGUYCCABKAlSD1NhbGVQcm9kdWN0Q29kZRIcCglVbml0Q29kZTEYCSABKAlSCV'
-    'VuaXRDb2RlMRIcCglVbml0TmFtZTEYCiABKAlSCVVuaXROYW1lMRIcCglVbml0Q29kZTIYCyAB'
-    'KAlSCVVuaXRDb2RlMhIcCglVbml0TmFtZTIYDCABKAlSCVVuaXROYW1lMhIcCglVbml0Q29kZT'
-    'MYDSABKAlSCVVuaXRDb2RlMxIcCglVbml0TmFtZTMYDiABKAlSCVVuaXROYW1lMxI2CgtQYWNr'
-    'aW5nUXR5MRgPIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSC1BhY2tpbmdRdHkxEjYKC1BhY2'
-    'tpbmdRdHkyGBAgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFILUGFja2luZ1F0eTISNgoLUGFj'
-    'a2luZ1F0eTMYESABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgtQYWNraW5nUXR5MxIqChBQdX'
-    'JjaGFzZVVuaXRDb2RlGBIgASgJUhBQdXJjaGFzZVVuaXRDb2RlEioKEFB1cmNoYXNlVW5pdE5h'
-    'bWUYEyABKAlSEFB1cmNoYXNlVW5pdE5hbWUSRAoSUHVyY2hhc2VQYWNraW5nUXR5GBQgASgLMh'
-    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFISUHVyY2hhc2VQYWNraW5nUXR5EiIKDFNhbGVVbml0Q29k'
-    'ZRgVIAEoCVIMU2FsZVVuaXRDb2RlEiIKDFNhbGVVbml0TmFtZRgWIAEoCVIMU2FsZVVuaXROYW'
-    '1lEjwKDlNhbGVQYWNraW5nUXR5GBcgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIOU2FsZVBh'
-    'Y2tpbmdRdHkSIAoLUHJvZHVjdEtpbmQYGCABKAVSC1Byb2R1Y3RLaW5kEiIKDElzU2V0UHJvZH'
-    'VjdBgZIAEoCFIMSXNTZXRQcm9kdWN0EiQKDUNhbkNoYW5nZU5hbWUYGiABKAhSDUNhbkNoYW5n'
-    'ZU5hbWUSHgoKUE9MZWFkVGltZRgbIAEoBVIKUE9MZWFkVGltZRIWCgZTaGlwTFQYHCABKAVSBl'
-    'NoaXBMVBIcCglQcm9kdWNlTFQYHSABKAVSCVByb2R1Y2VMVBIcCglDb2xvckNvZGUYHiABKAlS'
-    'CUNvbG9yQ29kZRIaCghTaXplQ29kZRgfIAEoCVIIU2l6ZUNvZGUSLAoGV2VpZ2h0GCAgASgLMh'
-    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFIGV2VpZ2h0EiwKBlZvbHVtZRghIAEoCzIULkN1c3RvbVR5'
-    'cGVzLkRlY2ltYWxSBlZvbHVtZRJOChRJbnNpZGVFZmZlY3RGcm9tRGF0ZRgiIAEoCzIaLmdvb2'
-    'dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFEluc2lkZUVmZmVjdEZyb21EYXRlEkoKEkluc2lkZUVm'
-    'ZmVjdFRvRGF0ZRgjIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSEkluc2lkZUVmZm'
-    'VjdFRvRGF0ZRJQChVPdXRzaWRlRWZmZWN0RnJvbURhdGUYJCABKAsyGi5nb29nbGUucHJvdG9i'
-    'dWYuVGltZXN0YW1wUhVPdXRzaWRlRWZmZWN0RnJvbURhdGUSTAoTT3V0c2lkZUVmZmVjdFRvRG'
-    'F0ZRglIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSE091dHNpZGVFZmZlY3RUb0Rh'
-    'dGUSGAoHSXNTdG9jaxgmIAEoCFIHSXNTdG9jaxIUCgVJc0xPVBgnIAEoCFIFSXNMT1QSGgoIRG'
-    'F0ZVR5cGUYKCABKAlSCERhdGVUeXBlEhwKCVdhclBlcmlvZBgpIAEoBVIJV2FyUGVyaW9kEh4K'
-    'ClBlcmlvZEZsYWcYKiABKAVSClBlcmlvZEZsYWcSIgoMTWluV2FyUGVyaW9kGCsgASgFUgxNaW'
-    '5XYXJQZXJpb2QSIAoLUHJvZHVjZUZsYWcYLCABKAVSC1Byb2R1Y2VGbGFnEiAKC0lzS2VlcFN0'
-    'b2NrGC0gASgIUgtJc0tlZXBTdG9jaxIoCg9LZWVwU3RvY2tQZXJpb2QYLiABKAVSD0tlZXBTdG'
-    '9ja1BlcmlvZBJGChBMYXN0UHVyY2hhc2VEYXRlGC8gASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp'
-    'bWVzdGFtcFIQTGFzdFB1cmNoYXNlRGF0ZRI+CgxMYXN0U2FsZURhdGUYMCABKAsyGi5nb29nbG'
-    'UucHJvdG9idWYuVGltZXN0YW1wUgxMYXN0U2FsZURhdGUSGAoHVGF4RmxhZxgxIAEoBVIHVGF4'
-    'RmxhZxIoCg9QdXJjaGFzZVRheEZsYWcYMiABKAVSD1B1cmNoYXNlVGF4RmxhZxIuCgdWQVRSYX'
-    'RlGDMgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIHVkFUUmF0ZRI6Cg1JbXBvcnRUYXhSYXRl'
-    'GDQgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINSW1wb3J0VGF4UmF0ZRI6Cg1FeGNpc2VUYX'
-    'hSYXRlGDUgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINRXhjaXNlVGF4UmF0ZRI0CgpFbnZU'
-    'YXhSYXRlGDYgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIKRW52VGF4UmF0ZRIeCgpDbGFzc0'
-    'NvZGUxGDcgASgJUgpDbGFzc0NvZGUxEh4KCkNsYXNzQ29kZTIYOCABKAlSCkNsYXNzQ29kZTIS'
-    'HgoKQ2xhc3NDb2RlMxg5IAEoCVIKQ2xhc3NDb2RlMxIeCgpDbGFzc05hbWUxGDogASgJUgpDbG'
-    'Fzc05hbWUxEh4KCkNsYXNzTmFtZTIYOyABKAlSCkNsYXNzTmFtZTISHgoKQ2xhc3NOYW1lMxg8'
-    'IAEoCVIKQ2xhc3NOYW1lMxIaCghWZW5kb3JJRBg9IAEoCVIIVmVuZG9ySUQSGAoHTWFrZXJJRB'
-    'g+IAEoCVIHTWFrZXJJRBIgCgtDb3N0Q2FsRmxhZxg/IAEoBVILQ29zdENhbEZsYWcSJgoOSW52'
-    'Q29zdENhbEZsYWcYQCABKAVSDkludkNvc3RDYWxGbGFnEjoKDUNvc3RVbml0UHJpY2UYQSABKA'
-    'syFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1Db3N0VW5pdFByaWNlEj4KD0Nvc3RVbml0UHJpY2VF'
-    'eBhCIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSD0Nvc3RVbml0UHJpY2VFeBIuCgdNYXRDb3'
-    'N0GEMgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIHTWF0Q29zdBIyCglMYWJvckNvc3QYRCAB'
-    'KAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUglMYWJvckNvc3QSLgoHRmVlQ29zdBhFIAEoCzIULk'
-    'N1c3RvbVR5cGVzLkRlY2ltYWxSB0ZlZUNvc3QSNgoLTWF0TWFpbkNvc3QYRiABKAsyFC5DdXN0'
-    'b21UeXBlcy5EZWNpbWFsUgtNYXRNYWluQ29zdBI0CgpNYXRTdWJDb3N0GEcgASgLMhQuQ3VzdG'
-    '9tVHlwZXMuRGVjaW1hbFIKTWF0U3ViQ29zdBI6Cg1Db21wb25lbnRDb3N0GEggASgLMhQuQ3Vz'
-    'dG9tVHlwZXMuRGVjaW1hbFINQ29tcG9uZW50Q29zdBIyCglPdGhlckNvc3QYSSABKAsyFC5DdX'
-    'N0b21UeXBlcy5EZWNpbWFsUglPdGhlckNvc3QSOAoMU2VtaVByb2RDb3N0GEogASgLMhQuQ3Vz'
-    'dG9tVHlwZXMuRGVjaW1hbFIMU2VtaVByb2RDb3N0Ej4KD0RpcmVjdExhYm9yQ29zdBhLIAEoCz'
-    'IULkN1c3RvbVR5cGVzLkRlY2ltYWxSD0RpcmVjdExhYm9yQ29zdBJCChFJbkRpcmVjdExhYm9y'
-    'Q29zdBhMIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSEUluRGlyZWN0TGFib3JDb3N0EjwKDk'
-    'ZpeGVkTGFib3JDb3N0GE0gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIORml4ZWRMYWJvckNv'
-    'c3QSOAoMVmFyTGFib3JDb3N0GE4gASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFIMVmFyTGFib3'
-    'JDb3N0EjoKDURpcmVjdEZlZUNvc3QYTyABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg1EaXJl'
-    'Y3RGZWVDb3N0Ej4KD0luRGlyZWN0RmVlQ29zdBhQIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYW'
-    'xSD0luRGlyZWN0RmVlQ29zdBI4CgxGaXhlZEZlZUNvc3QYUSABKAsyFC5DdXN0b21UeXBlcy5E'
-    'ZWNpbWFsUgxGaXhlZEZlZUNvc3QSNAoKVmFyRmVlQ29zdBhSIAEoCzIULkN1c3RvbVR5cGVzLk'
-    'RlY2ltYWxSClZhckZlZUNvc3QSHgoKU3RvY2tBY2NJRBhTIAEoCVIKU3RvY2tBY2NJRBIiCgxS'
-    'ZXZlbnVlQWNjSUQYVCABKAlSDFJldmVudWVBY2NJRBIaCghGZWVBY2NJRBhVIAEoCVIIRmVlQW'
-    'NjSUQSGAoHRW5hYmxlZBhWIAEoCFIHRW5hYmxlZBIYCgdVcGRNb2RlGFcgASgFUgdVcGRNb2Rl'
-    'EhoKCFVwZENvdW50GFggASgFUghVcGRDb3VudBIqChBVcGRUcmFuc2FjdGlvbklEGFkgASgJUh'
-    'BVcGRUcmFuc2FjdGlvbklEEiIKDFVwZEFjY291bnRJRBhaIAEoCVIMVXBkQWNjb3VudElEEjwK'
-    'C1VwZERhdGVUaW1lGFsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILVXBkRGF0ZV'
-    'RpbWUSGgoIUmVjb3JkTm8YXCABKAlSCFJlY29yZE5v');
+    'ILUHJvZHVjdENvZGUSIAoLUHJvZHVjdE5hbWUYAyABKAlSC1Byb2R1Y3ROYW1lEigKD1Byb2R1'
+    'Y3RGdWxsTmFtZRgEIAEoCVIPUHJvZHVjdEZ1bGxOYW1lEiQKDVByb2R1Y3ROYW1lRU4YBSABKA'
+    'lSDVByb2R1Y3ROYW1lRU4SJAoNU3BlY2lmaWNhdGlvbhgGIAEoCVINU3BlY2lmaWNhdGlvbhIW'
+    'CgZIU0NvZGUYByABKAlSBkhTQ29kZRIYCgdCYXJDb2RlGAggASgJUgdCYXJDb2RlEhYKBlFSQ2'
+    '9kZRgJIAEoCVIGUVJDb2RlEigKD1NhbGVQcm9kdWN0Q29kZRgKIAEoCVIPU2FsZVByb2R1Y3RD'
+    'b2RlEhwKCVVuaXRDb2RlMRgLIAEoCVIJVW5pdENvZGUxEhwKCVVuaXROYW1lMRgMIAEoCVIJVW'
+    '5pdE5hbWUxEhwKCVVuaXRDb2RlMhgNIAEoCVIJVW5pdENvZGUyEhwKCVVuaXROYW1lMhgOIAEo'
+    'CVIJVW5pdE5hbWUyEhwKCVVuaXRDb2RlMxgPIAEoCVIJVW5pdENvZGUzEhwKCVVuaXROYW1lMx'
+    'gQIAEoCVIJVW5pdE5hbWUzEjYKC1BhY2tpbmdRdHkxGBEgASgLMhQuQ3VzdG9tVHlwZXMuRGVj'
+    'aW1hbFILUGFja2luZ1F0eTESNgoLUGFja2luZ1F0eTIYEiABKAsyFC5DdXN0b21UeXBlcy5EZW'
+    'NpbWFsUgtQYWNraW5nUXR5MhI2CgtQYWNraW5nUXR5MxgTIAEoCzIULkN1c3RvbVR5cGVzLkRl'
+    'Y2ltYWxSC1BhY2tpbmdRdHkzEioKEFB1cmNoYXNlVW5pdENvZGUYFCABKAlSEFB1cmNoYXNlVW'
+    '5pdENvZGUSKgoQUHVyY2hhc2VVbml0TmFtZRgVIAEoCVIQUHVyY2hhc2VVbml0TmFtZRJEChJQ'
+    'dXJjaGFzZVBhY2tpbmdRdHkYFiABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhJQdXJjaGFzZV'
+    'BhY2tpbmdRdHkSIgoMU2FsZVVuaXRDb2RlGBcgASgJUgxTYWxlVW5pdENvZGUSIgoMU2FsZVVu'
+    'aXROYW1lGBggASgJUgxTYWxlVW5pdE5hbWUSPAoOU2FsZVBhY2tpbmdRdHkYGSABKAsyFC5DdX'
+    'N0b21UeXBlcy5EZWNpbWFsUg5TYWxlUGFja2luZ1F0eRIgCgtQcm9kdWN0S2luZBgaIAEoBVIL'
+    'UHJvZHVjdEtpbmQSIgoMSXNTZXRQcm9kdWN0GBsgASgIUgxJc1NldFByb2R1Y3QSGAoHSXNDb2'
+    '1ibxgcIAEoCFIHSXNDb21ibxIkCg1DYW5DaGFuZ2VOYW1lGB0gASgIUg1DYW5DaGFuZ2VOYW1l'
+    'Eh4KClBPTGVhZFRpbWUYHiABKAVSClBPTGVhZFRpbWUSFgoGU2hpcExUGB8gASgFUgZTaGlwTF'
+    'QSHAoJUHJvZHVjZUxUGCAgASgFUglQcm9kdWNlTFQSHAoJQ29sb3JDb2RlGCEgASgJUglDb2xv'
+    'ckNvZGUSGgoIU2l6ZUNvZGUYIiABKAlSCFNpemVDb2RlEiwKBldlaWdodBgjIAEoCzIULkN1c3'
+    'RvbVR5cGVzLkRlY2ltYWxSBldlaWdodBIsCgZWb2x1bWUYJCABKAsyFC5DdXN0b21UeXBlcy5E'
+    'ZWNpbWFsUgZWb2x1bWUSTgoUSW5zaWRlRWZmZWN0RnJvbURhdGUYJSABKAsyGi5nb29nbGUucH'
+    'JvdG9idWYuVGltZXN0YW1wUhRJbnNpZGVFZmZlY3RGcm9tRGF0ZRJKChJJbnNpZGVFZmZlY3RU'
+    'b0RhdGUYJiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUhJJbnNpZGVFZmZlY3RUb0'
+    'RhdGUSUAoVT3V0c2lkZUVmZmVjdEZyb21EYXRlGCcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp'
+    'bWVzdGFtcFIVT3V0c2lkZUVmZmVjdEZyb21EYXRlEkwKE091dHNpZGVFZmZlY3RUb0RhdGUYKC'
+    'ABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUhNPdXRzaWRlRWZmZWN0VG9EYXRlEhgK'
+    'B0lzU3RvY2sYKSABKAhSB0lzU3RvY2sSFAoFSXNMT1QYKiABKAhSBUlzTE9UEhoKCERhdGVUeX'
+    'BlGCsgASgJUghEYXRlVHlwZRIcCglXYXJQZXJpb2QYLCABKAVSCVdhclBlcmlvZBIeCgpQZXJp'
+    'b2RGbGFnGC0gASgFUgpQZXJpb2RGbGFnEiIKDE1pbldhclBlcmlvZBguIAEoBVIMTWluV2FyUG'
+    'VyaW9kEiAKC1Byb2R1Y2VGbGFnGC8gASgFUgtQcm9kdWNlRmxhZxIgCgtJc0tlZXBTdG9jaxgw'
+    'IAEoCFILSXNLZWVwU3RvY2sSKAoPS2VlcFN0b2NrUGVyaW9kGDEgASgFUg9LZWVwU3RvY2tQZX'
+    'Jpb2QSRgoQTGFzdFB1cmNoYXNlRGF0ZRgyIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh'
+    'bXBSEExhc3RQdXJjaGFzZURhdGUSPgoMTGFzdFNhbGVEYXRlGDMgASgLMhouZ29vZ2xlLnByb3'
+    'RvYnVmLlRpbWVzdGFtcFIMTGFzdFNhbGVEYXRlEhgKB1RheEZsYWcYNCABKAVSB1RheEZsYWcS'
+    'KAoPUHVyY2hhc2VUYXhGbGFnGDUgASgFUg9QdXJjaGFzZVRheEZsYWcSLgoHVkFUUmF0ZRg2IA'
+    'EoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSB1ZBVFJhdGUSOgoNSW1wb3J0VGF4UmF0ZRg3IAEo'
+    'CzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDUltcG9ydFRheFJhdGUSOgoNRXhjaXNlVGF4UmF0ZR'
+    'g4IAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDUV4Y2lzZVRheFJhdGUSNAoKRW52VGF4UmF0'
+    'ZRg5IAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSCkVudlRheFJhdGUSHgoKQ2xhc3NDb2RlMR'
+    'g6IAEoCVIKQ2xhc3NDb2RlMRIeCgpDbGFzc0NvZGUyGDsgASgJUgpDbGFzc0NvZGUyEh4KCkNs'
+    'YXNzQ29kZTMYPCABKAlSCkNsYXNzQ29kZTMSHgoKQ2xhc3NOYW1lMRg9IAEoCVIKQ2xhc3NOYW'
+    '1lMRIeCgpDbGFzc05hbWUyGD4gASgJUgpDbGFzc05hbWUyEh4KCkNsYXNzTmFtZTMYPyABKAlS'
+    'CkNsYXNzTmFtZTMSGgoIVmVuZG9ySUQYQCABKAlSCFZlbmRvcklEEhgKB01ha2VySUQYQSABKA'
+    'lSB01ha2VySUQSIAoLQ29zdENhbEZsYWcYQiABKAVSC0Nvc3RDYWxGbGFnEiYKDkludkNvc3RD'
+    'YWxGbGFnGEMgASgFUg5JbnZDb3N0Q2FsRmxhZxI6Cg1Db3N0VW5pdFByaWNlGEQgASgLMhQuQ3'
+    'VzdG9tVHlwZXMuRGVjaW1hbFINQ29zdFVuaXRQcmljZRI+Cg9Db3N0VW5pdFByaWNlRXgYRSAB'
+    'KAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9Db3N0VW5pdFByaWNlRXgSLgoHTWF0Q29zdBhGIA'
+    'EoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSB01hdENvc3QSMgoJTGFib3JDb3N0GEcgASgLMhQu'
+    'Q3VzdG9tVHlwZXMuRGVjaW1hbFIJTGFib3JDb3N0Ei4KB0ZlZUNvc3QYSCABKAsyFC5DdXN0b2'
+    '1UeXBlcy5EZWNpbWFsUgdGZWVDb3N0EjYKC01hdE1haW5Db3N0GEkgASgLMhQuQ3VzdG9tVHlw'
+    'ZXMuRGVjaW1hbFILTWF0TWFpbkNvc3QSNAoKTWF0U3ViQ29zdBhKIAEoCzIULkN1c3RvbVR5cG'
+    'VzLkRlY2ltYWxSCk1hdFN1YkNvc3QSOgoNQ29tcG9uZW50Q29zdBhLIAEoCzIULkN1c3RvbVR5'
+    'cGVzLkRlY2ltYWxSDUNvbXBvbmVudENvc3QSMgoJT3RoZXJDb3N0GEwgASgLMhQuQ3VzdG9tVH'
+    'lwZXMuRGVjaW1hbFIJT3RoZXJDb3N0EjgKDFNlbWlQcm9kQ29zdBhNIAEoCzIULkN1c3RvbVR5'
+    'cGVzLkRlY2ltYWxSDFNlbWlQcm9kQ29zdBI+Cg9EaXJlY3RMYWJvckNvc3QYTiABKAsyFC5DdX'
+    'N0b21UeXBlcy5EZWNpbWFsUg9EaXJlY3RMYWJvckNvc3QSQgoRSW5EaXJlY3RMYWJvckNvc3QY'
+    'TyABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUhFJbkRpcmVjdExhYm9yQ29zdBI8Cg5GaXhlZE'
+    'xhYm9yQ29zdBhQIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDkZpeGVkTGFib3JDb3N0EjgK'
+    'DFZhckxhYm9yQ29zdBhRIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSDFZhckxhYm9yQ29zdB'
+    'I6Cg1EaXJlY3RGZWVDb3N0GFIgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFINRGlyZWN0RmVl'
+    'Q29zdBI+Cg9JbkRpcmVjdEZlZUNvc3QYUyABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUg9Jbk'
+    'RpcmVjdEZlZUNvc3QSOAoMRml4ZWRGZWVDb3N0GFQgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1h'
+    'bFIMRml4ZWRGZWVDb3N0EjQKClZhckZlZUNvc3QYVSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbW'
+    'FsUgpWYXJGZWVDb3N0Eh4KClN0b2NrQWNjSUQYViABKAlSClN0b2NrQWNjSUQSIgoMUmV2ZW51'
+    'ZUFjY0lEGFcgASgJUgxSZXZlbnVlQWNjSUQSGgoIRmVlQWNjSUQYWCABKAlSCEZlZUFjY0lEEh'
+    'gKB0VuYWJsZWQYWSABKAhSB0VuYWJsZWQSGAoHVXBkTW9kZRhaIAEoBVIHVXBkTW9kZRIaCghV'
+    'cGRDb3VudBhbIAEoBVIIVXBkQ291bnQSKgoQVXBkVHJhbnNhY3Rpb25JRBhcIAEoCVIQVXBkVH'
+    'JhbnNhY3Rpb25JRBIiCgxVcGRBY2NvdW50SUQYXSABKAlSDFVwZEFjY291bnRJRBI8CgtVcGRE'
+    'YXRlVGltZRheIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC1VwZERhdGVUaW1lEh'
+    'oKCFJlY29yZE5vGF8gASgJUghSZWNvcmRObw==');
 
 @$core.Deprecated('Use searchProduct_RequestDescriptor instead')
 const SearchProduct_Request$json = {
@@ -3283,49 +3514,59 @@ const grpcSelectProductModel$json = {
   '2': [
     {'1': 'ProductCode', '3': 1, '4': 1, '5': 9, '10': 'ProductCode'},
     {'1': 'ProductName', '3': 2, '4': 1, '5': 9, '10': 'ProductName'},
-    {'1': 'Specification', '3': 3, '4': 1, '5': 9, '10': 'Specification'},
-    {'1': 'UnitCode1', '3': 4, '4': 1, '5': 9, '10': 'UnitCode1'},
-    {'1': 'UnitCode2', '3': 5, '4': 1, '5': 9, '10': 'UnitCode2'},
-    {'1': 'UnitCode3', '3': 6, '4': 1, '5': 9, '10': 'UnitCode3'},
-    {'1': 'UnitName1', '3': 7, '4': 1, '5': 9, '10': 'UnitName1'},
-    {'1': 'UnitName2', '3': 8, '4': 1, '5': 9, '10': 'UnitName2'},
-    {'1': 'UnitName3', '3': 9, '4': 1, '5': 9, '10': 'UnitName3'},
-    {'1': 'PackingQty1', '3': 10, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty1'},
-    {'1': 'PackingQty2', '3': 11, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty2'},
-    {'1': 'PackingQty3', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty3'},
-    {'1': 'VendorID', '3': 13, '4': 1, '5': 9, '10': 'VendorID'},
-    {'1': 'ProductKind', '3': 14, '4': 1, '5': 5, '10': 'ProductKind'},
-    {'1': 'ProductKindName', '3': 15, '4': 1, '5': 9, '10': 'ProductKindName'},
-    {'1': 'IsSetProduct', '3': 16, '4': 1, '5': 8, '10': 'IsSetProduct'},
-    {'1': 'IsStock', '3': 17, '4': 1, '5': 8, '10': 'IsStock'},
-    {'1': 'IsLOT', '3': 18, '4': 1, '5': 8, '10': 'IsLOT'},
-    {'1': 'DateType', '3': 19, '4': 1, '5': 9, '10': 'DateType'},
-    {'1': 'IsKeepStock', '3': 20, '4': 1, '5': 8, '10': 'IsKeepStock'},
-    {'1': 'CanChangeName', '3': 21, '4': 1, '5': 8, '10': 'CanChangeName'},
-    {'1': 'ID', '3': 22, '4': 1, '5': 9, '10': 'ID'},
-    {'1': 'UpdMode', '3': 23, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'ProductFullName', '3': 3, '4': 1, '5': 9, '10': 'ProductFullName'},
+    {'1': 'ProductNameEN', '3': 4, '4': 1, '5': 9, '10': 'ProductNameEN'},
+    {'1': 'Specification', '3': 5, '4': 1, '5': 9, '10': 'Specification'},
+    {'1': 'UnitCode1', '3': 6, '4': 1, '5': 9, '10': 'UnitCode1'},
+    {'1': 'UnitCode2', '3': 7, '4': 1, '5': 9, '10': 'UnitCode2'},
+    {'1': 'UnitCode3', '3': 8, '4': 1, '5': 9, '10': 'UnitCode3'},
+    {'1': 'UnitName1', '3': 9, '4': 1, '5': 9, '10': 'UnitName1'},
+    {'1': 'UnitName2', '3': 10, '4': 1, '5': 9, '10': 'UnitName2'},
+    {'1': 'UnitName3', '3': 11, '4': 1, '5': 9, '10': 'UnitName3'},
+    {'1': 'PackingQty1', '3': 12, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty1'},
+    {'1': 'PackingQty2', '3': 13, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty2'},
+    {'1': 'PackingQty3', '3': 14, '4': 1, '5': 11, '6': '.CustomTypes.Decimal', '10': 'PackingQty3'},
+    {'1': 'VendorID', '3': 15, '4': 1, '5': 9, '10': 'VendorID'},
+    {'1': 'ProductKind', '3': 16, '4': 1, '5': 5, '10': 'ProductKind'},
+    {'1': 'ProductKindName', '3': 17, '4': 1, '5': 9, '10': 'ProductKindName'},
+    {'1': 'IsSetProduct', '3': 18, '4': 1, '5': 8, '10': 'IsSetProduct'},
+    {'1': 'IsStock', '3': 19, '4': 1, '5': 8, '10': 'IsStock'},
+    {'1': 'IsLOT', '3': 20, '4': 1, '5': 8, '10': 'IsLOT'},
+    {'1': 'DateType', '3': 21, '4': 1, '5': 9, '10': 'DateType'},
+    {'1': 'IsKeepStock', '3': 22, '4': 1, '5': 8, '10': 'IsKeepStock'},
+    {'1': 'CanChangeName', '3': 23, '4': 1, '5': 8, '10': 'CanChangeName'},
     {'1': 'ClassCode1', '3': 24, '4': 1, '5': 9, '10': 'ClassCode1'},
+    {'1': 'ClassCode2', '3': 25, '4': 1, '5': 9, '10': 'ClassCode2'},
+    {'1': 'ClassCode3', '3': 26, '4': 1, '5': 9, '10': 'ClassCode3'},
+    {'1': 'StockAccID', '3': 27, '4': 1, '5': 9, '10': 'StockAccID'},
+    {'1': 'RevenueAccID', '3': 28, '4': 1, '5': 9, '10': 'RevenueAccID'},
+    {'1': 'FeeAccID', '3': 29, '4': 1, '5': 9, '10': 'FeeAccID'},
+    {'1': 'UpdMode', '3': 99, '4': 1, '5': 5, '10': 'UpdMode'},
   ],
 };
 
 /// Descriptor for `grpcSelectProductModel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List grpcSelectProductModelDescriptor = $convert.base64Decode(
     'ChZncnBjU2VsZWN0UHJvZHVjdE1vZGVsEiAKC1Byb2R1Y3RDb2RlGAEgASgJUgtQcm9kdWN0Q2'
-    '9kZRIgCgtQcm9kdWN0TmFtZRgCIAEoCVILUHJvZHVjdE5hbWUSJAoNU3BlY2lmaWNhdGlvbhgD'
-    'IAEoCVINU3BlY2lmaWNhdGlvbhIcCglVbml0Q29kZTEYBCABKAlSCVVuaXRDb2RlMRIcCglVbm'
-    'l0Q29kZTIYBSABKAlSCVVuaXRDb2RlMhIcCglVbml0Q29kZTMYBiABKAlSCVVuaXRDb2RlMxIc'
-    'CglVbml0TmFtZTEYByABKAlSCVVuaXROYW1lMRIcCglVbml0TmFtZTIYCCABKAlSCVVuaXROYW'
-    '1lMhIcCglVbml0TmFtZTMYCSABKAlSCVVuaXROYW1lMxI2CgtQYWNraW5nUXR5MRgKIAEoCzIU'
-    'LkN1c3RvbVR5cGVzLkRlY2ltYWxSC1BhY2tpbmdRdHkxEjYKC1BhY2tpbmdRdHkyGAsgASgLMh'
-    'QuQ3VzdG9tVHlwZXMuRGVjaW1hbFILUGFja2luZ1F0eTISNgoLUGFja2luZ1F0eTMYDCABKAsy'
-    'FC5DdXN0b21UeXBlcy5EZWNpbWFsUgtQYWNraW5nUXR5MxIaCghWZW5kb3JJRBgNIAEoCVIIVm'
-    'VuZG9ySUQSIAoLUHJvZHVjdEtpbmQYDiABKAVSC1Byb2R1Y3RLaW5kEigKD1Byb2R1Y3RLaW5k'
-    'TmFtZRgPIAEoCVIPUHJvZHVjdEtpbmROYW1lEiIKDElzU2V0UHJvZHVjdBgQIAEoCFIMSXNTZX'
-    'RQcm9kdWN0EhgKB0lzU3RvY2sYESABKAhSB0lzU3RvY2sSFAoFSXNMT1QYEiABKAhSBUlzTE9U'
-    'EhoKCERhdGVUeXBlGBMgASgJUghEYXRlVHlwZRIgCgtJc0tlZXBTdG9jaxgUIAEoCFILSXNLZW'
-    'VwU3RvY2sSJAoNQ2FuQ2hhbmdlTmFtZRgVIAEoCFINQ2FuQ2hhbmdlTmFtZRIOCgJJRBgWIAEo'
-    'CVICSUQSGAoHVXBkTW9kZRgXIAEoBVIHVXBkTW9kZRIeCgpDbGFzc0NvZGUxGBggASgJUgpDbG'
-    'Fzc0NvZGUx');
+    '9kZRIgCgtQcm9kdWN0TmFtZRgCIAEoCVILUHJvZHVjdE5hbWUSKAoPUHJvZHVjdEZ1bGxOYW1l'
+    'GAMgASgJUg9Qcm9kdWN0RnVsbE5hbWUSJAoNUHJvZHVjdE5hbWVFThgEIAEoCVINUHJvZHVjdE'
+    '5hbWVFThIkCg1TcGVjaWZpY2F0aW9uGAUgASgJUg1TcGVjaWZpY2F0aW9uEhwKCVVuaXRDb2Rl'
+    'MRgGIAEoCVIJVW5pdENvZGUxEhwKCVVuaXRDb2RlMhgHIAEoCVIJVW5pdENvZGUyEhwKCVVuaX'
+    'RDb2RlMxgIIAEoCVIJVW5pdENvZGUzEhwKCVVuaXROYW1lMRgJIAEoCVIJVW5pdE5hbWUxEhwK'
+    'CVVuaXROYW1lMhgKIAEoCVIJVW5pdE5hbWUyEhwKCVVuaXROYW1lMxgLIAEoCVIJVW5pdE5hbW'
+    'UzEjYKC1BhY2tpbmdRdHkxGAwgASgLMhQuQ3VzdG9tVHlwZXMuRGVjaW1hbFILUGFja2luZ1F0'
+    'eTESNgoLUGFja2luZ1F0eTIYDSABKAsyFC5DdXN0b21UeXBlcy5EZWNpbWFsUgtQYWNraW5nUX'
+    'R5MhI2CgtQYWNraW5nUXR5MxgOIAEoCzIULkN1c3RvbVR5cGVzLkRlY2ltYWxSC1BhY2tpbmdR'
+    'dHkzEhoKCFZlbmRvcklEGA8gASgJUghWZW5kb3JJRBIgCgtQcm9kdWN0S2luZBgQIAEoBVILUH'
+    'JvZHVjdEtpbmQSKAoPUHJvZHVjdEtpbmROYW1lGBEgASgJUg9Qcm9kdWN0S2luZE5hbWUSIgoM'
+    'SXNTZXRQcm9kdWN0GBIgASgIUgxJc1NldFByb2R1Y3QSGAoHSXNTdG9jaxgTIAEoCFIHSXNTdG'
+    '9jaxIUCgVJc0xPVBgUIAEoCFIFSXNMT1QSGgoIRGF0ZVR5cGUYFSABKAlSCERhdGVUeXBlEiAK'
+    'C0lzS2VlcFN0b2NrGBYgASgIUgtJc0tlZXBTdG9jaxIkCg1DYW5DaGFuZ2VOYW1lGBcgASgIUg'
+    '1DYW5DaGFuZ2VOYW1lEh4KCkNsYXNzQ29kZTEYGCABKAlSCkNsYXNzQ29kZTESHgoKQ2xhc3ND'
+    'b2RlMhgZIAEoCVIKQ2xhc3NDb2RlMhIeCgpDbGFzc0NvZGUzGBogASgJUgpDbGFzc0NvZGUzEh'
+    '4KClN0b2NrQWNjSUQYGyABKAlSClN0b2NrQWNjSUQSIgoMUmV2ZW51ZUFjY0lEGBwgASgJUgxS'
+    'ZXZlbnVlQWNjSUQSGgoIRmVlQWNjSUQYHSABKAlSCEZlZUFjY0lEEhgKB1VwZE1vZGUYYyABKA'
+    'VSB1VwZE1vZGU=');
 
 @$core.Deprecated('Use grpcSearchProductModelDescriptor instead')
 const grpcSearchProductModel$json = {
@@ -3531,6 +3772,57 @@ final $typed_data.Uint8List getCustomer_RequestDescriptor = $convert.base64Decod
     'Q2xhc3NDb2RlMRIeCgpDbGFzc0NvZGUyGAMgASgJUgpDbGFzc0NvZGUyEh4KCkNsYXNzQ29kZT'
     'MYBCABKAlSCkNsYXNzQ29kZTMSIgoMU2FsZURlcHRDb2RlGAUgASgJUgxTYWxlRGVwdENvZGU=');
 
+@$core.Deprecated('Use checkDuplicatedCustomerName_RequestDescriptor instead')
+const CheckDuplicatedCustomerName_Request$json = {
+  '1': 'CheckDuplicatedCustomerName_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CustomerID', '3': 2, '4': 1, '5': 9, '10': 'CustomerID'},
+    {'1': 'CustomerName', '3': 3, '4': 1, '5': 9, '10': 'CustomerName'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedCustomerName_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedCustomerName_RequestDescriptor = $convert.base64Decode(
+    'CiNDaGVja0R1cGxpY2F0ZWRDdXN0b21lck5hbWVfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgAS'
+    'gLMiIuZ3JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEh4KCkN1'
+    'c3RvbWVySUQYAiABKAlSCkN1c3RvbWVySUQSIgoMQ3VzdG9tZXJOYW1lGAMgASgJUgxDdXN0b2'
+    '1lck5hbWU=');
+
+@$core.Deprecated('Use checkDuplicatedCustomerFullName_RequestDescriptor instead')
+const CheckDuplicatedCustomerFullName_Request$json = {
+  '1': 'CheckDuplicatedCustomerFullName_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CustomerID', '3': 2, '4': 1, '5': 9, '10': 'CustomerID'},
+    {'1': 'CustomerFullName', '3': 3, '4': 1, '5': 9, '10': 'CustomerFullName'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedCustomerFullName_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedCustomerFullName_RequestDescriptor = $convert.base64Decode(
+    'CidDaGVja0R1cGxpY2F0ZWRDdXN0b21lckZ1bGxOYW1lX1JlcXVlc3QSQgoKQ3JlZGVudGlhbB'
+    'gBIAEoCzIiLmdycGNDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIe'
+    'CgpDdXN0b21lcklEGAIgASgJUgpDdXN0b21lcklEEioKEEN1c3RvbWVyRnVsbE5hbWUYAyABKA'
+    'lSEEN1c3RvbWVyRnVsbE5hbWU=');
+
+@$core.Deprecated('Use checkDuplicatedCustomerTaxCode_RequestDescriptor instead')
+const CheckDuplicatedCustomerTaxCode_Request$json = {
+  '1': 'CheckDuplicatedCustomerTaxCode_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'CustomerID', '3': 2, '4': 1, '5': 9, '10': 'CustomerID'},
+    {'1': 'ComTaxCode', '3': 3, '4': 1, '5': 9, '10': 'ComTaxCode'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedCustomerTaxCode_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedCustomerTaxCode_RequestDescriptor = $convert.base64Decode(
+    'CiZDaGVja0R1cGxpY2F0ZWRDdXN0b21lclRheENvZGVfUmVxdWVzdBJCCgpDcmVkZW50aWFsGA'
+    'EgASgLMiIuZ3JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEh4K'
+    'CkN1c3RvbWVySUQYAiABKAlSCkN1c3RvbWVySUQSHgoKQ29tVGF4Q29kZRgDIAEoCVIKQ29tVG'
+    'F4Q29kZQ==');
+
 @$core.Deprecated('Use grpcCustomerModelDescriptor instead')
 const grpcCustomerModel$json = {
   '1': 'grpcCustomerModel',
@@ -3573,13 +3865,15 @@ const grpcCustomerModel$json = {
     {'1': 'InvAddress', '3': 36, '4': 1, '5': 9, '10': 'InvAddress'},
     {'1': 'BankAccounts', '3': 37, '4': 3, '5': 11, '6': '.grpcMasterService.grpcBankAccountModel', '10': 'BankAccounts'},
     {'1': 'AccID', '3': 38, '4': 1, '5': 9, '10': 'AccID'},
-    {'1': 'UpdMode', '3': 39, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 40, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 41, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 42, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 43, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
-    {'1': 'RecordNo', '3': 44, '4': 1, '5': 9, '10': 'RecordNo'},
-    {'1': 'Enabled', '3': 45, '4': 1, '5': 8, '10': 'Enabled'},
+    {'1': 'IsVendor', '3': 39, '4': 1, '5': 8, '10': 'IsVendor'},
+    {'1': 'VendorAccID', '3': 40, '4': 1, '5': 9, '10': 'VendorAccID'},
+    {'1': 'UpdMode', '3': 41, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 42, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 43, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 44, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 45, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'RecordNo', '3': 46, '4': 1, '5': 9, '10': 'RecordNo'},
+    {'1': 'Enabled', '3': 47, '4': 1, '5': 8, '10': 'Enabled'},
   ],
 };
 
@@ -3609,12 +3903,13 @@ final $typed_data.Uint8List grpcCustomerModelDescriptor = $convert.base64Decode(
     'ZDb250YWN0UGVyc29uEhoKCEludlBob25lGCIgASgJUghJbnZQaG9uZRIaCghJbnZFbWFpbBgj'
     'IAEoCVIISW52RW1haWwSHgoKSW52QWRkcmVzcxgkIAEoCVIKSW52QWRkcmVzcxJLCgxCYW5rQW'
     'Njb3VudHMYJSADKAsyJy5ncnBjTWFzdGVyU2VydmljZS5ncnBjQmFua0FjY291bnRNb2RlbFIM'
-    'QmFua0FjY291bnRzEhQKBUFjY0lEGCYgASgJUgVBY2NJRBIYCgdVcGRNb2RlGCcgASgFUgdVcG'
-    'RNb2RlEhoKCFVwZENvdW50GCggASgFUghVcGRDb3VudBIqChBVcGRUcmFuc2FjdGlvbklEGCkg'
-    'ASgJUhBVcGRUcmFuc2FjdGlvbklEEiIKDFVwZEFjY291bnRJRBgqIAEoCVIMVXBkQWNjb3VudE'
-    'lEEjwKC1VwZERhdGVUaW1lGCsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFILVXBk'
-    'RGF0ZVRpbWUSGgoIUmVjb3JkTm8YLCABKAlSCFJlY29yZE5vEhgKB0VuYWJsZWQYLSABKAhSB0'
-    'VuYWJsZWQ=');
+    'QmFua0FjY291bnRzEhQKBUFjY0lEGCYgASgJUgVBY2NJRBIaCghJc1ZlbmRvchgnIAEoCFIISX'
+    'NWZW5kb3ISIAoLVmVuZG9yQWNjSUQYKCABKAlSC1ZlbmRvckFjY0lEEhgKB1VwZE1vZGUYKSAB'
+    'KAVSB1VwZE1vZGUSGgoIVXBkQ291bnQYKiABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW'
+    '9uSUQYKyABKAlSEFVwZFRyYW5zYWN0aW9uSUQSIgoMVXBkQWNjb3VudElEGCwgASgJUgxVcGRB'
+    'Y2NvdW50SUQSPAoLVXBkRGF0ZVRpbWUYLSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW'
+    '1wUgtVcGREYXRlVGltZRIaCghSZWNvcmRObxguIAEoCVIIUmVjb3JkTm8SGAoHRW5hYmxlZBgv'
+    'IAEoCFIHRW5hYmxlZA==');
 
 @$core.Deprecated('Use saveCustomerContractPrice_RequestDescriptor instead')
 const SaveCustomerContractPrice_Request$json = {

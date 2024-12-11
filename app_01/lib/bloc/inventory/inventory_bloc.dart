@@ -18,6 +18,8 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
     on<SaveVoucherInvOut>(_saveVoucherInvOut);
     on<SaveVoucherInvIn>(_saveVoucherInvIn);
     //on<GetStockSumRecord>(_getStockSumRecord);
+    on<GetPickingItem>(_getPickingItem);
+    on<SavePickedItem>(_savePickedItem);
   }
 }
 
@@ -192,3 +194,33 @@ void _saveVoucherInvIn(
 //     }
 //   }
 // }
+
+void _getPickingItem(GetPickingItem event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    List<grpcPickingItemModel> data =
+        await _inventory.getPickingItem(event.invCode, event.pickingNo);
+    emit(GetPickingItemSuccess(PickingItemData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
+void _savePickedItem(SavePickedItem event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    String_Response data =
+        await _inventory.savePickedItem(event.pickedItemModel, event.pickingNo);
+    emit(SavePickedItemSuccess(Response: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}

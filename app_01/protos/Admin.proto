@@ -106,8 +106,8 @@ service grpcAdminService {
     rpc DownloadScreenFile (DownloadScreenFile_Request) returns (DownloadScreenFile_Response);
     //>>> Start generated RoleDetail rpc
     rpc SaveRoleDetail (SaveRoleDetail_Request) returns (grpcCommonMessages.String_Response);
-    rpc GetRoleDetailRecord (GetRoleDetailRecord_Request) returns (GetRoleDetailRecord_Response);
     rpc GetRoleDetail (GetRoleDetail_Request) returns (GetRoleDetail_Response);
+    rpc GetRoleDetailRecord (GetRoleDetailRecord_Request) returns (GetRoleDetailRecord_Response);
     //>>> End generated RoleDetail rpc
     rpc GetAutSceenList (GetAutSceenList_Request) returns (GetRoleDetail_Response);
     //>>> Start generated Role rpc
@@ -136,6 +136,8 @@ service grpcAdminService {
     rpc GetStaffRecord (grpcCommonMessages.String_Request) returns (GetStaffRecord_Response);
     rpc GetStaff (GetStaff_Request) returns (GetStaff_Response);
     rpc GetSlistStaff (grpcCommonMessages.Empty_Request) returns (GetStaff_Response);
+    rpc CheckDuplicatedStaffTaxCode (CheckDuplicatedStaffTaxCode_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedStaffCitizenID (CheckDuplicatedStaffCitizenID_Request) returns (grpcCommonMessages.Bool_Response);
     //>>> End generated Staff rpc
     //>>> Start generated Department rpc
     rpc SaveDepartment (SaveDepartment_Request) returns (grpcCommonMessages.String_Response);
@@ -545,6 +547,7 @@ message GrpcLogin_Response
     string RoleID = 5;
     string MerchantID = 6;
     string AccessToken = 7;
+    string DeptCode = 8;
 }
 //TableList
 message GetTable_Response
@@ -991,21 +994,6 @@ message SaveRoleDetail_Request
     //
     grpcRoleDetailModel Record = 2;
 }
-message GetRoleDetailRecord_Request
-{
-    grpcCommonMessages.UserCredential Credential = 1;
-    //
-    string SystemID = 2;
-    string RoleID = 3;
-    string ScreenID = 4;
-}
-message GetRoleDetailRecord_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    grpcRoleDetailModel Record = 3;
-}
 message GetRoleDetail_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
@@ -1021,6 +1009,21 @@ message GetRoleDetail_Response
     string MsgCode = 2;
     //
     repeated grpcRoleDetailModel Records = 3;
+}
+message GetRoleDetailRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string SystemID = 2;
+    string RoleID = 3;
+    string ScreenID = 4;
+}
+message GetRoleDetailRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcRoleDetailModel Record = 3;
 }
 message grpcRoleDetailModel
 {
@@ -1104,48 +1107,50 @@ message grpcScreenModel
     string MenuName = 7;
     bool IsShowPopup = 8;
     bool IsMaximized = 9;
-    string F1 = 10;
-    string F2 = 11;
-    string F3 = 12;
-    string F4 = 13;
-    string F5 = 14;
-    string F6 = 15;
-    string F7 = 16;
-    string F8 = 17;
-    string F9 = 18;
-    string F10 = 19;
-    string F11 = 20;
-    string F12 = 21;
-    string ShortCutKeyF1 = 22;
-    string ShortCutKeyF2 = 23;
-    string ShortCutKeyF3 = 24;
-    string ShortCutKeyF4 = 25;
-    string ShortCutKeyF5 = 26;
-    string ShortCutKeyF6 = 27;
-    string ShortCutKeyF7 = 28;
-    string ShortCutKeyF8 = 29;
-    string ShortCutKeyF9 = 30;
-    string ShortCutKeyF10 = 31;
-    string ShortCutKeyF11 = 32;
-    string ShortCutKeyF12 = 33;
-    bytes IconF1 = 34;
-    bytes IconF2 = 35;
-    bytes IconF3 = 36;
-    bytes IconF4 = 37;
-    bytes IconF5 = 38;
-    bytes IconF6 = 39;
-    bytes IconF7 = 40;
-    bytes IconF8 = 41;
-    bytes IconF9 = 42;
-    bytes IconF10 = 43;
-    bytes IconF11 = 44;
-    bytes IconF12 = 45;
-    bool Selected = 46;
-    int32 UpdMode = 47;
-    int32 UpdCount = 48;
-    string UpdTransactionID = 49;
-    string UpdAccountID = 50;
-    google.protobuf.Timestamp UpdDateTime = 51;
+    bool IsInitAfterSaved = 10;
+    bool IsMakeNewConnection = 11;
+    string F1 = 12;
+    string F2 = 13;
+    string F3 = 14;
+    string F4 = 15;
+    string F5 = 16;
+    string F6 = 17;
+    string F7 = 18;
+    string F8 = 19;
+    string F9 = 20;
+    string F10 = 21;
+    string F11 = 22;
+    string F12 = 23;
+    string ShortCutKeyF1 = 24;
+    string ShortCutKeyF2 = 25;
+    string ShortCutKeyF3 = 26;
+    string ShortCutKeyF4 = 27;
+    string ShortCutKeyF5 = 28;
+    string ShortCutKeyF6 = 29;
+    string ShortCutKeyF7 = 30;
+    string ShortCutKeyF8 = 31;
+    string ShortCutKeyF9 = 32;
+    string ShortCutKeyF10 = 33;
+    string ShortCutKeyF11 = 34;
+    string ShortCutKeyF12 = 35;
+    bytes IconF1 = 36;
+    bytes IconF2 = 37;
+    bytes IconF3 = 38;
+    bytes IconF4 = 39;
+    bytes IconF5 = 40;
+    bytes IconF6 = 41;
+    bytes IconF7 = 42;
+    bytes IconF8 = 43;
+    bytes IconF9 = 44;
+    bytes IconF10 = 45;
+    bytes IconF11 = 46;
+    bytes IconF12 = 47;
+    bool Selected = 48;
+    int32 UpdMode = 49;
+    int32 UpdCount = 50;
+    string UpdTransactionID = 51;
+    string UpdAccountID = 52;
+    google.protobuf.Timestamp UpdDateTime = 53;
 }
 //>>> End generated Screen message
 message ImportScreen_Request {
@@ -1243,6 +1248,20 @@ message GetStaff_Response
     string MsgCode = 2;
     //
     repeated grpcStaffModel Records = 3;
+}
+message CheckDuplicatedStaffTaxCode_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string StaffID = 2;
+    string TaxCode = 3;
+}
+message CheckDuplicatedStaffCitizenID_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string StaffID = 2;
+    string CitizenID = 3;
 }
 message grpcStaffModel
 {

@@ -73,6 +73,16 @@ class SaveVoucherInvInSuccess extends InventoryState {
 //   GetStockSumRecordSuccess({required this.StockSumRecordData});
 // }
 
+class GetPickingItemSuccess extends InventoryState {
+  final List<grpcPickingItemModel> PickingItemData;
+  GetPickingItemSuccess({required this.PickingItemData});
+}
+
+class SavePickedItemSuccess extends InventoryState {
+  final String_Response Response;
+  SavePickedItemSuccess({required this.Response});
+}
+
 // general
 class InventoryErrorValidation extends InventoryState {
   final String errorMessage;

@@ -412,4 +412,23 @@ class GlobalWidget {
       ],
     );
   }
+
+  Widget buildButtonStockPick(context,
+      {required Function onTap, required String textButtonConfirm}) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap as void Function(),
+        child: Container(
+          height: kToolbarHeight,
+          color: PRIMARY_COLOR,
+          child: Center(
+              child: Text(textButtonConfirm,
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold))),
+        ),
+      ),
+    );
+  }
 }

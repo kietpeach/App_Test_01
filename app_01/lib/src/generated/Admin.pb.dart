@@ -4529,6 +4529,7 @@ class GrpcLogin_Response extends $pb.GeneratedMessage {
     $core.String? roleID,
     $core.String? merchantID,
     $core.String? accessToken,
+    $core.String? deptCode,
   }) {
     final $result = create();
     if (returnCode != null) {
@@ -4552,6 +4553,9 @@ class GrpcLogin_Response extends $pb.GeneratedMessage {
     if (accessToken != null) {
       $result.accessToken = accessToken;
     }
+    if (deptCode != null) {
+      $result.deptCode = deptCode;
+    }
     return $result;
   }
   GrpcLogin_Response._() : super();
@@ -4566,6 +4570,7 @@ class GrpcLogin_Response extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
     ..aOS(6, _omitFieldNames ? '' : 'MerchantID', protoName: 'MerchantID')
     ..aOS(7, _omitFieldNames ? '' : 'AccessToken', protoName: 'AccessToken')
+    ..aOS(8, _omitFieldNames ? '' : 'DeptCode', protoName: 'DeptCode')
     ..hasRequiredFields = false
   ;
 
@@ -4652,6 +4657,15 @@ class GrpcLogin_Response extends $pb.GeneratedMessage {
   $core.bool hasAccessToken() => $_has(6);
   @$pb.TagNumber(7)
   void clearAccessToken() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get deptCode => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set deptCode($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasDeptCode() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearDeptCode() => clearField(8);
 }
 
 /// TableList
@@ -10010,180 +10024,6 @@ class SaveRoleDetail_Request extends $pb.GeneratedMessage {
   grpcRoleDetailModel ensureRecord() => $_ensure(1);
 }
 
-class GetRoleDetailRecord_Request extends $pb.GeneratedMessage {
-  factory GetRoleDetailRecord_Request({
-    $0.UserCredential? credential,
-    $core.String? systemID,
-    $core.String? roleID,
-    $core.String? screenID,
-  }) {
-    final $result = create();
-    if (credential != null) {
-      $result.credential = credential;
-    }
-    if (systemID != null) {
-      $result.systemID = systemID;
-    }
-    if (roleID != null) {
-      $result.roleID = roleID;
-    }
-    if (screenID != null) {
-      $result.screenID = screenID;
-    }
-    return $result;
-  }
-  GetRoleDetailRecord_Request._() : super();
-  factory GetRoleDetailRecord_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetRoleDetailRecord_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetailRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
-    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
-    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
-    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
-    ..aOS(4, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetRoleDetailRecord_Request clone() => GetRoleDetailRecord_Request()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetRoleDetailRecord_Request copyWith(void Function(GetRoleDetailRecord_Request) updates) => super.copyWith((message) => updates(message as GetRoleDetailRecord_Request)) as GetRoleDetailRecord_Request;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetRoleDetailRecord_Request create() => GetRoleDetailRecord_Request._();
-  GetRoleDetailRecord_Request createEmptyInstance() => create();
-  static $pb.PbList<GetRoleDetailRecord_Request> createRepeated() => $pb.PbList<GetRoleDetailRecord_Request>();
-  @$core.pragma('dart2js:noInline')
-  static GetRoleDetailRecord_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetRoleDetailRecord_Request>(create);
-  static GetRoleDetailRecord_Request? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $0.UserCredential get credential => $_getN(0);
-  @$pb.TagNumber(1)
-  set credential($0.UserCredential v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCredential() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCredential() => clearField(1);
-  @$pb.TagNumber(1)
-  $0.UserCredential ensureCredential() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.String get systemID => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set systemID($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasSystemID() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearSystemID() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get roleID => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set roleID($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasRoleID() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearRoleID() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get screenID => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set screenID($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasScreenID() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearScreenID() => clearField(4);
-}
-
-class GetRoleDetailRecord_Response extends $pb.GeneratedMessage {
-  factory GetRoleDetailRecord_Response({
-    $core.int? returnCode,
-    $core.String? msgCode,
-    grpcRoleDetailModel? record,
-  }) {
-    final $result = create();
-    if (returnCode != null) {
-      $result.returnCode = returnCode;
-    }
-    if (msgCode != null) {
-      $result.msgCode = msgCode;
-    }
-    if (record != null) {
-      $result.record = record;
-    }
-    return $result;
-  }
-  GetRoleDetailRecord_Response._() : super();
-  factory GetRoleDetailRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetRoleDetailRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetailRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
-    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
-    ..aOM<grpcRoleDetailModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcRoleDetailModel.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetRoleDetailRecord_Response clone() => GetRoleDetailRecord_Response()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetRoleDetailRecord_Response copyWith(void Function(GetRoleDetailRecord_Response) updates) => super.copyWith((message) => updates(message as GetRoleDetailRecord_Response)) as GetRoleDetailRecord_Response;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetRoleDetailRecord_Response create() => GetRoleDetailRecord_Response._();
-  GetRoleDetailRecord_Response createEmptyInstance() => create();
-  static $pb.PbList<GetRoleDetailRecord_Response> createRepeated() => $pb.PbList<GetRoleDetailRecord_Response>();
-  @$core.pragma('dart2js:noInline')
-  static GetRoleDetailRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetRoleDetailRecord_Response>(create);
-  static GetRoleDetailRecord_Response? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get returnCode => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set returnCode($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasReturnCode() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearReturnCode() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get msgCode => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set msgCode($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasMsgCode() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearMsgCode() => clearField(2);
-
-  @$pb.TagNumber(3)
-  grpcRoleDetailModel get record => $_getN(2);
-  @$pb.TagNumber(3)
-  set record(grpcRoleDetailModel v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasRecord() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearRecord() => clearField(3);
-  @$pb.TagNumber(3)
-  grpcRoleDetailModel ensureRecord() => $_ensure(2);
-}
-
 class GetRoleDetail_Request extends $pb.GeneratedMessage {
   factory GetRoleDetail_Request({
     $0.UserCredential? credential,
@@ -10362,6 +10202,180 @@ class GetRoleDetail_Response extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<grpcRoleDetailModel> get records => $_getList(2);
+}
+
+class GetRoleDetailRecord_Request extends $pb.GeneratedMessage {
+  factory GetRoleDetailRecord_Request({
+    $0.UserCredential? credential,
+    $core.String? systemID,
+    $core.String? roleID,
+    $core.String? screenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (systemID != null) {
+      $result.systemID = systemID;
+    }
+    if (roleID != null) {
+      $result.roleID = roleID;
+    }
+    if (screenID != null) {
+      $result.screenID = screenID;
+    }
+    return $result;
+  }
+  GetRoleDetailRecord_Request._() : super();
+  factory GetRoleDetailRecord_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetRoleDetailRecord_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetailRecord_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'SystemID', protoName: 'SystemID')
+    ..aOS(3, _omitFieldNames ? '' : 'RoleID', protoName: 'RoleID')
+    ..aOS(4, _omitFieldNames ? '' : 'ScreenID', protoName: 'ScreenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetRoleDetailRecord_Request clone() => GetRoleDetailRecord_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetRoleDetailRecord_Request copyWith(void Function(GetRoleDetailRecord_Request) updates) => super.copyWith((message) => updates(message as GetRoleDetailRecord_Request)) as GetRoleDetailRecord_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetailRecord_Request create() => GetRoleDetailRecord_Request._();
+  GetRoleDetailRecord_Request createEmptyInstance() => create();
+  static $pb.PbList<GetRoleDetailRecord_Request> createRepeated() => $pb.PbList<GetRoleDetailRecord_Request>();
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetailRecord_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetRoleDetailRecord_Request>(create);
+  static GetRoleDetailRecord_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get systemID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set systemID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSystemID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSystemID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get roleID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set roleID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRoleID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRoleID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get screenID => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set screenID($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasScreenID() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearScreenID() => clearField(4);
+}
+
+class GetRoleDetailRecord_Response extends $pb.GeneratedMessage {
+  factory GetRoleDetailRecord_Response({
+    $core.int? returnCode,
+    $core.String? msgCode,
+    grpcRoleDetailModel? record,
+  }) {
+    final $result = create();
+    if (returnCode != null) {
+      $result.returnCode = returnCode;
+    }
+    if (msgCode != null) {
+      $result.msgCode = msgCode;
+    }
+    if (record != null) {
+      $result.record = record;
+    }
+    return $result;
+  }
+  GetRoleDetailRecord_Response._() : super();
+  factory GetRoleDetailRecord_Response.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetRoleDetailRecord_Response.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetRoleDetailRecord_Response', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'ReturnCode', $pb.PbFieldType.O3, protoName: 'ReturnCode')
+    ..aOS(2, _omitFieldNames ? '' : 'MsgCode', protoName: 'MsgCode')
+    ..aOM<grpcRoleDetailModel>(3, _omitFieldNames ? '' : 'Record', protoName: 'Record', subBuilder: grpcRoleDetailModel.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetRoleDetailRecord_Response clone() => GetRoleDetailRecord_Response()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetRoleDetailRecord_Response copyWith(void Function(GetRoleDetailRecord_Response) updates) => super.copyWith((message) => updates(message as GetRoleDetailRecord_Response)) as GetRoleDetailRecord_Response;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetailRecord_Response create() => GetRoleDetailRecord_Response._();
+  GetRoleDetailRecord_Response createEmptyInstance() => create();
+  static $pb.PbList<GetRoleDetailRecord_Response> createRepeated() => $pb.PbList<GetRoleDetailRecord_Response>();
+  @$core.pragma('dart2js:noInline')
+  static GetRoleDetailRecord_Response getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetRoleDetailRecord_Response>(create);
+  static GetRoleDetailRecord_Response? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get returnCode => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set returnCode($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasReturnCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearReturnCode() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get msgCode => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set msgCode($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMsgCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMsgCode() => clearField(2);
+
+  @$pb.TagNumber(3)
+  grpcRoleDetailModel get record => $_getN(2);
+  @$pb.TagNumber(3)
+  set record(grpcRoleDetailModel v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRecord() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRecord() => clearField(3);
+  @$pb.TagNumber(3)
+  grpcRoleDetailModel ensureRecord() => $_ensure(2);
 }
 
 class grpcRoleDetailModel extends $pb.GeneratedMessage {
@@ -11185,6 +11199,8 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     $core.String? menuName,
     $core.bool? isShowPopup,
     $core.bool? isMaximized,
+    $core.bool? isInitAfterSaved,
+    $core.bool? isMakeNewConnection,
     $core.String? f1,
     $core.String? f2,
     $core.String? f3,
@@ -11255,6 +11271,12 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     }
     if (isMaximized != null) {
       $result.isMaximized = isMaximized;
+    }
+    if (isInitAfterSaved != null) {
+      $result.isInitAfterSaved = isInitAfterSaved;
+    }
+    if (isMakeNewConnection != null) {
+      $result.isMakeNewConnection = isMakeNewConnection;
     }
     if (f1 != null) {
       $result.f1 = f1;
@@ -11398,48 +11420,50 @@ class grpcScreenModel extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'MenuName', protoName: 'MenuName')
     ..aOB(8, _omitFieldNames ? '' : 'IsShowPopup', protoName: 'IsShowPopup')
     ..aOB(9, _omitFieldNames ? '' : 'IsMaximized', protoName: 'IsMaximized')
-    ..aOS(10, _omitFieldNames ? '' : 'F1', protoName: 'F1')
-    ..aOS(11, _omitFieldNames ? '' : 'F2', protoName: 'F2')
-    ..aOS(12, _omitFieldNames ? '' : 'F3', protoName: 'F3')
-    ..aOS(13, _omitFieldNames ? '' : 'F4', protoName: 'F4')
-    ..aOS(14, _omitFieldNames ? '' : 'F5', protoName: 'F5')
-    ..aOS(15, _omitFieldNames ? '' : 'F6', protoName: 'F6')
-    ..aOS(16, _omitFieldNames ? '' : 'F7', protoName: 'F7')
-    ..aOS(17, _omitFieldNames ? '' : 'F8', protoName: 'F8')
-    ..aOS(18, _omitFieldNames ? '' : 'F9', protoName: 'F9')
-    ..aOS(19, _omitFieldNames ? '' : 'F10', protoName: 'F10')
-    ..aOS(20, _omitFieldNames ? '' : 'F11', protoName: 'F11')
-    ..aOS(21, _omitFieldNames ? '' : 'F12', protoName: 'F12')
-    ..aOS(22, _omitFieldNames ? '' : 'ShortCutKeyF1', protoName: 'ShortCutKeyF1')
-    ..aOS(23, _omitFieldNames ? '' : 'ShortCutKeyF2', protoName: 'ShortCutKeyF2')
-    ..aOS(24, _omitFieldNames ? '' : 'ShortCutKeyF3', protoName: 'ShortCutKeyF3')
-    ..aOS(25, _omitFieldNames ? '' : 'ShortCutKeyF4', protoName: 'ShortCutKeyF4')
-    ..aOS(26, _omitFieldNames ? '' : 'ShortCutKeyF5', protoName: 'ShortCutKeyF5')
-    ..aOS(27, _omitFieldNames ? '' : 'ShortCutKeyF6', protoName: 'ShortCutKeyF6')
-    ..aOS(28, _omitFieldNames ? '' : 'ShortCutKeyF7', protoName: 'ShortCutKeyF7')
-    ..aOS(29, _omitFieldNames ? '' : 'ShortCutKeyF8', protoName: 'ShortCutKeyF8')
-    ..aOS(30, _omitFieldNames ? '' : 'ShortCutKeyF9', protoName: 'ShortCutKeyF9')
-    ..aOS(31, _omitFieldNames ? '' : 'ShortCutKeyF10', protoName: 'ShortCutKeyF10')
-    ..aOS(32, _omitFieldNames ? '' : 'ShortCutKeyF11', protoName: 'ShortCutKeyF11')
-    ..aOS(33, _omitFieldNames ? '' : 'ShortCutKeyF12', protoName: 'ShortCutKeyF12')
-    ..a<$core.List<$core.int>>(34, _omitFieldNames ? '' : 'IconF1', $pb.PbFieldType.OY, protoName: 'IconF1')
-    ..a<$core.List<$core.int>>(35, _omitFieldNames ? '' : 'IconF2', $pb.PbFieldType.OY, protoName: 'IconF2')
-    ..a<$core.List<$core.int>>(36, _omitFieldNames ? '' : 'IconF3', $pb.PbFieldType.OY, protoName: 'IconF3')
-    ..a<$core.List<$core.int>>(37, _omitFieldNames ? '' : 'IconF4', $pb.PbFieldType.OY, protoName: 'IconF4')
-    ..a<$core.List<$core.int>>(38, _omitFieldNames ? '' : 'IconF5', $pb.PbFieldType.OY, protoName: 'IconF5')
-    ..a<$core.List<$core.int>>(39, _omitFieldNames ? '' : 'IconF6', $pb.PbFieldType.OY, protoName: 'IconF6')
-    ..a<$core.List<$core.int>>(40, _omitFieldNames ? '' : 'IconF7', $pb.PbFieldType.OY, protoName: 'IconF7')
-    ..a<$core.List<$core.int>>(41, _omitFieldNames ? '' : 'IconF8', $pb.PbFieldType.OY, protoName: 'IconF8')
-    ..a<$core.List<$core.int>>(42, _omitFieldNames ? '' : 'IconF9', $pb.PbFieldType.OY, protoName: 'IconF9')
-    ..a<$core.List<$core.int>>(43, _omitFieldNames ? '' : 'IconF10', $pb.PbFieldType.OY, protoName: 'IconF10')
-    ..a<$core.List<$core.int>>(44, _omitFieldNames ? '' : 'IconF11', $pb.PbFieldType.OY, protoName: 'IconF11')
-    ..a<$core.List<$core.int>>(45, _omitFieldNames ? '' : 'IconF12', $pb.PbFieldType.OY, protoName: 'IconF12')
-    ..aOB(46, _omitFieldNames ? '' : 'Selected', protoName: 'Selected')
-    ..a<$core.int>(47, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
-    ..a<$core.int>(48, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
-    ..aOS(49, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
-    ..aOS(50, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
-    ..aOM<$5.Timestamp>(51, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
+    ..aOB(10, _omitFieldNames ? '' : 'IsInitAfterSaved', protoName: 'IsInitAfterSaved')
+    ..aOB(11, _omitFieldNames ? '' : 'IsMakeNewConnection', protoName: 'IsMakeNewConnection')
+    ..aOS(12, _omitFieldNames ? '' : 'F1', protoName: 'F1')
+    ..aOS(13, _omitFieldNames ? '' : 'F2', protoName: 'F2')
+    ..aOS(14, _omitFieldNames ? '' : 'F3', protoName: 'F3')
+    ..aOS(15, _omitFieldNames ? '' : 'F4', protoName: 'F4')
+    ..aOS(16, _omitFieldNames ? '' : 'F5', protoName: 'F5')
+    ..aOS(17, _omitFieldNames ? '' : 'F6', protoName: 'F6')
+    ..aOS(18, _omitFieldNames ? '' : 'F7', protoName: 'F7')
+    ..aOS(19, _omitFieldNames ? '' : 'F8', protoName: 'F8')
+    ..aOS(20, _omitFieldNames ? '' : 'F9', protoName: 'F9')
+    ..aOS(21, _omitFieldNames ? '' : 'F10', protoName: 'F10')
+    ..aOS(22, _omitFieldNames ? '' : 'F11', protoName: 'F11')
+    ..aOS(23, _omitFieldNames ? '' : 'F12', protoName: 'F12')
+    ..aOS(24, _omitFieldNames ? '' : 'ShortCutKeyF1', protoName: 'ShortCutKeyF1')
+    ..aOS(25, _omitFieldNames ? '' : 'ShortCutKeyF2', protoName: 'ShortCutKeyF2')
+    ..aOS(26, _omitFieldNames ? '' : 'ShortCutKeyF3', protoName: 'ShortCutKeyF3')
+    ..aOS(27, _omitFieldNames ? '' : 'ShortCutKeyF4', protoName: 'ShortCutKeyF4')
+    ..aOS(28, _omitFieldNames ? '' : 'ShortCutKeyF5', protoName: 'ShortCutKeyF5')
+    ..aOS(29, _omitFieldNames ? '' : 'ShortCutKeyF6', protoName: 'ShortCutKeyF6')
+    ..aOS(30, _omitFieldNames ? '' : 'ShortCutKeyF7', protoName: 'ShortCutKeyF7')
+    ..aOS(31, _omitFieldNames ? '' : 'ShortCutKeyF8', protoName: 'ShortCutKeyF8')
+    ..aOS(32, _omitFieldNames ? '' : 'ShortCutKeyF9', protoName: 'ShortCutKeyF9')
+    ..aOS(33, _omitFieldNames ? '' : 'ShortCutKeyF10', protoName: 'ShortCutKeyF10')
+    ..aOS(34, _omitFieldNames ? '' : 'ShortCutKeyF11', protoName: 'ShortCutKeyF11')
+    ..aOS(35, _omitFieldNames ? '' : 'ShortCutKeyF12', protoName: 'ShortCutKeyF12')
+    ..a<$core.List<$core.int>>(36, _omitFieldNames ? '' : 'IconF1', $pb.PbFieldType.OY, protoName: 'IconF1')
+    ..a<$core.List<$core.int>>(37, _omitFieldNames ? '' : 'IconF2', $pb.PbFieldType.OY, protoName: 'IconF2')
+    ..a<$core.List<$core.int>>(38, _omitFieldNames ? '' : 'IconF3', $pb.PbFieldType.OY, protoName: 'IconF3')
+    ..a<$core.List<$core.int>>(39, _omitFieldNames ? '' : 'IconF4', $pb.PbFieldType.OY, protoName: 'IconF4')
+    ..a<$core.List<$core.int>>(40, _omitFieldNames ? '' : 'IconF5', $pb.PbFieldType.OY, protoName: 'IconF5')
+    ..a<$core.List<$core.int>>(41, _omitFieldNames ? '' : 'IconF6', $pb.PbFieldType.OY, protoName: 'IconF6')
+    ..a<$core.List<$core.int>>(42, _omitFieldNames ? '' : 'IconF7', $pb.PbFieldType.OY, protoName: 'IconF7')
+    ..a<$core.List<$core.int>>(43, _omitFieldNames ? '' : 'IconF8', $pb.PbFieldType.OY, protoName: 'IconF8')
+    ..a<$core.List<$core.int>>(44, _omitFieldNames ? '' : 'IconF9', $pb.PbFieldType.OY, protoName: 'IconF9')
+    ..a<$core.List<$core.int>>(45, _omitFieldNames ? '' : 'IconF10', $pb.PbFieldType.OY, protoName: 'IconF10')
+    ..a<$core.List<$core.int>>(46, _omitFieldNames ? '' : 'IconF11', $pb.PbFieldType.OY, protoName: 'IconF11')
+    ..a<$core.List<$core.int>>(47, _omitFieldNames ? '' : 'IconF12', $pb.PbFieldType.OY, protoName: 'IconF12')
+    ..aOB(48, _omitFieldNames ? '' : 'Selected', protoName: 'Selected')
+    ..a<$core.int>(49, _omitFieldNames ? '' : 'UpdMode', $pb.PbFieldType.O3, protoName: 'UpdMode')
+    ..a<$core.int>(50, _omitFieldNames ? '' : 'UpdCount', $pb.PbFieldType.O3, protoName: 'UpdCount')
+    ..aOS(51, _omitFieldNames ? '' : 'UpdTransactionID', protoName: 'UpdTransactionID')
+    ..aOS(52, _omitFieldNames ? '' : 'UpdAccountID', protoName: 'UpdAccountID')
+    ..aOM<$5.Timestamp>(53, _omitFieldNames ? '' : 'UpdDateTime', protoName: 'UpdDateTime', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -11546,384 +11570,402 @@ class grpcScreenModel extends $pb.GeneratedMessage {
   void clearIsMaximized() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.String get f1 => $_getSZ(9);
+  $core.bool get isInitAfterSaved => $_getBF(9);
   @$pb.TagNumber(10)
-  set f1($core.String v) { $_setString(9, v); }
+  set isInitAfterSaved($core.bool v) { $_setBool(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasF1() => $_has(9);
+  $core.bool hasIsInitAfterSaved() => $_has(9);
   @$pb.TagNumber(10)
-  void clearF1() => clearField(10);
+  void clearIsInitAfterSaved() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get f2 => $_getSZ(10);
+  $core.bool get isMakeNewConnection => $_getBF(10);
   @$pb.TagNumber(11)
-  set f2($core.String v) { $_setString(10, v); }
+  set isMakeNewConnection($core.bool v) { $_setBool(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasF2() => $_has(10);
+  $core.bool hasIsMakeNewConnection() => $_has(10);
   @$pb.TagNumber(11)
-  void clearF2() => clearField(11);
+  void clearIsMakeNewConnection() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.String get f3 => $_getSZ(11);
+  $core.String get f1 => $_getSZ(11);
   @$pb.TagNumber(12)
-  set f3($core.String v) { $_setString(11, v); }
+  set f1($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasF3() => $_has(11);
+  $core.bool hasF1() => $_has(11);
   @$pb.TagNumber(12)
-  void clearF3() => clearField(12);
+  void clearF1() => clearField(12);
 
   @$pb.TagNumber(13)
-  $core.String get f4 => $_getSZ(12);
+  $core.String get f2 => $_getSZ(12);
   @$pb.TagNumber(13)
-  set f4($core.String v) { $_setString(12, v); }
+  set f2($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasF4() => $_has(12);
+  $core.bool hasF2() => $_has(12);
   @$pb.TagNumber(13)
-  void clearF4() => clearField(13);
+  void clearF2() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get f5 => $_getSZ(13);
+  $core.String get f3 => $_getSZ(13);
   @$pb.TagNumber(14)
-  set f5($core.String v) { $_setString(13, v); }
+  set f3($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasF5() => $_has(13);
+  $core.bool hasF3() => $_has(13);
   @$pb.TagNumber(14)
-  void clearF5() => clearField(14);
+  void clearF3() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.String get f6 => $_getSZ(14);
+  $core.String get f4 => $_getSZ(14);
   @$pb.TagNumber(15)
-  set f6($core.String v) { $_setString(14, v); }
+  set f4($core.String v) { $_setString(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasF6() => $_has(14);
+  $core.bool hasF4() => $_has(14);
   @$pb.TagNumber(15)
-  void clearF6() => clearField(15);
+  void clearF4() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.String get f7 => $_getSZ(15);
+  $core.String get f5 => $_getSZ(15);
   @$pb.TagNumber(16)
-  set f7($core.String v) { $_setString(15, v); }
+  set f5($core.String v) { $_setString(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasF7() => $_has(15);
+  $core.bool hasF5() => $_has(15);
   @$pb.TagNumber(16)
-  void clearF7() => clearField(16);
+  void clearF5() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.String get f8 => $_getSZ(16);
+  $core.String get f6 => $_getSZ(16);
   @$pb.TagNumber(17)
-  set f8($core.String v) { $_setString(16, v); }
+  set f6($core.String v) { $_setString(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasF8() => $_has(16);
+  $core.bool hasF6() => $_has(16);
   @$pb.TagNumber(17)
-  void clearF8() => clearField(17);
+  void clearF6() => clearField(17);
 
   @$pb.TagNumber(18)
-  $core.String get f9 => $_getSZ(17);
+  $core.String get f7 => $_getSZ(17);
   @$pb.TagNumber(18)
-  set f9($core.String v) { $_setString(17, v); }
+  set f7($core.String v) { $_setString(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasF9() => $_has(17);
+  $core.bool hasF7() => $_has(17);
   @$pb.TagNumber(18)
-  void clearF9() => clearField(18);
+  void clearF7() => clearField(18);
 
   @$pb.TagNumber(19)
-  $core.String get f10 => $_getSZ(18);
+  $core.String get f8 => $_getSZ(18);
   @$pb.TagNumber(19)
-  set f10($core.String v) { $_setString(18, v); }
+  set f8($core.String v) { $_setString(18, v); }
   @$pb.TagNumber(19)
-  $core.bool hasF10() => $_has(18);
+  $core.bool hasF8() => $_has(18);
   @$pb.TagNumber(19)
-  void clearF10() => clearField(19);
+  void clearF8() => clearField(19);
 
   @$pb.TagNumber(20)
-  $core.String get f11 => $_getSZ(19);
+  $core.String get f9 => $_getSZ(19);
   @$pb.TagNumber(20)
-  set f11($core.String v) { $_setString(19, v); }
+  set f9($core.String v) { $_setString(19, v); }
   @$pb.TagNumber(20)
-  $core.bool hasF11() => $_has(19);
+  $core.bool hasF9() => $_has(19);
   @$pb.TagNumber(20)
-  void clearF11() => clearField(20);
+  void clearF9() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get f12 => $_getSZ(20);
+  $core.String get f10 => $_getSZ(20);
   @$pb.TagNumber(21)
-  set f12($core.String v) { $_setString(20, v); }
+  set f10($core.String v) { $_setString(20, v); }
   @$pb.TagNumber(21)
-  $core.bool hasF12() => $_has(20);
+  $core.bool hasF10() => $_has(20);
   @$pb.TagNumber(21)
-  void clearF12() => clearField(21);
+  void clearF10() => clearField(21);
 
   @$pb.TagNumber(22)
-  $core.String get shortCutKeyF1 => $_getSZ(21);
+  $core.String get f11 => $_getSZ(21);
   @$pb.TagNumber(22)
-  set shortCutKeyF1($core.String v) { $_setString(21, v); }
+  set f11($core.String v) { $_setString(21, v); }
   @$pb.TagNumber(22)
-  $core.bool hasShortCutKeyF1() => $_has(21);
+  $core.bool hasF11() => $_has(21);
   @$pb.TagNumber(22)
-  void clearShortCutKeyF1() => clearField(22);
+  void clearF11() => clearField(22);
 
   @$pb.TagNumber(23)
-  $core.String get shortCutKeyF2 => $_getSZ(22);
+  $core.String get f12 => $_getSZ(22);
   @$pb.TagNumber(23)
-  set shortCutKeyF2($core.String v) { $_setString(22, v); }
+  set f12($core.String v) { $_setString(22, v); }
   @$pb.TagNumber(23)
-  $core.bool hasShortCutKeyF2() => $_has(22);
+  $core.bool hasF12() => $_has(22);
   @$pb.TagNumber(23)
-  void clearShortCutKeyF2() => clearField(23);
+  void clearF12() => clearField(23);
 
   @$pb.TagNumber(24)
-  $core.String get shortCutKeyF3 => $_getSZ(23);
+  $core.String get shortCutKeyF1 => $_getSZ(23);
   @$pb.TagNumber(24)
-  set shortCutKeyF3($core.String v) { $_setString(23, v); }
+  set shortCutKeyF1($core.String v) { $_setString(23, v); }
   @$pb.TagNumber(24)
-  $core.bool hasShortCutKeyF3() => $_has(23);
+  $core.bool hasShortCutKeyF1() => $_has(23);
   @$pb.TagNumber(24)
-  void clearShortCutKeyF3() => clearField(24);
+  void clearShortCutKeyF1() => clearField(24);
 
   @$pb.TagNumber(25)
-  $core.String get shortCutKeyF4 => $_getSZ(24);
+  $core.String get shortCutKeyF2 => $_getSZ(24);
   @$pb.TagNumber(25)
-  set shortCutKeyF4($core.String v) { $_setString(24, v); }
+  set shortCutKeyF2($core.String v) { $_setString(24, v); }
   @$pb.TagNumber(25)
-  $core.bool hasShortCutKeyF4() => $_has(24);
+  $core.bool hasShortCutKeyF2() => $_has(24);
   @$pb.TagNumber(25)
-  void clearShortCutKeyF4() => clearField(25);
+  void clearShortCutKeyF2() => clearField(25);
 
   @$pb.TagNumber(26)
-  $core.String get shortCutKeyF5 => $_getSZ(25);
+  $core.String get shortCutKeyF3 => $_getSZ(25);
   @$pb.TagNumber(26)
-  set shortCutKeyF5($core.String v) { $_setString(25, v); }
+  set shortCutKeyF3($core.String v) { $_setString(25, v); }
   @$pb.TagNumber(26)
-  $core.bool hasShortCutKeyF5() => $_has(25);
+  $core.bool hasShortCutKeyF3() => $_has(25);
   @$pb.TagNumber(26)
-  void clearShortCutKeyF5() => clearField(26);
+  void clearShortCutKeyF3() => clearField(26);
 
   @$pb.TagNumber(27)
-  $core.String get shortCutKeyF6 => $_getSZ(26);
+  $core.String get shortCutKeyF4 => $_getSZ(26);
   @$pb.TagNumber(27)
-  set shortCutKeyF6($core.String v) { $_setString(26, v); }
+  set shortCutKeyF4($core.String v) { $_setString(26, v); }
   @$pb.TagNumber(27)
-  $core.bool hasShortCutKeyF6() => $_has(26);
+  $core.bool hasShortCutKeyF4() => $_has(26);
   @$pb.TagNumber(27)
-  void clearShortCutKeyF6() => clearField(27);
+  void clearShortCutKeyF4() => clearField(27);
 
   @$pb.TagNumber(28)
-  $core.String get shortCutKeyF7 => $_getSZ(27);
+  $core.String get shortCutKeyF5 => $_getSZ(27);
   @$pb.TagNumber(28)
-  set shortCutKeyF7($core.String v) { $_setString(27, v); }
+  set shortCutKeyF5($core.String v) { $_setString(27, v); }
   @$pb.TagNumber(28)
-  $core.bool hasShortCutKeyF7() => $_has(27);
+  $core.bool hasShortCutKeyF5() => $_has(27);
   @$pb.TagNumber(28)
-  void clearShortCutKeyF7() => clearField(28);
+  void clearShortCutKeyF5() => clearField(28);
 
   @$pb.TagNumber(29)
-  $core.String get shortCutKeyF8 => $_getSZ(28);
+  $core.String get shortCutKeyF6 => $_getSZ(28);
   @$pb.TagNumber(29)
-  set shortCutKeyF8($core.String v) { $_setString(28, v); }
+  set shortCutKeyF6($core.String v) { $_setString(28, v); }
   @$pb.TagNumber(29)
-  $core.bool hasShortCutKeyF8() => $_has(28);
+  $core.bool hasShortCutKeyF6() => $_has(28);
   @$pb.TagNumber(29)
-  void clearShortCutKeyF8() => clearField(29);
+  void clearShortCutKeyF6() => clearField(29);
 
   @$pb.TagNumber(30)
-  $core.String get shortCutKeyF9 => $_getSZ(29);
+  $core.String get shortCutKeyF7 => $_getSZ(29);
   @$pb.TagNumber(30)
-  set shortCutKeyF9($core.String v) { $_setString(29, v); }
+  set shortCutKeyF7($core.String v) { $_setString(29, v); }
   @$pb.TagNumber(30)
-  $core.bool hasShortCutKeyF9() => $_has(29);
+  $core.bool hasShortCutKeyF7() => $_has(29);
   @$pb.TagNumber(30)
-  void clearShortCutKeyF9() => clearField(30);
+  void clearShortCutKeyF7() => clearField(30);
 
   @$pb.TagNumber(31)
-  $core.String get shortCutKeyF10 => $_getSZ(30);
+  $core.String get shortCutKeyF8 => $_getSZ(30);
   @$pb.TagNumber(31)
-  set shortCutKeyF10($core.String v) { $_setString(30, v); }
+  set shortCutKeyF8($core.String v) { $_setString(30, v); }
   @$pb.TagNumber(31)
-  $core.bool hasShortCutKeyF10() => $_has(30);
+  $core.bool hasShortCutKeyF8() => $_has(30);
   @$pb.TagNumber(31)
-  void clearShortCutKeyF10() => clearField(31);
+  void clearShortCutKeyF8() => clearField(31);
 
   @$pb.TagNumber(32)
-  $core.String get shortCutKeyF11 => $_getSZ(31);
+  $core.String get shortCutKeyF9 => $_getSZ(31);
   @$pb.TagNumber(32)
-  set shortCutKeyF11($core.String v) { $_setString(31, v); }
+  set shortCutKeyF9($core.String v) { $_setString(31, v); }
   @$pb.TagNumber(32)
-  $core.bool hasShortCutKeyF11() => $_has(31);
+  $core.bool hasShortCutKeyF9() => $_has(31);
   @$pb.TagNumber(32)
-  void clearShortCutKeyF11() => clearField(32);
+  void clearShortCutKeyF9() => clearField(32);
 
   @$pb.TagNumber(33)
-  $core.String get shortCutKeyF12 => $_getSZ(32);
+  $core.String get shortCutKeyF10 => $_getSZ(32);
   @$pb.TagNumber(33)
-  set shortCutKeyF12($core.String v) { $_setString(32, v); }
+  set shortCutKeyF10($core.String v) { $_setString(32, v); }
   @$pb.TagNumber(33)
-  $core.bool hasShortCutKeyF12() => $_has(32);
+  $core.bool hasShortCutKeyF10() => $_has(32);
   @$pb.TagNumber(33)
-  void clearShortCutKeyF12() => clearField(33);
+  void clearShortCutKeyF10() => clearField(33);
 
   @$pb.TagNumber(34)
-  $core.List<$core.int> get iconF1 => $_getN(33);
+  $core.String get shortCutKeyF11 => $_getSZ(33);
   @$pb.TagNumber(34)
-  set iconF1($core.List<$core.int> v) { $_setBytes(33, v); }
+  set shortCutKeyF11($core.String v) { $_setString(33, v); }
   @$pb.TagNumber(34)
-  $core.bool hasIconF1() => $_has(33);
+  $core.bool hasShortCutKeyF11() => $_has(33);
   @$pb.TagNumber(34)
-  void clearIconF1() => clearField(34);
+  void clearShortCutKeyF11() => clearField(34);
 
   @$pb.TagNumber(35)
-  $core.List<$core.int> get iconF2 => $_getN(34);
+  $core.String get shortCutKeyF12 => $_getSZ(34);
   @$pb.TagNumber(35)
-  set iconF2($core.List<$core.int> v) { $_setBytes(34, v); }
+  set shortCutKeyF12($core.String v) { $_setString(34, v); }
   @$pb.TagNumber(35)
-  $core.bool hasIconF2() => $_has(34);
+  $core.bool hasShortCutKeyF12() => $_has(34);
   @$pb.TagNumber(35)
-  void clearIconF2() => clearField(35);
+  void clearShortCutKeyF12() => clearField(35);
 
   @$pb.TagNumber(36)
-  $core.List<$core.int> get iconF3 => $_getN(35);
+  $core.List<$core.int> get iconF1 => $_getN(35);
   @$pb.TagNumber(36)
-  set iconF3($core.List<$core.int> v) { $_setBytes(35, v); }
+  set iconF1($core.List<$core.int> v) { $_setBytes(35, v); }
   @$pb.TagNumber(36)
-  $core.bool hasIconF3() => $_has(35);
+  $core.bool hasIconF1() => $_has(35);
   @$pb.TagNumber(36)
-  void clearIconF3() => clearField(36);
+  void clearIconF1() => clearField(36);
 
   @$pb.TagNumber(37)
-  $core.List<$core.int> get iconF4 => $_getN(36);
+  $core.List<$core.int> get iconF2 => $_getN(36);
   @$pb.TagNumber(37)
-  set iconF4($core.List<$core.int> v) { $_setBytes(36, v); }
+  set iconF2($core.List<$core.int> v) { $_setBytes(36, v); }
   @$pb.TagNumber(37)
-  $core.bool hasIconF4() => $_has(36);
+  $core.bool hasIconF2() => $_has(36);
   @$pb.TagNumber(37)
-  void clearIconF4() => clearField(37);
+  void clearIconF2() => clearField(37);
 
   @$pb.TagNumber(38)
-  $core.List<$core.int> get iconF5 => $_getN(37);
+  $core.List<$core.int> get iconF3 => $_getN(37);
   @$pb.TagNumber(38)
-  set iconF5($core.List<$core.int> v) { $_setBytes(37, v); }
+  set iconF3($core.List<$core.int> v) { $_setBytes(37, v); }
   @$pb.TagNumber(38)
-  $core.bool hasIconF5() => $_has(37);
+  $core.bool hasIconF3() => $_has(37);
   @$pb.TagNumber(38)
-  void clearIconF5() => clearField(38);
+  void clearIconF3() => clearField(38);
 
   @$pb.TagNumber(39)
-  $core.List<$core.int> get iconF6 => $_getN(38);
+  $core.List<$core.int> get iconF4 => $_getN(38);
   @$pb.TagNumber(39)
-  set iconF6($core.List<$core.int> v) { $_setBytes(38, v); }
+  set iconF4($core.List<$core.int> v) { $_setBytes(38, v); }
   @$pb.TagNumber(39)
-  $core.bool hasIconF6() => $_has(38);
+  $core.bool hasIconF4() => $_has(38);
   @$pb.TagNumber(39)
-  void clearIconF6() => clearField(39);
+  void clearIconF4() => clearField(39);
 
   @$pb.TagNumber(40)
-  $core.List<$core.int> get iconF7 => $_getN(39);
+  $core.List<$core.int> get iconF5 => $_getN(39);
   @$pb.TagNumber(40)
-  set iconF7($core.List<$core.int> v) { $_setBytes(39, v); }
+  set iconF5($core.List<$core.int> v) { $_setBytes(39, v); }
   @$pb.TagNumber(40)
-  $core.bool hasIconF7() => $_has(39);
+  $core.bool hasIconF5() => $_has(39);
   @$pb.TagNumber(40)
-  void clearIconF7() => clearField(40);
+  void clearIconF5() => clearField(40);
 
   @$pb.TagNumber(41)
-  $core.List<$core.int> get iconF8 => $_getN(40);
+  $core.List<$core.int> get iconF6 => $_getN(40);
   @$pb.TagNumber(41)
-  set iconF8($core.List<$core.int> v) { $_setBytes(40, v); }
+  set iconF6($core.List<$core.int> v) { $_setBytes(40, v); }
   @$pb.TagNumber(41)
-  $core.bool hasIconF8() => $_has(40);
+  $core.bool hasIconF6() => $_has(40);
   @$pb.TagNumber(41)
-  void clearIconF8() => clearField(41);
+  void clearIconF6() => clearField(41);
 
   @$pb.TagNumber(42)
-  $core.List<$core.int> get iconF9 => $_getN(41);
+  $core.List<$core.int> get iconF7 => $_getN(41);
   @$pb.TagNumber(42)
-  set iconF9($core.List<$core.int> v) { $_setBytes(41, v); }
+  set iconF7($core.List<$core.int> v) { $_setBytes(41, v); }
   @$pb.TagNumber(42)
-  $core.bool hasIconF9() => $_has(41);
+  $core.bool hasIconF7() => $_has(41);
   @$pb.TagNumber(42)
-  void clearIconF9() => clearField(42);
+  void clearIconF7() => clearField(42);
 
   @$pb.TagNumber(43)
-  $core.List<$core.int> get iconF10 => $_getN(42);
+  $core.List<$core.int> get iconF8 => $_getN(42);
   @$pb.TagNumber(43)
-  set iconF10($core.List<$core.int> v) { $_setBytes(42, v); }
+  set iconF8($core.List<$core.int> v) { $_setBytes(42, v); }
   @$pb.TagNumber(43)
-  $core.bool hasIconF10() => $_has(42);
+  $core.bool hasIconF8() => $_has(42);
   @$pb.TagNumber(43)
-  void clearIconF10() => clearField(43);
+  void clearIconF8() => clearField(43);
 
   @$pb.TagNumber(44)
-  $core.List<$core.int> get iconF11 => $_getN(43);
+  $core.List<$core.int> get iconF9 => $_getN(43);
   @$pb.TagNumber(44)
-  set iconF11($core.List<$core.int> v) { $_setBytes(43, v); }
+  set iconF9($core.List<$core.int> v) { $_setBytes(43, v); }
   @$pb.TagNumber(44)
-  $core.bool hasIconF11() => $_has(43);
+  $core.bool hasIconF9() => $_has(43);
   @$pb.TagNumber(44)
-  void clearIconF11() => clearField(44);
+  void clearIconF9() => clearField(44);
 
   @$pb.TagNumber(45)
-  $core.List<$core.int> get iconF12 => $_getN(44);
+  $core.List<$core.int> get iconF10 => $_getN(44);
   @$pb.TagNumber(45)
-  set iconF12($core.List<$core.int> v) { $_setBytes(44, v); }
+  set iconF10($core.List<$core.int> v) { $_setBytes(44, v); }
   @$pb.TagNumber(45)
-  $core.bool hasIconF12() => $_has(44);
+  $core.bool hasIconF10() => $_has(44);
   @$pb.TagNumber(45)
-  void clearIconF12() => clearField(45);
+  void clearIconF10() => clearField(45);
 
   @$pb.TagNumber(46)
-  $core.bool get selected => $_getBF(45);
+  $core.List<$core.int> get iconF11 => $_getN(45);
   @$pb.TagNumber(46)
-  set selected($core.bool v) { $_setBool(45, v); }
+  set iconF11($core.List<$core.int> v) { $_setBytes(45, v); }
   @$pb.TagNumber(46)
-  $core.bool hasSelected() => $_has(45);
+  $core.bool hasIconF11() => $_has(45);
   @$pb.TagNumber(46)
-  void clearSelected() => clearField(46);
+  void clearIconF11() => clearField(46);
 
   @$pb.TagNumber(47)
-  $core.int get updMode => $_getIZ(46);
+  $core.List<$core.int> get iconF12 => $_getN(46);
   @$pb.TagNumber(47)
-  set updMode($core.int v) { $_setSignedInt32(46, v); }
+  set iconF12($core.List<$core.int> v) { $_setBytes(46, v); }
   @$pb.TagNumber(47)
-  $core.bool hasUpdMode() => $_has(46);
+  $core.bool hasIconF12() => $_has(46);
   @$pb.TagNumber(47)
-  void clearUpdMode() => clearField(47);
+  void clearIconF12() => clearField(47);
 
   @$pb.TagNumber(48)
-  $core.int get updCount => $_getIZ(47);
+  $core.bool get selected => $_getBF(47);
   @$pb.TagNumber(48)
-  set updCount($core.int v) { $_setSignedInt32(47, v); }
+  set selected($core.bool v) { $_setBool(47, v); }
   @$pb.TagNumber(48)
-  $core.bool hasUpdCount() => $_has(47);
+  $core.bool hasSelected() => $_has(47);
   @$pb.TagNumber(48)
-  void clearUpdCount() => clearField(48);
+  void clearSelected() => clearField(48);
 
   @$pb.TagNumber(49)
-  $core.String get updTransactionID => $_getSZ(48);
+  $core.int get updMode => $_getIZ(48);
   @$pb.TagNumber(49)
-  set updTransactionID($core.String v) { $_setString(48, v); }
+  set updMode($core.int v) { $_setSignedInt32(48, v); }
   @$pb.TagNumber(49)
-  $core.bool hasUpdTransactionID() => $_has(48);
+  $core.bool hasUpdMode() => $_has(48);
   @$pb.TagNumber(49)
-  void clearUpdTransactionID() => clearField(49);
+  void clearUpdMode() => clearField(49);
 
   @$pb.TagNumber(50)
-  $core.String get updAccountID => $_getSZ(49);
+  $core.int get updCount => $_getIZ(49);
   @$pb.TagNumber(50)
-  set updAccountID($core.String v) { $_setString(49, v); }
+  set updCount($core.int v) { $_setSignedInt32(49, v); }
   @$pb.TagNumber(50)
-  $core.bool hasUpdAccountID() => $_has(49);
+  $core.bool hasUpdCount() => $_has(49);
   @$pb.TagNumber(50)
-  void clearUpdAccountID() => clearField(50);
+  void clearUpdCount() => clearField(50);
 
   @$pb.TagNumber(51)
-  $5.Timestamp get updDateTime => $_getN(50);
+  $core.String get updTransactionID => $_getSZ(50);
   @$pb.TagNumber(51)
-  set updDateTime($5.Timestamp v) { setField(51, v); }
+  set updTransactionID($core.String v) { $_setString(50, v); }
   @$pb.TagNumber(51)
-  $core.bool hasUpdDateTime() => $_has(50);
+  $core.bool hasUpdTransactionID() => $_has(50);
   @$pb.TagNumber(51)
-  void clearUpdDateTime() => clearField(51);
-  @$pb.TagNumber(51)
-  $5.Timestamp ensureUpdDateTime() => $_ensure(50);
+  void clearUpdTransactionID() => clearField(51);
+
+  @$pb.TagNumber(52)
+  $core.String get updAccountID => $_getSZ(51);
+  @$pb.TagNumber(52)
+  set updAccountID($core.String v) { $_setString(51, v); }
+  @$pb.TagNumber(52)
+  $core.bool hasUpdAccountID() => $_has(51);
+  @$pb.TagNumber(52)
+  void clearUpdAccountID() => clearField(52);
+
+  @$pb.TagNumber(53)
+  $5.Timestamp get updDateTime => $_getN(52);
+  @$pb.TagNumber(53)
+  set updDateTime($5.Timestamp v) { setField(53, v); }
+  @$pb.TagNumber(53)
+  $core.bool hasUpdDateTime() => $_has(52);
+  @$pb.TagNumber(53)
+  void clearUpdDateTime() => clearField(53);
+  @$pb.TagNumber(53)
+  $5.Timestamp ensureUpdDateTime() => $_ensure(52);
 }
 
 /// >>> End generated Screen message
@@ -13038,6 +13080,166 @@ class GetStaff_Response extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(3)
   $core.List<grpcStaffModel> get records => $_getList(2);
+}
+
+class CheckDuplicatedStaffTaxCode_Request extends $pb.GeneratedMessage {
+  factory CheckDuplicatedStaffTaxCode_Request({
+    $0.UserCredential? credential,
+    $core.String? staffID,
+    $core.String? taxCode,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (staffID != null) {
+      $result.staffID = staffID;
+    }
+    if (taxCode != null) {
+      $result.taxCode = taxCode;
+    }
+    return $result;
+  }
+  CheckDuplicatedStaffTaxCode_Request._() : super();
+  factory CheckDuplicatedStaffTaxCode_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CheckDuplicatedStaffTaxCode_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CheckDuplicatedStaffTaxCode_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(3, _omitFieldNames ? '' : 'TaxCode', protoName: 'TaxCode')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CheckDuplicatedStaffTaxCode_Request clone() => CheckDuplicatedStaffTaxCode_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CheckDuplicatedStaffTaxCode_Request copyWith(void Function(CheckDuplicatedStaffTaxCode_Request) updates) => super.copyWith((message) => updates(message as CheckDuplicatedStaffTaxCode_Request)) as CheckDuplicatedStaffTaxCode_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CheckDuplicatedStaffTaxCode_Request create() => CheckDuplicatedStaffTaxCode_Request._();
+  CheckDuplicatedStaffTaxCode_Request createEmptyInstance() => create();
+  static $pb.PbList<CheckDuplicatedStaffTaxCode_Request> createRepeated() => $pb.PbList<CheckDuplicatedStaffTaxCode_Request>();
+  @$core.pragma('dart2js:noInline')
+  static CheckDuplicatedStaffTaxCode_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CheckDuplicatedStaffTaxCode_Request>(create);
+  static CheckDuplicatedStaffTaxCode_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get staffID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set staffID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasStaffID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearStaffID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get taxCode => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set taxCode($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasTaxCode() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTaxCode() => clearField(3);
+}
+
+class CheckDuplicatedStaffCitizenID_Request extends $pb.GeneratedMessage {
+  factory CheckDuplicatedStaffCitizenID_Request({
+    $0.UserCredential? credential,
+    $core.String? staffID,
+    $core.String? citizenID,
+  }) {
+    final $result = create();
+    if (credential != null) {
+      $result.credential = credential;
+    }
+    if (staffID != null) {
+      $result.staffID = staffID;
+    }
+    if (citizenID != null) {
+      $result.citizenID = citizenID;
+    }
+    return $result;
+  }
+  CheckDuplicatedStaffCitizenID_Request._() : super();
+  factory CheckDuplicatedStaffCitizenID_Request.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CheckDuplicatedStaffCitizenID_Request.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CheckDuplicatedStaffCitizenID_Request', package: const $pb.PackageName(_omitMessageNames ? '' : 'grpcAdminService'), createEmptyInstance: create)
+    ..aOM<$0.UserCredential>(1, _omitFieldNames ? '' : 'Credential', protoName: 'Credential', subBuilder: $0.UserCredential.create)
+    ..aOS(2, _omitFieldNames ? '' : 'StaffID', protoName: 'StaffID')
+    ..aOS(3, _omitFieldNames ? '' : 'CitizenID', protoName: 'CitizenID')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CheckDuplicatedStaffCitizenID_Request clone() => CheckDuplicatedStaffCitizenID_Request()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CheckDuplicatedStaffCitizenID_Request copyWith(void Function(CheckDuplicatedStaffCitizenID_Request) updates) => super.copyWith((message) => updates(message as CheckDuplicatedStaffCitizenID_Request)) as CheckDuplicatedStaffCitizenID_Request;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CheckDuplicatedStaffCitizenID_Request create() => CheckDuplicatedStaffCitizenID_Request._();
+  CheckDuplicatedStaffCitizenID_Request createEmptyInstance() => create();
+  static $pb.PbList<CheckDuplicatedStaffCitizenID_Request> createRepeated() => $pb.PbList<CheckDuplicatedStaffCitizenID_Request>();
+  @$core.pragma('dart2js:noInline')
+  static CheckDuplicatedStaffCitizenID_Request getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CheckDuplicatedStaffCitizenID_Request>(create);
+  static CheckDuplicatedStaffCitizenID_Request? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $0.UserCredential get credential => $_getN(0);
+  @$pb.TagNumber(1)
+  set credential($0.UserCredential v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCredential() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCredential() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.UserCredential ensureCredential() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get staffID => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set staffID($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasStaffID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearStaffID() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get citizenID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set citizenID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCitizenID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCitizenID() => clearField(3);
 }
 
 class grpcStaffModel extends $pb.GeneratedMessage {

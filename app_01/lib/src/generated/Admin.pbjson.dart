@@ -830,6 +830,7 @@ const GrpcLogin_Response$json = {
     {'1': 'RoleID', '3': 5, '4': 1, '5': 9, '10': 'RoleID'},
     {'1': 'MerchantID', '3': 6, '4': 1, '5': 9, '10': 'MerchantID'},
     {'1': 'AccessToken', '3': 7, '4': 1, '5': 9, '10': 'AccessToken'},
+    {'1': 'DeptCode', '3': 8, '4': 1, '5': 9, '10': 'DeptCode'},
   ],
 };
 
@@ -839,7 +840,7 @@ final $typed_data.Uint8List grpcLogin_ResponseDescriptor = $convert.base64Decode
     'dNc2dDb2RlGAIgASgJUgdNc2dDb2RlEhoKCFVzZXJOYW1lGAMgASgJUghVc2VyTmFtZRIaCghG'
     'dWxsbmFtZRgEIAEoCVIIRnVsbG5hbWUSFgoGUm9sZUlEGAUgASgJUgZSb2xlSUQSHgoKTWVyY2'
     'hhbnRJRBgGIAEoCVIKTWVyY2hhbnRJRBIgCgtBY2Nlc3NUb2tlbhgHIAEoCVILQWNjZXNzVG9r'
-    'ZW4=');
+    'ZW4SGgoIRGVwdENvZGUYCCABKAlSCERlcHRDb2Rl');
 
 @$core.Deprecated('Use getTable_ResponseDescriptor instead')
 const GetTable_Response$json = {
@@ -1812,40 +1813,6 @@ final $typed_data.Uint8List saveRoleDetail_RequestDescriptor = $convert.base64De
     '9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSPQoGUmVjb3JkGAIgASgLMiUu'
     'Z3JwY0FkbWluU2VydmljZS5ncnBjUm9sZURldGFpbE1vZGVsUgZSZWNvcmQ=');
 
-@$core.Deprecated('Use getRoleDetailRecord_RequestDescriptor instead')
-const GetRoleDetailRecord_Request$json = {
-  '1': 'GetRoleDetailRecord_Request',
-  '2': [
-    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
-    {'1': 'SystemID', '3': 2, '4': 1, '5': 9, '10': 'SystemID'},
-    {'1': 'RoleID', '3': 3, '4': 1, '5': 9, '10': 'RoleID'},
-    {'1': 'ScreenID', '3': 4, '4': 1, '5': 9, '10': 'ScreenID'},
-  ],
-};
-
-/// Descriptor for `GetRoleDetailRecord_Request`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getRoleDetailRecord_RequestDescriptor = $convert.base64Decode(
-    'ChtHZXRSb2xlRGV0YWlsUmVjb3JkX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
-    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIaCghTeXN0ZW1JRBgC'
-    'IAEoCVIIU3lzdGVtSUQSFgoGUm9sZUlEGAMgASgJUgZSb2xlSUQSGgoIU2NyZWVuSUQYBCABKA'
-    'lSCFNjcmVlbklE');
-
-@$core.Deprecated('Use getRoleDetailRecord_ResponseDescriptor instead')
-const GetRoleDetailRecord_Response$json = {
-  '1': 'GetRoleDetailRecord_Response',
-  '2': [
-    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
-    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
-    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcAdminService.grpcRoleDetailModel', '10': 'Record'},
-  ],
-};
-
-/// Descriptor for `GetRoleDetailRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getRoleDetailRecord_ResponseDescriptor = $convert.base64Decode(
-    'ChxHZXRSb2xlRGV0YWlsUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldH'
-    'VybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRI9CgZSZWNvcmQYAyABKAsyJS5ncnBj'
-    'QWRtaW5TZXJ2aWNlLmdycGNSb2xlRGV0YWlsTW9kZWxSBlJlY29yZA==');
-
 @$core.Deprecated('Use getRoleDetail_RequestDescriptor instead')
 const GetRoleDetail_Request$json = {
   '1': 'GetRoleDetail_Request',
@@ -1880,6 +1847,40 @@ final $typed_data.Uint8List getRoleDetail_ResponseDescriptor = $convert.base64De
     'ChZHZXRSb2xlRGV0YWlsX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldHVybkNvZG'
     'USGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRI/CgdSZWNvcmRzGAMgAygLMiUuZ3JwY0FkbWlu'
     'U2VydmljZS5ncnBjUm9sZURldGFpbE1vZGVsUgdSZWNvcmRz');
+
+@$core.Deprecated('Use getRoleDetailRecord_RequestDescriptor instead')
+const GetRoleDetailRecord_Request$json = {
+  '1': 'GetRoleDetailRecord_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'SystemID', '3': 2, '4': 1, '5': 9, '10': 'SystemID'},
+    {'1': 'RoleID', '3': 3, '4': 1, '5': 9, '10': 'RoleID'},
+    {'1': 'ScreenID', '3': 4, '4': 1, '5': 9, '10': 'ScreenID'},
+  ],
+};
+
+/// Descriptor for `GetRoleDetailRecord_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getRoleDetailRecord_RequestDescriptor = $convert.base64Decode(
+    'ChtHZXRSb2xlRGV0YWlsUmVjb3JkX1JlcXVlc3QSQgoKQ3JlZGVudGlhbBgBIAEoCzIiLmdycG'
+    'NDb21tb25NZXNzYWdlcy5Vc2VyQ3JlZGVudGlhbFIKQ3JlZGVudGlhbBIaCghTeXN0ZW1JRBgC'
+    'IAEoCVIIU3lzdGVtSUQSFgoGUm9sZUlEGAMgASgJUgZSb2xlSUQSGgoIU2NyZWVuSUQYBCABKA'
+    'lSCFNjcmVlbklE');
+
+@$core.Deprecated('Use getRoleDetailRecord_ResponseDescriptor instead')
+const GetRoleDetailRecord_Response$json = {
+  '1': 'GetRoleDetailRecord_Response',
+  '2': [
+    {'1': 'ReturnCode', '3': 1, '4': 1, '5': 5, '10': 'ReturnCode'},
+    {'1': 'MsgCode', '3': 2, '4': 1, '5': 9, '10': 'MsgCode'},
+    {'1': 'Record', '3': 3, '4': 1, '5': 11, '6': '.grpcAdminService.grpcRoleDetailModel', '10': 'Record'},
+  ],
+};
+
+/// Descriptor for `GetRoleDetailRecord_Response`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getRoleDetailRecord_ResponseDescriptor = $convert.base64Decode(
+    'ChxHZXRSb2xlRGV0YWlsUmVjb3JkX1Jlc3BvbnNlEh4KClJldHVybkNvZGUYASABKAVSClJldH'
+    'VybkNvZGUSGAoHTXNnQ29kZRgCIAEoCVIHTXNnQ29kZRI9CgZSZWNvcmQYAyABKAsyJS5ncnBj'
+    'QWRtaW5TZXJ2aWNlLmdycGNSb2xlRGV0YWlsTW9kZWxSBlJlY29yZA==');
 
 @$core.Deprecated('Use grpcRoleDetailModelDescriptor instead')
 const grpcRoleDetailModel$json = {
@@ -2042,48 +2043,50 @@ const grpcScreenModel$json = {
     {'1': 'MenuName', '3': 7, '4': 1, '5': 9, '10': 'MenuName'},
     {'1': 'IsShowPopup', '3': 8, '4': 1, '5': 8, '10': 'IsShowPopup'},
     {'1': 'IsMaximized', '3': 9, '4': 1, '5': 8, '10': 'IsMaximized'},
-    {'1': 'F1', '3': 10, '4': 1, '5': 9, '10': 'F1'},
-    {'1': 'F2', '3': 11, '4': 1, '5': 9, '10': 'F2'},
-    {'1': 'F3', '3': 12, '4': 1, '5': 9, '10': 'F3'},
-    {'1': 'F4', '3': 13, '4': 1, '5': 9, '10': 'F4'},
-    {'1': 'F5', '3': 14, '4': 1, '5': 9, '10': 'F5'},
-    {'1': 'F6', '3': 15, '4': 1, '5': 9, '10': 'F6'},
-    {'1': 'F7', '3': 16, '4': 1, '5': 9, '10': 'F7'},
-    {'1': 'F8', '3': 17, '4': 1, '5': 9, '10': 'F8'},
-    {'1': 'F9', '3': 18, '4': 1, '5': 9, '10': 'F9'},
-    {'1': 'F10', '3': 19, '4': 1, '5': 9, '10': 'F10'},
-    {'1': 'F11', '3': 20, '4': 1, '5': 9, '10': 'F11'},
-    {'1': 'F12', '3': 21, '4': 1, '5': 9, '10': 'F12'},
-    {'1': 'ShortCutKeyF1', '3': 22, '4': 1, '5': 9, '10': 'ShortCutKeyF1'},
-    {'1': 'ShortCutKeyF2', '3': 23, '4': 1, '5': 9, '10': 'ShortCutKeyF2'},
-    {'1': 'ShortCutKeyF3', '3': 24, '4': 1, '5': 9, '10': 'ShortCutKeyF3'},
-    {'1': 'ShortCutKeyF4', '3': 25, '4': 1, '5': 9, '10': 'ShortCutKeyF4'},
-    {'1': 'ShortCutKeyF5', '3': 26, '4': 1, '5': 9, '10': 'ShortCutKeyF5'},
-    {'1': 'ShortCutKeyF6', '3': 27, '4': 1, '5': 9, '10': 'ShortCutKeyF6'},
-    {'1': 'ShortCutKeyF7', '3': 28, '4': 1, '5': 9, '10': 'ShortCutKeyF7'},
-    {'1': 'ShortCutKeyF8', '3': 29, '4': 1, '5': 9, '10': 'ShortCutKeyF8'},
-    {'1': 'ShortCutKeyF9', '3': 30, '4': 1, '5': 9, '10': 'ShortCutKeyF9'},
-    {'1': 'ShortCutKeyF10', '3': 31, '4': 1, '5': 9, '10': 'ShortCutKeyF10'},
-    {'1': 'ShortCutKeyF11', '3': 32, '4': 1, '5': 9, '10': 'ShortCutKeyF11'},
-    {'1': 'ShortCutKeyF12', '3': 33, '4': 1, '5': 9, '10': 'ShortCutKeyF12'},
-    {'1': 'IconF1', '3': 34, '4': 1, '5': 12, '10': 'IconF1'},
-    {'1': 'IconF2', '3': 35, '4': 1, '5': 12, '10': 'IconF2'},
-    {'1': 'IconF3', '3': 36, '4': 1, '5': 12, '10': 'IconF3'},
-    {'1': 'IconF4', '3': 37, '4': 1, '5': 12, '10': 'IconF4'},
-    {'1': 'IconF5', '3': 38, '4': 1, '5': 12, '10': 'IconF5'},
-    {'1': 'IconF6', '3': 39, '4': 1, '5': 12, '10': 'IconF6'},
-    {'1': 'IconF7', '3': 40, '4': 1, '5': 12, '10': 'IconF7'},
-    {'1': 'IconF8', '3': 41, '4': 1, '5': 12, '10': 'IconF8'},
-    {'1': 'IconF9', '3': 42, '4': 1, '5': 12, '10': 'IconF9'},
-    {'1': 'IconF10', '3': 43, '4': 1, '5': 12, '10': 'IconF10'},
-    {'1': 'IconF11', '3': 44, '4': 1, '5': 12, '10': 'IconF11'},
-    {'1': 'IconF12', '3': 45, '4': 1, '5': 12, '10': 'IconF12'},
-    {'1': 'Selected', '3': 46, '4': 1, '5': 8, '10': 'Selected'},
-    {'1': 'UpdMode', '3': 47, '4': 1, '5': 5, '10': 'UpdMode'},
-    {'1': 'UpdCount', '3': 48, '4': 1, '5': 5, '10': 'UpdCount'},
-    {'1': 'UpdTransactionID', '3': 49, '4': 1, '5': 9, '10': 'UpdTransactionID'},
-    {'1': 'UpdAccountID', '3': 50, '4': 1, '5': 9, '10': 'UpdAccountID'},
-    {'1': 'UpdDateTime', '3': 51, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
+    {'1': 'IsInitAfterSaved', '3': 10, '4': 1, '5': 8, '10': 'IsInitAfterSaved'},
+    {'1': 'IsMakeNewConnection', '3': 11, '4': 1, '5': 8, '10': 'IsMakeNewConnection'},
+    {'1': 'F1', '3': 12, '4': 1, '5': 9, '10': 'F1'},
+    {'1': 'F2', '3': 13, '4': 1, '5': 9, '10': 'F2'},
+    {'1': 'F3', '3': 14, '4': 1, '5': 9, '10': 'F3'},
+    {'1': 'F4', '3': 15, '4': 1, '5': 9, '10': 'F4'},
+    {'1': 'F5', '3': 16, '4': 1, '5': 9, '10': 'F5'},
+    {'1': 'F6', '3': 17, '4': 1, '5': 9, '10': 'F6'},
+    {'1': 'F7', '3': 18, '4': 1, '5': 9, '10': 'F7'},
+    {'1': 'F8', '3': 19, '4': 1, '5': 9, '10': 'F8'},
+    {'1': 'F9', '3': 20, '4': 1, '5': 9, '10': 'F9'},
+    {'1': 'F10', '3': 21, '4': 1, '5': 9, '10': 'F10'},
+    {'1': 'F11', '3': 22, '4': 1, '5': 9, '10': 'F11'},
+    {'1': 'F12', '3': 23, '4': 1, '5': 9, '10': 'F12'},
+    {'1': 'ShortCutKeyF1', '3': 24, '4': 1, '5': 9, '10': 'ShortCutKeyF1'},
+    {'1': 'ShortCutKeyF2', '3': 25, '4': 1, '5': 9, '10': 'ShortCutKeyF2'},
+    {'1': 'ShortCutKeyF3', '3': 26, '4': 1, '5': 9, '10': 'ShortCutKeyF3'},
+    {'1': 'ShortCutKeyF4', '3': 27, '4': 1, '5': 9, '10': 'ShortCutKeyF4'},
+    {'1': 'ShortCutKeyF5', '3': 28, '4': 1, '5': 9, '10': 'ShortCutKeyF5'},
+    {'1': 'ShortCutKeyF6', '3': 29, '4': 1, '5': 9, '10': 'ShortCutKeyF6'},
+    {'1': 'ShortCutKeyF7', '3': 30, '4': 1, '5': 9, '10': 'ShortCutKeyF7'},
+    {'1': 'ShortCutKeyF8', '3': 31, '4': 1, '5': 9, '10': 'ShortCutKeyF8'},
+    {'1': 'ShortCutKeyF9', '3': 32, '4': 1, '5': 9, '10': 'ShortCutKeyF9'},
+    {'1': 'ShortCutKeyF10', '3': 33, '4': 1, '5': 9, '10': 'ShortCutKeyF10'},
+    {'1': 'ShortCutKeyF11', '3': 34, '4': 1, '5': 9, '10': 'ShortCutKeyF11'},
+    {'1': 'ShortCutKeyF12', '3': 35, '4': 1, '5': 9, '10': 'ShortCutKeyF12'},
+    {'1': 'IconF1', '3': 36, '4': 1, '5': 12, '10': 'IconF1'},
+    {'1': 'IconF2', '3': 37, '4': 1, '5': 12, '10': 'IconF2'},
+    {'1': 'IconF3', '3': 38, '4': 1, '5': 12, '10': 'IconF3'},
+    {'1': 'IconF4', '3': 39, '4': 1, '5': 12, '10': 'IconF4'},
+    {'1': 'IconF5', '3': 40, '4': 1, '5': 12, '10': 'IconF5'},
+    {'1': 'IconF6', '3': 41, '4': 1, '5': 12, '10': 'IconF6'},
+    {'1': 'IconF7', '3': 42, '4': 1, '5': 12, '10': 'IconF7'},
+    {'1': 'IconF8', '3': 43, '4': 1, '5': 12, '10': 'IconF8'},
+    {'1': 'IconF9', '3': 44, '4': 1, '5': 12, '10': 'IconF9'},
+    {'1': 'IconF10', '3': 45, '4': 1, '5': 12, '10': 'IconF10'},
+    {'1': 'IconF11', '3': 46, '4': 1, '5': 12, '10': 'IconF11'},
+    {'1': 'IconF12', '3': 47, '4': 1, '5': 12, '10': 'IconF12'},
+    {'1': 'Selected', '3': 48, '4': 1, '5': 8, '10': 'Selected'},
+    {'1': 'UpdMode', '3': 49, '4': 1, '5': 5, '10': 'UpdMode'},
+    {'1': 'UpdCount', '3': 50, '4': 1, '5': 5, '10': 'UpdCount'},
+    {'1': 'UpdTransactionID', '3': 51, '4': 1, '5': 9, '10': 'UpdTransactionID'},
+    {'1': 'UpdAccountID', '3': 52, '4': 1, '5': 9, '10': 'UpdAccountID'},
+    {'1': 'UpdDateTime', '3': 53, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'UpdDateTime'},
   ],
 };
 
@@ -2093,28 +2096,30 @@ final $typed_data.Uint8List grpcScreenModelDescriptor = $convert.base64Decode(
     'ISCgRNZW51GAMgASgJUgRNZW51EhgKB1N1Yk1lbnUYBCABKAlSB1N1Yk1lbnUSGgoIU2NyZWVu'
     'SUQYBSABKAlSCFNjcmVlbklEEh4KClNjcmVlbk5hbWUYBiABKAlSClNjcmVlbk5hbWUSGgoITW'
     'VudU5hbWUYByABKAlSCE1lbnVOYW1lEiAKC0lzU2hvd1BvcHVwGAggASgIUgtJc1Nob3dQb3B1'
-    'cBIgCgtJc01heGltaXplZBgJIAEoCFILSXNNYXhpbWl6ZWQSDgoCRjEYCiABKAlSAkYxEg4KAk'
-    'YyGAsgASgJUgJGMhIOCgJGMxgMIAEoCVICRjMSDgoCRjQYDSABKAlSAkY0Eg4KAkY1GA4gASgJ'
-    'UgJGNRIOCgJGNhgPIAEoCVICRjYSDgoCRjcYECABKAlSAkY3Eg4KAkY4GBEgASgJUgJGOBIOCg'
-    'JGORgSIAEoCVICRjkSEAoDRjEwGBMgASgJUgNGMTASEAoDRjExGBQgASgJUgNGMTESEAoDRjEy'
-    'GBUgASgJUgNGMTISJAoNU2hvcnRDdXRLZXlGMRgWIAEoCVINU2hvcnRDdXRLZXlGMRIkCg1TaG'
-    '9ydEN1dEtleUYyGBcgASgJUg1TaG9ydEN1dEtleUYyEiQKDVNob3J0Q3V0S2V5RjMYGCABKAlS'
-    'DVNob3J0Q3V0S2V5RjMSJAoNU2hvcnRDdXRLZXlGNBgZIAEoCVINU2hvcnRDdXRLZXlGNBIkCg'
-    '1TaG9ydEN1dEtleUY1GBogASgJUg1TaG9ydEN1dEtleUY1EiQKDVNob3J0Q3V0S2V5RjYYGyAB'
-    'KAlSDVNob3J0Q3V0S2V5RjYSJAoNU2hvcnRDdXRLZXlGNxgcIAEoCVINU2hvcnRDdXRLZXlGNx'
-    'IkCg1TaG9ydEN1dEtleUY4GB0gASgJUg1TaG9ydEN1dEtleUY4EiQKDVNob3J0Q3V0S2V5RjkY'
-    'HiABKAlSDVNob3J0Q3V0S2V5RjkSJgoOU2hvcnRDdXRLZXlGMTAYHyABKAlSDlNob3J0Q3V0S2'
-    'V5RjEwEiYKDlNob3J0Q3V0S2V5RjExGCAgASgJUg5TaG9ydEN1dEtleUYxMRImCg5TaG9ydEN1'
-    'dEtleUYxMhghIAEoCVIOU2hvcnRDdXRLZXlGMTISFgoGSWNvbkYxGCIgASgMUgZJY29uRjESFg'
-    'oGSWNvbkYyGCMgASgMUgZJY29uRjISFgoGSWNvbkYzGCQgASgMUgZJY29uRjMSFgoGSWNvbkY0'
-    'GCUgASgMUgZJY29uRjQSFgoGSWNvbkY1GCYgASgMUgZJY29uRjUSFgoGSWNvbkY2GCcgASgMUg'
-    'ZJY29uRjYSFgoGSWNvbkY3GCggASgMUgZJY29uRjcSFgoGSWNvbkY4GCkgASgMUgZJY29uRjgS'
-    'FgoGSWNvbkY5GCogASgMUgZJY29uRjkSGAoHSWNvbkYxMBgrIAEoDFIHSWNvbkYxMBIYCgdJY2'
-    '9uRjExGCwgASgMUgdJY29uRjExEhgKB0ljb25GMTIYLSABKAxSB0ljb25GMTISGgoIU2VsZWN0'
-    'ZWQYLiABKAhSCFNlbGVjdGVkEhgKB1VwZE1vZGUYLyABKAVSB1VwZE1vZGUSGgoIVXBkQ291bn'
-    'QYMCABKAVSCFVwZENvdW50EioKEFVwZFRyYW5zYWN0aW9uSUQYMSABKAlSEFVwZFRyYW5zYWN0'
-    'aW9uSUQSIgoMVXBkQWNjb3VudElEGDIgASgJUgxVcGRBY2NvdW50SUQSPAoLVXBkRGF0ZVRpbW'
-    'UYMyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgtVcGREYXRlVGltZQ==');
+    'cBIgCgtJc01heGltaXplZBgJIAEoCFILSXNNYXhpbWl6ZWQSKgoQSXNJbml0QWZ0ZXJTYXZlZB'
+    'gKIAEoCFIQSXNJbml0QWZ0ZXJTYXZlZBIwChNJc01ha2VOZXdDb25uZWN0aW9uGAsgASgIUhNJ'
+    'c01ha2VOZXdDb25uZWN0aW9uEg4KAkYxGAwgASgJUgJGMRIOCgJGMhgNIAEoCVICRjISDgoCRj'
+    'MYDiABKAlSAkYzEg4KAkY0GA8gASgJUgJGNBIOCgJGNRgQIAEoCVICRjUSDgoCRjYYESABKAlS'
+    'AkY2Eg4KAkY3GBIgASgJUgJGNxIOCgJGOBgTIAEoCVICRjgSDgoCRjkYFCABKAlSAkY5EhAKA0'
+    'YxMBgVIAEoCVIDRjEwEhAKA0YxMRgWIAEoCVIDRjExEhAKA0YxMhgXIAEoCVIDRjEyEiQKDVNo'
+    'b3J0Q3V0S2V5RjEYGCABKAlSDVNob3J0Q3V0S2V5RjESJAoNU2hvcnRDdXRLZXlGMhgZIAEoCV'
+    'INU2hvcnRDdXRLZXlGMhIkCg1TaG9ydEN1dEtleUYzGBogASgJUg1TaG9ydEN1dEtleUYzEiQK'
+    'DVNob3J0Q3V0S2V5RjQYGyABKAlSDVNob3J0Q3V0S2V5RjQSJAoNU2hvcnRDdXRLZXlGNRgcIA'
+    'EoCVINU2hvcnRDdXRLZXlGNRIkCg1TaG9ydEN1dEtleUY2GB0gASgJUg1TaG9ydEN1dEtleUY2'
+    'EiQKDVNob3J0Q3V0S2V5RjcYHiABKAlSDVNob3J0Q3V0S2V5RjcSJAoNU2hvcnRDdXRLZXlGOB'
+    'gfIAEoCVINU2hvcnRDdXRLZXlGOBIkCg1TaG9ydEN1dEtleUY5GCAgASgJUg1TaG9ydEN1dEtl'
+    'eUY5EiYKDlNob3J0Q3V0S2V5RjEwGCEgASgJUg5TaG9ydEN1dEtleUYxMBImCg5TaG9ydEN1dE'
+    'tleUYxMRgiIAEoCVIOU2hvcnRDdXRLZXlGMTESJgoOU2hvcnRDdXRLZXlGMTIYIyABKAlSDlNo'
+    'b3J0Q3V0S2V5RjEyEhYKBkljb25GMRgkIAEoDFIGSWNvbkYxEhYKBkljb25GMhglIAEoDFIGSW'
+    'NvbkYyEhYKBkljb25GMxgmIAEoDFIGSWNvbkYzEhYKBkljb25GNBgnIAEoDFIGSWNvbkY0EhYK'
+    'Bkljb25GNRgoIAEoDFIGSWNvbkY1EhYKBkljb25GNhgpIAEoDFIGSWNvbkY2EhYKBkljb25GNx'
+    'gqIAEoDFIGSWNvbkY3EhYKBkljb25GOBgrIAEoDFIGSWNvbkY4EhYKBkljb25GORgsIAEoDFIG'
+    'SWNvbkY5EhgKB0ljb25GMTAYLSABKAxSB0ljb25GMTASGAoHSWNvbkYxMRguIAEoDFIHSWNvbk'
+    'YxMRIYCgdJY29uRjEyGC8gASgMUgdJY29uRjEyEhoKCFNlbGVjdGVkGDAgASgIUghTZWxlY3Rl'
+    'ZBIYCgdVcGRNb2RlGDEgASgFUgdVcGRNb2RlEhoKCFVwZENvdW50GDIgASgFUghVcGRDb3VudB'
+    'IqChBVcGRUcmFuc2FjdGlvbklEGDMgASgJUhBVcGRUcmFuc2FjdGlvbklEEiIKDFVwZEFjY291'
+    'bnRJRBg0IAEoCVIMVXBkQWNjb3VudElEEjwKC1VwZERhdGVUaW1lGDUgASgLMhouZ29vZ2xlLn'
+    'Byb3RvYnVmLlRpbWVzdGFtcFILVXBkRGF0ZVRpbWU=');
 
 @$core.Deprecated('Use importScreen_RequestDescriptor instead')
 const ImportScreen_Request$json = {
@@ -2327,6 +2332,38 @@ final $typed_data.Uint8List getStaff_ResponseDescriptor = $convert.base64Decode(
     'ChFHZXRTdGFmZl9SZXNwb25zZRIeCgpSZXR1cm5Db2RlGAEgASgFUgpSZXR1cm5Db2RlEhgKB0'
     '1zZ0NvZGUYAiABKAlSB01zZ0NvZGUSOgoHUmVjb3JkcxgDIAMoCzIgLmdycGNBZG1pblNlcnZp'
     'Y2UuZ3JwY1N0YWZmTW9kZWxSB1JlY29yZHM=');
+
+@$core.Deprecated('Use checkDuplicatedStaffTaxCode_RequestDescriptor instead')
+const CheckDuplicatedStaffTaxCode_Request$json = {
+  '1': 'CheckDuplicatedStaffTaxCode_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'StaffID', '3': 2, '4': 1, '5': 9, '10': 'StaffID'},
+    {'1': 'TaxCode', '3': 3, '4': 1, '5': 9, '10': 'TaxCode'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedStaffTaxCode_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedStaffTaxCode_RequestDescriptor = $convert.base64Decode(
+    'CiNDaGVja0R1cGxpY2F0ZWRTdGFmZlRheENvZGVfUmVxdWVzdBJCCgpDcmVkZW50aWFsGAEgAS'
+    'gLMiIuZ3JwY0NvbW1vbk1lc3NhZ2VzLlVzZXJDcmVkZW50aWFsUgpDcmVkZW50aWFsEhgKB1N0'
+    'YWZmSUQYAiABKAlSB1N0YWZmSUQSGAoHVGF4Q29kZRgDIAEoCVIHVGF4Q29kZQ==');
+
+@$core.Deprecated('Use checkDuplicatedStaffCitizenID_RequestDescriptor instead')
+const CheckDuplicatedStaffCitizenID_Request$json = {
+  '1': 'CheckDuplicatedStaffCitizenID_Request',
+  '2': [
+    {'1': 'Credential', '3': 1, '4': 1, '5': 11, '6': '.grpcCommonMessages.UserCredential', '10': 'Credential'},
+    {'1': 'StaffID', '3': 2, '4': 1, '5': 9, '10': 'StaffID'},
+    {'1': 'CitizenID', '3': 3, '4': 1, '5': 9, '10': 'CitizenID'},
+  ],
+};
+
+/// Descriptor for `CheckDuplicatedStaffCitizenID_Request`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List checkDuplicatedStaffCitizenID_RequestDescriptor = $convert.base64Decode(
+    'CiVDaGVja0R1cGxpY2F0ZWRTdGFmZkNpdGl6ZW5JRF9SZXF1ZXN0EkIKCkNyZWRlbnRpYWwYAS'
+    'ABKAsyIi5ncnBjQ29tbW9uTWVzc2FnZXMuVXNlckNyZWRlbnRpYWxSCkNyZWRlbnRpYWwSGAoH'
+    'U3RhZmZJRBgCIAEoCVIHU3RhZmZJRBIcCglDaXRpemVuSUQYAyABKAlSCUNpdGl6ZW5JRA==');
 
 @$core.Deprecated('Use grpcStaffModelDescriptor instead')
 const grpcStaffModel$json = {

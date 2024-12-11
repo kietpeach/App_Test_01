@@ -266,14 +266,14 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/SaveRoleDetail',
       ($1.SaveRoleDetail_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.String_Response.fromBuffer(value));
-  static final _$getRoleDetailRecord = $grpc.ClientMethod<$1.GetRoleDetailRecord_Request, $1.GetRoleDetailRecord_Response>(
-      '/grpcAdminService.grpcAdminService/GetRoleDetailRecord',
-      ($1.GetRoleDetailRecord_Request value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Response.fromBuffer(value));
   static final _$getRoleDetail = $grpc.ClientMethod<$1.GetRoleDetail_Request, $1.GetRoleDetail_Response>(
       '/grpcAdminService.grpcAdminService/GetRoleDetail',
       ($1.GetRoleDetail_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetRoleDetail_Response.fromBuffer(value));
+  static final _$getRoleDetailRecord = $grpc.ClientMethod<$1.GetRoleDetailRecord_Request, $1.GetRoleDetailRecord_Response>(
+      '/grpcAdminService.grpcAdminService/GetRoleDetailRecord',
+      ($1.GetRoleDetailRecord_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Response.fromBuffer(value));
   static final _$getAutSceenList = $grpc.ClientMethod<$1.GetAutSceenList_Request, $1.GetRoleDetail_Response>(
       '/grpcAdminService.grpcAdminService/GetAutSceenList',
       ($1.GetAutSceenList_Request value) => value.writeToBuffer(),
@@ -354,6 +354,14 @@ class grpcAdminServiceClient extends $grpc.Client {
       '/grpcAdminService.grpcAdminService/GetSlistStaff',
       ($0.Empty_Request value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetStaff_Response.fromBuffer(value));
+  static final _$checkDuplicatedStaffTaxCode = $grpc.ClientMethod<$1.CheckDuplicatedStaffTaxCode_Request, $0.Bool_Response>(
+      '/grpcAdminService.grpcAdminService/CheckDuplicatedStaffTaxCode',
+      ($1.CheckDuplicatedStaffTaxCode_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Bool_Response.fromBuffer(value));
+  static final _$checkDuplicatedStaffCitizenID = $grpc.ClientMethod<$1.CheckDuplicatedStaffCitizenID_Request, $0.Bool_Response>(
+      '/grpcAdminService.grpcAdminService/CheckDuplicatedStaffCitizenID',
+      ($1.CheckDuplicatedStaffCitizenID_Request value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Bool_Response.fromBuffer(value));
   static final _$saveDepartment = $grpc.ClientMethod<$1.SaveDepartment_Request, $0.String_Response>(
       '/grpcAdminService.grpcAdminService/SaveDepartment',
       ($1.SaveDepartment_Request value) => value.writeToBuffer(),
@@ -641,12 +649,12 @@ class grpcAdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$saveRoleDetail, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.GetRoleDetailRecord_Response> getRoleDetailRecord($1.GetRoleDetailRecord_Request request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getRoleDetailRecord, request, options: options);
-  }
-
   $grpc.ResponseFuture<$1.GetRoleDetail_Response> getRoleDetail($1.GetRoleDetail_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getRoleDetail, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.GetRoleDetailRecord_Response> getRoleDetailRecord($1.GetRoleDetailRecord_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getRoleDetailRecord, request, options: options);
   }
 
   $grpc.ResponseFuture<$1.GetRoleDetail_Response> getAutSceenList($1.GetAutSceenList_Request request, {$grpc.CallOptions? options}) {
@@ -727,6 +735,14 @@ class grpcAdminServiceClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.GetStaff_Response> getSlistStaff($0.Empty_Request request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getSlistStaff, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Bool_Response> checkDuplicatedStaffTaxCode($1.CheckDuplicatedStaffTaxCode_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$checkDuplicatedStaffTaxCode, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Bool_Response> checkDuplicatedStaffCitizenID($1.CheckDuplicatedStaffCitizenID_Request request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$checkDuplicatedStaffCitizenID, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.String_Response> saveDepartment($1.SaveDepartment_Request request, {$grpc.CallOptions? options}) {
@@ -1198,13 +1214,6 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.SaveRoleDetail_Request.fromBuffer(value),
         ($0.String_Response value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.GetRoleDetailRecord_Request, $1.GetRoleDetailRecord_Response>(
-        'GetRoleDetailRecord',
-        getRoleDetailRecord_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Request.fromBuffer(value),
-        ($1.GetRoleDetailRecord_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.GetRoleDetail_Request, $1.GetRoleDetail_Response>(
         'GetRoleDetail',
         getRoleDetail_Pre,
@@ -1212,6 +1221,13 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $1.GetRoleDetail_Request.fromBuffer(value),
         ($1.GetRoleDetail_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetRoleDetailRecord_Request, $1.GetRoleDetailRecord_Response>(
+        'GetRoleDetailRecord',
+        getRoleDetailRecord_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.GetRoleDetailRecord_Request.fromBuffer(value),
+        ($1.GetRoleDetailRecord_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.GetAutSceenList_Request, $1.GetRoleDetail_Response>(
         'GetAutSceenList',
         getAutSceenList_Pre,
@@ -1352,6 +1368,20 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty_Request.fromBuffer(value),
         ($1.GetStaff_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CheckDuplicatedStaffTaxCode_Request, $0.Bool_Response>(
+        'CheckDuplicatedStaffTaxCode',
+        checkDuplicatedStaffTaxCode_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.CheckDuplicatedStaffTaxCode_Request.fromBuffer(value),
+        ($0.Bool_Response value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CheckDuplicatedStaffCitizenID_Request, $0.Bool_Response>(
+        'CheckDuplicatedStaffCitizenID',
+        checkDuplicatedStaffCitizenID_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.CheckDuplicatedStaffCitizenID_Request.fromBuffer(value),
+        ($0.Bool_Response value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.SaveDepartment_Request, $0.String_Response>(
         'SaveDepartment',
         saveDepartment_Pre,
@@ -1661,12 +1691,12 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
     return saveRoleDetail(call, await request);
   }
 
-  $async.Future<$1.GetRoleDetailRecord_Response> getRoleDetailRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetRoleDetailRecord_Request> request) async {
-    return getRoleDetailRecord(call, await request);
-  }
-
   $async.Future<$1.GetRoleDetail_Response> getRoleDetail_Pre($grpc.ServiceCall call, $async.Future<$1.GetRoleDetail_Request> request) async {
     return getRoleDetail(call, await request);
+  }
+
+  $async.Future<$1.GetRoleDetailRecord_Response> getRoleDetailRecord_Pre($grpc.ServiceCall call, $async.Future<$1.GetRoleDetailRecord_Request> request) async {
+    return getRoleDetailRecord(call, await request);
   }
 
   $async.Future<$1.GetRoleDetail_Response> getAutSceenList_Pre($grpc.ServiceCall call, $async.Future<$1.GetAutSceenList_Request> request) async {
@@ -1747,6 +1777,14 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
 
   $async.Future<$1.GetStaff_Response> getSlistStaff_Pre($grpc.ServiceCall call, $async.Future<$0.Empty_Request> request) async {
     return getSlistStaff(call, await request);
+  }
+
+  $async.Future<$0.Bool_Response> checkDuplicatedStaffTaxCode_Pre($grpc.ServiceCall call, $async.Future<$1.CheckDuplicatedStaffTaxCode_Request> request) async {
+    return checkDuplicatedStaffTaxCode(call, await request);
+  }
+
+  $async.Future<$0.Bool_Response> checkDuplicatedStaffCitizenID_Pre($grpc.ServiceCall call, $async.Future<$1.CheckDuplicatedStaffCitizenID_Request> request) async {
+    return checkDuplicatedStaffCitizenID(call, await request);
   }
 
   $async.Future<$0.String_Response> saveDepartment_Pre($grpc.ServiceCall call, $async.Future<$1.SaveDepartment_Request> request) async {
@@ -1846,8 +1884,8 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$0.Empty_Response> updateScreenDeployment($grpc.ServiceCall call, $1.UpdateScreenDeployment_Request request);
   $async.Future<$1.DownloadScreenFile_Response> downloadScreenFile($grpc.ServiceCall call, $1.DownloadScreenFile_Request request);
   $async.Future<$0.String_Response> saveRoleDetail($grpc.ServiceCall call, $1.SaveRoleDetail_Request request);
-  $async.Future<$1.GetRoleDetailRecord_Response> getRoleDetailRecord($grpc.ServiceCall call, $1.GetRoleDetailRecord_Request request);
   $async.Future<$1.GetRoleDetail_Response> getRoleDetail($grpc.ServiceCall call, $1.GetRoleDetail_Request request);
+  $async.Future<$1.GetRoleDetailRecord_Response> getRoleDetailRecord($grpc.ServiceCall call, $1.GetRoleDetailRecord_Request request);
   $async.Future<$1.GetRoleDetail_Response> getAutSceenList($grpc.ServiceCall call, $1.GetAutSceenList_Request request);
   $async.Future<$0.String_Response> saveRole($grpc.ServiceCall call, $1.SaveRole_Request request);
   $async.Future<$1.GetRoleRecord_Response> getRoleRecord($grpc.ServiceCall call, $0.String_Request request);
@@ -1868,6 +1906,8 @@ abstract class grpcAdminServiceBase extends $grpc.Service {
   $async.Future<$1.GetStaffRecord_Response> getStaffRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetStaff_Response> getStaff($grpc.ServiceCall call, $1.GetStaff_Request request);
   $async.Future<$1.GetStaff_Response> getSlistStaff($grpc.ServiceCall call, $0.Empty_Request request);
+  $async.Future<$0.Bool_Response> checkDuplicatedStaffTaxCode($grpc.ServiceCall call, $1.CheckDuplicatedStaffTaxCode_Request request);
+  $async.Future<$0.Bool_Response> checkDuplicatedStaffCitizenID($grpc.ServiceCall call, $1.CheckDuplicatedStaffCitizenID_Request request);
   $async.Future<$0.String_Response> saveDepartment($grpc.ServiceCall call, $1.SaveDepartment_Request request);
   $async.Future<$1.GetDepartmentRecord_Response> getDepartmentRecord($grpc.ServiceCall call, $0.String_Request request);
   $async.Future<$1.GetDepartment_Response> getDepartment($grpc.ServiceCall call, $0.Empty_Request request);

@@ -63,3 +63,15 @@ class SaveVoucherInvIn extends InventoryEvent {
 //   final String productCode;
 //   GetStockSumRecord({required this.invCode, required this.productCode});
 // }
+
+class GetPickingItem extends InventoryEvent {
+  final String invCode;
+  final String pickingNo;
+  GetPickingItem({required this.invCode, required this.pickingNo});
+}
+
+class SavePickedItem extends InventoryEvent {
+  final grpcPickedItemModel pickedItemModel;
+  final String pickingNo;
+  SavePickedItem({required this.pickedItemModel, required this.pickingNo});
+}

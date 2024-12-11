@@ -24,6 +24,15 @@ service grpcMasterService {
     rpc UpdateDeptFromStaffToWage (UpdateDeptFromStaffToWage_Request) returns (grpcCommonMessages.Empty_Response);
     
     //>>> Start new generated rpc position
+    //>>> Start generated ChildCombo rpc
+    //>>> End generated ChildCombo rpc
+    //>>> Start generated ComboProduct rpc
+    rpc SaveComboProduct (SaveComboProduct_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetComboProduct (grpcCommonMessages.String_Request) returns (GetComboProduct_Response);
+    //>>> End generated ComboProduct rpc
+    //>>> Start generated SettingMaster rpc
+    rpc GetSettingMasterRecord (grpcCommonMessages.String_Request) returns (GetSettingMasterRecord_Response);
+    //>>> End generated SettingMaster rpc
     //>>> Start generated WorkingTimeMaster rpc
     rpc SaveWorkingTimeMaster (SaveWorkingTimeMaster_Request) returns (grpcCommonMessages.String_Response);
     rpc GetWorkingTimeMasterRecord (grpcCommonMessages.String_Request) returns (GetWorkingTimeMasterRecord_Response);
@@ -58,10 +67,10 @@ service grpcMasterService {
     //>>> End generated SalaryMaster rpc
     //>>> Start generated AddressMaster rpc
     rpc GetAddressMaster (GetAddressMaster_Request) returns (GetAddressMaster_Response);
-    rpc GetAddressMasterRecord (GetAddressMasterRecord_Request) returns (GetAddressMasterRecord_Response);
     rpc SaveAddressMaster (SaveAddressMaster_Request) returns (grpcCommonMessages.String_Response);
     rpc SaveListAddressMaster (SaveListAddressMaster_Request) returns (grpcCommonMessages.Empty_Response);
     rpc GetAddressMasterByLevel (grpcCommonMessages.Int_Request) returns (GetAddressMaster_Response);
+    rpc GetAddressMasterRecord (GetAddressMasterRecord_Request) returns (GetAddressMasterRecord_Response);
     //>>> End generated AddressMaster rpc
     //>>> Start generated ProductKind rpc
     rpc SaveProductKind (SaveProductKind_Request) returns (grpcCommonMessages.String_Response);
@@ -143,6 +152,9 @@ service grpcMasterService {
     rpc GetFactory (grpcCommonMessages.Empty_Request) returns (GetVendor_Response);
     rpc GetSlistVendor (grpcCommonMessages.Empty_Request) returns (GetVendor_Response);
     rpc UpdateVendorContact (UpdateVendorContact_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc CheckDuplicatedVendorName (CheckDuplicatedVendorName_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedVendorFullName (CheckDuplicatedVendorFullName_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedVendorTaxCode (CheckDuplicatedVendorTaxCode_Request) returns (grpcCommonMessages.Bool_Response);
     //>>> End generated Vendor rpc
     //>>> Start generated CustomerRank rpc
     rpc SaveCustomerRank (SaveCustomerRank_Request) returns (grpcCommonMessages.String_Response);
@@ -170,6 +182,9 @@ service grpcMasterService {
     rpc GetProductRecord (grpcCommonMessages.String_Request) returns (GetProductRecord_Response);
     rpc GetProduct (grpcCommonMessages.Empty_Request) returns (GetProduct_Response);
     rpc UpdateProduct (UpdateProduct_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc CheckDuplicatedName (CheckDuplicatedName_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedHSCode (CheckDuplicatedHSCode_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedBarCode (CheckDuplicatedBarCode_Request) returns (grpcCommonMessages.Bool_Response);
     //>>> End generated Product rpc
     //>>> Start generated CustomerProperty rpc
     rpc SaveListCustomerProperty (SaveListCustomerProperty_Request) returns (grpcCommonMessages.Empty_Response);
@@ -181,6 +196,9 @@ service grpcMasterService {
     rpc GetCustomerRecord (grpcCommonMessages.String_Request) returns (GetCustomerRecord_Response);
     rpc GetSlistCustomer (grpcCommonMessages.Empty_Request) returns (GetCustomer_Response);
     rpc GetCustomer (GetCustomer_Request) returns (GetCustomer_Response);
+    rpc CheckDuplicatedCustomerName (CheckDuplicatedCustomerName_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedCustomerFullName (CheckDuplicatedCustomerFullName_Request) returns (grpcCommonMessages.Bool_Response);
+    rpc CheckDuplicatedCustomerTaxCode (CheckDuplicatedCustomerTaxCode_Request) returns (grpcCommonMessages.Bool_Response);
     //>>> End generated Customer rpc
     //>>> Start generated CustomerContractPrice rpc
     rpc SaveCustomerContractPrice (SaveCustomerContractPrice_Request) returns (grpcCommonMessages.String_Response);
@@ -306,6 +324,67 @@ message UpdateDeptFromStaffToWage_Request
     string DeptCode = 3;
 }
 //>>> Start new generated message position
+//>>> Start generated ChildCombo message
+message grpcChildComboModel
+{
+    string ID = 1;
+    string ProductCode = 2;
+    string ProductName = 3;
+    string UnitCode = 4;
+    string UnitName = 5;
+    string Specification = 6;
+    CustomTypes.Decimal Quantity = 7;
+    CustomTypes.Decimal UnitPrice = 8;
+    CustomTypes.Decimal Amount = 9;
+    string Notes = 10;
+    int32 UpdMode = 11;
+}
+//>>> End generated ChildCombo message
+//>>> Start generated ComboProduct message
+message SaveComboProduct_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcComboProductModel Record = 2;
+}
+message GetComboProduct_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcComboProductModel Records = 3;
+}
+message grpcComboProductModel
+{
+    string ID = 1;
+    string ClassCode1 = 2;
+    string ProductCode = 3;
+    string ProductName = 4;
+    string UnitCode = 5;
+    string UnitName = 6;
+    string Specification = 7;
+    CustomTypes.Decimal Quantity = 8;
+    CustomTypes.Decimal UnitPrice = 9;
+    CustomTypes.Decimal Amount = 10;
+    string Notes = 11;
+    repeated grpcChildComboModel Children = 12;
+    int32 UpdMode = 13;
+    int32 UpdCount = 14;
+    string UpdTransactionID = 15;
+    string UpdAccountID = 16;
+    google.protobuf.Timestamp UpdDateTime = 17;
+    google.protobuf.Timestamp CrtDateTime = 18;
+}
+//>>> End generated ComboProduct message
+//>>> Start generated SettingMaster message
+message GetSettingMasterRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcSettingMasterModel Record = 3;
+}
+//>>> End generated SettingMaster message
 //>>> Start generated WorkingTimeMaster message
 message SaveWorkingTimeMaster_Request
 {
@@ -603,20 +682,6 @@ message GetAddressMaster_Response
     //
     repeated grpcAddressMasterModel Records = 3;
 }
-message GetAddressMasterRecord_Request
-{
-    grpcCommonMessages.UserCredential Credential = 1;
-    //
-    string ParentRecordNo = 2;
-    string Code = 3;
-}
-message GetAddressMasterRecord_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    grpcAddressMasterModel Record = 3;
-}
 message SaveAddressMaster_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
@@ -629,6 +694,22 @@ message SaveListAddressMaster_Request
     //Records
     repeated grpcAddressMasterModel Records = 2;
     //Delete filters
+}
+message GetAddressMasterRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ParentRecordNo = 2;
+    int32 Level = 3;
+    string ParentCode = 4;
+    string Code = 5;
+}
+message GetAddressMasterRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcAddressMasterModel Record = 3;
 }
 message grpcAddressMasterModel
 {
@@ -1369,6 +1450,27 @@ message UpdateVendorContact_Request
     string ContactPhone = 4;
     string ContactEmail = 5;
 }
+message CheckDuplicatedVendorName_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string VendorID = 2;
+    string VendorName = 3;
+}
+message CheckDuplicatedVendorFullName_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string VendorID = 2;
+    string VendorFullName = 3;
+}
+message CheckDuplicatedVendorTaxCode_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string VendorID = 2;
+    string ComTaxCode = 3;
+}
 message grpcVendorModel
 {
     string ID = 1;
@@ -1394,17 +1496,19 @@ message grpcVendorModel
     int32 ShipLeadTime = 21;
     int32 ImportLeadTime = 22;
     int32 TaxFlag = 23;
-    bool IsFactory = 24;
-    string ComTaxCode = 25;
-    repeated grpcBankAccountModel BankAccounts = 26;
-    bool Enabled = 27;
-    string AccID = 28;
-    int32 POType = 29;
-    int32 UpdMode = 30;
-    int32 UpdCount = 31;
-    string UpdTransactionID = 32;
-    string UpdAccountID = 33;
-    google.protobuf.Timestamp UpdDateTime = 34;
+    string AccID = 24;
+    bool IsFactory = 25;
+    bool IsCustomer = 26;
+    string CusAccID = 27;
+    string ComTaxCode = 28;
+    repeated grpcBankAccountModel BankAccounts = 29;
+    bool Enabled = 30;
+    int32 POType = 31;
+    int32 UpdMode = 32;
+    int32 UpdCount = 33;
+    string UpdTransactionID = 34;
+    string UpdAccountID = 35;
+    google.protobuf.Timestamp UpdDateTime = 36;
 }
 //>>> End generated Vendor message
 //>>> Start generated CustomerRank message
@@ -1646,100 +1750,126 @@ message UpdateProduct_Request
     CustomTypes.Decimal UpdateSign = 2;
     grpcProductModel Record = 3;
 }
+message CheckDuplicatedName_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ProductCode = 2;
+    string ProductName = 3;
+    string ProductFullName = 4;
+    string Specification = 5;
+}
+message CheckDuplicatedHSCode_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ProductCode = 2;
+    string HSCode = 3;
+}
+message CheckDuplicatedBarCode_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string ProductCode = 2;
+    string BarCode = 3;
+}
 message grpcProductModel
 {
     string ID = 1;
     string ProductCode = 2;
     string ProductName = 3;
-    string Specification = 4;
-    string HSCode = 5;
-    string BarCode = 6;
-    string QRCode = 7;
-    string SaleProductCode = 8;
-    string UnitCode1 = 9;
-    string UnitName1 = 10;
-    string UnitCode2 = 11;
-    string UnitName2 = 12;
-    string UnitCode3 = 13;
-    string UnitName3 = 14;
-    CustomTypes.Decimal PackingQty1 = 15;
-    CustomTypes.Decimal PackingQty2 = 16;
-    CustomTypes.Decimal PackingQty3 = 17;
-    string PurchaseUnitCode = 18;
-    string PurchaseUnitName = 19;
-    CustomTypes.Decimal PurchasePackingQty = 20;
-    string SaleUnitCode = 21;
-    string SaleUnitName = 22;
-    CustomTypes.Decimal SalePackingQty = 23;
-    int32 ProductKind = 24;
-    bool IsSetProduct = 25;
-    bool CanChangeName = 26;
-    int32 POLeadTime = 27;
-    int32 ShipLT = 28;
-    int32 ProduceLT = 29;
-    string ColorCode = 30;
-    string SizeCode = 31;
-    CustomTypes.Decimal Weight = 32;
-    CustomTypes.Decimal Volume = 33;
-    google.protobuf.Timestamp InsideEffectFromDate = 34;
-    google.protobuf.Timestamp InsideEffectToDate = 35;
-    google.protobuf.Timestamp OutsideEffectFromDate = 36;
-    google.protobuf.Timestamp OutsideEffectToDate = 37;
-    bool IsStock = 38;
-    bool IsLOT = 39;
-    string DateType = 40;
-    int32 WarPeriod = 41;
-    int32 PeriodFlag = 42;
-    int32 MinWarPeriod = 43;
-    int32 ProduceFlag = 44;
-    bool IsKeepStock = 45;
-    int32 KeepStockPeriod = 46;
-    google.protobuf.Timestamp LastPurchaseDate = 47;
-    google.protobuf.Timestamp LastSaleDate = 48;
-    int32 TaxFlag = 49;
-    int32 PurchaseTaxFlag = 50;
-    CustomTypes.Decimal VATRate = 51;
-    CustomTypes.Decimal ImportTaxRate = 52;
-    CustomTypes.Decimal ExciseTaxRate = 53;
-    CustomTypes.Decimal EnvTaxRate = 54;
-    string ClassCode1 = 55;
-    string ClassCode2 = 56;
-    string ClassCode3 = 57;
-    string ClassName1 = 58;
-    string ClassName2 = 59;
-    string ClassName3 = 60;
-    string VendorID = 61;
-    string MakerID = 62;
-    int32 CostCalFlag = 63;
-    int32 InvCostCalFlag = 64;
-    CustomTypes.Decimal CostUnitPrice = 65;
-    CustomTypes.Decimal CostUnitPriceEx = 66;
-    CustomTypes.Decimal MatCost = 67;
-    CustomTypes.Decimal LaborCost = 68;
-    CustomTypes.Decimal FeeCost = 69;
-    CustomTypes.Decimal MatMainCost = 70;
-    CustomTypes.Decimal MatSubCost = 71;
-    CustomTypes.Decimal ComponentCost = 72;
-    CustomTypes.Decimal OtherCost = 73;
-    CustomTypes.Decimal SemiProdCost = 74;
-    CustomTypes.Decimal DirectLaborCost = 75;
-    CustomTypes.Decimal InDirectLaborCost = 76;
-    CustomTypes.Decimal FixedLaborCost = 77;
-    CustomTypes.Decimal VarLaborCost = 78;
-    CustomTypes.Decimal DirectFeeCost = 79;
-    CustomTypes.Decimal InDirectFeeCost = 80;
-    CustomTypes.Decimal FixedFeeCost = 81;
-    CustomTypes.Decimal VarFeeCost = 82;
-    string StockAccID = 83;
-    string RevenueAccID = 84;
-    string FeeAccID = 85;
-    bool Enabled = 86;
-    int32 UpdMode = 87;
-    int32 UpdCount = 88;
-    string UpdTransactionID = 89;
-    string UpdAccountID = 90;
-    google.protobuf.Timestamp UpdDateTime = 91;
-    string RecordNo = 92;
+    string ProductFullName = 4;
+    string ProductNameEN = 5;
+    string Specification = 6;
+    string HSCode = 7;
+    string BarCode = 8;
+    string QRCode = 9;
+    string SaleProductCode = 10;
+    string UnitCode1 = 11;
+    string UnitName1 = 12;
+    string UnitCode2 = 13;
+    string UnitName2 = 14;
+    string UnitCode3 = 15;
+    string UnitName3 = 16;
+    CustomTypes.Decimal PackingQty1 = 17;
+    CustomTypes.Decimal PackingQty2 = 18;
+    CustomTypes.Decimal PackingQty3 = 19;
+    string PurchaseUnitCode = 20;
+    string PurchaseUnitName = 21;
+    CustomTypes.Decimal PurchasePackingQty = 22;
+    string SaleUnitCode = 23;
+    string SaleUnitName = 24;
+    CustomTypes.Decimal SalePackingQty = 25;
+    int32 ProductKind = 26;
+    bool IsSetProduct = 27;
+    bool IsCombo = 28;
+    bool CanChangeName = 29;
+    int32 POLeadTime = 30;
+    int32 ShipLT = 31;
+    int32 ProduceLT = 32;
+    string ColorCode = 33;
+    string SizeCode = 34;
+    CustomTypes.Decimal Weight = 35;
+    CustomTypes.Decimal Volume = 36;
+    google.protobuf.Timestamp InsideEffectFromDate = 37;
+    google.protobuf.Timestamp InsideEffectToDate = 38;
+    google.protobuf.Timestamp OutsideEffectFromDate = 39;
+    google.protobuf.Timestamp OutsideEffectToDate = 40;
+    bool IsStock = 41;
+    bool IsLOT = 42;
+    string DateType = 43;
+    int32 WarPeriod = 44;
+    int32 PeriodFlag = 45;
+    int32 MinWarPeriod = 46;
+    int32 ProduceFlag = 47;
+    bool IsKeepStock = 48;
+    int32 KeepStockPeriod = 49;
+    google.protobuf.Timestamp LastPurchaseDate = 50;
+    google.protobuf.Timestamp LastSaleDate = 51;
+    int32 TaxFlag = 52;
+    int32 PurchaseTaxFlag = 53;
+    CustomTypes.Decimal VATRate = 54;
+    CustomTypes.Decimal ImportTaxRate = 55;
+    CustomTypes.Decimal ExciseTaxRate = 56;
+    CustomTypes.Decimal EnvTaxRate = 57;
+    string ClassCode1 = 58;
+    string ClassCode2 = 59;
+    string ClassCode3 = 60;
+    string ClassName1 = 61;
+    string ClassName2 = 62;
+    string ClassName3 = 63;
+    string VendorID = 64;
+    string MakerID = 65;
+    int32 CostCalFlag = 66;
+    int32 InvCostCalFlag = 67;
+    CustomTypes.Decimal CostUnitPrice = 68;
+    CustomTypes.Decimal CostUnitPriceEx = 69;
+    CustomTypes.Decimal MatCost = 70;
+    CustomTypes.Decimal LaborCost = 71;
+    CustomTypes.Decimal FeeCost = 72;
+    CustomTypes.Decimal MatMainCost = 73;
+    CustomTypes.Decimal MatSubCost = 74;
+    CustomTypes.Decimal ComponentCost = 75;
+    CustomTypes.Decimal OtherCost = 76;
+    CustomTypes.Decimal SemiProdCost = 77;
+    CustomTypes.Decimal DirectLaborCost = 78;
+    CustomTypes.Decimal InDirectLaborCost = 79;
+    CustomTypes.Decimal FixedLaborCost = 80;
+    CustomTypes.Decimal VarLaborCost = 81;
+    CustomTypes.Decimal DirectFeeCost = 82;
+    CustomTypes.Decimal InDirectFeeCost = 83;
+    CustomTypes.Decimal FixedFeeCost = 84;
+    CustomTypes.Decimal VarFeeCost = 85;
+    string StockAccID = 86;
+    string RevenueAccID = 87;
+    string FeeAccID = 88;
+    bool Enabled = 89;
+    int32 UpdMode = 90;
+    int32 UpdCount = 91;
+    string UpdTransactionID = 92;
+    string UpdAccountID = 93;
+    google.protobuf.Timestamp UpdDateTime = 94;
+    string RecordNo = 95;
 }
 //>>> End generated Product message
 message SearchProduct_Request
@@ -1780,28 +1910,34 @@ message grpcSelectProductModel
 {
     string ProductCode = 1;
     string ProductName = 2;
-    string Specification = 3;
-    string UnitCode1 = 4;
-    string UnitCode2 = 5;
-    string UnitCode3 = 6;
-    string UnitName1 = 7;
-    string UnitName2 = 8;
-    string UnitName3 = 9;
-    CustomTypes.Decimal PackingQty1 = 10;
-    CustomTypes.Decimal PackingQty2 = 11;
-    CustomTypes.Decimal PackingQty3 = 12;
-    string VendorID = 13;
-    int32 ProductKind = 14;
-    string ProductKindName = 15;
-    bool IsSetProduct = 16;
-    bool IsStock = 17;
-    bool IsLOT = 18;
-    string DateType = 19;
-    bool IsKeepStock = 20;
-    bool CanChangeName = 21;
-    string ID = 22;
-    int32 UpdMode = 23;
+    string ProductFullName = 3;
+    string ProductNameEN = 4;
+    string Specification = 5;
+    string UnitCode1 = 6;
+    string UnitCode2 = 7;
+    string UnitCode3 = 8;
+    string UnitName1 = 9;
+    string UnitName2 = 10;
+    string UnitName3 = 11;
+    CustomTypes.Decimal PackingQty1 = 12;
+    CustomTypes.Decimal PackingQty2 = 13;
+    CustomTypes.Decimal PackingQty3 = 14;
+    string VendorID = 15;
+    int32 ProductKind = 16;
+    string ProductKindName = 17;
+    bool IsSetProduct = 18;
+    bool IsStock = 19;
+    bool IsLOT = 20;
+    string DateType = 21;
+    bool IsKeepStock = 22;
+    bool CanChangeName = 23;
     string ClassCode1 = 24;
+    string ClassCode2 = 25;
+    string ClassCode3 = 26;
+    string StockAccID = 27;
+    string RevenueAccID = 28;
+    string FeeAccID = 29;
+    int32 UpdMode = 99;
 }
 message grpcSearchProductModel 
 {
@@ -1902,6 +2038,27 @@ message GetCustomer_Request
     string ClassCode3 = 4;
     string SaleDeptCode = 5;
 }
+message CheckDuplicatedCustomerName_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string CustomerID = 2;
+    string CustomerName = 3;
+}
+message CheckDuplicatedCustomerFullName_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string CustomerID = 2;
+    string CustomerFullName = 3;
+}
+message CheckDuplicatedCustomerTaxCode_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string CustomerID = 2;
+    string ComTaxCode = 3;
+}
 message grpcCustomerModel
 {
     string ID = 1;
@@ -1942,13 +2099,15 @@ message grpcCustomerModel
     string InvAddress = 36;
     repeated grpcBankAccountModel BankAccounts = 37;
     string AccID = 38;
-    int32 UpdMode = 39;
-    int32 UpdCount = 40;
-    string UpdTransactionID = 41;
-    string UpdAccountID = 42;
-    google.protobuf.Timestamp UpdDateTime = 43;
-    string RecordNo = 44;
-    bool Enabled = 45;
+    bool IsVendor = 39;
+    string VendorAccID = 40;
+    int32 UpdMode = 41;
+    int32 UpdCount = 42;
+    string UpdTransactionID = 43;
+    string UpdAccountID = 44;
+    google.protobuf.Timestamp UpdDateTime = 45;
+    string RecordNo = 46;
+    bool Enabled = 47;
 }
 //>>> End generated Customer message
 //>>> Start generated CustomerContractPrice message

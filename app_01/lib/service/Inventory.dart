@@ -256,4 +256,42 @@ class InventoryService {
     }
     return res.record;
   }
+
+  Future<List<grpcPickingItemModel>> getPickingItem(
+      String invCode, String pickingNo) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    GetPickingItem_Response res = new GetPickingItem_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.getPickingItem(
+          GetPickingItem_Request(invCode: invCode, pickingNo: pickingNo));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.records;
+  }
+
+  Future<String_Response> savePickedItem(
+      grpcPickedItemModel pickedItemModel, String pickingNo) async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    String_Response res = new String_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.savePickedItem(SavePickedItem_Request(
+          record: pickedItemModel, pickingNo: pickingNo));
+    } catch (e) {
+      print('Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res;
+  }
 }

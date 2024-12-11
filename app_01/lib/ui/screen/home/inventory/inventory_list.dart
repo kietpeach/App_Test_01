@@ -6,6 +6,7 @@ import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req_slist.dart';
 import 'package:app_01/ui/screen/home/inventory/inv_stock.dart';
+import 'package:app_01/ui/screen/home/inventory/stock_pickup.dart';
 import 'package:flutter/material.dart';
 
 class InventoryListPage extends StatefulWidget {
@@ -95,6 +96,10 @@ class _InventoryListPageState extends State<InventoryListPage> {
                 context: context,
                 title: 'Tạo mã Barcode',
                 page: BarcodeGeneratorPage()),
+            _globalWidget.screenDetailList(
+                context: context,
+                title: 'Gom hàng xuất kho B2C',
+                page: StockPickUpPage()),
           ],
         ));
   }

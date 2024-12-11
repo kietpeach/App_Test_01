@@ -28,7 +28,6 @@ class _InvStockPageState extends State<InvStockPage> {
 
   late InventoryBloc _inventoryBloc;
   late MasterBloc _masterBloc;
-  CancelToken apiToken = CancelToken(); // used to cancel fetch data from API
 
   List<grpcStockSumModel> _inventoryData = [];
   List<grpcInventoryModel> _inventorySlistData = [new grpcInventoryModel()];
@@ -117,14 +116,6 @@ class _InvStockPageState extends State<InvStockPage> {
                           invCode: _cntInventory.dropDownValue?.value,
                           productCode: _cntProduct.dropDownValue?.value));
                     }),
-                // _globalWidget.createButton(
-                //     buttonName: 'Add Data',
-                //     onPressed: () {
-                //         Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //                 builder: (context) => AddDataPage()));
-                //     }),
               ],
             )),
             Container(
@@ -147,53 +138,9 @@ class _InvStockPageState extends State<InvStockPage> {
                         textColor: Colors.white,
                         fontSize: 13);
                   }
-                  // if (state is GetInventoryWaiting) {
-                  //   _globalFunction.showProgressDialog(context);
-                  // }
-                  // if (state is DeleteInventoryError) {
-                  //   Navigator.pop(context);
-                  //   Fluttertoast.showToast(
-                  //       msg: state.errorMessage,
-                  //       toastLength: Toast.LENGTH_SHORT,
-                  //       backgroundColor: Colors.red,
-                  //       textColor: Colors.white,
-                  //       fontSize: 13);
-                  // }
                   if (state is GetInventorySuccess) {
                     _inventoryData.addAll(state.InventoryData);
                   }
-                  // if (state is DeleteInventorySuccess) {
-                  //   Navigator.pop(context);
-                  //   _inventoryData.removeAt(state.index);
-                  //   Fluttertoast.showToast(
-                  //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
-                  // }
-                  // if (state is AddInventorySuccess) {
-                  //   Navigator.pop(context);
-                  //   Navigator.pop(context);
-                  //   _inventoryData.insert(
-                  //       0,
-                  //       InventoryModel(
-                  //           InventoryId: state.InventoryId,
-                  //           InventoryName: state.InventoryName,
-                  //           InventoryPhoneNumber: state.InventoryPhoneNumber,
-                  //           InventoryGender: state.InventoryGender,
-                  //           InventoryAddress: state.InventoryAddress));
-                  //   Fluttertoast.showToast(
-                  //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
-                  // }
-                  // if (state is EditInventorySuccess) {
-                  //   Navigator.pop(context);
-                  //   Navigator.pop(context);
-                  //   _inventoryData[state.index] = InventoryModel(
-                  //       InventoryId: state.InventoryId,
-                  //       InventoryName: state.InventoryName,
-                  //       InventoryPhoneNumber: state.InventoryPhoneNumber,
-                  //       InventoryGender: state.InventoryGender,
-                  //       InventoryAddress: state.InventoryAddress);
-                  //   Fluttertoast.showToast(
-                  //       msg: state.msg, toastLength: Toast.LENGTH_SHORT);
-                  // }
                 },
                 child: BlocBuilder<InventoryBloc, InventoryState>(
                   builder: (context, state) {
@@ -203,9 +150,6 @@ class _InvStockPageState extends State<InvStockPage> {
                       if (_inventoryData.length == 0 &&
                           state is GetInventoryWaiting) {
                         return Center(child: CircularProgressIndicator());
-                        // return Center(
-                        //     child: Icon(Icons.search_off,
-                        //         size: 32, color: Colors.grey[700]));
                       } else {
                         return ListView.builder(
                           itemCount: _inventoryData.length,

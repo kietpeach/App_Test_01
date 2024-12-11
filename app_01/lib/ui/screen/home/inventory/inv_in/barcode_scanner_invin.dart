@@ -105,7 +105,7 @@ class _BarcodeScannerInvInPageState extends State<BarcodeScannerInvInPage> {
     setState(() {
       _scanBarcode = barcodeScanRes;
       //_scanBarcode = 'TS_TRANCHAU1/LOT1/20240704/1';
-      //_scanBarcode = 'TAN_TP_004///1';
+      //_scanBarcode = 'NUOC///1';
     });
     final splitted = _scanBarcode.split('/');
     _productCode = splitted[0];
