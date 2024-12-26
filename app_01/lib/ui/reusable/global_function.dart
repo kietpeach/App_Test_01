@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/src/generated/timestamp.pb.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/src/generated/timestamp.pb.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -74,6 +74,18 @@ class GlobalFunction {
 
   String timeStampFormatter(Timestamp dateTime, {String? format}) {
     return DateFormat(format ?? 'dd/MM/yyyy')
+        .format(dateTime.toDateTime().toLocal())
+        .toString();
+  }
+
+  String timeStampFormatterShowTime(Timestamp dateTime, {String? format}) {
+    return DateFormat(format ?? 'dd/MM/yyyy m:hh')
+        .format(dateTime.toDateTime().toLocal())
+        .toString();
+  }
+
+  String timeStampFormatterForScan(Timestamp dateTime, {String? format}) {
+    return DateFormat(format ?? 'yyyyMMdd')
         .format(dateTime.toDateTime().toLocal())
         .toString();
   }

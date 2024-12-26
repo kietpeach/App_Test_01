@@ -1,12 +1,12 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_apr.dart';
+import 'package:NoahSoft/bloc/inventory/bloc.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/inv_in.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/inv_in_apr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -40,16 +40,14 @@ class _InvInReqSlistPageState extends State<InvInReqSlistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('Dach sách số yêu cầu nhập kho',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: _globalWidget.createDetailWidget(
-                  title: 'Dach sách số yêu cầu nhập kho', desc: ''),
-            ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 8),
               child: BlocListener<InventoryBloc, InventoryState>(
@@ -69,7 +67,7 @@ class _InvInReqSlistPageState extends State<InvInReqSlistPage> {
                 child: BlocBuilder<InventoryBloc, InventoryState>(
                   builder: (context, state) {
                     if (state is GetInventoryError) {
-                      return Text('error occured');
+                      return Text(ERROR_OCCURED);
                     } else {
                       if (_InvInReqSlistData.length == 0) {
                         //return Center(child: CircularProgressIndicator());

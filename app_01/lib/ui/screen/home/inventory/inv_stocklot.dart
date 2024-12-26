@@ -1,16 +1,16 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/inventory/inventory_bloc.dart';
-import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/bloc/master/master_bloc.dart';
-import 'package:app_01/bloc/master/master_event.dart';
-import 'package:app_01/bloc/master/master_state.dart';
-import 'package:app_01/config/constant.dart';
-//import 'package:app_01/model/integration/inventory_model.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/bloc/inventory/inventory_bloc.dart';
+import 'package:NoahSoft/bloc/inventory/bloc.dart';
+import 'package:NoahSoft/bloc/master/master_bloc.dart';
+import 'package:NoahSoft/bloc/master/master_event.dart';
+import 'package:NoahSoft/bloc/master/master_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+//import 'package:NoahSoft/model/integration/inventory_model.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -80,7 +80,9 @@ class _StockLOTPageState extends State<StockLOTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: _globalWidget.globalAppBar(),
+        appBar: _globalWidget.globalAppBar(Text('Xem tồn kho',
+            style: TextStyle(
+                fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
         body: BlocListener<MasterBloc, MasterState>(
           listener: (context, state) {
             if (state is MasterErrorValidation) {
@@ -101,13 +103,8 @@ class _StockLOTPageState extends State<StockLOTPage> {
             // }
           },
           child: ListView(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
             children: [
-              Text('Xem tồn kho',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: BLACK21,
-                      fontWeight: FontWeight.w500)),
               TextFormField(
                 readOnly: true,
                 controller: _etinventoryName,
@@ -171,7 +168,7 @@ class _StockLOTPageState extends State<StockLOTPage> {
                   child: BlocBuilder<InventoryBloc, InventoryState>(
                     builder: (context, state) {
                       if (state is GetInventoryError) {
-                        return Text('error occured');
+                        return Text(ERROR_OCCURED);
                       } else {
                         if (_StockLOTData.length == 0) {
                           return Center(

@@ -27,14 +27,25 @@ service grpcInventoryService {
     // Generated rpc
     //======================================================
     //>>> Start new generated rpc position
+    //>>> Start generated PickingHeader rpc
+    rpc GetPickingHeader (grpcCommonMessages.Empty_Request) returns (GetPickingHeader_Response);
+    rpc DeletePicking (grpcCommonMessages.String_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc ClearPicking (grpcCommonMessages.String_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> End generated PickingHeader rpc
+    //>>> Start generated InventorySetting rpc
+    rpc SaveInventorySetting (SaveInventorySetting_Request) returns (grpcCommonMessages.String_Response);
+    rpc GetInventorySettingRecord (GetInventorySettingRecord_Request) returns (GetInventorySettingRecord_Response);
+    rpc GetInventorySetting (grpcCommonMessages.String_Request) returns (GetInventorySetting_Response);
+    //>>> End generated InventorySetting rpc
     //>>> Start generated PickingItem rpc
-    rpc SaveListPickingItem (SaveListPickingItem_Request) returns (grpcCommonMessages.Empty_Response);
     rpc GetPickingItem (GetPickingItem_Request) returns (GetPickingItem_Response);
+    rpc CreatePickingList (CreatePickingList_Request) returns (GetPickingItem_Response);
+    rpc UpdatePickingItem (UpdatePickingItem_Request) returns (grpcCommonMessages.Empty_Response);
     //>>> End generated PickingItem rpc
     //>>> Start generated PickedItem rpc
-    rpc SavePickedItem (SavePickedItem_Request) returns (grpcCommonMessages.String_Response);
-    rpc GetPickedItemRecord (grpcCommonMessages.String_Request) returns (GetPickedItemRecord_Response);
-    rpc GetPickedItem (grpcCommonMessages.Empty_Request) returns (GetPickedItem_Response);
+    rpc GetPickedItem (GetPickedItem_Request) returns (GetPickedItem_Response);
+    rpc UpdatePickedItem (UpdatePickedItem_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetPickedItemForShip (GetPickedItemForShip_Request) returns (GetPickedItem_Response);
     //>>> End generated PickedItem rpc
     //>>> Start generated InvTransHeader rpc
     //>>> End generated InvTransHeader rpc
@@ -203,22 +214,78 @@ message SaveInvTransMac_Request
     string RecordNo = 4;
 }
 //>>> Start new generated message position
-//>>> Start generated PickingItem message
-message SaveListPickingItem_Request
+//>>> Start generated PickingHeader message
+message GetPickingHeader_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcPickingHeaderModel Records = 3;
+}
+message grpcPickingHeaderModel
+{
+    string ID = 1;
+    string PickingNo = 2;
+    string InvCode = 3;
+    google.protobuf.Timestamp PickingDate = 4;
+    repeated string SONos = 5;
+    string TransportComID = 6;
+    google.protobuf.Timestamp EstShipTimeFrom = 7;
+    google.protobuf.Timestamp EstShipTimeTo = 8;
+}
+//>>> End generated PickingHeader message
+//>>> Start generated InventorySetting message
+message SaveInventorySetting_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
-    //Records
-    repeated grpcPickingItemModel Records = 2;
-    //Delete filters
-    string PickingNo = 3;
-    int32 UpdMode = 4;
+    //
+    grpcInventorySettingModel Record = 2;
 }
+message GetInventorySettingRecord_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string ProductCode = 3;
+}
+message GetInventorySettingRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcInventorySettingModel Record = 3;
+}
+message GetInventorySetting_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcInventorySettingModel Records = 3;
+}
+message grpcInventorySettingModel
+{
+    string ID = 1;
+    string InvCode = 2;
+    string ProductCode = 3;
+    string ProductName = 4;
+    string Specification = 5;
+    string FixedStockCheckingNo = 6;
+    string FixedShelfNo = 7;
+    CustomTypes.Decimal MinStockQty = 8;
+    string UnitName = 9;
+    int32 UpdMode = 10;
+    int32 UpdCount = 11;
+    google.protobuf.Timestamp UpdDateTime = 12;
+}
+//>>> End generated InventorySetting message
+//>>> Start generated PickingItem message
 message GetPickingItem_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
     string PickingNo = 2;
     string InvCode = 3;
+    bool IsFull = 4;
 }
 message GetPickingItem_Response
 {
@@ -227,44 +294,56 @@ message GetPickingItem_Response
     //
     repeated grpcPickingItemModel Records = 3;
 }
+message CreatePickingList_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string TransportComID = 3;
+    google.protobuf.Timestamp EstShipTimeFrom = 4;
+    google.protobuf.Timestamp EstShipTimeTo = 5;
+    repeated grpcPickingItemModel PickingItems = 6;
+     repeated string SONos = 7;
+}
+message UpdatePickingItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string RecordNo = 2;
+    CustomTypes.Decimal PickedQty = 3;
+}
 message grpcPickingItemModel
 {
     string ID = 1;
     string PickingNo = 2;
-    string InvCode = 3;
-    string ProductCode = 4;
-    string ProductName = 5;
-    string UnitCode = 6;
-    string UnitName = 7;
-    string SKU = 8;
-    string ModelID = 9;
-    string ModelName = 10;
-    string ModelSKU = 11;
-    CustomTypes.Decimal PickQty = 12;
-    CustomTypes.Decimal PickedQty = 13;
+    google.protobuf.Timestamp PickingDate = 3;
+    int32 LineNo = 4;
+    string InvCode = 5;
+    string ProductCode = 6;
+    string ProductName = 7;
+    string Specification = 8;
+    string UnitCode = 9;
+    string UnitName = 10;
+    CustomTypes.Decimal PickQty = 11;
+    CustomTypes.Decimal PickedQty = 12;
+    CustomTypes.Decimal StockQty = 13;
     bool IsLOT = 14;
     string LotID = 15;
     string DateType = 16;
     google.protobuf.Timestamp LotDate = 17;
     string ShelfNo = 18;
-    google.protobuf.Timestamp UpdDateTime = 19;
-    int32 UpdMode = 20;
+    string RecordNo = 19;
+    google.protobuf.Timestamp UpdDateTime = 20;
+    int32 UpdMode = 21;
 }
 //>>> End generated PickingItem message
 //>>> Start generated PickedItem message
-message SavePickedItem_Request
+message GetPickedItem_Request
 {
     grpcCommonMessages.UserCredential Credential = 1;
     //
-    grpcPickedItemModel Record = 2;
-    string PickingNo = 3;
-}
-message GetPickedItemRecord_Response
-{
-    int32 ReturnCode = 1;
-    string MsgCode = 2;
-    //
-    grpcPickedItemModel Record = 3;
+    string InvCode = 2;
+    string ProductCode = 3;
 }
 message GetPickedItem_Response
 {
@@ -273,26 +352,34 @@ message GetPickedItem_Response
     //
     repeated grpcPickedItemModel Records = 3;
 }
+message UpdatePickedItem_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    CustomTypes.Decimal UpdateSign = 2;
+    grpcPickedItemModel Record = 3;
+}
+message GetPickedItemForShip_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated grpcPickedItemModel records = 2;
+}
 message grpcPickedItemModel
 {
     string ID = 1;
-    string InvCode = 2;
-    string ProductCode = 3;
-    string ProductName = 4;
-    string UnitCode = 5;
-    string UnitName = 6;
-    string SKU = 7;
-    string ModelID = 8;
-    string ModelName = 9;
-    string ModelSKU = 10;
-    CustomTypes.Decimal PickQty = 11;
-    bool IsLOT = 12;
-    string LotID = 13;
-    string DateType = 14;
-    google.protobuf.Timestamp LotDate = 15;
-    string ShelfNo = 16;
-    google.protobuf.Timestamp UpdDateTime = 17;
-    int32 UpdMode = 18;
+    string PickingNo = 2;
+    string InvCode = 3;
+    string ProductCode = 4;
+    string ProductName = 5;
+    string Specification = 6;
+    string UnitCode = 7;
+    string UnitName = 8;
+    CustomTypes.Decimal PickedQty = 9;
+    CustomTypes.Decimal ShipQty = 10;
+    string LotID = 11;
+    string DateType = 12;
+    google.protobuf.Timestamp LotDate = 13;
 }
 //>>> End generated PickedItem message
 //>>> Start generated InvTransHeader message
@@ -916,33 +1003,34 @@ message grpcInvTransHistoryModel
     string ID = 1;
     google.protobuf.Timestamp CloseDate = 2;
     string DeptCode = 3;
-    string StaffID = 4;
-    string PartnerID = 5;
-    int32 InvType = 6;
-    string InvVoucherNo = 7;
-    google.protobuf.Timestamp InvDate = 8;
-    string InvCode = 9;
-    int32 LineNo = 10;
-    string ProductCode = 11;
-    string ProductName = 12;
-    string Specification = 13;
-    string UnitCode = 14;
-    string UnitName = 15;
-    CustomTypes.Decimal PackingQty = 16;
-    CustomTypes.Decimal CaseQty = 17;
-    CustomTypes.Decimal InQty = 18;
-    CustomTypes.Decimal OutQty = 19;
-    bool IsLOT = 20;
-    string LotID = 21;
-    string DateType = 22;
-    google.protobuf.Timestamp LotDate = 23;
-    string LotNotes = 24;
-    string Notes = 25;
-    bool IsMultiLOT = 26;
-    string RecordNo = 27;
-    string LotRecordNo = 28;
-    google.protobuf.Timestamp UpdDateTime = 29;
-    int32 UpdMode = 30;
+    string VoucherCode = 4;
+    string StaffID = 5;
+    string PartnerID = 6;
+    int32 InvType = 7;
+    string InvVoucherNo = 8;
+    google.protobuf.Timestamp InvDate = 9;
+    string InvCode = 10;
+    int32 LineNo = 11;
+    string ProductCode = 12;
+    string ProductName = 13;
+    string Specification = 14;
+    string UnitCode = 15;
+    string UnitName = 16;
+    CustomTypes.Decimal PackingQty = 17;
+    CustomTypes.Decimal CaseQty = 18;
+    CustomTypes.Decimal InQty = 19;
+    CustomTypes.Decimal OutQty = 20;
+    bool IsLOT = 21;
+    string LotID = 22;
+    string DateType = 23;
+    google.protobuf.Timestamp LotDate = 24;
+    string LotNotes = 25;
+    string Notes = 26;
+    bool IsMultiLOT = 27;
+    string RecordNo = 28;
+    string LotRecordNo = 29;
+    google.protobuf.Timestamp UpdDateTime = 30;
+    int32 UpdMode = 31;
 }
 //>>> End generated InvTransHistory message
 //>>> Start generated InvOutDetail message

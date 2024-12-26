@@ -1,7 +1,7 @@
-import 'package:app_01/service/inventory.dart';
-import 'package:app_01/src/generated/Common.pb.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-//import 'package:app_01/ui/models/inventory/Inventory_model.dart';
+import 'package:NoahSoft/service/inventory.dart';
+import 'package:NoahSoft/src/generated/Common.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+//import 'package:NoahSoft/ui/models/inventory/Inventory_model.dart';
 import 'package:bloc/bloc.dart';
 import './bloc.dart';
 
@@ -18,8 +18,9 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
     on<SaveVoucherInvOut>(_saveVoucherInvOut);
     on<SaveVoucherInvIn>(_saveVoucherInvIn);
     //on<GetStockSumRecord>(_getStockSumRecord);
+    on<GetPickingHeader>(_getPickingHeader);
     on<GetPickingItem>(_getPickingItem);
-    on<SavePickedItem>(_savePickedItem);
+    on<UpdatePickingItem>(_updatePickingItem);
   }
 }
 
@@ -195,6 +196,21 @@ void _saveVoucherInvIn(
 //   }
 // }
 
+void _getPickingHeader(
+    GetPickingHeader event, Emitter<InventoryState> emit) async {
+  InventoryService _inventory = InventoryService();
+
+  emit(GetInventoryWaiting());
+  try {
+    List<grpcPickingHeaderModel> data = await _inventory.getPickingHeader();
+    emit(GetPickingHeaderSuccess(PickingHeaderData: data));
+  } catch (ex) {
+    if (ex != 'cancel') {
+      emit(GetInventoryError(errorMessage: ex.toString()));
+    }
+  }
+}
+
 void _getPickingItem(GetPickingItem event, Emitter<InventoryState> emit) async {
   InventoryService _inventory = InventoryService();
 
@@ -210,14 +226,15 @@ void _getPickingItem(GetPickingItem event, Emitter<InventoryState> emit) async {
   }
 }
 
-void _savePickedItem(SavePickedItem event, Emitter<InventoryState> emit) async {
+void _updatePickingItem(
+    UpdatePickingItem event, Emitter<InventoryState> emit) async {
   InventoryService _inventory = InventoryService();
 
   emit(GetInventoryWaiting());
   try {
-    String_Response data =
-        await _inventory.savePickedItem(event.pickedItemModel, event.pickingNo);
-    emit(SavePickedItemSuccess(Response: data));
+    Empty_Response data =
+        await _inventory.updatePickingItem(event.pickedQty, event.recordNo);
+    emit(UpdatePickingItemSuccess(Response: data));
   } catch (ex) {
     if (ex != 'cancel') {
       emit(GetInventoryError(errorMessage: ex.toString()));

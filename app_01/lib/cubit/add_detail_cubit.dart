@@ -1,4 +1,4 @@
-import 'package:app_01/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 

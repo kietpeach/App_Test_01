@@ -1,22 +1,22 @@
 // Don't forget to initialize all bloc provider at main.dart
-import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/bloc/master/master_bloc.dart';
-import 'package:app_01/bloc/master/master_event.dart';
-import 'package:app_01/bloc/master/master_state.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/cubit/add_product_cubit.dart';
-import 'package:app_01/service/admin.dart';
-import 'package:app_01/service/inventory.dart';
-import 'package:app_01/src/generated/CustomDatatype.pb.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/src/generated/timestamp.pb.dart';
-import 'package:app_01/ui/common/ic_inventory_search.dart';
-import 'package:app_01/ui/common/my_constant.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out/add_product.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out/edit_product.dart';
+import 'package:NoahSoft/bloc/inventory/bloc.dart';
+import 'package:NoahSoft/bloc/master/master_bloc.dart';
+import 'package:NoahSoft/bloc/master/master_event.dart';
+import 'package:NoahSoft/bloc/master/master_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/cubit/add_product_cubit.dart';
+import 'package:NoahSoft/service/admin.dart';
+import 'package:NoahSoft/service/inventory.dart';
+import 'package:NoahSoft/src/generated/CustomDatatype.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/src/generated/timestamp.pb.dart';
+import 'package:NoahSoft/ui/common/ic_inventory_search.dart';
+import 'package:NoahSoft/ui/common/my_constant.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_out/add_product.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_out/edit_product.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -91,7 +91,9 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('Yêu cầu xuất kho',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: BlocListener<InventoryBloc, InventoryState>(
         listener: (context, state) {
           if (state is SaveVoucherInvOutReqSuccess) {
@@ -110,13 +112,8 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
             return Form(
               key: _formKey,
               child: ListView(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
                 children: [
-                  Text('Yêu cầu xuất kho',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: BLACK21,
-                          fontWeight: FontWeight.w500)),
                   BlocListener<MasterBloc, MasterState>(
                     listener: (context, state) {
                       if (state is GetProductMasterSuccess) {
@@ -157,7 +154,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                       style: TextStyle(color: _color1),
                       decoration: InputDecoration(
                         isDense: true,
-                        suffixIcon: Icon(Icons.date_range, color: Colors.green),
+                        suffixIcon: Icon(Icons.date_range, color: _mainColor),
                         focusedBorder: UnderlineInputBorder(
                             borderSide:
                                 BorderSide(color: _mainColor, width: 2.0)),
@@ -182,7 +179,7 @@ class _InvOutReqPageState extends State<InvOutReqPage> {
                       style: TextStyle(color: _color1),
                       decoration: InputDecoration(
                         isDense: true,
-                        suffixIcon: Icon(Icons.date_range, color: Colors.green),
+                        suffixIcon: Icon(Icons.date_range, color: _mainColor),
                         focusedBorder: UnderlineInputBorder(
                             borderSide:
                                 BorderSide(color: _mainColor, width: 2.0)),

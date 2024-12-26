@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:app_01/config/constant.dart';
+import 'package:NoahSoft/config/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -28,7 +28,7 @@ class GlobalWidget {
     Icons.whatshot
   ];
 
-  PreferredSizeWidget globalAppBar() {
+  PreferredSizeWidget globalAppBar(Text title) {
     return AppBar(
       iconTheme: IconThemeData(
         color: Colors.black, //change your color here
@@ -37,7 +37,7 @@ class GlobalWidget {
       backgroundColor: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       centerTitle: true,
-      title: Image.asset('assets/images/logo_horizontal.png', height: 24),
+      title: title,
       bottom: PreferredSize(
           child: Container(
             color: Colors.grey[100],
@@ -415,7 +415,7 @@ class GlobalWidget {
 
   Widget buildButtonStockPick(context,
       {required Function onTap, required String textButtonConfirm}) {
-    return Expanded(
+    return Container(
       child: GestureDetector(
         onTap: onTap as void Function(),
         child: Container(

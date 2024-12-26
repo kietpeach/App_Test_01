@@ -1,13 +1,13 @@
-import 'package:app_01/model/userInfo_model.dart';
-import 'package:app_01/service/admin.dart';
-import 'package:app_01/ui/screen/home/inventory/inventory_list.dart';
-import 'package:app_01/ui/screen/signin/signin4.dart';
+import 'package:NoahSoft/model/userInfo_model.dart';
+import 'package:NoahSoft/service/admin.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inventory_list.dart';
+import 'package:NoahSoft/ui/screen/signin/signin4.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/model/feature/banner_slider_model.dart';
-import 'package:app_01/model/feature/category_model.dart';
-import 'package:app_01/ui/reusable/cache_image_network.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/model/feature/banner_slider_model.dart';
+import 'package:NoahSoft/model/feature/category_model.dart';
+import 'package:NoahSoft/ui/reusable/cache_image_network.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -29,8 +29,8 @@ class _Home1PageState extends State<Home1Page> {
       userRoleID: "",
       aprStaffID: "");
 
-  Color _color1 = Color(0xFF07ac12);
-  Color _color2 = Color(0xFF07ac12);
+  Color _color1 = PRIMARY_COLOR;
+  Color _color2 = PRIMARY_COLOR;
 
   int _currentImageSlider = 0;
 
@@ -200,8 +200,6 @@ class _Home1PageState extends State<Home1Page> {
           ),
           GestureDetector(
             onTap: () {
-              Fluttertoast.showToast(
-                  msg: 'Click log out', toastLength: Toast.LENGTH_SHORT);
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => Signin4Page()));
             },
@@ -277,10 +275,10 @@ class _Home1PageState extends State<Home1Page> {
       children: List.generate(_categoryData.length, (index) {
         return GestureDetector(
             onTap: () {
-              Fluttertoast.showToast(
-                  msg: 'Click ' +
-                      _categoryData[index].name.replaceAll('\n', ' '),
-                  toastLength: Toast.LENGTH_SHORT);
+              // Fluttertoast.showToast(
+              //     msg: 'Click ' +
+              //         _categoryData[index].name.replaceAll('\n', ' '),
+              //     toastLength: Toast.LENGTH_SHORT);
               // Navigator.pushReplacement(context,
               //     MaterialPageRoute(builder: (context) => InventoryListPage()));
               if (index == 4) {

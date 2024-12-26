@@ -1,15 +1,15 @@
 // Don't forget to initialize all bloc provider at main.dart
 
-import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/bloc/master/bloc.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/ui/common/ic_inventory_search.dart';
-import 'package:app_01/ui/common/ic_product_v2_search.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_stocklot.dart';
+import 'package:NoahSoft/bloc/inventory/bloc.dart';
+import 'package:NoahSoft/bloc/master/bloc.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/ui/common/ic_inventory_search.dart';
+import 'package:NoahSoft/ui/common/ic_product_v2_search.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_stocklot.dart';
 import 'package:dio/dio.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
@@ -60,16 +60,14 @@ class _InvStockPageState extends State<InvStockPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('Xem tồn kho',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: _globalWidget.createDetailWidget(
-                  title: 'Xem tồn kho', desc: ''),
-            ),
             IC_Inventory_Search(
               validate: null,
               inventorySlistData: _inventorySlistData,
@@ -145,7 +143,7 @@ class _InvStockPageState extends State<InvStockPage> {
                 child: BlocBuilder<InventoryBloc, InventoryState>(
                   builder: (context, state) {
                     if (state is GetInventoryError) {
-                      return Text('error occured');
+                      return Text(ERROR_OCCURED);
                     } else {
                       if (_inventoryData.length == 0 &&
                           state is GetInventoryWaiting) {

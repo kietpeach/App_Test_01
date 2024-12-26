@@ -1,6 +1,6 @@
-import 'package:app_01/src/generated/Common.pb.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-//import 'package:app_01/ui/models/inventory/Inventory_model.dart';
+import 'package:NoahSoft/src/generated/Common.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+//import 'package:NoahSoft/ui/models/inventory/Inventory_model.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -73,14 +73,19 @@ class SaveVoucherInvInSuccess extends InventoryState {
 //   GetStockSumRecordSuccess({required this.StockSumRecordData});
 // }
 
+class GetPickingHeaderSuccess extends InventoryState {
+  final List<grpcPickingHeaderModel> PickingHeaderData;
+  GetPickingHeaderSuccess({required this.PickingHeaderData});
+}
+
 class GetPickingItemSuccess extends InventoryState {
   final List<grpcPickingItemModel> PickingItemData;
   GetPickingItemSuccess({required this.PickingItemData});
 }
 
-class SavePickedItemSuccess extends InventoryState {
-  final String_Response Response;
-  SavePickedItemSuccess({required this.Response});
+class UpdatePickingItemSuccess extends InventoryState {
+  final Empty_Response Response;
+  UpdatePickingItemSuccess({required this.Response});
 }
 
 // general

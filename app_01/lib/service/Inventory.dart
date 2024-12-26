@@ -1,10 +1,12 @@
 import 'dart:convert';
 
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/service/grpc_list.dart';
-import 'package:app_01/src/generated/Common.pb.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/Inventory.pbgrpc.dart';
+import 'package:NoahSoft/bloc/inventory/inventory_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/service/grpc_list.dart';
+import 'package:NoahSoft/src/generated/Common.pb.dart';
+import 'package:NoahSoft/src/generated/CustomDatatype.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pbgrpc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:grpc/grpc.dart';
@@ -41,7 +43,7 @@ class InventoryService {
           productKindList:
               "1234568")); // // ko lấy các loại chi phí  (9:Chi phí 7: Tiêu phí)
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -62,7 +64,7 @@ class InventoryService {
           productCode: productCode,
           productKindList: "1234568"));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -81,7 +83,7 @@ class InventoryService {
       res = await stub.getStockLOT(
           GetStockLOT_Request(invCode: invCode, productCode: productCode));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -98,7 +100,7 @@ class InventoryService {
     try {
       res = await stub.getSlistInvOutReq(String_Request());
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -115,7 +117,7 @@ class InventoryService {
     try {
       res = await stub.getSlistInvInReq(String_Request());
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -134,7 +136,7 @@ class InventoryService {
       res = await stub
           .getVoucherInvOutReq(String_Request(stringValue: voucherNo));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -153,7 +155,7 @@ class InventoryService {
       res =
           await stub.getVoucherInvInReq(String_Request(stringValue: voucherNo));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -173,7 +175,7 @@ class InventoryService {
       res = await stub.saveVoucherInvOutReq(SaveVoucherInvOutReq_Request(
           header: headerModel, details: detailModel));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -193,7 +195,7 @@ class InventoryService {
       res = await stub.saveVoucherInvInReq(SaveVoucherInvInReq_Request(
           header: headerModel, details: detailModel));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -212,7 +214,7 @@ class InventoryService {
       res = await stub.saveVoucherInvOut(
           SaveVoucherInvOut_Request(header: headerModel, details: detailModel));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -231,7 +233,7 @@ class InventoryService {
       res = await stub.saveVoucherInvIn(
           SaveVoucherInvIn_Request(header: headerModel, details: detailModel));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -250,13 +252,32 @@ class InventoryService {
       res = await stub.getStockSumRecord(GetStockSumRecord_Request(
           invCode: invCode, productCode: productCode));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
     return res.record;
   }
 
+//
+  Future<List<grpcPickingHeaderModel>> getPickingHeader() async {
+    if (host == null) {
+      await getGateway(Inventory);
+    }
+    GetPickingHeader_Response res = new GetPickingHeader_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcInventoryServiceClient(channel);
+    try {
+      res = await stub.getPickingHeader(Empty_Request());
+    } catch (e) {
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.records;
+  }
+
+  //
   Future<List<grpcPickingItemModel>> getPickingItem(
       String invCode, String pickingNo) async {
     if (host == null) {
@@ -269,26 +290,26 @@ class InventoryService {
       res = await stub.getPickingItem(
           GetPickingItem_Request(invCode: invCode, pickingNo: pickingNo));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
     return res.records;
   }
 
-  Future<String_Response> savePickedItem(
-      grpcPickedItemModel pickedItemModel, String pickingNo) async {
+  Future<Empty_Response> updatePickingItem(
+      Decimal pickedQty, String recordNo) async {
     if (host == null) {
       await getGateway(Inventory);
     }
-    String_Response res = new String_Response();
+    Empty_Response res = new Empty_Response();
     final channel = GrpcClient.getClientChannelByHost(host!, port!);
     final stub = grpcInventoryServiceClient(channel);
     try {
-      res = await stub.savePickedItem(SavePickedItem_Request(
-          record: pickedItemModel, pickingNo: pickingNo));
+      res = await stub.updatePickingItem(
+          UpdatePickingItem_Request(pickedQty: pickedQty, recordNo: recordNo));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetInventoryError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }

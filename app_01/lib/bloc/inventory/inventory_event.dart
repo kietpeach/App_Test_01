@@ -1,4 +1,5 @@
-import 'package:app_01/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/CustomDatatype.pb.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -64,14 +65,18 @@ class SaveVoucherInvIn extends InventoryEvent {
 //   GetStockSumRecord({required this.invCode, required this.productCode});
 // }
 
+class GetPickingHeader extends InventoryEvent {
+  GetPickingHeader();
+}
+
 class GetPickingItem extends InventoryEvent {
   final String invCode;
   final String pickingNo;
   GetPickingItem({required this.invCode, required this.pickingNo});
 }
 
-class SavePickedItem extends InventoryEvent {
-  final grpcPickedItemModel pickedItemModel;
-  final String pickingNo;
-  SavePickedItem({required this.pickedItemModel, required this.pickingNo});
+class UpdatePickingItem extends InventoryEvent {
+  final Decimal pickedQty;
+  final String recordNo;
+  UpdatePickingItem({required this.pickedQty, required this.recordNo});
 }

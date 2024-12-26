@@ -4,10 +4,10 @@ this is constant pages
 
 import 'package:flutter/material.dart';
 
-const String APP_NAME = 'DevKit';
+const String APP_NAME = 'NoahSoft';
 
 // color for apps
-const Color PRIMARY_COLOR = Color(0xFF07ac12);
+const Color PRIMARY_COLOR = Color.fromARGB(255, 32, 90, 167);
 const Color ASSENT_COLOR = Color(0xFFe75f3f);
 
 const Color UNDERLINECOLOR = Color(0xFFCCCCCC);
@@ -19,6 +19,7 @@ const Color BLACK55 = Color(0xFF555555);
 const Color BLACK77 = Color(0xFF777777);
 const Color SOFT_GREY = Color(0xFFaaaaaa);
 const Color SOFT_BLUE = Color(0xff01aed6);
+const Color SOFT_GREEN = Color.fromARGB(255, 15, 216, 48);
 
 const int STATUS_OK = 200;
 const int STATUS_BAD_REQUEST = 400;
@@ -26,7 +27,7 @@ const int STATUS_NOT_AUTHORIZED = 403;
 const int STATUS_NOT_FOUND = 404;
 const int STATUS_INTERNAL_ERROR = 500;
 
-const String ERROR_OCCURED = 'Error occured, please try again later';
+const String ERROR_OCCURED = 'Đã xảy ra lỗi đường truyền đến server';
 
 const int LIMIT_PAGE = 8;
 
@@ -48,6 +49,7 @@ const String FOLDER_ASSETS = "assets";
 const String Admin = "Admin";
 const String Master = "Master";
 const String Inventory = "Inventory";
+const String SaleB2C = "SaleB2C";
 //
 const String REQUIRED = "Bắt buộc nhập";
 const String TEXTBUTTONCONFIRM = "Xác nhận";

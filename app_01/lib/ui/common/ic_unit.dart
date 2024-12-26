@@ -1,5 +1,5 @@
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';

@@ -1,12 +1,13 @@
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/barcode_generator.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_out/inv_out_req_slist.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_stock.dart';
-import 'package:app_01/ui/screen/home/inventory/stock_pickup.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/barcode_generator.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/inv_in_req.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_out/inv_out_req.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_out/inv_out_req_slist.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_stock.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/ship_list.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/stock_pickup.dart';
 import 'package:flutter/material.dart';
 
 class InventoryListPage extends StatefulWidget {
@@ -32,17 +33,12 @@ class _InventoryListPageState extends State<InventoryListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: _globalWidget.globalAppBar(),
+        appBar: _globalWidget.globalAppBar(Text('Danh sách màn hình kho',
+            style: TextStyle(
+                fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
         body: ListView(
           padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
           children: [
-            Container(
-              child: Text('Danh sách màn hình kho',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: BLACK21,
-                      fontWeight: FontWeight.w500)),
-            ),
             Container(
               margin: EdgeInsets.only(top: 24),
               child: Row(
@@ -64,14 +60,6 @@ class _InventoryListPageState extends State<InventoryListPage> {
                               size: 50, color: PRIMARY_COLOR)))
                 ],
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 48),
-              child: Text('Danh sách',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: BLACK21,
-                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(height: 18),
             _globalWidget.screenDetailList(
@@ -98,8 +86,15 @@ class _InventoryListPageState extends State<InventoryListPage> {
                 page: BarcodeGeneratorPage()),
             _globalWidget.screenDetailList(
                 context: context,
-                title: 'Gom hàng xuất kho B2C',
+                title: 'Quét gom hàng B2C',
                 page: StockPickUpPage()),
+            _globalWidget.screenDetailList(
+                context: context,
+                title: 'Danh sách xuất hàng B2C',
+                page: ShipListPage(
+                  invCode: "",
+                  transportComID: "",
+                )),
           ],
         ));
   }

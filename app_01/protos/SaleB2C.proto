@@ -1,0 +1,440 @@
+﻿syntax = "proto3";
+option csharp_namespace = "SaleB2C.Services";
+import "timestamp.proto";
+import "Common.proto";
+import "CustomDatatype.proto";
+package grpcSaleB2CService;
+//Services
+service grpcSaleB2CService {    
+    //For refresh: config, caching,..
+    rpc SubcribeEvents (grpcCommonMessages.SubcribeEvents_Request) returns (grpcCommonMessages.Empty_Response);
+    //>>> Start new generated rpc position
+    //>>> Start generated B2CSaleResultDetail rpc
+    //>>> End generated B2CSaleResultDetail rpc
+    //>>> Start generated B2CShipDetail rpc
+    //>>> End generated B2CShipDetail rpc
+    //>>> Start generated B2CShip rpc
+    rpc SaveB2CShip (SaveB2CShip_Request) returns (grpcCommonMessages.String_Response);
+    rpc DeleteB2CShip (grpcCommonMessages.String_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetB2CShipForNew (grpcCommonMessages.String_Request) returns (GetB2CShipRecord_Response);
+    rpc GetB2CShipSlist (grpcCommonMessages.Empty_Request) returns (GetB2CShip_Response);
+    //>>> End generated B2CShip rpc
+    //>>> Start generated B2COrder rpc
+    rpc UpdateOrderPicking (UpdateOrderPicking_Request) returns (grpcCommonMessages.Empty_Response);
+    rpc GetB2COrder (GetB2COrder_Request) returns (GetB2COrder_Response);
+    //>>> End generated B2COrder rpc
+    //>>> Start generated PickingList rpc
+    rpc GetPickingList (GetPickingList_Request) returns (GetPickingList_Response);
+    //>>> End generated PickingList rpc
+    //>>> Start generated B2CSaleResultTotal rpc
+    rpc GetB2CSaleResultTotal (GetB2CSaleResultTotal_Request) returns (GetB2CSaleResultTotal_Response);
+    //>>> End generated B2CSaleResultTotal rpc
+    
+}
+//======================================================
+// Messages
+//======================================================
+//>>> Start new generated message position
+//>>> Start generated B2CShipDetail message
+message grpcB2CShipDetailModel
+{
+    string ID = 1;
+    int32 LineNo = 2;
+    string ProductCode = 3;
+    string ProductName = 4;
+    string Specification = 5;
+    string UnitCode = 6;
+    string UnitName = 7;
+    CustomTypes.Decimal PackingQty = 8;
+    CustomTypes.Decimal SOQty = 9;
+    CustomTypes.Decimal ShipQty = 10;
+    bool IsLOT = 11;
+    string LotID = 12;
+    string DateType = 13;
+    google.protobuf.Timestamp LotDate = 14;
+    int32 WarPeriod = 15;
+    int32 PeriodFlag = 16;
+    CustomTypes.Decimal CostUnitPrice = 17;
+    CustomTypes.Decimal CostAmount = 18;
+    string RecordNo = 19;
+    int32 UpdMode = 20;
+}
+//>>> End generated B2CShipDetail message
+//>>> Start generated B2CShip message
+message SaveB2CShip_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    grpcB2CShipModel Record = 2;
+}
+message GetB2CShipRecord_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    grpcB2CShipModel Record = 3;
+}
+message GetB2CShip_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcB2CShipModel Records = 3;
+}
+message grpcB2CShipModel
+{
+    string ID = 1;
+    google.protobuf.Timestamp CloseDate = 2;
+    string StaffID = 3;
+    string DeptCode = 4;
+    string SaleStaffID = 5;
+    string SaleDeptCode = 6;
+    string VoucherCode = 7;
+    int32 TransType = 8;
+    string TransName = 9;
+    string ShipNo = 10;
+    google.protobuf.Timestamp ShipDate = 11;
+    string TransportComID = 12;
+    string TransportComName = 13;
+    google.protobuf.Timestamp EstShipTime = 14;
+    google.protobuf.Timestamp EstDeliveryTime = 15;
+    string SONo = 16;
+    string CustomerID = 17;
+    string AccInvCode = 18;
+    string InvCode = 19;
+    string RecipientName = 20;
+    string RecipientPhone = 21;
+    string RecipientTown = 22;
+    string RecipientDistrict = 23;
+    string RecipientCity = 24;
+    string RecipientState = 25;
+    string RecipientRegion = 26;
+    string RecipientZipCode = 27;
+    string RecipientAddress = 28;
+    repeated grpcB2CShipDetailModel OrderItems = 29;
+    string Notes = 30;
+    int32 UpdMode = 31;
+    int32 UpdCount = 32;
+    string UpdTransactionID = 33;
+    string UpdAccountID = 34;
+    google.protobuf.Timestamp UpdDateTime = 35;
+    google.protobuf.Timestamp CrtDateTime = 36;
+    int32 RefUpdCount = 37;
+}
+//>>> End generated B2CShip message
+//>>> Start generated B2CSaleResultTotal message
+message GetB2CSaleResultTotal_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    int32 DateKind = 2;
+    string ClassCode1 = 3;
+    string ClassCode2 = 4;
+    google.protobuf.Timestamp FromDate = 5;
+    google.protobuf.Timestamp ToDate = 6;
+}
+message GetB2CSaleResultTotal_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcB2CSaleResultTotalModel Records = 3;
+}
+message grpcB2CSaleResultTotalModel
+{
+    string ID = 1;
+    int32 OrderCount = 2;
+    CustomTypes.Decimal OrderCountRate = 3;
+    CustomTypes.Decimal Revenue = 4;
+    CustomTypes.Decimal RevenueRate = 5;
+    CustomTypes.Decimal PlatformFee = 6;
+    CustomTypes.Decimal OtherFee = 7;
+    CustomTypes.Decimal FeeRate = 8;
+    CustomTypes.Decimal Profit = 9;
+    CustomTypes.Decimal ProfitRate = 10;
+    repeated grpcB2CSaleResultDetailModel Details = 11;
+}
+//>>> End generated B2CSaleResultTotal message
+//>>> Start generated B2CSaleResultDetail message
+message grpcB2CSaleResultDetailModel
+{
+    string ID = 1;
+    string ClassCode1 = 2;
+    string ClassName1 = 3;
+    string ClassCode2 = 4;
+    string ClassName2 = 5;
+    int32 OrderCount = 6;
+    CustomTypes.Decimal Revenue = 7;
+    CustomTypes.Decimal RevenueRate = 8;
+    CustomTypes.Decimal PlatformFee = 9;
+    CustomTypes.Decimal PlatformFeeRate = 10;
+    CustomTypes.Decimal PaymentAmount = 11;
+    CustomTypes.Decimal PaymentRate = 12;
+    CustomTypes.Decimal CostAmount = 13;
+}
+//>>> End generated B2CSaleResultDetail message
+//>>> Start generated PickingList message
+message GetPickingList_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string TransportComID = 3;
+    string SaleChannel = 4;
+    string CusClassCode1 = 5;
+    string PickingNo = 6;
+    google.protobuf.Timestamp FromDate = 7;
+    google.protobuf.Timestamp ToDate = 8;
+}
+message GetPickingList_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcPickingListModel Records = 3;
+}
+message grpcPickingListModel
+{
+    string ID = 1;
+    string SaleChannel = 2;
+    string SONo = 3;
+    google.protobuf.Timestamp SODate = 4;
+    string CustomerID = 5;
+    string CustomerName = 6;
+    string InvCode = 7;
+    bool IsCOD = 8;
+    string TransportComID = 9;
+    string TransportComName = 10;
+    int32 ShipLT = 11;
+    string RecipientName = 12;
+    string RecipientPhone = 13;
+    string RecipientTown = 14;
+    string RecipientDistrict = 15;
+    string RecipientCity = 16;
+    string RecipientState = 17;
+    string RecipientRegion = 18;
+    string RecipientZipCode = 19;
+    string RecipientAddress = 20;
+    string Notes = 21;
+    string MessageToSeller = 22;
+    string CheckoutShippingCarier = 23;
+    CustomTypes.Decimal OrderChargeableWeight = 24;
+    google.protobuf.Timestamp EstDeliveryTimeFrom = 25;
+    google.protobuf.Timestamp EstDeliveryTimeTo = 26;
+    google.protobuf.Timestamp EstShipTimeFrom = 27;
+    int32 LineNo = 28;
+    string ProductCode = 29;
+    string ProductName = 30;
+    string Specification = 31;
+    string UnitCode = 32;
+    string UnitName = 33;
+    CustomTypes.Decimal SOQty = 34;
+    bool IsLOT = 35;
+    string LotID = 36;
+    string DateType = 37;
+    google.protobuf.Timestamp LotDate = 38;
+    string ShelfNo = 39;
+    bool IsCombo = 40;
+    string RecordNo = 41;
+    bool IsPicking = 42;
+    bool Selected = 43;
+    google.protobuf.Timestamp EstShipTimeTo = 44;
+}
+//>>> End generated PickingList message
+//>>> Start generated B2CInvoice message
+message grpcB2CInvoiceModel
+{
+    string ID = 1;
+    string InvoiceNo = 2;
+    string InvoiceSeries = 3;
+    string AccessKey = 4;
+    google.protobuf.Timestamp IssueDate = 5;
+    CustomTypes.Decimal TotalAmount = 6;
+    CustomTypes.Decimal ProductTotalAmount = 7;
+    string TaxCode = 8;
+    int32 UpdMode = 9;
+}
+//>>> End generated B2CInvoice message
+//>>> Start generated B2CPackageItemList message
+message grpcB2CPackageItemListModel
+{
+    string ID = 1;
+    string ProductCode = 2;
+    string ProductName = 3;
+    string ModelID = 4;
+    CustomTypes.Decimal Quantity = 5;
+    string OrderItemID = 6;
+    string PromotionGroupID = 7;
+    string InvCode = 8;
+    int32 UpdMode = 9;
+}
+//>>> End generated B2CPackageItemList message
+//>>> Start generated B2CPackageList message
+message grpcB2CPackageListModel
+{
+    string ID = 1;
+    string PackageNumber = 2;
+    string LogisticStatus = 3;
+    string LogisticChannel = 4;
+    string TransportComID = 5;
+    repeated grpcB2CPackageItemListModel ItemList = 6;
+    bool IsNoPlasticPacking = 7;
+    CustomTypes.Decimal ParcelChargeableWeight = 8;
+    string GroupShipmentID = 9;
+    int32 UpdMode = 10;
+}
+//>>> End generated B2CPackageList message
+//>>> Start generated B2COrderItem message
+message grpcB2COrderItemModel
+{
+    string ID = 1;
+    string ClassCode1 = 2;
+    string ProductCode = 3;
+    string ProductName = 4;
+    string Specification = 5;
+    string UnitCode = 6;
+    string UnitName = 7;
+    string Imei = 8;
+    string BarCode = 9;
+    CustomTypes.Decimal SOQty = 10;
+    CustomTypes.Decimal UnitPrice = 11;
+    CustomTypes.Decimal DiscountUnitPrice = 12;
+    CustomTypes.Decimal Amount = 13;
+    CustomTypes.Decimal DiscountAmount = 14;
+    CustomTypes.Decimal VATRate = 15;
+    CustomTypes.Decimal VAT = 16;
+    int32 TaxFlag = 17;
+    CustomTypes.Decimal IncVAT = 18;
+    CustomTypes.Decimal AmountNoTax = 19;
+    bool IsWholeSale = 20;
+    CustomTypes.Decimal Weight = 21;
+    bool IsGifts = 22;
+    bool IsCombo = 23;
+    string PromotionType = 24;
+    string PromotionID = 25;
+    string PromotionGroupID = 26;
+    string RecordNo = 27;
+    string InvCode = 28;
+    int32 UpdMode = 29;
+}
+//>>> End generated B2COrderItem message
+//>>> Start generated B2COrder message
+message UpdateOrderPicking_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    repeated string SONos = 2;
+    string PickingNo = 3;
+    bool IsPicking = 4;
+}
+message GetB2COrder_Request
+{
+    grpcCommonMessages.UserCredential Credential = 1;
+    //
+    string InvCode = 2;
+    string TransportComID = 3;
+}
+message GetB2COrder_Response
+{
+    int32 ReturnCode = 1;
+    string MsgCode = 2;
+    //
+    repeated grpcB2COrderModel Records = 3;
+}
+message grpcB2COrderModel
+{
+    string ID = 1;
+    int32 LineNo = 2;
+    string SaleChannel = 3;
+    google.protobuf.Timestamp CloseDate = 4;
+    string StaffID = 5;
+    string DeptCode = 6;
+    string VoucherCode = 7;
+    int32 TransType = 8;
+    string TransName = 9;
+    string PartnerOrderID = 10;
+    string SONo = 11;
+    google.protobuf.Timestamp SODate = 12;
+    string CusClassCode1 = 13;
+    string CustomerID = 14;
+    string CustomerName = 15;
+    string InvCode = 16;
+    string AccInvCode = 17;
+    string RegionID = 18;
+    bool IsCOD = 19;
+    int32 OrderStatus = 20;
+    CustomTypes.Decimal EstShippingFee = 21;
+    CustomTypes.Decimal ShippingFee = 22;
+    bool IsShippingFeeConfirmed = 23;
+    string TransportComID = 24;
+    string TransportComName = 25;
+    string TransportServiceName = 26;
+    int32 ShipLT = 27;
+    string TransportShipID = 28;
+    string ShipID = 29;
+    string ShipNo = 30;
+    google.protobuf.Timestamp ShipDate = 31;
+    bool IsShipped = 32;
+    string RecipientName = 33;
+    string RecipientPhone = 34;
+    string RecipientTown = 35;
+    string RecipientDistrict = 36;
+    string RecipientCity = 37;
+    string RecipientState = 38;
+    string RecipientRegion = 39;
+    string RecipientZipCode = 40;
+    string RecipientAddress = 41;
+    string PaymentMethod = 42;
+    google.protobuf.Timestamp EstDeliveryTimeFrom = 43;
+    google.protobuf.Timestamp EstDeliveryTimeTo = 44;
+    google.protobuf.Timestamp DeliveryDateTime = 45;
+    google.protobuf.Timestamp EstShipTimeFrom = 46;
+    google.protobuf.Timestamp ShipDateTime = 47;
+    string CurrencyCode = 48;
+    CustomTypes.Decimal ExchangeRate = 49;
+    string Notes = 50;
+    CustomTypes.Decimal TotalAmount = 51;
+    CustomTypes.Decimal TaxAmount = 52;
+    CustomTypes.Decimal IncTaxAmount = 53;
+    CustomTypes.Decimal IncTaxTotalAmount = 54;
+    string MessageToSeller = 55;
+    repeated grpcB2COrderItemModel OrderItems = 56;
+    google.protobuf.Timestamp PayDateTime = 57;
+    bool IsCancel = 58;
+    string BuyerCancelReason = 59;
+    string CancelBy = 60;
+    string FullfillmentFlag = 61;
+    string CheckoutShippingCarier = 62;
+    CustomTypes.Decimal ReverseShippingFee = 63;
+    CustomTypes.Decimal OrderChargeableWeight = 64;
+    string BookingNumber = 65;
+    bool IsPicking = 66;
+    string PickingNo = 67;
+    bool IsPaymentDone = 68;
+    CustomTypes.Decimal PaymentAmount = 69;
+    CustomTypes.Decimal DiscountAmount = 70;
+    CustomTypes.Decimal DepositAmount = 71;
+    CustomTypes.Decimal TotalPayment = 72;
+    CustomTypes.Decimal CostAmount = 73;
+    string CancelReason = 74;
+    string CouponCode = 75;
+    int32 CheckStatus = 76;
+    google.protobuf.Timestamp CheckDate = 77;
+    CustomTypes.Decimal ProfitBeforeTax = 78;
+    string InvoiceTemplateID = 79;
+    string InvoiceSeries = 80;
+    string InvoiceNo = 81;
+    google.protobuf.Timestamp InvoiceDate = 82;
+    string Fkey = 83;
+    string PayerID = 84;
+    bool IsVATInvoice = 85;
+    bool IssueInvoiceDone = 86;
+    int32 UpdMode = 87;
+    int32 UpdCount = 88;
+    string UpdTransactionID = 89;
+    string UpdAccountID = 90;
+    google.protobuf.Timestamp UpdDateTime = 91;
+    google.protobuf.Timestamp CrtDateTime = 92;
+    google.protobuf.Timestamp EstShipTimeTo = 93;
+}
+//>>> End generated B2COrder message

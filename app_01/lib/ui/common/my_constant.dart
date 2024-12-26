@@ -9,6 +9,7 @@ class VoucherCode {
   static const String InvMac = "InvMac";
   static const String InvAdj = "InvAdj";
   static const String InvTrans = "InvTrans";
+  static const String B2CShip = "B2CShip";
 }
 
 class MyConstant {
@@ -17,4 +18,8 @@ class MyConstant {
   static const int UpdMode_Addnew = 1;
   static const int UpdMode_Update = 2;
   static const int UpdMode_Delete = 3;
+}
+
+class ItemGroupCode {
+  static const String TransportCompany = "TransportCompany";
 }

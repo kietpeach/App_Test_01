@@ -1,5 +1,5 @@
-import 'package:app_01/service/admin.dart';
-import 'package:app_01/ui/screen/home/home1.dart';
+import 'package:NoahSoft/service/admin.dart';
+import 'package:NoahSoft/ui/screen/home/home1.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -13,7 +13,7 @@ class _Signin4PageState extends State<Signin4Page> {
   IconData _iconVisible = Icons.visibility_off;
 
   Color _underlineColor = Color(0xFFCCCCCC);
-  Color _mainColor = Color(0xFF07ac12);
+  Color _mainColor = Color.fromARGB(255, 32, 90, 167);
   Color _color1 = Color(0xFF515151);
   Color _color2 = Color(0xff777777);
   Color _color3 = Color(0xFFaaaaaa);
@@ -50,7 +50,7 @@ class _Signin4PageState extends State<Signin4Page> {
       children: <Widget>[
         Center(
             child: Image.asset('assets/images/logo_horizontal.png',
-                color: _mainColor, height: 100)),
+                color: _mainColor, height: 200)),
         SizedBox(
           height: 80,
         ),
@@ -134,8 +134,6 @@ class _Signin4PageState extends State<Signin4Page> {
                 Fluttertoast.showToast(
                     msg: 'Đăng nhập thất bại', toastLength: Toast.LENGTH_SHORT);
               }
-              Fluttertoast.showToast(
-                  msg: 'Click đăng nhập', toastLength: Toast.LENGTH_SHORT);
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),

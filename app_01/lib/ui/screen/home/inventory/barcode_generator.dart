@@ -1,4 +1,5 @@
-import 'package:app_01/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +28,11 @@ class _BarcodeGeneratorPageState extends State<BarcodeGeneratorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('Tạo QR code',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
+        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: Column(

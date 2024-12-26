@@ -1,19 +1,14 @@
-import 'package:app_01/bloc/inventory/inventory_bloc.dart';
-import 'package:app_01/bloc/inventory/inventory_event.dart';
-import 'package:app_01/bloc/inventory/inventory_state.dart';
-import 'package:app_01/cubit/add_detail_cubit.dart';
-import 'package:app_01/service/admin.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/bloc/master/master_bloc.dart';
-import 'package:app_01/bloc/master/master_event.dart';
-import 'package:app_01/bloc/master/master_state.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/timestamp.pb.dart';
-import 'package:app_01/ui/common/my_constant.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in.dart';
+import 'package:NoahSoft/bloc/inventory/inventory_bloc.dart';
+import 'package:NoahSoft/cubit/add_detail_cubit.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/bloc/master/master_bloc.dart';
+import 'package:NoahSoft/bloc/master/master_event.dart';
+import 'package:NoahSoft/bloc/master/master_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/timestamp.pb.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,8 +16,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:convert/convert.dart';
-import 'package:app_01/src/generated/CustomDatatype.pb.dart';
-import 'package:objectid/objectid.dart';
+import 'package:NoahSoft/src/generated/CustomDatatype.pb.dart';
 
 class BarcodeScannerInvInPage extends StatefulWidget {
   final String invInNo;
@@ -150,16 +144,14 @@ class _BarcodeScannerInvInPageState extends State<BarcodeScannerInvInPage> {
     }
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('QRcode',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 16),
+        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: _globalWidget.createDetailWidget(
-                  title: 'QRcode', desc: 'Mã vạch QRcode thông thường'),
-            ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 8),
               // this is the start of example

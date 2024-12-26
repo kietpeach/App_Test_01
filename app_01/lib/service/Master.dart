@@ -1,9 +1,10 @@
 import 'dart:convert';
 
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/service/grpc_list.dart';
-import 'package:app_01/src/generated/Master.pbgrpc.dart';
-import 'package:app_01/src/generated/Common.pb.dart';
+import 'package:NoahSoft/bloc/master/master_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/service/grpc_list.dart';
+import 'package:NoahSoft/src/generated/Master.pbgrpc.dart';
+import 'package:NoahSoft/src/generated/Common.pb.dart';
 import 'package:flutter/services.dart';
 
 class MasterService {
@@ -34,7 +35,7 @@ class MasterService {
     try {
       res = await stub.getSlistInventory(Empty_Request());
     } catch (e) {
-      print('Caught error: $e');
+      throw GetMasterError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -51,7 +52,7 @@ class MasterService {
     try {
       res = await stub.getSelectProduct(GetSelectProduct_Request(isStock: 1));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetMasterError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -68,7 +69,7 @@ class MasterService {
     try {
       res = await stub.getVoucherNo(String_Request(stringValue: voucherCode));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetMasterError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -87,7 +88,7 @@ class MasterService {
       res =
           await stub.getProductRecord(String_Request(stringValue: productCode));
     } catch (e) {
-      print('Caught error: $e');
+      throw GetMasterError(errorMessage: 'Caught error: $e');
     } finally {
       channel?.shutdown();
     }
@@ -104,10 +105,27 @@ class MasterService {
   //   try {
   //     res = await stub.getUnitRecord(String_Request(stringValue: unitCode));
   //   } catch (e) {
-  //     print('Caught error: $e');
+  //     throw GetMasterError(errorMessage: 'Caught error: $e');
   //   } finally {
   //     channel?.shutdown();
   //   }
   //   return res;
   // }
+
+  static Future<List<grpcItemModel>> getItem(String itemGroupCode) async {
+    if (host == null) {
+      await getGateway(Master);
+    }
+    GetItem_Response res = new GetItem_Response();
+    final channel = GrpcClient.getClientChannelByHost(host!, port!);
+    final stub = grpcMasterServiceClient(channel);
+    try {
+      res = await stub.getItem(String_Request(stringValue: itemGroupCode));
+    } catch (e) {
+      throw GetMasterError(errorMessage: 'Caught error: $e');
+    } finally {
+      channel?.shutdown();
+    }
+    return res.records;
+  }
 }

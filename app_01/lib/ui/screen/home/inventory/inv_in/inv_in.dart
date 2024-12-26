@@ -1,19 +1,19 @@
 // Don't forget to initialize all bloc provider at main.dart
-import 'package:app_01/bloc/inventory/bloc.dart';
-import 'package:app_01/bloc/master/master_bloc.dart';
-import 'package:app_01/bloc/master/master_event.dart';
-import 'package:app_01/bloc/master/master_state.dart';
-import 'package:app_01/config/constant.dart';
-import 'package:app_01/cubit/add_detail_cubit.dart';
-import 'package:app_01/service/admin.dart';
-import 'package:app_01/src/generated/Inventory.pb.dart';
-import 'package:app_01/src/generated/Master.pb.dart';
-import 'package:app_01/src/generated/timestamp.pb.dart';
-import 'package:app_01/ui/common/my_constant.dart';
-import 'package:app_01/ui/reusable/global_function.dart';
-import 'package:app_01/ui/reusable/global_widget.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/barcode_scanner_invin.dart';
-import 'package:app_01/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
+import 'package:NoahSoft/bloc/inventory/bloc.dart';
+import 'package:NoahSoft/bloc/master/master_bloc.dart';
+import 'package:NoahSoft/bloc/master/master_event.dart';
+import 'package:NoahSoft/bloc/master/master_state.dart';
+import 'package:NoahSoft/config/constant.dart';
+import 'package:NoahSoft/cubit/add_detail_cubit.dart';
+import 'package:NoahSoft/service/admin.dart';
+import 'package:NoahSoft/src/generated/Inventory.pb.dart';
+import 'package:NoahSoft/src/generated/Master.pb.dart';
+import 'package:NoahSoft/src/generated/timestamp.pb.dart';
+import 'package:NoahSoft/ui/common/my_constant.dart';
+import 'package:NoahSoft/ui/reusable/global_function.dart';
+import 'package:NoahSoft/ui/reusable/global_widget.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/barcode_scanner_invin.dart';
+import 'package:NoahSoft/ui/screen/home/inventory/inv_in/inv_in_req_slist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -77,7 +77,9 @@ class _InvInPageState extends State<InvInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: _globalWidget.globalAppBar(),
+      appBar: _globalWidget.globalAppBar(Text('Xử lý nhập kho',
+          style: TextStyle(
+              fontSize: 18, color: BLACK21, fontWeight: FontWeight.w500))),
       body: BlocListener<InventoryBloc, InventoryState>(
         listener: (context, state) {
           if (state is GetVoucherInvInReqSuccess) {
@@ -109,13 +111,8 @@ class _InvInPageState extends State<InvInPage> {
         child: BlocBuilder<InventoryBloc, InventoryState>(
           builder: (context, state) {
             return ListView(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
               children: [
-                Text('Xử lý nhập kho',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: BLACK21,
-                        fontWeight: FontWeight.w500)),
                 BlocListener<MasterBloc, MasterState>(
                   listener: (context, state) {
                     if (state is GetVoucherNoSuccess) {

@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:convert'; //to convert json to maps and vice versa
-import 'package:app_01/ui/reusable/directory_resource.dart';
+import 'package:NoahSoft/ui/reusable/directory_resource.dart';
 
 class ResourceFileLocal {
   static dynamic getFileLocal(String fileName, int type) {
